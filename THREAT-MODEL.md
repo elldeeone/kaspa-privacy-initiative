@@ -222,3 +222,33 @@ permission scripts enforce different parts of that boundary; see the
 [enforcement map](poc/native-value/MAPPING.md). Host checks alone are not proof
 of theft prevention. Missing public witnesses can halt progress; there is no
 admin bypass or new reserve key. Independent recovery remains untested.
+
+## Recursive public-account adapter boundary
+
+The [recursive follow-up](poc/takeover/README.md) adds a transaction journal and
+one coarse SMT resource around the existing public account rules. Its review
+must bind the full prior account state, native v1 transaction ID, global merge
+index, block context, batch/aggregate images, lane and covenant continuity.
+Wrong/missing inner receipts must fail at execution; a changed journal must fail
+SDK/native cryptographic verification. Host preparation alone does not establish
+these properties. The local script accessor must also be checked against the
+fixed captured commitment, since accepting a prover-derived anchor alone cannot
+show omission resistance. Lane expiry/reset remains unsupported and rejected in
+the batch guest. The experiment retains one owner's historical node/archive
+trust and public balances; no independent-operator, pruning-recovery or privacy
+claim is added. The [fresh TN10 rehearsal](poc/takeover/LIVE-REHEARSAL.md)
+separately confirms actual payout after clean public replay and a 175-score stop
+gap; native omission, bridge-diversion and spent-input controls were rejected.
+A canonical-chain observation does not establish general reorg recovery; the
+runner halts on a detected reorg and never automatically retries broadcasts.
+
+## Privacy work after the Based App checkpoint
+
+The [feasibility conclusion](docs/based-app-feasibility-2026-10-17.md) covers public
+ordering/execution/settlement. The next [shielded-KAS specification](docs/shielded-kas-next.md)
+must explicitly cover chain observers, executors, hosted provers, RPC providers
+and recipient discovery. A prover receiving plaintext witnesses is a privacy
+trust dependency; lane payloads, resource access, fee funding, ciphertext retrieval
+and timing can leak relationships despite a ZK execution proof. No privacy
+requirement is satisfied by the public-account result. Existing fund-safety,
+recovery and independent-review requirements remain unchanged.

@@ -231,3 +231,29 @@ these components does not select Candidate C for production. Completeness of a
 chosen interval is separate from mandatory progress; the inspected accessor
 permits eligible recent selected-chain anchors rather than prescribing one
 latest endpoint. No private-state or operator-loss recovery claim follows.
+
+## 2026-10-17 recursive adapter local review
+
+The isolated [ADR-0005](../adr/0005-long-gap-recursive-takeover.md) follow-up
+reuses reference recursive transaction/batch/aggregate interfaces with one coarse
+public-account resource. Its [review scope](../../poc/takeover/README.md) separates
+local historical-input checks from the [completed fresh TN10 rehearsal](../../poc/takeover/LIVE-REHEARSAL.md).
+The latter confirms native payout after clean public replay and a 175-blue-score
+stop gap, using the same owner/node and retained public archive.
+Native lane expiry, unavailable archives, independent recovery, privacy and
+mandatory progress remain open; this does not select Candidate C or close the
+N-user shutdown gate.
+
+## 2026-10-17 scoped feasibility conclusion
+
+The [acceptance matrix](../based-app-feasibility-2026-10-17.md) finds all five
+public Based App criteria satisfied by PRs #31–#33, including native rejection
+of omission at an unchanged endpoint and actual native payout. The [final review](../../poc/takeover/FINAL-REVIEW.md)
+adds read-only receipt/order/accounting verification. No new trial was needed
+to close this narrow integration question. This is not independent human review.
+
+Development now focuses on [shielded native KAS](../shielded-kas-next.md): hidden
+ownership/value, nullifiers, witness privacy, delivery, accounting and native
+exits. Candidate C has scoped backend evidence; choosing a private state/proof
+architecture still requires comparison and a separately reviewed ADR. This RFC,
+its production/privacy objections and the common N-user shutdown gate stay open.

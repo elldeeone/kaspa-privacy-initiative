@@ -7,7 +7,7 @@ python3 scripts/check_docs.py
 python3 - <<'PY'
 import ast
 from pathlib import Path
-for file in list(Path('scripts').glob('*.py')) + list(Path('poc/native-value').rglob('*.py')):
+for file in list(Path('scripts').glob('*.py')) + list(Path('poc/native-value').rglob('*.py')) + list(Path('poc/takeover').rglob('*.py')):
     ast.parse(file.read_text(), filename=str(file))
 print('Python syntax: OK')
 PY
@@ -21,6 +21,6 @@ node --test scripts/*.test.mjs
 if [[ -f poc/lane-completeness/integration/test-exact-json.mjs ]]; then
     node poc/lane-completeness/integration/test-exact-json.mjs
     python3 poc/lane-completeness/integration/check_rpc_derivatives.py
-    for kpi_ci_js in poc/lane-completeness/integration/*.mjs poc/native-value/remote/*.mjs; do node --check "$kpi_ci_js"; done
+    for kpi_ci_js in poc/lane-completeness/integration/*.mjs poc/native-value/remote/*.mjs poc/takeover/remote/*.mjs; do node --check "$kpi_ci_js"; done
 fi
 git diff --check
