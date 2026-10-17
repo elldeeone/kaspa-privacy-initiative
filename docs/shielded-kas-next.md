@@ -1,5 +1,9 @@
 # Next focus: shielded native KAS and financial privacy
 
+**Work paused by the owner, 2026-10-17.** Finish PR #39 and preserve the
+[pause handoff](../poc/outer-proof-128m/STATUS-HANDOFF.md). The follow-up experiments
+below remain deferred until a new owner instruction; there is no automatic restart.
+
 Owner-directed priority, 2026-10-17, after the scoped
 [Based App feasibility milestone](based-app-feasibility-2026-10-17.md).
 The next deliverable is a reviewable private-payment specification and executable
@@ -38,6 +42,13 @@ It is compatible with the existing pinned VM but does not meet the 32M practical
 cap; no outer proof ran. The next concrete budget decision is a declared 128M
 practical experiment, retaining full adversarial controls and the one-hour proof
 limit, before connecting private notes or actual native settlement.
+
+The [approved 128M proof attempt](../poc/outer-proof-128m/RESULTS.md) completes all
+24 required execution cases, then reaches the one-hour proof-job stop without a
+receipt. No budget is automatically increased. Next profile actual segment
+proving/recursive compression and memory behavior; the compact wallet candidate
+and execution qualification remain useful, while the real outer-receipt gate
+and the full private-note/native-integration gates remain open.
 
 ## First work package: define the private payment statement
 
