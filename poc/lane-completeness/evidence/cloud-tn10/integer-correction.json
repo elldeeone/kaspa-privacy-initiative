@@ -1,0 +1,96 @@
+{
+  "source": "settlement-rpc-records.json.gz",
+  "source_sha256": "61491776618d2f0e389774f2518281122f8951a4e47d101b31902058bad68d31",
+  "record_index": 39,
+  "method": "getVirtualChainFromBlockV2",
+  "selector": {
+    "acceptingHeaderHash": "dfe2081a9b66903a85dc599287facd2199a972b65e7e3bc1d8044626db3b24b1",
+    "transactionId": "ad65b24e74d8e4f2d225089265bac635357d88b51a84a34e20f7a6f66c551d67"
+  },
+  "previous_file_sha256": "f9579c6f52be7baa2701d9cf813c7876177e005d4ed0b1bc17f6558c4e97522c",
+  "previous_commit": "68100588133175442dab2b0a56ed6d784dc015ea",
+  "correction": "Derived acceptances and public archive header nonces are re-extracted with exact integers from byte-preserved RPC strings. Original published derivatives/archive remain at commit 6810058. No old proof/transaction rerun.",
+  "old_nonce": 3037550573469842400,
+  "exact_nonce": 3037550573469842379,
+  "additional_corrections": [
+    {
+      "derived_file": "bootstrap-accepted.json",
+      "previous_sha256": "b5b5d7ad97c06dfcaf054dcba809b0cf220093fd2bf1a14dbf1a735abab83a72",
+      "old_nonce": 3037550572497115000,
+      "exact_nonce": 3037550572497114884,
+      "provenance": {
+        "file": "successful-trial-public.tar.gz",
+        "member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/bootstrap-rpc-records.json",
+        "record_index": 36,
+        "source_sha256": "ad97e6af0b55e7d789b546bbbf35dd0a5c4472f136ac8dab20c542e12d4360e5"
+      }
+    }
+  ],
+  "archive_correction": {
+    "previous_sha256": "ad97e6af0b55e7d789b546bbbf35dd0a5c4472f136ac8dab20c542e12d4360e5",
+    "corrected_sha256": "53c89e2360059e28987b1e05edff0e5bc2495f82bf9278b56b4f90036b1703cd",
+    "changes": [
+      {
+        "member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/operation-1-accepted.json",
+        "pointer": "/nonce",
+        "rounded": 8200763031474983000,
+        "exact": 8200763031474983162,
+        "source": {
+          "rpc_member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/rpc-records.json",
+          "record_index": 67
+        }
+      },
+      {
+        "member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/operation-3-accepted.json",
+        "pointer": "/nonce",
+        "rounded": 8200763031480141000,
+        "exact": 8200763031480141084,
+        "source": {
+          "rpc_member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/rpc-records.json",
+          "record_index": 138
+        }
+      },
+      {
+        "member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/settlement-accepted.json",
+        "pointer": "/acceptingHeader/nonce",
+        "rounded": 3037550573469842400,
+        "exact": 3037550573469842379,
+        "source": {
+          "rpc_member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/settlement-rpc-records.json",
+          "record_index": 39
+        }
+      },
+      {
+        "member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/seed-accepted.json",
+        "pointer": "/nonce",
+        "rounded": 13608592963877880000,
+        "exact": 13608592963877878830,
+        "source": {
+          "rpc_member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/rpc-records.json",
+          "record_index": 33
+        }
+      },
+      {
+        "member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/bootstrap-accepted.json",
+        "pointer": "/nonce",
+        "rounded": 3037550572497115000,
+        "exact": 3037550572497114884,
+        "source": {
+          "rpc_member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/bootstrap-rpc-records.json",
+          "record_index": 36
+        }
+      },
+      {
+        "member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/operation-2-accepted.json",
+        "pointer": "/nonce",
+        "rounded": 16211924515591295000,
+        "exact": 16211924515591294499,
+        "source": {
+          "rpc_member": "trial-2026-10-16T23-25-52-928Z-9510ed7d/rpc-records.json",
+          "record_index": 101
+        }
+      }
+    ],
+    "raw_rpc_and_binary_members_byte_identical": true
+  }
+}
