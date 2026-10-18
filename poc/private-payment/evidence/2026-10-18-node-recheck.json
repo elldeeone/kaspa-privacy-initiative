@@ -1,0 +1,129 @@
+{
+  "scope": "READ_ONLY_CURRENT_RPC_SCHEMA_AND_NODE_RECHECK_NOT_NATIVE_TRIAL_OR_CONSENSUS_PROOF",
+  "recordedAt": "2026-10-18T09:43:29.386061+00:00",
+  "sourceCommit": "f7d7877363fb97c2ec6871be0e8cbc351d44df10",
+  "requestSchema": {
+    "source": "rpc/core/src/model/message.rs",
+    "struct": "GetSeqCommitLaneProofRequest",
+    "blockHash": "RpcHash32",
+    "laneKey": "RpcHash32",
+    "requestFieldShapeMatchesSource": true,
+    "proofOrBlockSemanticsVerified": false
+  },
+  "sourceOperation": "rpc/core/src/api/ops.rs: GetSeqCommitLaneProof = 153",
+  "node": {
+    "scope": "READ_ONLY_SINGLE_NODE_RPC_PREFLIGHT_NOT_NATIVE_TRIAL",
+    "endpoint": "ws://10.0.3.26:18210",
+    "observedAt": "2026-10-18T09:41:14.702Z",
+    "server": {
+      "hasUtxoIndex": true,
+      "isSynced": true,
+      "networkId": "testnet-10",
+      "rpcApiRevision": 0,
+      "rpcApiVersion": 1,
+      "serverVersion": "2.0.0",
+      "virtualDaaScore": 599814232
+    },
+    "observations": {
+      "getInfo": {
+        "responded": true,
+        "error": null
+      },
+      "getFeeEstimate": {
+        "responded": true,
+        "error": null
+      },
+      "getBlock": {
+        "responded": true,
+        "error": null
+      },
+      "getSeqCommitLaneProof": {
+        "responded": false,
+        "error": "getSeqCommitLaneProof: WebSocket error"
+      },
+      "getVirtualChainFromBlockV2": {
+        "responded": true,
+        "error": null,
+        "addedChainBlocks": 5,
+        "acceptedGroups": 5,
+        "acceptedTransactions": 93
+      }
+    },
+    "serverAfter": {
+      "hasUtxoIndex": true,
+      "isSynced": true,
+      "networkId": "testnet-10",
+      "rpcApiRevision": 0,
+      "rpcApiVersion": 1,
+      "serverVersion": "2.0.0",
+      "virtualDaaScore": 599814245
+    },
+    "nativeTransactions": 0,
+    "walletCreated": false,
+    "fundingRequiredNow": false
+  },
+  "ssh": {
+    "mode": "BatchMode=yes; StrictHostKeyChecking=yes; ConnectTimeout=5",
+    "command": "true",
+    "exitCode": 255,
+    "error": "configured default login denied publickey authentication",
+    "runningBinaryInspected": false,
+    "configurationChanged": false
+  },
+  "interpretation": "The request matches current upstream field shape. Required lane witness remains unavailable through this endpoint; cause and running source/build are unverified. No node upgrade or consensus-feature claim follows.",
+  "reviewGate": {
+    "required": true,
+    "independentReviewAvailable": false,
+    "reference": "docs/adr/0018-private-payment-implementation-package.md"
+  },
+  "archive": {
+    "file": "2026-10-18-node-recheck.tar.gz",
+    "sha256": "cff66aa05a1c1a1584ea5ec81a9841af15916d65febe7677164918861a320289",
+    "bytes": 174566
+  },
+  "files": {
+    "node-recheck/result.json": {
+      "sha256": "64933004a810a6cd5ca5b3257d9ccec48000bffd982b2e6dfaecc4a4dec3f077",
+      "bytes": 1198
+    },
+    "node-recheck/rpc-records.json": {
+      "sha256": "899d46769843515606715c689d7e1b2f075700f37c7db278ea822342f9e10dd8",
+      "bytes": 812699
+    },
+    "node-recheck/server.json": {
+      "sha256": "2bdedda8de75ef3e378c82eecff503bfe5a27af7517c1e8163d6b744b76afd84",
+      "bytes": 253
+    },
+    "current-rpc/manifest.json": {
+      "sha256": "a11b3af6daf6061a753f924455f145181f17bbdabe2a9fdb9a87e74c607ad0d5",
+      "bytes": 504
+    },
+    "current-rpc/message.rs": {
+      "sha256": "20999e4de4d17b474b242e3d3c995ac3e2ec320f5291e25aac996fc28cbe413b",
+      "bytes": 123941
+    },
+    "current-rpc/rpc__core__src__api__ops.rs": {
+      "sha256": "cb5bfb149e3d5fa4fd373f118a6fcd288b9b21a14ebc82a06fd69a34fc2ba125",
+      "bytes": 7766
+    },
+    "current-rpc/rpc__wrpc__server__src__service.rs": {
+      "sha256": "ac767ae73d9f1b70aad73b56d03093b45312c897ec53e2ec8c85d3d5230fac2e",
+      "bytes": 7665
+    }
+  },
+  "validation": {
+    "documentation": {
+      "exitCode": 0,
+      "output": "Checked 158 Markdown files and 921 relative links: OK.\nExternal URLs and heading fragments require separate review. This check does not validate protocol security."
+    },
+    "whitespace": {
+      "exitCode": 0,
+      "output": ""
+    },
+    "archiveMemberHashes": {
+      "passed": true,
+      "files": 7
+    },
+    "priorProofAndAuthArchivesUnchanged": true
+  }
+}

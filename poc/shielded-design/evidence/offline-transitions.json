@@ -1,0 +1,160 @@
+{
+  "scope": "PUBLIC_SYNTHETIC_MODEL_RESULTS_NOT_NATIVE_RECOVERY",
+  "date": "2026-10-18",
+  "producerProcesses": 1,
+  "freshContinuationProcesses": 6,
+  "pythonOptimize": true,
+  "checkpointTrust": "SEPARATELY_TRUSTED_MODEL_CHECKPOINT_NOT_INDEPENDENT_CHAIN_AUTHORITY",
+  "tests": {
+    "existingModel": 24,
+    "offlineRecoveryR01R04": 18,
+    "restoredTransitionsR05R06": 14,
+    "passed": 56,
+    "seededPrincipalRaceVectors": 40
+  },
+  "results": [
+    {
+      "case": "r05-first",
+      "chain_or_zk_verified": false,
+      "native_payouts": 0,
+      "outcomes": [
+        true
+      ],
+      "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK"
+    },
+    {
+      "case": "r05-second",
+      "chain_or_zk_verified": false,
+      "individually_valid_duplicate": true,
+      "native_payouts": 0,
+      "outcomes": [
+        false,
+        true
+      ],
+      "rejection_preserved_economy": true,
+      "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+      "synthetic_balances_sompi": {
+        "Alice": 350000000,
+        "Bob": 1049999000,
+        "Carol": 100000000
+      }
+    },
+    {
+      "case": "r06-credit-first",
+      "chain_or_zk_verified": false,
+      "native_payouts": 0,
+      "outcomes": [
+        false,
+        true
+      ],
+      "private_liability_sompi": 1799999000,
+      "reserve_sompi": 2000000000,
+      "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+      "synthetic_carol_spendable_sompi": 300000000,
+      "synthetic_carol_unpaid_refund_sompi": 0,
+      "unpaid_claims_sompi": 200000000,
+      "winner": "credit"
+    },
+    {
+      "case": "r06-credit-second",
+      "chain_or_zk_verified": false,
+      "native_payouts": 0,
+      "outcomes": [
+        false,
+        false,
+        true
+      ],
+      "private_liability_sompi": 1799999000,
+      "reserve_sompi": 2000000000,
+      "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+      "synthetic_carol_spendable_sompi": 300000000,
+      "synthetic_carol_unpaid_refund_sompi": 0,
+      "unpaid_claims_sompi": 200000000,
+      "winner": "credit"
+    },
+    {
+      "case": "r06-refund-first",
+      "chain_or_zk_verified": false,
+      "native_payouts": 0,
+      "outcomes": [
+        false,
+        true
+      ],
+      "private_liability_sompi": 1499999000,
+      "reserve_sompi": 2000000000,
+      "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+      "synthetic_carol_spendable_sompi": 0,
+      "synthetic_carol_unpaid_refund_sompi": 300000000,
+      "unpaid_claims_sompi": 500000000,
+      "winner": "refund"
+    },
+    {
+      "case": "r06-refund-second",
+      "chain_or_zk_verified": false,
+      "native_payouts": 0,
+      "outcomes": [
+        false,
+        false,
+        true
+      ],
+      "private_liability_sompi": 1499999000,
+      "reserve_sompi": 2000000000,
+      "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+      "synthetic_carol_spendable_sompi": 0,
+      "synthetic_carol_unpaid_refund_sompi": 300000000,
+      "unpaid_claims_sompi": 500000000,
+      "winner": "refund"
+    }
+  ],
+  "chainOrZkVerified": false,
+  "unknownSenderDeliveryGuaranteed": false,
+  "chainQueries": 0,
+  "realZkProofs": 0,
+  "nativePayouts": 0,
+  "privateBackupsPublished": false,
+  "privateFileMode": "0o600",
+  "privateDirectoryMode": "0o700",
+  "sourceSha256": {
+    "model.py": "86e74d9a778edeee3ef28b2586915e24d78440f6f3ec98a7bee3bfbf4cda1e65",
+    "recovery.py": "02af6a536f71b6be21e616e1762d8875e4e4c1df43772cdca85df67efd5c7f96",
+    "recovery_format.py": "c2c68d51a65e2e27885258ee80debc1a2b26aa4bcbd362f7039a661114096738",
+    "recovery_fixture.py": "05689052947a1a74aed5b0146725a4c2594c71f5eba71bfb4f4264abb1133b27",
+    "recovery_session.py": "94f32afdd6ffc3be3504365ece4956bc84902ca622203c366d62fbe55da9f8c7",
+    "recovery_trials.py": "76cf4f37030dc6c39228e89068967e9274ff72a9b07441eced765cc6fb9fc6c3",
+    "test_recovery.py": "dcf1da67053b2d177d430dd3242bebe7c5e29f8962ce38e53b941872c30b520d",
+    "test_recovery_transitions.py": "e9d59fea484947250901f0097e93e3b5590615409c05dbcd7919f704dd94e496"
+  },
+  "publicArtifacts": {
+    "offline-transitions-r05-records.json": {
+      "bytes": 8468,
+      "sha256": "cc1e047551fecefb0be594f031f7b31d1495dbde388ed3d572d0832ba8c4713f"
+    },
+    "offline-transitions-r05-checkpoint.json": {
+      "bytes": 266,
+      "sha256": "8de67eaade7830a4727494dc5f0fd0da91690b7f4e9221f08aab5c5141023400"
+    },
+    "offline-transitions-credit-records.json": {
+      "bytes": 7466,
+      "sha256": "9cd4e6c2d7a305f7fe2023d378fd4fc37813b2e25bea3f8159386fb96564ae39"
+    },
+    "offline-transitions-credit-checkpoint.json": {
+      "bytes": 266,
+      "sha256": "abbed8a1eb7a751a67c372e6f62d69b8ed53ed3d92402506f803a3b7dda3ff2a"
+    },
+    "offline-transitions-refund-records.json": {
+      "bytes": 7042,
+      "sha256": "4a7667022386c015e40f132780c2aadf2fb1d354ef29651773bb7dcb44cc91d0"
+    },
+    "offline-transitions-refund-checkpoint.json": {
+      "bytes": 266,
+      "sha256": "c8a50001fa752a113c544aa422a2cfda934a1d35accfdfde46bbc0d8334f6b81"
+    }
+  },
+  "limits": [
+    "Ideal-model proofs only; historical hidden predicates are trusted.",
+    "Refund request creates an unpaid claim and leaves reserve unchanged.",
+    "Race tests apply ordered transitions; no distributed concurrency or crash qualification.",
+    "u64 principal boundaries do not qualify native principal-plus-rent output capacity.",
+    "No paid state, reorg handling, current-chain freshness or independent operator proof."
+  ]
+}

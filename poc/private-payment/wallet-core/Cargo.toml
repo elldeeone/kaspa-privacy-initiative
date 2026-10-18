@@ -1,0 +1,14 @@
+[package]
+name = "kpi-wallet-core"
+version = "0.1.0"
+edition = "2021"
+publish = false
+[workspace]
+[dependencies]
+anyhow = "=1.0.100"
+incrementalmerkletree = "=0.9.0"
+orchard = { git = "https://github.com/zcash/orchard", rev = "616a669df8c9a59c33d47064d3ce04b25d026b2e", default-features = false, features = ["std", "zeroize"] }
+zcash_note_encryption = "=0.5.1"
+sha2 = "=0.10.9"
+kpi-recovery-auth-vectors = { path = "../recovery-auth-vectors" }
+pasta_curves = "=0.6.0"

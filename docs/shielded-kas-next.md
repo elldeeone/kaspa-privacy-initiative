@@ -1,5 +1,74 @@
 # Next focus: shielded native KAS and financial privacy
 
+**Current execution, 2026-10-18:** the owner authorizes P1–P5 work, local proving
+and eventual qualified testnet trials against `10.0.3.26`, with no mainnet or
+real funds. [ADR-0018](adr/0018-private-payment-implementation-package.md) and
+[RFC-0004](rfc/0004-private-payment-suite-and-encoding.md) add a concrete suite,
+interoperable public intent bytes and established-library vectors. The
+[P1 package](../poc/private-payment/README.md) keeps primitive VM compatibility
+separate from the subsequent full offline wallet relation. The owner-selected
+[separate-agent review](../poc/private-payment/REVIEW-RESULTS.md) found four
+design blockers; fixes passed focused re-review. Unfunded offline P2 may now
+proceed with synthetic fixtures under
+[ADR-0019](adr/0019-separate-agent-prototype-review.md). External audit, proved outer transitions
+and native bindings remain open. No test wallet top-up is needed yet.
+Its [measured primitive result](../poc/private-payment/RESULTS.md) is a real
+Orchard API receipt in 6m53s on the 3070, reverified from saved bytes on CPU.
+This measures one public key/note/nullifier workload, not the full private
+payment relation. The node's Full history RPC works; its lane-proof RPC fails,
+so private native settlement qualification remains open.
+The later [recovery-authority supplement](../poc/private-payment/RECOVERY-AUTH-RESULTS.md)
+adds native signature/encoding interoperability, exact proposed private witness
+bytes and a source-grounded deposit-binding gap analysis. Its original scope is P1 preparation; the later full wallet evidence below
+adds proof enforcement without closing outer/native or external-review gates.
+
+The [full offline wallet prototype](../poc/private-payment/WALLET.md), under
+[ADR-0020](adr/0020-offline-wallet-relation.md), now implements the reviewed
+relation. [All four genuine receipts](../poc/private-payment/WALLET-RESULTS.md)
+passed GPU proving and saved CPU verification, including a spend reconstructed
+from own-backup restore. Eight isolated restore runs passed; duplicate spends
+and exits reject. The adapter uses trusted synthetic backing/history and is
+not the proved outer or native payout path. No new native funding is needed.
+
+The [2026-10-18 specification-to-code review](shielded-spec-code-review-2026-10-18.md)
+maps eight concrete work gaps and recommends the authenticated recovery-record
+and wallet backup/restore contract first, alongside existing proof diagnostics.
+The [recovery test design](shielded-recovery-test-design.md) supplies 16 proposed
+cases, including a worked three-user ledger and final-reserve payout. These are
+review/design artifacts, not implemented recovery or a change of architecture.
+
+The subsequent [offline prototype](../poc/shielded-design/RECOVERY.md), under
+[ADR-0011](adr/0011-offline-model-recovery.md), implements model backup/restore
+and R01–R04 controls. The [R05/R06 extension](../poc/shielded-design/TRANSITIONS.md)
+adds restored double-spend prevention and both pending credit/refund-request
+orders. [R07](../poc/shielded-design/PAYOUTS.md) now retains paid claims and
+drains the model reserve in fee-last and user-last orders. The
+[R08–R16 programme](../poc/shielded-design/PROGRAMME.md) now adds bounded offline
+rollback, process-crash, replacement-data, authority and shutdown controls.
+All rely on a separately trusted model checkpoint;
+actual L1/proof authentication, native recovery and unknown-sender delivery
+remain open.
+
+**Owner-authorized parallel work, 2026-10-18:** qualify the GPU proof path and
+complete the private-payment specification, with no mainnet or real funds.
+[RFC-0003](rfc/0003-private-payment-proof-and-settlement.md) now states the full
+proposed semantics. Its gate order is P1 exact suite/composition review, P2 full
+wallet implementation, P3 real R13 outer proof, P4 native integration/rehearsal,
+then P5 independent R16. The local RTX 3070 experiment is separate from the
+prepared remote L40S path. Its [measured result](../poc/remote-cuda/LOCAL-RESULTS.md)
+finds segment proving exceeds 8GB, while two GPU lifts and their join complete
+with independently verified receipts. The five-phase GPU gate remains failed;
+the remote L40S path has not run. GPU performance cannot close private relation/
+native gates.
+
+The owner's subsequent instruction to use the existing 3070 leads to
+[ADR-0017](adr/0017-rtx3070-smaller-segments.md) and a successful
+[smaller-segment full proxy proof](../poc/gpu-segments/RESULTS.md): 7m36s,
+6096MiB sampled peak prover VRAM, exact original image/input/journal and
+independent original CPU verification. The unchanged po2=20 benchmark remains
+failed; po2=19 proves the whole proxy workload on current hardware. Next review
+P1, then implement/measure the full private relation; R13/R16 stay open.
+
 **Resumed by the owner, 2026-10-17:** the
 [bounded phase diagnostics](../poc/proof-phase-diagnostics/PLAN.md) follow merged
 PR #39 and its preserved [pause handoff](../poc/outer-proof-128m/STATUS-HANDOFF.md).
@@ -7,7 +76,9 @@ Only that local unfunded diagnostic package is resumed; broader private-note
 implementation and TN10 integration remain deferred.
 The [diagnostic result](../poc/proof-phase-diagnostics/RESULTS.md) now retains five
 verified partial receipts. Before another full job, qualify the same assets on
-the official CUDA proving path; that environment experiment has not been run.
+the official CUDA proving path. The later local experiment above supplies only
+recursion qualification for the original segments; the subsequent po2=19
+experiment now supplies the complete proxy receipt with new segmentation.
 
 Owner-directed priority, 2026-10-17, after the scoped
 [Based App feasibility milestone](based-app-feasibility-2026-10-17.md).
@@ -52,8 +123,9 @@ The [approved 128M proof attempt](../poc/outer-proof-128m/RESULTS.md) completes 
 24 required execution cases, then reaches the one-hour proof-job stop without a
 receipt. No budget is automatically increased. Next profile actual segment
 proving/recursive compression and memory behavior; the compact wallet candidate
-and execution qualification remain useful, while the real outer-receipt gate
-and the full private-note/native-integration gates remain open.
+and execution qualification remain useful. That phase's evidence is preserved;
+the later po2=19 experiment above now closes the proxy outer-receipt gap.
+The full private-note/native-integration gates remain open.
 
 ## First work package: define the private payment statement
 

@@ -315,3 +315,117 @@ credentials and provider stop API are availability/cost assumptions, not protoco
 authorities. Live CUDA, stop and persistence behavior remain unqualified. Never
 send private wallet witnesses through this public-fixture interface without a
 separate privacy design. This changes no protocol, circuit or settlement rule.
+
+## Offline model recovery boundary
+
+The [R01–R04 prototype](poc/shielded-design/RECOVERY.md) assumes authenticity of a
+separately retained model checkpoint and ideal-model acceptance of the committed
+public effects. A malicious checkpoint/producer can assert invalid hidden
+transitions; an archive hash is not a proof or Kaspa acceptance evidence. An
+old trusted horizon also cannot establish current spendability. This module
+creates no reserve withdrawal authority and never marks a native payout paid.
+
+Backups contain unencrypted synthetic spending/incoming secrets; derived wallet
+reports contain private note data and selected positions. Both use new mode-0600
+files and must remain private. Stdout is a bounded verdict. Known expected
+receipt metadata can detect wrong-key delivery; with no such metadata, unrelated
+ciphertexts and malicious unknown-sender wrong-key delivery are indistinguishable.
+The success report therefore explicitly declines that delivery guarantee.
+Fresh processes/directories do not establish independent operators or sandboxed
+file access. Reorg recovery, crash durability and native exit success remain open.
+
+The [R05/R06 continuation](poc/shielded-design/TRANSITIONS.md) reconstructs the
+current public nullifier/deposit state before accepting new ideal-model proofs.
+A valid proof against an old allowed root does not override current spentness.
+Credit and a signed refund request consume the same pending deposit; only the
+first accepted transition succeeds. The signature binds owner, domain, deposit,
+principal and destination. A refund request preserves principal reserve as an
+unpaid claim and locks separately funded rent; it grants no native withdrawal
+authority. Backup v2 retains private pending-note metadata for credit retry;
+spending keys alone cannot reconstruct an unpublished note. Fresh-process race
+tests exercise ordered model transitions, not distributed concurrency, actual
+refund payout, reorg rollback or paid-state recovery. The new model checkpoint
+remains a trusted harness output, not independent chain authentication.
+
+The [R07 model extension](poc/shielded-design/PAYOUTS.md) retains paid claims
+and fees instead of resetting them during restore. Payment must match the
+existing unpaid claim's destination/principal/rent and exact remaining reserve;
+principal-plus-rent output overflow rejects before consumption. Rent returned
+is retained separately from principal reserve and unpaid liabilities. A refunded
+deposit stays consumed. These are synthetic payment effects, not native payout
+observations or reserve authority. Omitted effects fail against the retained
+later checkpoint, but an older internally valid horizon can hide later payments;
+this model cannot prevent payment on separate stale/forked histories. Native
+lineage, general rollback and crash-safe submission recovery remain open.
+
+The [R08–R16 offline programme](poc/shielded-design/PROGRAMME.md) rebuilds a
+replacement model history before publishing it, and preserves complete public/
+private generations under a local file lock and revision check. Actual process
+kills and competing writers are tested; hardware power loss, cross-host races
+and native reorg authentication are not. Unknown payment intent cannot become an
+automatic retry; missing observations leave it unresolved. A malicious local
+host can replace the stored model checkpoint, so private-file modes and hashes
+are not authority against that attacker. View-only inspection has no spending
+seed or nullifier method and reports unknown spentness. Canary and Python socket
+audit results are bounded to the exercised code; they establish neither an OS
+sandbox nor anonymity. Per-user fresh-process recovery uses one backup each,
+but independent hosts, real private proofs and confirmed native payouts are
+absent. R13 and R16 full acceptance gates remain open.
+
+The proposed [full private-payment relation](docs/rfc/0003-private-payment-proof-and-settlement.md)
+adds explicit checks against tree-count overflow, full-tree exit lockup,
+zero-real-input CREDIT authorization confusion, unconstrained encryption and
+reuse of one native output for multiple claims. Proposed `exit_only` retains
+ownership/nullifiers and zero-output constraints while appending no leaves;
+zero outputs never become received entitlements. Strict per-deposit recovery
+authorization is shared by credit/refund and remains gated by current state.
+Incoming-only keys lack authoritative spentness; Orchard full-viewing material
+may derive own-note nullifiers with complete authenticated history, but neither
+viewing role authorizes spending. Exact primitive/version/parameter composition,
+native descriptor enforcement and all real proof/payout paths remain unreviewed
+implementation gates; Orchard source reuse does not transfer its audit assurance.
+
+The [P1 candidate tools](poc/private-payment/README.md) add structural public
+codecs and existing-library primitive checks only. Their public test-vector
+keys must never be funded. A valid primitive receipt is tagged with its own
+program/journal identity and establishes no ownership/balance/current-state
+payment statement. Structural codec acceptance does not check curve points,
+deposit authority or spentness. No production verifier may accept a placeholder
+or this diagnostic program as a wallet. Node capability observations come from
+one owner-operated RPC endpoint; raw responses are not independent consensus
+authentication. Socket isolation prevents an unknown RPC closing a connection
+from being misreported as failure of subsequent known-good methods.
+
+The candidate recovery signature checker adds canonical point recompression,
+prime-order/non-small-order checks and canonical signature scalars before the
+established strict Ed25519 verification call. Public test vectors and separate
+library interoperability exercise these APIs on the native host; they do not
+qualify an actual wallet/outer proof. A shared delegate-entry output does not
+alone authenticate a recovery key. Later host-supplied metadata, a self-referential
+funding descriptor, a different private signature from the public operation
+envelope, or a guest's claimed self image must not become authority. Native
+funding recognition, mutually exclusive pending consumption and actual payout
+enforcement are still unimplemented for this private profile.
+
+The separate-agent AI review route in ADR-0019 supplies limited design evidence,
+not external audit assurance. Its fixes bind the actual public CREDIT
+authorization bytes through a journal digest, assign all immutable-policy and
+actual-image admission checks to proved outer execution, initialize the genesis
+allowed anchor, and clarify native boundary conservation explicitly. These are
+reviewed design requirements and public format checks; real guest/outer/state
+enforcement still needs implementation and adversarial proof evidence. A generic
+wallet receipt alone cannot authenticate native funds or choose its economic D.
+
+### Offline wallet prototype boundary
+
+The [wallet harness](poc/private-payment/WALLET.md) uses actual Orchard V2
+relation code and RISC Zero receipt checks, but its initial deposit/policy and
+complete history origin are trusted synthetic inputs. A host-computed checkpoint
+is not native consensus authentication. The caller must retain/trust the latest
+synthetic history pin separately; a self-supplied pin cannot authenticate data.
+Full history bytes and all receipts are checked before decryption; duplicate
+backup keys cannot count the same note twice. Missing data halts recovery.
+Plaintext research backups/raw witness memory require a confidential local
+machine and are not production key storage. Runtime/profiling metadata can leak
+workload differences. Native recognition/ordering/payout, a total proved outer
+classifier and external audit assurance remain separate open requirements.

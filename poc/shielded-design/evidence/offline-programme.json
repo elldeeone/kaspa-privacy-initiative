@@ -1,0 +1,166 @@
+{
+  "all_requested_offline_controls_passed": true,
+  "cases": {
+    "R08": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 2,
+      "passed": 2,
+      "scope": "offline_controls",
+      "skipped": 0
+    },
+    "R09": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 4,
+      "passed": 4,
+      "scope": "offline_controls",
+      "skipped": 0
+    },
+    "R10": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 1,
+      "passed": 1,
+      "scope": "offline_controls",
+      "skipped": 0
+    },
+    "R11": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 2,
+      "passed": 2,
+      "scope": "offline_controls",
+      "skipped": 0
+    },
+    "R12": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 1,
+      "passed": 1,
+      "scope": "offline_controls",
+      "skipped": 0
+    },
+    "R13": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 1,
+      "passed": 1,
+      "scope": "model_controls_only",
+      "skipped": 0
+    },
+    "R14": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 1,
+      "passed": 1,
+      "scope": "offline_controls",
+      "skipped": 0
+    },
+    "R15": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 1,
+      "passed": 1,
+      "scope": "offline_controls",
+      "skipped": 0
+    },
+    "R16": {
+      "full_proof_or_native_gate_passed": false,
+      "offline_checks": 1,
+      "passed": 1,
+      "scope": "offline_rehearsal_only",
+      "skipped": 0
+    }
+  },
+  "checkpoint_trust": "separately trusted model horizon, not L1/fork-choice authentication",
+  "native_payouts": 0,
+  "native_shutdown_gate_passed": false,
+  "real_zk_proofs": 0,
+  "requested_cases": "R08\u2013R16",
+  "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+  "shutdown_rehearsal": {
+    "aggregate_model_ledger": {
+      "chain_or_zk_verified": false,
+      "native_payouts": 0,
+      "native_shutdown_gate_passed": false,
+      "paid_fee_sompi": 1000,
+      "paid_user_principal_sompi": 1999999000,
+      "real_proof_ordered_gate_passed": false,
+      "rent_paid_sompi": 200000000,
+      "reserve_sompi": 0,
+      "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+      "stage": "pay-all"
+    },
+    "calls": [
+      {
+        "network_attempts": 0,
+        "secret_canary_matches": 0,
+        "stage": "exit-user"
+      },
+      {
+        "network_attempts": 0,
+        "secret_canary_matches": 0,
+        "stage": "exit-user"
+      },
+      {
+        "network_attempts": 0,
+        "secret_canary_matches": 0,
+        "stage": "exit-user"
+      },
+      {
+        "network_attempts": 0,
+        "secret_canary_matches": 0,
+        "stage": "pay-all"
+      },
+      {
+        "network_attempts": 0,
+        "secret_canary_matches": 0,
+        "stage": "audit-user"
+      },
+      {
+        "network_attempts": 0,
+        "secret_canary_matches": 0,
+        "stage": "audit-user"
+      },
+      {
+        "network_attempts": 0,
+        "secret_canary_matches": 0,
+        "stage": "audit-user"
+      }
+    ],
+    "fresh_user_or_public_processes": 7,
+    "native_shutdown_gate_passed": false,
+    "one_backup_per_user_process": true,
+    "original_declared_path_unavailable": true,
+    "os_sandbox_or_independent_host": false,
+    "producer_processes": 1
+  },
+  "source_sha256": {
+    "model.py": "0c93d01b33ef361628705084c3d1c7f17ecf1efb52772fbc465a11b0864977ef",
+    "offline_probe.py": "46ac72893f938c6521f2b5a7edf457be074de36d22c277e51884d0fc1dff9ea5",
+    "recovery.py": "81a5599a2ef94e64bdd414ca464204ef086496e447bac4a260f3cf6e66dd1baa",
+    "recovery_fixture.py": "05689052947a1a74aed5b0146725a4c2594c71f5eba71bfb4f4264abb1133b27",
+    "recovery_format.py": "c2c68d51a65e2e27885258ee80debc1a2b26aa4bcbd362f7039a661114096738",
+    "recovery_inputs.py": "6c8392ee813355a9f8e489300d94ffacc7e49dd47a32e58c869bc665939d61a4",
+    "recovery_payout_trials.py": "4ce01d7e662284cbcfadfd2de7399fd1c27b2c0507310f44a30675f388fbc8ce",
+    "recovery_programme.py": "272575a3ee6f6de5ab6fca5d380050ddeabe657e9ae7e84e1179f1a05c2d9bef",
+    "recovery_session.py": "97b02bdf5d382951f9793b49c6c8c05f5f07c1345f54f12370842c104fe4e0f3",
+    "recovery_shutdown.py": "68529011914a0d90895e14dff959100ca6f34f0decf79a6a5e2d7b416b9f35e6",
+    "recovery_store.py": "b70fca9d4c47eacf7099f7a84a4603c5c1c4c7e701415f325d3deff3c2f647a6",
+    "recovery_trials.py": "76cf4f37030dc6c39228e89068967e9274ff72a9b07441eced765cc6fb9fc6c3",
+    "recovery_view.py": "60071d8534294ec17c896f84b6ae8b22f6ca4cf60738e85f996db027049a0f6a",
+    "run_model.py": "86d5b227b9004d26ab2fdece343e915b6a8c40c3d709e863045f5a1ad88e49a6",
+    "test_model.py": "aa5b6bcf71ca3b1238262264619f41c6b5bb94838a864ab1a8f2dad9ad59458a",
+    "test_recovery.py": "dcf1da67053b2d177d430dd3242bebe7c5e29f8962ce38e53b941872c30b520d",
+    "test_recovery_failures.py": "438abb32f90a9357abd03f6f6f4a1a7f63ae62aea9d02fe718b1b3f77a135eb1",
+    "test_recovery_payouts.py": "7d29ccbcf7c31b942fa3827a967995b1a648dcc3cb0e01de284a43aad51baac3",
+    "test_recovery_transitions.py": "e9d59fea484947250901f0097e93e3b5590615409c05dbcd7919f704dd94e496"
+  },
+  "test_errors": 0,
+  "test_failures": 0,
+  "tests_run": 80,
+  "date": "2026-10-18",
+  "public_artifacts": {
+    "offline-programme-records.json": {
+      "bytes": 8069,
+      "sha256": "57078c2d06309ca7fe81d7303063a8c531536b3e50e44af0bab9f9cc97256ec3"
+    },
+    "offline-programme-checkpoint.json": {
+      "bytes": 266,
+      "sha256": "1a8c4c364ce30cd74b846a88a8794b480b5dfd7e578861cf4983405d46733458"
+    }
+  }
+}

@@ -35,6 +35,24 @@ def total(values):
     return amount(sum(amount(v) for v in values))
 
 
+def refund_request_body(identity, principal, recipient):
+    """Exact signed MODEL intent; never a native reserve-release condition."""
+    if (type(identity) is not str or len(identity) != 64 or
+            any(c not in '0123456789abcdef' for c in identity)):
+        raise ValueError('model deposit reference')
+    principal = amount(principal)
+    if principal == 0 or type(recipient) is not str or not recipient:
+        raise ValueError('model refund principal/recipient')
+    return ['MODEL-REFUND-REQUEST-v1', NETWORK, POOL, VERSION, identity, principal, recipient]
+
+
+def refund_signature_bytes(signature):
+    if (type(signature) is not str or len(signature) != 128 or
+            any(c not in '0123456789abcdef' for c in signature)):
+        raise ValueError('model refund signature encoding')
+    return bytes.fromhex(signature)
+
+
 @dataclass(frozen=True)
 class Note:
     owner: str
@@ -79,6 +97,23 @@ class Wallet:
         signature = self.sign(['MODEL-RECEIVE', NETWORK, POOL, self.owner, incoming])
         self.address = Recipient(self.owner, incoming, signature)
 
+    def export_secrets(self):
+        """Private MODEL backup material; never publish or use for real funds."""
+        return bytes(self._spend), bytes(self._view)
+
+    @classmethod
+    def from_secrets(cls, spending_seed, incoming_secret):
+        """Restore existing PyNaCl model keys; no production derivation scheme."""
+        if any(type(v) is not bytes or len(v) != 32 for v in (spending_seed, incoming_secret)):
+            raise ValueError('model backup key format')
+        wallet = cls.__new__(cls)
+        wallet._spend, wallet._view = SigningKey(spending_seed), PrivateKey(incoming_secret)
+        wallet.owner = bytes(wallet._spend.verify_key).hex()
+        incoming = bytes(wallet._view.public_key).hex()
+        signature = wallet.sign(['MODEL-RECEIVE', NETWORK, POOL, wallet.owner, incoming])
+        wallet.address = Recipient(wallet.owner, incoming, signature)
+        return wallet
+
     def note(self, value, label):
         return Note(self.owner, amount(value), hash_id(['MODEL-RANDOMNESS', self.owner, label]))
 
@@ -106,6 +141,32 @@ class Wallet:
                 # The model skips unauthenticated/unrelated ciphertexts.
                 continue
         return result
+
+    def receive_record(self, output):
+        """Strict MODEL receiver check for authenticated recovery records.
+
+        None means this incoming key cannot authenticate the ciphertext; that
+        cannot distinguish an unrelated recipient from malicious wrong-key
+        delivery. Once decryption succeeds, invalid note data must be reported.
+        """
+        try:
+            raw = SealedBox(self._view).decrypt(bytes.fromhex(output['ciphertext']))
+        except CryptoError:
+            return None
+        try:
+            fields = json.loads(raw)
+            if type(fields) is not dict or set(fields) != {'owner', 'value', 'randomness'}:
+                raise ValueError('model note fields')
+            value = fields['value']
+            if type(value) is not str or len(value) != 16 or any(c not in '0123456789abcdef' for c in value):
+                raise ValueError('model note integer encoding')
+            note = Note(fields['owner'], int(value, 16), fields['randomness'])
+            if (canonical(fields) != raw or note.owner != self.owner or
+                    note.commitment != output['commitment']):
+                raise ValueError('model recipient/commitment binding')
+            return note
+        except (ValueError, TypeError, KeyError, RecursionError) as error:
+            raise ValueError('invalid model recipient delivery') from error
 
 
 @dataclass
@@ -276,6 +337,32 @@ class Pool:
         event['state'] = 'refunded'; self.reserve -= event['amount']; self.invariant()
         return event['amount']
 
+    def request_refund(self, identity, recipient, signature):
+        """Consume pending deposit into an UNPAID backed claim, never payment.
+
+        Unlike the legacy `refund` simulation this leaves principal in reserve.
+        Native/proof authorization and eventual payout remain unimplemented.
+        """
+        event = self.deposits[identity]
+        if event['state'] != 'pending':
+            raise ValueError('deposit already consumed')
+        body = refund_request_body(identity, event['amount'], recipient)
+        VerifyKey(bytes.fromhex(event['refund_owner'])).verify(canonical(body), refund_signature_bytes(signature))
+        if self.rent_sponsor_available < 50_000_000:
+            raise ValueError('permission rent not funded')
+        next_rent = total([self.rent_reserve, 50_000_000])
+        claim = hash_id(body)
+        if claim in self.claims:
+            raise ValueError('refund claim already exists')
+        # All authorization/range/current-state checks precede economic changes.
+        event['state'] = 'refund_pending'
+        self.claims[claim] = {'recipient': recipient, 'amount': event['amount'], 'rent': 50_000_000,
+                              'paid': False, 'kind': 'deposit_refund', 'deposit': identity}
+        self.rent_sponsor_available -= 50_000_000
+        self.rent_reserve = next_rent
+        self.invariant()
+        return claim
+
     def payout(self, identity, recipient, principal, rent, remaining_reserve):
         claim = self.claims[identity]
         if claim['paid'] or (recipient, amount(principal), amount(rent), amount(remaining_reserve)) != (
@@ -283,7 +370,14 @@ class Pool:
             raise ValueError('payout recipient/principal/rent/reserve/spent claim')
         # Validate the full native output before committing any economic changes.
         payout_value = total([principal, rent])
+        refund_event = None
+        if claim.get('kind') == 'deposit_refund':
+            refund_event = self.deposits[claim['deposit']]
+            if refund_event['state'] != 'refund_pending':
+                raise ValueError('refund deposit not awaiting payout')
         claim['paid'] = True; self.reserve = remaining_reserve; self.rent_reserve -= rent
+        if refund_event is not None:
+            refund_event['state'] = 'refunded'
         self.rent_paid += rent
         self.invariant(); return payout_value
 

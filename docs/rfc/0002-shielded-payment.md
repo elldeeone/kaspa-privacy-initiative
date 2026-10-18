@@ -213,3 +213,53 @@ liabilities, without an administrator withdrawal or forced migration key.
 The [results and TN10 proposal](../../poc/shielded-design/TN10-PROPOSAL.md) name the
 open decisions. Passing the model or small composition experiment does not
 select a production construction or authorize the funded trial.
+
+## Specification review and recovery test design
+
+The [2026-10-18 source-to-specification review](../shielded-spec-code-review-2026-10-18.md)
+maps these obligations to actual code and remaining gaps. The
+[proposed recovery tests](../shielded-recovery-test-design.md) identify input,
+backup, completeness, current-spentness and terminal-payout requirements, with
+source evidence in the [recovery comparison](../../research/recovery-source-review-2026-10-18.md).
+These are review inputs: recovery encoding, receiver acceptance, snapshot trust
+and rollback semantics remain open design questions. No construction, API or
+architecture is selected and this RFC's status remains Proposed.
+
+The [offline model recovery format](../../poc/shielded-design/RECOVERY.md), scoped
+by [ADR-0011](../adr/0011-offline-model-recovery.md), makes the model backup,
+public-effect log and separately trusted checkpoint concrete for R01–R04. It
+does not select production serialization, authenticate Kaspa acceptance or
+establish complete unknown-sender delivery. The final recovery contract must
+replace that trusted-model acceptance assumption with reviewed L1/proof bindings.
+
+The [R05/R06 continuation](../../poc/shielded-design/TRANSITIONS.md), scoped by
+[ADR-0012](../adr/0012-offline-restored-transitions.md), now exercises restored
+current spentness and both pending-credit/refund-request orders. Refund requests
+create backed unpaid claims; no native payout is implied. Versioned model backups
+retain private pending notes for credit retry, while key-only backups can sign a
+refund request. Production proof authorization, native output binding, malformed
+unsolicited deposits and independent recovery remain unresolved.
+
+The [R07 model extension](../../poc/shielded-design/PAYOUTS.md), under
+[ADR-0013](../adr/0013-offline-paid-claim-recovery.md), represents payment
+effects explicitly and preserves paid claims/rent across restore. The terminal
+three-user fixture drains to zero in either final-payment order. Those effects
+remain trusted-model inputs, not native payment evidence. A production recovery
+contract still needs accepted-UTXO payment binding, a validated terminal output
+shape, current lineage and rollback of orphaned payouts.
+
+The [R08–R16 offline programme](../../poc/shielded-design/PROGRAMME.md), under
+[ADR-0014](../adr/0014-offline-recovery-failure-programme.md), implements bounded
+model-history replacement, local atomic persistence, incoming-only inspection,
+retained-copy fallback and per-user shutdown rehearsal. These reuse the existing
+ideal oracle and trusted checkpoint; there is no new circuit, native script or
+migration route. R13's real-proof classification and R16's independent confirmed
+native payouts remain required. Accepted native fork choice, real submission
+reconciliation, fee-market access and independent data retention remain open.
+
+The proposed [full private-payment contract](0003-private-payment-proof-and-settlement.md)
+now supplies the complete semantic relation, native/recovery obligations and
+P1–P5 review/implementation gates. It recommends an Orchard-derived research
+baseline with constrained delivery and a public zero-output exit mode for
+full-tree recovery. Exact suite/composition review, the full real circuit and
+native scripts remain unimplemented; this RFC's status is unchanged.

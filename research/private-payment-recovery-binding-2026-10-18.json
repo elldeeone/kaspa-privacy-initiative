@@ -1,0 +1,122 @@
+{
+  "scope": "SELECTED_P1_RECOVERY_BINDING_SOURCE_INSPECTION_NOT_NATIVE_PROOF_OR_AUDIT",
+  "date": "2026-10-18",
+  "repositories": {
+    "vprogs": {
+      "commit": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "files": {
+        "zk/backend/risc0/runtime-processor/src/deposit_policy.rs": {
+          "bytes": 9987,
+          "sha256": "deeeb8196fd87d68897ce088b405fc93f6564b2f08041d94310592712e56bc4f"
+        },
+        "zk/backend/risc0/runtime-processor/src/action/deposit.rs": {
+          "bytes": 7190,
+          "sha256": "d202d305d9a7e25dd7d0a615a8f6e48ea82575e82d5e0bc3331cec71acce108e"
+        },
+        "zk/abi/src/delegate_script.rs": {
+          "bytes": 1584,
+          "sha256": "58563d9fc0295720649758f0ed54c4af0a1d93d40bf1bcf20de7877024a4d3f4"
+        }
+      }
+    },
+    "dalek": {
+      "commit": "8016d6d9b9cdbaa681f24147e0b9377cc8cef934",
+      "files": {
+        "ed25519-dalek/src/verifying.rs": {
+          "bytes": 26310,
+          "sha256": "baaf05c1503a2cd66785ca01c215e26781d09dd6db9545ebbb0f2c4242117848"
+        },
+        "ed25519-dalek/src/signature.rs": {
+          "bytes": 6364,
+          "sha256": "1058f5119312e3521594a560ac1be6fb5d8016b9b010e4f281cefc304716d56c"
+        },
+        "ed25519-dalek/Cargo.toml": {
+          "bytes": 3047,
+          "sha256": "1086d10b520d48fece15a5da12a5f3d8f1ea1de432294965d20a268b9875778b"
+        },
+        "ed25519-dalek/LICENSE": {
+          "bytes": 1497,
+          "sha256": "7a313964a6e050794d2ad57f4863c11f6bbe055c0ae6ce2cf3b9fc45150bada3"
+        }
+      }
+    }
+  },
+  "downloadedSources": {
+    "rfc8032.txt": {
+      "url": "https://www.rfc-editor.org/rfc/rfc8032.txt",
+      "bytes": 103210,
+      "sha256": "ed63657ff389301282b169b0abde9b5dd2c7e4d524fdfa5da6ff3094fc93c4c3"
+    },
+    "native-sighash.rs": {
+      "url": "https://raw.githubusercontent.com/kaspanet/rusty-kaspa/f7d7877363fb97c2ec6871be0e8cbc351d44df10/consensus/core/src/hashing/sighash.rs",
+      "bytes": 33777,
+      "sha256": "b510118f3eedd2c9cd18ae872e6c1db9c26e9bd614eefc6bbd183f8ede5275ba"
+    },
+    "native-tx-hash.rs": {
+      "url": "https://raw.githubusercontent.com/kaspanet/rusty-kaspa/f7d7877363fb97c2ec6871be0e8cbc351d44df10/consensus/core/src/hashing/tx.rs",
+      "bytes": 17341,
+      "sha256": "b89996b5393a526dd4e1b8b7aeaee4f4dbad515252d9e12b6e2d288a7d8f6d4d"
+    },
+    "compiled-curve-edwards.rs": {
+      "url": "https://raw.githubusercontent.com/dalek-cryptography/curve25519-dalek/5312a0311ec40df95be953eacfa8a11b9a34bc54/curve25519-dalek/src/edwards.rs",
+      "commit": "5312a0311ec40df95be953eacfa8a11b9a34bc54",
+      "bytes": 76908,
+      "sha256": "28014a3b0d1b4a4502eea90e812653a6cb6c01b77a9921719a422f808b7a9bbb",
+      "matchesCompiledRegistrySource": true
+    }
+  },
+  "initialWrongCheckoutComparison": {
+    "files": [
+      {
+        "crate": "ed25519-dalek-2.2.0",
+        "path": "src/verifying.rs",
+        "registrySha256": "baaf05c1503a2cd66785ca01c215e26781d09dd6db9545ebbb0f2c4242117848",
+        "releaseCheckoutSha256": "baaf05c1503a2cd66785ca01c215e26781d09dd6db9545ebbb0f2c4242117848",
+        "bytesIdentical": true
+      },
+      {
+        "crate": "ed25519-dalek-2.2.0",
+        "path": "src/signature.rs",
+        "registrySha256": "1058f5119312e3521594a560ac1be6fb5d8016b9b010e4f281cefc304716d56c",
+        "releaseCheckoutSha256": "1058f5119312e3521594a560ac1be6fb5d8016b9b010e4f281cefc304716d56c",
+        "bytesIdentical": true
+      },
+      {
+        "crate": "curve25519-dalek-4.1.3",
+        "path": "src/edwards.rs",
+        "registrySha256": "28014a3b0d1b4a4502eea90e812653a6cb6c01b77a9921719a422f808b7a9bbb",
+        "releaseCheckoutSha256": "be3545205e9afb33c2fdecdb84559290814da7c3dd951b18f83a0923f632ad38",
+        "bytesIdentical": false
+      }
+    ],
+    "forbiddenFeaturesAbsent": true,
+    "interpretation": "ed25519-dalek code matches its release. curve25519-dalek 4.1.3 is independently pinned to its own published release commit; its source equals downloaded compiled-curve-edwards.rs. Do not substitute the later curve file in the Ed25519 release checkout."
+  },
+  "compiledRegistrySourceCheck": {
+    "scope": "SELECTED_COMPILED_SOURCE_RELEASE_COMPARISON_NOT_ALL_SOURCE_REVIEW",
+    "files": [
+      {
+        "crate": "ed25519-dalek-2.2.0",
+        "path": "src/verifying.rs",
+        "releaseCommit": "8016d6d9b9cdbaa681f24147e0b9377cc8cef934",
+        "sha256": "baaf05c1503a2cd66785ca01c215e26781d09dd6db9545ebbb0f2c4242117848",
+        "matchesOwnRelease": true
+      },
+      {
+        "crate": "ed25519-dalek-2.2.0",
+        "path": "src/signature.rs",
+        "releaseCommit": "8016d6d9b9cdbaa681f24147e0b9377cc8cef934",
+        "sha256": "1058f5119312e3521594a560ac1be6fb5d8016b9b010e4f281cefc304716d56c",
+        "matchesOwnRelease": true
+      },
+      {
+        "crate": "curve25519-dalek-4.1.3",
+        "path": "src/edwards.rs",
+        "releaseCommit": "5312a0311ec40df95be953eacfa8a11b9a34bc54",
+        "sha256": "28014a3b0d1b4a4502eea90e812653a6cb6c01b77a9921719a422f808b7a9bbb",
+        "matchesOwnRelease": true
+      }
+    ],
+    "forbiddenFeaturesAbsent": true
+  }
+}

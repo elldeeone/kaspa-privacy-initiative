@@ -1,0 +1,65 @@
+{
+  "scope": "PUBLIC_SYNTHETIC_MODEL_RESULTS_NOT_NATIVE_RECOVERY",
+  "date": "2026-10-18",
+  "producerProcesses": 1,
+  "freshRestorerProcesses": 3,
+  "checkpointTrust": "SEPARATELY_COPIED_TRUSTED_MODEL_CHECKPOINT_NOT_INDEPENDENT_CHAIN_AUTHORITY",
+  "users": [
+    {
+      "user": "alice",
+      "status": "complete_at_model_checkpoint",
+      "spendableSompi": 600000000,
+      "pendingDepositSompi": 0,
+      "unpaidExitSompi": 0,
+      "privateOutputMode": "0o600",
+      "chainOrZkVerified": false,
+      "unknownSenderDeliveryGuaranteed": false
+    },
+    {
+      "user": "bob",
+      "status": "complete_at_model_checkpoint",
+      "spendableSompi": 899999000,
+      "pendingDepositSompi": 0,
+      "unpaidExitSompi": 200000000,
+      "privateOutputMode": "0o600",
+      "chainOrZkVerified": false,
+      "unknownSenderDeliveryGuaranteed": false
+    },
+    {
+      "user": "carol",
+      "status": "complete_at_model_checkpoint",
+      "spendableSompi": 0,
+      "pendingDepositSompi": 300000000,
+      "unpaidExitSompi": 0,
+      "privateOutputMode": "0o600",
+      "chainOrZkVerified": false,
+      "unknownSenderDeliveryGuaranteed": false
+    }
+  ],
+  "tests": {
+    "existingModel": 24,
+    "newOfflineRecovery": 18,
+    "passed": 42
+  },
+  "newProofs": 0,
+  "chainQueries": 0,
+  "nativePayouts": 0,
+  "privateBackupsPublished": false,
+  "sourceSha256": {
+    "model.py": "11f2088e99b726987cbb5beada097dd409fe557a808126dc421ede170ec5cba1",
+    "recovery.py": "697ad48b1de2de35f8e8bb491ab6a36e010dc171c81bee6338560cb60473fb89",
+    "recovery_format.py": "077408083dd695504c1d2544153fdd9c3aaee59ea3ce7e46abadec5aeed08493",
+    "recovery_fixture.py": "3441fdc023a97756b0d309b76a6f0af2d588df0953268e0271993ceb496d46d0",
+    "test_recovery.py": "dcf1da67053b2d177d430dd3242bebe7c5e29f8962ce38e53b941872c30b520d"
+  },
+  "publicArtifacts": {
+    "offline-recovery-records.json": {
+      "bytes": 5371,
+      "sha256": "c92b5558fdc1dcfc96594b83fbbba555ec1c87d24843fd17d98b9a1e718c6635"
+    },
+    "offline-recovery-checkpoint.json": {
+      "bytes": 265,
+      "sha256": "fe77bbfe280127e68065044fdee01319b983677671f7038faaf48159bd096b93"
+    }
+  }
+}

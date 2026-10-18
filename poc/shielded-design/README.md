@@ -13,6 +13,18 @@ Start with [RFC-0002](../../docs/rfc/0002-shielded-payment.md),
 this bounded local experiment. Production construction and funded trial remain
 review decisions; RFC-0001 and all security invariants stay open.
 
+The [offline recovery prototype](RECOVERY.md) now specifies versioned model
+backups/public records and exercises R01–R04 with fresh-process restoration and
+adversarial controls. It relies on a separately trusted model checkpoint; no
+ZK/L1 authentication or native recovery is claimed. Unknown-sender wrong-key
+delivery remains explicitly unqualified. The [R05/R06 extension](TRANSITIONS.md)
+adds restored current spentness and both credit/refund-request orders, with
+56 tests in its original report. The [R07 extension](PAYOUTS.md) now adds
+paid-claim recovery and terminal reserve drain, bringing the suite to 66 tests.
+Payments are synthetic model effects only. The subsequent
+[R08–R16 programme](PROGRAMME.md) brings the suite to 80 tests and includes a
+separate three-user rehearsal. Full real-proof/native gates remain open.
+
 ## What is implemented
 
 - `model.py`: native principal plus funded/uncredited deposit claims, opaque notes,

@@ -4,6 +4,59 @@
 
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
+The [offline recovery prototype](../poc/shielded-design/RECOVERY.md) makes only
+model backup/record formats concrete under [ADR-0011](adr/0011-offline-model-recovery.md).
+Its separately trusted model checkpoint is an explicit experiment assumption,
+not a consensus checkpoint or accepted A/B/C recovery architecture. Proof/chain
+authentication and final recipient acceptance remain unresolved.
+[ADR-0012](adr/0012-offline-restored-transitions.md) adds bounded
+[R05/R06 continuation](../poc/shielded-design/TRANSITIONS.md): public-state
+hydration with an empty ideal oracle, current spentness and signed pending
+refund claims. Refund claims preserve reserve and require separately funded
+rent; this selects no native payout path or production backup format.
+
+[ADR-0013](adr/0013-offline-paid-claim-recovery.md) extends that log with v3
+[synthetic payment effects](../poc/shielded-design/PAYOUTS.md). Reconstruction
+retains paid exit/refund/fee identities and returned rent, preventing repeat
+payment on the supplied history. Fee-last, user-last and fee-free terminal
+examples drain the model principal reserve exactly. This does not authenticate
+native payment, establish a terminal L1 output shape or solve stale/forked
+histories, reorgs or crash durability.
+
+[ADR-0014](adr/0014-offline-recovery-failure-programme.md) adds bounded
+[R08–R16 offline controls](../poc/shielded-design/PROGRAMME.md): trusted full-history
+fork replacement, a single-host atomic recovery envelope, local retained-copy
+selection, signed incoming-only model backups and a per-user shutdown rehearsal.
+The store preserves unknown payment intent until the exact effect is observed;
+it never submits or retries transactions. These decisions change no note/key/
+nullifier domain or native script. The checkpoint/local disk remain trusted,
+R13 has no real-proof classifier, and R16 has no independent native payout.
+
+[RFC-0003](rfc/0003-private-payment-proof-and-settlement.md) now states the full
+proposed wallet/ordering/settlement relation under
+[ADR-0015](adr/0015-private-payment-proof-boundary.md). Orchard-derived V2,
+repaired action constraints, two proof slots and constrained delivery are a
+research recommendation, not an accepted production suite. An intent-bound
+`exit_only` mode proves zero new values and skips tree appends so a full tree
+does not prevent existing-note exits; its cryptographic/native adaptation still
+needs review. Credit/refund share an authenticated per-deposit recovery key,
+all versions consult one economic spent set, and native outputs remain exactly
+bound to unpaid claims. Gates P1–P5 keep exact suite/composition review, full
+wallet implementation, real R13 proof, native integration and independent R16
+separate. GPU qualification measures the existing proxy workload only;
+[ADR-0016](adr/0016-local-cuda-qualification.md) records the local sm86 variant.
+Its [measured result](../poc/remote-cuda/LOCAL-RESULTS.md) has a segment allocation
+failure on 8GB and three verified GPU recursion receipts using retained CPU
+segment inputs; neither the five-GPU-phase nor full-classifier gate passes.
+
+The subsequent owner-authorized [smaller-segment experiment](../poc/gpu-segments/RESULTS.md),
+under [ADR-0017](adr/0017-rtx3070-smaller-segments.md), now produces the complete
+proxy classifier receipt on the same RTX 3070 in 7m36s. Supported po2=19
+segmentation preserves the original image/input/journal; the original CPU
+verifier accepts the saved seal and rejects wrong image/journal controls.
+This closes the proxy outer-receipt gap, while the full private relation,
+accepted native state, financial privacy and real R13/R16 remain open.
+
 The [A0 feasibility experiment](poc-a0.md) investigates direct Groth16 proof
 authorization and native payout constraints for one terminal claim. Its local
 consensus-code evidence must be distinguished from funded TN10 acceptance and
@@ -423,3 +476,56 @@ reverified. Segment proving dominates the measured costs; the original guest,
 wallet relation and proving architecture are unchanged. These middle-segment
 receipts are not a complete classifier proof. The next proposed qualification
 is the official pinned CUDA proving path on the same retained assets.
+
+The later [RTX 3070 result](../poc/gpu-segments/RESULTS.md) supplies a complete
+receipt with smaller newly exported segments. Its exact scope and measurements
+supersede the open proxy-proof question above; historical trace/CPU evidence
+and the original-segment OOM remain unchanged. It does not establish performance
+or correctness of the still-unimplemented full private note relation.
+
+The [P1 implementation package](../poc/private-payment/README.md), under
+[ADR-0018](adr/0018-private-payment-implementation-package.md), adds an exact
+unreviewed candidate suite and public intent encoding in
+[RFC-0004](rfc/0004-private-payment-suite-and-encoding.md). It reuses pinned
+Orchard public APIs for vector/VM interoperability; no Halo2 circuit assurance
+is inherited. Unknown wallet/outer verifier IDs and native recovery descriptor
+bindings remain explicit unavailable fields, not accepted zero identities.
+The primitive-only VM journal cannot authorize any payment. A synchronized
+TN10 RPC server and a successful Full history response are observations, not
+native privacy trial qualification. Independent composition review is still
+required before substantial wallet-relation implementation.
+
+The owner subsequently selected a separate-agent AI design-review route under
+[ADR-0019](adr/0019-separate-agent-prototype-review.md). It can clear bounded
+offline implementation prerequisites after recorded findings/fixes/re-review;
+it is not independent human/external audit or native trial qualification.
+The generic wallet binds all supplied context and exact public authorization
+digest in its journal; the proved outer transition authenticates immutable
+policy, compares every duplicated context field and verifies the actual image
+before selecting N[D] or effects. Genesis explicitly admits the canonical empty
+Orchard anchor. I-2's explicit reviewed boundary equation preserves existing
+backing/single-consumption and keeps native fee/rent assets separate.
+
+RFC-0004 also proposes exact private witness/journal bytes and a pinned recovery
+signature validation profile, qualified with public native-host vectors only.
+The shared delegate-entry script binds the covenant, not the per-deposit
+recovery key. A candidate stable funding-transaction registration must prove
+that key/principal/outpoint binding and avoid including its own native ID in
+its payload. The wallet guest must likewise avoid embedding its own image hash;
+the actual outer policy must pin it after build. Public authorization-envelope
+consistency, native descriptor/rent/refund bytes and the final script/adapter
+remain open composition/native design obligations, not implemented controls.
+
+### Full offline wallet implementation
+
+[ADR-0020](adr/0020-offline-wallet-relation.md) and the
+[wallet prototype](../poc/private-payment/WALLET.md) implement the reviewed
+relation as a shared Rust library and RISC Zero guest. A separate host adapter
+verifies actual receipts against synthetic immutable policy/current state.
+It is not the proved outer classifier or native backing/settlement layer.
+Restore pins complete synthetic history, re-verifies receipts, scans both
+scopes with the actor's own backup and consults current spentness. No private
+witness or backup is part of public evidence. Actual results and artifact
+identities are recorded in the [four-receipt wallet results](../poc/private-payment/WALLET-RESULTS.md).
+Own-backup restore and a spend of reconstructed internal change pass offline;
+this does not authenticate synthetic backing or implement native payouts.

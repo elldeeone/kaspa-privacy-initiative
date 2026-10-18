@@ -1,0 +1,407 @@
+{
+  "scope": "PUBLIC_SYNTHETIC_MODEL_RESULTS_NOT_NATIVE_RECOVERY",
+  "date": "2026-10-18",
+  "producerProcesses": 1,
+  "freshContinuationAndAuditProcesses": 14,
+  "pythonOptimize": true,
+  "pythonVersion": "3.12.13",
+  "pyNaClVersion": "1.5.0",
+  "checkpointTrust": "SEPARATELY_TRUSTED_MODEL_CHECKPOINT_NOT_INDEPENDENT_CHAIN_AUTHORITY",
+  "tests": {
+    "existingModel": 24,
+    "offlineRecoveryR01R04": 18,
+    "restoredTransitionsR05R06": 14,
+    "paidRecoveryR07": 10,
+    "passed": 66,
+    "r07SeededTerminalVectors": 40,
+    "r07FeeFreeBoundaryCases": 4
+  },
+  "stagesByOrder": {
+    "fee-last": [
+      {
+        "chain_or_zk_verified": false,
+        "last": "fee",
+        "last_payment_kind": null,
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 2000000000,
+        "paid_fee_sompi": 0,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 0,
+          "Bob": 0,
+          "Carol": 0
+        },
+        "paid_user_principal_sompi": 0,
+        "rejected_paid_replays": 0,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 0,
+        "rent_reserved_sompi": 200000000,
+        "reserve_sompi": 2000000000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "prepare",
+        "synthetic_payment_count": 0
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "fee",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 1800000000,
+        "paid_fee_sompi": 0,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 0,
+          "Bob": 200000000,
+          "Carol": 0
+        },
+        "paid_user_principal_sompi": 200000000,
+        "rejected_paid_replays": 0,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 50000000,
+        "rent_reserved_sompi": 150000000,
+        "reserve_sompi": 1800000000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 1
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "fee",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 1500000000,
+        "paid_fee_sompi": 0,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 0,
+          "Bob": 200000000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 500000000,
+        "rejected_paid_replays": 1,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 100000000,
+        "rent_reserved_sompi": 100000000,
+        "reserve_sompi": 1500000000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 2
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "fee",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 900000000,
+        "paid_fee_sompi": 0,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 600000000,
+          "Bob": 200000000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 1100000000,
+        "rejected_paid_replays": 2,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 150000000,
+        "rent_reserved_sompi": 50000000,
+        "reserve_sompi": 900000000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 3
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "fee",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 1000,
+        "paid_fee_sompi": 0,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 600000000,
+          "Bob": 1099999000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 1999999000,
+        "rejected_paid_replays": 3,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 200000000,
+        "rent_reserved_sompi": 0,
+        "reserve_sompi": 1000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 4
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "fee",
+        "last_payment_kind": "fee_payment",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 0,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 600000000,
+          "Bob": 1099999000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 1999999000,
+        "rejected_paid_replays": 4,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 200000000,
+        "rent_reserved_sompi": 0,
+        "reserve_sompi": 0,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 5
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "fee",
+        "last_payment_kind": "fee_payment",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 0,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 600000000,
+          "Bob": 1099999000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 1999999000,
+        "rejected_paid_replays": 5,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 200000000,
+        "rent_reserved_sompi": 0,
+        "reserve_sompi": 0,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "audit",
+        "synthetic_payment_count": 5
+      }
+    ],
+    "user-last": [
+      {
+        "chain_or_zk_verified": false,
+        "last": "user",
+        "last_payment_kind": null,
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 2000000000,
+        "paid_fee_sompi": 0,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 0,
+          "Bob": 0,
+          "Carol": 0
+        },
+        "paid_user_principal_sompi": 0,
+        "rejected_paid_replays": 0,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 0,
+        "rent_reserved_sompi": 200000000,
+        "reserve_sompi": 2000000000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "prepare",
+        "synthetic_payment_count": 0
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "user",
+        "last_payment_kind": "fee_payment",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 1999999000,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 0,
+          "Bob": 0,
+          "Carol": 0
+        },
+        "paid_user_principal_sompi": 0,
+        "rejected_paid_replays": 0,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 0,
+        "rent_reserved_sompi": 200000000,
+        "reserve_sompi": 1999999000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 1
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "user",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 1799999000,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 0,
+          "Bob": 200000000,
+          "Carol": 0
+        },
+        "paid_user_principal_sompi": 200000000,
+        "rejected_paid_replays": 1,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 50000000,
+        "rent_reserved_sompi": 150000000,
+        "reserve_sompi": 1799999000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 2
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "user",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 1499999000,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 0,
+          "Bob": 200000000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 500000000,
+        "rejected_paid_replays": 2,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 100000000,
+        "rent_reserved_sompi": 100000000,
+        "reserve_sompi": 1499999000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 3
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "user",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 899999000,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 600000000,
+          "Bob": 200000000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 1100000000,
+        "rejected_paid_replays": 3,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 150000000,
+        "rent_reserved_sompi": 50000000,
+        "reserve_sompi": 899999000,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 4
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "user",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 0,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 600000000,
+          "Bob": 1099999000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 1999999000,
+        "rejected_paid_replays": 4,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 200000000,
+        "rent_reserved_sompi": 0,
+        "reserve_sompi": 0,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "pay-next",
+        "synthetic_payment_count": 5
+      },
+      {
+        "chain_or_zk_verified": false,
+        "last": "user",
+        "last_payment_kind": "payout",
+        "native_payouts": 0,
+        "outstanding_principal_sompi": 0,
+        "paid_fee_sompi": 1000,
+        "paid_user_principal_by_user_sompi": {
+          "Alice": 600000000,
+          "Bob": 1099999000,
+          "Carol": 300000000
+        },
+        "paid_user_principal_sompi": 1999999000,
+        "rejected_paid_replays": 5,
+        "rent_available_sompi": 0,
+        "rent_funded_sompi": 200000000,
+        "rent_paid_sompi": 200000000,
+        "rent_reserved_sompi": 0,
+        "reserve_sompi": 0,
+        "scope": "OFFLINE_MODEL_ONLY_NO_CHAIN_OR_ZK",
+        "stage": "audit",
+        "synthetic_payment_count": 5
+      }
+    ]
+  },
+  "feeFreeTerminalExample": {
+    "principalPaidSompi": 1000000000,
+    "rentPaidSompi": 50000000,
+    "outputSompi": 1050000000,
+    "reserveSompi": 0
+  },
+  "chainQueries": 0,
+  "realZkProofs": 0,
+  "nativePayouts": 0,
+  "chainOrZkVerified": false,
+  "privateBackupsPublished": false,
+  "unknownSenderDeliveryGuaranteed": false,
+  "privateFileMode": "0o600",
+  "privateDirectoryMode": "0o700",
+  "sourceSha256": {
+    "model.py": "0c93d01b33ef361628705084c3d1c7f17ecf1efb52772fbc465a11b0864977ef",
+    "recovery.py": "81a5599a2ef94e64bdd414ca464204ef086496e447bac4a260f3cf6e66dd1baa",
+    "recovery_format.py": "c2c68d51a65e2e27885258ee80debc1a2b26aa4bcbd362f7039a661114096738",
+    "recovery_fixture.py": "05689052947a1a74aed5b0146725a4c2594c71f5eba71bfb4f4264abb1133b27",
+    "recovery_session.py": "df230b324595bb4194a7532e090268202b98690667c857cfcbe64856a893669c",
+    "recovery_trials.py": "76cf4f37030dc6c39228e89068967e9274ff72a9b07441eced765cc6fb9fc6c3",
+    "recovery_payout_trials.py": "4ce01d7e662284cbcfadfd2de7399fd1c27b2c0507310f44a30675f388fbc8ce",
+    "test_model.py": "aa5b6bcf71ca3b1238262264619f41c6b5bb94838a864ab1a8f2dad9ad59458a",
+    "test_recovery.py": "dcf1da67053b2d177d430dd3242bebe7c5e29f8962ce38e53b941872c30b520d",
+    "test_recovery_transitions.py": "e9d59fea484947250901f0097e93e3b5590615409c05dbcd7919f704dd94e496",
+    "test_recovery_payouts.py": "7d29ccbcf7c31b942fa3827a967995b1a648dcc3cb0e01de284a43aad51baac3"
+  },
+  "publicArtifacts": {
+    "offline-payouts-fee-last-records.json": {
+      "bytes": 9678,
+      "sha256": "24ce96b404cb0c626e7f6cc3e38435e748425252d8627958b0474e53fe5f0e24"
+    },
+    "offline-payouts-fee-last-checkpoint.json": {
+      "bytes": 266,
+      "sha256": "219041146847cef20af3bcf41d5980fe70caff723239f8ebb82010f4ed197cb1"
+    },
+    "offline-payouts-user-last-records.json": {
+      "bytes": 9684,
+      "sha256": "b3d4bbdd7fd364dd5ec1184a53421d0ecefe58091f529ffaffeb2e7502915b41"
+    },
+    "offline-payouts-user-last-checkpoint.json": {
+      "bytes": 266,
+      "sha256": "6251d663e559a6b76fa640a132b875f950c92a99dab52735fcad2866c12f72e9"
+    },
+    "offline-payouts-fee-free-records.json": {
+      "bytes": 2110,
+      "sha256": "fec5faa665a88bd5750c59b9655658279f4cfe2c69cd0b77d43ca15f3c61040f"
+    },
+    "offline-payouts-fee-free-checkpoint.json": {
+      "bytes": 265,
+      "sha256": "6c6581e8de2bfd3d6f25819c8578c2f9ac8f71960b9dd8b76def921b6dfc6c6f"
+    }
+  },
+  "limits": [
+    "Payments are synthetic effects checked against model claims, not native payment proofs.",
+    "Model checkpoints and original ideal-proof hidden predicates remain trusted.",
+    "No stale/forked history detection, reorg rollback, crash durability or distributed concurrency proof.",
+    "Model terminal equality does not qualify a native terminal output shape.",
+    "No miner or network fee is modeled; authorized application fees and rent are separate."
+  ]
+}

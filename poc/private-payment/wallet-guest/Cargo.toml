@@ -1,0 +1,9 @@
+[package]
+name = "kpi-wallet-guest"
+version = "0.1.0"
+edition = "2021"
+publish = false
+[workspace]
+[dependencies]
+kpi-wallet-core = { path = "../wallet-core" }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["std", "disable-dev-mode"] }

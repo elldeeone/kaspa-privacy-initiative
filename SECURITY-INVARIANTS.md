@@ -23,12 +23,29 @@ Development treasury funds must not be counted as user backing.
 
 ## I-2: Value conservation
 
-For every valid private state transition:
+For every valid closed private transfer:
 
 ```text
-sum(private inputs) = sum(private outputs) + explicit allowed fees
+sum(private inputs) = sum(private outputs) + explicit allowed private fees
 ```
 
+For a native entry or exit boundary, also enforce:
+
+```text
+sum(private inputs) + credited pending native principal
+    = sum(private outputs) + new exit principal + explicit allowed private fees
+```
+
+Credited principal must consume the same authenticated, still-pending,
+native-backed deposit exactly once. Crediting does not add reserve a second
+time. An exit request creates a backed unpaid claim; it does not itself release
+native reserve, and its liability remains counted until actual payout under I-1.
+Native transaction fees, sponsor assets and rent remain separately accounted and
+cannot supply an unauthenticated private credit or hidden deduction.
+
+This boundary clarification is explicit under
+[ADR-0019](docs/adr/0019-separate-agent-prototype-review.md) and its recorded
+separate-agent AI review; it changes no asset, spend authority or backing rule.
 No hidden inflation, rounding creation, or negative-value behavior is permitted.
 
 ## I-3: Authorization

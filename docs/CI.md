@@ -70,3 +70,17 @@ hash-recorded measurements in [the package](../poc/shielded-design/README.md).
 Cache fallback is per component/toolchain/native pin; locked dependency resolution
 and normal Cargo source checks still apply after restoration. No model/proof test
 is native funding, an independent recovery run or proof of financial privacy.
+
+The same model discovery now runs 80 tests: 24 original model, 18 R01–R04
+recovery, 14 [R05/R06 continuation](../poc/shielded-design/TRANSITIONS.md) and
+10 [R07 paid-claim/terminal-drain](../poc/shielded-design/PAYOUTS.md) tests, plus
+14 [R08–R16 offline programme](../poc/shielded-design/PROGRAMME.md) tests.
+They cover versioned backups, fresh-process restoration and continuation,
+missing/substituted histories, current spentness, both credit/refund race orders,
+authority/amount/domain controls, paid-claim replay, both terminal payment orders,
+output overflow, model fork replacement, real process-kill/competing-writer
+controls, view-only inspection, local archive replacement, secret canaries and
+private output handling. All acceptance/completeness claims
+are relative to a
+separately trusted model checkpoint; CI authenticates no Kaspa/proof state and
+cannot close the real N-user shutdown/payout gate.

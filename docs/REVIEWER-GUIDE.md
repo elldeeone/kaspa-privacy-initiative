@@ -15,6 +15,20 @@ especially owner authorization, hidden-value conservation, nullifier domains,
 private witness handling and native exit backing. No production architecture is
 selected. AI-assisted review is not independent human review.
 
+The [2026-10-18 source-to-specification map](shielded-spec-code-review-2026-10-18.md)
+identifies the current enforcing layers and eight work gaps. Its
+[recovery test design](shielded-recovery-test-design.md) gives concrete proposed
+cases and expected accounting. [R01–R04](../poc/shielded-design/RECOVERY.md),
+[R05/R06](../poc/shielded-design/TRANSITIONS.md) and
+[R07](../poc/shielded-design/PAYOUTS.md) now have bounded offline model coverage;
+real-proof/native acceptance requirements remain open.
+
+The subsequent [R08–R16 programme](../poc/shielded-design/PROGRAMME.md) adds 14
+offline tests (80 total) and a separate three-user process rehearsal. Review
+trusted fork replacement, single-host atomic publication and unknown-intent
+handling against ADR-0014. The report explicitly leaves every full proof/native
+gate open; R13 and R16 are model controls/rehearsal only.
+
 The A0/A1 source tasks below remain useful historical control reviews. They are
 not instructions to repeat completed trials or substitute A1 for a privacy pool.
 

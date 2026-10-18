@@ -1,0 +1,168 @@
+{
+  "status": "AI_DESIGN_AND_OFFLINE_CODE_REVIEWED_NOT_ACCEPTED_PAYMENT_SUITE",
+  "date": "2026-10-18",
+  "nativeAsset": "KAS",
+  "amountUnit": "integer sompi",
+  "noteValueBits": 64,
+  "balanceAccumulatorBits": 128,
+  "actionSlots": 2,
+  "orchard": {
+    "repository": "https://github.com/zcash/orchard",
+    "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+    "version": "0.16.0",
+    "noteVersion": "V2 only",
+    "features": [
+      "std",
+      "zeroize"
+    ],
+    "halo2CircuitEnabled": false,
+    "treeDepth": 32,
+    "encryptedIncomingNoteBytes": 580,
+    "ephemeralKeyBytes": 32,
+    "outgoingCiphertextDelivered": false,
+    "licenseChoice": "MIT"
+  },
+  "pythonReference": {
+    "repository": "https://github.com/zcash/zcash-test-vectors",
+    "commit": "78321beacb0e0477e33cd002b56585a107c2708c",
+    "licenseChoice": "MIT"
+  },
+  "intent": {
+    "specification": "docs/rfc/0004-private-payment-suite-and-encoding.md",
+    "tagAscii": "KPI/private-payment/intent/v1",
+    "digest": "SHA256",
+    "integerByteOrder": "little",
+    "scriptBytesMin": 1,
+    "scriptBytesMax": 10000,
+    "structuralCodecIsAuthority": false
+  },
+  "proposedWalletBackend": "RISC Zero 3.0.3; full generic wallet relation; four genuine RTX3070 receipts, saved CPU verification and own-backup restore passed offline",
+  "locks": {
+    "primitive-vectors": {
+      "sha256": "dd6524f6305c2284fc6c1fc3d5523448b3151f0dbe12ef90f3d8b6b8eb1c6ccd",
+      "riscZeroVersions": {
+        "risc0-binfmt": "3.0.4",
+        "risc0-build": "3.0.5",
+        "risc0-circuit-keccak": "4.0.5",
+        "risc0-circuit-recursion": "4.0.4",
+        "risc0-circuit-rv32im": "4.0.4",
+        "risc0-core": "3.0.1",
+        "risc0-groth16": "3.0.4",
+        "risc0-zkos-v1compat": "2.2.2",
+        "risc0-zkp": "3.0.4",
+        "risc0-zkvm": "3.0.3",
+        "risc0-zkvm-platform": "2.2.2"
+      }
+    },
+    "primitive-probe-guest": {
+      "sha256": "07487b8a8d36536043914dd3eac494cc84dff00d19589c146ded23fc8334c8f2",
+      "riscZeroVersions": {
+        "risc0-binfmt": "3.0.4",
+        "risc0-circuit-keccak": "4.0.5",
+        "risc0-circuit-recursion": "4.0.4",
+        "risc0-circuit-rv32im": "4.0.4",
+        "risc0-core": "3.0.1",
+        "risc0-groth16": "3.0.4",
+        "risc0-zkos-v1compat": "2.2.2",
+        "risc0-zkp": "3.0.4",
+        "risc0-zkvm": "3.0.3",
+        "risc0-zkvm-platform": "2.2.2"
+      }
+    },
+    "recovery-auth-vectors": {
+      "sha256": "66e506287307fed43ed7fe9ce6dbb0bf20e95239494c11992d46e66682a3a284"
+    }
+  },
+  "acceptedWalletProgramImage": null,
+  "acceptedOuterProgramImage": null,
+  "acceptedProofSuiteId": null,
+  "acceptedVerifierControlIds": null,
+  "privateWitnessPacking": {
+    "status": "OFFLINE_IMPLEMENTED_FOUR_WALLET_RECEIPTS_VERIFIED",
+    "specification": "docs/rfc/0004-private-payment-suite-and-encoding.md#candidate-private-witness-packing-for-review",
+    "implementation": "poc/private-payment/wallet-core/src/codec.rs"
+  },
+  "nativeDepositDescriptorEncoding": null,
+  "recoverySignature": {
+    "candidate": "plain Ed25519; canonical prime-order A/R; canonical S; strict verification",
+    "implementation": "ed25519-dalek 2.2.0; curve25519-dalek 4.1.3",
+    "upstreamReleaseCommit": "8016d6d9b9cdbaa681f24147e0b9377cc8cef934",
+    "qualification": "FULL_OFFLINE_WALLET_GUEST_AND_PUBLIC_LIBRARY_INTEROP_VERIFIED_NOT_NATIVE_AUTHORITY",
+    "nativeKeyToOutpointBinding": null,
+    "refundMessageEncoding": null,
+    "publicAuthorizationEnvelopeBinding": {
+      "status": "FULL_OFFLINE_WALLET_JOURNAL_AND_HOST_ENFORCED_NOT_PROVED_OUTER",
+      "canonicalBytes": "CREDIT=01||signature64; TRANSFER/EXIT=00",
+      "digest": "SHA256(raw ASCII KPI/private-payment/authorization/v1 || canonical_auth_bytes)",
+      "walletJournalFinalField": "authorization_digest[32]",
+      "guestAndOuterEnforcementImplemented": false,
+      "guestEnforcementImplemented": true,
+      "offlineHostAdmissionImplemented": true,
+      "provedOuterEnforcementImplemented": false
+    },
+    "curveReleaseCommit": "5312a0311ec40df95be953eacfa8a11b9a34bc54"
+  },
+  "independentCompositionReview": {
+    "status": "EXTERNAL_REVIEW_NOT_AVAILABLE",
+    "reviewer": null
+  },
+  "gates": {
+    "P1": "OFFLINE_DESIGN_AND_WALLET_REVIEW_NATIVE_BINDING_BOOTSTRAP_AND_EXTERNAL_AUDIT_OPEN",
+    "P2": "FOUR_REAL_OFFLINE_GPU_RECEIPTS_AND_OWN_BACKUP_RESTORE_PASSED_NOT_NATIVE_QUALIFICATION",
+    "P3_R13": "NO_FULL_PRIVATE_OUTER_RECEIPT",
+    "P4": "NO_PRIVATE_NATIVE_REHEARSAL",
+    "P5_R16": "NO_INDEPENDENT_PRIVATE_NATIVE_SHUTDOWN"
+  },
+  "mainnet": false,
+  "realFunds": false,
+  "diagnosticOnly": {
+    "primitiveProgramImage": "3a1adac4403b65acff144d7eb76296fab3504c010a89cd32fcd1f4533b15683e",
+    "provenOnLocalRtx3070": true,
+    "authorizesPayments": false,
+    "result": "poc/private-payment/RESULTS.md"
+  },
+  "separateAgentDesignReview": {
+    "status": "OFFLINE_DESIGN_FINDINGS_CLOSED",
+    "reviewer": "/root/crypto_composition_review",
+    "freshContext": true,
+    "sharedModelPlatformHost": true,
+    "scope": "UNFUNDED_OFFLINE_RESEARCH_ONLY",
+    "externalAudit": false,
+    "originalInputManifest": "original-inputs/manifest.json in evidence/2026-10-18-agent-composition-review.tar.gz",
+    "findings": [
+      "C1 public authorization binding",
+      "C2 generic guest and outer immutable policy",
+      "C3 genesis allowed anchor",
+      "C4 explicit boundary conservation invariant"
+    ],
+    "result": "poc/private-payment/REVIEW-RESULTS.md",
+    "focusedReport": "poc/private-payment/reviews/2026-10-18/focused-rereview.md",
+    "invariantAppliedSha256": "35e180449636d24abe40a117fc291f6b897d1592fcdaa43ba795a40a4ca55331",
+    "walletOrNativeImplementationQualified": false
+  },
+  "offlineWalletPrototype": {
+    "status": "FOUR_REAL_GPU_RECEIPTS_CPU_VERIFICATION_AND_RESTORE_PASSED",
+    "specification": "docs/adr/0020-offline-wallet-relation.md",
+    "documentation": "poc/private-payment/WALLET.md",
+    "guest": "poc/private-payment/wallet-guest",
+    "relation": "poc/private-payment/wallet-core",
+    "actualBuiltWalletImage": "7461de1c1231e61823431d4800d70f1d8378cf7722b195e82321a028151b2ade",
+    "policyAndDeposits": "EXPLICIT_SYNTHETIC_FIXTURES",
+    "nativeBackingAuthenticated": false,
+    "provedOuterImplemented": false,
+    "receiptEncoding": "bincode 1.3.3; canonical deserialize/serialize byte equality; succinct only; default verifier context; no dev mode or unresolved assumptions",
+    "genuineWalletReceipts": 4,
+    "isolatedOwnBackupRestores": 8,
+    "results": "poc/private-payment/WALLET-RESULTS.md",
+    "evidenceManifest": "poc/private-payment/evidence/2026-10-18-offline-wallet.json",
+    "separateAgentRuntimeReview": {
+      "status": "PASS_BOUNDED_OFFLINE_PROFILE",
+      "report": "poc/private-payment/reviews/offline-wallet-2026-10-18/final-runtime-review.md",
+      "externalAudit": false,
+      "sharedModelPlatformHostAndVerifier": true,
+      "privateRestoresIndependentlyRerun": false,
+      "nonblockingTypedJournalPrecondition": "W3"
+    }
+  },
+  "acceptedArtifactFieldsScope": "Native-pool acceptance remains unqualified; actual offline built image is recorded under offlineWalletPrototype."
+}

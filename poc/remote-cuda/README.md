@@ -6,6 +6,18 @@ merged as `e7ea15e8009b8f6ef3aaa34b3cec17fbfc3eb5cd`. No GPU has been rented,
 no provider account has been accessed and no CUDA execution is claimed by this
 preparation. Follow [START.md](START.md) before a later paid deployment.
 
+**Local follow-up, 2026-10-18:** a separate owner-authorized RTX 3070/sm86
+experiment has [measured results](LOCAL-RESULTS.md) and a
+[reproduction guide](LOCAL.md). Segment proving exceeds 8GB; GPU lift/lift/join
+of retained CPU segment inputs succeed with verified receipts. The original
+five-GPU-phase gate and remote L40S path remain unqualified. No rental or funds
+were used in the local work.
+
+The subsequent owner-authorized [smaller-segment experiment](../gpu-segments/RESULTS.md)
+now proves the complete proxy classifier on the same card in 7m36s. It changes
+segmentation, preserves the original image/input/journal and receives independent
+CPU verification. This does not relabel the original five-phase experiment.
+
 The owner identified the Linux VPS previously used for A1 role B (S0/S1 recovery)
 as the candidate independent watchdog host. Its current access, available storage,
 HTTPS connectivity and systemd installation still require inspection. Preparation

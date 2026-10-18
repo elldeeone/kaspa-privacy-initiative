@@ -2,6 +2,28 @@
 
 - [model-cycle.json](model-cycle.json): simulated Alice/Bob principal lifecycle
   and separate permission-rent funding; not a chain payout or cryptographic test.
+- [offline-recovery.json](offline-recovery.json): synthetic three-user fresh-process
+  restore results and source hashes for R01–R04, under a separately trusted model
+  checkpoint. No private backups/reports, ZK verification or native recovery.
+  Its exact public [records](offline-recovery-records.json) and reference
+  [checkpoint](offline-recovery-checkpoint.json) are retained for replay; the
+  result records their byte lengths and SHA-256 hashes. No private seeds included.
+- [offline-transitions.json](offline-transitions.json): historical R05/R06 results,
+  source hashes and six fresh continuation processes using Python `-O`. Both
+  credit/refund orders preserve backing; no refund is paid. It hashes the retained
+  public final records/checkpoint pairs for R05, credit-first and refund-first.
+  No backups or private reports are published. The earlier 42-test report above
+  remains historical evidence; the extension records 56 passing tests.
+- [offline-payouts.json](offline-payouts.json): R07 paid-claim/terminal-drain
+  results and current source hashes; 66 tests and 14 fresh continuation/audit
+  processes. It hashes public fee-last, user-last and fee-free terminal histories
+  and checkpoints. Payments are synthetic effects; native payouts remain zero.
+  The earlier 42-test and 56-test artifacts remain unchanged.
+- [offline-programme.json](offline-programme.json): current R08–R16 bounded
+  offline results, 80 passing tests and a separate three-user process rehearsal.
+  It hashes the public terminal [records](offline-programme-records.json) and
+  [checkpoint](offline-programme-checkpoint.json). Private test logs/backups/
+  wallet reports are excluded. Every full proof/native gate remains false.
 - [source-review.json](source-review.json): dated upstream refs, selected file
   hashes, bounded retrieval failures and code-rights boundary. Restricted source
   files are not redistributed.

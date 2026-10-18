@@ -1,0 +1,11 @@
+[package]
+name = "kpi-orchard-primitive-probe"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+orchard = { git = "https://github.com/zcash/orchard", rev = "616a669df8c9a59c33d47064d3ce04b25d026b2e", default-features = false, features = ["std", "zeroize"] }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["std", "disable-dev-mode"] }
