@@ -16,7 +16,7 @@ from common import lease_check
 from package import checked_archive
 from service import App, Job, handler, ThreadingHTTPServer
 from watchdog import Guard, serve, save_archive
-from common import sha, json_request
+from common import sha, json_request, request, NoRedirect
 import worker
 
 TOKEN = 'unit-test-token-not-a-credential-000000000'
@@ -32,6 +32,50 @@ def lease():
 
 
 class Remote(unittest.TestCase):
+    def test_live_provider_schema_and_strict_transport(self):
+        from provider import provider_request, created_unix
+        expected = 1792322028.199
+        self.assertEqual(created_unix('2026-10-18 11:13:48.199 +0000 UTC'), expected)
+        self.assertEqual(created_unix('2026-10-18T11:13:48.199Z'), expected)
+        self.assertEqual(created_unix(expected), expected)
+        opener = unittest.mock.Mock()
+        opener.open.return_value = io.BytesIO(json.dumps({
+            'machine': {'gpuTypeId': 'NVIDIA L40S'}}).encode())
+        with patch('provider.urllib.request.build_opener', return_value=opener) as build:
+            result = provider_request('https://rest.runpod.io/v1/pods/unittest123', 'test-only')
+            self.assertEqual(result['gpuTypeId'], 'NVIDIA L40S')
+            sent = opener.open.call_args.args[0]
+            self.assertEqual(sent.full_url, 'https://rest.runpod.io/v1/pods/unittest123?includeMachine=true')
+            self.assertEqual(sent.get_header('User-agent'), 'kpi-remote-cuda/1.0')
+            self.assertEqual(opener.open.call_args.kwargs, {'timeout': 10})
+            self.assertIsInstance(build.call_args.args[0], NoRedirect)
+            with self.assertRaises(AssertionError):
+                provider_request('https://rest.runpod.io/v1/pods/unittest123?arbitrary=yes', 'test-only')
+        opener.open.return_value = io.BytesIO(b'{"gpuTypeId":"OTHER","machine":{"gpuTypeId":"NVIDIA L40S"}}')
+        with patch('provider.urllib.request.build_opener', return_value=opener):
+            with self.assertRaises(AssertionError):
+                provider_request('https://rest.runpod.io/v1/pods/unittest123', 'test-only')
+
+    def test_application_headers_keep_auth_timeout_and_redirect_refusal(self):
+        opener = unittest.mock.Mock()
+        opener.open.return_value = io.BytesIO(b'{}')
+        with patch('common.urllib.request.build_opener', return_value=opener) as build:
+            self.assertEqual(request('https://rest.runpod.io/v1/pods', 'test-only'), b'{}')
+            sent = opener.open.call_args.args[0]
+            headers = {k.lower(): v for k, v in sent.header_items()}
+            self.assertEqual(headers['user-agent'], 'kpi-remote-cuda/1.0')
+            self.assertEqual(headers['accept'], 'application/json')
+            self.assertEqual(headers['authorization'], 'Bearer test-only')
+            self.assertEqual(headers['content-type'], 'application/json')
+            self.assertEqual(opener.open.call_args.kwargs, {'timeout': 10})
+            redirect = build.call_args.args[0]
+            self.assertIsInstance(redirect, NoRedirect)
+            self.assertIsNone(redirect.redirect_request(sent, None, 302, 'redirect', {},
+                                                       'https://other.example/'))
+            with self.assertRaises(AssertionError):
+                request('http://rest.runpod.io/v1/pods', 'test-only')
+            self.assertEqual(opener.open.call_count, 1)
+
     def test_bootstrap_binds_one_lease_to_the_actual_pod(self):
         with tempfile.TemporaryDirectory() as directory:
             rental = lease()

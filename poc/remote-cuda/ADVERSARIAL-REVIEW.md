@@ -20,7 +20,27 @@ No reserve, spend, nullifier, circuit, guest or settlement rule changes.
 
 Local HTTP/provider tests use explicit mocks and cannot establish live HTTPS,
 provider schema, persistence, CUDA use, shutdown reliability or production security.
-The existing B recovery VPS is the owner's candidate guard host, not a new
-independent operator network. Inspect it without touching old recovery secrets or
-restarting its services. Actual deployment requires an image digest, live network
-and credential configuration, quote, guard connectivity and provider read-back.
+The former B recovery VPS now hosts the disabled guard; see [B-GUARD.md](B-GUARD.md).
+This is not a new independent operator network. The management gateway is not a
+runtime dependency: lease, code, timer, backups and later credentials reside on B.
+B-root administrators remain trusted and can read files or change the service;
+SSH restrictions do not provide privacy from them. Old recovery secrets were not
+inspected and old services were not restarted. Live rental deployment still
+requires credentials, quote, real lease, direct HTTPS and provider read-back.
+
+The later `qualify_guard.py` host rehearsal supplies explicit fake provider and
+artifact callbacks to every guard instance. It uses a fresh output directory and
+separate Python processes, records source hashes and labels both simulated time
+and provider stop. A subprocess failure prevents the final success report. It
+does not read credentials, reboot the host or establish live rental protection.
+The clean-runner packaging fix creates missing parents only; it retains refusal
+to reuse an existing output directory and all fixture/hash/CPU-receipt checks.
+
+The application User-Agent maintenance adds only honest client identification
+and a JSON Accept header; it preserves authentication, TLS-only URLs, redirect
+refusal and time/size bounds. The focused regression checks the request object
+with a mocked opener, never the real account credential. Current B source is
+bound to its new hash; the prior published image remains bound to its original
+source and digest. Its unused outbound-request helper is not a reason to rebuild
+or weaken image/source checks. The owner's real read-only GET result is recorded
+as owner-reported evidence and does not qualify provider stop/write privileges.

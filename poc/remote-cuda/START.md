@@ -1,8 +1,13 @@
 # Later deployment checklist and commands
 
-Preparation only. Do not rent until the image is pullable and the independent
-guard host and credential/network paths are ready. No command below is run by
-creating or reviewing this PR.
+Historical preparation checklist; live activation on 2026-10-18 is recorded in
+[B-GUARD.md](B-GUARD.md#live-lease-activation--2026-10-18). The separately authorized five-partial-proof GPU qualification has now completed;
+see `evidence/gpu-qualification-2026-10-18`.
+Do not rent until the image is pullable and the independent
+guard host and credential/network paths are ready. B host installation and the
+credential-free checks are complete; see [B-GUARD.md](B-GUARD.md). The owner has since created Pod `qaxhwjd6e1b4bg`; its lease and B guard are now
+complete, and the provider now reports EXITED after successful qualification.
+References below to pending activation describe the earlier preparation state.
 
 ## Before the rental clock starts
 
@@ -15,23 +20,67 @@ creating or reviewing this PR.
    a reviewed revision to GHCR using GitHub's job token. Record its registry
    digest, not just a mutable tag. Make it publicly pullable or configure a
    read-only registry pull credential in RunPod. Do not assume package visibility.
-   This preparation has not published a registry image.
+   The published build and checked immutable reference are recorded in
+   [PREPARATION.md](PREPARATION.md); use that digest for the planned qualification.
    Alternatively, push an explicit `cuda-qualification-*` tag on the reviewed
    revision to run the same build/publication. Publication pulls the immutable
    digest back from GHCR and repeats the CPU-only container checks. An
    authenticated CI pull does not establish anonymous/public package access.
-3. Inspect the owner's existing Linux VPS that held A1 recovery role B. It needs
-   Python 3.10+, systemd, synchronized time, durable free space for checkpoints
+3. The owner-confirmed former role-B VPS is `vmi3641034.contaboserver.net`
+   (`13.140.166.15`), distinct from the TN10/gateway
+   `vmi3633138.contaboserver.net` (`194.163.162.11`). Cloud verified this existing
+   management route, without a new secret, VPN or network rule:
+
+   ```bash
+   VPS_ADMIN_TOKEN="$TN10_RPC_TOKEN" node .local/codex-cloud-tn10/admin/vps-exec.mjs --command '/usr/local/bin/kpi-b-ssh hostname -f'
+   ```
+
+   Require remote exit 0 and B's FQDN. The owner-provided wrapper uses the pinned
+   SSH binding and a key stored only on TN10; never read/copy that private key.
+   This route is for administration only. The installed guard runs independently
+   on B and needs no Cloud, TN10 gateway or laptop after later activation.
+   B needs Python 3.10+, systemd, synchronized time, durable free space for checkpoints
    and outbound HTTPS to `rest.runpod.io` and the eventual exact Pod proxy host.
    It needs no GPU or CUDA. Keep old trial data, keys and services unchanged.
-4. Copy `common.py`, `watchdog.py`, `make_lease.py` to `/opt/kpi-remote-cuda` on
-   that VPS; create a dedicated `kpi-cuda-guard` service user and
-   `/var/lib/kpi-cuda-guard`. Install `kpi-cuda-guard.service`. A root-owned
-   mode-0600 `/etc/kpi-cuda-guard.env` supplies `RUNPOD_API_KEY` and
-   `KPI_GPU_TOKEN` through the operator's credential mechanism. Never paste their
+4. The following installation is already complete on B; do not overwrite it
+   or create a second executor. `common.py`, `provider.py`, `watchdog.py`, `make_lease.py` are
+   in `/opt/kpi-remote-cuda` on B. The dedicated `kpi-cuda-guard` service user,
+   `/var/lib/kpi-cuda-guard` and disabled `kpi-cuda-guard.service` are prepared.
+   A root-owned mode-0600 `/etc/kpi-cuda-guard.env` is reserved for later
+   `RUNPOD_API_KEY` and `KPI_GPU_TOKEN` provisioning through the operator's
+   credential mechanism. The operator now reports the account credential is
+   provisioned there; do not read/print it. Confirm the scoped service token
+   separately before later activation. Code/unit files are root-owned `0644`, the code
+   directory is `0755`, and service-owned state is `0750`; the unit preserves
+   `StateDirectoryMode=0750` on later activation. Never paste credential
    values into a chat, Git, a unit file, command arguments or uploaded artifacts.
    Enable service startup/restart after the real lease is written. A missing
    lease must not be replaced by a guessed Pod identity.
+   The installed `qualify_guard.py` has passed on B using a credential-free test
+   environment and no real lease. To repeat it later, run as the dedicated service user with a
+   **new** output directory on the intended state filesystem:
+
+   ```bash
+   python3 /opt/kpi-remote-cuda/qualify_guard.py /var/lib/kpi-cuda-guard/recovery-qualification
+   ```
+
+   This uses separate Python processes to reproduce a truncated saved copy,
+   repair it and recheck it after another process restart. All provider responses
+   and the 60-second clock advance are simulated; it does not reboot the host,
+   contact RunPod or prove a live provider stop. Retain `qualification.json` and
+   run the existing control tests on the host to check backup-failure deadlines.
+   Their support files `test_remote.py`, `service.py`, `worker.py` and
+   `package.py` are already installed beside the guard. To repeat them later as
+   the dedicated service user, set `TMPDIR` to
+   a writable qualification subdirectory on the state filesystem and run:
+
+   ```bash
+   PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s /opt/kpi-remote-cuda -p test_remote.py -v
+   ```
+
+   These fourteen tests include the application-header regression and use
+   simulated jobs/provider responses and a short local
+   process timeout; they do not start a proof, use a GPU or call RunPod.
 5. Generate a fresh scoped service token through a secret manager (32+ ASCII
    characters). Inject the same `KPI_GPU_TOKEN` into the Pod and guard; configure
    Codex's scoped credential separately. Keep the RunPod account API key only

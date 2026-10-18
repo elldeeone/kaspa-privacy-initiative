@@ -83,9 +83,9 @@ These were compiler/build attempts, not GPU proof attempts or cryptographic
 rejections. The independent repository CPU verifier remains on Rust 1.91.
 
 The public package and image can be regenerated with [START.md](START.md).
-The image still requires reviewed registry publication and a pull check before
-rental. BuildKit's source/target caches and the local image are preparation
-artifacts, not a connection to a GPU provider.
+The original image above is a local preparation build. The separately rebuilt
+and published image is identified below. BuildKit's source/target caches and the
+local image are preparation artifacts, not a connection to a GPU provider.
 
 ## Current Cloud and independent host
 
@@ -96,16 +96,141 @@ provider account identity or GPU device. None was added for this preparation.
 The official environment skill documents proxy credential injection; use the
 configured scoped variable normally even if its value is a proxy placeholder.
 
-The owner identified the former A1 role-B Linux VPS as the proposed independent
-guard host. Its availability was reported by the owner, not established through
-a new login or installation. This preparation leaves it unchanged.
+On 2026-10-17 the former role-B VPS was only an owner-proposed candidate.
+On 2026-10-18 its separate identity, Cloud management route, installation and
+focused host qualifications were established as recorded below.
+
+After PR #41 merged at `c2037893936508d6d61dcb9ee78aea6ba4515aab`, the
+explicit `cuda-qualification-20261017-pr41` tag started
+[publication run 39067028926](https://github.com/olafweller/kaspa-privacy-initiative/actions/runs/39067028926).
+That first run stopped before the CUDA build because the clean runner lacked
+the public package output's parent directory. The CPU build and actual five-seal
+comparison had passed. `package.py` now creates missing parent directories while
+still refusing to overwrite an existing output directory. Its full local run
+against a fresh nested output succeeded. The initial tag is retained unchanged;
+publication must use a new explicit tag for this correction. Starting a build is
+not evidence of publication by itself.
+
+## Published image and independent Cloud pull
+
+The replacement [run 39067230794](https://github.com/olafweller/kaspa-privacy-initiative/actions/runs/39067230794)
+completed successfully from revision `81f2b90c7bc3aaddd44fecda222bb5d6de731616`,
+tagged `cuda-qualification-20261017-pr41-r2`. The immutable deployment reference is:
+
+```text
+ghcr.io/olafweller/kaspa-privacy-initiative/cuda-qualification@sha256:df8e68263f85a8d89a8fb2365d78c795b0010d35cb35d6ddc1f740d3020b7743
+```
+
+This rebuild preserves the pinned RISC Zero source/configuration, three service
+source hashes, classifier image, fixture bytes and expected CPU claims. Its
+actual prover binary SHA-256 is
+`4447bbfa89b450611deda80825387d48cce6d23b428310ac45662f5c65f1cbcb`,
+and its image ID is
+`sha256:416b30c4f57156016f46568a0ebcb2f73a2fc4af30b1868131a3511fce9c9912`.
+These are the published build's identities, distinct from the earlier local
+build. The builder step took 1,086.2 seconds; Cargo reports 17 minutes 15 seconds.
+
+The publication job pulled this exact digest back and repeated the CPU-only
+container checks. Cloud independently confirmed anonymous registry access and
+the returned digest, downloaded the image and repeated those checks. Source and
+binary hashes, authentication, lease binding, unguarded-start refusal and
+non-driver libraries passed. The real five retained CPU receipts were verified
+during packaging and image construction. See `evidence/publication.json`,
+`published-image-smoke.json`, `cloud-registry-access.json` and
+`cloud-published-image-smoke.json`. `published-policy-comparison.json` also
+checks the image's actual input files against the original package's hashes
+and confirms the independently expected program and claims are unchanged.
+These are build/transport/CPU results;
+`gpuExecutionQualified` remains false and no proof job was started.
+
+## Guard source versus published image
+
+The operator's B-side application-header fix is now preserved in Git:
+`common.py` has SHA-256
+`5ed5815ae1177f5915852477d270110f3768bd6b61ff5ebd5833b62526e549c3`.
+Only `User-Agent: kpi-remote-cuda/1.0` and `Accept: application/json` were added
+to requests. TLS-only URLs, Authorization, Content-Type, redirect refusal,
+timeouts and response limits are unchanged. B's runtime was already patched;
+Codex checked its bytes/hash and did not overwrite it or open the credential
+file. The original B backup remains available.
+
+The published image is an **unchanged, separately established artefact** from
+`81f2b90c7bc3aaddd44fecda222bb5d6de731616`. Its `common.py` correctly retains
+`841a0670ec027616cab4d6c0c9cd2a7ce842322489319dfde5062b6638da0a83`.
+Its service imports only `atomic`/`lease_check`, and its worker imports only
+`atomic`/`sha`; neither uses `request`/`json_request` to access RunPod. The actual
+provider client is on B. Service/worker sources, classifier/fixture/claim
+bindings, prover identity and all prior image manifests/evidence remain intact.
+No image rebuild, tag movement or republication was performed for this fix.
+
+`check_image.py` remains strict: by default it compares against source files
+beside the checker. Running the current checker/source bundle on the earlier
+image will therefore reject its old `common.py`. That is an expected source
+version mismatch, not permission to waive checks or relabel the old manifest.
+If another CPU-only check of the published image is needed, use the matching
+historical source bundle, for example:
+
+```bash
+task_image_sources=$(mktemp -d .local/published-image-source.XXXXXX)
+git archive 81f2b90c7bc3aaddd44fecda222bb5d6de731616 poc/remote-cuda/check_image.py poc/remote-cuda/common.py poc/remote-cuda/service.py poc/remote-cuda/worker.py | tar -x -C "$task_image_sources"
+python3 "$task_image_sources/poc/remote-cuda/check_image.py" ghcr.io/olafweller/kaspa-privacy-initiative/cuda-qualification@sha256:df8e68263f85a8d89a8fb2365d78c795b0010d35cb35d6ddc1f740d3020b7743
+```
+
+This recipe uses reviewed Git source, not an untrusted result archive. A future
+new image built from current source needs its own new identities/evidence;
+it must not silently replace the existing digest. The maintenance's
+[binding audit](evidence/b-header-maintenance-2026-10-18/artifact-bindings.json)
+checks these distinctions without running/rebuilding an image.
+
+## Independent host preparation
+
+A new read-only check reached the already configured Contabo host: Python
+3.12.3, systemd 255, synchronized time, approximately 826.7 GB available under
+`/var/lib`, and the existing `kpi-tn10` service active. No guard was installed,
+no existing service was restarted and no trial credentials were inspected.
+This was the TN10/gateway, not B. The owner subsequently confirmed the separate
+B identity and supplied its existing pinned SSH management wrapper on TN10.
+
+`qualify_guard.py` provides a credential-free, simulated-provider recovery test
+across three separate Python processes on the selected filesystem. Its Cloud
+run passed, as recorded in `evidence/cloud-process-restart.json`; this is not a
+B-VPS run, a host reboot, a live provider stop or a CUDA result.
+
+On 2026-10-18 the Cloud -> TN10 HTTPS/WSS -> `kpi-b-ssh` route returned exit 0
+and `vmi3641034.contaboserver.net`. B was inspected before installation: Python
+3.12.3, systemd 255, synchronized time and 85,807,165,440 free bytes on local
+ext4. The eight Python files and separate systemd unit were installed from
+`0ed4cb0b465f863f03b06ab3ef102234528996bc`; unit validation passed. No private-key
+contents or old wallet/credential files were inspected or copied.
+
+The recovery rehearsal and thirteen control tests then passed on B as
+`kpi-cuda-guard` (UID 995/GID 986), with new temporary/test directories on the
+actual `/var/lib` device. The repaired archive has the correct 51-byte size and
+SHA-256; restart/grace reuse, same-size corruption, rename failure, backup-failure
+deadlines and stalled-request deadlines passed. All provider/job responses were
+simulated. The unit is loaded but **disabled/inactive**, PID 0; no production
+lease exists and the root-only environment file contains no credentials supplied
+by this task. All 38 prior B KPI unit states/PIDs and the gateway's active TN10
+PID 43275 are unchanged. See [B-GUARD.md](B-GUARD.md) and
+`evidence/b-guard-2026-10-18/` for the installation, hashes, permissions, test logs
+and before/after snapshots. The published CUDA image is unchanged.
+
+The later operator header fix and reported real read-only GET are documented in
+[B-GUARD.md](B-GUARD.md#application-header-maintenance). Codex then confirmed B's
+patched source, retained the original backup, added a targeted transport regression
+and repeated **14/14 tests plus recovery** as the service user on B's state
+filesystem. The account-key file was not opened; the test environment contained
+no account key. The HTTP 200/zero-Pods result is owner-reported and was not
+repeated by Codex. Current maintenance evidence is separate from the initial
+installation snapshots; the unit remains disabled/inactive with no real lease.
 
 ## Not established
 
-No paid resource, provider key, live RunPod API/proxy request, GPU driver test,
-CUDA kernel execution, GPU speedup, actual VRAM peak, provider stop/persistence
-test or bill exists for this package. No full classifier receipt was attempted.
-The image still needs publication by digest and a pull check before rental.
-Connection/credential checks, independent guard installation and live provider
-schema/read-back remain deployment gates. Research receipts alone do not
+No paid resource, real lease, provider mutation, GPU driver test, CUDA kernel
+execution, GPU speedup, actual VRAM peak, provider stop/persistence test or bill
+exists for this package. The owner reports an account key stored only on B and a
+successful read-only Pods-list request, which does not establish stop/write
+rights. No full classifier receipt was attempted. Actual Pod-specific REST/proxy
+checks, scoped-token configuration, real-lease activation and live provider
+stop/read-back remain deployment gates. Research receipts alone do not
 establish a financial privacy protocol or production readiness.
