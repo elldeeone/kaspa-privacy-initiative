@@ -1,0 +1,38 @@
+{
+  "case": "exit",
+  "command": [
+    "timeout",
+    "--signal=KILL",
+    "3210",
+    "taskset",
+    "-c",
+    "0,1,2,3",
+    "/tmp/kpi-upstream-repro-run/host-target/release/kpi-private-native-proof",
+    "prove",
+    "exit",
+    "/tmp/kpi-upstream-repro-run/trusted/inputs",
+    "/home/luke/projects/kaspa-privacy-initiative/poc/upstream-reproduction/evidence/segment19-exit/proof"
+  ],
+  "producerSha256": "655809d25a50b6ec1d1b58f1c90ae722ec15e982d49fb040ae65d8bf0d3c727e",
+  "verifierSha256": "d9ee19513d2ba2b4296e0e9c4199c175ba2d0948b0f130d3df53a5e875415109",
+  "cudaProverSha256": "3f22b68b6d32904fe766e14e62ce011febdc946dd98d015747f40ce5fb5fffc7",
+  "cpuAffinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "threads": 4,
+  "samplingIntervalSeconds": 1,
+  "startUtc": "2026-10-18T23:34:38Z",
+  "devMode": false,
+  "actualTN10Broadcast": false,
+  "privateWitnesses": false,
+  "exitCode": 0,
+  "producerProcessSeconds": 172.56489599100314,
+  "peakSampledSummedRssBytes": 626552832,
+  "peakSampledMatchingVramMiB": 6096,
+  "matchingGpuProcessObserved": true,
+  "receiptSha256": "fb3f00d219d07dda1dc102f0cd97b144a42e3fe5f52b93ae45c8b8ae0043c3ae",
+  "independentCpuVerified": true
+}

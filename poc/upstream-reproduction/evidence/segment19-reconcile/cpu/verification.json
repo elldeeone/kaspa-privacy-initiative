@@ -1,0 +1,28 @@
+{
+  "case": "reconcile",
+  "developmentMode": false,
+  "exactJournalVerified": true,
+  "negativeControls": {
+    "corruptedSealRejected": true,
+    "malformedControlInclusionRejected": true,
+    "tamperedJournalOffsetsRejected": [
+      0,
+      32,
+      64,
+      96,
+      128,
+      160,
+      192,
+      224,
+      256,
+      288,
+      320
+    ],
+    "wrongExpectedControlRejectedBySealVerifier": true,
+    "wrongImageRejected": true
+  },
+  "noUnresolvedAssumptions": true,
+  "programImage": "794cfff4cfa509799ec1f6750678d3fe4bc8623522aa647cc65e6b53955c4bc9",
+  "receiptSha256": "d7e652c3f956681bc7cb5c96e4601bbff7a2075628865c15d830d26a63341ed3",
+  "scope": "INDEPENDENT_FROZEN_LIFECYCLE_RECEIPT_NOT_CANONICAL_TN10"
+}

@@ -1,0 +1,99 @@
+{
+  "scope": "LOCAL_RTX3070_FOUR_FIXED_UPSTREAM_OUTER_SUCCINCT_RECEIPTS_NOT_TN10",
+  "sourceCommit": "2525d804bbd34e8b0f4e6c38153d060f30af617c",
+  "programImage": "794cfff4cfa509799ec1f6750678d3fe4bc8623522aa647cc65e6b53955c4bc9",
+  "joinControl": "7a8f24092c34ed3eb81b3d0a0b796c588c615d3488ef9e61c21dbd1e4b83ea6e",
+  "suiteSecondsIncludingPerBatchCpuChecks": 627.2964846979958,
+  "sharedSecondsAllowance": 3600,
+  "batches": {
+    "deposit": {
+      "directory": "segment19-deposit",
+      "receipt": "segment19-deposit/proof/receipt.bin",
+      "receiptSha256": "24967cd4f960ac2156d5cd6aea05333b5474520fef892df2f13b2631446cbd13",
+      "receiptBytes": 223930,
+      "segmentPo2": 16,
+      "producerProcessSeconds": 27.726777788993786,
+      "proofCompleteSeconds": 27.425408952,
+      "peakSampledMatchingVramMiB": 2926,
+      "peakSampledSummedRssBytes": 502484992,
+      "stats": {
+        "segments": 34,
+        "total_cycles": 2195456,
+        "user_cycles": 551028,
+        "paging_cycles": 674948,
+        "reserved_cycles": 969480
+      },
+      "independentCpuVerified": true
+    },
+    "credit-transfer": {
+      "directory": "segment19-credit-transfer",
+      "receipt": "segment19-credit-transfer/proof/receipt.bin",
+      "receiptSha256": "d553e6c63ca40939640e4be3404706981f3cf76ac7a02aa24f20d48b615e93a6",
+      "receiptBytes": 223930,
+      "segmentPo2": 19,
+      "producerProcessSeconds": 361.5262481180034,
+      "proofCompleteSeconds": 360.846886305,
+      "peakSampledMatchingVramMiB": 6096,
+      "peakSampledSummedRssBytes": 653074432,
+      "stats": {
+        "segments": 202,
+        "total_cycles": 105906176,
+        "user_cycles": 93105559,
+        "paging_cycles": 6776953,
+        "reserved_cycles": 6023664
+      },
+      "independentCpuVerified": true
+    },
+    "exit": {
+      "directory": "segment19-exit",
+      "receipt": "segment19-exit/proof/receipt.bin",
+      "receiptSha256": "fb3f00d219d07dda1dc102f0cd97b144a42e3fe5f52b93ae45c8b8ae0043c3ae",
+      "receiptBytes": 223930,
+      "segmentPo2": 19,
+      "producerProcessSeconds": 172.56489599100314,
+      "proofCompleteSeconds": 171.530153566,
+      "peakSampledMatchingVramMiB": 6096,
+      "peakSampledSummedRssBytes": 626552832,
+      "stats": {
+        "segments": 96,
+        "total_cycles": 50331648,
+        "user_cycles": 43964526,
+        "paging_cycles": 3409989,
+        "reserved_cycles": 2957133
+      },
+      "independentCpuVerified": true
+    },
+    "reconcile": {
+      "directory": "segment19-reconcile",
+      "receipt": "segment19-reconcile/proof/receipt.bin",
+      "receiptSha256": "d7e652c3f956681bc7cb5c96e4601bbff7a2075628865c15d830d26a63341ed3",
+      "receiptBytes": 223930,
+      "segmentPo2": 16,
+      "producerProcessSeconds": 63.659674704998906,
+      "proofCompleteSeconds": 63.406593568,
+      "peakSampledMatchingVramMiB": 2926,
+      "peakSampledSummedRssBytes": 516378624,
+      "stats": {
+        "segments": 79,
+        "total_cycles": 5177344,
+        "user_cycles": 1486804,
+        "paging_cycles": 1390339,
+        "reserved_cycles": 2300201
+      },
+      "independentCpuVerified": true
+    }
+  },
+  "actualTN10Broadcast": false,
+  "funding": false,
+  "newInnerWalletProofs": false,
+  "independentExpertAudit": false,
+  "originalPo220Failure": "CUDA out of memory allocating 1728053248 bytes; no receipt; see original-credit-transfer/stderr.log",
+  "retainedUpstreamReceiptsCpuVerified": 4,
+  "freshReceiptCryptographicNegativeControls": 60,
+  "adaptation": "Official SDK3.0.3 sm_86 CUDA build; one host expression caps original segmentation at 19; fixed program, inputs, journals, verifier and native policy unchanged.",
+  "peakSampledMatchingVramMiB": 6096,
+  "peakSampledSummedRssBytes": 653074432,
+  "totalUserCycles": 139107917,
+  "totalSegments": 411,
+  "newExitReceiptLocalNativeChecksPassed": true
+}

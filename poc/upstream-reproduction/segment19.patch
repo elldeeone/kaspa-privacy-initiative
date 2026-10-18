@@ -1,0 +1,13 @@
+diff --git a/poc/private-native/host/src/bin/proof.rs b/poc/private-native/host/src/bin/proof.rs
+index a844256..bd3eb8b 100644
+--- a/poc/private-native/host/src/bin/proof.rs
++++ b/poc/private-native/host/src/bin/proof.rs
+@@ -335,7 +335,7 @@ fn package(case: &str, dir: &Path) -> Result<(Vec<u8>, Vec<u8>, u32)> {
+     {
+         return Err("fixed public package mismatch".into());
+     }
+-    Ok((program, input, b["segmentPo2"].as_u64().unwrap() as u32))
++    Ok((program, input, (b["segmentPo2"].as_u64().unwrap() as u32).min(19)))
+ }
+ fn main() -> Result<()> {
+     if std::env::var_os("RISC0_DEV_MODE").is_some() {

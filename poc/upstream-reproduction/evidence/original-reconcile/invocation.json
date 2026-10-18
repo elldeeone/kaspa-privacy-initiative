@@ -1,0 +1,31 @@
+{
+  "case": "reconcile",
+  "command": [
+    "timeout",
+    "--signal=KILL",
+    "3600",
+    "taskset",
+    "-c",
+    "0,1,2,3",
+    "/tmp/kpi-upstream-repro-run/trusted/bin/kpi-private-native-producer",
+    "prove",
+    "reconcile",
+    "/tmp/kpi-upstream-repro-run/trusted/inputs",
+    "/home/luke/projects/kaspa-privacy-initiative/poc/upstream-reproduction/evidence/original-reconcile/proof"
+  ],
+  "producerSha256": "d9ee19513d2ba2b4296e0e9c4199c175ba2d0948b0f130d3df53a5e875415109",
+  "verifierSha256": "d9ee19513d2ba2b4296e0e9c4199c175ba2d0948b0f130d3df53a5e875415109",
+  "cudaProverSha256": "3f22b68b6d32904fe766e14e62ce011febdc946dd98d015747f40ce5fb5fffc7",
+  "cpuAffinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "threads": 4,
+  "samplingIntervalSeconds": 1,
+  "startUtc": "2026-10-18T23:26:18Z",
+  "devMode": false,
+  "actualTN10Broadcast": false,
+  "privateWitnesses": false
+}

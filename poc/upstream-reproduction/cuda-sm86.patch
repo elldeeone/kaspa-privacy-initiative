@@ -1,0 +1,20 @@
+--- a/poc/remote-cuda/build_cuda.sh
++++ b/poc/remote-cuda/build_cuda.sh
+@@ -27,7 +27,7 @@
+ test "$(git -C /tmp/risc0 rev-parse HEAD)" = 14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6
+ echo '744b999f0a35b3c86753311c7efb2a0054be21727095cf105af6ee7d3f4d8849  /opt/build/recursion_zkr.zip' | sha256sum --check
+ export RECURSION_SRC_PATH=/opt/build/recursion_zkr.zip
+-export NVCC_APPEND_FLAGS=-arch=sm_89
++export NVCC_APPEND_FLAGS=-arch=sm_86
+ # Upstream's Linux build selects Clang; GCC's generated Keccak CPU kernels
+ # are exceptionally slow to compile. This affects the build, not proof limits.
+ export CC=clang CXX=clang++
+@@ -42,7 +42,7 @@
+ p=Path('/opt/kpi/bin/r0vm-cuda')
+ report={'sourceCommit':'14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6',
+         'sdkVersion':'3.0.3','features':['cuda','disable-dev-mode'],
+-        'nvccFlags':'-arch=sm_89','binarySha256':hashlib.sha256(p.read_bytes()).hexdigest(),
++        'nvccFlags':'-arch=sm_86','binarySha256':hashlib.sha256(p.read_bytes()).hexdigest(),
+         'upstreamCargoLockSha256':hashlib.sha256(Path('Cargo.lock').read_bytes()).hexdigest(),
+         'rustVersion':subprocess.check_output(['rustc','+1.89.0','--version'],text=True).strip(),
+         'nvccVersion':subprocess.check_output(['nvcc','--version'],text=True),

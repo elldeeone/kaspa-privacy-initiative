@@ -1,0 +1,38 @@
+{
+  "case": "credit-transfer",
+  "command": [
+    "timeout",
+    "--signal=KILL",
+    "3572",
+    "taskset",
+    "-c",
+    "0,1,2,3",
+    "/tmp/kpi-upstream-repro-run/host-target/release/kpi-private-native-proof",
+    "prove",
+    "credit-transfer",
+    "/tmp/kpi-upstream-repro-run/trusted/inputs",
+    "/home/luke/projects/kaspa-privacy-initiative/poc/upstream-reproduction/evidence/segment19-credit-transfer/proof"
+  ],
+  "producerSha256": "655809d25a50b6ec1d1b58f1c90ae722ec15e982d49fb040ae65d8bf0d3c727e",
+  "verifierSha256": "d9ee19513d2ba2b4296e0e9c4199c175ba2d0948b0f130d3df53a5e875415109",
+  "cudaProverSha256": "3f22b68b6d32904fe766e14e62ce011febdc946dd98d015747f40ce5fb5fffc7",
+  "cpuAffinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "threads": 4,
+  "samplingIntervalSeconds": 1,
+  "startUtc": "2026-10-18T23:28:36Z",
+  "devMode": false,
+  "actualTN10Broadcast": false,
+  "privateWitnesses": false,
+  "exitCode": 0,
+  "producerProcessSeconds": 361.5262481180034,
+  "peakSampledSummedRssBytes": 653074432,
+  "peakSampledMatchingVramMiB": 6096,
+  "matchingGpuProcessObserved": true,
+  "receiptSha256": "d553e6c63ca40939640e4be3404706981f3cf76ac7a02aa24f20d48b615e93a6",
+  "independentCpuVerified": true
+}
