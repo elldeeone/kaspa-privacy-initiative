@@ -1,0 +1,2869 @@
+{
+  "schema": "kpi-normalization-summary-v1",
+  "regimes": {
+    "sparse": {
+      "paired_ledgers": 32,
+      "arms": {
+        "varied": {
+          "at_withdrawal": {
+            "unique": 0.25,
+            "candidates": 2.9125,
+            "latest_correct": 0.490625,
+            "oldest_correct": 0.459375,
+            "uniform_success": 0.4734375,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 2.9125,
+            "withdrawals": 320,
+            "uniquely_identified": 80,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.490625,
+            "source_accuracy": {
+              "timing": 0.2,
+              "amount": 0.20625000000000002,
+              "joint": 0.33125
+            },
+            "source_candidates_mean": 4.6375,
+            "note_candidates_mean": 9.275
+          },
+          "complete_drain": {
+            "unique": 0.91875,
+            "candidates": 1.08125,
+            "latest_correct": 0.965625,
+            "oldest_correct": 0.953125,
+            "uniform_success": 0.959375,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 1.08125,
+            "withdrawals": 320,
+            "uniquely_identified": 294,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.965625,
+            "source_accuracy": {
+              "timing": 0.2,
+              "amount": 0.20625000000000002,
+              "joint": 0.615625
+            },
+            "source_candidates_mean": 2.20625,
+            "note_candidates_mean": 4.4125
+          }
+        },
+        "gross": {
+          "at_withdrawal": {
+            "unique": 0.06875,
+            "candidates": 3.571875,
+            "latest_correct": 0.321875,
+            "oldest_correct": 0.321875,
+            "uniform_success": 0.32005208333333335,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 3.571875,
+            "withdrawals": 320,
+            "uniquely_identified": 22,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.321875,
+            "source_accuracy": {
+              "timing": 0.2,
+              "amount": 0.2,
+              "joint": 0.265625
+            },
+            "source_candidates_mean": 5.265625,
+            "note_candidates_mean": 10.53125
+          },
+          "complete_drain": {
+            "unique": 0.240625,
+            "candidates": 2.5375,
+            "latest_correct": 0.49375,
+            "oldest_correct": 0.496875,
+            "uniform_success": 0.4921875,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 2.5375,
+            "withdrawals": 320,
+            "uniquely_identified": 77,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.496875,
+            "source_accuracy": {
+              "timing": 0.2,
+              "amount": 0.2,
+              "joint": 0.409375
+            },
+            "source_candidates_mean": 3.6625,
+            "note_candidates_mean": 7.325
+          }
+        },
+        "net": {
+          "at_withdrawal": {
+            "unique": 0,
+            "candidates": 4,
+            "latest_correct": 0.253125,
+            "oldest_correct": 0.25,
+            "uniform_success": 0.25,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 4,
+            "withdrawals": 320,
+            "uniquely_identified": 0,
+            "singleton_precision": null,
+            "strongest_deposit_accuracy": 0.253125,
+            "source_accuracy": {
+              "timing": 0.2,
+              "amount": 0.2,
+              "joint": 0.228125
+            },
+            "source_candidates_mean": 5.69375,
+            "note_candidates_mean": 11.3875
+          },
+          "complete_drain": {
+            "unique": 0,
+            "candidates": 4,
+            "latest_correct": 0.253125,
+            "oldest_correct": 0.25,
+            "uniform_success": 0.25,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 4,
+            "withdrawals": 320,
+            "uniquely_identified": 0,
+            "singleton_precision": null,
+            "strongest_deposit_accuracy": 0.253125,
+            "source_accuracy": {
+              "timing": 0.2,
+              "amount": 0.2,
+              "joint": 0.3
+            },
+            "source_candidates_mean": 5.125,
+            "note_candidates_mean": 10.25
+          }
+        }
+      },
+      "comparison": {
+        "varied": {
+          "absolute_reduction": 0.91875,
+          "paired_95": [
+            0.853125,
+            0.975
+          ]
+        },
+        "gross": {
+          "absolute_reduction": 0.240625,
+          "paired_95": [
+            0.21875,
+            0.2625
+          ]
+        }
+      },
+      "relative_unique_reduction_vs_varied": 1.0,
+      "inference_screen_pass": true,
+      "modeled_cost": {
+        "pool_fee_sompi": 351039200,
+        "extra_fee_sompi": 0,
+        "extra_transactions": 0,
+        "extra_scheduled_delay_minutes": 0
+      }
+    },
+    "burst": {
+      "paired_ledgers": 32,
+      "arms": {
+        "varied": {
+          "at_withdrawal": {
+            "unique": 0.18489583333333331,
+            "candidates": 3.1796875,
+            "latest_correct": 0.421875,
+            "oldest_correct": 0.4114583333333333,
+            "uniform_success": 0.4184027777777778,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 3.1796875,
+            "withdrawals": 384,
+            "uniquely_identified": 71,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.421875,
+            "source_accuracy": {
+              "timing": 0.16666666666666666,
+              "amount": 0.16666666666666666,
+              "joint": 0.21875
+            },
+            "source_candidates_mean": 6.950520833333333,
+            "note_candidates_mean": 13.901041666666666
+          },
+          "complete_drain": {
+            "unique": 0.8411458333333334,
+            "candidates": 1.1796875,
+            "latest_correct": 0.9192708333333334,
+            "oldest_correct": 0.9140625,
+            "uniform_success": 0.9171006944444444,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 1.1796875,
+            "withdrawals": 384,
+            "uniquely_identified": 323,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.9192708333333334,
+            "source_accuracy": {
+              "timing": 0.16666666666666666,
+              "amount": 0.16666666666666666,
+              "joint": 0.4114583333333333
+            },
+            "source_candidates_mean": 4.169270833333333,
+            "note_candidates_mean": 8.338541666666666
+          }
+        },
+        "gross": {
+          "at_withdrawal": {
+            "unique": 0.0625,
+            "candidates": 3.6380208333333335,
+            "latest_correct": 0.328125,
+            "oldest_correct": 0.3151041666666667,
+            "uniform_success": 0.3114149305555555,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 3.6380208333333335,
+            "withdrawals": 384,
+            "uniquely_identified": 24,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.328125,
+            "source_accuracy": {
+              "timing": 0.16666666666666666,
+              "amount": 0.16666666666666666,
+              "joint": 0.1953125
+            },
+            "source_candidates_mean": 7.3359375,
+            "note_candidates_mean": 14.671875
+          },
+          "complete_drain": {
+            "unique": 0.2265625,
+            "candidates": 2.59375,
+            "latest_correct": 0.4921875,
+            "oldest_correct": 0.4817708333333333,
+            "uniform_success": 0.48046875,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 2.59375,
+            "withdrawals": 384,
+            "uniquely_identified": 87,
+            "singleton_precision": 1.0,
+            "strongest_deposit_accuracy": 0.4921875,
+            "source_accuracy": {
+              "timing": 0.16666666666666666,
+              "amount": 0.16666666666666666,
+              "joint": 0.2786458333333333
+            },
+            "source_candidates_mean": 5.59375,
+            "note_candidates_mean": 11.1875
+          }
+        },
+        "net": {
+          "at_withdrawal": {
+            "unique": 0,
+            "candidates": 4,
+            "latest_correct": 0.265625,
+            "oldest_correct": 0.2526041666666667,
+            "uniform_success": 0.25,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 4,
+            "withdrawals": 384,
+            "uniquely_identified": 0,
+            "singleton_precision": null,
+            "strongest_deposit_accuracy": 0.265625,
+            "source_accuracy": {
+              "timing": 0.16666666666666666,
+              "amount": 0.16666666666666666,
+              "joint": 0.17708333333333331
+            },
+            "source_candidates_mean": 7.697916666666667,
+            "note_candidates_mean": 15.395833333333334
+          },
+          "complete_drain": {
+            "unique": 0,
+            "candidates": 4,
+            "latest_correct": 0.265625,
+            "oldest_correct": 0.2526041666666667,
+            "uniform_success": 0.25,
+            "eligible_prior_success": 0.25,
+            "funding_groups": 4,
+            "withdrawals": 384,
+            "uniquely_identified": 0,
+            "singleton_precision": null,
+            "strongest_deposit_accuracy": 0.265625,
+            "source_accuracy": {
+              "timing": 0.16666666666666666,
+              "amount": 0.16666666666666666,
+              "joint": 0.21614583333333331
+            },
+            "source_candidates_mean": 7,
+            "note_candidates_mean": 14
+          }
+        }
+      },
+      "comparison": {
+        "varied": {
+          "absolute_reduction": 0.8411458333333334,
+          "paired_95": [
+            0.7526041666666666,
+            0.9192708333333334
+          ]
+        },
+        "gross": {
+          "absolute_reduction": 0.2265625,
+          "paired_95": [
+            0.20052083333333331,
+            0.2552083333333333
+          ]
+        }
+      },
+      "relative_unique_reduction_vs_varied": 1.0,
+      "inference_screen_pass": true,
+      "modeled_cost": {
+        "pool_fee_sompi": 438694400,
+        "extra_fee_sompi": 0,
+        "extra_transactions": 0,
+        "extra_scheduled_delay_minutes": 0
+      }
+    }
+  },
+  "scope": "Paired synthetic workloads, four equalized deposit roots; no real-world anonymity measurement",
+  "new_chain_fees_sompi": 0,
+  "new_chain_transactions": 0,
+  "both_inference_screens_pass": true,
+  "controls": {
+    "singleton": {
+      "varied": {
+        "source": {
+          "at_withdrawal": {
+            "timing": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 1.0,
+              "singleton_precision": 1.0,
+              "abstentions": 0,
+              "uniform_expected_success": 1.0,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          },
+          "complete_drain": {
+            "timing": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 1.0,
+              "singleton_precision": 1.0,
+              "abstentions": 0,
+              "uniform_expected_success": 1.0,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          }
+        },
+        "deposit": {
+          "at_withdrawal": {
+            "candidates": 1,
+            "unique": 1,
+            "latest_correct": 1,
+            "oldest_correct": 1,
+            "uniform_success": 1.0,
+            "eligible_prior_success": 1.0,
+            "funding_groups": 1,
+            "withdrawals": 2,
+            "singleton_precision": 1.0,
+            "abstentions": 0,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              }
+            ]
+          },
+          "complete_drain": {
+            "candidates": 1,
+            "unique": 1,
+            "latest_correct": 1,
+            "oldest_correct": 1,
+            "uniform_success": 1.0,
+            "eligible_prior_success": 1.0,
+            "funding_groups": 1,
+            "withdrawals": 2,
+            "singleton_precision": 1.0,
+            "abstentions": 0,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              }
+            ]
+          }
+        }
+      },
+      "gross": {
+        "source": {
+          "at_withdrawal": {
+            "timing": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 1.0,
+              "singleton_precision": 1.0,
+              "abstentions": 0,
+              "uniform_expected_success": 1.0,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          },
+          "complete_drain": {
+            "timing": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 1.0,
+              "singleton_precision": 1.0,
+              "abstentions": 0,
+              "uniform_expected_success": 1.0,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          }
+        },
+        "deposit": {
+          "at_withdrawal": {
+            "candidates": 1,
+            "unique": 1,
+            "latest_correct": 1,
+            "oldest_correct": 1,
+            "uniform_success": 1.0,
+            "eligible_prior_success": 1.0,
+            "funding_groups": 1,
+            "withdrawals": 2,
+            "singleton_precision": 1.0,
+            "abstentions": 0,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              }
+            ]
+          },
+          "complete_drain": {
+            "candidates": 1,
+            "unique": 1,
+            "latest_correct": 1,
+            "oldest_correct": 1,
+            "uniform_success": 1.0,
+            "eligible_prior_success": 1.0,
+            "funding_groups": 1,
+            "withdrawals": 2,
+            "singleton_precision": 1.0,
+            "abstentions": 0,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              }
+            ]
+          }
+        }
+      },
+      "net": {
+        "source": {
+          "at_withdrawal": {
+            "timing": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 1.0,
+              "singleton_precision": 1.0,
+              "abstentions": 0,
+              "uniform_expected_success": 1.0,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          },
+          "complete_drain": {
+            "timing": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 2,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 2,
+              "correct": 2,
+              "accuracy": 1.0,
+              "coverage": 1.0,
+              "singleton_precision": 1.0,
+              "abstentions": 0,
+              "uniform_expected_success": 1.0,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          }
+        },
+        "deposit": {
+          "at_withdrawal": {
+            "candidates": 1,
+            "unique": 1,
+            "latest_correct": 1,
+            "oldest_correct": 1,
+            "uniform_success": 1.0,
+            "eligible_prior_success": 1.0,
+            "funding_groups": 1,
+            "withdrawals": 2,
+            "singleton_precision": 1.0,
+            "abstentions": 0,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              }
+            ]
+          },
+          "complete_drain": {
+            "candidates": 1,
+            "unique": 1,
+            "latest_correct": 1,
+            "oldest_correct": 1,
+            "uniform_success": 1.0,
+            "eligible_prior_success": 1.0,
+            "funding_groups": 1,
+            "withdrawals": 2,
+            "singleton_precision": 1.0,
+            "abstentions": 0,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    "early": {
+      "varied": {
+        "source": {
+          "at_withdrawal": {
+            "timing": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 8,
+              "correct": 4,
+              "accuracy": 0.5,
+              "coverage": 0.125,
+              "singleton_precision": 1.0,
+              "abstentions": 7,
+              "uniform_expected_success": 0.34375,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 4,
+                  "notes": 7,
+                  "unique": 0,
+                  "uniform": 0.25
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 8,
+              "correct": 6,
+              "accuracy": 0.75,
+              "coverage": 0.375,
+              "singleton_precision": 1.0,
+              "abstentions": 5,
+              "uniform_expected_success": 0.59375,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 4,
+                  "notes": 8,
+                  "unique": 0,
+                  "uniform": 0.25,
+                  "ancestors": 4,
+                  "funding_groups": 4
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 4,
+                  "unique": 0,
+                  "uniform": 0.5,
+                  "ancestors": 2,
+                  "funding_groups": 2
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          },
+          "complete_drain": {
+            "timing": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 8,
+              "correct": 4,
+              "accuracy": 0.5,
+              "coverage": 0.125,
+              "singleton_precision": 1.0,
+              "abstentions": 7,
+              "uniform_expected_success": 0.34375,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 4,
+                  "notes": 7,
+                  "unique": 0,
+                  "uniform": 0.25
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 8,
+              "correct": 8,
+              "accuracy": 1.0,
+              "coverage": 1.0,
+              "singleton_precision": 1.0,
+              "abstentions": 0,
+              "uniform_expected_success": 1.0,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                }
+              ]
+            }
+          }
+        },
+        "deposit": {
+          "at_withdrawal": {
+            "candidates": 2.25,
+            "unique": 0.375,
+            "latest_correct": 0.75,
+            "oldest_correct": 0.625,
+            "uniform_success": 0.59375,
+            "eligible_prior_success": 0.34375,
+            "funding_groups": 2.25,
+            "withdrawals": 8,
+            "singleton_precision": 1.0,
+            "abstentions": 5,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 4,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.25,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 4
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 2,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.5,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 2
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              }
+            ]
+          },
+          "complete_drain": {
+            "candidates": 1,
+            "unique": 1,
+            "latest_correct": 1,
+            "oldest_correct": 1,
+            "uniform_success": 1.0,
+            "eligible_prior_success": 0.34375,
+            "funding_groups": 1,
+            "withdrawals": 8,
+            "singleton_precision": 1.0,
+            "abstentions": 0,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              }
+            ]
+          }
+        }
+      },
+      "gross": {
+        "source": {
+          "at_withdrawal": {
+            "timing": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.125,
+              "singleton_precision": 1.0,
+              "abstentions": 7,
+              "uniform_expected_success": 0.40625,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 4,
+                  "notes": 8,
+                  "unique": 0,
+                  "uniform": 0.25,
+                  "ancestors": 4,
+                  "funding_groups": 4
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                }
+              ]
+            }
+          },
+          "complete_drain": {
+            "timing": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 8,
+              "correct": 4,
+              "accuracy": 0.5,
+              "coverage": 0.25,
+              "singleton_precision": 1.0,
+              "abstentions": 6,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                }
+              ]
+            }
+          }
+        },
+        "deposit": {
+          "at_withdrawal": {
+            "candidates": 2.875,
+            "unique": 0.125,
+            "latest_correct": 0.375,
+            "oldest_correct": 0.5,
+            "uniform_success": 0.40625,
+            "eligible_prior_success": 0.34375,
+            "funding_groups": 2.875,
+            "withdrawals": 8,
+            "singleton_precision": 1.0,
+            "abstentions": 7,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 4,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.25,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 4
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              }
+            ]
+          },
+          "complete_drain": {
+            "candidates": 2.5,
+            "unique": 0.25,
+            "latest_correct": 0.5,
+            "oldest_correct": 0.5,
+            "uniform_success": 0.5,
+            "eligible_prior_success": 0.34375,
+            "funding_groups": 2.5,
+            "withdrawals": 8,
+            "singleton_precision": 1.0,
+            "abstentions": 6,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              }
+            ]
+          }
+        }
+      },
+      "net": {
+        "source": {
+          "at_withdrawal": {
+            "timing": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.125,
+              "singleton_precision": 1.0,
+              "abstentions": 7,
+              "uniform_expected_success": 0.40625,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 4,
+                  "notes": 8,
+                  "unique": 0,
+                  "uniform": 0.25,
+                  "ancestors": 4,
+                  "funding_groups": 4
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                }
+              ]
+            }
+          },
+          "complete_drain": {
+            "timing": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "amount": {
+              "withdrawals": 8,
+              "correct": 3,
+              "accuracy": 0.375,
+              "coverage": 0.0,
+              "singleton_precision": null,
+              "abstentions": 8,
+              "uniform_expected_success": 0.23750000000000002,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 2,
+                  "notes": 3,
+                  "unique": 0,
+                  "uniform": 0.5
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 1,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                },
+                {
+                  "correct": 0,
+                  "sources": 5,
+                  "notes": 9,
+                  "unique": 0,
+                  "uniform": 0.2
+                }
+              ]
+            },
+            "joint": {
+              "withdrawals": 8,
+              "correct": 4,
+              "accuracy": 0.5,
+              "coverage": 0.25,
+              "singleton_precision": 1.0,
+              "abstentions": 6,
+              "uniform_expected_success": 0.5,
+              "rows": [
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 1,
+                  "sources": 1,
+                  "notes": 2,
+                  "unique": 1,
+                  "uniform": 1.0,
+                  "ancestors": 1,
+                  "funding_groups": 1
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                },
+                {
+                  "correct": 0,
+                  "sources": 3,
+                  "notes": 6,
+                  "unique": 0,
+                  "uniform": 0.3333333333333333,
+                  "ancestors": 3,
+                  "funding_groups": 3
+                }
+              ]
+            }
+          }
+        },
+        "deposit": {
+          "at_withdrawal": {
+            "candidates": 2.875,
+            "unique": 0.125,
+            "latest_correct": 0.375,
+            "oldest_correct": 0.5,
+            "uniform_success": 0.40625,
+            "eligible_prior_success": 0.34375,
+            "funding_groups": 2.875,
+            "withdrawals": 8,
+            "singleton_precision": 1.0,
+            "abstentions": 7,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 4,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.25,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 4
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              }
+            ]
+          },
+          "complete_drain": {
+            "candidates": 2.5,
+            "unique": 0.25,
+            "latest_correct": 0.5,
+            "oldest_correct": 0.5,
+            "uniform_success": 0.5,
+            "eligible_prior_success": 0.34375,
+            "funding_groups": 2.5,
+            "withdrawals": 8,
+            "singleton_precision": 1.0,
+            "abstentions": 6,
+            "rows": [
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 1.0,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 1,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 1,
+                "unique": 1,
+                "latest_correct": 1,
+                "oldest_correct": 1,
+                "uniform_success": 1.0,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 1
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 1,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              },
+              {
+                "candidates": 3,
+                "unique": 0,
+                "latest_correct": 0,
+                "oldest_correct": 0,
+                "uniform_success": 0.3333333333333333,
+                "eligible_prior_success": 0.25,
+                "funding_groups": 3
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

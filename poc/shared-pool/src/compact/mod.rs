@@ -9,6 +9,7 @@ pub mod recovery;
 pub mod fresh;
 pub mod deposits;
 pub mod study;
+pub mod normalization;
 #[cfg(test)]
 mod tests;
 

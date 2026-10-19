@@ -1,7 +1,7 @@
 # RFC-0009: Can fresh authorization improve compact exit privacy?
 
-Status: H11 bounded policy screening passed; funding-origin privacy remains
-open, 2026-10-20 (Australia/Sydney).
+Status: H11 fresh-proof and H12 equal-net offline screening passed; general
+funding-origin privacy remains open, 2026-10-20 (Australia/Sydney).
 [Decision](../adr/0021-separate-exit-fallback-and-privacy-policy.md),
 [audit and evidence](../../poc/shared-pool/PRIVACY.md).
 
@@ -14,6 +14,16 @@ real-world anonymity result. Funding origins remain uniquely reconstructable
 for 94.4% / 88.5% of withdrawals. Retain the mechanism and investigate equal net
 credits next; equal gross amounts leave the bootstrap/admission fee difference.
 This next hypothesis is not implemented or claimed solved by H11.
+
+[H12](../../poc/shared-pool/NORMALIZED-DEPOSITS.md) now executes that separate
+comparison with equal total funding and common topology. Its equal-net arm
+leaves four feasible deposits for all 704 targets after drain, whereas equal
+gross funding retains a bootstrap-fee fingerprint. Genuine native proofs and
+saved/fresh alternative drains match the model. The policy decision is
+[ADR-0023](../adr/0023-equal-net-deposit-policy.md). Interleaved arrivals, mixed
+amounts and external knowledge remain open; early exits retain their privacy
+cost and their independent spending right. Testnet validation has a separate
+mechanism/cost scope and cannot validate population anonymity.
 
 The old count-three authorization identifies one source transaction despite
 100 later payments. A small abstract control admits three sources with a

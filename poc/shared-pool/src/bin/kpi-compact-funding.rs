@@ -10,16 +10,42 @@ fn key_for(row:&Value,source:&native::Utxo,funding:&Path)->Result<H>{
     let matches=|k:&H|native::p2pk(k).map(|s|hex::encode(native::encode_spk(&s))==source.spk).unwrap_or(false);
     if matches(&funding_key){return Ok(funding_key);}
     let root=Path::new(row["origin"]["root"].as_str().ok_or("missing origin")?);
-    let m:Value=read(&root.join("public/manifest.json"))?;
-    let domain:H=serde_json::from_value(m["domain"].clone())?;
+    let legacy=root.join("public/manifest.json");
+    let m:Value=read(&if legacy.is_file(){legacy}else{root.join("public/descriptor.json")})?;
+    let domain:H=serde_json::from_value(if m["domain"].is_array(){m["domain"].clone()}else{m["identity"]["domain"].clone()})?;
     let step:u32=row["origin"]["step"].as_u64().ok_or("origin step")?.try_into()?;
+    // v5 exits derive keys from note position, which can exceed transaction
+    // position (each admission creates two notes). Bound the search by the
+    // public commitment count, still requiring exact script/key ownership.
+    let mut key_limit=step;
+    if m["identity"]["format"]=="kpi-compact-deposits-v5" || m["format"]=="kpi-normalized-v5-v1" {
+        let history:Vec<Value>=read(&root.join("public/history.json"))?;
+        let payload=hex::decode(history.get(step as usize).ok_or("origin history")?["payload"].as_str().ok_or("origin payload")?)?;
+        if payload.len()==3892 {key_limit=key_limit.max(u32::from_le_bytes(payload[644..648].try_into()?));}
+        if key_limit>65535 {return Err("origin commitment count range".into());}
+    }
+    if m["format"]=="kpi-normalized-v5-v1" {
+        let private:Value=read(&root.join("prepared/wallets.json"))?;
+        for v in private["funding_keys"].as_array().ok_or("funding keys")? {
+            let key:H=serde_json::from_value(v.clone())?;if matches(&key){return Ok(key);}
+        }
+        for v in private["wallets"].as_array().ok_or("wallets")? {
+            let w:Wallet=serde_json::from_value(v.clone())?;
+            for key in std::iter::once(w.native).chain((0..=key_limit).map(|n|w.payout_key(&domain,n))) {
+                if matches(&key){return Ok(key);}
+            }
+        }
+        return Err("no owned normalized-pool ordinary payout key".into());
+    }
     for i in 0..4 {
-        let file=root.join(format!("wallet{i}/wallet.json"));if !file.is_file(){continue;}
+        let old=root.join(format!("wallet{i}/wallet.json"));
+        let file=if old.is_file(){old}else{root.join(format!("wallet{i}.json"))};if !file.is_file(){continue;}
         let v:Value=read(&file)?;let w:Wallet=serde_json::from_value(v["wallet"].clone())?;
+        if v["funding_key"].is_array(){let key:H=serde_json::from_value(v["funding_key"].clone())?;if matches(&key){return Ok(key);}}
         // A saved authorization can settle many transactions after its payout
         // key was chosen. Search its possible earlier creation indices and
         // still require an exact match to the ordinary UTXO's public script.
-        for k in std::iter::once(w.native).chain((0..=step).map(|n|w.payout_key(&domain,n))) {
+        for k in std::iter::once(w.native).chain((0..=key_limit).map(|n|w.payout_key(&domain,n))) {
             if matches(&k){return Ok(k);}
         }
     }

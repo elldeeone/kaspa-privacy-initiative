@@ -16,12 +16,15 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
-H11's bounded Stage 2 study is complete and passes its original screening
-thresholds. Fresh proofs reduce full-drain source guesses from 100% to 64.4% /
-38.5% at zero extra native fee, while saved proofs remain private exit fallbacks.
-Funding origins are still uniquely inferable for 94.4% / 88.5% of withdrawals.
-Keep the mechanism; the next proposed question is equal net credited deposits.
-[Report and evidence](../poc/shared-pool/PRIVACY-STUDY.md).
+H12's equal-net funding comparison passes its frozen offline screen. With all
+four deposits before payments, every withdrawal retains four funding candidates
+through complete drain, versus 91.875% / 84.115% uniquely identified under varied
+funding and 24.063% / 22.656% under equal gross funding. Genuine proofs match the
+model and all saved/fresh offline drains pass. A complete TN10 rehearsal and
+fresh measured trial passed: all four wallets paid and zero reserve remains.
+Keep fresh proofs, private fallbacks and equal net credits as a candidate wallet
+policy. This bounded symmetry does not establish real-world privacy or protect
+early exits. [H12 report](../poc/shared-pool/NORMALIZED-DEPOSITS.md).
 
 Current L1 can execute the bounded direct-pool payment and withdrawal layouts
 we tested. Four wallets can receive, re-spend and withdraw their own claims,
@@ -96,12 +99,54 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H9 | A genuinely fresh proof for the same note/payout removes the old source singleton when later activity exists, while the old proof remains a private independent fallback and only one can spend. | Supported offline in two/four-payment fixtures: 1 → 3/5 source candidates through full drain; singleton stays 1. Both winner orders reject the other proof, six no-prover rebuilds pass and all claims drain. | Retain fresh authorization as a candidate normal path and private fallback for exit. No added native fee; about 9.5 seconds extra warm proof work. Population privacy, common-anchor policy and real-world anonymity remain open. |
 | H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Offline plus complete TN10 rehearsal/fresh trial passed. All four wallets paid using eight unchanged saved proofs; both reserves drained. | Retain this admission candidate for the population privacy study; Stage 2 remains open. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
 | H11 | Fresh latest-root proofs reduce full-coverage source inference by at least 25% in both frozen low-activity regimes, within the fee/delay screen. | Passed: 35.6% / 61.5% reduction through complete drain; 64 primary ledgers plus 17 controls. Two genuine native calibrations match; four no-prover drains pass, with zero extra native fee. | Retain fresh proofs/private fallbacks. The bounded study is complete; funding origins remain mostly exposed. Test equal net credits separately before a larger relation change. |
+| H12 | Equal net credits reduce deposit-origin inference through full drain while preserving independently payable saved/fresh exits. | Passed in 64 paired ledgers; 0/704 equal-net withdrawals uniquely assigned to a deposit. Genuine calibrations, saved/fresh adapter drains, complete TN10 rehearsal and measured trial passed; all four wallets independently paid. | Retain the bounded candidate funding policy on the existing relation; interleaving, mixed amounts and external knowledge remain open. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Equal net funding policy (H12)
+
+- Scope frozen at `a522e59` before generation: varied, equal gross and equal net
+  funding with equal total backing, topology, schedules and exit order. Target
+  funding deposits separately from H11's note-creating transactions.
+- All 64 primary paired ledgers retained, 704 targets per policy. Equal net
+  credits leave four feasible deposits for every target at withdrawal and after
+  drainage. Strongest fixed deposit guesses are 25.313% / 26.563%; unique deposit
+  fractions fall from 91.875% / 84.115% to zero, meeting the original screen.
+- Equal gross controls retain 24.063% / 22.656% unique deposits. Removing the
+  112,000-sompi bootstrap/admission credit difference removes that fingerprint
+  in this workload. Early/singleton exits stay linked; shared funding stays one
+  funding cluster. There is no claim of equally likely people or anonymity.
+- 58 genuine proofs in two unchanged-relation calibrations match the model;
+  four alternative saved/fresh drains pass. The new exit adapter also pays ten
+  claims in each arm without wallet/PK inputs, plus nine rejection controls.
+- Review found three controls initially failing at descriptor serialization
+  rather than history checks. Exact-byte copying corrected them; the offline
+  gate was rerun and the still-unfunded rehearsal replaced with a fresh identity.
+  No pool transaction was broadcast by the stopped identity. A separate ordinary
+  funding-key lookup fix preserves exact key/script ownership checks.
+- Complete TN10 rehearsal and measured trial passed: 18 confirmed transactions,
+  ten unchanged-proof exits and all four wallets paid in each. Both pools closed.
+  Independent chain-only decoding reproduces exact model candidate sets, with
+  shared funding ancestry explicitly visible. Provers stopped before broadcast.
+- An earlier funded rehearsal also paid every claim, then failed in final hash
+  recording. Read-only reconciliation verified every accepted body/full hash;
+  no transaction was rebroadcast. The corrected complete path passed on a fresh
+  rehearsal identity before the measured run. Keep that failure in the evidence.
+- Measured cost 3.569999 tKAS, including ordinary funding. Pool fees 3.510392;
+  normalization adds no pool fee. All actual work, including the first funded
+  rehearsal and 75 ordinary recycling transactions, cost **10.824305 tKAS** across
+  129 transactions. Offline tests spent no native funds. No mainnet funds used.
+- The study does not change the covenant, proof relation, setup or invariants.
+  Retain the policy within its workload; interleaving and mixed amounts need a
+  separate test before broader privacy claims or wallet expansion.
+- [Specification](../poc/shared-pool/NORMALIZED-DEPOSITS-SPEC.md),
+  [result](../poc/shared-pool/NORMALIZED-DEPOSITS.md),
+  [adversarial review](../poc/shared-pool/NORMALIZED-DEPOSITS-REVIEW.md),
+  [policy decision](adr/0023-equal-net-deposit-policy.md).
 
 ### 2026-10-20 (Australia/Sydney) — Independent-deposit privacy policy (H11)
 

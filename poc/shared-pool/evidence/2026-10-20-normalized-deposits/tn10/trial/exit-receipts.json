@@ -1,0 +1,384 @@
+[
+  {
+    "claim": 0,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217107743  122011    0    0    0     0          0         0 2217107743  122011    0    0    0     0       0          0\n ens18: 20135580767 13692595    0    0    0     0          0         0 4885295306 5743858    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:33.033Z"
+    },
+    "selected_sha256": "bc3bd43d6a028fc13e97f6500c22affffc03e43a2963bc216032ee0c5199bc39",
+    "submission": {
+      "transactionId": "1a02abda4b44ae98246564b1ef6ca70d56d6248ca525eb57ac4a8d44663007e1",
+      "at": "2026-10-19T22:40:31.961Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "1a02abda4b44ae98246564b1ef6ca70d56d6248ca525eb57ac4a8d44663007e1",
+          "index": 0,
+          "amount": "4168304800",
+          "spk": "0000aa206dabbeb2da3c566307662a21e72ab3cfd999a6c62dc41f6c29397e48457cb18b87",
+          "daa": "601145716",
+          "is_coinbase": false
+        },
+        {
+          "txid": "1a02abda4b44ae98246564b1ef6ca70d56d6248ca525eb57ac4a8d44663007e1",
+          "index": 1,
+          "amount": "148065600",
+          "spk": "000020d580006fe60ff9a3f7277ef54f777f9fd50363592531d4bf1f4383fe3cdcfebcac",
+          "daa": "601145716",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:33.014Z"
+    }
+  },
+  {
+    "claim": 1,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217107743  122011    0    0    0     0          0         0 2217107743  122011    0    0    0     0       0          0\n ens18: 20137867712 13692833    0    0    0     0          0         0 4885324630 5743990    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:35.365Z"
+    },
+    "selected_sha256": "30b9f6df288f1eaf976a0acdcc8c145ad58f476c4d90abcacbb60a661256863d",
+    "submission": {
+      "transactionId": "b1800b377ce56087b242aebf7caa88ddb4d8b9b6119b00f2f081c6c923ebf6f1",
+      "at": "2026-10-19T22:40:33.289Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "b1800b377ce56087b242aebf7caa88ddb4d8b9b6119b00f2f081c6c923ebf6f1",
+          "index": 0,
+          "amount": "3754675200",
+          "spk": "0000aa2021acee946fee75d7c06a3a0fdf901fb1dce3b8d59f458cec7cb60727bfe8d36f87",
+          "daa": "601145734",
+          "is_coinbase": false
+        },
+        {
+          "txid": "b1800b377ce56087b242aebf7caa88ddb4d8b9b6119b00f2f081c6c923ebf6f1",
+          "index": 1,
+          "amount": "391695200",
+          "spk": "000020886b360ed66b5b4c839752c2cfa0c8ad9efd6f9ca25f9fd57f7e5588f1ed1ba0ac",
+          "daa": "601145734",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:35.346Z"
+    }
+  },
+  {
+    "claim": 2,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217107743  122011    0    0    0     0          0         0 2217107743  122011    0    0    0     0       0          0\n ens18: 20139275046 13693003    0    0    0     0          0         0 4885351317 5744081    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:36.706Z"
+    },
+    "selected_sha256": "2273cfdb42f591182690028b4e16cfd4c6d33ee7b242db172cf46bb1764b9aa1",
+    "submission": {
+      "transactionId": "c921127cba858a5ea43df5ebf1b7918601ffdeb1adfa9eea482d39c80fda5e5d",
+      "at": "2026-10-19T22:40:35.632Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "c921127cba858a5ea43df5ebf1b7918601ffdeb1adfa9eea482d39c80fda5e5d",
+          "index": 0,
+          "amount": "3394675200",
+          "spk": "0000aa201289a0957b1030f2352692afc7477a7cc9706131945c7dab913462613f685c8e87",
+          "daa": "601145754",
+          "is_coinbase": false
+        },
+        {
+          "txid": "c921127cba858a5ea43df5ebf1b7918601ffdeb1adfa9eea482d39c80fda5e5d",
+          "index": 1,
+          "amount": "338065600",
+          "spk": "0000201b7bdd65e57bed3525c113b4c971a444b9ecc0696d4b2cb2f9ae34dc856aeafaac",
+          "daa": "601145754",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:36.687Z"
+    }
+  },
+  {
+    "claim": 3,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217107743  122011    0    0    0     0          0         0 2217107743  122011    0    0    0     0       0          0\n ens18: 20140889717 13693173    0    0    0     0          0         0 4885377904 5744172    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:39.051Z"
+    },
+    "selected_sha256": "516aaa0f3b85d1e0a23f2b2d931956d073b3bdbe5d44d1bd0e7dead5b943cc19",
+    "submission": {
+      "transactionId": "cb6da08060f12057cb09090edbbbf133fc6e580359bd2046755001770393a727",
+      "at": "2026-10-19T22:40:36.978Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "cb6da08060f12057cb09090edbbbf133fc6e580359bd2046755001770393a727",
+          "index": 0,
+          "amount": "3094675200",
+          "spk": "0000aa2021df185890b1b495910b09ee239facacc1fee0a1d3a85ce95cfef77aba7d143987",
+          "daa": "601145775",
+          "is_coinbase": false
+        },
+        {
+          "txid": "cb6da08060f12057cb09090edbbbf133fc6e580359bd2046755001770393a727",
+          "index": 1,
+          "amount": "278065600",
+          "spk": "000020ab0d9523e02750aa00c672598853157182e0b250b93157fd4f707549f653d223ac",
+          "daa": "601145775",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:39.033Z"
+    }
+  },
+  {
+    "claim": 4,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217107743  122011    0    0    0     0          0         0 2217107743  122011    0    0    0     0       0          0\n ens18: 20142660818 13693387    0    0    0     0          0         0 4885405401 5744270    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:40.408Z"
+    },
+    "selected_sha256": "15efd72b5dff6374c1ff226898277b9c4248f4c947ef89a4ae507d031fd368d1",
+    "submission": {
+      "transactionId": "eb3c70fe404ca888f24d8c571439a34c42268109095c00957f706c7ed552a1db",
+      "at": "2026-10-19T22:40:39.333Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "eb3c70fe404ca888f24d8c571439a34c42268109095c00957f706c7ed552a1db",
+          "index": 0,
+          "amount": "2169152400",
+          "spk": "0000aa2093d6f9eb105f529875376d76618187058da86f3c37c673bf98d5c459e20d968487",
+          "daa": "601145787",
+          "is_coinbase": false
+        },
+        {
+          "txid": "eb3c70fe404ca888f24d8c571439a34c42268109095c00957f706c7ed552a1db",
+          "index": 1,
+          "amount": "903588400",
+          "spk": "0000203d24f6a47c4dad290867354f9459a7f653c526536c79ad6c95c873aeea530030ac",
+          "daa": "601145787",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:40.389Z"
+    }
+  },
+  {
+    "claim": 5,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217107743  122011    0    0    0     0          0         0 2217107743  122011    0    0    0     0       0          0\n ens18: 20144660138 13693520    0    0    0     0          0         0 4885432158 5744364    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:43.851Z"
+    },
+    "selected_sha256": "f880628e57b2b9f1bcbdfb347ff5aa8365e5c19e51ac0039163134b4214bb84b",
+    "submission": {
+      "transactionId": "5d5344249e85b3c72a0fef2cb20001e8b42699e0bac0252260fbb63102605eff",
+      "at": "2026-10-19T22:40:41.774Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "5d5344249e85b3c72a0fef2cb20001e8b42699e0bac0252260fbb63102605eff",
+          "index": 0,
+          "amount": "1883629600",
+          "spk": "0000aa206f2bc776cc697136a03d8d48e76c9450c381a2d6eafc06494820586199f8690287",
+          "daa": "601145811",
+          "is_coinbase": false
+        },
+        {
+          "txid": "5d5344249e85b3c72a0fef2cb20001e8b42699e0bac0252260fbb63102605eff",
+          "index": 1,
+          "amount": "263588400",
+          "spk": "0000205621d24a924e2ec26e358f32ceb424b62b178d8304ee11a4e48f7f6d4a00132aac",
+          "daa": "601145811",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:43.830Z"
+    }
+  },
+  {
+    "claim": 6,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217107743  122011    0    0    0     0          0         0 2217107743  122011    0    0    0     0       0          0\n ens18: 20148897437 13693906    0    0    0     0          0         0 4885464758 5744540    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:45.233Z"
+    },
+    "selected_sha256": "2812148c3c14599fe8eff11dcbef41f500ad5906add9ea554669ecc9326ada44",
+    "submission": {
+      "transactionId": "b9a25f111a030eceb7ed73f350d65c297795f81c96f0820192183e38d00b1972",
+      "at": "2026-10-19T22:40:44.156Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "b9a25f111a030eceb7ed73f350d65c297795f81c96f0820192183e38d00b1972",
+          "index": 0,
+          "amount": "1693629600",
+          "spk": "0000aa20aca9e7a17562e797e1d5fb1a1c39f4cb92449f987056d630343774c0062df10f87",
+          "daa": "601145833",
+          "is_coinbase": false
+        },
+        {
+          "txid": "b9a25f111a030eceb7ed73f350d65c297795f81c96f0820192183e38d00b1972",
+          "index": 1,
+          "amount": "168065600",
+          "spk": "00002068885d6c606edff5c9dc71c43219b3a56385aff2eaeb2b16587c93d28b3cb971ac",
+          "daa": "601145833",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:45.214Z"
+    }
+  },
+  {
+    "claim": 7,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217109047  122019    0    0    0     0          0         0 2217109047  122019    0    0    0     0       0          0\n ens18: 20151280202 13694174    0    0    0     0          0         0 4885518012 5744711    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:46.665Z"
+    },
+    "selected_sha256": "0b8d3e02d2e539469fd9c5730c14cb85fc4adbcdaefdff34d24ec994cfe99435",
+    "submission": {
+      "transactionId": "47f0d6aa52b80fbd60fd69d1914dccb978f4418364d29d1321d32e9d9a334b79",
+      "at": "2026-10-19T22:40:45.591Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "47f0d6aa52b80fbd60fd69d1914dccb978f4418364d29d1321d32e9d9a334b79",
+          "index": 0,
+          "amount": "883629600",
+          "spk": "0000aa20800a9134cecfb0cdd64b99fcb891f1dc9b3548953c703ae9db01136d1a6e4d9387",
+          "daa": "601145858",
+          "is_coinbase": false
+        },
+        {
+          "txid": "47f0d6aa52b80fbd60fd69d1914dccb978f4418364d29d1321d32e9d9a334b79",
+          "index": 1,
+          "amount": "788065600",
+          "spk": "00002064a3e782c4dec3d8cdc8542d1883a08bd7d433e2d3b7b2dab9dab34df28ef4e4ac",
+          "daa": "601145858",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:46.646Z"
+    }
+  },
+  {
+    "claim": 8,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217109047  122019    0    0    0     0          0         0 2217109047  122019    0    0    0     0       0          0\n ens18: 20153778125 13694422    0    0    0     0          0         0 4885572088 5744883    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:50.165Z"
+    },
+    "selected_sha256": "a86e59bffc40754e217b991b1e34496869e230fde45f7d58f05369098186aaec",
+    "submission": {
+      "transactionId": "7f3582f647afa93340af3893964c4dddd5ee7351f83e4b53a5991b8f0db8e86d",
+      "at": "2026-10-19T22:40:48.084Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "7f3582f647afa93340af3893964c4dddd5ee7351f83e4b53a5991b8f0db8e86d",
+          "index": 0,
+          "amount": "650000000",
+          "spk": "0000aa202a0b65ce66f46bf4fb14f40b250e3cb9ca58c448767c74dae2eb83951c72566c87",
+          "daa": "601145878",
+          "is_coinbase": false
+        },
+        {
+          "txid": "7f3582f647afa93340af3893964c4dddd5ee7351f83e4b53a5991b8f0db8e86d",
+          "index": 1,
+          "amount": "211695200",
+          "spk": "0000201f0898fa4af4189a2783b6dc9e63610be879d1c808d5b357166b7ab1a71affa7ac",
+          "daa": "601145878",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:50.143Z"
+    }
+  },
+  {
+    "claim": 9,
+    "isolation": {
+      "host_home_accessible": false,
+      "mounts": "tmpfs / tmpfs rw,nosuid,nodev,relatime,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /usr ext4 ro,nosuid,nodev,relatime 0 0\nproc /proc proc rw,nosuid,nodev,noexec,relatime 0 0\ntmpfs /dev tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\ndevtmpfs /dev/null devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/zero devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/full devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/random devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/urandom devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevtmpfs /dev/tty devtmpfs rw,nosuid,size=12997744k,nr_inodes=3249436,mode=755,inode64 0 0\ndevpts /dev/pts devpts rw,nosuid,noexec,relatime,mode=620,ptmxmode=666 0 0\ntmpfs /tmp tmpfs rw,nosuid,nodev,relatime,mode=755,uid=1000,gid=1000,inode64 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /program ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /node ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /sdk ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /saved.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/descriptor.json ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /source/vk.bin ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /run ext4 rw,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/normalization-client.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/runtime.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/chain.mjs ext4 ro,nosuid,nodev,relatime 0 0\n/dev/mapper/ubuntu--vg-ubuntu--lv /software/deposits-common.mjs ext4 ro,nosuid,nodev,relatime 0 0\n",
+      "interfaces": "Inter-|   Receive                                                |  Transmit\n face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed\n    lo: 2217109047  122019    0    0    0     0          0         0 2217109047  122019    0    0    0     0       0          0\n ens18: 20159370532 13695138    0    0    0     0          0         0 4885676251 5745278    0    0    0     0       0          0\ntailscale0: 1457204    9541    0    0    0     0          0         0   587493    9582    0    0    0     0       0          0\ndocker0: 3911246   68796    0    0    0     0          0         0 1298865637   88306    0   30    0     0       0          0\nbr-cf496ac6d286:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\nbr-dff73b03ebcb:       0       0    0    0    0     0          0         0        0       0    0    8    0     0       0          0\n"
+    },
+    "process": {
+      "code": 0,
+      "stoppedAt": "2026-10-19T22:40:52.525Z"
+    },
+    "selected_sha256": "f5ce14c079de579940e06ae4a4ba7762b623c4b7b0e5ced4bd50977ce74b0f50",
+    "submission": {
+      "transactionId": "1c9e182e90222363bc4032c894e91c505ae0f04930bc8f62aaa3d70e5418cb0f",
+      "at": "2026-10-19T22:40:50.491Z",
+      "noRebroadcast": true
+    },
+    "confirmation": {
+      "outputs": [
+        {
+          "txid": "1c9e182e90222363bc4032c894e91c505ae0f04930bc8f62aaa3d70e5418cb0f",
+          "index": 0,
+          "amount": "628065600",
+          "spk": "000020f1dde76006c1cf5a35303d0da6044d3218f9d8dcc6a3bb925cdf487c91dad58cac",
+          "daa": "601145893",
+          "is_coinbase": false
+        }
+      ],
+      "at": "2026-10-19T22:40:52.504Z"
+    }
+  }
+]

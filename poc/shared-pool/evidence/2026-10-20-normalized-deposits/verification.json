@@ -1,0 +1,23 @@
+{
+  "python_tests_passed": 31,
+  "rust_library_tests_passed": 12,
+  "rust_library_seconds": 252.43,
+  "frozen_spec_commit": "a522e59",
+  "spec_unchanged": true,
+  "model_pins_match": true,
+  "protected_files_unchanged": 6,
+  "native_adapter_controls": 9,
+  "no_partial_solver_results": true,
+  "common_eligibility_restricts_payments": {
+    "sparse": 11,
+    "sparse_total": 64,
+    "burst": 42,
+    "burst_total": 128
+  },
+  "operational_findings": [
+    "Ordinary payout key lookup extended to public note-position bound; no broadcast on failed preparation",
+    "History controls corrected to retain descriptor bytes and assert intended rejection layer",
+    "First funded rehearsal fully paid; final hash recorder repaired and reconciled read-only; clean rehearsal repeated with fresh identity"
+  ],
+  "scope": "Implementation checks, not audit or cryptographic proof"
+}

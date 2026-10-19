@@ -1,5 +1,15 @@
 # Threat Model
 
+[H12](poc/shared-pool/NORMALIZED-DEPOSITS.md) finds a bounded mitigation for
+funding-origin reconstruction: equal net private credits, with fresh proofs and
+all four deposits before payments, leave four feasible deposit labels through
+drainage. This relies on workload symmetry, not a cryptographic guarantee about
+users. The covenant permits unequal deposits; interleaving, early exits, fallback
+publication and off-chain attribution can reduce that ambiguity. Shared test
+funding still gives one observable funding cluster. Private proving in a test
+controller and chain-only observation do not establish hosted-prover or network
+privacy. Permissionless exits must remain usable when those assumptions fail.
+
 [H11](poc/shared-pool/PRIVACY-STUDY.md) shows that fresh historical membership
 proofs reduce source-transaction guessing in the frozen synthetic workloads,
 while complete-drain value constraints still uniquely recover most funding

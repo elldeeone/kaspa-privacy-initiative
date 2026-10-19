@@ -3,13 +3,14 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H11's bounded Stage 2 comparison is complete and passes
-its frozen screening thresholds: fresh proofs reduce full-drain source guessing
-from 100% to 64.4% / 38.5% with zero additional native fee. Funding deposits remain
-uniquely reconstructable for 94.4% / 88.5% of withdrawals. Keep fresh proofs plus
-private saved fallbacks; the next privacy question is equal **net** credited
-deposits, before assuming a larger protocol change. Strong privacy is not
-established. [H11 result](../poc/shared-pool/PRIVACY-STUDY.md).
+**Current position:** H11's bounded fresh-proof screen is complete. H12's
+equal-net funding comparison also passes its frozen offline screen: all four
+funding deposits remain feasible for every target through drain in the declared
+all-deposits-first workload. Genuine calibration, isolated exit adapters and
+complete TN10 rehearsal/measured trials pass, with all four wallets paid.
+Keep fresh proofs/private fallbacks and equal
+net credit as candidate wallet policies. Strong or general privacy is not
+established. [H12 result](../poc/shared-pool/NORMALIZED-DEPOSITS.md).
 
 **Earlier milestones:** bounded payment/exit mechanics and Stage 1 three-wallet
 recovery passed on TN10. Stage 2's initial public-field audit is complete and
@@ -44,7 +45,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | Bounded H11 study complete; frozen screening passed; funding-origin privacy remains weak | Retain fresh proofs/fallbacks; test equal net credits before wallet expansion or larger relation changes. |
+| 2. Practical privacy | 5 | Bounded H11/H12 screens complete; equal-net mechanism passed native/TN10 validation | Retain fresh proofs/fallbacks and equal net credit as bounded candidates; interleaving/mixed amounts remain open before general privacy claims. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -187,8 +188,14 @@ excluding RPC/confirmation. Two genuine native calibrations match the model;
 both proof arms drain without PK/wallet inputs. The 20-minute wait produces no
 gain without further activity. The predeclared screen passed; high residual
 funding-origin inference is a separate limitation, not a changed pass criterion.
-The next proposed comparison is equal net credits versus equal gross/varied
-deposits, retaining fresh proofs and complete drainage. It is not executed here.
+**Follow-on H12:** the separately frozen
+[equal-net comparison](../poc/shared-pool/NORMALIZED-DEPOSITS-SPEC.md) is now
+executed offline. It preserves total funding and topology across net/gross/varied
+policies. Its four-way deposit ambiguity survives complete drain, with the
+singleton and early-exit controls retaining their linkage. Native calibration
+passes; complete TN10 rehearsal and measured trial both paid all four wallets
+using unchanged exit proofs, with no remaining reserve. General interleaved-user
+privacy and mixed-denomination behavior remain open.
 
 **Study definition:** [H11's frozen specification](../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
 compares saved versus fresh proofs with independently funded admissions. A
@@ -336,10 +343,10 @@ still fail a declared usability target. Use fresh trial identities for retries,
 complete rehearsals through terminal payouts, and keep all amounts in integer
 sompi. Never weaken a check or erase a failed run.
 
-**Current result:** the independent-deposit prerequisite under
-[RFC-0010](rfc/0010-compact-independent-deposits.md) passed offline and in complete
-TN10 rehearsal/fresh trials. Code, journal and sanitized evidence stay on this
-branch. **Next decision:** preregister the population comparison under
-[RFC-0009](rfc/0009-compact-anchor-privacy.md), then obtain authorization for that
-new experiment. Four deposits do not pass the privacy gate or justify expanding
-wallet features.
+**Current result:** independent deposits passed H10, the fresh-proof population
+screen passed H11, and equal net credits passed H12's bounded offline comparison.
+Code, journal and sanitized evidence stay on this branch. Conditional TN10
+validation also passed with all four wallets independently paid. Preserve
+the remaining Stage 3–5 gates and the privacy limits: four compatible deposit
+labels are not a general anonymity guarantee or permission to expand wallet
+features without addressing the documented assumptions.

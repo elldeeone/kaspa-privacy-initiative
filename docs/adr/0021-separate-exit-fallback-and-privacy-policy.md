@@ -95,3 +95,6 @@ difference of 112,000 sompi. The next smallest hypothesis is equal net credited
 deposits under the existing relation, measured against those controls through
 complete drain. No denomination policy, partial-exit relation, setup change or
 consensus change is implemented or accepted by this decision.
+
+The subsequent equal-net funding comparison and its separate candidate-policy
+decision are recorded in [ADR-0023](0023-equal-net-deposit-policy.md).

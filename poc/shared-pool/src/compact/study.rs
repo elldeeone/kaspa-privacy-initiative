@@ -25,16 +25,16 @@ struct Plan {
 }
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
-struct Ledger {
-    state: PublicState,
-    reserve: Option<native::Utxo>,
-    transactions: Vec<Value>,
-    contexts: Vec<Vec<native::Utxo>>,
-    metrics: Vec<Value>,
-    fees: u64,
+pub(super) struct Ledger {
+    pub(super) state: PublicState,
+    pub(super) reserve: Option<native::Utxo>,
+    pub(super) transactions: Vec<Value>,
+    pub(super) contexts: Vec<Vec<native::Utxo>>,
+    pub(super) metrics: Vec<Value>,
+    pub(super) fees: u64,
 }
 impl Ledger {
-    fn apply(&mut self, d: &H, vk: &[u8], b: &Bundle,
+    pub(super) fn apply(&mut self, d: &H, vk: &[u8], b: &Bundle,
              external: Option<(&native::Utxo, &H)>) -> Result<()> {
         let input = self.reserve.as_ref().ok_or("drained ledger")?.clone();
         let a = b.auth()?;
@@ -64,12 +64,34 @@ impl Ledger {
 }
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
-struct Request {
-    domain: H,
-    vk: String,
-    prefix: Ledger,
-    bundles: Vec<Bundle>,
-    minutes: Vec<i64>,
+pub(super) struct Request {
+    pub(super) domain: H,
+    pub(super) vk: String,
+    pub(super) prefix: Ledger,
+    pub(super) bundles: Vec<Bundle>,
+    pub(super) minutes: Vec<i64>,
+}
+
+/// H12 reuses the genuine preparation with a fresh identity for each trial.
+/// This still uses synthetic ordinary prevouts; normalization::bind replaces
+/// only funding/settlement context and validates every exact unchanged proof.
+pub(super) fn prepare_one(params: &Path, plan: &Path, root: &Path) -> Result<Value> {
+    let meta: Value = ex::read(&params.join("parameters.json"))?;
+    for key in ["pk", "vk"] {
+        if meta[format!("{key}_sha256")] != ex::file_hash(&params.join(format!("{key}.bin")))? {
+            return Err("parameter pin mismatch".into());
+        }
+    }
+    let vk = fs::read(params.join("vk.bin"))?;
+    let now = Instant::now();
+    let pk: ProvingKey<Bn254> = ex::decode(&params.join("pk.bin"))?;
+    let load_ms = now.elapsed().as_millis();
+    if ex::compressed(&pk.vk)? != vk {return Err("PK/VK mismatch".into());}
+    let result = case(&pk, &vk, ex::read(plan)?, root)?;
+    ex::save(&root.join("parameters.json"), &json!({"parameter_load_ms":load_ms,
+        "pk_sha256":meta["pk_sha256"],"vk_sha256":meta["vk_sha256"],
+        "binary_sha256":ex::file_hash(&std::env::current_exe()?)?}))?;
+    Ok(result)
 }
 
 fn case(pk: &ProvingKey<Bn254>, vk: &[u8], plan: Plan, root: &Path) -> Result<Value> {
