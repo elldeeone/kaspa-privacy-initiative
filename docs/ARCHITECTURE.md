@@ -2,6 +2,17 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[ADR-0018](adr/0018-reusable-private-authorization.md) tests historical private
+authorization plus current native covenant settlement. It preserves the earlier
+experiments and requires current spentness, complete state retention and native
+value conservation. [RFC-0006](rfc/0006-reusable-private-authorization.md) records
+the offline/live gates and unresolved questions. The bounded
+[offline and funded TN10 test](../poc/shared-pool/ANCHORED.md) passed: Bob's exact
+private proof survived Alice's payment with a roughly 21-ms public-only rebuild.
+Retain this separation for further direct-L1 research; larger-state privacy,
+general liveness and cryptographic review remain open. The larger covenant costs
+more per exit than v3.
+
 [ADR-0017](adr/0017-note-floor-and-independent-exit-retry.md) adds a bounded
 version-3 protocol note floor and an autonomous stale-proof exit retry test.
 Its fee-rate and node-availability assumptions are explicit; results are tracked

@@ -1,5 +1,18 @@
 # Threat Model
 
+[ADR-0018](docs/adr/0018-reusable-private-authorization.md) separates authorization
+against an authenticated earlier commitment prefix from current native settlement.
+Current nullifiers must never be rolled back; every accepted successor retains
+all prior state. The covenant binds recipient, value, fee, ciphertext and rules
+while checking the exact consumed UTXO. An old private authorization is not an
+old full-state proof. Public prefix/count choice reveals the membership horizon;
+it can narrow candidate notes. Fixed fees, finite capacity, setup, public-data
+availability and a correct chain view remain assumptions. The
+[bounded TN10 result](poc/shared-pool/ANCHORED.md) confirms exact authorization/proof
+reuse after one unrelated payment, with Bob's prover stopped; current-spentness
+and state-retention mutations reject offline. It does not establish arbitrary
+reorg recovery, ongoing-contention fairness or real-world anonymity.
+
 The version-3 experiment in
 [ADR-0017](docs/adr/0017-note-floor-and-independent-exit-retry.md) implements a
 proof-enforced minimum on every real note and withdrawal payout to prevent

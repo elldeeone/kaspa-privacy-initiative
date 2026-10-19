@@ -30,6 +30,14 @@ history, fee changes, setup compromise, reorgs, contention starvation, scalabili
 and independent cryptographic review remain open. Cold parameter loading is a
 measured usability bottleneck.
 
+The reusable-authorization follow-up now lets Bob exit after Alice's unrelated
+payment with the exact same private proof. A complete TN10 rehearsal and fresh
+measured trial both passed, with Bob's prover stopped and a public-only rebuild
+process taking about 21 ms. Keep this separation for further research: it removes
+reproving for the tested update, at a higher native fee. Capacity, continuing
+contention, initial proving/parameter loading, anchor-choice privacy and actual
+anonymity remain unresolved. [Measured evidence](../poc/shared-pool/ANCHORED.md).
+
 ## Hypotheses and decisions
 
 | ID | Falsifiable claim | Evidence/status | Decision |
@@ -38,12 +46,48 @@ measured usability bottleneck.
 | H2 | Private withdrawal change increases feasible consumed-note candidates relative to whole-note withdrawal in the paired four-wallet workload. | Supported for all four selected exits initially and three after complete drain; input amounts remained non-unique for 4/4 partial exits versus exact for 4/4 full exits. | Retain partial change for further study. Equal 0.25 tKAS payout policy was bundled with the change mechanism. |
 | H3 | Enforcing a protocol-level note minimum can prevent the tiny-liability obstruction at the tested fee rate without privileged rescue. | Supported by creation-path boundary tests, 870 native mass/policy combinations and an exact-minimum claim's funded exit. | Retain a 0.26713-tKAS note floor and 0.1-tKAS payout floor in this fresh experimental version; arbitrary future fee rates remain unresolved. |
 | H4 | After two wallets race on the same reserve, the losing wallet can discover accepted state, rebuild its proof and exit using its own keys and public data. | Funded rehearsal and fresh measured trial passed. Both losers generated a new proof after discovering the accepted successor and received payouts after the winner stopped. | Keep permissionless self-proving recovery. Address cold startup and sustained-contention fairness before claiming usability or general liveness. |
+| H5 | Bob's private withdrawal authorization can survive Alice's unrelated payment, with public-only transaction rebuilding and no further proof. | Supported offline and in complete TN10 rehearsal/measured trials. The exact proof/auth bytes survived a change from 3 to 5 commitments; Bob's stopped prover was not needed. Full local rebuilding took 20.650/20.783 ms with no additional proof. | Retain authorization/current-settlement separation. The larger covenant raises exit fees; investigate scale, contention and anchor-choice privacy separately. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 — Reusable authorization (H5), completed bounded test
+
+The owner authorized an offline test and, only if it passes, fresh TN10 execution.
+The prior 10.845-second recovery reproved a whole state transition after one
+competitor. The next question is whether we can remove that dependency rather
+than merely repeat the race. [ADR-0018](adr/0018-reusable-private-authorization.md)
+and [RFC-0006](rfc/0006-reusable-private-authorization.md) define the new relation,
+invariant split, controls and stop conditions. No consensus change is assumed.
+
+- Observation: offline native validation and 80 hostile controls passed. A funded
+  rehearsal and fresh measured trial each confirmed six transactions and drained
+  every private claim/reserve. Bob's 3.788513-tKAS payout used exactly the proof
+  prepared before Alice's payment, after his prover process stopped.
+- Cost: Bob's full exit cost 0.211487 tKAS. Rehearsal cost 1.058660 tKAS and trial
+  cost 1.061836 tKAS; total 2.120496 tKAS. The difference is ordinary funding's
+  storage mass from a smaller change output. The 21-ms local rebuild includes
+  process startup and native validation, but excludes RPC and confirmation.
+- What changed: private ownership/value authorization need not be coupled to the
+  current reserve outpoint/nullifier state. Current native covenant settlement
+  still enforces spentness, backing, complete state retention and immutable rules.
+  No second proof/operator authority was introduced. Authorization initially took
+  5.358/5.405 seconds for Bob; this work was not repeated for the target exit.
+- Privacy consequence: a public commitment-prefix count can narrow candidate
+  notes. The rule authenticates any current prefix, not a registry of historical
+  block-boundary roots; wallets here use the full accepted count when proving.
+  This experiment measures liveness/cost, not anonymity.
+- Limits: fixed small state, one unrelated update, experimental setup, fixed fee
+  assumptions, retained data/parameters and a correct full-node view. The shared
+  reserve is still serialized. The continuing exit fee rose about 26.5% relative
+  to v3, and cold parameter loading remained about one minute. The roughly 21-ms
+  result is not proof of fair admission under continuous contention.
+- Evidence: [report and exact receipts](../poc/shared-pool/ANCHORED.md),
+  [adversarial self-review](../poc/shared-pool/ANCHORED-REVIEW.md). All wallet keys,
+  private notes and proving material remain outside Git. No upstream post/push.
 
 ### Earlier foundation: reproduction and recovery
 

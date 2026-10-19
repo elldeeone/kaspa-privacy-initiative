@@ -1,0 +1,17 @@
+{
+  "rust_test_groups": 4,
+  "rust_result": "passed",
+  "rust_command": "RAYON_NUM_THREADS=4 cargo +1.95.0 test --release --locked --manifest-path poc/shared-pool/Cargo.toml --lib anchored -- --test-threads=1",
+  "rust_observed_elapsed_seconds": 334.35,
+  "chain_transport_tests": 5,
+  "chain_transport_result": "passed",
+  "native_hostile_rejections": 80,
+  "native_capacity_terminal_fixture": "passed - synthetic context, not accepted history",
+  "sdk_round_trips": 6,
+  "sandbox_public_rebuild": "passed - no wallet or proving key mounted",
+  "sandbox_rpc_read_only": "passed - testnet-10",
+  "offline_binary_sha256": "04ed4ddf94fb11d660e3b49930f63ea40567e027f03bb758637a0265522a5bbc",
+  "funded_rehearsal_and_measured_binary_match": true,
+  "rust_version": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "scope": "Observed checks for this experimental implementation; not independent cryptographic review or real-world anonymity"
+}

@@ -4,6 +4,9 @@ This report describes **version 2 at checkpoint `62c8550`**. Its evidence is
 unchanged. Reproduce its code and observer model from that checkpoint; the
 current native code uses a new version-3 domain and proof relation. The
 [note-floor and contention follow-up](CONTENTION.md) records that separate test.
+The additional `kpi-anchored` executable tests a different authorization/settlement
+split. Its [completed offline and TN10 result](ANCHORED.md) shows Bob reusing his
+private proof after Alice's payment; it leaves the earlier experiment intact.
 
 Both funded runs completed on 2026-10-19 using the owner's existing TN10 node.
 Four separate wallet processes re-spent received notes and independently proved
