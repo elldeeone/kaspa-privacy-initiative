@@ -1,0 +1,657 @@
+{
+  "schema": "kpi-shared-pool-comparison-v1",
+  "network": "testnet-10",
+  "scope": "one synthetic paired workload; logical marginal candidates, not real-world anonymity",
+  "intervention": "partial withdrawals with equal 0.25 tKAS first payouts and private change",
+  "commonVisibleFundingSources": 1,
+  "independentRealWorldParticipants": 0,
+  "arms": {
+    "full": {
+      "confirmedTransactions": 19,
+      "totalFeeSompi": "284938000",
+      "poolFeeSompi": "284085100",
+      "terminalTransactionId": "06af96d97bd4a66124da246516ec263a47860a84eae0d384e86f05a3b8fe42b3",
+      "reserveLeftSompi": "0",
+      "fourWalletsProvedAndDrained": true,
+      "proofs": 17,
+      "warmProofMilliseconds": {
+        "min": 10804,
+        "median": 10967,
+        "max": 11236,
+        "sum": 186767
+      },
+      "horizons": {
+        "first_four_withdrawals": {
+          "through": 13,
+          "selectedExitSteps": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "sourceTransactionCandidates": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "consumedNoteCandidates": [
+            10,
+            10,
+            10,
+            10
+          ],
+          "depositOriginCandidates": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "uniqueSourceInferences": 0,
+          "uniqueDepositOriginInferences": 0,
+          "recencyUniqueCalls": 0,
+          "recencyCorrectCalls": 0,
+          "recencyTies": 4,
+          "amounts": {
+            "tested": 4,
+            "uniquely_inferred_inputs": 4,
+            "correct_inferences": 4,
+            "non_unique_inputs": 0,
+            "directly_visible_inputs": 4
+          },
+          "trueJointHistoryFits": true
+        },
+        "fully_drained": {
+          "through": 18,
+          "selectedExitSteps": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "sourceTransactionCandidates": [
+            5,
+            5,
+            5,
+            5
+          ],
+          "consumedNoteCandidates": [
+            10,
+            10,
+            10,
+            10
+          ],
+          "depositOriginCandidates": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "uniqueSourceInferences": 0,
+          "uniqueDepositOriginInferences": 0,
+          "recencyUniqueCalls": 0,
+          "recencyCorrectCalls": 0,
+          "recencyTies": 4,
+          "amounts": {
+            "tested": 4,
+            "uniquely_inferred_inputs": 4,
+            "correct_inferences": 4,
+            "non_unique_inputs": 0,
+            "directly_visible_inputs": 4
+          },
+          "trueJointHistoryFits": true
+        }
+      },
+      "finalAllWithdrawalScores": {
+        "count": 9,
+        "truth_in_all_candidates": true,
+        "source_transaction_candidates": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          3,
+          5,
+          4,
+          3
+        ],
+        "mean_source_transaction_candidates": 4.444444444444445,
+        "source_transaction_singletons": 0,
+        "commitment_candidates": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          3,
+          10,
+          8,
+          3
+        ],
+        "mean_commitment_candidates": 8.222222222222221,
+        "commitment_singletons": 0,
+        "origin_candidates": [
+          4,
+          4,
+          4,
+          4,
+          1,
+          3,
+          4,
+          3,
+          3
+        ],
+        "mean_origin_candidates": 3.3333333333333335,
+        "origin_singletons": 1,
+        "recency_unique_calls": 2,
+        "recency_correct_calls": 1,
+        "recency_ties": 7,
+        "rows": [
+          {
+            "step": 10,
+            "wallet": 0,
+            "candidate_transactions": 5,
+            "candidate_commitments": 10,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 11,
+            "wallet": 1,
+            "candidate_transactions": 5,
+            "candidate_commitments": 10,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 12,
+            "wallet": 2,
+            "candidate_transactions": 5,
+            "candidate_commitments": 10,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 13,
+            "wallet": 3,
+            "candidate_transactions": 5,
+            "candidate_commitments": 10,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 14,
+            "wallet": 0,
+            "candidate_transactions": 5,
+            "candidate_commitments": 10,
+            "candidate_origins": 1,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 15,
+            "wallet": 1,
+            "candidate_transactions": 3,
+            "candidate_commitments": 3,
+            "candidate_origins": 3,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 16,
+            "wallet": 1,
+            "candidate_transactions": 5,
+            "candidate_commitments": 10,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 17,
+            "wallet": 2,
+            "candidate_transactions": 4,
+            "candidate_commitments": 8,
+            "candidate_origins": 3,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 18,
+            "wallet": 3,
+            "candidate_transactions": 3,
+            "candidate_commitments": 3,
+            "candidate_origins": 3,
+            "whole_note_value_public": true
+          }
+        ]
+      },
+      "finalPrivateTransferScores": {
+        "count": 5,
+        "truth_in_all_candidates": true,
+        "source_transaction_candidates": [
+          1,
+          4,
+          5,
+          3,
+          4
+        ],
+        "mean_source_transaction_candidates": 3.4,
+        "source_transaction_singletons": 1,
+        "commitment_candidates": [
+          1,
+          5,
+          7,
+          6,
+          8
+        ],
+        "mean_commitment_candidates": 5.4,
+        "commitment_singletons": 1,
+        "origin_candidates": [
+          1,
+          4,
+          4,
+          4,
+          4
+        ],
+        "mean_origin_candidates": 3.4,
+        "origin_singletons": 1,
+        "recency_unique_calls": 2,
+        "recency_correct_calls": 1,
+        "recency_ties": 3,
+        "rows": [
+          {
+            "step": 2,
+            "wallet": 0,
+            "candidate_transactions": 1,
+            "candidate_commitments": 1,
+            "candidate_origins": 1,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 6,
+            "wallet": 1,
+            "candidate_transactions": 4,
+            "candidate_commitments": 5,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 7,
+            "wallet": 2,
+            "candidate_transactions": 5,
+            "candidate_commitments": 7,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 8,
+            "wallet": 3,
+            "candidate_transactions": 3,
+            "candidate_commitments": 6,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 9,
+            "wallet": 0,
+            "candidate_transactions": 4,
+            "candidate_commitments": 8,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          }
+        ]
+      }
+    },
+    "partial": {
+      "confirmedTransactions": 23,
+      "totalFeeSompi": "351791800",
+      "poolFeeSompi": "350937100",
+      "terminalTransactionId": "312aa5935a3233e2a14ede4bb2e16f02163b39838735426fb227070a439b0db4",
+      "reserveLeftSompi": "0",
+      "fourWalletsProvedAndDrained": true,
+      "proofs": 21,
+      "warmProofMilliseconds": {
+        "min": 10820,
+        "median": 10956,
+        "max": 11163,
+        "sum": 230564
+      },
+      "horizons": {
+        "first_four_withdrawals": {
+          "through": 13,
+          "selectedExitSteps": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "sourceTransactionCandidates": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "consumedNoteCandidates": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "depositOriginCandidates": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "uniqueSourceInferences": 0,
+          "uniqueDepositOriginInferences": 0,
+          "recencyUniqueCalls": 3,
+          "recencyCorrectCalls": 0,
+          "recencyTies": 1,
+          "amounts": {
+            "tested": 4,
+            "uniquely_inferred_inputs": 0,
+            "correct_inferences": 0,
+            "non_unique_inputs": 4,
+            "directly_visible_inputs": 0
+          },
+          "trueJointHistoryFits": true
+        },
+        "fully_drained": {
+          "through": 22,
+          "selectedExitSteps": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "sourceTransactionCandidates": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "consumedNoteCandidates": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "depositOriginCandidates": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "uniqueSourceInferences": 0,
+          "uniqueDepositOriginInferences": 0,
+          "recencyUniqueCalls": 3,
+          "recencyCorrectCalls": 0,
+          "recencyTies": 1,
+          "amounts": {
+            "tested": 4,
+            "uniquely_inferred_inputs": 0,
+            "correct_inferences": 0,
+            "non_unique_inputs": 4,
+            "directly_visible_inputs": 0
+          },
+          "trueJointHistoryFits": true
+        }
+      },
+      "finalAllWithdrawalScores": {
+        "count": 13,
+        "truth_in_all_candidates": true,
+        "source_transaction_candidates": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          9,
+          3,
+          9,
+          9,
+          8,
+          9,
+          3,
+          9
+        ],
+        "mean_source_transaction_candidates": 7.230769230769231,
+        "source_transaction_singletons": 0,
+        "commitment_candidates": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          14,
+          3,
+          14,
+          14,
+          12,
+          14,
+          3,
+          14
+        ],
+        "mean_commitment_candidates": 11.384615384615385,
+        "commitment_singletons": 0,
+        "origin_candidates": [
+          4,
+          4,
+          4,
+          4,
+          1,
+          4,
+          3,
+          4,
+          4,
+          3,
+          4,
+          3,
+          4
+        ],
+        "mean_origin_candidates": 3.5384615384615383,
+        "origin_singletons": 1,
+        "recency_unique_calls": 12,
+        "recency_correct_calls": 2,
+        "recency_ties": 1,
+        "rows": [
+          {
+            "step": 10,
+            "wallet": 0,
+            "candidate_transactions": 5,
+            "candidate_commitments": 10,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 11,
+            "wallet": 1,
+            "candidate_transactions": 6,
+            "candidate_commitments": 11,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 12,
+            "wallet": 2,
+            "candidate_transactions": 7,
+            "candidate_commitments": 12,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 13,
+            "wallet": 3,
+            "candidate_transactions": 8,
+            "candidate_commitments": 13,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 14,
+            "wallet": 0,
+            "candidate_transactions": 9,
+            "candidate_commitments": 14,
+            "candidate_origins": 1,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 15,
+            "wallet": 0,
+            "candidate_transactions": 9,
+            "candidate_commitments": 14,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 16,
+            "wallet": 1,
+            "candidate_transactions": 3,
+            "candidate_commitments": 3,
+            "candidate_origins": 3,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 17,
+            "wallet": 1,
+            "candidate_transactions": 9,
+            "candidate_commitments": 14,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 18,
+            "wallet": 1,
+            "candidate_transactions": 9,
+            "candidate_commitments": 14,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 19,
+            "wallet": 2,
+            "candidate_transactions": 8,
+            "candidate_commitments": 12,
+            "candidate_origins": 3,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 20,
+            "wallet": 2,
+            "candidate_transactions": 9,
+            "candidate_commitments": 14,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 21,
+            "wallet": 3,
+            "candidate_transactions": 3,
+            "candidate_commitments": 3,
+            "candidate_origins": 3,
+            "whole_note_value_public": true
+          },
+          {
+            "step": 22,
+            "wallet": 3,
+            "candidate_transactions": 9,
+            "candidate_commitments": 14,
+            "candidate_origins": 4,
+            "whole_note_value_public": true
+          }
+        ]
+      },
+      "finalPrivateTransferScores": {
+        "count": 5,
+        "truth_in_all_candidates": true,
+        "source_transaction_candidates": [
+          1,
+          4,
+          5,
+          3,
+          4
+        ],
+        "mean_source_transaction_candidates": 3.4,
+        "source_transaction_singletons": 1,
+        "commitment_candidates": [
+          1,
+          5,
+          7,
+          6,
+          8
+        ],
+        "mean_commitment_candidates": 5.4,
+        "commitment_singletons": 1,
+        "origin_candidates": [
+          1,
+          4,
+          4,
+          4,
+          4
+        ],
+        "mean_origin_candidates": 3.4,
+        "origin_singletons": 1,
+        "recency_unique_calls": 2,
+        "recency_correct_calls": 1,
+        "recency_ties": 3,
+        "rows": [
+          {
+            "step": 2,
+            "wallet": 0,
+            "candidate_transactions": 1,
+            "candidate_commitments": 1,
+            "candidate_origins": 1,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 6,
+            "wallet": 1,
+            "candidate_transactions": 4,
+            "candidate_commitments": 5,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 7,
+            "wallet": 2,
+            "candidate_transactions": 5,
+            "candidate_commitments": 7,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 8,
+            "wallet": 3,
+            "candidate_transactions": 3,
+            "candidate_commitments": 6,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          },
+          {
+            "step": 9,
+            "wallet": 0,
+            "candidate_transactions": 4,
+            "candidate_commitments": 8,
+            "candidate_origins": 4,
+            "whole_note_value_public": false
+          }
+        ]
+      }
+    }
+  },
+  "difference": {
+    "additionalTransactions": 4,
+    "additionalTotalFeeSompi": "66853800",
+    "additionalPoolFeeSompi": "66852000",
+    "selectedExitsWithMoreNoteCandidatesInitially": 4,
+    "selectedExitsWithMoreNoteCandidatesAfterDrain": 3,
+    "selectedExitUniqueSourceIdentificationReduced": false,
+    "selectedExitDepositOriginAmbiguityImproved": false
+  },
+  "limitations": [
+    "Four coordinator-controlled wallets share publicly visible funding",
+    "Chain-only; no RPC clients, mempool arrival times, external identity or network observations",
+    "Additional candidates can be earlier private change, not additional independent users",
+    "Whole history known to scorer only after blind inference",
+    "No contention, reorg, lost-history, setup compromise or malicious-dust liveness demonstration",
+    "Single-party setup and unreviewed cryptographic implementation; no production or mainnet safety claim"
+  ]
+}

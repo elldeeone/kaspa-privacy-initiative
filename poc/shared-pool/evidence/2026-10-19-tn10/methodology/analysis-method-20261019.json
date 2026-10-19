@@ -1,0 +1,27 @@
+{
+  "scope": "Pinned before reading candidate results; implementation review and analytic controls completed",
+  "models": [
+    "integer value conservation and reserve spend order",
+    "most recent feasible creation event heuristic"
+  ],
+  "targets": [
+    "consumed commitment",
+    "creating transaction",
+    "public deposit ancestry"
+  ],
+  "horizons": [
+    "bootstrap",
+    "first four withdrawals",
+    "fully drained"
+  ],
+  "candidateMeaning": "marginal logical possibilities, not joint history count or probabilities",
+  "groundTruth": "only scorer reads it",
+  "traffic": "single known common funding source, four synthetic wallets, fixed sequential plan, no other pool users; partial arm standardizes first payouts to 0.25 tKAS",
+  "sourceSha256": {
+    "observe.py": "5910c44f7d123260853a57077e31b9e030c8c93294d6b7d1e12069b97e1a93b6",
+    "score.py": "c3699948a4d4ab836524eb326eb0bf2d5ddcee0ea8b4bce8f35c6c32fc61879f",
+    "test_observer.py": "20f2a0fd5d08f6c7031d036fb16a9d0352322e683d9d1cd6dabb3fd64b8bc0dd",
+    "analyze-isolated.py": "689fc3cd2ef0304e42da7cb8d25eb951146e9b5b09f54cd0d2cc8c88cb466666",
+    "fetch-chain.mjs": "11e3a59f5a95b253daa559c028c0b4886094c108bd5cffef13f29adfb942731a"
+  }
+}

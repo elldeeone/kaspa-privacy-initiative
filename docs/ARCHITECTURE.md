@@ -2,6 +2,19 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+The [four-wallet comparison](adr/0016-four-wallet-shared-pool-trial.md) extends
+the direct trial with deposits, repeat private spends and private withdrawal
+change. It measures chain-only inference before and after complete drain;
+[RFC-0004](rfc/0004-four-wallet-shared-pool.md) scopes its limits.
+Both funded arms completed on TN10; the
+[result](../poc/shared-pool/README.md) records four separately authorized exits,
+the partial-withdrawal comparison and unresolved dust/contention limitations.
+
+The bounded [direct self-funded TN10 trial](adr/0015-direct-self-funded-tn10-trial.md)
+tests Candidate A with one reserve and native miner fees charged to private
+entitlements. It does not adopt a production architecture; its open questions are
+tracked in [RFC-0003](rfc/0003-direct-self-funded-trial.md).
+
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
 The [A0 feasibility experiment](poc-a0.md) investigates direct Groth16 proof

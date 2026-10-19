@@ -1,5 +1,27 @@
 # Threat Model
 
+The [four-wallet trial](docs/adr/0016-four-wallet-shared-pool-trial.md) treats
+funding ancestry, reserve lineage, fees, mode/counts, timing and public payouts
+as observer inputs. Partial withdrawal hides change value cryptographically but
+may reveal it through later exits. Synthetic wallets sharing one funding source
+are not independent anonymity participants. Setup and public artifact retention
+remain assumptions. RPC/network metadata is excluded from the chain-only attack,
+not claimed private. Deposits require a proved bootstrap and cannot debit prior
+holders; partial withdrawals must preserve the remaining private liability.
+Wallet quarantine prevents accepting dust as payment but does not erase its
+reserve liability. The circuit still permits tiny positive notes: a malicious
+claim can make a later reserve output fail native storage-mass limits. The
+trial therefore demonstrates independent exits for its accepted-note workload,
+not general adversarial exit liveness. Competing reserve spends and reorgs remain
+separate tests.
+
+The [direct self-funded TN10 trial](docs/adr/0015-direct-self-funded-tn10-trial.md)
+adds experimental single-party Groth16 setup and retained public-parameter/data
+assumptions. It has no operator withdrawal authority. Its complete old/new state,
+native predecessor, output scripts, values and miner fee must be proof/covenant
+bound. Four commitment slots and public deposit/exit boundaries provide no claim
+of real-world anonymity. RPC/network exposure remains separate from chain data.
+
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
 ## Assets to protect

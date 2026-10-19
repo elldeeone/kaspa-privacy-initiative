@@ -1,0 +1,16 @@
+{
+  "command": "RAYON_NUM_THREADS=4 cargo +1.95.0 test --locked --release --manifest-path poc/self-funded/Cargo.toml -j 4 -- --test-threads=1",
+  "testsPassed": 4,
+  "testsFailed": 0,
+  "testSeconds": 149.07,
+  "tests": [
+    "complete_relation_rejects_adversarial_witnesses",
+    "confidential_delivery_and_state_encoding",
+    "exits_enforce_backing_and_terminal_exhaustion",
+    "native_preconditions_reject_malformed_amounts_without_panicking"
+  ],
+  "nativeGeneratedProofMutationsRejected": 36,
+  "sdkRoundTrips": 6,
+  "staticReview": "Separate Standards and Spec reviews; reported issues fixed before funding. Not an independent cryptographic audit.",
+  "scope": "Test summary transcribed from successful tool output; native controls and live receipts are machine-generated."
+}

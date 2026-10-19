@@ -1,0 +1,13 @@
+{
+  "reason": "Explicitly test whether later full drainage forces an earlier partial input amount; graph candidate method remains unchanged",
+  "timing": "Added after full-arm graph scoring, before partial-arm chain analysis; this is an extension, not an original preregistration",
+  "inputs": "Only confirmed chain transcript, same protocol constraints as graph model, no ground truth",
+  "test": "Distinct amount satisfiability; unsat alternative means exact inference, sat means at least two values, unknown is an error",
+  "analyticControls": 8,
+  "sourceSha256": {
+    "observe.py": "5910c44f7d123260853a57077e31b9e030c8c93294d6b7d1e12069b97e1a93b6",
+    "amounts.py": "7a290bb95b5b91296b00682993616165d6432572ffae0376a1f35c0083b3f72e",
+    "test_observer.py": "722a36e12cda5751b6b14808ffefbf5cecb30ee3c8f631f593f6926dc09fcae1",
+    "analyze-isolated.py": "4fb3e8d0f2b753a6f2ec886a28dcafa4bddee2c319b4aee80ebaee6f9c23b842"
+  }
+}

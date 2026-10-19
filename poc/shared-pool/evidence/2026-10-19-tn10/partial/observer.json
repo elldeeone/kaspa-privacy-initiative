@@ -1,0 +1,1002 @@
+{
+  "method": "integer conservation and temporal marginal candidates; recency tie set",
+  "assumptions": [
+    "valid accepted protocol transitions",
+    "positive u64 note values within native range",
+    "one private input per non-deposit transition",
+    "public reserve spend order only",
+    "no private schedule, ownership, wallet policy, RPC clients or traffic distribution"
+  ],
+  "limitations": [
+    "candidate counts are not probabilities or real-user anonymity",
+    "does not exploit cryptographic implementation flaws",
+    "no mempool arrival times, network/RPC observation, or external identity data"
+  ],
+  "solver": "4.15.4",
+  "horizons": {
+    "bootstrap": {
+      "through": 2,
+      "seconds": 0.01930088800145313,
+      "events": [
+        {
+          "step": 2,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "source_transaction_candidates": [
+            1
+          ],
+          "recency_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "exact_input_value_sompi": null
+        }
+      ]
+    },
+    "first_four_withdrawals": {
+      "through": 13,
+      "seconds": 0.3967962879978586,
+      "events": [
+        {
+          "step": 2,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "source_transaction_candidates": [
+            1
+          ],
+          "recency_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 6,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "recency_candidates": [
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 7,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "recency_candidates": [
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 8,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "recency_candidates": [
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 9,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "recency_candidates": [
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 10,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "recency_candidates": [
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 11,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recency_candidates": [
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 12,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "recency_candidates": [
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 13,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "recency_candidates": [
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2"
+          ],
+          "exact_input_value_sompi": null
+        }
+      ]
+    },
+    "fully_drained": {
+      "through": 22,
+      "seconds": 262.8410263580008,
+      "events": [
+        {
+          "step": 2,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "source_transaction_candidates": [
+            1
+          ],
+          "recency_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 6,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "recency_candidates": [
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 7,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "recency_candidates": [
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 8,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7
+          ],
+          "recency_candidates": [
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 9,
+          "mode": 1,
+          "payout_sompi": "0",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8
+          ],
+          "recency_candidates": [
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 10,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9
+          ],
+          "recency_candidates": [
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 11,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "recency_candidates": [
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 12,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "recency_candidates": [
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 13,
+          "mode": 4,
+          "payout_sompi": "25000000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "recency_candidates": [
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2"
+          ],
+          "exact_input_value_sompi": null
+        },
+        {
+          "step": 14,
+          "mode": 2,
+          "payout_sompi": "566615200",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2",
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "recency_candidates": [
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "exact_input_value_sompi": "583328200"
+        },
+        {
+          "step": 15,
+          "mode": 2,
+          "payout_sompi": "24902200",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2",
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "recency_candidates": [
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "exact_input_value_sompi": "41615200"
+        },
+        {
+          "step": 16,
+          "mode": 2,
+          "payout_sompi": "1166503200",
+          "consumed_commitment_candidates": [
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "deposit_origin_candidates": [
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            3,
+            4,
+            5
+          ],
+          "recency_candidates": [
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "exact_input_value_sompi": "1183216200"
+        },
+        {
+          "step": 17,
+          "mode": 2,
+          "payout_sompi": "66615200",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2",
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "recency_candidates": [
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "exact_input_value_sompi": "83328200"
+        },
+        {
+          "step": 18,
+          "mode": 2,
+          "payout_sompi": "41574000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2",
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "recency_candidates": [
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "exact_input_value_sompi": "58287000"
+        },
+        {
+          "step": 19,
+          "mode": 2,
+          "payout_sompi": "649831400",
+          "consumed_commitment_candidates": [
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2",
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "deposit_origin_candidates": [
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "recency_candidates": [
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "exact_input_value_sompi": "666544400"
+        },
+        {
+          "step": 20,
+          "mode": 2,
+          "payout_sompi": "241574000",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2",
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "recency_candidates": [
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "exact_input_value_sompi": "258287000"
+        },
+        {
+          "step": 21,
+          "mode": 2,
+          "payout_sompi": "1166503200",
+          "consumed_commitment_candidates": [
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "deposit_origin_candidates": [
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            3,
+            4,
+            5
+          ],
+          "recency_candidates": [
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "exact_input_value_sompi": "1183216200"
+        },
+        {
+          "step": 22,
+          "mode": 3,
+          "payout_sompi": "224944500",
+          "consumed_commitment_candidates": [
+            "e4773b1a887f0d81cd5e94c3f1e3ccc67ed7b1ebf42cfacaa41d1a0c5ca06b84",
+            "6e0bb7de24b1fae113c80bd35ec58fe41816e11afa0b91f2507b20f2686cc27f",
+            "74a46fb1909847b37f7fe867a0b33241f6ae79a71537832021988245654caada",
+            "e36ba5abd06edb9b8ef63721a0923f783382a49485722eaea3eaa835b6230973",
+            "860bf892656fc310661ddf4b73f5d62f20a6f5418105b1186956065669245547",
+            "99910ca61b24ebc72b821eae86b62e37c9f8b92f51b3d00e79e4b54b7e10fc75",
+            "7f0ad474e28338b12d425de6d14818a879235a10a9f2efa2c591b0f07445299c",
+            "c62ad7673b2bbf94835ea2b743ebeb62cece8f5012757e11b8adf2729731fbc0",
+            "bc0f625c292a3ed7b29c30234357c9d4d60b22f5faa2b8b56a7b823e15bae79f",
+            "79863fd9c1363f12adb6318f64de3d23066d0ab072b1ee2c896c40c11a309a02",
+            "8a967ec3ead67c1aa61ceb245894328130024e5809aa07cd32d98cd9ada3cd62",
+            "b9cad26e21ecc409787da98b4a0dd7298906b1685427bc1e150ef1f817411b5a",
+            "c7022d8348434eb29204c9cab57ba20ba72fc64fbe3eed31851c8b7dc2c68ef2",
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "deposit_origin_candidates": [
+            "7467a7427272794884101d848213962c763e3dbfd363a2d7f81030dfc4e27a45",
+            "f81efc89b96a62e146878473f8b5089183ec5ef4cafa1ab60e7b3c9115796504",
+            "80251873d1c66e7af7264dd3b65651497e3d6c55487d1415a62e48b246d7457b",
+            "77c019a490d50253e421f1c237ec1a78bd97d1d5274a2da60f776f5022601b9f"
+          ],
+          "source_transaction_candidates": [
+            2,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "recency_candidates": [
+            "c60114390d809ca610b9d76ac00e2ce2a6ee871903021da877169076daa750a3"
+          ],
+          "exact_input_value_sompi": "241615200"
+        }
+      ]
+    }
+  },
+  "chain_sha256": "0946c4af6abdfb4e242b5f4cce4e84a71def2023952ea935920763eaac070b94"
+}
