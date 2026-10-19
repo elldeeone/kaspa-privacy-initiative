@@ -35,12 +35,12 @@ fn dir(p: &Path) -> Result<()> {
     fs::set_permissions(p, fs::Permissions::from_mode(0o700))?;
     Ok(())
 }
-fn compressed<T: CanonicalSerialize>(v: &T) -> Result<Vec<u8>> {
+pub(super) fn compressed<T: CanonicalSerialize>(v: &T) -> Result<Vec<u8>> {
     let mut b = Vec::new();
     v.serialize_compressed(&mut b)?;
     Ok(b)
 }
-fn decode<T: CanonicalDeserialize>(p: &Path) -> Result<T> {
+pub(super) fn decode<T: CanonicalDeserialize>(p: &Path) -> Result<T> {
     let mut f = BufReader::new(fs::File::open(p)?);
     let v = T::deserialize_compressed(&mut f)?;
     if f.read(&mut [0u8; 1])? != 0 {
@@ -48,7 +48,7 @@ fn decode<T: CanonicalDeserialize>(p: &Path) -> Result<T> {
     }
     Ok(v)
 }
-fn file_hash(p: &Path) -> Result<String> {
+pub(super) fn file_hash(p: &Path) -> Result<String> {
     use sha2::{Digest, Sha256};
     let mut f = fs::File::open(p)?;
     let mut h = Sha256::new();
@@ -171,7 +171,7 @@ pub fn fixture() -> Result<(AuthorizationCircuit, Bundle)> {
         RESERVE,
     )
 }
-fn prove(
+pub(super) fn prove(
     pk: &ProvingKey<Bn254>,
     c: AuthorizationCircuit,
     mut bundle: Bundle,
@@ -293,7 +293,7 @@ fn init(params: &Path, root: &Path, reserve: u64) -> Result<Value> {
     save(&public.join("manifest.json"), &m)?;
     Ok(json!({"domain":hex::encode(domain),"network":"testnet-10","funded":false}))
 }
-fn save_tx(
+pub(super) fn save_tx(
     public: &Path,
     step: u32,
     tx: &Transaction,
@@ -377,8 +377,8 @@ pub(super) fn history(public: &Path, through: u32, m: &Manifest, vk: &[u8]) -> R
     })
 }
 #[derive(Clone)]
-struct Positioned { position:u32, note:Note }
-fn scan(h: &History, m: &Manifest, w: &PrivateWallet) -> Result<Vec<Positioned>> {
+pub(super) struct Positioned { pub position:u32, pub note:Note }
+pub(super) fn scan(h: &History, m: &Manifest, w: &PrivateWallet) -> Result<Vec<Positioned>> {
     let mut notes = Vec::new();
     if let Some(n) = &w.initial_note {
         if n.commitment(&m.domain) != m.initial_state.commitments[0] {

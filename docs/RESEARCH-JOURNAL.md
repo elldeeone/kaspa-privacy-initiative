@@ -59,12 +59,39 @@ fees and privacy remain open. [Measured evidence](../poc/shared-pool/COMPACT.md)
 | H4 | After two wallets race on the same reserve, the losing wallet can discover accepted state, rebuild its proof and exit using its own keys and public data. | Funded rehearsal and fresh measured trial passed. Both losers generated a new proof after discovering the accepted successor and received payouts after the winner stopped. | Keep permissionless self-proving recovery. Address cold startup and sustained-contention fairness before claiming usability or general liveness. |
 | H5 | Bob's private withdrawal authorization can survive Alice's unrelated payment, with public-only transaction rebuilding and no further proof. | Supported offline and in complete TN10 rehearsal/measured trials. The exact proof/auth bytes survived a change from 3 to 5 commitments; Bob's stopped prover was not needed. Full local rebuilding took 20.650/20.783 ms with no additional proof. | Retain authorization/current-settlement separation. The larger covenant raises exit fees; investigate scale, contention and anchor-choice privacy separately. |
 | H6 | Compact native state can preserve Bob's exact proof through 100 payments, with no second proof or privileged settlement service. | Full offline gate, complete short TN10 rehearsal and fresh 100-payment trial passed; all 204 measured native transactions confirmed and every claim drained. | Retain fixed-depth public settlement for further research. Native size/mass stayed constant at payments 1, 10 and 100; history retention, fee cost and old-anchor privacy remain unresolved. |
+| H7 | Three wallets can recover incoming payments from pre-payment backups and public data, then create their first exit proofs without the original services. | Offline passed; funded recovery in progress after a pre-broadcast RPC interruption. | Keep the initial note opening for the depositor; require independently retained public data. No complete live result yet. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 — Stage 1 independent recovery (H7), started
+
+The owner authorized backup definition, offline implementation/execution and,
+only if it passes, TN10 rehearsal and measured trial. All three wallets must
+exit independently. [ADR-0020](adr/0020-independent-wallet-recovery.md) and
+[RFC-0008](rfc/0008-independent-wallet-recovery.md) define the unchanged compact
+relation, minimum backup/public-data inputs, three-wallet workload and rejection
+controls. Unlike H6, these restored wallets create their first exit proofs only
+after recovery.
+
+All three offline restorations passed with one note/payout each, 26 recovery
+controls, 113 inherited native rejections and complete integer reconciliation.
+Keys alone cannot discover the initial deposit: Alice must retain that note's
+opening. Bob and Carol's backups predate their received notes and contain none.
+
+The first funded rehearsal confirmed funding and both payments, then stopped
+before Bob's exit submission. His proof completed, but synchronous cold proving
+blocked WebSocket processing and the RPC connection dropped. The reserve was
+observed unspent; no submission intent existed. Close RPC during local proof
+work, reconnect and recheck the current reserve before sending. A fresh offline
+restoration of all three saved-fixture backups passed with the revised client.
+Fresh ordinary cleanup of the interrupted pool precedes another complete
+rehearsal and measured trial. No complete live H7 success is claimed yet.
+See [recovery report](../poc/shared-pool/RECOVERY.md) and
+[review](../poc/shared-pool/RECOVERY-REVIEW.md).
 
 ### 2026-10-19 — Branch plan established
 

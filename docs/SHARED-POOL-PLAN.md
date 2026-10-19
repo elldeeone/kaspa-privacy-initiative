@@ -22,7 +22,7 @@ change would require a separate research decision, not an implementation shortcu
 | Branch stage | Roadmap phases | Status | Decision it must support |
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
-| 1. Independent recovery | 3–4 | Next; not executed | Can users recover without the experiment's private files or services? |
+| 1. Independent recovery | 3–4 | Offline passed; [H7 live recovery](../poc/shared-pool/RECOVERY.md) in progress | Can users recover without the experiment's private files or services? |
 | 2. Practical privacy | 5 | Preliminary H2 only; next | Does the candidate hide useful relationships under explicit low-activity assumptions? |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |

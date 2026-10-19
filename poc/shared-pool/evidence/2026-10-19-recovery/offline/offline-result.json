@@ -1,0 +1,384 @@
+{
+  "accounting": {
+    "allClaimsDrained": true,
+    "claims": 5,
+    "finalOrdinaryOutputs": [
+      {
+        "amount": "999795100",
+        "daa": "0",
+        "index": 1,
+        "is_coinbase": false,
+        "spk": "000020681d466192468c1d87b926f3dff47ff9b3f672a20ec87e9f850fea13c7a0c13aac",
+        "txid": "d99727f0b2299c57dcc8a6ea14b7de2a5431edaa4aa0f54bdc99ab7c56934ea2"
+      },
+      {
+        "amount": "378270400",
+        "daa": "0",
+        "index": 1,
+        "is_coinbase": false,
+        "spk": "000020ead104f80a5fa427ac7641e94b034124ce777db08a8a5bf690bc01b3f8b39650ac",
+        "txid": "a914bb65bd1d409e6e925f64417e8372ab91383ae6b5e641e7b0ac7bfcf33def"
+      },
+      {
+        "amount": "178270400",
+        "daa": "0",
+        "index": 1,
+        "is_coinbase": false,
+        "spk": "0000203325d2ba84fbbc44d1e399fc4308f8922f902a34f98d2cefc33894ba15d66236ac",
+        "txid": "e9dd38209f2942ed0987c5145e79cb8cdd36890f537995860474dfffc2a9f63e"
+      },
+      {
+        "amount": "334893600",
+        "daa": "0",
+        "index": 0,
+        "is_coinbase": false,
+        "spk": "000020d0306865c7fc22c569e6efcd0f27d9d2e3bdeec2bb42f3a9ea8418636e3b7c68ac",
+        "txid": "8d9835430a896ccfe6d6a7f25cb2ba0883337c0701a8f7e07be90f7db7c06ce2"
+      }
+    ],
+    "remainingReserve": null,
+    "totalFeeSompi": "108770500",
+    "transactions": 6
+  },
+  "broadcast": false,
+  "compactBinarySha256": "a60c98e1cfcaaf72aef9988c426d10776c4ae4801abd8411acd49f930c4d132c",
+  "complete": true,
+  "createdAt": "2026-10-19T10:46:43.511Z",
+  "existingPool": "d99727f0b2299c57dcc8a6ea14b7de2a5431edaa4aa0f54bdc99ab7c56934ea2",
+  "fresh": true,
+  "freshRecoveryAttempt": true,
+  "nativeRejections": 113,
+  "network": "testnet-10",
+  "offline_pass": true,
+  "originalsStopped": true,
+  "recoveryBinarySha256": "f7dec92bb6976035a6bf7a64a70e46caae0b421e731cd0bd4c0547b24f843e3a",
+  "recoveryControls": {
+    "cases": 26,
+    "controls": [
+      {
+        "control": "backup-pin",
+        "error": "wallet recovery: backup descriptor identity",
+        "rejected": true
+      },
+      {
+        "control": "unknown-backup-field",
+        "error": "wallet recovery: unknown field `future_note`, expected one of `format`, `descriptor_sha256`, `wallet`, `initial_note` at line 1 column 550",
+        "rejected": true
+      },
+      {
+        "control": "malformed-key",
+        "error": "wallet recovery: invalid length 1, expected an array of length 32 at line 1 column 152",
+        "rejected": true
+      },
+      {
+        "control": "wrong-network",
+        "error": "wallet recovery: descriptor network/version/VK",
+        "rejected": true
+      },
+      {
+        "control": "wrong-genesis",
+        "error": "wallet recovery: descriptor network/version/VK",
+        "rejected": true
+      },
+      {
+        "control": "wrong-domain",
+        "error": "wallet recovery: descriptor funding covenant",
+        "rejected": true
+      },
+      {
+        "control": "wrong-reserve",
+        "error": "wallet recovery: descriptor reserve/funding",
+        "rejected": true
+      },
+      {
+        "control": "noncanonical-amount",
+        "error": "wallet recovery: descriptor reserve/funding",
+        "rejected": true
+      },
+      {
+        "control": "receiver-list-in-descriptor",
+        "error": "wallet recovery: unknown field `receivers`, expected one of `format`, `network`, `genesis`, `domain`, `initial_commitment`, `reserve_sompi`, `source`, `funding`, `funding_full_hash`, `start_hash`, `pk_sha256`, `vk_sha256` at line 1 column 1231",
+        "rejected": true
+      },
+      {
+        "control": "corrupt-vk",
+        "error": "wallet recovery: descriptor network/version/VK",
+        "rejected": true
+      },
+      {
+        "control": "corrupt-pk",
+        "error": "wallet recovery: proving parameter checksum",
+        "rejected": true
+      },
+      {
+        "control": "funding-context-substitution",
+        "error": "wallet recovery: funding input context substitution",
+        "rejected": true
+      },
+      {
+        "control": "missing-middle",
+        "error": "wallet recovery: No such file or directory (os error 2)",
+        "rejected": true
+      },
+      {
+        "control": "missing-tail",
+        "error": "wallet recovery: No such file or directory (os error 2)",
+        "rejected": true
+      },
+      {
+        "control": "reordered-history",
+        "error": "wallet recovery: reserve lineage",
+        "rejected": true
+      },
+      {
+        "control": "stale-endpoint",
+        "error": "wallet recovery: history endpoint identity",
+        "rejected": true
+      },
+      {
+        "control": "forged-current-reserve",
+        "error": "wallet recovery: history does not reach the independently checked head",
+        "rejected": true
+      },
+      {
+        "control": "ciphertext-tampering",
+        "error": "wallet recovery: transaction is not canonical/ID mismatch",
+        "rejected": true
+      },
+      {
+        "control": "proof-tampering",
+        "error": "wallet recovery: failed to verify the signature script: ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+        "rejected": true
+      },
+      {
+        "control": "wrong-initial-note",
+        "error": "wallet recovery: backup initial note ownership/commitment",
+        "rejected": true
+      },
+      {
+        "control": "wrong-spending-cannot-exit",
+        "error": "wallet recovery: no spendable recovered note",
+        "rejected": true
+      },
+      {
+        "control": "wrong-viewing-cannot-exit",
+        "error": "wallet recovery: No such file or directory (os error 2)",
+        "rejected": true
+      },
+      {
+        "control": "spent-note-cannot-exit",
+        "error": "wallet recovery: no spendable recovered note",
+        "rejected": true
+      },
+      {
+        "control": "initial-opening-needed-before-first-transfer",
+        "keysOnly": 0,
+        "withOpening": 1
+      },
+      {
+        "control": "archive-omission-rejected-stale-prefix-extended",
+        "rejected": true
+      },
+      {
+        "control": "all-public-sources-unavailable",
+        "recoverySucceeded": false,
+        "safeHalt": true
+      }
+    ],
+    "passed": true,
+    "terminalWalletScans": 3,
+    "validWalletScans": 3
+  },
+  "role": "offline",
+  "scope": "Synthetic explicit UTXOs and isolated local recovery; no live chain or independent-host claim",
+  "sources": {
+    "Cargo.lock": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+    "Cargo.toml": "cfdc8e104c93e4575b1f2cf5d9b441566674b7b801856d18fc7aeb5ba50234f3",
+    "chain.mjs": "cdae6ed5ca52aa7d57df45b9ca2ba8d34054d103dca15b58359d09d50a0fcb88",
+    "recovery-client.mjs": "3e388abf934dab1b7ad8878d66db30b1cf322ae185410d678c16bd3908b22aa5",
+    "recovery-common.mjs": "c6c0703a3c288d94477a4014b1cbfdf87a919d5b7b550e6f65a87100ab774c94",
+    "recovery-controls.mjs": "8643e8d62040532bd57456f32e06e387840d7e4c9a74e057e971c913b18e39e9",
+    "recovery-live.mjs": "8184239b2bc95f89c5cc7aeebbcf9d19f8fa69a42b2fa36e2d73c60e5260717b",
+    "recovery-remote.mjs": "55d6e62037c118798f9c1fb165c301601a160a01a26a40c5ee3c1c4351018eef",
+    "recovery-sandbox.mjs": "a99bee416c8e44364f79a6a6cfb19e661e7248a8dbf46294e0c58dce7fa5f7ab",
+    "recovery-trial.mjs": "976b722ab92a0ddfdb0317d5a6e53ef512bbd4eba5e1d3b1307607cc61780729",
+    "runtime.mjs": "51bbe68e464fd83dde587314d750330ee723fbfe37ca6270315bccc80c2b7ed3",
+    "src/bin/kpi-recovery.rs": "3591fca33bf731a4d81b3e8a0a7b5170acd6985ad88312b19841f8f2e8bafc58",
+    "src/compact/circuit.rs": "278af7d43253356688251ae4f2969e033779af0df0458fdf3283feeed942b638",
+    "src/compact/covenant.rs": "297825946e0bd22e3638f7592e02f3673684472ceebc41bcc7c8dae14b931766",
+    "src/compact/experiment.rs": "5a277b048011024a9c9692780e67de710e72b46bb3a06d447b8e9649980c32cf",
+    "src/compact/mod.rs": "b033929577336ab49d6bf9db6f402e562f27119bb2fc38d0ce249e3dfa46f685",
+    "src/compact/recovery.rs": "3911a09058b9d3db5c2f95827ece7ff9a8104ebd6cb72fb7cc93b11e1cf117c9",
+    "src/compact/tree.rs": "4ac46cb3e514e58181d0a4e2195e882f22d1df83d8dc6ea926fac47102ea0dc6",
+    "src/lib.rs": "922f209b29f2f57b907157bf976e70cb9d53c06e5794830a48d7bb108d3adb7d",
+    "src/native.rs": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f",
+    "src/protocol.rs": "ad4573aeba2f40901ce79df22280225c43d3696242aa96c94d814e2ab7ba43d8"
+  },
+  "wallets": [
+    {
+      "newPrivateProofs": 1,
+      "payout": {
+        "amount": "378270400",
+        "daa": "0",
+        "index": 1,
+        "is_coinbase": false,
+        "spk": "000020ead104f80a5fa427ac7641e94b034124ce777db08a8a5bf690bc01b3f8b39650ac",
+        "txid": "a914bb65bd1d409e6e925f64417e8372ab91383ae6b5e641e7b0ac7bfcf33def"
+      },
+      "proof": {
+        "created": true,
+        "fee_sompi": "21729600",
+        "input_value_sompi": "400000000",
+        "native": {
+          "extra": {
+            "new_private_proof": true,
+            "recovered_wallet": true
+          },
+          "full_hash": "c6a4c1f5cde7adfc736e651f8bfbb105af9ec08abf5d0636c60a4a1df027b965",
+          "metrics": {
+            "compute_mass": 217296,
+            "estimated_bytes": 16566,
+            "fee_sompi": 21729600,
+            "mining_mass": 217296,
+            "relay_floor_sompi": 21729600,
+            "relay_mass": 217296,
+            "storage_mass": 3394,
+            "transient_mass": 66264
+          },
+          "native_full": true,
+          "policy": true,
+          "script_units": 14850817,
+          "txid": "a914bb65bd1d409e6e925f64417e8372ab91383ae6b5e641e7b0ac7bfcf33def"
+        },
+        "new_private_proofs": 1,
+        "parameter_load_ms": 101717,
+        "payout": {
+          "amount": "378270400",
+          "daa": "0",
+          "index": 1,
+          "is_coinbase": false,
+          "spk": "000020ead104f80a5fa427ac7641e94b034124ce777db08a8a5bf690bc01b3f8b39650ac",
+          "txid": "a914bb65bd1d409e6e925f64417e8372ab91383ae6b5e641e7b0ac7bfcf33def"
+        },
+        "payout_owned_by_backup": true,
+        "proving_ms": 9963,
+        "through": 2,
+        "total_local_ms": 111705,
+        "transaction_file": "0003.json",
+        "unspent_notes_before": 1
+      },
+      "totalMs": 112501.001104,
+      "wallet": 1
+    },
+    {
+      "newPrivateProofs": 1,
+      "payout": {
+        "amount": "178270400",
+        "daa": "0",
+        "index": 1,
+        "is_coinbase": false,
+        "spk": "0000203325d2ba84fbbc44d1e399fc4308f8922f902a34f98d2cefc33894ba15d66236ac",
+        "txid": "e9dd38209f2942ed0987c5145e79cb8cdd36890f537995860474dfffc2a9f63e"
+      },
+      "proof": {
+        "created": true,
+        "fee_sompi": "21729600",
+        "input_value_sompi": "200000000",
+        "native": {
+          "extra": {
+            "new_private_proof": true,
+            "recovered_wallet": true
+          },
+          "full_hash": "3b6c671d5878ae5c0227a8d23b32c22433aec3bf5f016bb67c8f30aca3bfd3ad",
+          "metrics": {
+            "compute_mass": 217296,
+            "estimated_bytes": 16566,
+            "fee_sompi": 21729600,
+            "mining_mass": 217296,
+            "relay_floor_sompi": 21729600,
+            "relay_mass": 217296,
+            "storage_mass": 6617,
+            "transient_mass": 66264
+          },
+          "native_full": true,
+          "policy": true,
+          "script_units": 14851240,
+          "txid": "e9dd38209f2942ed0987c5145e79cb8cdd36890f537995860474dfffc2a9f63e"
+        },
+        "new_private_proofs": 1,
+        "parameter_load_ms": 101578,
+        "payout": {
+          "amount": "178270400",
+          "daa": "0",
+          "index": 1,
+          "is_coinbase": false,
+          "spk": "0000203325d2ba84fbbc44d1e399fc4308f8922f902a34f98d2cefc33894ba15d66236ac",
+          "txid": "e9dd38209f2942ed0987c5145e79cb8cdd36890f537995860474dfffc2a9f63e"
+        },
+        "payout_owned_by_backup": true,
+        "proving_ms": 9953,
+        "through": 3,
+        "total_local_ms": 111558,
+        "transaction_file": "0004.json",
+        "unspent_notes_before": 1
+      },
+      "totalMs": 112354.327172,
+      "wallet": 2
+    },
+    {
+      "newPrivateProofs": 1,
+      "payout": {
+        "amount": "334893600",
+        "daa": "0",
+        "index": 0,
+        "is_coinbase": false,
+        "spk": "000020d0306865c7fc22c569e6efcd0f27d9d2e3bdeec2bb42f3a9ea8418636e3b7c68ac",
+        "txid": "8d9835430a896ccfe6d6a7f25cb2ba0883337c0701a8f7e07be90f7db7c06ce2"
+      },
+      "proof": {
+        "created": true,
+        "fee_sompi": "21729600",
+        "input_value_sompi": "356623200",
+        "native": {
+          "extra": {
+            "new_private_proof": true,
+            "recovered_wallet": true
+          },
+          "full_hash": "22046975f0d608f8319f6bd50731414181061764288536dc882e5e849343180d",
+          "metrics": {
+            "compute_mass": 216873,
+            "estimated_bytes": 16513,
+            "fee_sompi": 21729600,
+            "mining_mass": 216873,
+            "relay_floor_sompi": 21687300,
+            "relay_mass": 216873,
+            "storage_mass": 182,
+            "transient_mass": 66052
+          },
+          "native_full": true,
+          "policy": true,
+          "script_units": 14801667,
+          "txid": "8d9835430a896ccfe6d6a7f25cb2ba0883337c0701a8f7e07be90f7db7c06ce2"
+        },
+        "new_private_proofs": 1,
+        "parameter_load_ms": 101899,
+        "payout": {
+          "amount": "334893600",
+          "daa": "0",
+          "index": 0,
+          "is_coinbase": false,
+          "spk": "000020d0306865c7fc22c569e6efcd0f27d9d2e3bdeec2bb42f3a9ea8418636e3b7c68ac",
+          "txid": "8d9835430a896ccfe6d6a7f25cb2ba0883337c0701a8f7e07be90f7db7c06ce2"
+        },
+        "payout_owned_by_backup": true,
+        "proving_ms": 9834,
+        "through": 4,
+        "total_local_ms": 111787,
+        "transaction_file": "0005.json",
+        "unspent_notes_before": 1
+      },
+      "totalMs": 112601.80704100001,
+      "wallet": 0
+    }
+  ]
+}

@@ -2,6 +2,17 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[ADR-0020](adr/0020-independent-wallet-recovery.md) adds independent restoration
+tooling for the compact variant. A wallet keeps its three existing private keys
+and an authenticated pool-descriptor hash; the initial depositor additionally
+keeps the initial note opening. Replaceable public copies supply parameters and
+transaction history, while a separate synchronized node supplies accepted-chain
+state. Recovery reconstructs witnesses and scans ciphertexts locally, without
+the original experiment manifest or receiver list. The proof relation and
+covenant are unchanged. [RFC-0008](rfc/0008-independent-wallet-recovery.md) and the
+[recovery report](../poc/shared-pool/RECOVERY.md) distinguish offline validation,
+independent-host TN10 evidence and remaining availability assumptions.
+
 [ADR-0019](adr/0019-compact-public-settlement.md) replaces the bounded arrays in
 a separate experimental variant with note, indexed-nullifier and root-history
 Merkle trees. The covenant checks public updates; the private proof retains its

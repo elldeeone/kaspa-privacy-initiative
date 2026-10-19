@@ -1,0 +1,701 @@
+{
+  "all_positive_transactions": 6,
+  "capacity_terminal_fixture": {
+    "commitments": 65535,
+    "metrics": {
+      "compute_mass": 216873,
+      "estimated_bytes": 16513,
+      "fee_sompi": 21729600,
+      "mining_mass": 216873,
+      "relay_floor_sompi": 21687300,
+      "relay_mass": 216873,
+      "storage_mass": 143,
+      "transient_mass": 66052
+    },
+    "native_full": true,
+    "nullifiers_before": 65534,
+    "original_bob_proof": true,
+    "scope": "synthetic current state, not full historical execution"
+  },
+  "controls": [
+    {
+      "control": "wrong domain",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "wrong historical root",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "wrong nullifier",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "unauthorized recipient",
+      "native_error": "failed to verify the signature script: ZK Integrity: Groth16 verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "unauthorized fee",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "unauthorized amount",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "modified ciphertext",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false anchor path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false predecessor index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false predecessor value",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false predecessor next index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false predecessor successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false predecessor membership",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false empty nullifier path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false first append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false second append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "false history append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "future anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "even anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "zero anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "malformed proof",
+      "native_error": "failed to verify the signature script: ZK Integrity: Groth16 verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "forged commitment root with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "lost spentness with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "forged history with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "invented commitment count with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "rewound spent count with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "one sompi underbacking or wrong payout",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "insufficient execution budget",
+      "native_error": "failed to verify the signature script: script units exceeded the amount committed in the input: used=24576, limit=19999",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "bootstrap backing or replay",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 1
+    },
+    {
+      "control": "wrong domain",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "wrong historical root",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "wrong nullifier",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "unauthorized recipient",
+      "native_error": "failed to verify the signature script: ZK Integrity: Groth16 verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "unauthorized fee",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "unauthorized amount",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "modified ciphertext",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false anchor path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false predecessor index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false predecessor value",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false predecessor next index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false predecessor successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false predecessor membership",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false empty nullifier path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false first append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false second append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "false history append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "future anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "even anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "zero anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "malformed proof",
+      "native_error": "failed to verify the signature script: ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "forged commitment root with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "lost spentness with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "forged history with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "invented commitment count with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "rewound spent count with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "one sompi underbacking or wrong payout",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "insufficient execution budget",
+      "native_error": "failed to verify the signature script: script units exceeded the amount committed in the input: used=24576, limit=19999",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "bootstrap backing or replay",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "stale current spentness witnesses",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 2
+    },
+    {
+      "control": "wrong domain",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "wrong historical root",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "wrong nullifier",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "unauthorized recipient",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "unauthorized fee",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "unauthorized amount",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "modified ciphertext",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false anchor path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false predecessor index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false predecessor value",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false predecessor next index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false predecessor successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false predecessor membership",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false empty nullifier path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false first append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false second append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "false history append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "future anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "even anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "zero anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "malformed proof",
+      "native_error": "failed to verify the signature script: ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "forged commitment root with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "lost spentness with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "forged history with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "invented commitment count with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "rewound spent count with matching successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "one sompi underbacking or wrong payout",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "insufficient execution budget",
+      "native_error": "failed to verify the signature script: script units exceeded the amount committed in the input: used=24576, limit=19999",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "stale current spentness witnesses",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 3
+    },
+    {
+      "control": "wrong domain",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "wrong historical root",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "wrong nullifier",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "unauthorized recipient",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "unauthorized fee",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "unauthorized amount",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "modified ciphertext",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false anchor path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false predecessor index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false predecessor value",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false predecessor next index",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false predecessor successor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false predecessor membership",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false empty nullifier path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false first append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false second append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "false history append path",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "future anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "even anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "zero anchor",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "malformed proof",
+      "native_error": "failed to verify the signature script: ZK Integrity: Groth16 verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "one sompi underbacking or wrong payout",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "insufficient execution budget",
+      "native_error": "failed to verify the signature script: script units exceeded the amount committed in the input: used=24576, limit=19999",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "stale current spentness witnesses",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 5
+    },
+    {
+      "control": "duplicate withdrawal with original valid proof and consistent fresh roots",
+      "native_error": "failed to verify the signature script: script ran, but verification failed",
+      "rejected": true,
+      "step": 4
+    }
+  ],
+  "native_rejections": 113
+}

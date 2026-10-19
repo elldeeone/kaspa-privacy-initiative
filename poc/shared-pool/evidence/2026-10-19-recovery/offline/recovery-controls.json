@@ -1,0 +1,137 @@
+{
+  "cases": 26,
+  "controls": [
+    {
+      "control": "backup-pin",
+      "error": "wallet recovery: backup descriptor identity",
+      "rejected": true
+    },
+    {
+      "control": "unknown-backup-field",
+      "error": "wallet recovery: unknown field `future_note`, expected one of `format`, `descriptor_sha256`, `wallet`, `initial_note` at line 1 column 550",
+      "rejected": true
+    },
+    {
+      "control": "malformed-key",
+      "error": "wallet recovery: invalid length 1, expected an array of length 32 at line 1 column 152",
+      "rejected": true
+    },
+    {
+      "control": "wrong-network",
+      "error": "wallet recovery: descriptor network/version/VK",
+      "rejected": true
+    },
+    {
+      "control": "wrong-genesis",
+      "error": "wallet recovery: descriptor network/version/VK",
+      "rejected": true
+    },
+    {
+      "control": "wrong-domain",
+      "error": "wallet recovery: descriptor funding covenant",
+      "rejected": true
+    },
+    {
+      "control": "wrong-reserve",
+      "error": "wallet recovery: descriptor reserve/funding",
+      "rejected": true
+    },
+    {
+      "control": "noncanonical-amount",
+      "error": "wallet recovery: descriptor reserve/funding",
+      "rejected": true
+    },
+    {
+      "control": "receiver-list-in-descriptor",
+      "error": "wallet recovery: unknown field `receivers`, expected one of `format`, `network`, `genesis`, `domain`, `initial_commitment`, `reserve_sompi`, `source`, `funding`, `funding_full_hash`, `start_hash`, `pk_sha256`, `vk_sha256` at line 1 column 1231",
+      "rejected": true
+    },
+    {
+      "control": "corrupt-vk",
+      "error": "wallet recovery: descriptor network/version/VK",
+      "rejected": true
+    },
+    {
+      "control": "corrupt-pk",
+      "error": "wallet recovery: proving parameter checksum",
+      "rejected": true
+    },
+    {
+      "control": "funding-context-substitution",
+      "error": "wallet recovery: funding input context substitution",
+      "rejected": true
+    },
+    {
+      "control": "missing-middle",
+      "error": "wallet recovery: No such file or directory (os error 2)",
+      "rejected": true
+    },
+    {
+      "control": "missing-tail",
+      "error": "wallet recovery: No such file or directory (os error 2)",
+      "rejected": true
+    },
+    {
+      "control": "reordered-history",
+      "error": "wallet recovery: reserve lineage",
+      "rejected": true
+    },
+    {
+      "control": "stale-endpoint",
+      "error": "wallet recovery: history endpoint identity",
+      "rejected": true
+    },
+    {
+      "control": "forged-current-reserve",
+      "error": "wallet recovery: history does not reach the independently checked head",
+      "rejected": true
+    },
+    {
+      "control": "ciphertext-tampering",
+      "error": "wallet recovery: transaction is not canonical/ID mismatch",
+      "rejected": true
+    },
+    {
+      "control": "proof-tampering",
+      "error": "wallet recovery: failed to verify the signature script: ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+      "rejected": true
+    },
+    {
+      "control": "wrong-initial-note",
+      "error": "wallet recovery: backup initial note ownership/commitment",
+      "rejected": true
+    },
+    {
+      "control": "wrong-spending-cannot-exit",
+      "error": "wallet recovery: no spendable recovered note",
+      "rejected": true
+    },
+    {
+      "control": "wrong-viewing-cannot-exit",
+      "error": "wallet recovery: No such file or directory (os error 2)",
+      "rejected": true
+    },
+    {
+      "control": "spent-note-cannot-exit",
+      "error": "wallet recovery: no spendable recovered note",
+      "rejected": true
+    },
+    {
+      "control": "initial-opening-needed-before-first-transfer",
+      "keysOnly": 0,
+      "withOpening": 1
+    },
+    {
+      "control": "archive-omission-rejected-stale-prefix-extended",
+      "rejected": true
+    },
+    {
+      "control": "all-public-sources-unavailable",
+      "recoverySucceeded": false,
+      "safeHalt": true
+    }
+  ],
+  "passed": true,
+  "terminalWalletScans": 3,
+  "validWalletScans": 3
+}

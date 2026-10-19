@@ -1,5 +1,19 @@
 # Threat Model
 
+The [H7 recovery tooling](docs/adr/0020-independent-wallet-recovery.md) treats
+public mirrors as replaceable data sources. A private backup pins the pool
+descriptor, which pins parameters and funding identity; native replay validates
+every transition. A synchronized node still authenticates accepted history and
+current UTXOs: native replay alone cannot establish freshness. Losing every copy
+of required history or parameters can prevent an exit. A terminal root does not
+recover missing ciphertexts, and a pinned setup does not remove setup trust.
+The initial depositor needs the original note opening until that claim is spent.
+Each restored client gets only its own backup and public bytes, with no original
+receiver list, future note export or prepared authorization. Live clients use
+ordinary RPC, so connection metadata remains visible; this is not network
+privacy or a chain-only anonymity experiment. General reorg, pruning and
+concurrent recovery remain outside this bounded test. See [results](poc/shared-pool/RECOVERY.md).
+
 The compact-state experiment in [ADR-0019](docs/adr/0019-compact-public-settlement.md)
 adds authenticated public Merkle update witnesses. An untrusted witness provider
 may lie about a predecessor, empty leaf, historical root or spentness; every path,

@@ -9,6 +9,8 @@ split. Its [completed offline and TN10 result](ANCHORED.md) shows Bob reusing hi
 private proof after Alice's payment; it leaves the earlier experiment intact.
 The separate [compact-state experiment](COMPACT.md) extends this question to
 100 intervening payments using fixed-depth native Merkle checks.
+The [independent recovery follow-up](RECOVERY.md) tests restoring three wallets
+from pre-payment backups and public data after the original services stop.
 
 Both funded runs completed on 2026-10-19 using the owner's existing TN10 node.
 Four separate wallet processes re-spent received notes and independently proved

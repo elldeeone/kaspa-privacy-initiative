@@ -1,0 +1,23 @@
+{
+  "complete": false,
+  "network": "testnet-10",
+  "acceptedTransactionsBeforeFailure": 3,
+  "failedStage": "First restored wallet, after private proof creation and before current-input check/submission",
+  "cause": "Synchronous cold parameter decoding/proving blocked WebSocket event processing; RPC reported disconnected",
+  "submissionIntentPresent": false,
+  "exitSubmitted": false,
+  "reserveObservedUnspent": {
+    "txid": "68263a070f723eb23f7b1f5a5dc8280083b4d49708224a1be8b30e9fd23c1d8e",
+    "index": 0,
+    "amount": "956623200",
+    "spk": "0000aa2062358cd05f55b6a6dc5fa7b370d62c0c49bff868a0ec7046ec37f4f9063ea1e487",
+    "daa": "600713615",
+    "is_coinbase": false
+  },
+  "proofCreated": true,
+  "parameterLoadMs": 104588,
+  "proofMs": 12342,
+  "remedy": "Close RPC during local proof generation; reconnect and recheck current reserve before broadcast",
+  "cleanup": "Fresh recovery identity; ordinary independently authorized exits; this interrupted sequence does not qualify as a complete rehearsal",
+  "observedAt": "2026-10-19T10:47:50.841Z"
+}
