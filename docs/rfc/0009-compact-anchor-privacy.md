@@ -30,8 +30,8 @@ design that missing capability explicitly before using it in a workload.
 
 [RFC-0010](0010-compact-independent-deposits.md) now scopes that prerequisite in
 a new immutable compact version: independently funded two-note admissions and
-four wallets exiting with proofs saved before later deposits. It is not
-implemented or tested. Preserve this RFC's population thresholds and observer
+four wallets exiting with proofs saved before later deposits. H10 passed
+offline and on TN10; see [the report](../../poc/shared-pool/DEPOSITS.md). Preserve this RFC's population thresholds and observer
 boundaries; successful admission/exit mechanics alone cannot complete its study.
 
 Compare old and fresh authorizations offline under the actual native validator.
@@ -55,3 +55,8 @@ the stated use case. Any partial-change/aggregation relation is a subsequent
 architecture decision with fresh RFC/ADR and security tests. A funded privacy
 trial needs a decision that offline evidence cannot answer; it is not required
 to reproduce this source-link counterexample.
+
+H11 now freezes the [independent-deposit policy study](../../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
+before generation or scoring. It separates an integer-model population screen
+from two genuine native-proof calibrations, retains the original thresholds,
+and tests complete drainage as the primary observation horizon.

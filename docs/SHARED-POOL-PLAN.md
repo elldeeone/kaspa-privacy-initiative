@@ -170,12 +170,12 @@ real admission mechanics for the later study; it cannot pass the privacy gate.
 chain-only relationship inference at tolerable delay/cost. Determine whether to
 retain the layout, change it, or narrow the intended use case.
 
-**Smallest study:** first audit the compact public transaction fields and old
-anchor leakage. If that already makes the chosen target deterministically
-identifiable, document the counterexample before building a simulator. Otherwise
-compare identical hidden payment ledgers under baseline and at most two policies:
-bounded randomized withdrawal delay, and equal public payouts with private
-change. The latter is proposed for compact state, not implemented behavior.
+**Current study:** [H11's frozen specification](../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
+compares saved versus fresh proofs with independently funded admissions. A
+bounded waiting control assumes no invented background traffic. Two low-activity
+regimes, all eventual withdrawals, separate truth/observer processes and native
+calibration precede the keep/redesign decision. Equal payouts with private change
+remain a separate proposed relation; they are not silently imported into v5.
 
 **Complete when:**
 
