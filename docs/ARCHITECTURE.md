@@ -2,6 +2,14 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[H11's bounded policy comparison](../poc/shared-pool/PRIVACY-STUDY.md) passed
+its frozen screening thresholds using the existing v5 relation: fresh proofs
+reduce source inference with no additional native fee, while saved fallbacks
+remain usable without a prover. [ADR-0021](adr/0021-separate-exit-fallback-and-privacy-policy.md)
+retains that policy. Full drainage still reveals most funding ancestors;
+equal net credited deposits are the next proposed comparison. This introduces
+analysis/calibration tooling, not a protocol or production-privacy decision.
+
 [RFC-0010](rfc/0010-compact-independent-deposits.md) and
 [ADR-0022](adr/0022-compact-two-note-deposits.md) define a new immutable compact
 pool version accepting independent native deposits. A signed ordinary input

@@ -1,5 +1,10 @@
 # Four-wallet shared native-KAS pool — TN10
 
+Latest follow-up: [H11 privacy policy comparison](PRIVACY-STUDY.md) passes its
+frozen fresh-proof screening target but exposes substantial funding-origin
+linkage. It uses the v5 compact deposit variant; this original v2 report remains
+historical evidence.
+
 This report describes **version 2 at checkpoint `62c8550`**. Its evidence is
 unchanged. Reproduce its code and observer model from that checkpoint; the
 current native code uses a new version-3 domain and proof relation. The

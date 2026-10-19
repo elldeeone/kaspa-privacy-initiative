@@ -78,3 +78,20 @@ automatic TN10 run, protocol expansion or change to the existing stop conditions
 
 Sources and rejected/adapted analogues:
 [primary-source review](../../research/compact-privacy-source-review-2026-10-19.md).
+
+## H11 policy decision — 2026-10-20 (Australia/Sydney)
+
+The [frozen independent-deposit comparison](../../poc/shared-pool/PRIVACY-STUDY.md)
+passes its original screen in both regimes: 35.6% / 61.5% relative reduction in
+full-drain source guesses, zero additional native fee and bounded measured proof
+components below the delay budget. Keep fresh authorization as the normal
+candidate path and old authorizations privately for exit. Waiting 20 minutes
+without additional activity added no benefit in this workload.
+
+The bounded study is complete. It does not establish strong privacy: 94.4% /
+88.5% of funding deposits remain uniquely inferable after drain. Equal gross
+contribution controls do better but retain a bootstrap/admission net-value
+difference of 112,000 sompi. The next smallest hypothesis is equal net credited
+deposits under the existing relation, measured against those controls through
+complete drain. No denomination policy, partial-exit relation, setup change or
+consensus change is implemented or accepted by this decision.

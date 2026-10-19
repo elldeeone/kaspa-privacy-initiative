@@ -11,10 +11,17 @@ Kaspa L1; consensus changes are a last resort. Testnet only, no real funds.
 
 The [shared-pool branch plan](SHARED-POOL-PLAN.md) maps these results to the
 repository phases and defines completion, stop and redesign criteria. Bounded
-recovery passed; practical privacy requires redesign. A completed hypothesis below
+recovery passed; fresh-proof screening passed, while strong privacy remains open. A completed hypothesis below
 does not by itself close a roadmap phase.
 
 ## Current position
+
+H11's bounded Stage 2 study is complete and passes its original screening
+thresholds. Fresh proofs reduce full-drain source guesses from 100% to 64.4% /
+38.5% at zero extra native fee, while saved proofs remain private exit fallbacks.
+Funding origins are still uniquely inferable for 94.4% / 88.5% of withdrawals.
+Keep the mechanism; the next proposed question is equal net credited deposits.
+[Report and evidence](../poc/shared-pool/PRIVACY-STUDY.md).
 
 Current L1 can execute the bounded direct-pool payment and withdrawal layouts
 we tested. Four wallets can receive, re-spend and withdraw their own claims,
@@ -88,12 +95,52 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H8 | Public anchor and single-spend constraints uniquely identify the source transaction of the first H6 full exit even after later payments. | Confirmed in retained two-payment and 100-payment traces by an isolated chain-only observer. Coverage 1/4 and 1/102; source certificate leaves two note positions. Small joint-value and fresh-anchor controls also executed. | Stage 2 audit complete with redesign: retain exit fallback, reject frozen-proof delay for this case, test fresh authorization next. Privacy policy thresholds and real-world anonymity remain unestablished. |
 | H9 | A genuinely fresh proof for the same note/payout removes the old source singleton when later activity exists, while the old proof remains a private independent fallback and only one can spend. | Supported offline in two/four-payment fixtures: 1 → 3/5 source candidates through full drain; singleton stays 1. Both winner orders reject the other proof, six no-prover rebuilds pass and all claims drain. | Retain fresh authorization as a candidate normal path and private fallback for exit. No added native fee; about 9.5 seconds extra warm proof work. Population privacy, common-anchor policy and real-world anonymity remain open. |
 | H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Offline plus complete TN10 rehearsal/fresh trial passed. All four wallets paid using eight unchanged saved proofs; both reserves drained. | Retain this admission candidate for the population privacy study; Stage 2 remains open. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
+| H11 | Fresh latest-root proofs reduce full-coverage source inference by at least 25% in both frozen low-activity regimes, within the fee/delay screen. | Passed: 35.6% / 61.5% reduction through complete drain; 64 primary ledgers plus 17 controls. Two genuine native calibrations match; four no-prover drains pass, with zero extra native fee. | Retain fresh proofs/private fallbacks. The bounded study is complete; funding origins remain mostly exposed. Test equal net credits separately before a larger relation change. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Independent-deposit privacy policy (H11)
+
+- Frozen specification committed as `294dfc6` before generation/scoring. Both
+  primary regimes retain all 32 ledgers; 17 controls and every final withdrawal
+  are reported separately. Total 81 ledgers/882 withdrawals, 704 primary.
+- Fresh full-drain source guessing: 64.4% / 38.5%, versus 100% with saved proofs.
+  Relative reductions 35.6% / 61.5%; paired 95% intervals [32.2%, 39.1%] /
+  [58.3%, 64.6%]. The original 25% target passed; no threshold was revised.
+- Remaining leakage: 94.4% / 88.5% of funding deposits are uniquely inferable
+  after full drainage. At-withdrawal source guesses were lower, 33.4% / 20.8%.
+  Shared funding ancestry gives one public cluster, not an owner attribution.
+- Genuine calibration: 58 proofs, four complete native-validated alternate drains,
+  76 main transaction occurrences and 44 paid claims. Both old/fresh arms settle
+  with no wallet/PK; candidates match the model and only anchor fields differ.
+  Current-state builder rejects the losing same-nullifier bundle in both orders;
+  H10 retains the hostile native duplicate-witness evidence.
+- Cost: no extra native mass/fee/transaction for refreshing. Hypothetical total
+  native fees per calibrated arm are 3.512441 / 4.388993 tKAS; actual chain spend
+  is zero. Cold load 100.541 seconds; fresh proofs 9.579–26.977 seconds amid CPU
+  contention. Conservative cold-plus-proof p95 component estimate 122.057
+  seconds, excluding history/RPC/confirmation. A 20-minute no-traffic wait adds
+  no measured privacy benefit.
+- Method correction: generic Z3/CP-SAT solving was slow. An exact single-ancestor
+  flow reduction matched 45 completed CP-SAT fresh traces, both horizons, and
+  the tiny exhaustive oracle. All 81 ledgers/native plans stayed byte-identical;
+  every final case was rerun. No timeout became ambiguity or an excluded sample.
+- Checks: 25 Python and 12 existing Rust tests passed; isolated public-only
+  observers, separate scorer, actual native byte projection and export secret/
+  unused-fallback guards. This is self-reviewed offline evidence, not a security
+  audit, real-world anonymity study or a live network/RPC privacy result.
+- Decision: keep fresh proofs with private saved fallbacks. The next proposed
+  test is equal **net** credited deposits: equal gross contributions leave a
+  112,000-sompi bootstrap/admission difference. This proposed fix was not tested
+  or implemented. No protocol expansion, TN10 broadcast, push or upstream post.
+- Evidence: [report](../poc/shared-pool/PRIVACY-STUDY.md),
+  [self-review](../poc/shared-pool/PRIVACY-STUDY-REVIEW.md),
+  [frozen scope](../poc/shared-pool/PRIVACY-STUDY-SPEC.md),
+  [aggregate results](../poc/shared-pool/evidence/2026-10-20-privacy-study/summary.json).
 
 ### 2026-10-20 (Australia/Sydney) — Independent compact deposits (H10)
 

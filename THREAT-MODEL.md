@@ -1,5 +1,15 @@
 # Threat Model
 
+[H11](poc/shared-pool/PRIVACY-STUDY.md) shows that fresh historical membership
+proofs reduce source-transaction guessing in the frozen synthetic workloads,
+while complete-drain value constraints still uniquely recover most funding
+deposits. An observer needs neither RPC logs nor private wallet data for this
+attack. Keep unused fallback proofs private; report funding ancestry separately
+from the creating transaction and from owner identity. The population model
+assumes opaque cryptographic bytes and favorable independent funding roots;
+two genuine native calibrations do not establish real-world anonymity. No
+protocol invariant, setup, fee-repricing or data-availability assumption changes.
+
 The experimental [independent-deposit extension](docs/rfc/0010-compact-independent-deposits.md)
 introduces a native funding input and a distinct admission branch, not a new
 trusted actor. Critical checks are actual funding authorization/value, exact

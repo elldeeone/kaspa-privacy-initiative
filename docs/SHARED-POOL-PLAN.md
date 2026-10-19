@@ -1,9 +1,17 @@
 # Shared-pool branch plan
 
-Updated: 2026-10-19. Branch: `shared-pool-four-wallet`.
+Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** bounded payment/exit mechanics and Stage 1 three-wallet
+**Current position:** H11's bounded Stage 2 comparison is complete and passes
+its frozen screening thresholds: fresh proofs reduce full-drain source guessing
+from 100% to 64.4% / 38.5% with zero additional native fee. Funding deposits remain
+uniquely reconstructable for 94.4% / 88.5% of withdrawals. Keep fresh proofs plus
+private saved fallbacks; the next privacy question is equal **net** credited
+deposits, before assuming a larger protocol change. Strong privacy is not
+established. [H11 result](../poc/shared-pool/PRIVACY-STUDY.md).
+
+**Earlier milestones:** bounded payment/exit mechanics and Stage 1 three-wallet
 recovery passed on TN10. Stage 2's initial public-field audit is complete and
 activated its old-anchor redesign condition: the first H6 withdrawal identifies
 one source transaction despite 100 later payments. H9's bounded offline
@@ -12,7 +20,7 @@ two/four-payment fixtures, while a private old fallback remains independently
 usable and only one proof can spend. Useful privacy remains unestablished;
 see [the comparison](../poc/shared-pool/FRESH-PROOF.md).
 
-The missing independent-deposit prerequisite is now scoped in
+The independent-deposit prerequisite is specified in
 [RFC-0010](rfc/0010-compact-independent-deposits.md): a new immutable pool version,
 the existing private circuit, two notes per funded admission, and four wallets
 draining with proofs saved before later deposits. H10's implementation passed
@@ -36,15 +44,15 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H8/H9 complete within their bounds; H10 admission/exit prerequisite passed offline and TN10; population thresholds untested | Does the candidate hide useful relationships under explicit low-activity assumptions? |
+| 2. Practical privacy | 5 | Bounded H11 study complete; frozen screening passed; funding-origin privacy remains weak | Retain fresh proofs/fallbacks; test equal net credits before wallet expansion or larger relation changes. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
 
-Stage 1 is complete for its declared three-claimant workload. Stage 2 requires
-the [anchor-policy follow-on](rfc/0009-compact-anchor-privacy.md) before substantial
-wallet expansion. Stages 1 and 2 must justify
-continuing this candidate before stages 3–4 expand it. A discovered safety flaw
+Stage 1 is complete for its declared three-claimant workload. Stage 2's
+[anchor-policy study](rfc/0009-compact-anchor-privacy.md) now supports continuing
+the candidate, with a substantial funding-origin limitation. This is a measured
+screening result, not completion of general privacy or stages 3–4. A discovered safety flaw
 takes priority at any stage. Stage 5 review can start earlier; its completion is
 not implied by an implementing agent's self-review.
 
@@ -170,7 +178,19 @@ real admission mechanics for the later study; it cannot pass the privacy gate.
 chain-only relationship inference at tolerable delay/cost. Determine whether to
 retain the layout, change it, or narrow the intended use case.
 
-**Current study:** [H11's frozen specification](../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
+**Completed bounded study, H11:** [the result](../poc/shared-pool/PRIVACY-STUDY.md)
+retains all 64 primary ledgers plus 17 controls, with 882 withdrawals through
+complete drain. Relative inference reductions are 35.6% / 61.5%, with paired
+95% intervals [32.2%, 39.1%] / [58.3%, 64.6%]. Added native fee is zero; the
+measured cold-load-plus-proof component estimate is about 122 seconds at p95,
+excluding RPC/confirmation. Two genuine native calibrations match the model;
+both proof arms drain without PK/wallet inputs. The 20-minute wait produces no
+gain without further activity. The predeclared screen passed; high residual
+funding-origin inference is a separate limitation, not a changed pass criterion.
+The next proposed comparison is equal net credits versus equal gross/varied
+deposits, retaining fresh proofs and complete drainage. It is not executed here.
+
+**Study definition:** [H11's frozen specification](../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
 compares saved versus fresh proofs with independently funded admissions. A
 bounded waiting control assumes no invented background traffic. Two low-activity
 regimes, all eventual withdrawals, separate truth/observer processes and native

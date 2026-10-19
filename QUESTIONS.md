@@ -2,6 +2,14 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[H11](poc/shared-pool/PRIVACY-STUDY.md) passes the frozen fresh-proof screening
+target, but full drainage uniquely reconstructs 94.4% / 88.5% of funding origins
+in its two primary synthetic regimes. Can equal **net** credited deposits reduce
+that inference without changing the covenant or fees? Equal gross contributions
+are not equal net claims: bootstrap/admission fees differ by 112,000 sompi.
+Compare matched net/gross/varied policies separately before adopting one.
+No synthetic result establishes real-world anonymity or RPC/network protection.
+
 [Stage 2's compact audit](poc/shared-pool/PRIVACY.md) reached its old-anchor
 redesign gate. [H9's bounded offline test](poc/shared-pool/FRESH-PROOF.md) now
 supports fresh authorization plus a private independent fallback: 3/5 target

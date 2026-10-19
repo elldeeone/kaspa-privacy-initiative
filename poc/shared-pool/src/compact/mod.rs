@@ -8,6 +8,7 @@ pub mod experiment;
 pub mod recovery;
 pub mod fresh;
 pub mod deposits;
+pub mod study;
 #[cfg(test)]
 mod tests;
 

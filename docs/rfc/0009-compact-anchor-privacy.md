@@ -1,9 +1,19 @@
 # RFC-0009: Can fresh authorization improve compact exit privacy?
 
-Status: bounded offline mechanism supported; population policy remains open,
-2026-10-19.
+Status: H11 bounded policy screening passed; funding-origin privacy remains
+open, 2026-10-20 (Australia/Sydney).
 [Decision](../adr/0021-separate-exit-fallback-and-privacy-policy.md),
 [audit and evidence](../../poc/shared-pool/PRIVACY.md).
+
+[H11](../../poc/shared-pool/PRIVACY-STUDY.md) now tests 32 ledgers in each of two
+explicit regimes, plus controls, and calibrates two against genuine native
+proofs. Full-drain source guessing falls from 100% to 64.4% / 38.5%, passing the
+unchanged screening targets. Saved fallbacks still settle without a prover;
+refreshing adds no native fee. The study is complete within that scope, not a
+real-world anonymity result. Funding origins remain uniquely reconstructable
+for 94.4% / 88.5% of withdrawals. Retain the mechanism and investigate equal net
+credits next; equal gross amounts leave the bootstrap/admission fee difference.
+This next hypothesis is not implemented or claimed solved by H11.
 
 The old count-three authorization identifies one source transaction despite
 100 later payments. A small abstract control admits three sources with a
@@ -56,7 +66,7 @@ architecture decision with fresh RFC/ADR and security tests. A funded privacy
 trial needs a decision that offline evidence cannot answer; it is not required
 to reproduce this source-link counterexample.
 
-H11 now freezes the [independent-deposit policy study](../../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
+H11 used the frozen [independent-deposit policy study](../../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
 before generation or scoring. It separates an integer-model population screen
 from two genuine native-proof calibrations, retains the original thresholds,
 and tests complete drainage as the primary observation horizon.
