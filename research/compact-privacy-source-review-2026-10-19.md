@@ -139,3 +139,77 @@ RFC/ADR before code. Do not purchase a better-looking score with invented
 background users or relabel self-generated notes as independent participants.
 No further funded privacy run is justified until a bounded offline comparison can
 actually select a design.
+
+## H9 source refresh — 2026-10-19, offline fresh authorization
+
+GitHub API refresh before H9 implementation found no change to the initiative,
+Rusty Kaspa, KIPs, vProgs, research, Orchard or RAILGUN heads recorded above.
+[P13](https://github.com/olafweller/kaspa-privacy-initiative/issues/13) is still
+open with zero comments, last updated 2026-10-02. No new upstream decision changes
+the scope: compare actual old/fresh exit proofs offline, retain the old proof
+privately as a fallback, test both acceptance orders and complete drainage.
+
+**Reuse, without changing architecture:** Orchard's
+[builder](https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/builder.rs)
+checks that each supplied membership path agrees with the requested anchor.
+Its [nullifier rationale](https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/book/src/design/nullifiers.md)
+requires one deterministic nullifier per note. RAILGUN's
+[validator](https://github.com/Railgun-Privacy/contract/blob/36bcf5ed7cf94bfafb6e1a303e1832c769c16780/contracts/logic/RailgunLogic.sol)
+separately checks historical roots and rejects previously seen nullifiers.
+Reuse those distinctions: refresh the commitment witness and generate a new
+proof; preserve the economic claim's nullifier and exact payout/fee binding;
+enforce current spentness regardless of which authorization wins. The existing
+compact circuit/covenant already expresses these rules, so H9 needs no new
+cryptography, verifier, trusted setup, covenant or consensus rule.
+
+**Reject importing unrelated features:** current Orchard source also supports
+deferred-anchor workflows for particular transaction formats, and
+[draft ZIP 374](https://zips.z.cash/zip-0374) describes signing before later
+anchoring/proving. That is not the compact protocol's fixed authorization digest
+and does not make an old compact proof valid for a new anchor. Aztec's historical
+state rules remain a useful separation of past membership from current state,
+not a reason to add its runtime or expiry rule. H9 tests local wallet policy;
+it does not claim a universally optimal anchor age or a production common-anchor
+policy. Specify exactly which accepted prefix each fresh proof uses.
+
+**Disclosure is part of the experiment.** In this implementation, the nullifier
+depends on domain, spending key, commitment and position, not the anchor. Both
+valid authorizations for the same note therefore expose the same nullifier.
+An observer who learns the old bundle can link it to the fresh exit and recover
+the old anchor's restriction; matching payout scripts and values can provide
+additional linkage. This is a direct deduction from the
+[compact derivation](../poc/shared-pool/src/compact/mod.rs), not a failure of
+zero knowledge. ZIP 374 likewise treats long-lived transaction-preparation data
+as sensitive and recommends restricting/redacting its distribution. Do not
+publish both raw arms for one identity, or leak the old bundle through logs,
+duplicate-rejection payloads, fixture exports or scorer maps. An optional
+combined-disclosure control may inspect both privately, but its result belongs
+to a broader observer than the accepted-chain-only arm. A user who actually
+broadcasts the fallback sacrifices that privacy separation; its independent
+exit capability remains valuable.
+
+**Methodological limits and controls:**
+
+- The singleton and two/four-intervening-payment fixtures are three designed
+  cases, not independent population samples or the plan's two realistic traffic
+  regimes. They cannot establish its 25% reduction/95% interval threshold or a
+  real-world anonymity set. More commitments do not imply more independent
+  people. Report exact source candidates, exact-note ambiguity and top-1/coverage
+  separately, including the full-drain horizon.
+- Feed each isolated observer only its own canonical public trace and common
+  protocol rules; keep private note ownership, generator choices, the other arm
+  and winner-order safety transcripts out. Paired arms must preserve payment
+  values, order, fees, withdrawal order and observation horizon. Otherwise an
+  apparent gain may come from something besides the anchor.
+- Start the two safety orders from the same valid public snapshot. After either
+  winner, check the losing authorization against the winning successor's current
+  state. Rejection solely because the old reserve outpoint was spent does not
+  independently test nullifier enforcement. Record ordinary current-state
+  validation and attempted duplicate rejection as separate facts.
+- Old fallback bytes should remain unchanged and usable from retained public
+  data without the fresh prover. A failed fresh-proof attempt must leave them
+  intact. Offline native validation is neither mempool admission, finality,
+  reorg handling nor evidence about what an RPC/network observer learns.
+- Attribute added witness/proving/startup work to refreshing. If the accepted
+  transaction count, mass and fees are unchanged, say so for the tested layout;
+  do not turn an offline fee calculation into a current network quotation.

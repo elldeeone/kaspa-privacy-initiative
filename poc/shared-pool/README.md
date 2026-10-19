@@ -11,6 +11,8 @@ The separate [compact-state experiment](COMPACT.md) extends this question to
 100 intervening payments using fixed-depth native Merkle checks.
 The [independent recovery follow-up](RECOVERY.md) tests restoring three wallets
 from pre-payment backups and public data after the original services stop.
+The [fresh-proof comparison](FRESH-PROOF.md) tests the compact privacy mechanism
+offline, retaining an old private exit fallback while preventing a second spend.
 
 Both funded runs completed on 2026-10-19 using the owner's existing TN10 node.
 Four separate wallet processes re-spent received notes and independently proved

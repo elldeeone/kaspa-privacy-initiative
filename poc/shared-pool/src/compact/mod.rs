@@ -6,6 +6,7 @@ pub use tree::{PublicState, State};
 pub mod covenant;
 pub mod experiment;
 pub mod recovery;
+pub mod fresh;
 #[cfg(test)]
 mod tests;
 

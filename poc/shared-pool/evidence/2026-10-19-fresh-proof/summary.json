@@ -1,0 +1,1069 @@
+{
+  "complete": true,
+  "cases": {
+    "singleton": {
+      "execution": {
+        "all_claims_drained_both_arms": true,
+        "complete": true,
+        "different_genuine_proofs": true,
+        "fallback_anchor_count": 3,
+        "fallback_file_mode": 384,
+        "fees_sompi_per_arm": 65352500,
+        "fresh_anchor_count": 3,
+        "fresh_proof_ms": 9589,
+        "funding_fee_sompi": 204900,
+        "genuine_proofs": 4,
+        "intervening_payments": 0,
+        "native_fee_increase_sompi": 0,
+        "native_rejections": 10,
+        "new_native_fees_sompi": 0,
+        "new_native_transactions": 0,
+        "offline_only": true,
+        "only_anchor_fields_changed": true,
+        "parameter_reused": true,
+        "proof_ms": [
+          9728,
+          9710,
+          9589,
+          9770
+        ],
+        "same_note_nullifier_payout_fee": true,
+        "transactions_per_arm": 4
+      },
+      "controls": [
+        {
+          "also_premature_terminal_shape": true,
+          "builder_rejected_spent_nullifier": true,
+          "control": "old-wins",
+          "genuine_losing_proof": true,
+          "native_rejected": true,
+          "old_outpoint_replay_rejected_by_ledger": true,
+          "uses_winner_successor": true
+        },
+        {
+          "also_premature_terminal_shape": true,
+          "builder_rejected_spent_nullifier": true,
+          "control": "fresh-wins",
+          "genuine_losing_proof": true,
+          "native_rejected": true,
+          "old_outpoint_replay_rejected_by_ledger": true,
+          "uses_winner_successor": true
+        },
+        {
+          "control": "wrong-pool",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-root",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-fee",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-payout",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-recipient",
+          "native_rejected": true
+        },
+        {
+          "control": "malformed-nullifier-path",
+          "native_rejected": true
+        },
+        {
+          "control": "malformed-proof",
+          "native_rejected": true
+        },
+        {
+          "control": "stale-first-transfer-nullifier-paths",
+          "native_rejected": true
+        }
+      ],
+      "scores": {
+        "old": {
+          "at_withdrawal": {
+            "anchor_single_spend": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            }
+          },
+          "complete_trace": {
+            "anchor_single_spend": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            }
+          }
+        },
+        "fresh": {
+          "at_withdrawal": {
+            "anchor_single_spend": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            }
+          },
+          "complete_trace": {
+            "anchor_single_spend": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 2,
+              "singleton_predictions": 2,
+              "singleton_precision": 1.0,
+              "coverage": 1.0,
+              "abstentions": 0,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 1.0,
+              "uniform_candidate_prior_expected_success": 1.0,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                1
+              ],
+              "note_candidate_counts": [
+                2,
+                2
+              ],
+              "population_confidence_interval": null
+            }
+          }
+        }
+      }
+    },
+    "low-a": {
+      "execution": {
+        "all_claims_drained_both_arms": true,
+        "complete": true,
+        "different_genuine_proofs": true,
+        "fallback_anchor_count": 3,
+        "fallback_file_mode": 384,
+        "fees_sompi_per_arm": 152188500,
+        "fresh_anchor_count": 7,
+        "fresh_proof_ms": 9514,
+        "funding_fee_sompi": 204900,
+        "genuine_proofs": 8,
+        "intervening_payments": 2,
+        "native_fee_increase_sompi": 0,
+        "native_rejections": 12,
+        "new_native_fees_sompi": 0,
+        "new_native_transactions": 0,
+        "offline_only": true,
+        "only_anchor_fields_changed": true,
+        "parameter_reused": true,
+        "proof_ms": [
+          9577,
+          9686,
+          9476,
+          9491,
+          9514,
+          9730,
+          9682,
+          9547
+        ],
+        "same_note_nullifier_payout_fee": true,
+        "transactions_per_arm": 8
+      },
+      "controls": [
+        {
+          "also_premature_terminal_shape": false,
+          "builder_rejected_spent_nullifier": true,
+          "control": "old-wins",
+          "genuine_losing_proof": true,
+          "native_rejected": true,
+          "old_outpoint_replay_rejected_by_ledger": true,
+          "uses_winner_successor": true
+        },
+        {
+          "also_premature_terminal_shape": false,
+          "builder_rejected_spent_nullifier": true,
+          "control": "fresh-wins",
+          "genuine_losing_proof": true,
+          "native_rejected": true,
+          "old_outpoint_replay_rejected_by_ledger": true,
+          "uses_winner_successor": true
+        },
+        {
+          "control": "wrong-pool",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-root",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-fee",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-payout",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-recipient",
+          "native_rejected": true
+        },
+        {
+          "control": "malformed-nullifier-path",
+          "native_rejected": true
+        },
+        {
+          "control": "malformed-proof",
+          "native_rejected": true
+        },
+        {
+          "control": "stale-first-transfer-nullifier-paths",
+          "native_rejected": true
+        },
+        {
+          "control": "old-proof-new-authorization",
+          "native_rejected": true
+        },
+        {
+          "control": "new-proof-old-authorization",
+          "native_rejected": true
+        }
+      ],
+      "scores": {
+        "old": {
+          "at_withdrawal": {
+            "anchor_single_spend": {
+              "withdrawals": 4,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.25,
+              "abstentions": 3,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.75,
+              "uniform_candidate_prior_expected_success": 0.625,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                2,
+                2,
+                2
+              ],
+              "note_candidate_counts": [
+                2,
+                4,
+                4,
+                4
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 4,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.25,
+              "abstentions": 3,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.75,
+              "uniform_candidate_prior_expected_success": 0.625,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                2,
+                2,
+                2
+              ],
+              "note_candidate_counts": [
+                2,
+                4,
+                4,
+                4
+              ],
+              "population_confidence_interval": null
+            }
+          },
+          "complete_trace": {
+            "anchor_single_spend": {
+              "withdrawals": 4,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.25,
+              "abstentions": 3,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.75,
+              "uniform_candidate_prior_expected_success": 0.625,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                2,
+                2,
+                2
+              ],
+              "note_candidate_counts": [
+                2,
+                4,
+                4,
+                4
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 4,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.25,
+              "abstentions": 3,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.75,
+              "uniform_candidate_prior_expected_success": 0.625,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                2,
+                2,
+                2
+              ],
+              "note_candidate_counts": [
+                2,
+                4,
+                4,
+                4
+              ],
+              "population_confidence_interval": null
+            }
+          }
+        },
+        "fresh": {
+          "at_withdrawal": {
+            "anchor_single_spend": {
+              "withdrawals": 4,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 4,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.3333333333333333,
+              "target": {
+                "source_candidates": 3,
+                "note_candidates": 6,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.3333333333333333
+              },
+              "source_candidate_counts": [
+                3,
+                3,
+                3,
+                3
+              ],
+              "note_candidate_counts": [
+                6,
+                6,
+                6,
+                6
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 4,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 4,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.3333333333333333,
+              "target": {
+                "source_candidates": 3,
+                "note_candidates": 6,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.3333333333333333
+              },
+              "source_candidate_counts": [
+                3,
+                3,
+                3,
+                3
+              ],
+              "note_candidate_counts": [
+                6,
+                6,
+                6,
+                6
+              ],
+              "population_confidence_interval": null
+            }
+          },
+          "complete_trace": {
+            "anchor_single_spend": {
+              "withdrawals": 4,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 4,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.3333333333333333,
+              "target": {
+                "source_candidates": 3,
+                "note_candidates": 6,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.3333333333333333
+              },
+              "source_candidate_counts": [
+                3,
+                3,
+                3,
+                3
+              ],
+              "note_candidate_counts": [
+                6,
+                6,
+                6,
+                6
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 4,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 4,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.3333333333333333,
+              "target": {
+                "source_candidates": 3,
+                "note_candidates": 6,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.3333333333333333
+              },
+              "source_candidate_counts": [
+                3,
+                3,
+                3,
+                3
+              ],
+              "note_candidate_counts": [
+                6,
+                6,
+                6,
+                6
+              ],
+              "population_confidence_interval": null
+            }
+          }
+        }
+      }
+    },
+    "low-b": {
+      "execution": {
+        "all_claims_drained_both_arms": true,
+        "complete": true,
+        "different_genuine_proofs": true,
+        "fallback_anchor_count": 3,
+        "fallback_file_mode": 384,
+        "fees_sompi_per_arm": 239024500,
+        "fresh_anchor_count": 11,
+        "fresh_proof_ms": 9574,
+        "funding_fee_sompi": 204900,
+        "genuine_proofs": 12,
+        "intervening_payments": 4,
+        "native_fee_increase_sompi": 0,
+        "native_rejections": 12,
+        "new_native_fees_sompi": 0,
+        "new_native_transactions": 0,
+        "offline_only": true,
+        "only_anchor_fields_changed": true,
+        "parameter_reused": true,
+        "proof_ms": [
+          9897,
+          9388,
+          9578,
+          9674,
+          9750,
+          9723,
+          9574,
+          9650,
+          9445,
+          9442,
+          9699,
+          9538
+        ],
+        "same_note_nullifier_payout_fee": true,
+        "transactions_per_arm": 12
+      },
+      "controls": [
+        {
+          "also_premature_terminal_shape": false,
+          "builder_rejected_spent_nullifier": true,
+          "control": "old-wins",
+          "genuine_losing_proof": true,
+          "native_rejected": true,
+          "old_outpoint_replay_rejected_by_ledger": true,
+          "uses_winner_successor": true
+        },
+        {
+          "also_premature_terminal_shape": false,
+          "builder_rejected_spent_nullifier": true,
+          "control": "fresh-wins",
+          "genuine_losing_proof": true,
+          "native_rejected": true,
+          "old_outpoint_replay_rejected_by_ledger": true,
+          "uses_winner_successor": true
+        },
+        {
+          "control": "wrong-pool",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-root",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-fee",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-payout",
+          "native_rejected": true
+        },
+        {
+          "control": "wrong-recipient",
+          "native_rejected": true
+        },
+        {
+          "control": "malformed-nullifier-path",
+          "native_rejected": true
+        },
+        {
+          "control": "malformed-proof",
+          "native_rejected": true
+        },
+        {
+          "control": "stale-first-transfer-nullifier-paths",
+          "native_rejected": true
+        },
+        {
+          "control": "old-proof-new-authorization",
+          "native_rejected": true
+        },
+        {
+          "control": "new-proof-old-authorization",
+          "native_rejected": true
+        }
+      ],
+      "scores": {
+        "old": {
+          "at_withdrawal": {
+            "anchor_single_spend": {
+              "withdrawals": 6,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.16666666666666666,
+              "abstentions": 5,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.375,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "note_candidate_counts": [
+                2,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 6,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.16666666666666666,
+              "abstentions": 5,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.375,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "note_candidate_counts": [
+                2,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              "population_confidence_interval": null
+            }
+          },
+          "complete_trace": {
+            "anchor_single_spend": {
+              "withdrawals": 6,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.16666666666666666,
+              "abstentions": 5,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.375,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "note_candidate_counts": [
+                2,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 6,
+              "singleton_predictions": 1,
+              "singleton_precision": 1.0,
+              "coverage": 0.16666666666666666,
+              "abstentions": 5,
+              "full_coverage_recency_correct": 3,
+              "full_coverage_recency_success": 0.5,
+              "uniform_candidate_prior_expected_success": 0.375,
+              "target": {
+                "source_candidates": 1,
+                "note_candidates": 2,
+                "unique_correct": true,
+                "recency_correct": true,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 1.0
+              },
+              "source_candidate_counts": [
+                1,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "note_candidate_counts": [
+                2,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              "population_confidence_interval": null
+            }
+          }
+        },
+        "fresh": {
+          "at_withdrawal": {
+            "anchor_single_spend": {
+              "withdrawals": 6,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 6,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.3333333333333333,
+              "uniform_candidate_prior_expected_success": 0.20000000000000004,
+              "target": {
+                "source_candidates": 5,
+                "note_candidates": 10,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.2
+              },
+              "source_candidate_counts": [
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+              ],
+              "note_candidate_counts": [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 6,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 6,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.3333333333333333,
+              "uniform_candidate_prior_expected_success": 0.20000000000000004,
+              "target": {
+                "source_candidates": 5,
+                "note_candidates": 10,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.2
+              },
+              "source_candidate_counts": [
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+              ],
+              "note_candidate_counts": [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              "population_confidence_interval": null
+            }
+          },
+          "complete_trace": {
+            "anchor_single_spend": {
+              "withdrawals": 6,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 6,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.3333333333333333,
+              "uniform_candidate_prior_expected_success": 0.20000000000000004,
+              "target": {
+                "source_candidates": 5,
+                "note_candidates": 10,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.2
+              },
+              "source_candidate_counts": [
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+              ],
+              "note_candidate_counts": [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              "population_confidence_interval": null
+            },
+            "joint_values": {
+              "withdrawals": 6,
+              "singleton_predictions": 0,
+              "singleton_precision": null,
+              "coverage": 0.0,
+              "abstentions": 6,
+              "full_coverage_recency_correct": 2,
+              "full_coverage_recency_success": 0.3333333333333333,
+              "uniform_candidate_prior_expected_success": 0.20000000000000004,
+              "target": {
+                "source_candidates": 5,
+                "note_candidates": 10,
+                "unique_correct": false,
+                "recency_correct": false,
+                "recency_tie_count": 1,
+                "uniform_prior_expected_correct": 0.2
+              },
+              "source_candidate_counts": [
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+              ],
+              "note_candidate_counts": [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              "population_confidence_interval": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "new_native_transactions": 0,
+  "new_native_fees_sompi": 0,
+  "clock": "synthetic matched schedule; no sleeping or mined timestamps",
+  "scope": "one ledger per fixture; mechanism comparison, not population anonymity or Stage 2 statistical qualification"
+}

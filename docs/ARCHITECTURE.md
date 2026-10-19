@@ -5,10 +5,12 @@
 [Stage 2's compact privacy audit](../poc/shared-pool/PRIVACY.md) reached its
 redesign condition: an old count-three proof identifies the withdrawal's source
 transaction even after 100 payments. [ADR-0021](adr/0021-separate-exit-fallback-and-privacy-policy.md)
-retains reusable proofs for independent exits and proposes testing fresh local
-authorization for the normal privacy path. [RFC-0009](rfc/0009-compact-anchor-privacy.md)
-is open; an abstract candidate-set improvement is not a tested wallet policy.
-No circuit, covenant or L1 change was made. Keep unused fallback authorizations
+retains reusable proofs for independent exits. [H9's offline comparison](../poc/shared-pool/FRESH-PROOF.md)
+now supports fresh local authorization as a candidate normal path: target source
+candidates grow to 3/5 with two/four later payments, and only one of the two proofs
+can spend. [RFC-0009](rfc/0009-compact-anchor-privacy.md) remains open for population
+policy; these three fixtures do not establish usable privacy. No circuit, covenant
+or L1 change was made. Keep unused fallback authorizations
 private, since old/new versions share a nullifier and expose the old restriction
 if both are published. Full-exit amounts and single-deposit ancestry remain public.
 

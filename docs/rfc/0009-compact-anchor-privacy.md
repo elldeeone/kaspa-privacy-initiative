@@ -1,19 +1,26 @@
 # RFC-0009: Can fresh authorization improve compact exit privacy?
 
-Status: open, motivated by the completed Stage 2 initial audit, 2026-10-19.
+Status: bounded offline mechanism supported; population policy remains open,
+2026-10-19.
 [Decision](../adr/0021-separate-exit-fallback-and-privacy-policy.md),
 [audit and evidence](../../poc/shared-pool/PRIVACY.md).
 
 The old count-three authorization identifies one source transaction despite
 100 later payments. A small abstract control admits three sources with a
-newer anchor. We have not generated the replacement private proof or measured
-a normal-user privacy policy. H7's newly proved exits supply a different-ledger
-control, not a matched comparison.
+newer anchor. The [H9 matched comparison](../../poc/shared-pool/FRESH-PROOF.md)
+now generates genuine replacements: the target has 3/5 possible sources after
+two/four intervening payments, including full drain; singleton remains one.
+The old fallback independently rebuilds without a prover, and both winner orders
+reject the second spend. Added native fee is zero; warm target proving takes
+about 9.5 seconds. A normal-user privacy policy remains unmeasured. H7's newly
+proved exits supply a different-ledger control, not a matched comparison.
 
-The narrower question is whether a genuinely fresh authorization, generated
+The bounded question was whether a genuinely fresh authorization, generated
 locally at withdrawal time, removes deterministic source identification for
 the same claim while preserving a privately held old proof as an independent
-exit fallback. No consensus change, new token or trusted relayer is proposed.
+exit fallback. H9 supports this mechanism for its frozen fixtures. It does not
+select the common anchor, acceptable waiting or population threat model. No
+consensus change, new token or trusted relayer is proposed.
 
 Before a follow-on evaluation, freeze matched ledgers, target withdrawals,
 recent-anchor choices and observation horizons. Cover singleton activity and

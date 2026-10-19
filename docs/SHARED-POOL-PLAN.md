@@ -6,9 +6,11 @@ Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 **Current position:** bounded payment/exit mechanics and Stage 1 three-wallet
 recovery passed on TN10. Stage 2's initial public-field audit is complete and
 activated its old-anchor redesign condition: the first H6 withdrawal identifies
-one source transaction despite 100 later payments. Useful privacy remains
-unestablished. Test fresh authorization while retaining a private exit fallback
-before expanding the wallet; see [the audit](../poc/shared-pool/PRIVACY.md).
+one source transaction despite 100 later payments. H9's bounded offline
+fresh-proof comparison now passed: the target retains 3/5 possible sources in
+two/four-payment fixtures, while a private old fallback remains independently
+usable and only one proof can spend. Useful privacy remains unestablished;
+see [the comparison](../poc/shared-pool/FRESH-PROOF.md).
 
 **Finish line:** a reproducible testnet wallet can receive, send and withdraw
 native test KAS, maintain correct backing, recover without privileged help, and
@@ -26,7 +28,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H8 audit complete; redesign gate activated; policy thresholds untested | Does the candidate hide useful relationships under explicit low-activity assumptions? |
+| 2. Practical privacy | 5 | H8 audit and H9 offline mechanism comparison complete; population policy thresholds untested | Does the candidate hide useful relationships under explicit low-activity assumptions? |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -130,6 +132,17 @@ generated. [H8 report](../poc/shared-pool/PRIVACY.md) and
 exits and reject frozen-proof waiting as this case's privacy remedy. Stop before
 the conditional traffic simulator/funded trial. The 25%/25%/30-minute policy
 thresholds below are untested; the candidate has not passed practical privacy.
+
+**Bounded follow-on, H9:** genuinely fresh proofs now expand the target's source
+candidates from 1 to 3/5 after two/four payments, including full drainage. With
+no activity the source stays unique. Both old/fresh winner orders reject the
+second spend; six isolated rebuilds need no wallet/PK/network. The old fallback
+and alternate histories remain private. Added native fee is zero; fresh proof
+work is 9.514–9.589 seconds, with 100.414 seconds for cold parameter loading.
+The [frozen specification](../poc/shared-pool/FRESH-PROOF-SPEC.md) and
+[report](../poc/shared-pool/FRESH-PROOF.md) explicitly limit this to three designed
+offline fixtures. This selects a mechanism for further policy work, without
+passing or revising the population thresholds or authorizing TN10/wallet expansion.
 
 **Hypothesis / decision:** an established wallet policy can materially reduce
 chain-only relationship inference at tolerable delay/cost. Determine whether to

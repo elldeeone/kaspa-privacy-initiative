@@ -6,8 +6,11 @@ remain indistinguishable under the modeled public constraints. The count-three
 anchor cannot include later notes; the initial note was already spent. This
 does not identify an owner or person, or prove every other exit anonymous. Full
 exits expose consumed value as payout plus fee, and one-deposit pools expose a
-single funding ancestor. Fresh-anchor authorization may remove this ceiling but
-is not a privacy guarantee. If old and fresh authorizations are both visible,
+single funding ancestor. [H9's actual fresh-proof comparison](poc/shared-pool/FRESH-PROOF.md)
+removes this singleton ceiling in two small fixtures through full drain; the
+no-activity control stays linked. Both proofs independently authorize the same
+exit before spending; current spentness rejects the loser in either order. This
+is bounded offline evidence, not a privacy guarantee. If old and fresh authorizations are both visible,
 their shared nullifier exposes the old restriction; a proposed fallback must stay
 private. Public research bundles/labels, RPC access and network metadata are
 separate observation surfaces. No protocol assumption or invariant was relaxed.

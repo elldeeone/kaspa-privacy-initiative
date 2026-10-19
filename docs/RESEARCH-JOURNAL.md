@@ -59,9 +59,11 @@ Useful privacy remains a decision gate. [Evidence](../poc/shared-pool/RECOVERY.m
 Stage 2's initial audit now identifies the source transaction of Bob's H6 exit
 from public fields alone, despite 100 intervening payments. Keep reusable proofs
 as independent exit fallbacks; frozen-proof waiting cannot fix this source link.
-An abstract fresh-anchor comparison increases source candidates from one to three
-in the small trace, selecting a paired genuine-proof test as the next step. The
-traffic-policy thresholds remain untested. [Audit](../poc/shared-pool/PRIVACY.md).
+A genuine matched offline fresh-proof comparison now increases source candidates
+from 1 to 3/5 after two/four payments, while both proofs remain independently
+usable until one spends. The singleton remains linked. Keep a fresh normal-path
+candidate and private fallback; the traffic-policy thresholds remain untested.
+[Audit](../poc/shared-pool/PRIVACY.md), [comparison](../poc/shared-pool/FRESH-PROOF.md).
 
 ## Hypotheses and decisions
 
@@ -75,12 +77,61 @@ traffic-policy thresholds remain untested. [Audit](../poc/shared-pool/PRIVACY.md
 | H6 | Compact native state can preserve Bob's exact proof through 100 payments, with no second proof or privileged settlement service. | Full offline gate, complete short TN10 rehearsal and fresh 100-payment trial passed; all 204 measured native transactions confirmed and every claim drained. | Retain fixed-depth public settlement for further research. Native size/mass stayed constant at payments 1, 10 and 100; history retention, fee cost and old-anchor privacy remain unresolved. |
 | H7 | Three wallets can recover incoming payments from pre-payment backups and public data, then create their first exit proofs without the original services. | Offline, complete TN10 rehearsal and fresh measured trial passed. All three payouts confirmed and every claim drained; an interrupted first attempt was also recovered through ordinary exits. | Retain this recovery path and declared backup/public-data requirements. Cold loading, data retention and useful privacy remain open; proceed to Stage 2's privacy audit. |
 | H8 | Public anchor and single-spend constraints uniquely identify the source transaction of the first H6 full exit even after later payments. | Confirmed in retained two-payment and 100-payment traces by an isolated chain-only observer. Coverage 1/4 and 1/102; source certificate leaves two note positions. Small joint-value and fresh-anchor controls also executed. | Stage 2 audit complete with redesign: retain exit fallback, reject frozen-proof delay for this case, test fresh authorization next. Privacy policy thresholds and real-world anonymity remain unestablished. |
+| H9 | A genuinely fresh proof for the same note/payout removes the old source singleton when later activity exists, while the old proof remains a private independent fallback and only one can spend. | Supported offline in two/four-payment fixtures: 1 → 3/5 source candidates through full drain; singleton stays 1. Both winner orders reject the other proof, six no-prover rebuilds pass and all claims drain. | Retain fresh authorization as a candidate normal path and private fallback for exit. No added native fee; about 9.5 seconds extra warm proof work. Population privacy, common-anchor policy and real-world anonymity remain open. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 — Fresh proof and private fallback (H9), bounded offline result
+
+The owner authorized building and running the matched comparison offline, keeping
+the old proof private, verifying only one authorization can spend, and retaining
+code/journal on this branch. The [specification](../poc/shared-pool/FRESH-PROOF-SPEC.md)
+was hashed before proving. No circuit, covenant, setup or L1 change; no new token,
+funding, TN10 transaction or upstream post. Existing experiment evidence remains.
+
+Generated 24 genuine proofs across three designed ledgers. The same target note,
+recipient script, payout and fee are compared at old count three versus fresh
+count 3/7/11. The observer sees each exclusive transaction history separately,
+without truth, keys, workload seeds, the other history or pending authorizations.
+After complete drainage, target source candidates are 1 → 1, 1 → 3 and 1 → 5.
+All-exit unique-source coverage is 2/2 → 2/2, 1/4 → 0/4 and 1/6 → 0/6. Recency
+top-1 success is 2/2 → 2/2, 3/4 → 2/4 and 3/6 → 2/6. Both observation horizons
+agree. No population inference follows from these deliberately chosen ledgers;
+the target was the earliest received note, and every pool has one deposit ancestor.
+
+Both winner orders reject the other genuine proof against the winner's current
+successor. All 34 native hostile controls reject; separate UTXO lookup rejects
+old-outpoint replay. The singleton duplicate also has a terminal-shape conflict,
+so the larger fixtures provide the cleaner spentness controls. Six independent
+public rebuilds with no wallet/PK/network preserve exact proof/auth bytes. Every
+claim drains in both histories, and 48 serialized transaction instances pass
+native Full/policy checks using explicit synthetic UTXOs. Twelve observer and
+six export/scoring tests pass. This is offline validation, not chain acceptance.
+
+Fresh target proofs take 9.514–9.589 seconds, plus 100.414 seconds if parameters
+must be deserialized cold. Old fallback rebuilds take 8.345–8.614 ms locally.
+Same native transaction count, mass and fee: target exit 0.217296 tKAS; added
+native fee zero. Modeled complete-history fees are 0.653525/1.521885/2.390245 tKAS;
+actual chain expenditure is zero. Prover peak memory was not measured: the first
+external timer only captured wrapper resources, now explicitly labeled. Future
+launcher timing is inside the sandbox. Proof generation completed in one run.
+
+Both pending bundles, every old history and all private material stay outside
+Git. Only fresh histories and aggregate old-side results are exported, scanned
+against 33 secret values, three unused old proofs and two distinct old statements.
+Six actual-material injection controls pass. The singleton shares authorization
+bytes across proofs; its unused old proof still remains private.
+
+Decision: retain the fresh-proof mechanism and private fallback under
+[ADR-0021](adr/0021-separate-exit-fallback-and-privacy-policy.md). Stage 2's
+population thresholds remain untested; full-exit amount leakage, useful independent
+activity, setup/data availability and cold proof work remain open. No live run
+or Stage 3–4 expansion follows automatically. [Result, costs and reproduction](../poc/shared-pool/FRESH-PROOF.md),
+[adversarial self-review](../poc/shared-pool/FRESH-PROOF-REVIEW.md).
 
 ### 2026-10-19 — Stage 2 initial privacy audit (H8), redesign gate reached
 

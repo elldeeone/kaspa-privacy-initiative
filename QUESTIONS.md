@@ -3,12 +3,14 @@
 The initiative should treat these as questions to answer, not conclusions to defend.
 
 [Stage 2's compact audit](poc/shared-pool/PRIVACY.md) reached its old-anchor
-redesign gate. Can a genuinely fresh authorization against a recent anchor
-remove deterministic source identification for matched claims while retaining
-a private, independently usable old exit fallback? How much remains inferable
-from full-exit amounts and one-input split structure after eventual drainage?
-[RFC-0009](docs/rfc/0009-compact-anchor-privacy.md) is the next bounded question;
-later independent deposits and partial exits remain unsupported compact features.
+redesign gate. [H9's bounded offline test](poc/shared-pool/FRESH-PROOF.md) now
+supports fresh authorization plus a private independent fallback: 3/5 target
+source candidates after two/four payments, with either winner preventing the
+other spend. Which common-anchor/withdrawal policy improves inference success
+across independent ledgers at acceptable proving cost and delay? How much
+remains inferable from full-exit amounts and one-input split structure?
+[RFC-0009](docs/rfc/0009-compact-anchor-privacy.md) keeps that population question
+open; later independent deposits and partial exits remain unsupported features.
 
 [Stage 1 recovery](docs/rfc/0008-independent-wallet-recovery.md) tests the compact
 candidate using pre-payment private backups, independently retained public data

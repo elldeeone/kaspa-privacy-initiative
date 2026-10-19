@@ -55,5 +55,26 @@ negative audit is complete without pretending the candidate passed them.
 Current spentness, exact fee/payout binding, reserve conservation, recovery,
 single-party setup and data-availability assumptions remain unchanged.
 
+## Follow-on evidence and retained decision
+
+[H9](../../poc/shared-pool/FRESH-PROOF.md) now supports the proposed mechanism in
+three predeclared offline fixtures. Genuine fresh proofs change the target's
+source candidates from 1 to 3/5 after two/four payments through full drainage;
+the no-activity control stays at one. Native fee/mass is unchanged. Warm target
+proof work is about 9.5 seconds, with a 100.414-second cold parameter load.
+Both winner orders reject the other proof; both alternatives rebuild independently
+with only public state and the selected private bundle. No new relation or setup.
+
+Retain fresh authorization as the candidate normal path when useful later
+activity exists, preserving the old authorization privately for exit. This is
+a supported mechanism choice, not an optimal anchor policy or privacy claim.
+The unused old proof and distinct authorization never enter the fresh observer
+or exported history; an actually used fallback necessarily exposes its anchor.
+All claims drain, so neither proof can spend its note afterward.
+
+Keep Stage 2's population gate open. Three deliberately chosen small ledgers do
+not meet its statistical criteria or establish independent-user privacy. No
+automatic TN10 run, protocol expansion or change to the existing stop conditions.
+
 Sources and rejected/adapted analogues:
 [primary-source review](../../research/compact-privacy-source-review-2026-10-19.md).
