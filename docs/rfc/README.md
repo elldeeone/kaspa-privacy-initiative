@@ -10,3 +10,4 @@ When a durable architecture or design decision is reached, record its rationale 
 
 - [RFC-0001: State architecture for the first native-KAS privacy PoC](0001-state-architecture.md) — Open; no architecture selected.
 - [RFC-0006: Reusable private authorization](0006-reusable-private-authorization.md) — Bounded experiment completed; broader scale, privacy and liveness questions remain open.
+- [RFC-0010: Independent deposits without replacing saved exit proofs](0010-compact-independent-deposits.md) — Open; minimal four-wallet extension scoped, not implemented or tested.

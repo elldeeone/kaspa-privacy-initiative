@@ -12,6 +12,15 @@ remains inferable from full-exit amounts and one-input split structure?
 [RFC-0009](docs/rfc/0009-compact-anchor-privacy.md) keeps that population question
 open; later independent deposits and partial exits remain unsupported features.
 
+[RFC-0010](docs/rfc/0010-compact-independent-deposits.md) now scopes the deposit
+prerequisite: can a distinct native branch reuse the existing two-output proof
+to add exactly backed claims without modifying spentness or invalidating earlier
+exit proofs in the same new pool? Can four separately funded wallets drain all
+eight notes with their provers stopped? The design remains unimplemented. Its
+two-note minimum, extra full exits and added covenant fees may make a dedicated
+one-note admission relation preferable later. No deployed v4 migration is implied,
+and success alone would not answer the population privacy question.
+
 [Stage 1 recovery](docs/rfc/0008-independent-wallet-recovery.md) tests the compact
 candidate using pre-payment private backups, independently retained public data
 and a separate node; its bounded offline/rehearsal/measured trial passed. The

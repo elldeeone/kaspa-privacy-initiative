@@ -51,3 +51,4 @@ The open state architecture comparison is [RFC-0001](../rfc/0001-state-architect
 - [ADR-0013: fixed private-note proof and join-native preparation](0013-private-note-proof-package.md)
 - [ADR-0014: authenticated private/native lifecycle preparation](0014-private-native-lifecycle.md)
 - [ADR-0018: reusable private authorization and current native settlement](0018-reusable-private-authorization.md)
+- [ADR-0022: scope two-note deposits into a new compact pool](0022-compact-two-note-deposits.md) — Research scope only; no implementation or protocol adoption.

@@ -13,6 +13,10 @@ The [independent recovery follow-up](RECOVERY.md) tests restoring three wallets
 from pre-payment backups and public data after the original services stop.
 The [fresh-proof comparison](FRESH-PROOF.md) tests the compact privacy mechanism
 offline, retaining an old private exit fallback while preventing a second spend.
+The [independent-deposit scope](../../docs/rfc/0010-compact-independent-deposits.md)
+proposes a new compact pool accepting separately funded two-note deposits while
+preserving earlier exit proofs within that pool. It is design only; no new code,
+fees or four-wallet compact-deposit result is established.
 
 Both funded runs completed on 2026-10-19 using the owner's existing TN10 node.
 Four separate wallet processes re-spent received notes and independently proved

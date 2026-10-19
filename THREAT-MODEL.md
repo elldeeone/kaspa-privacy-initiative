@@ -1,5 +1,24 @@
 # Threat Model
 
+The proposed [independent-deposit extension](docs/rfc/0010-compact-independent-deposits.md)
+introduces a native funding input and a distinct admission branch, not a new
+trusted actor. Critical checks are actual funding authorization/value, exact
+reserve credit, disjoint deposit/spend semantics, unchanged NF state and
+independently validated genesis/accepted lineage. The virtual proof input must
+never become a pool claim or authorize omitting real spend checks. SIGHASH_ALL
+binds monetary intent and the nonempty payload, but excludes signature scripts
+and v1 compute budgets; do not assume every field is signed. Native execution,
+canonical construction and relay checks have separate roles.
+
+The candidate keeps setup, correct-node, public-history and fixed-fee assumptions.
+Its ciphertext digest does not prove correct delivery; each wallet checks its
+own notes. Repeating a proof with fresh signed backing can create valid separate
+positions, while reusing a spent funding input must fail. Old deployed pools
+remain immutable and their proofs cannot cross domains. All four wallets' saved
+proofs in the new pool must survive later deposits and settle without privileged
+help. These are untested requirements. Public deposit pair totals, ancestry and
+old anchors remain visible; no privacy result or invariant relaxation is added.
+
 [H8's chain-only audit](poc/shared-pool/PRIVACY.md) shows a deterministic source
 transaction link for the first H6 exit, even though its two possible note positions
 remain indistinguishable under the modeled public constraints. The count-three

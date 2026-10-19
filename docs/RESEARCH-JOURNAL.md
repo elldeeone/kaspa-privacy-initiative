@@ -65,6 +65,12 @@ usable until one spends. The singleton remains linked. Keep a fresh normal-path
 candidate and private fallback; the traffic-policy thresholds remain untested.
 [Audit](../poc/shared-pool/PRIVACY.md), [comparison](../poc/shared-pool/FRESH-PROOF.md).
 
+The next missing capability is independently funded deposits into compact state.
+[H10's scope](rfc/0010-compact-independent-deposits.md) reuses the private relation
+in a fresh immutable pool, adds two backed notes per signed deposit and requires
+all four wallets to exit with proofs saved before later deposits. It is scoped
+only: no new code, fees, native acceptance or privacy result is established.
+
 ## Hypotheses and decisions
 
 | ID | Falsifiable claim | Evidence/status | Decision |
@@ -78,12 +84,56 @@ candidate and private fallback; the traffic-policy thresholds remain untested.
 | H7 | Three wallets can recover incoming payments from pre-payment backups and public data, then create their first exit proofs without the original services. | Offline, complete TN10 rehearsal and fresh measured trial passed. All three payouts confirmed and every claim drained; an interrupted first attempt was also recovered through ordinary exits. | Retain this recovery path and declared backup/public-data requirements. Cold loading, data retention and useful privacy remain open; proceed to Stage 2's privacy audit. |
 | H8 | Public anchor and single-spend constraints uniquely identify the source transaction of the first H6 full exit even after later payments. | Confirmed in retained two-payment and 100-payment traces by an isolated chain-only observer. Coverage 1/4 and 1/102; source certificate leaves two note positions. Small joint-value and fresh-anchor controls also executed. | Stage 2 audit complete with redesign: retain exit fallback, reject frozen-proof delay for this case, test fresh authorization next. Privacy policy thresholds and real-world anonymity remain unestablished. |
 | H9 | A genuinely fresh proof for the same note/payout removes the old source singleton when later activity exists, while the old proof remains a private independent fallback and only one can spend. | Supported offline in two/four-payment fixtures: 1 → 3/5 source candidates through full drain; singleton stays 1. Both winner orders reject the other proof, six no-prover rebuilds pass and all claims drain. | Retain fresh authorization as a candidate normal path and private fallback for exit. No added native fee; about 9.5 seconds extra warm proof work. Population privacy, common-anchor policy and real-world anonymity remain open. |
+| H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Scoped only. Current-source review supports the required primitives; composition, fees and exits remain untested. | Test the missing independent-funding prerequisite before a population privacy study. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 — Independent compact deposits (H10), scope only
+
+The owner requested the minimal current-L1 extension on this branch, preserving
+existing exit proofs across later deposits and requiring four independent exits.
+This step records research/design only: no implementation, build, experiment,
+TN10 connection, funding, broadcast, push or upstream posting.
+
+[RFC-0010](rfc/0010-compact-independent-deposits.md) and
+[ADR-0022](adr/0022-compact-two-note-deposits.md) select a distinct two-input native
+admission branch: reserve plus the depositor's ordinary SIGHASH_ALL input. Reuse
+the unchanged two-output proof relation with its virtual input value bound to
+actual new funding. Add exactly deposit-minus-fee backing and two claims; append
+the resulting root to history; do not admit the virtual input/root/nullifier or
+change current spentness. Preserve verified bootstrap and independent public
+descriptor/lineage checks. The [source review](../research/compact-deposits-source-review-2026-10-19.md)
+records current Kaspa support, mature-protocol analogues and signature exclusions.
+
+This requires a new immutable application version, not an upgrade of an existing
+v4 reserve. Saved proofs created in that new pool before later deposits must
+remain byte-identical; v4 claims cannot cross into the new domain. The hypothesis
+fails if any old claim loses backing, requires a replacement private proof or
+operator help, or cannot drain under the declared fee/data assumptions.
+
+The main proposed fixture has four 10-tKAS contributions, one bootstrap, three
+later admissions and eight saved exits: 13 native transactions, excluding input
+preparation. Stop each prover after preparing its wallet's exits, then drain
+newest wallet first and Alice last. Other offline orders exercise each wallet's
+terminal role; native negative controls and a genuine deposited-note transfer
+regression are required. No such fixture has been run.
+
+Tradeoff: the unchanged circuit requires two notes of at least 60,000,000 sompi,
+so the minimum deposit is 120,000,000 sompi plus fee and each depositor has two
+full exits. New covenant size/mass/fees must be measured before proofs are frozen;
+the worst configured exit fee plus payout floor must fit the circuit's note
+floor. Existing v4 measurements are references, not new estimates. Actual spend
+for this scope is zero.
+
+Decision: retain this bounded prerequisite for a separately authorized offline
+implementation. It enables actual independent-funding workloads; it does not
+establish anonymity or close Stage 2. Old anchors, public deposit totals/ancestry,
+full-exit amounts, setup, history and fixed-fee limits remain explicit. Keep the
+population thresholds and chain-only/RPC separation unchanged.
 
 ### 2026-10-19 — Fresh proof and private fallback (H9), bounded offline result
 

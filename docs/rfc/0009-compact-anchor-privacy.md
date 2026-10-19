@@ -28,6 +28,12 @@ two explicit low-activity schedules; do not invent independent deposits that
 this variant cannot accept. If the intended question needs those deposits,
 design that missing capability explicitly before using it in a workload.
 
+[RFC-0010](0010-compact-independent-deposits.md) now scopes that prerequisite in
+a new immutable compact version: independently funded two-note admissions and
+four wallets exiting with proofs saved before later deposits. It is not
+implemented or tested. Preserve this RFC's population thresholds and observer
+boundaries; successful admission/exit mechanics alone cannot complete its study.
+
 Compare old and fresh authorizations offline under the actual native validator.
 Apply public anchor, timing/order, integer value/floor and joint-history attacks,
 including eventual payouts. Keep truth available only to a separate scorer.
