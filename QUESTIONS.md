@@ -10,16 +10,18 @@ other spend. Which common-anchor/withdrawal policy improves inference success
 across independent ledgers at acceptable proving cost and delay? How much
 remains inferable from full-exit amounts and one-input split structure?
 [RFC-0009](docs/rfc/0009-compact-anchor-privacy.md) keeps that population question
-open; later independent deposits and partial exits remain unsupported features.
+open. Independent admission now has a v5 candidate; partial exits remain absent
+from the compact variant.
 
-[RFC-0010](docs/rfc/0010-compact-independent-deposits.md) now scopes the deposit
+[RFC-0010](docs/rfc/0010-compact-independent-deposits.md) records the deposit
 prerequisite: can a distinct native branch reuse the existing two-output proof
 to add exactly backed claims without modifying spentness or invalidating earlier
 exit proofs in the same new pool? Can four separately funded wallets drain all
-eight notes with their provers stopped? The design remains unimplemented. Its
+eight notes with their provers stopped? The [offline gate](poc/shared-pool/DEPOSITS.md)
+and complete TN10 rehearsal/measured trial passed with all wallets paid. Its
 two-note minimum, extra full exits and added covenant fees may make a dedicated
 one-note admission relation preferable later. No deployed v4 migration is implied,
-and success alone would not answer the population privacy question.
+and this result does not answer the population privacy question.
 
 [Stage 1 recovery](docs/rfc/0008-independent-wallet-recovery.md) tests the compact
 candidate using pre-payment private backups, independently retained public data

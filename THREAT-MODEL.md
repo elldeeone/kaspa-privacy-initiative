@@ -1,6 +1,6 @@
 # Threat Model
 
-The proposed [independent-deposit extension](docs/rfc/0010-compact-independent-deposits.md)
+The experimental [independent-deposit extension](docs/rfc/0010-compact-independent-deposits.md)
 introduces a native funding input and a distinct admission branch, not a new
 trusted actor. Critical checks are actual funding authorization/value, exact
 reserve credit, disjoint deposit/spend semantics, unchanged NF state and
@@ -16,8 +16,13 @@ own notes. Repeating a proof with fresh signed backing can create valid separate
 positions, while reusing a spent funding input must fail. Old deployed pools
 remain immutable and their proofs cannot cross domains. All four wallets' saved
 proofs in the new pool must survive later deposits and settle without privileged
-help. These are untested requirements. Public deposit pair totals, ancestry and
-old anchors remain visible; no privacy result or invariant relaxation is added.
+help. The offline gate passed with all four terminal roles, native adversarial
+controls and independent public accounting. Complete TN10 rehearsal and a fresh
+measured trial also passed, with all eight saved proofs and zero remaining reserve.
+Client namespaces test access to own saved bundles plus public data, not
+protection from a malicious host. Public deposit pair totals, ancestry and old
+anchors remain visible; no privacy result or invariant relaxation is added.
+See [results and limits](poc/shared-pool/DEPOSITS.md).
 
 [H8's chain-only audit](poc/shared-pool/PRIVACY.md) shows a deterministic source
 transaction link for the first H6 exit, even though its two possible note positions

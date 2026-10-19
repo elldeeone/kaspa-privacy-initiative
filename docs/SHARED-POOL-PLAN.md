@@ -15,8 +15,10 @@ see [the comparison](../poc/shared-pool/FRESH-PROOF.md).
 The missing independent-deposit prerequisite is now scoped in
 [RFC-0010](rfc/0010-compact-independent-deposits.md): a new immutable pool version,
 the existing private circuit, two notes per funded admission, and four wallets
-draining with proofs saved before later deposits. H10 is proposed only; no code
-or experiment has run and Stage 2's privacy thresholds remain unchanged.
+draining with proofs saved before later deposits. H10's implementation passed
+the offline gate and complete TN10 rehearsal/fresh trial: all four wallets paid
+using eight unchanged saved proofs and zero reserve. Stage 2's privacy thresholds
+remain unchanged. [Measured report](../poc/shared-pool/DEPOSITS.md).
 
 **Finish line:** a reproducible testnet wallet can receive, send and withdraw
 native test KAS, maintain correct backing, recover without privileged help, and
@@ -34,7 +36,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H8/H9 complete within their bounds; H10 independent deposits scoped only; population thresholds untested | Does the candidate hide useful relationships under explicit low-activity assumptions? |
+| 2. Practical privacy | 5 | H8/H9 complete within their bounds; H10 admission/exit prerequisite passed offline and TN10; population thresholds untested | Does the candidate hide useful relationships under explicit low-activity assumptions? |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -150,7 +152,7 @@ The [frozen specification](../poc/shared-pool/FRESH-PROOF-SPEC.md) and
 offline fixtures. This selects a mechanism for further policy work, without
 passing or revising the population thresholds or authorizing TN10/wallet expansion.
 
-**Missing workload prerequisite, H10:** [RFC-0010](rfc/0010-compact-independent-deposits.md)
+**Completed workload prerequisite, H10:** [RFC-0010](rfc/0010-compact-independent-deposits.md)
 and [ADR-0022](adr/0022-compact-two-note-deposits.md) scope independently signed
 native deposits into a fresh immutable compact pool. Each deposit adds two notes
 and accepted history without changing existing spentness; prior proofs within
@@ -158,7 +160,10 @@ that new pool must remain usable. The main fixture has four separately funded
 wallets, 13 native transactions and eight prepared exits, with all provers stopped
 before drainage. Require exact backing, byte-identical old proofs, each wallet's
 terminal role and no operator help. Existing v4 proofs are preserved as evidence,
-not migrated. Fees and composition remain unmeasured. This prerequisite supplies
+not migrated. Offline fees/composition and all four terminal roles passed;
+complete TN10 rehearsal and a fresh trial paid all eight claims using their
+original proofs. The measured 14-transaction run including ordinary allocation
+cost 2.656933 tKAS. This prerequisite supplies
 real admission mechanics for the later study; it cannot pass the privacy gate.
 
 **Hypothesis / decision:** an established wallet policy can materially reduce
@@ -311,9 +316,10 @@ still fail a declared usability target. Use fresh trial identities for retries,
 complete rehearsals through terminal payouts, and keep all amounts in integer
 sompi. Never weaken a check or erase a failed run.
 
-**Immediate next step, after implementation authorization:** build only the
-[scoped independent-deposit prerequisite](rfc/0010-compact-independent-deposits.md),
-measure its fees and run its bounded offline gates. The present step records the
-scope only and authorizes no TN10 run. If it works, return to preregistering the
-population comparison under [RFC-0009](rfc/0009-compact-anchor-privacy.md), rather
-than expanding wallet features or treating four deposits as a privacy result.
+**Current result:** the independent-deposit prerequisite under
+[RFC-0010](rfc/0010-compact-independent-deposits.md) passed offline and in complete
+TN10 rehearsal/fresh trials. Code, journal and sanitized evidence stay on this
+branch. **Next decision:** preregister the population comparison under
+[RFC-0009](rfc/0009-compact-anchor-privacy.md), then obtain authorization for that
+new experiment. Four deposits do not pass the privacy gate or justify expanding
+wallet features.

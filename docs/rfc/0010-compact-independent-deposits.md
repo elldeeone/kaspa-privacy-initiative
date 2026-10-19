@@ -1,6 +1,6 @@
 # RFC-0010: Independent deposits without replacing saved exit proofs
 
-**Status:** Open — scoped, not implemented or tested.
+**Status:** Bounded v5 experiment passed offline and in complete TN10 rehearsal/fresh trial.
 **Date:** 2026-10-19.
 **Branch:** `shared-pool-four-wallet`; inspected baseline `d67e174`.
 **Scope decision:** [ADR-0022](../adr/0022-compact-two-note-deposits.md).
@@ -24,13 +24,15 @@ not completion of Stage 2 and not a test of real-world anonymity.
 The current authorization circuit is already a two-output value-conservation
 proof. Reuse that relation for externally funded admission rather than introduce
 a separate deposit circuit. Change the native covenant and public state builder
-in a **new immutable pool version**, provisionally v5. The deployed v4 pool code,
+in a **new immutable pool version**, v5. The deployed v4 pool code,
 proofs and evidence remain intact. A v4 proof does not become a claim in a new
 pool: the preservation requirement concerns v5 proofs created **before later v5
 deposits**. No migration or in-place upgrade is proposed.
 
-This document authorizes no implementation, experiment, funding, TN10 activity,
-push or upstream publication. A later implementation/run needs user authorization.
+The original scoping step authorized no execution. On 2026-10-20 (Australia/Sydney)
+the owner authorized implementation and the offline test, followed by TN10 only
+if it passes. Keep code/journal on this branch; no push or upstream publication
+is part of this authorization. The following gates remain in force.
 
 ## Grounding and assumptions
 
@@ -39,7 +41,8 @@ pins current Kaspa/KIP/upstream sources and compares Orchard, Aztec, RAILGUN,
 Monero, MWEB and vProgs. Kaspa provides multiple native inputs, input/output and
 payload introspection, ordinary Schnorr authorization and the existing proof
 verifier. No additional consensus primitive has been identified as necessary.
-That is a source-supported composition proposal, not native acceptance evidence.
+The original source review was a composition proposal. Native/offline and live
+evidence are recorded separately in the outcome and measured report.
 
 Keep the native/SDK pin `01b532e8b553523216471682649693af92f0fd16` for comparison.
 Reuse the exact v4 circuit/PK/VK, hash definitions, positioned nullifiers,
@@ -51,7 +54,7 @@ assumptions. Do not reinterpret any [security invariant](../../SECURITY-INVARIAN
 
 ## Native transaction and private statement
 
-The following is the proposed deposit shape; normal transfer/exit branches retain
+The implemented deposit shape is below; normal transfer/exit branches retain
 their separate real-membership and current-spentness checks.
 
 | Field | Required deposit value |
@@ -134,7 +137,7 @@ to history. `nf_count` and `nf_root` must remain byte-identical. Preserve every
 earlier commitment and history entry. Odd counts retain the existing history
 index `(count-1)/2`; the new history leaf is at `(C+1)/2`.
 
-Proposed deposit payload: `KPICD01\0` followed by the unchanged authorization,
+Deposit payload: `KPICD01\0` followed by the unchanged authorization,
 370 ciphertext bytes, next state and fixed witness. Total remains 3,892 bytes:
 
 | Byte offset | Length | Content |
@@ -153,11 +156,12 @@ real historical anchor and current nullifier insertion. Deposit framing requires
 two inputs, `mode=1`, `count=1`, positive `bootstrap`, and its distinct transition
 checks. Reject cross-mode framing and malformed sizes rather than guess a mode.
 
-The private proof stays 128 bytes and the VK 328 bytes. The new redeem-script
-length, compute budget, native mass and required fees are **unmeasured**. Existing
-v4 code hardcodes one input and spend transitions; it is not a usable deposit
-builder. Add a distinct public deposit builder/replay path in the proposed
-version; do not route admission through the existing nullifier-inserting helper.
+The private proof stays 128 bytes and the VK 328 bytes. The measured v5 redeem
+script is 14,336 bytes, its input witness 14,469 and reserve compute budget 2,000
+units of 10,000. At 100 sompi/mass, transfer/deposit/exit fees are respectively
+21,893,200 / 22,005,200 / 21,934,400 sompi. Separate v5 builder/replay/native code
+leaves the v4 implementation intact. Admission bypasses the nullifier-inserting
+helper; normal spends still require it.
 
 ## Genesis and proof preservation
 
@@ -192,7 +196,7 @@ positions and is not inflation; positioned nullifiers keep those claims distinct
 Treat this as a positive accounting control, while ordinary wallets generate
 fresh commitments/ciphertexts to avoid the obvious public repetition link.
 
-## Bounded future experiment
+## Bounded experiment
 
 The primary fixture uses four separate funding keys/UTXOs and four 10-tKAS
 contributions, each `1,000,000,000` sompi. Record actual public funding ancestry;
@@ -237,7 +241,8 @@ a traffic simulator, partial-exit feature, batch deposit or live race test.
 
 ## Controls and completion criteria
 
-All are future requirements; no new test result is recorded here.
+The following are requirements; the measured report maps them to evidence and
+states the boundary of each control.
 
 | Obligation | Required evidence/control |
 | --- | --- |
@@ -250,8 +255,8 @@ All are future requirements; no new test result is recorded here.
 | Data failure (I-9/I-10) | Replacement authenticated public source suffices; wrong/stale source is detected against the independent chain view. Loss of all required public data safely halts and is reported as failed availability, not successful recovery. |
 | Reproducibility (I-11) | Record source/native/descriptor/VK identities, accepted transaction bytes, mass/budgets, fees, proof/rebuild time, client input inventories and stop/isolation evidence. Keep private backups/openings/unused authorizations outside Git. |
 
-Before any future live run, require native Full validation, default relay-policy
-checks, SDK/JSON transport round trips and complete offline drainage. A later
+Before a live run, require native Full validation, default relay-policy
+checks, SDK/JSON transport round trips and complete offline drainage. An
 authorized TN10 test must first rehearse the complete path including terminal
 payout, then use a fresh trial identity. Source inspection is not relay evidence;
 offline validation is not live confirmation. Timers/resource caps are harness
@@ -259,11 +264,10 @@ observations, not reasons to weaken safety or strand a funded trial.
 
 ## Cost gate and stopping conditions
 
-No fees have been measured for the new covenant. At the historical comparison
-rate of 100 sompi/mass, v4 measured 21,688,400 sompi per transfer and 21,729,600
-per exit. These are references, **not v5 estimates**: added code may change every
-operation's mass. Measure continuing and terminal exits and all deposit inputs
-before freezing authorizations. The fixed circuit floor requires:
+At the comparison rate of 100 sompi/mass, v5 transfer/exit fees are each
+204,800 sompi higher than v4 (21,688,400 / 21,729,600 respectively). The deposit
+fee is 22,005,200 sompi. Continuing and terminal shapes were measured before
+freezing authorizations. The fixed circuit floor requires:
 
 `largest configured exit fee + 10,000,000 <= 60,000,000 sompi`.
 
@@ -281,8 +285,8 @@ The eight payouts must total
 and optional input-preparation fees are external to those four contributions
 and reconciled separately. Two notes mean two full exits per depositor; report
 this cost before selecting the design for a wallet. Current warm proof/cold-load
-timings do not substitute for measuring the proposed path. This scoping step
-spends no test KAS.
+timings do not substitute for measuring this path. The report separates pool,
+ordinary genesis/allocation and reused-test-coin consolidation fees.
 
 Stop or redesign if admission can dilute old backing, erase spentness, accept
 an unverifiable lineage, require new private exit proofs after a deposit, require
@@ -302,7 +306,14 @@ model. Keep Stage 2's existing population thresholds unchanged.
 
 ## Outcome
 
-Scoped only. The source review found no missing current-L1 primitive for this
-candidate. Covenant composition, fees, four-wallet independence and unchanged
-proof settlement remain untested. [ADR-0022](../adr/0022-compact-two-note-deposits.md)
-records the bounded design choice and alternatives; it does not accept a protocol.
+The offline gate passed: four drain orders, 32 settlements from eight saved
+proofs, 35 native negative controls, genuine transfer/minimum/repeated-backing
+regressions and independently reconstructed public accounting. Complete TN10
+rehearsal and a fresh measured trial also passed: 14 confirmed transactions each
+including ordinary allocation, all four wallets paid from eight unchanged saved
+proofs, and zero remaining reserve/liabilities. The measured run cost
+265,693,300 sompi, including 263,384,000 in pool fees. The original provers were
+stopped and each client obtained accepted history through its own RPC. [Report and evidence](../../poc/shared-pool/DEPOSITS.md),
+[adversarial self-review](../../poc/shared-pool/DEPOSITS-REVIEW.md).
+[ADR-0022](../adr/0022-compact-two-note-deposits.md) records the bounded choice;
+neither this prerequisite nor four wallet keys completes Stage 2 privacy.

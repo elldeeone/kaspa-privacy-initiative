@@ -1,6 +1,6 @@
-# ADR-0022: Scope two-note deposits into a new compact pool
+# ADR-0022: Two-note deposits into a new compact pool
 
-**Status:** Accepted — research scope only, not implementation or protocol adoption.
+**Status:** Accepted for the bounded experiment; not protocol adoption.
 **Date:** 2026-10-19.
 **Related RFC:** [RFC-0010](../rfc/0010-compact-independent-deposits.md).
 
@@ -12,7 +12,7 @@ but those fixtures cannot test independently funded participants. Add that
 missing capability before the population study, while retaining independent
 exit fallbacks and all security invariants.
 
-Scope a new immutable application version that reuses the exact current private
+Use a new immutable application version that reuses the exact current private
 circuit and VK. An ordinary signed native input funds two new private notes;
 the existing transfer relation proves their total equals the deposit less its
 fee. In this distinct native branch the proof's input/root/nullifier are virtual
@@ -25,7 +25,9 @@ change. Preserve the existing verified first-depositor bootstrap and independent
 validated public descriptor/lineage. The depositor signs the intended monetary
 transaction/payload with canonical SIGHASH_ALL. The proposal is grounded in
 [current primary sources](../../research/compact-deposits-source-review-2026-10-19.md);
-its composition and native cost remain untested.
+its bounded offline composition and native cost are now measured in the
+[report](../../poc/shared-pool/DEPOSITS.md). Complete TN10 rehearsal and a fresh
+measured trial also passed, with all four wallets paid and both pools drained.
 
 The old pool cannot acquire new code in place. Keep v4 code/evidence/proofs intact;
 do not transplant its domain-bound claims. In the new pool, proofs prepared
@@ -74,6 +76,19 @@ Stop mechanical expansion after the bounded prerequisite and assess inference.
 
 ## Outcome
 
-Scope recorded with the 13-transaction main fixture, required regressions,
-controls and cost gates in RFC-0010. No code, experiment, chain state, setup or
-existing evidence is changed. Implementation and execution await authorization.
+The owner authorized implementation/offline validation and conditional TN10
+execution on 2026-10-20 (Australia/Sydney). Preserve the scope, invariants and
+stop conditions. The offline gate passed with four drain orders, unchanged
+saved proof bytes, exact backing and adversarial controls. Complete TN10
+rehearsal and a fresh measured trial confirmed all 14 transactions each, paid all
+eight notes using unchanged saved proofs and drained both reserves. Measured
+fees were 2.656933 tKAS including ordinary allocation/genesis; the admission
+minimum is 1.420052 tKAS and each note exit costs 0.219344 tKAS.
+
+Retain this admission candidate for the later population study. Its two-note
+cost and old-anchor privacy limits remain reasons to reconsider it. This does
+not select a production architecture or complete Stage 2.
+
+The preceding scoping step recorded the 13-transaction main fixture, required
+regressions, controls and cost gates in RFC-0010. It changed no code, experiment,
+chain state, setup or existing evidence; implementation was authorized afterward.

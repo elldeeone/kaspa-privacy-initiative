@@ -16,7 +16,10 @@ fn key_for(row:&Value,source:&native::Utxo,funding:&Path)->Result<H>{
     for i in 0..4 {
         let file=root.join(format!("wallet{i}/wallet.json"));if !file.is_file(){continue;}
         let v:Value=read(&file)?;let w:Wallet=serde_json::from_value(v["wallet"].clone())?;
-        for k in [w.native,w.payout_key(&domain,step),w.payout_key(&domain,step.saturating_sub(1))] {
+        // A saved authorization can settle many transactions after its payout
+        // key was chosen. Search its possible earlier creation indices and
+        // still require an exact match to the ordinary UTXO's public script.
+        for k in std::iter::once(w.native).chain((0..=step).map(|n|w.payout_key(&domain,n))) {
             if matches(&k){return Ok(k);}
         }
     }

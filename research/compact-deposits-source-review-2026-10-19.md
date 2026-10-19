@@ -206,3 +206,20 @@ useful privacy. Funding ancestry, public pair totals, timing, repeated commitmen
 and the old-anchor ceiling remain observable. Existing exact-fee proofs still
 depend on a sufficient fee envelope and available public history. Single-party
 setup, unreviewed cryptography and correct-node assumptions remain unchanged.
+
+## Implementation-time source refresh, 2026-10-20 (Australia/Sydney)
+
+Rusty Kaspa head was rechecked at
+`91888a4a25ddeb941124ceaa05d7357fe72fe3d5`. The
+[comparison](https://github.com/kaspanet/rusty-kaspa/compare/f7d7877363fb97c2ec6871be0e8cbc351d44df10...91888a4a25ddeb941124ceaa05d7357fe72fe3d5)
+changes package manifests/lock data (including perf-monitor dependency and spin
+resolution), not the relevant signature hash or covenant semantics. KIPs remained
+at `e4ae2332117b5cb68bd6188e065ef885b6d17939`. Retain the experiment's exact native/SDK
+pin and report actual native/chain checks separately. The pinned mempool policy
+was also inspected: transaction/context rules and fees are separate from
+consensus; no separate dust rule was inferred beyond the checked native/policy
+rules. The immutable note/payout floors remain required by this prototype.
+
+The preceding sections preserve the original scoping snapshot. Implementation
+and later evidence are recorded in [DEPOSITS.md](../poc/shared-pool/DEPOSITS.md);
+this addendum does not turn the historical source review into test evidence.

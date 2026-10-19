@@ -3,16 +3,21 @@
 **Status:** exploratory. No architecture has been selected.
 
 [RFC-0010](rfc/0010-compact-independent-deposits.md) and
-[ADR-0022](adr/0022-compact-two-note-deposits.md) now scope a new immutable compact
+[ADR-0022](adr/0022-compact-two-note-deposits.md) define a new immutable compact
 pool version accepting independent native deposits. A signed ordinary input
 funds two notes under the existing private relation/VK; the covenant adds exact
 backing and commitment/history entries while leaving nullifier state unchanged.
 The proof's virtual admission input is not a pool claim. Keep verified bootstrap
 and independent public genesis/lineage validation. Earlier proofs **within the
 new pool** must survive later deposits; deployed v4 proofs do not migrate.
-This is proposed only: no code, setup, invariant or L1 rule changes in this step,
-and no new fee, native-acceptance or four-wallet result. Source support and
-assumptions are in the [review](../research/compact-deposits-source-review-2026-10-19.md).
+The v5 implementation passed the bounded offline gate, including all eight saved
+exits in four withdrawal orders. Complete TN10 rehearsal and a fresh measured
+trial also passed: all eight original proofs settled, all four wallets were paid,
+and both pools drained. The private
+circuit/setup and L1 rules are unchanged. See the [measured report](../poc/shared-pool/DEPOSITS.md)
+and [source review](../research/compact-deposits-source-review-2026-10-19.md).
+The four-source harness list is not a native admission allowlist. Useful privacy
+and population policy remain separate decisions.
 
 [Stage 2's compact privacy audit](../poc/shared-pool/PRIVACY.md) reached its
 redesign condition: an old count-three proof identifies the withdrawal's source

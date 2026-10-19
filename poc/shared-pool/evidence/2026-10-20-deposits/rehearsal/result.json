@@ -1,0 +1,611 @@
+{
+  "complete": true,
+  "role": "rehearsal",
+  "network": "testnet-10",
+  "binarySha256": "df96c11b1e0d851873d32e76d6a1d2ea0a090ac7fab294492587a380743b7255",
+  "sources": {
+    "Cargo.toml": "cfdc8e104c93e4575b1f2cf5d9b441566674b7b801856d18fc7aeb5ba50234f3",
+    "Cargo.lock": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+    "src/lib.rs": "922f209b29f2f57b907157bf976e70cb9d53c06e5794830a48d7bb108d3adb7d",
+    "src/bin/kpi-deposits.rs": "6e8d33d836431de80deb86c96f451a915547ff30d6ecaeb03046371daa6bc2b6",
+    "src/compact/mod.rs": "66c36cf28f8fcb27675ba02d78137068cc751337b1137f41404fa996f87b00b3",
+    "src/compact/experiment.rs": "5a277b048011024a9c9692780e67de710e72b46bb3a06d447b8e9649980c32cf",
+    "src/compact/deposits/mod.rs": "6635349b29fc8a93c0691df33d1a3dd4acc4f378984214fc5091ead74c92ac6a",
+    "src/compact/deposits/covenant.rs": "3a5b7a4074f732e24b216c441b49cbd06b080cd2882427602578a8f574eaa6ea",
+    "src/compact/deposits/harness.rs": "e38b13e8666236e28a182f6d3179b353e6c276a22f4fd42ede702f57eb31ddcc",
+    "src/compact/deposits/harness/controls.rs": "09fe082ef67b81f8d91694a3f6f255bc4e004aee5b62ae040ae98904ad76cc53",
+    "src/compact/circuit.rs": "278af7d43253356688251ae4f2969e033779af0df0458fdf3283feeed942b638",
+    "src/compact/tree.rs": "4ac46cb3e514e58181d0a4e2195e882f22d1df83d8dc6ea926fac47102ea0dc6",
+    "src/native.rs": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f",
+    "src/protocol.rs": "ad4573aeba2f40901ce79df22280225c43d3696242aa96c94d814e2ab7ba43d8",
+    "deposits.mjs": "d8172753c0de03bd2506d21ddb85d758a34e0b4aeff0c8f973b7e13d8bf79d21",
+    "deposits-common.mjs": "be9f94721af4a75eed278d67163a2f9ce71ed6250b5d65d5ebdd2ceb4c923ad6",
+    "deposits-client.mjs": "c2d6c9e8e6bc0383739287ffd09dd0a3497b2185f4ed30e2269827989d353084",
+    "deposits-live.mjs": "6d687f1e1e7a07b85223c2c3bb263dba9d8ea04872730abe11c970112d615864"
+  },
+  "checked": {
+    "drained": true,
+    "fees_sompi": "264403300",
+    "state": {
+      "cm_count": 9,
+      "cm_root": [
+        9,
+        124,
+        101,
+        132,
+        161,
+        58,
+        110,
+        181,
+        65,
+        193,
+        218,
+        61,
+        192,
+        100,
+        212,
+        0,
+        53,
+        103,
+        41,
+        153,
+        66,
+        92,
+        225,
+        55,
+        110,
+        250,
+        212,
+        186,
+        52,
+        59,
+        232,
+        39
+      ],
+      "history_root": [
+        21,
+        95,
+        181,
+        106,
+        246,
+        198,
+        155,
+        55,
+        65,
+        159,
+        89,
+        177,
+        15,
+        95,
+        146,
+        248,
+        193,
+        234,
+        201,
+        174,
+        25,
+        160,
+        251,
+        182,
+        109,
+        129,
+        170,
+        55,
+        245,
+        166,
+        94,
+        42
+      ],
+      "nf_count": 9,
+      "nf_root": [
+        57,
+        70,
+        152,
+        199,
+        77,
+        238,
+        83,
+        157,
+        23,
+        71,
+        131,
+        6,
+        173,
+        226,
+        17,
+        76,
+        121,
+        48,
+        99,
+        233,
+        253,
+        19,
+        211,
+        216,
+        106,
+        100,
+        123,
+        223,
+        191,
+        43,
+        31,
+        182
+      ]
+    },
+    "transactions": 13,
+    "valid": true
+  },
+  "wallets": [
+    {
+      "wallet": 3,
+      "complete": true,
+      "mode": "tn10",
+      "noWalletOrProvingKey": true,
+      "sources": [
+        {
+          "source": "file:///missing/",
+          "accepted": false,
+          "error": "Error: ENOENT: no such file or directory, open '/missing/descriptor.json'"
+        },
+        {
+          "source": "file:///source/",
+          "accepted": true
+        }
+      ],
+      "exits": [
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "609f1024d2403719264886d48cd3ccfdf075f0a739f5debdbe9d89c46d525e24",
+            "metrics": {
+              "compute_mass": 219344,
+              "estimated_bytes": 18614,
+              "fee_sompi": 21934400,
+              "mining_mass": 219344,
+              "relay_floor_sompi": 21934400,
+              "relay_mass": 219344,
+              "storage_mass": 2674,
+              "transient_mass": 74456
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14863511,
+            "txid": "69db8e4edb59a6e4c9cea04555c41fdcbe87dda59ded81ab2592e29adfbc6e20"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "378065600",
+            "daa": "0",
+            "index": 1,
+            "is_coinbase": false,
+            "spk": "00002074aa47035f5546b0bdf6b9e6e732de24b7a7bfc2c9c7f8af93e716e015d3143bac",
+            "txid": "69db8e4edb59a6e4c9cea04555c41fdcbe87dda59ded81ab2592e29adfbc6e20"
+          },
+          "prepared_count": 9,
+          "rebuild_us": 25162,
+          "terminal": false,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        },
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "9587649753e6fd802f05e678b203a8bc664fac9be791a629847e04a4995c190d",
+            "metrics": {
+              "compute_mass": 219344,
+              "estimated_bytes": 18614,
+              "fee_sompi": 21934400,
+              "mining_mass": 219344,
+              "relay_floor_sompi": 21934400,
+              "relay_mass": 219344,
+              "storage_mass": 1854,
+              "transient_mass": 74456
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14863190,
+            "txid": "9106a0758f23db4b6f5181c1bf8f12517476464ea2b698c35562f4314adb59f9"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "556060400",
+            "daa": "0",
+            "index": 1,
+            "is_coinbase": false,
+            "spk": "0000207904d7342c58d71a9d8abce552c9aa2a9f44ec237a57a6b63a32b749383d4117ac",
+            "txid": "9106a0758f23db4b6f5181c1bf8f12517476464ea2b698c35562f4314adb59f9"
+          },
+          "prepared_count": 9,
+          "rebuild_us": 27805,
+          "terminal": false,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        }
+      ],
+      "savedProofFileSha256": "782c09e3f9a41fbf0c90826b233ed1a87f16eae32269ef967ecfe46d808fb413",
+      "at": "2026-10-19T13:55:31.042Z"
+    },
+    {
+      "wallet": 2,
+      "complete": true,
+      "mode": "tn10",
+      "noWalletOrProvingKey": true,
+      "sources": [
+        {
+          "source": "file:///missing/",
+          "accepted": false,
+          "error": "Error: ENOENT: no such file or directory, open '/missing/descriptor.json'"
+        },
+        {
+          "source": "file:///source/",
+          "accepted": true
+        }
+      ],
+      "exits": [
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "89bcdd94f5fc9d9c593d3b0f636778f9c44eb87313ec196df5daf2db6f6b0351",
+            "metrics": {
+              "compute_mass": 219344,
+              "estimated_bytes": 18614,
+              "fee_sompi": 21934400,
+              "mining_mass": 219344,
+              "relay_floor_sompi": 21934400,
+              "relay_mass": 219344,
+              "storage_mass": 2699,
+              "transient_mass": 74456
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14863202,
+            "txid": "db029727c932b6739e4e92de25857e9e3c8169a5545a2ba8803ff682803d1351"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "378065600",
+            "daa": "0",
+            "index": 1,
+            "is_coinbase": false,
+            "spk": "000020087b3aa26c72a9dd710ae686d81941a1dc4602591db3c9509b1c141ec9d4c2e5ac",
+            "txid": "db029727c932b6739e4e92de25857e9e3c8169a5545a2ba8803ff682803d1351"
+          },
+          "prepared_count": 7,
+          "rebuild_us": 33430,
+          "terminal": false,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        },
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "8ccfa9ee9ca03f7bc1ae83686de3a4fbbea41401e1c0e6e73b2c9c99a7981afa",
+            "metrics": {
+              "compute_mass": 219344,
+              "estimated_bytes": 18614,
+              "fee_sompi": 21934400,
+              "mining_mass": 219344,
+              "relay_floor_sompi": 21934400,
+              "relay_mass": 219344,
+              "storage_mass": 1915,
+              "transient_mass": 74456
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14863616,
+            "txid": "b19200dbf78ea55348b7e31daaa2516f38368b80c378e107486614aa264a894b"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "556060400",
+            "daa": "0",
+            "index": 1,
+            "is_coinbase": false,
+            "spk": "000020fb70bda8acf0f3f81845cc5e971a5004175b539918576688835912d7ce96bfcdac",
+            "txid": "b19200dbf78ea55348b7e31daaa2516f38368b80c378e107486614aa264a894b"
+          },
+          "prepared_count": 7,
+          "rebuild_us": 34960,
+          "terminal": false,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        }
+      ],
+      "savedProofFileSha256": "be8b54763c6fcde72fcfda8968d0b4db19c4ecc637a1b734bb93ca970b62217f",
+      "at": "2026-10-19T13:55:40.919Z"
+    },
+    {
+      "wallet": 1,
+      "complete": true,
+      "mode": "tn10",
+      "noWalletOrProvingKey": true,
+      "sources": [
+        {
+          "source": "file:///missing/",
+          "accepted": false,
+          "error": "Error: ENOENT: no such file or directory, open '/missing/descriptor.json'"
+        },
+        {
+          "source": "file:///source/",
+          "accepted": true
+        }
+      ],
+      "exits": [
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "4a0ca73601c38d47dc1831c44ac8140bdb62f1c833c03cce9e10913b8653d5d2",
+            "metrics": {
+              "compute_mass": 219344,
+              "estimated_bytes": 18614,
+              "fee_sompi": 21934400,
+              "mining_mass": 219344,
+              "relay_floor_sompi": 21934400,
+              "relay_mass": 219344,
+              "storage_mass": 2776,
+              "transient_mass": 74456
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14863617,
+            "txid": "c8c5ce5853970e1988b5e03c66059ff4106c5516a99d360a98e41833a61b466d"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "378065600",
+            "daa": "0",
+            "index": 1,
+            "is_coinbase": false,
+            "spk": "000020f4b5edc7b3e7b4d8332a611ebcbb90f8b6bd32c50b9b80e6f8fcb3f575919dcdac",
+            "txid": "c8c5ce5853970e1988b5e03c66059ff4106c5516a99d360a98e41833a61b466d"
+          },
+          "prepared_count": 5,
+          "rebuild_us": 37184,
+          "terminal": false,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        },
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "b6905e52381c5bffc77257cc6bd55574a0ac3feece95a95ad1161a1b79655fa0",
+            "metrics": {
+              "compute_mass": 219344,
+              "estimated_bytes": 18614,
+              "fee_sompi": 21934400,
+              "mining_mass": 219344,
+              "relay_floor_sompi": 21934400,
+              "relay_mass": 219344,
+              "storage_mass": 2178,
+              "transient_mass": 74456
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14863201,
+            "txid": "e83604aa8bcb0da31ffaf93d2b0fc7bcbfd0e0b02158ea3c0ccd66ae52fcd090"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "556060400",
+            "daa": "0",
+            "index": 1,
+            "is_coinbase": false,
+            "spk": "0000201bae2d49802f63a6b034d0c7b4c586e44d77c14902abdebff4f64e1984f069fdac",
+            "txid": "e83604aa8bcb0da31ffaf93d2b0fc7bcbfd0e0b02158ea3c0ccd66ae52fcd090"
+          },
+          "prepared_count": 5,
+          "rebuild_us": 39768,
+          "terminal": false,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        }
+      ],
+      "savedProofFileSha256": "8a1e56fa75af5be6f4ece859f205b98de3d77dc167a1e52ab518414ffba371d5",
+      "at": "2026-10-19T13:55:57.964Z"
+    },
+    {
+      "wallet": 0,
+      "complete": true,
+      "mode": "tn10",
+      "noWalletOrProvingKey": true,
+      "sources": [
+        {
+          "source": "file:///missing/",
+          "accepted": false,
+          "error": "Error: ENOENT: no such file or directory, open '/missing/descriptor.json'"
+        },
+        {
+          "source": "file:///source/",
+          "accepted": true
+        }
+      ],
+      "exits": [
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "9c976c4eaedd59374f9a0c972bd57e94c9e09097b50d294efbda9ccabf94ea0a",
+            "metrics": {
+              "compute_mass": 219344,
+              "estimated_bytes": 18614,
+              "fee_sompi": 21934400,
+              "mining_mass": 219344,
+              "relay_floor_sompi": 21934400,
+              "relay_mass": 219344,
+              "storage_mass": 3352,
+              "transient_mass": 74456
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14863627,
+            "txid": "7a6566ccd31f197ed009e6ef0d77d0e34bc2a4d72df4156257c865da308e92f1"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "378065600",
+            "daa": "0",
+            "index": 1,
+            "is_coinbase": false,
+            "spk": "00002024f0e13a0221c1b1b0a90430334b697c2a40c81710eaa9bff32e5beec190dd01ac",
+            "txid": "7a6566ccd31f197ed009e6ef0d77d0e34bc2a4d72df4156257c865da308e92f1"
+          },
+          "prepared_count": 3,
+          "rebuild_us": 45058,
+          "terminal": false,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        },
+        {
+          "current_count": 9,
+          "native": {
+            "extra": {
+              "saved_proof": true
+            },
+            "full_hash": "dd71c8b05cdf83b095a6602a462407f34b27bac67342237c525a6daff3e3b3da",
+            "metrics": {
+              "compute_mass": 218921,
+              "estimated_bytes": 18561,
+              "fee_sompi": 21934400,
+              "mining_mass": 218921,
+              "relay_floor_sompi": 21892100,
+              "relay_mass": 218921,
+              "storage_mass": 69,
+              "transient_mass": 74244
+            },
+            "native_full": true,
+            "policy": true,
+            "script_units": 14805833,
+            "txid": "b36065d2921f52bff74210a29900d8264d54f4ec4d2ab352e6fe4fc934b165fd"
+          },
+          "no_wallet_or_proving_key_input": true,
+          "payout": {
+            "amount": "556172400",
+            "daa": "0",
+            "index": 0,
+            "is_coinbase": false,
+            "spk": "000020ca382c423537d7c316f78c032d87b54a71a08fd51e8002d836dfe4822412c614ac",
+            "txid": "b36065d2921f52bff74210a29900d8264d54f4ec4d2ab352e6fe4fc934b165fd"
+          },
+          "prepared_count": 3,
+          "rebuild_us": 49057,
+          "terminal": true,
+          "unchanged_proof_and_authorization": true,
+          "confirmed": true
+        }
+      ],
+      "savedProofFileSha256": "97756e4b5530baf6d1f63660bda5a20f62f7425e00d851fb4fd6d3f5faf93185",
+      "at": "2026-10-19T13:56:05.708Z"
+    }
+  ],
+  "confirmedTransactions": 14,
+  "poolSequenceTransactions": 13,
+  "ordinaryPreparationTransactions": 1,
+  "allFourProversStopped": true,
+  "operatorHelp": false,
+  "totalFeeSompi": "264805900",
+  "finalOrdinaryOutputs": [
+    {
+      "txid": "7a3bb6c54c350c604f9d3685e7a0b88b664dc46bdaec2074bf35274d9f82da36",
+      "index": 4,
+      "amount": "4209645200",
+      "spk": "000020226cded99b9ca0477c637b439b6371f98022e1d17b8f3106b9d040a35ce6ea1cac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "cbe245dd24a1726574edd0309672931faa45687ba27bf584b3afe41138b8a7b6",
+      "index": 1,
+      "amount": "98980700",
+      "spk": "000020a23540d0c2d41761d27fff15f92f046ed0fa33af58f56cb3eea86a71329a4b3bac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "69db8e4edb59a6e4c9cea04555c41fdcbe87dda59ded81ab2592e29adfbc6e20",
+      "index": 1,
+      "amount": "378065600",
+      "spk": "00002074aa47035f5546b0bdf6b9e6e732de24b7a7bfc2c9c7f8af93e716e015d3143bac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "9106a0758f23db4b6f5181c1bf8f12517476464ea2b698c35562f4314adb59f9",
+      "index": 1,
+      "amount": "556060400",
+      "spk": "0000207904d7342c58d71a9d8abce552c9aa2a9f44ec237a57a6b63a32b749383d4117ac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "db029727c932b6739e4e92de25857e9e3c8169a5545a2ba8803ff682803d1351",
+      "index": 1,
+      "amount": "378065600",
+      "spk": "000020087b3aa26c72a9dd710ae686d81941a1dc4602591db3c9509b1c141ec9d4c2e5ac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "b19200dbf78ea55348b7e31daaa2516f38368b80c378e107486614aa264a894b",
+      "index": 1,
+      "amount": "556060400",
+      "spk": "000020fb70bda8acf0f3f81845cc5e971a5004175b539918576688835912d7ce96bfcdac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "c8c5ce5853970e1988b5e03c66059ff4106c5516a99d360a98e41833a61b466d",
+      "index": 1,
+      "amount": "378065600",
+      "spk": "000020f4b5edc7b3e7b4d8332a611ebcbb90f8b6bd32c50b9b80e6f8fcb3f575919dcdac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "e83604aa8bcb0da31ffaf93d2b0fc7bcbfd0e0b02158ea3c0ccd66ae52fcd090",
+      "index": 1,
+      "amount": "556060400",
+      "spk": "0000201bae2d49802f63a6b034d0c7b4c586e44d77c14902abdebff4f64e1984f069fdac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "7a6566ccd31f197ed009e6ef0d77d0e34bc2a4d72df4156257c865da308e92f1",
+      "index": 1,
+      "amount": "378065600",
+      "spk": "00002024f0e13a0221c1b1b0a90430334b697c2a40c81710eaa9bff32e5beec190dd01ac",
+      "daa": "0",
+      "is_coinbase": false
+    },
+    {
+      "txid": "b36065d2921f52bff74210a29900d8264d54f4ec4d2ab352e6fe4fc934b165fd",
+      "index": 0,
+      "amount": "556172400",
+      "spk": "000020ca382c423537d7c316f78c032d87b54a71a08fd51e8002d836dfe4822412c614ac",
+      "daa": "0",
+      "is_coinbase": false
+    }
+  ],
+  "sharedTestFundingAncestry": true,
+  "completedAt": "2026-10-19T13:56:08.467Z",
+  "scope": "Four isolated synthetic wallets; not anonymity, mainnet safety or general contention liveness"
+}

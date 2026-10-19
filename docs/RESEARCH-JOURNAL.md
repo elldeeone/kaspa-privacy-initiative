@@ -65,11 +65,14 @@ usable until one spends. The singleton remains linked. Keep a fresh normal-path
 candidate and private fallback; the traffic-policy thresholds remain untested.
 [Audit](../poc/shared-pool/PRIVACY.md), [comparison](../poc/shared-pool/FRESH-PROOF.md).
 
-The next missing capability is independently funded deposits into compact state.
-[H10's scope](rfc/0010-compact-independent-deposits.md) reuses the private relation
-in a fresh immutable pool, adds two backed notes per signed deposit and requires
-all four wallets to exit with proofs saved before later deposits. It is scoped
-only: no new code, fees, native acceptance or privacy result is established.
+[H10](rfc/0010-compact-independent-deposits.md) now implements independently
+funded deposits in a fresh immutable v5 pool, reusing the exact private relation
+and parameters. The offline gate passed all eight saved exits in four drain
+orders, plus backing/spentness/delivery controls. Complete TN10 rehearsal and a
+fresh measured trial also passed: all eight saved proofs settled, all four
+wallets received their payouts, and both pools drained.
+This supplies admission mechanics for the population study, not a privacy
+result. [Report](../poc/shared-pool/DEPOSITS.md).
 
 ## Hypotheses and decisions
 
@@ -84,13 +87,61 @@ only: no new code, fees, native acceptance or privacy result is established.
 | H7 | Three wallets can recover incoming payments from pre-payment backups and public data, then create their first exit proofs without the original services. | Offline, complete TN10 rehearsal and fresh measured trial passed. All three payouts confirmed and every claim drained; an interrupted first attempt was also recovered through ordinary exits. | Retain this recovery path and declared backup/public-data requirements. Cold loading, data retention and useful privacy remain open; proceed to Stage 2's privacy audit. |
 | H8 | Public anchor and single-spend constraints uniquely identify the source transaction of the first H6 full exit even after later payments. | Confirmed in retained two-payment and 100-payment traces by an isolated chain-only observer. Coverage 1/4 and 1/102; source certificate leaves two note positions. Small joint-value and fresh-anchor controls also executed. | Stage 2 audit complete with redesign: retain exit fallback, reject frozen-proof delay for this case, test fresh authorization next. Privacy policy thresholds and real-world anonymity remain unestablished. |
 | H9 | A genuinely fresh proof for the same note/payout removes the old source singleton when later activity exists, while the old proof remains a private independent fallback and only one can spend. | Supported offline in two/four-payment fixtures: 1 → 3/5 source candidates through full drain; singleton stays 1. Both winner orders reject the other proof, six no-prover rebuilds pass and all claims drain. | Retain fresh authorization as a candidate normal path and private fallback for exit. No added native fee; about 9.5 seconds extra warm proof work. Population privacy, common-anchor policy and real-world anonymity remain open. |
-| H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Scoped only. Current-source review supports the required primitives; composition, fees and exits remain untested. | Test the missing independent-funding prerequisite before a population privacy study. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
+| H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Offline plus complete TN10 rehearsal/fresh trial passed. All four wallets paid using eight unchanged saved proofs; both reserves drained. | Retain this admission candidate for the population privacy study; Stage 2 remains open. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Independent compact deposits (H10)
+
+- Hypothesis: three independently signed deposits add backed claims without
+  invalidating earlier v5 exit authorizations. All four wallets drain using the
+  exact proofs saved immediately after joining, with every prover stopped.
+- Implementation: new immutable v5 covenant, existing v4 private relation and
+  exact parameters. Distinct admission adds two commitments/history and leaves
+  NF state unchanged. Normal spend checks and previous variants stay intact.
+- Offline: 12 library tests; four drain orders, 32 unchanged-proof settlements,
+  all four terminal roles and zero reserve/liabilities. The final suite rejected
+  35 native mutations (32 in the reserve script itself). Genuine deposited-note
+  transfer, same-claim old/fresh winner orders, repeated proof with fresh backing,
+  minimum-note exits and independent Python accounting passed.
+- Boundary: constructed maximum-capacity state accepts a saved exit while
+  refusing another admission. This is not an accepted 32,000-deposit history.
+  A correct current-chain view remains necessary: valid stale public history
+  can replay, and populated UTXO contexts alone do not prove unspentness.
+- Cost: pool fees 263,384,000 sompi (2.63384 tKAS), leaving 37.36616 tKAS from
+  four 10-tKAS contributions. Ordinary genesis/allocation fees are additional.
+  Minimum deposit 142,005,200 sompi; fixed exit 21,934,400 per note. Floor gate
+  passes, with future fee repricing still unresolved.
+- Funding preparation: 82 confirmed ordinary consolidations cost 0.225172 tKAS.
+  The first offline plan found that a reused exit's payout-key index can precede
+  settlement by several updates. Exact-script matching now searches earlier
+  indices. The failed plan never broadcast; no pool reserve was used.
+- TN10: complete rehearsal and a fresh measured trial each confirmed 14 exact
+  transaction bodies/full hashes, paid all eight notes from unchanged saved
+  proofs and drained the pool. Every prover stopped before any exit. Each exit
+  client had only its own bundles and public data, using its own RPC connection.
+  Alice's count-three proofs survived three later deposits and all other exits.
+- Measured run: 2.656933 tKAS including allocation/genesis; rehearsal 2.648059.
+  Both runs plus ordinary coin consolidation cost 5.530164 tKAS over 110 accepted
+  transactions. Measured local rebuilds took 25.848–46.605 ms; cold loading
+  100.716–100.865 seconds and each proof 9.324–9.721 seconds. Independent Python
+  reconstruction and byte comparisons agree with both live results.
+- Boundary: same-host isolated clients, correct node view and retained public
+  data. The coins share a public allocator ancestor; four signing keys do not
+  mean four unrelated users. No live race, pruning/reorg or anonymity result.
+- Decision: retain the smallest admission extension for the Stage 2 population
+  study. No privacy threshold has passed; setup, fixed-fee, data-availability and
+  correct-node assumptions remain. Stop mechanical expansion and assess policy.
+- Evidence: [report](../poc/shared-pool/DEPOSITS.md),
+  [review](../poc/shared-pool/DEPOSITS-REVIEW.md),
+  [offline receipts](../poc/shared-pool/evidence/2026-10-20-deposits/offline/result.json),
+  [live costs/results](../poc/shared-pool/evidence/2026-10-20-deposits/summary.json).
+  Raw secrets/unused authorizations stay outside Git. No push or upstream post.
+
 
 ### 2026-10-19 — Independent compact deposits (H10), scope only
 

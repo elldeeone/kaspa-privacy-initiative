@@ -7,6 +7,7 @@ pub mod covenant;
 pub mod experiment;
 pub mod recovery;
 pub mod fresh;
+pub mod deposits;
 #[cfg(test)]
 mod tests;
 
