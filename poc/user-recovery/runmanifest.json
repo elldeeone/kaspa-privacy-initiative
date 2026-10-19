@@ -1,0 +1,56 @@
+{
+  "schema": "KPI_USER_RECOVERY_LOCAL_PACKAGE_V1",
+  "scope": "OFFLINE_USER_TOOL_AND_HOST_ONLY_TERMINAL_NATIVE_RELATION",
+  "baseMerge": "40b39a6503d2133da93b9dd7e77a5a1ee8652658",
+  "historicalGuestUnchanged": true,
+  "newGuestIdentity": null,
+  "newOuterProofs": 0,
+  "fundingAuthorized": false,
+  "broadcastAuthorized": false,
+  "gpuRentalAuthorized": false,
+  "independentCustodyEstablished": false,
+  "nUserShutdownGatePassed": false,
+  "publicParametersSha256": "812b3bda0ec5f9b0c17fc1d530e49fc21defc9dcc5ea9c70a133ca62fec31e99",
+  "walletVk": "d3c179aae5c2c6c013b1de1da5ad4412e4b2c8bae7288c0b9d85e0c986b5a3ec",
+  "execution": [
+    "init user-local wallet/native key",
+    "replay committed public history",
+    "discover unspent encrypted notes",
+    "produce user-local EXIT proof",
+    "verify terminal native scripts and exact accounting"
+  ],
+  "sourceSha256": {
+    "poc/private-native-tn10/Cargo.lock": "6bef49867f4fd3fb9d64425ce3ee24d25d4822755bbceb838c42bdb41b3b2069",
+    "poc/private-native-tn10/src/bin/user-recovery.rs": "69345b1955f3a4adb828e49f06726a93148ecf71cf9f06bcb4be16771bec2780",
+    "poc/private-native-tn10/src/bin/user_recovery/qualification.rs": "bc73fd54be2991b1736858466d7efde7a4ceec220c2662e52f79126d9ed639d1",
+    "poc/private-native-tn10/src/bin/user_recovery/terminal.rs": "d56c2f364351a4a6f7f1e1341b052ae424951866fc89c789acb397b14f93ad29",
+    "poc/private-native-tn10/src/bin/user_recovery/tests.rs": "a9d6a47ebc68ac6bc94b8568341d697f1a0c568362e7da82bb9738b5732c35c0",
+    "poc/user-recovery/test_cli.py": "d12c5b850f2d8628638d30c8cf79ba5ce499bdf4679279c7709eabe7b9c4a50b",
+    ".github/workflows/user-recovery.yml": "ef696e1ca8de94b918468eead7253b1047df606dec4cfd759b300eae7eb95fb9"
+  },
+  "localExecutable": {
+    "path": ".local/ci-target/release/user-recovery",
+    "sha256": "b46bf4273d079b6b3896bd7a6d52e6755a4dacdca596d2334bf836c936457e53",
+    "portableBuildHashClaim": false
+  },
+  "futureReleaseRequired": [
+    "new guest identity and real permission issuance proof",
+    "independently administered Bob machine",
+    "replacement data/executor/prover and fresh canonical checkpoints",
+    "separately authorized bounded TN10/GPU rehearsal"
+  ],
+  "reviewCorrection": {
+    "reviewedHead": "5d09e2fafce85b024dacb7ef372a33d9a7323c4a",
+    "previousRunmanifest": "evidence/review-fix/reviewed-5d09e2f-runmanifest.json",
+    "receivingFields": [
+      "domain",
+      "incoming",
+      "owner",
+      "schema"
+    ],
+    "nativeDestinationSource": "public EXIT result only",
+    "postFixEvidence": "evidence/review-fix",
+    "historicalCodeWorkflowRestored": true,
+    "historicalHashesUnchanged": true
+  }
+}
