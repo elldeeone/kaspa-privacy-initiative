@@ -2,6 +2,19 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[RFC-0011](rfc/0011-two-input-private-payments.md) proposes a new compact pool
+relation for two private inputs, two padded outputs, private payment change and
+partial withdrawals. [ADR-0024](adr/0024-two-input-private-payment-scope.md)
+accepts documentation scope only: the proposal is not implemented or tested.
+Retain historical private authorization and current native covenant settlement,
+with a no-append full-exit fallback, exact claim-funded fees and no privileged
+withdrawal key. Padding requires new nullifier/capacity rules; terminal release
+depends on authorized native value conservation, not note counts. Existing
+v4/v5 pools and proofs do not migrate. The
+[observer review](../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) distinguishes
+hidden private change from still-visible deposits, payouts, timing and anchors.
+New setup/costs, independent review and useful privacy remain unresolved.
+
 [H12's bounded funding-policy comparison](../poc/shared-pool/NORMALIZED-DEPOSITS.md)
 adds equal net credits to H11's fresh-proof/private-fallback candidate. Its
 offline screen leaves four funding deposits possible after full drain when all

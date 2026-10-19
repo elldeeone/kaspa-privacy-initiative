@@ -1,5 +1,26 @@
 # Threat Model
 
+The proposed [two-input relation](docs/rfc/0011-two-input-private-payments.md)
+adds zero-value padding, merged private inputs and partial withdrawals with
+private change. It is documentation only; existing code and evidence are
+unchanged. Critical obligations are constrained dummy-nullifier derivation,
+sequential current NF insertions, all-path value/range checks, native funding
+and payout binding, and termination by authorized reserve debit rather than
+entry counts. A wider NF tree and no-append full-exit path are intended to leave
+room for every remaining positive note to exit at commitment capacity. Neither
+that composition nor its costs have been qualified.
+
+The candidate retains fresh normal proofs and private saved fallbacks, exact
+fee authorization, independent genesis/lineage validation and locally recoverable
+witnesses from authenticated public data. A fallback may reveal its old anchor
+and whole-input value; publication alongside another proof links their shared
+real NF. Padding does not hide native payouts, funding ancestry, operation
+timing or logically forced note choices. The old single-parent observer is not
+valid after merging. The [dedicated review](poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md)
+separates chain data from RPC/network/recipient knowledge, and lists inflation,
+double-spend, capacity, service-loss and fee-limit obligations. No security
+invariant is weakened and no strong-privacy claim is added.
+
 [H12](poc/shared-pool/NORMALIZED-DEPOSITS.md) finds a bounded mitigation for
 funding-origin reconstruction: equal net private credits, with fresh proofs and
 all four deposits before payments, leave four feasible deposit labels through

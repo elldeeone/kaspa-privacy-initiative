@@ -16,6 +16,17 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
+The owner has authorized a **documentation-only redesign specification** for
+normal varied payments. [RFC-0011](rfc/0011-two-input-private-payments.md) proposes
+two private inputs, two padded outputs, private change and partial withdrawals,
+while retaining independent full-exit fallbacks. It is a new immutable pool
+candidate, not a change to existing v4/v5 code or proof compatibility. H13 below
+is proposed and untested. The
+[observer/adversarial review](../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md)
+records remaining native-boundary inference and new padding/capacity obligations.
+No code, parameter generation or tests are authorized by this step. New costs,
+independent review and strong privacy remain open; earlier results follow.
+
 H12's equal-net funding comparison passes its frozen offline screen. With all
 four deposits before payments, every withdrawal retains four funding candidates
 through complete drain, versus 91.875% / 84.115% uniquely identified under varied
@@ -100,12 +111,38 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Offline plus complete TN10 rehearsal/fresh trial passed. All four wallets paid using eight unchanged saved proofs; both reserves drained. | Retain this admission candidate for the population privacy study; Stage 2 remains open. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
 | H11 | Fresh latest-root proofs reduce full-coverage source inference by at least 25% in both frozen low-activity regimes, within the fee/delay screen. | Passed: 35.6% / 61.5% reduction through complete drain; 64 primary ledgers plus 17 controls. Two genuine native calibrations match; four no-prover drains pass, with zero extra native fee. | Retain fresh proofs/private fallbacks. The bounded study is complete; funding origins remain mostly exposed. Test equal net credits separately before a larger relation change. |
 | H12 | Equal net credits reduce deposit-origin inference through full drain while preserving independently payable saved/fresh exits. | Passed in 64 paired ledgers; 0/704 equal-net withdrawals uniquely assigned to a deposit. Genuine calibrations, saved/fresh adapter drains, complete TN10 rehearsal and measured trial passed; all four wallets independently paid. | Retain the bounded candidate funding policy on the existing relation; interleaving, mixed amounts and external knowledge remain open. |
+| H13 | Two private inputs can fund varied payments/change and partial withdrawals while every positive note retains an independent exit, including an unrelated unchanged saved fallback after later activity. | Proposed in RFC-0011; documentation and author design review only. No code, setup or tests. | Review a new immutable relation/covenant before implementation. Keep direct settlement and exact fees as candidates; rebuild the observer's assumptions for merging/padding. No privacy outcome is claimed. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Two-input design specification (H13, untested)
+
+- User scope: write the spec, preserve independent exits and review chain
+  inference; no code or tests. Inspected shared-pool baseline `228e5d0`.
+- [RFC-0011](rfc/0011-two-input-private-payments.md) gives amount equations,
+  real/padded input and output rules, a 377-byte candidate authorization,
+  5,228-byte proposed public payload, native transaction shapes, and proof/public
+  rebuilding separation. These are proposed layouts, not measured execution.
+- A no-append `DRAIN` path and larger NF tree address exit capacity. Counts
+  including padding cannot establish outstanding value or terminal eligibility.
+  Keep exact fees; arbitrary fee increases still require fresh owner authorization
+  or waiting, and public-data loss can still block recovery.
+- [ADR-0024](adr/0024-two-input-private-payment-scope.md) records why this relation
+  question takes priority over more unchanged-relation policy runs. Olaf's
+  inspected integrated circuit also has one input and whole-note exits; changing
+  its outer runtime alone would not add merging/private withdrawal change.
+- The [privacy review](../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) distinguishes
+  hidden change from public ingress/egress and joint inference. The previous
+  one-parent/deposit-label model cannot score merged notes without redesign.
+  No new anonymity percentage, cryptographic assurance or execution result.
+- Open gates: independent padding/NF/capacity review, exact economic constants,
+  measured native/proving costs, future mechanical qualification and a separately
+  frozen varied/interleaved privacy study. Existing evidence remains intact;
+  implementation and experiments remain on hold.
 
 ### 2026-10-20 (Australia/Sydney) — Equal net funding policy (H12)
 

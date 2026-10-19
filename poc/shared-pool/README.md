@@ -1,6 +1,12 @@
 # Four-wallet shared native-KAS pool — TN10
 
-Latest follow-up: [H12 equal net deposits](NORMALIZED-DEPOSITS.md) compares
+Latest proposed follow-up: [two-input payments and private change](../../docs/rfc/0011-two-input-private-payments.md),
+with a [chain-observer and adversarial design review](TWO-INPUT-PRIVACY-REVIEW.md).
+This is documentation only: no new code, parameters or tests. It proposes a new
+immutable pool and preserves independent exits; existing proofs/evidence remain
+in their original versions. General privacy and new costs are unestablished.
+
+Latest measured follow-up: [H12 equal net deposits](NORMALIZED-DEPOSITS.md) compares
 varied, equal gross and equal net funding with fresh proofs. It passes the
 bounded offline inference screen on the existing v5 covenant; the report
 separately records native/TN10 validation and privacy limits. This original

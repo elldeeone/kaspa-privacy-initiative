@@ -2,6 +2,19 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[RFC-0011](docs/rfc/0011-two-input-private-payments.md) now specifies the proposed
+two-input/two-output relation with private change and partial withdrawals. Can
+its padded inputs be constrained without letting an attacker insert another
+user's nullifier, and can the no-append fallback plus reserved NF capacity
+preserve every positive claim's exit? What note floor and proving/native cost
+does the actual larger layout require? Can varied, interleaved payments retain
+useful ambiguity through later withdrawals under a model that permits merging?
+These are open questions, not new test results. Exact-fee, public-data, setup,
+contention and reorg assumptions remain. Implementation and tests are on hold;
+the [scope ADR](docs/adr/0024-two-input-private-payment-scope.md) and
+[observer review](poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) define the next
+design gate without requiring a maintainer decision.
+
 [H12](poc/shared-pool/NORMALIZED-DEPOSITS.md) answers the narrow equal-net question
 positively in its all-deposits-first workload: four deposit candidates remain
 for every withdrawal through drainage on the existing relation. What survives

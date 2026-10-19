@@ -52,3 +52,5 @@ The open state architecture comparison is [RFC-0001](../rfc/0001-state-architect
 - [ADR-0014: authenticated private/native lifecycle preparation](0014-private-native-lifecycle.md)
 - [ADR-0018: reusable private authorization and current native settlement](0018-reusable-private-authorization.md)
 - [ADR-0022: scope two-note deposits into a new compact pool](0022-compact-two-note-deposits.md) — Research scope only; no implementation or protocol adoption.
+- [ADR-0023: test equal net credits as a wallet funding policy](0023-equal-net-deposit-policy.md) — Bounded candidate policy; general privacy unestablished.
+- [ADR-0024: specify two-input private payments before further experiments](0024-two-input-private-payment-scope.md) — Accepted documentation scope only; RFC-0011 remains Open and untested.

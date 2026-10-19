@@ -3,7 +3,16 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H11's bounded fresh-proof screen is complete. H12's
+**Current position:** H13 is a documentation-only design gate, specified in
+[RFC-0011](rfc/0011-two-input-private-payments.md): two private inputs, private
+change/partial withdrawals and independent exits in a new immutable candidate.
+Inspected baseline: `228e5d0`. The
+[observer/adversarial review](../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md)
+records padding, capacity and inference obligations. No implementation, new
+parameters or tests are authorized at this stage. Review the design before a
+separately authorized mechanical qualification or further privacy runs.
+
+**Latest completed evidence:** H11's bounded fresh-proof screen is complete. H12's
 equal-net funding comparison also passes its frozen offline screen: all four
 funding deposits remain feasible for every target through drain in the declared
 all-deposits-first workload. Genuine calibration, isolated exit adapters and
@@ -45,7 +54,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | Bounded H11/H12 screens complete; equal-net mechanism passed native/TN10 validation | Retain fresh proofs/fallbacks and equal net credit as bounded candidates; interleaving/mixed amounts remain open before general privacy claims. |
+| 2. Practical privacy | 5 | Bounded H11/H12 complete; H13 relation proposal documented, untested | Assess two-input/private-change mechanics and a correct merging/padding observer before further varied-payment privacy claims. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -137,6 +146,22 @@ backup requirement explicitly. Static public mirrors may suffice; do not build
 an operator network without evidence that it is needed.
 
 ## 2. Practical privacy
+
+**Current design gate, H13:** [RFC-0011](rfc/0011-two-input-private-payments.md)
+specifies two-input/two-output normal payments, partial withdrawal change and a
+no-append full-exit fallback. [ADR-0024](adr/0024-two-input-private-payment-scope.md)
+accepts this documentation scope only. Completion of this step means a reviewable
+relation, native layout, backup/exit assumptions and chain-observer review; it
+does not mean Stage 2 or a new protocol has passed. No code or tests yet.
+
+Before implementation, resolve review objections concerning dummy NF injection,
+value conservation, terminal accounting, capacity and proof preservation. Stop
+or redesign if a valid funded claim can be stranded within the declared fee/data
+model, if a privileged party is needed, or if current L1 cannot express the
+checks. A later authorized qualification must establish the new costs and saved
+proof exits. A later privacy study needs frozen economic workloads and a model
+that permits merges and padding; do not reuse the old unique-deposit target or
+thresholds as if they already evaluated this relation. General privacy stays open.
 
 **Observed audit outcome, 2026-10-19:** the public-only observer found a unique
 source transaction for the first H6 exit in both retained compact runs. Two
