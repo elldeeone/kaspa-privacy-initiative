@@ -1,0 +1,66 @@
+{
+  "role": "rehearsal",
+  "confirmed_transactions": 8,
+  "payments_after_bob_authorization": 2,
+  "proof_bytes_equal": true,
+  "authorization_bytes_equal": true,
+  "proof_sha256": "b4a2228436de904eb9809524bc814c8f8c06cfba04d83b8b391af2e1586ad139",
+  "authorization_anchor_count": 3,
+  "current_commitment_count": 7,
+  "current_nullifier_count_before_bob_exit": 3,
+  "bob_prover_stopped_before_alice_submission": true,
+  "both_original_provers_stopped_before_bob_submission": true,
+  "bob_rebuilder_has_no_wallet_or_proving_key": true,
+  "additional_proofs": 0,
+  "public_rebuild_process_ms": 27.439055999999937,
+  "inner_public_rebuild_us": 10175,
+  "initial_bob_proving_ms": 9681,
+  "bob_payout_sompi": "378270400",
+  "bob_exit_fee_sompi": "21729600",
+  "pool_fee_sompi": "151983600",
+  "funding_fee_sompi": "204900",
+  "private_proofs": 7,
+  "private_proving_ms": {
+    "min": 9572,
+    "median": 9714,
+    "max": 10106,
+    "sum": 68386
+  },
+  "cold_parameter_load_ms": {
+    "alice-prover": 101471,
+    "bob-prover": 101647,
+    "alice-cleanup-prover": 101402,
+    "carol-cleanup-prover": 101248
+  },
+  "sample_payment_metrics": {
+    "1": {
+      "compute_mass": 216884,
+      "estimated_bytes": 16514,
+      "fee_sompi": 21688400,
+      "mining_mass": 216884,
+      "relay_floor_sompi": 21688400,
+      "relay_mass": 216884,
+      "storage_mass": 23,
+      "transient_mass": 66056
+    },
+    "2": {
+      "compute_mass": 216884,
+      "estimated_bytes": 16514,
+      "fee_sompi": 21688400,
+      "mining_mass": 216884,
+      "relay_floor_sompi": 21688400,
+      "relay_mass": 216884,
+      "storage_mass": 24,
+      "transient_mass": 66056
+    }
+  },
+  "public_discovery_ms": 1179.473878,
+  "bob_submission_to_payout_observation_ms": 1056.0,
+  "first_submission_to_terminal_payout_observation_ms": 173543.0,
+  "total_fee_sompi": "152188500",
+  "terminal_reserve_spent": true,
+  "bob_transaction_id": "ad6d0b935fa69a3f6e1c7614f9074d875c602e4575d19caa6120e933375e5137",
+  "alice_transaction_id": "1270451da4b56a87b18b7505f84f9c7ea5ee5c53bdb4a561bd2715bca113a137",
+  "binary_sha256": "a60c98e1cfcaaf72aef9988c426d10776c4ae4801abd8411acd49f930c4d132c",
+  "scope": "Consistency of exported public evidence; not independent consensus or privacy verification"
+}

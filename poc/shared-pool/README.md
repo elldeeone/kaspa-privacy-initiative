@@ -7,6 +7,8 @@ current native code uses a new version-3 domain and proof relation. The
 The additional `kpi-anchored` executable tests a different authorization/settlement
 split. Its [completed offline and TN10 result](ANCHORED.md) shows Bob reusing his
 private proof after Alice's payment; it leaves the earlier experiment intact.
+The separate [compact-state experiment](COMPACT.md) extends this question to
+100 intervening payments using fixed-depth native Merkle checks.
 
 Both funded runs completed on 2026-10-19 using the owner's existing TN10 node.
 Four separate wallet processes re-spent received notes and independently proved

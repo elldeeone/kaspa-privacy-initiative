@@ -1,5 +1,22 @@
 # Threat Model
 
+The compact-state experiment in [ADR-0019](docs/adr/0019-compact-public-settlement.md)
+adds authenticated public Merkle update witnesses. An untrusted witness provider
+may lie about a predecessor, empty leaf, historical root or spentness; every path,
+strict unsigned nullifier gap and exact successor must be checked by native
+script against the consumed UTXO. Bootstrap fixes canonical sentinel/history
+state. Positioned-note nullifiers bind the private membership index, so repeated
+commitment bytes cannot erase or merge separately funded claims. Wrong index,
+cross-domain and duplicate-spend controls are required. A missing public history
+source may stop reconstruction; it must not authorize accepting unverifiable
+state. Depth, history availability, setup, serial contention, fee repricing and
+reorg assumptions remain explicit. Public predecessor indices concern nullifiers,
+not the privately selected note, but anchor horizon and timing still leak.
+The bounded offline and TN10 100-payment tests passed with both original provers
+stopped before Bob's exit and complete drain afterward. This tests the recorded
+sequence and retained-data assumptions, not arbitrary service loss, reorgs,
+contention fairness or real-world anonymity. See [evidence](poc/shared-pool/COMPACT.md).
+
 [ADR-0018](docs/adr/0018-reusable-private-authorization.md) separates authorization
 against an authenticated earlier commitment prefix from current native settlement.
 Current nullifiers must never be rolled back; every accepted successor retains

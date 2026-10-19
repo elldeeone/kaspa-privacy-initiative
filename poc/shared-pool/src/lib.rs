@@ -1,4 +1,5 @@
 pub mod anchored;
+pub mod compact;
 pub mod circuit;
 pub mod covenant;
 pub mod native;

@@ -38,6 +38,12 @@ reproving for the tested update, at a higher native fee. Capacity, continuing
 contention, initial proving/parameter loading, anchor-choice privacy and actual
 anonymity remain unresolved. [Measured evidence](../poc/shared-pool/ANCHORED.md).
 
+The compact-state follow-up now carries that exact-proof result through 100
+intervening TN10 payments. All 204 native transactions and the final drain
+passed. Keep compact public settlement for further research: it removes the
+old array limit at the tested scale, while history retention, initial proving,
+fees and privacy remain open. [Measured evidence](../poc/shared-pool/COMPACT.md).
+
 ## Hypotheses and decisions
 
 | ID | Falsifiable claim | Evidence/status | Decision |
@@ -47,12 +53,58 @@ anonymity remain unresolved. [Measured evidence](../poc/shared-pool/ANCHORED.md)
 | H3 | Enforcing a protocol-level note minimum can prevent the tiny-liability obstruction at the tested fee rate without privileged rescue. | Supported by creation-path boundary tests, 870 native mass/policy combinations and an exact-minimum claim's funded exit. | Retain a 0.26713-tKAS note floor and 0.1-tKAS payout floor in this fresh experimental version; arbitrary future fee rates remain unresolved. |
 | H4 | After two wallets race on the same reserve, the losing wallet can discover accepted state, rebuild its proof and exit using its own keys and public data. | Funded rehearsal and fresh measured trial passed. Both losers generated a new proof after discovering the accepted successor and received payouts after the winner stopped. | Keep permissionless self-proving recovery. Address cold startup and sustained-contention fairness before claiming usability or general liveness. |
 | H5 | Bob's private withdrawal authorization can survive Alice's unrelated payment, with public-only transaction rebuilding and no further proof. | Supported offline and in complete TN10 rehearsal/measured trials. The exact proof/auth bytes survived a change from 3 to 5 commitments; Bob's stopped prover was not needed. Full local rebuilding took 20.650/20.783 ms with no additional proof. | Retain authorization/current-settlement separation. The larger covenant raises exit fees; investigate scale, contention and anchor-choice privacy separately. |
+| H6 | Compact native state can preserve Bob's exact proof through 100 payments, with no second proof or privileged settlement service. | Full offline gate, complete short TN10 rehearsal and fresh 100-payment trial passed; all 204 measured native transactions confirmed and every claim drained. | Retain fixed-depth public settlement for further research. Native size/mass stayed constant at payments 1, 10 and 100; history retention, fee cost and old-anchor privacy remain unresolved. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 — Compact state (H6), completed bounded test
+
+Hypothesis: 100 unrelated payments can advance the pool while Bob retains the
+same private exit proof. Fixed-depth native Merkle checks authenticate current
+spentness and public state updates, without an operator signature or second
+proof. [ADR-0019](adr/0019-compact-public-settlement.md) records the design;
+[RFC-0007](rfc/0007-compact-state.md) records the gates and unresolved questions.
+
+- Offline: 204 native transactions, 203 genuine private proofs, Bob's identical
+  authorization/proof after 100 payments and complete drain passed. All 204 SDK
+  round trips and a separate public-only sandbox passed. Independent Python
+  reconstruction matched the public trees, amounts, lineage and successor
+  scripts. Five Rust test groups and 117 hostile native rejections passed.
+- TN10: the complete two-payment rehearsal passed all eight transactions and
+  terminal payout. In the fresh measured trial, all 100 intervening payments
+  and Bob's original-proof payout are confirmed. Both original provers stopped
+  before his public-only process discovered and verified the updates. The
+  remaining 101 claims then exited. All 204 accepted transaction bodies/full
+  hashes matched, and exact payouts/fees reconciled with zero reserve left.
+- Work: Bob's local public rebuild took 352.426 ms, including process startup
+  and native validation. Fetching accepted chain history separately took
+  11,356.203 ms. The original proof took 9,759 ms and was not regenerated.
+- Cost: the same 21,688,400-sompi fee and 16,514 estimated bytes at
+  payments 1, 10 and 100; Bob's exit fee was 21,729,600 sompi and his payout was
+  378,270,400 sompi. Trial fees totaled 4,407,152,500 sompi (44.071525 tKAS),
+  including ordinary funding. Rehearsal cost 1.521885 tKAS; reusing prior ordinary
+  coins cost 0.032952 tKAS. Total: 45.626362 tKAS. First submission to observed
+  terminal payout took 42 minutes 2 seconds, including live proving and cleanup.
+- Tradeoff: state shrank from 1,539 to 105 bytes, but the complete transaction
+  grew and the continuing exit fee rose about 2.75%. Public history and wallet
+  reconstruction work still grow. Native checks have fixed-depth bounds.
+- Privacy: Bob's authorization remains anchored at three historical commitments
+  even when current state contains 203. Those entries are not three people or
+  necessarily three plausible notes. This is no anonymity measurement.
+- Limits: depth-16 finite capacity, experimental setup, retained pre-payment
+  bootstrap metadata, public history and a correct full-node view. No later
+  deposits, partial withdrawals, arbitrary-reorg recovery or contention-fairness
+  result in this variant. A separate capacity fixture passed a terminal exit
+  at 65,535 commitments; its full preceding history was not executed.
+- Evidence: [layout and measurements](../poc/shared-pool/COMPACT.md),
+  [sanitized artifacts](../poc/shared-pool/evidence/2026-10-19-compact/README.md),
+  [adversarial second pass](../poc/shared-pool/COMPACT-REVIEW.md). Earlier variants
+  and evidence remain intact. Keys, note plaintexts and proving material remain
+  outside Git. No push or upstream posting.
 
 ### 2026-10-19 — Reusable authorization (H5), completed bounded test
 

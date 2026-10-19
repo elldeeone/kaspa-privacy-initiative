@@ -2,6 +2,16 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[ADR-0019](adr/0019-compact-public-settlement.md) replaces the bounded arrays in
+a separate experimental variant with note, indexed-nullifier and root-history
+Merkle trees. The covenant checks public updates; the private proof retains its
+historical anchor. [RFC-0007](rfc/0007-compact-state.md) requires 100 intervening
+payments, Bob's unchanged proof, current spentness and complete drain before a
+TN10 trial. The offline gate, complete short TN10 rehearsal and fresh 100-payment
+trial passed: Bob reused his original proof, all 204 native transactions were
+confirmed and every claim drained. Public history still grows and
+the configured depth remains finite; compact state is not a privacy guarantee.
+
 [ADR-0018](adr/0018-reusable-private-authorization.md) tests historical private
 authorization plus current native covenant settlement. It preserves the earlier
 experiments and requires current spentness, complete state retention and native

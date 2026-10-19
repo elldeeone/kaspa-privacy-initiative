@@ -1,0 +1,33 @@
+{
+  "groups_passed": 5,
+  "groups_failed": 0,
+  "logs": [
+    {
+      "log_name": "unit-v1.log",
+      "source_sha256": "f915bb2348554d95904a306d878d7cde64ff9d7f1e3d92bf368fcd2c2d05bf36",
+      "test_lines": [
+        "test compact::tests::framing_capacity_and_fee_floor ... ok",
+        "test compact::tests::positioned_membership_and_authorization_negatives ... ok",
+        "test compact::tests::tree_paths_unsigned_order_and_indexed_set ... ok",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 265.31s"
+      ]
+    },
+    {
+      "log_name": "native-compare.log",
+      "source_sha256": "7523fbb7c07550c438779c69e756f3f75f301e329d4585711c81145b38698c26",
+      "test_lines": [
+        "test compact::tests::native_unsigned_comparison_boundaries ... ok",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.09s"
+      ]
+    },
+    {
+      "log_name": "economic-boundaries.log",
+      "source_sha256": "842d208876df142147d9d8173d356ec4503d6deeee0a565511e668d964394649",
+      "test_lines": [
+        "test compact::tests::relation_economic_boundaries_with_matching_commitments ... ok",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 148.42s"
+      ]
+    }
+  ],
+  "scope": "Recorded test harness output; not a cryptographic correctness proof"
+}
