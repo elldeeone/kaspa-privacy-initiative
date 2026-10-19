@@ -1,5 +1,17 @@
 # Threat Model
 
+The version-3 experiment in
+[ADR-0017](docs/adr/0017-note-floor-and-independent-exit-retry.md) implements a
+proof-enforced minimum on every real note and withdrawal payout to prevent
+tiny outstanding claims from obstructing native exits at the configured fee
+rate. It uses fresh parameters rather than upgrading a live pool. Independent
+retry requires public accepted history, retained parameters, a correct full-node
+view and an opportunity after the competing winner stops. It does not establish
+fairness against continuous contention or recovery from arbitrary reorgs.
+The [funded report](poc/shared-pool/CONTENTION.md) distinguishes local boundary
+checks, actual confirmed exits and these remaining assumptions. The fixed floor
+also narrows feasible hidden amounts; it must enter future chain-observer models.
+
 The [four-wallet trial](docs/adr/0016-four-wallet-shared-pool-trial.md) treats
 funding ancestry, reserve lineage, fees, mode/counts, timing and public payouts
 as observer inputs. Partial withdrawal hides change value cryptographically but
@@ -9,7 +21,7 @@ remain assumptions. RPC/network metadata is excluded from the chain-only attack,
 not claimed private. Deposits require a proved bootstrap and cannot debit prior
 holders; partial withdrawals must preserve the remaining private liability.
 Wallet quarantine prevents accepting dust as payment but does not erase its
-reserve liability. The circuit still permits tiny positive notes: a malicious
+reserve liability. That version-2 circuit permits tiny positive notes: a malicious
 claim can make a later reserve output fail native storage-mass limits. The
 trial therefore demonstrates independent exits for its accepted-note workload,
 not general adversarial exit liveness. Competing reserve spends and reorgs remain

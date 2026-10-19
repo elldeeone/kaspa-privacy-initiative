@@ -2,13 +2,21 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[ADR-0017](adr/0017-note-floor-and-independent-exit-retry.md) adds a bounded
+version-3 protocol note floor and an autonomous stale-proof exit retry test.
+Its fee-rate and node-availability assumptions are explicit; results are tracked
+in the [research journal](RESEARCH-JOURNAL.md).
+
 The [four-wallet comparison](adr/0016-four-wallet-shared-pool-trial.md) extends
 the direct trial with deposits, repeat private spends and private withdrawal
 change. It measures chain-only inference before and after complete drain;
 [RFC-0004](rfc/0004-four-wallet-shared-pool.md) scopes its limits.
 Both funded arms completed on TN10; the
 [result](../poc/shared-pool/README.md) records four separately authorized exits,
-the partial-withdrawal comparison and unresolved dust/contention limitations.
+the partial-withdrawal comparison and its version-2 dust/contention limitations.
+The separate [version-3 follow-up](../poc/shared-pool/CONTENTION.md) addresses
+below-floor claims and one competing spend under explicit fee/availability
+assumptions. It does not establish general adversarial liveness.
 
 The bounded [direct self-funded TN10 trial](adr/0015-direct-self-funded-tn10-trial.md)
 tests Candidate A with one reserve and native miner fees charged to private

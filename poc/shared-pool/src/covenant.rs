@@ -130,7 +130,7 @@ pub fn redeem(domain: &H, state: &State, vk: &[u8]) -> Result<Vec<u8>> {
     data(&mut b, &[OpPushData2, 0, 16]);
     op(&mut b, OpEqualVerify);
     payload(&mut b, 0, 8);
-    data(&mut b, b"KPISP02\0");
+    data(&mut b, b"KPISP03\0");
     op(&mut b, OpEqualVerify);
     output_metadata(&mut b, 0);
     mode_is(&mut b, 0);
@@ -154,7 +154,7 @@ pub fn redeem(domain: &H, state: &State, vk: &[u8]) -> Result<Vec<u8>> {
     op(&mut b, OpEndIf);
     op(&mut b, OpEndIf);
     // The complete 431-byte transition preimage, reconstructed on the stack.
-    data(&mut b, b"KPIBN02\0");
+    data(&mut b, b"KPIBN03\0");
     sig(&mut b, REDEEM_START + 1, REDEEM_START + 33);
     op(&mut b, OpCat);
     sig(

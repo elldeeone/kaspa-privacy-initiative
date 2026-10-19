@@ -1,6 +1,6 @@
 use kpi_shared_pool::{Result, circuit::SpendCircuit, native, protocol::*};
 pub fn sample() -> Result<SpendCircuit> {
-    let d = hash(b"KPI/shared-pool/unfunded-fixture/v2");
+    let d = hash(b"KPI/shared-pool/unfunded-fixture/v3");
     let a = Wallet {
         spending: [1; 32],
         viewing: [2; 32],

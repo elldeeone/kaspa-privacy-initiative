@@ -30,6 +30,20 @@ fn field(b: &[B]) -> R<FpVar<Fr>> {
     }
     Boolean::le_bits_to_fp(&bits)
 }
+fn minimum(
+    cs: ConstraintSystemRef<Fr>,
+    bytes: &[B],
+    value: u64,
+    floor: u64,
+    active: &Flag,
+) -> R<()> {
+    // A 64-bit nonnegative slack prevents a field-wrap bypass below the floor.
+    // The host's saturating subtraction only supplies a witness: equality is
+    // enforced in-circuit for every active value, including hostile provers.
+    let slack = UInt64::new_witness(cs, || Ok(value.saturating_sub(floor)))?;
+    let slack_fp = Boolean::le_bits_to_fp(&slack.to_bits_le()?)?;
+    field(bytes)?.conditional_enforce_equal(&(slack_fp + Fr::from(floor)), active)
+}
 fn digest(tag: &[u8], domain: &[B], parts: &[&[B]]) -> R<Vec<B>> {
     let mut bytes = B::constant_vec(tag);
     bytes.extend_from_slice(domain);
@@ -55,7 +69,7 @@ fn count_flags(count: &B, allow_zero: bool) -> R<Vec<Flag>> {
     Ok(flags)
 }
 fn state(bytes: &[B]) -> R<(Vec<Flag>, Vec<Flag>)> {
-    bytes[0].enforce_equal(&B::constant(2))?;
+    bytes[0].enforce_equal(&B::constant(3))?;
     let cm = count_flags(&bytes[1], false)?;
     let nf = count_flags(&bytes[2], true)?;
     for (i, a) in nf.iter().enumerate() {
@@ -109,8 +123,8 @@ impl ConstraintSynthesizer<Fr> for SpendCircuit {
         }
         let tr = B::new_witness_vec(cs.clone(), &t.bytes())?;
         let p = B::new_witness_vec(cs.clone(), &t.payload)?;
-        tr[..8].enforce_equal(&B::constant_vec(b"KPIBN02\0"))?;
-        p[..8].enforce_equal(&B::constant_vec(b"KPISP02\0"))?;
+        tr[..8].enforce_equal(&B::constant_vec(b"KPIBN03\0"))?;
+        p[..8].enforce_equal(&B::constant_vec(b"KPISP03\0"))?;
         let d = &tr[8..40];
         let old = &tr[40..T_PREV];
         let new = &p[9..CIPHER_START];
@@ -137,6 +151,9 @@ impl ConstraintSynthesizer<Fr> for SpendCircuit {
         rin.is_eq(&z8)?.enforce_equal(&Flag::FALSE)?;
         rout.is_eq(&z8)?.enforce_equal(terminal)?;
         payout.is_eq(&z8)?.enforce_equal(&!&withdraw)?;
+        minimum(cs.clone(), rin, t.reserve_in, MIN_NOTE, &Flag::TRUE)?;
+        minimum(cs.clone(), rout, t.reserve_out, MIN_NOTE, &!terminal)?;
+        minimum(cs.clone(), payout, t.payout, MIN_NATIVE_PAYOUT, &withdraw)?;
         tr[T_PSPK..T_DEP].conditional_enforce_equal(&B::constant_vec(&[0; 36]), &!&withdraw)?;
         tr[T_PSPK..T_PSPK + 3]
             .conditional_enforce_equal(&B::constant_vec(&[0, 0, 0x20]), &withdraw)?;
@@ -156,6 +173,7 @@ impl ConstraintSynthesizer<Fr> for SpendCircuit {
         let (owner, view, value, input_cm) = note(cs.clone(), d, &self.input)?;
         owner.conditional_enforce_equal(&digest(OWNER_TAG, d, &[&secret, &view])?, &spending)?;
         value.is_eq(&z8)?.enforce_equal(deposit)?;
+        minimum(cs.clone(), &value, self.input.value, MIN_NOTE, &spending)?;
         let memberships = (0..CAP)
             .map(|i| {
                 Ok(input_cm.as_slice().is_eq(&old[3 + 32 * i..35 + 32 * i])? & any(&cf[i + 1..]))
@@ -193,7 +211,8 @@ impl ConstraintSynthesizer<Fr> for SpendCircuit {
             } else {
                 transfer.clone()
             };
-            v.is_eq(&z8)?.enforce_equal(&!active)?;
+            v.is_eq(&z8)?.enforce_equal(&!&active)?;
+            minimum(cs.clone(), &v, n.value, MIN_NOTE, &active)?;
             vals.push(field(&v)?);
             cms.push(cm);
         }

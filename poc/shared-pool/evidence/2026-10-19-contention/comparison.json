@@ -1,0 +1,73 @@
+{
+  "runs": [
+    {
+      "purpose": "rehearsal",
+      "confirmedTransactions": 5,
+      "submittedTransactions": 6,
+      "acceptedFeeSompi": "50818400",
+      "winningWallet": 1,
+      "rebuildingWallet": 0,
+      "submissionSkewMs": 0,
+      "minimumClaimPayoutSompi": "10000000",
+      "payoutsSompi": [
+        "939944500",
+        "10000000"
+      ],
+      "parameterLoadMs": [
+        141512,
+        141550
+      ],
+      "initialProofMs": [
+        12931,
+        12884
+      ],
+      "recoveryProofMs": 10799,
+      "firstSubmissionToLoserPayoutMs": 16883,
+      "retrySubmissionToPayoutMs": 2094,
+      "winnerStopToLoserPayoutMs": 12733,
+      "winnerStoppedBeforeRecoveryProofCompleted": true,
+      "initialConflict": {
+        "accepted": false,
+        "error": "Error: RPC Server (remote error) -> Rejected transaction 55121dd67e9b29eb3ee621579cf6863ffd6eef048ba096f7e01ddaf3ef9a7d7e: output (ca0ba5eefd9346f3c4b3ce6243e5ecb5c6cd66788d712571ad0a296325d5b230, 0) already spent by transaction 8a842a0bb33cfb621b468a234eaa047c30b2a46747a2bfd260a4f144d98719ba in the mempool",
+        "classification": "initial-conflict"
+      },
+      "oldProofRejected": true,
+      "terminalReserveSpent": true
+    },
+    {
+      "purpose": "trial",
+      "confirmedTransactions": 5,
+      "submittedTransactions": 6,
+      "acceptedFeeSompi": "50818400",
+      "winningWallet": 1,
+      "rebuildingWallet": 0,
+      "submissionSkewMs": 5,
+      "minimumClaimPayoutSompi": "10000000",
+      "payoutsSompi": [
+        "939944500",
+        "10000000"
+      ],
+      "parameterLoadMs": [
+        141547,
+        142098
+      ],
+      "initialProofMs": [
+        12961,
+        13015
+      ],
+      "recoveryProofMs": 10845,
+      "firstSubmissionToLoserPayoutMs": 15027,
+      "retrySubmissionToPayoutMs": 1991,
+      "winnerStopToLoserPayoutMs": 12726,
+      "winnerStoppedBeforeRecoveryProofCompleted": true,
+      "initialConflict": {
+        "accepted": false,
+        "error": "Error: RPC Server (remote error) -> Rejected transaction 653f32fdca3c1364f3171d14111c5d21391070d4c26d3b6490c8aafc0e9c0356: output (e2cc41c2b6c18945f70b4fba1b740782df9ef8e7eda123e1aa0f420c54a322a7, 0) already spent by transaction 44c593e19b6f9fd0ca256fb476d00b969e7c99cab89208accf6bfaf265eb4885 in the mempool",
+        "classification": "initial-conflict"
+      },
+      "oldProofRejected": true,
+      "terminalReserveSpent": true
+    }
+  ],
+  "timingScope": "Local wall-clock observations with millisecond timestamp resolution and polling/RPC/proof overhead; not exact network simultaneity or consensus latency."
+}

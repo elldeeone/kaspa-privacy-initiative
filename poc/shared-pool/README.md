@@ -1,5 +1,10 @@
 # Four-wallet shared native-KAS pool — TN10
 
+This report describes **version 2 at checkpoint `62c8550`**. Its evidence is
+unchanged. Reproduce its code and observer model from that checkpoint; the
+current native code uses a new version-3 domain and proof relation. The
+[note-floor and contention follow-up](CONTENTION.md) records that separate test.
+
 Both funded runs completed on 2026-10-19 using the owner's existing TN10 node.
 Four separate wallet processes re-spent received notes and independently proved
 their exits. Every native payout was confirmed, both reserve outputs were fully

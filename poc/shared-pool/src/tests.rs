@@ -325,3 +325,126 @@ fn wallet_quarantines_dust_without_blocking_usable_claims() {
     assert_eq!(rejected.len(), 1);
     assert_eq!(rejected[0].0, dust_cm);
 }
+
+#[test]
+fn protocol_floor_covers_every_creation_path_and_payout() {
+    let first = sample().unwrap();
+    let dep = deposit();
+    let part = withdrawal(&first, true);
+    for value in [MIN_NOTE - 1, MIN_NOTE, MIN_NOTE + 1] {
+        let expected = value >= MIN_NOTE;
+        let mut c = dep.clone();
+        c.outputs[0].value = value;
+        c.transition.deposit[40..48].copy_from_slice(&(value + c.fee).to_le_bytes());
+        c.transition.reserve_out = c.transition.reserve_in + value;
+        rebuild(&mut c);
+        eprintln!("floor deposit: {value}");
+        assert_eq!(check(&c), expected, "deposit floor {value}");
+        for slot in 0..2 {
+            let mut c = first.clone();
+            c.outputs[slot].value = value;
+            c.outputs[1 - slot].value = c.input.value - c.fee - value;
+            rebuild(&mut c);
+            eprintln!("floor transfer slot {slot}: {value}");
+            assert_eq!(check(&c), expected, "transfer slot {slot} floor {value}");
+        }
+        let mut c = part.clone();
+        c.outputs[0].value = value;
+        c.transition.payout = c.input.value - c.fee - value;
+        c.transition.reserve_out = c.transition.reserve_in - c.transition.payout - c.fee;
+        rebuild(&mut c);
+        eprintln!("floor partial change: {value}");
+        assert_eq!(check(&c), expected, "partial change floor {value}");
+    }
+    for value in [
+        MIN_NATIVE_PAYOUT - 1,
+        MIN_NATIVE_PAYOUT,
+        MIN_NATIVE_PAYOUT + 1,
+    ] {
+        let mut c = part.clone();
+        c.transition.payout = value;
+        c.outputs[0].value = c.input.value - c.fee - value;
+        c.transition.reserve_out = c.transition.reserve_in - value - c.fee;
+        rebuild(&mut c);
+        eprintln!("floor public payout: {value}");
+        assert_eq!(
+            check(&c),
+            value >= MIN_NATIVE_PAYOUT,
+            "payout floor {value}"
+        );
+    }
+    // Bypass the honest constructor and native fee policy to isolate the
+    // relation's input/bootstrap floor. The other predicates remain valid.
+    for value in [MIN_NOTE - 1, MIN_NOTE, MIN_NOTE + 1] {
+        let mut c = first.clone();
+        c.input.value = value;
+        c.outputs = [Note::dummy(), Note::dummy()];
+        c.fee = 1;
+        c.transition.old = State {
+            commitments: vec![c.input.commitment(&c.transition.domain)],
+            nullifiers: vec![],
+        };
+        c.transition.reserve_in = value;
+        c.transition.reserve_out = 0;
+        c.transition.payout = value - 1;
+        c.transition.payout_spk = native::encode_spk(&native::p2pk(&[3; 32]).unwrap());
+        c.transition.payload[8] = 3;
+        rebuild(&mut c);
+        eprintln!("floor bootstrap terminal input: {value}");
+        assert_eq!(
+            check(&c),
+            value >= MIN_NOTE,
+            "bootstrap input floor {value}"
+        );
+    }
+}
+
+#[test]
+fn native_storage_mass_at_minimum_and_large_note_values() {
+    let first = sample().unwrap();
+    let mut t = withdrawal(&first, false).transition;
+    let exit_fee = native::fee_for(2).unwrap();
+    assert_eq!(exit_fee + MIN_NATIVE_PAYOUT, MIN_NOTE);
+    let mut values = vec![MIN_NOTE, MIN_NOTE + 1, MIN_NOTE * 2, RESERVE, MAX_SOMPI / 3];
+    // Deterministic varying sizes exercise the integer divisions in native
+    // storage mass, not just a second copy of the floor implementation.
+    let mut x = 0x6a09e667f3bcc909u64;
+    for _ in 0..24 {
+        x ^= x << 13;
+        x ^= x >> 7;
+        x ^= x << 17;
+        values.push(MIN_NOTE + x % (MAX_SOMPI / 3 - MIN_NOTE));
+    }
+    for &spent in &values {
+        for &remaining in &values {
+            t.reserve_in = spent + remaining;
+            t.reserve_out = remaining;
+            t.payout = spent - exit_fee;
+            let (tx, entries) = native::proof_tx(&t, &[0; 328], &[0; 128], None).unwrap();
+            // This control checks native mass/policy only; dummy proof bytes
+            // are not evidence of script/proof acceptance.
+            let m = native::policy(&tx, &entries).unwrap();
+            assert!(m["storage_mass"].as_u64().unwrap() <= 137_434);
+            assert!(m["mining_mass"].as_u64().unwrap() * 100 <= exit_fee);
+        }
+        t.payload[8] = 3;
+        t.reserve_in = spent;
+        t.reserve_out = 0;
+        t.payout = spent - native::fee_for(3).unwrap();
+        let (tx, entries) = native::proof_tx(&t, &[0; 328], &[0; 128], None).unwrap();
+        assert!(
+            native::policy(&tx, &entries).unwrap()["storage_mass"]
+                .as_u64()
+                .unwrap()
+                <= 100_000
+        );
+        t.payload[8] = 2;
+    }
+    // A large legitimate claim cannot exit leaving this tiny native reserve:
+    // demonstrate the failure prevented by the protocol floor.
+    t.reserve_out = 1;
+    t.payout = MIN_NATIVE_PAYOUT;
+    t.reserve_in = t.reserve_out + t.payout + exit_fee;
+    let (tx, entries) = native::proof_tx(&t, &[0; 328], &[0; 128], None).unwrap();
+    assert!(native::policy(&tx, &entries).is_err());
+}

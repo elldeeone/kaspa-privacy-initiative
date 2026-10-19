@@ -106,8 +106,8 @@ fn manifest(p: &Path) -> Result<(Manifest, Vec<u8>)> {
     let m: Manifest = read(&p.join("manifest.json"))?;
     let vk = fs::read(p.join("vk.bin"))?;
     check_genesis(&m.initial_state)?;
-    if m.receivers.len() != 4 || m.funding_scripts.len() != 4 {
-        return Err("four-wallet descriptor shape".into());
+    if ![2, 4].contains(&m.receivers.len()) || m.funding_scripts.len() != m.receivers.len() {
+        return Err("two/four-wallet descriptor shape".into());
     }
     if m.network != "testnet-10"
         || m.genesis != GENESIS_HEX
@@ -158,7 +158,10 @@ fn setup(p: &Path) -> Result<Value> {
         json!({"parameters":params,"pk_bytes":fs::metadata(p.join("pk.bin"))?.len(),"vk_bytes":vk.len()}),
     )
 }
-fn init(params: &Path, root: &Path) -> Result<Value> {
+fn init(params: &Path, root: &Path, count: usize) -> Result<Value> {
+    if ![2, 4].contains(&count) {
+        return Err("supported wallet count is two or four".into());
+    }
     dir(root)?;
     dir(&root.join("public"))?;
     let public = root.join("public");
@@ -172,7 +175,7 @@ fn init(params: &Path, root: &Path) -> Result<Value> {
         return Err("parameter checksum".into());
     }
     let domain = new_domain();
-    let wallets = (0..4).map(|_| Wallet::fresh()).collect::<Vec<_>>();
+    let wallets = (0..count).map(|_| Wallet::fresh()).collect::<Vec<_>>();
     let note = wallets[0].receive(&domain).note(RESERVE)?;
     let state = State {
         commitments: vec![note.commitment(&domain)],
@@ -203,7 +206,7 @@ fn init(params: &Path, root: &Path) -> Result<Value> {
         )?;
     }
     save(&public.join("manifest.json"), &m)?;
-    Ok(json!({"network":m.network,"domain":hex::encode(domain),"wallets":4,"funded":false}))
+    Ok(json!({"network":m.network,"domain":hex::encode(domain),"wallets":count,"funded":false}))
 }
 fn save_tx(
     output: &Path,
@@ -335,13 +338,15 @@ fn history(public: &Path, through: u32, m: &Manifest, vk: &[u8]) -> Result<Histo
         ledger,
     })
 }
-// Bounded-trial wallet acceptance policy at 100 sompi/gram. The circuit
-// deliberately does not promise spendability under arbitrary future fee rates.
-const MIN_NATIVE_PAYOUT: u64 = 10_000_000; // 0.1 tKAS; avoids native storage dust.
+// The same immutable minimum is enforced by the v3 proof relation. This local
+// compatibility check fails safely if the native transaction layout changes.
 pub(crate) fn accept_note_value(value: u64) -> Result<()> {
-    let minimum = native::fee_for(2)?.max(native::fee_for(3)?) + MIN_NATIVE_PAYOUT;
-    if value < minimum {
-        return Err("note cannot cover configured full-exit fee and minimum payout".into());
+    let required = native::fee_for(2)?.max(native::fee_for(3)?) + MIN_NATIVE_PAYOUT;
+    if required > MIN_NOTE {
+        return Err("native exit fee exceeds immutable note floor allowance".into());
+    }
+    if !(MIN_NOTE..=MAX_SOMPI).contains(&value) {
+        return Err("note is outside immutable protocol value range".into());
     }
     Ok(())
 }
@@ -616,12 +621,14 @@ fn validate_file(tx: &Path, context: &Path) -> Result<Value> {
     }
     let es = us.iter().map(Utxo::entry).collect::<Result<Vec<_>>>()?;
     native::validate(&t, &es)?;
-    Ok(json!({"metrics":native::policy(&t,&es)?,"units":native::meter(&t,&es)?}))
+    Ok(
+        json!({"txid":t.id().to_string(),"full_hash":kaspa_consensus_core::hashing::tx::hash(&t).to_string(),"metrics":native::policy(&t,&es)?,"units":native::meter(&t,&es)?}),
+    )
 }
 pub fn run() -> Result<()> {
     let a = std::env::args().skip(1).collect::<Vec<_>>();
     let p = |i| -> Result<PathBuf> { Ok(PathBuf::from(a.get(i).ok_or("missing argument")?)) };
-    let value=match a.first().map(String::as_str){Some("fees")=>json!({"fees":(0..5).map(|mode|native::fee_for(mode)).collect::<Result<Vec<_>>>()?,"minimum_native_payout":MIN_NATIVE_PAYOUT}),Some("setup")=>setup(&p(1)?)?,Some("init")=>init(&p(1)?,&p(2)?)?,Some("fund")=>fund(&p(1)?,&p(2)?,&p(3)?)?,Some("wallet-session")=>return wallet_session(&p(1)?,&p(2)?,&p(3)?),Some("validate")=>validate_file(&p(1)?,&p(2)?)?,Some("controls")=>controls(&p(1)?,a.get(2).ok_or("last step")?.parse()?)?,_=>return Err("setup PARAMS | init PARAMS ROOT | fund ROOT UTXO KEYFILE | wallet-session PUBLIC WALLET OUT | validate TX CONTEXT".into())};
+    let value=match a.first().map(String::as_str){Some("fees")=>json!({"fees":(0..5).map(|mode|native::fee_for(mode)).collect::<Result<Vec<_>>>()?,"minimum_native_payout":MIN_NATIVE_PAYOUT,"minimum_note":MIN_NOTE}),Some("setup")=>setup(&p(1)?)?,Some("init")=>init(&p(1)?,&p(2)?,a.get(3).map(|s|s.parse::<usize>()).transpose()?.unwrap_or(4))?,Some("fund")=>fund(&p(1)?,&p(2)?,&p(3)?)?,Some("wallet-session")=>return wallet_session(&p(1)?,&p(2)?,&p(3)?),Some("validate")=>validate_file(&p(1)?,&p(2)?)?,Some("controls")=>controls(&p(1)?,a.get(2).ok_or("last step")?.parse()?)?,_=>return Err("setup PARAMS | init PARAMS ROOT [2|4] | fund ROOT UTXO KEYFILE | wallet-session PUBLIC WALLET OUT | validate TX CONTEXT".into())};
     emit(&value)
 }
 

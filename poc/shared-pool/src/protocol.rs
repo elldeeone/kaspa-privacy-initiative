@@ -23,6 +23,11 @@ pub const T_DEP: usize = T_PSPK + 36;
 pub const T_HASH: usize = T_DEP + 84;
 pub const TRANSCRIPT_LEN: usize = T_HASH + 32;
 pub const MAX_SOMPI: u64 = 2_900_000_000_000_000_000;
+// Version-3 immutable economic floors, at the bounded trial's 100 sompi/gram.
+// 16_713_000 covers the larger full-exit fee for this fixed native layout.
+// These constants are constrained in the relation, hence bound by its VK.
+pub const MIN_NATIVE_PAYOUT: u64 = 10_000_000;
+pub const MIN_NOTE: u64 = 26_713_000;
 pub const RESERVE: u64 = 1_000_000_000;
 pub const PAYMENT: u64 = 400_000_000;
 pub const GENESIS_HEX: &str = "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370";
@@ -40,7 +45,7 @@ pub fn random() -> H {
 pub fn new_domain() -> H {
     hash(
         &[
-            b"KPI/SHARED-POOL/TN10/v2\0".as_slice(),
+            b"KPI/SHARED-POOL/TN10/v3\0".as_slice(),
             &hex::decode(GENESIS_HEX).unwrap(),
             &random(),
         ]
@@ -214,7 +219,7 @@ impl State {
         Ok(())
     }
     pub fn bytes(&self) -> Vec<u8> {
-        let mut bytes = vec![2, self.commitments.len() as u8, self.nullifiers.len() as u8];
+        let mut bytes = vec![3, self.commitments.len() as u8, self.nullifiers.len() as u8];
         for values in [&self.commitments, &self.nullifiers] {
             for i in 0..CAP {
                 bytes.extend(values.get(i).copied().unwrap_or([0; 32]));
@@ -224,7 +229,7 @@ impl State {
     }
     pub fn parse(bytes: &[u8]) -> Result<Self> {
         if bytes.len() != STATE_LEN
-            || bytes[0] != 2
+            || bytes[0] != 3
             || usize::from(bytes[1]) > CAP
             || usize::from(bytes[2]) > CAP
         {
@@ -282,7 +287,7 @@ pub fn payload(mode: u8, state: &State, ciphertexts: &[Vec<u8>; 2]) -> Result<Ve
         return Err("ciphertext shape/padding".into());
     }
     Ok([
-        b"KPISP02\0".as_slice(),
+        b"KPISP03\0".as_slice(),
         &[mode],
         &state.bytes(),
         &ciphertexts[0],
@@ -291,7 +296,7 @@ pub fn payload(mode: u8, state: &State, ciphertexts: &[Vec<u8>; 2]) -> Result<Ve
     .concat())
 }
 pub fn parse_payload(b: &[u8]) -> Result<(u8, State, [Vec<u8>; 2])> {
-    if b.len() != PAYLOAD_LEN || &b[..8] != b"KPISP02\0" {
+    if b.len() != PAYLOAD_LEN || &b[..8] != b"KPISP03\0" {
         return Err("payload framing".into());
     }
     let state = State::parse(&b[9..CIPHER_START])?;
@@ -322,7 +327,7 @@ pub struct Transition {
 impl Transition {
     pub fn bytes(&self) -> Vec<u8> {
         [
-            b"KPIBN02\0".as_slice(),
+            b"KPIBN03\0".as_slice(),
             &self.domain,
             &self.old.bytes(),
             &self.txid,

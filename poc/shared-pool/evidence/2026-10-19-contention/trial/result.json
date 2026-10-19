@@ -1,0 +1,130 @@
+{
+  "success": true,
+  "completedAt": "2026-10-19T04:37:41.303Z",
+  "purpose": "trial",
+  "network": "testnet-10",
+  "confirmedTransactions": 5,
+  "submittedTransactions": 6,
+  "acceptedFeeSompi": "50818400",
+  "rejectedCandidateFeeSompi": "0",
+  "sameReserveRace": true,
+  "submissionSkewMs": 5,
+  "winner": 1,
+  "loser": 0,
+  "wallets": [
+    {
+      "completedAt": "2026-10-19T04:37:40.718Z",
+      "payoutConfirmedAt": "2026-10-19T04:37:40.552Z",
+      "acceptedTxid": "13b7cde8e1e6c2bbae6b0ffb6c970be9aa55f8daa8010b35f0474c6aff36ea7a",
+      "payout": {
+        "txid": "13b7cde8e1e6c2bbae6b0ffb6c970be9aa55f8daa8010b35f0474c6aff36ea7a",
+        "index": 0,
+        "amount": "939944500",
+        "spk": "00002083aade79cc1172a7d5cbf7bef97c42c1a8b8306387aa969f99f2b233e637e793ac",
+        "daa": "600495997",
+        "is_coinbase": false
+      },
+      "attempts": 2,
+      "rebuilds": 1,
+      "terminal": true,
+      "ownNotesRemaining": 0,
+      "adopted": [
+        "44c593e19b6f9fd0ca256fb476d00b969e7c99cab89208accf6bfaf265eb4885",
+        "13b7cde8e1e6c2bbae6b0ffb6c970be9aa55f8daa8010b35f0474c6aff36ea7a"
+      ],
+      "proverClosed": true,
+      "scope": "own keys and public artifacts; one correct TN10 node; no general reorg or contention-fairness claim"
+    },
+    {
+      "completedAt": "2026-10-19T04:37:27.792Z",
+      "payoutConfirmedAt": "2026-10-19T04:37:27.635Z",
+      "acceptedTxid": "44c593e19b6f9fd0ca256fb476d00b969e7c99cab89208accf6bfaf265eb4885",
+      "payout": {
+        "txid": "44c593e19b6f9fd0ca256fb476d00b969e7c99cab89208accf6bfaf265eb4885",
+        "index": 1,
+        "amount": "10000000",
+        "spk": "000020a0ade74c48a3472f111a1b671c4d7feabba69af82b64acdb4a09eb8d337f0c34ac",
+        "daa": "600495834",
+        "is_coinbase": false
+      },
+      "attempts": 1,
+      "rebuilds": 0,
+      "terminal": false,
+      "ownNotesRemaining": 0,
+      "adopted": [
+        "44c593e19b6f9fd0ca256fb476d00b969e7c99cab89208accf6bfaf265eb4885"
+      ],
+      "proverClosed": true,
+      "scope": "own keys and public artifacts; one correct TN10 node; no general reorg or contention-fairness claim"
+    }
+  ],
+  "winnerStoppedBeforeLoserPayout": true,
+  "winnerProcessExitedBeforeRecoveryProofCompleted": true,
+  "terminalReserveSpent": true,
+  "remainingOutputs": [
+    {
+      "txid": "e3d764c1694a1903852f01b0c9c23b6172502a605a4144039b539654fd809cb6",
+      "index": 1,
+      "amount": "1200000000",
+      "spk": "000020efb987bdf53a62e90c0c198b9612fad0d01f33e0713d371573ad1a9347aa4b60ac",
+      "daa": "600494221",
+      "is_coinbase": false
+    },
+    {
+      "txid": "e3d764c1694a1903852f01b0c9c23b6172502a605a4144039b539654fd809cb6",
+      "index": 2,
+      "amount": "2198388300",
+      "spk": "000020226cded99b9ca0477c637b439b6371f98022e1d17b8f3106b9d040a35ce6ea1cac",
+      "daa": "600494221",
+      "is_coinbase": false
+    },
+    {
+      "txid": "76f8e3b53b0bbf2a7372f28425b4554d4d38eb1b01dd07e8f881538d3da6edfe",
+      "index": 1,
+      "amount": "199482100",
+      "spk": "000020ca66a8b486fa13d2385fb28823e84c0a90e56c97e593282e8b6775e6ed705b4dac",
+      "daa": "600494235",
+      "is_coinbase": false
+    },
+    {
+      "txid": "44c593e19b6f9fd0ca256fb476d00b969e7c99cab89208accf6bfaf265eb4885",
+      "index": 1,
+      "amount": "10000000",
+      "spk": "000020a0ade74c48a3472f111a1b671c4d7feabba69af82b64acdb4a09eb8d337f0c34ac",
+      "daa": "600495834",
+      "is_coinbase": false
+    },
+    {
+      "txid": "13b7cde8e1e6c2bbae6b0ffb6c970be9aa55f8daa8010b35f0474c6aff36ea7a",
+      "index": 0,
+      "amount": "939944500",
+      "spk": "00002083aade79cc1172a7d5cbf7bef97c42c1a8b8306387aa969f99f2b233e637e793ac",
+      "daa": "600495997",
+      "is_coinbase": false
+    }
+  ],
+  "startingSompi": "4598633300",
+  "remainingSompi": "4547814900",
+  "sourceHashes": {
+    "Cargo.lock": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+    "Cargo.toml": "cfdc8e104c93e4575b1f2cf5d9b441566674b7b801856d18fc7aeb5ba50234f3",
+    "chain.mjs": "cdae6ed5ca52aa7d57df45b9ca2ba8d34054d103dca15b58359d09d50a0fcb88",
+    "chain.test.mjs": "852959ca6709146baaf2868b238ba2fa15fe1273530929b498e8ac95e51f2f3b",
+    "contention.mjs": "d66de5e302eb42c7936419f18c847faaf755bd1f196178f918964121cf95df22",
+    "exit-wallet.mjs": "f81cfc8f7b535fc02f8b7e1a6e334df0a4ed7c41487847847f798b4d09d5adec",
+    "fetch-chain.mjs": "11e3a59f5a95b253daa559c028c0b4886094c108bd5cffef13f29adfb942731a",
+    "run.mjs": "2b3b6e1c0e342c1bccd9ca7dcca5ca60b7928c8ad6a7fe2ff45c406c9f595975",
+    "runtime.mjs": "51bbe68e464fd83dde587314d750330ee723fbfe37ca6270315bccc80c2b7ed3",
+    "src/app.rs": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663",
+    "src/circuit.rs": "574a7c5c7dfc19ed77253258a9b62e38c974b082222845b593dbf6bc4ce9cd86",
+    "src/covenant.rs": "55a94214ed8dcaef639bf77f491e5253284a38279ca003c9a1dc50b9cc6d7da8",
+    "src/fixtures.rs": "fdd2576c79bb9f77e05c56a2c9e02c0d9e3f199cff318f230cb5236c4bb86edf",
+    "src/lib.rs": "38fbf3957b7e0775e77279afff36a271635f688a7cd316fca553295c4bc4c9b6",
+    "src/main.rs": "81b71a7be9896731cbafb05430d72370d1be73e0092c51eeb9509fd027b82662",
+    "src/native.rs": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f",
+    "src/protocol.rs": "ad4573aeba2f40901ce79df22280225c43d3696242aa96c94d814e2ab7ba43d8",
+    "src/tests.rs": "04c9379637e42c3b5fca0e9500c04592557e21cbafac63cabfb273146bb5794c"
+  },
+  "binarySha256": "3ccf255f41b67b5afecf7255968e34bab51187de48d9b5a56b406e7072c9b7f1",
+  "scope": "two-wallet one-shot contention with eventual opportunity; single-node accepted view; not arbitrary reorg recovery, fairness, mainnet safety or anonymity"
+}

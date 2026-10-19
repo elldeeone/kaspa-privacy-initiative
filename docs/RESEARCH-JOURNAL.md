@@ -22,11 +22,13 @@ identification or deposit-origin ambiguity for the four selected withdrawals.
 Cryptographic confidentiality, chain inference and network privacy remain
 separate questions.
 
-The immediate gaps are protocol-level prevention of tiny unexit-able claims and
-recovery when another transaction consumes the shared reserve before a wallet's
-proof is accepted. Missing public history, fee changes, setup compromise,
-reorgs, contention starvation, scalability and independent cryptographic review
-also remain open.
+Version 3 now prevents below-floor claims in the proof relation. A funded
+rehearsal also recovered from one competing reserve spend: the losing wallet
+found the accepted successor, rebuilt its proof and confirmed its payout after
+the winner stopped. A fresh measured repetition also passed. Missing public
+history, fee changes, setup compromise, reorgs, contention starvation, scalability
+and independent cryptographic review remain open. Cold parameter loading is a
+measured usability bottleneck.
 
 ## Hypotheses and decisions
 
@@ -34,8 +36,8 @@ also remain open.
 | --- | --- | --- | --- |
 | H1 | A private native-KAS payment and authorized exits can pay their own fees on existing L1 without a sponsor or privileged withdrawal key. | Supported for one funded two-wallet sequence; four native transactions accepted. | Continue direct-L1 experiments; no need demonstrated for a vProgs runtime in this bounded case. |
 | H2 | Private withdrawal change increases feasible consumed-note candidates relative to whole-note withdrawal in the paired four-wallet workload. | Supported for all four selected exits initially and three after complete drain; input amounts remained non-unique for 4/4 partial exits versus exact for 4/4 full exits. | Retain partial change for further study. Equal 0.25 tKAS payout policy was bundled with the change mechanism. |
-| H3 | Enforcing a protocol-level note minimum can prevent the tiny-liability obstruction at the tested fee rate without privileged rescue. | Pending design, boundary tests and native validation. Wallet filtering alone is insufficient. | Compare a fixed floor with alternatives, derive it from native mass/fees, and enforce every creation path. |
-| H4 | After two wallets race on the same reserve, the losing wallet can discover accepted state, rebuild its proof and exit using its own keys and public data. | Pending funded simultaneous-exit test. Earlier proofs were precomputed for a sequential schedule. | Test real contention and recovery; require payout confirmation, no winner secret or operator-selected successor. |
+| H3 | Enforcing a protocol-level note minimum can prevent the tiny-liability obstruction at the tested fee rate without privileged rescue. | Supported by creation-path boundary tests, 870 native mass/policy combinations and an exact-minimum claim's funded exit. | Retain a 0.26713-tKAS note floor and 0.1-tKAS payout floor in this fresh experimental version; arbitrary future fee rates remain unresolved. |
+| H4 | After two wallets race on the same reserve, the losing wallet can discover accepted state, rebuild its proof and exit using its own keys and public data. | Funded rehearsal and fresh measured trial passed. Both losers generated a new proof after discovering the accepted successor and received payouts after the winner stopped. | Keep permissionless self-proving recovery. Address cold startup and sustained-contention fairness before claiming usability or general liveness. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
@@ -108,6 +110,56 @@ which transaction was accepted; how the losing wallet found and verified the
 successor; proof regeneration; both actual native payouts; remaining reserve,
 cost and elapsed time. A precomputed alternate winner/loser schedule alone is
 insufficient evidence of independent recovery.
+
+Checkpoint completed as `62c8550` on `shared-pool-four-wallet`; 439 files were
+committed after scanning known secrets and secret-shaped JSON fields. The only
+binary evidence is the earlier public verification key. Nothing was pushed.
+
+H3/H4 design now recorded in
+[ADR-0017](adr/0017-note-floor-and-independent-exit-retry.md) and
+[RFC-0005](rfc/0005-note-floor-and-exit-contention.md): enforce immutable floors
+in a fresh version-3 proof relation and make each wallet discover accepted
+successors itself through public RPC. The earlier version-2 evidence remains
+unchanged. Results and the interrupted rehearsal are recorded in the
+[follow-up report](../poc/shared-pool/CONTENTION.md).
+
+### 2026-10-19 — Protocol floor and autonomous exit recovery (H3/H4)
+
+- Local evidence: eight native tests, five chain tests and a real sandbox/FIFO
+  test passed. The proof rejects values one sompi below the applicable floor
+  while accepting equal/above cases. Mass-only fixtures do not verify proofs.
+- Operational failure: the first funded rehearsal stopped after its payment
+  because the Node executable was outside the sandbox mount. A separate cleanup
+  launch then exposed the host's restriction on nested user namespaces. Neither
+  failed launch submitted an exit. Explicit Node mounting and sibling sandboxes
+  fixed both causes without changing host policy or weakening wallet isolation.
+- Recovery: a new cleanup identity drained that interrupted pool using the same
+  autonomous wallets. It does not qualify as a successful full rehearsal.
+  Its original accepted fees plus cleanup totalled 0.508184 tKAS.
+- Fresh rehearsal: five transactions confirmed, one initial conflict rejected,
+  both payouts received, no reserve left. Total fees: 0.508184 tKAS. Submissions
+  shared one recorded millisecond; this is not exact network simultaneity.
+  The loser regenerated its proof in 10.799 seconds and confirmed its payout
+  16.883 seconds after its first submission. The winner had already stopped.
+- Usability implication: cold parameter loading took about 142 seconds per
+  wallet. Correct recovery alone does not make the current prototype convenient.
+  Future fee changes and repeated competing spends can still prevent exits.
+- Measured repetition: a fresh pool and fresh keys passed with submissions 5 ms
+  apart. The loser reproved in 10.845 seconds and confirmed its payout 15.027
+  seconds after its first submission. Both claims drained; fees were 0.508184
+  tKAS. The recipient's exact-minimum note paid 0.1 tKAS after its own fee.
+  The recipient won both races; the opposite live winner order was not tested.
+- Total cost including the interrupted pool's cleanup: 1.524552 tKAS across
+  15 accepted transactions. All three experimental reserves were drained.
+- Decision: retain the protocol floor and public-data recovery path for further
+  experiments. Keep the prover warm for practical use; study contention fairness
+  and fee changes before scaling or claiming general exit liveness. Incorporate
+  the new public floor in future inference models; do not apply it to v2 results.
+- Evidence: [report](../poc/shared-pool/CONTENTION.md),
+  [review](../poc/shared-pool/CONTENTION-REVIEW.md),
+  [rehearsal](../poc/shared-pool/evidence/2026-10-19-contention/rehearsal/result.json),
+  [measured trial](../poc/shared-pool/evidence/2026-10-19-contention/trial/result.json),
+  [interruption and cleanup](../poc/shared-pool/evidence/2026-10-19-contention/interrupted-run/summary.json).
 
 ## How to extend this journal
 
