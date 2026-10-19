@@ -9,6 +9,11 @@ North star: private native-KAS payments, correct backing, and exits that users
 can complete without privileged cooperation. No new token. Work within current
 Kaspa L1; consensus changes are a last resort. Testnet only, no real funds.
 
+The [shared-pool branch plan](SHARED-POOL-PLAN.md) maps these results to the
+repository phases and defines completion, stop and redesign criteria. Recovery
+and practical privacy are the next decision gates. A completed hypothesis below
+does not by itself close a roadmap phase.
+
 ## Current position
 
 Current L1 can execute the bounded direct-pool payment and withdrawal layouts
@@ -60,6 +65,20 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 — Branch plan established
+
+The owner requested an explicit plan after the incremental H1–H6 experiments.
+[SHARED-POOL-PLAN.md](SHARED-POOL-PLAN.md) now records the evidence baseline at
+`203198b`, maps our work to repository phases 2–7, and sets five remaining stages:
+independent recovery, practical privacy, failure/fee limits, a usable payment
+cycle and independent review. Each has completion and stop/redesign conditions.
+
+Recovery and privacy must inform whether this candidate warrants expansion.
+Earlier variant results are not treated as features of the compact version, and
+the full multi-user shutdown/recovery gate remains open. Future thresholds are
+planning choices, not measured outcomes or retroactive criteria for H1–H6.
+This is a documentation change; no protocol change, new experiment or funding.
 
 ### 2026-10-19 — Compact state (H6), completed bounded test
 

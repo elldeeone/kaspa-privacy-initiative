@@ -8,8 +8,10 @@
 
 ## Start here and help shape the research
 
-The [independent research journal](docs/RESEARCH-JOURNAL.md) tracks direct-L1
-native-KAS hypotheses, funded experiments, findings and unresolved questions.
+The [shared-pool branch plan](docs/SHARED-POOL-PLAN.md) gives the direct-L1 work's
+phases, current status and completion/stop criteria. The
+[independent research journal](docs/RESEARCH-JOURNAL.md) tracks its native-KAS
+hypotheses, funded experiments, findings and unresolved questions.
 
 The [scoped Based App feasibility milestone](docs/based-app-feasibility-2026-10-17.md) is complete: PRs #31–#33 demonstrate real TN10 lane ordering through proved execution and accepted settlement, including native payout and same-endpoint omission rejection. The development focus now moves to [shielded native KAS and financial privacy](docs/shielded-kas-next.md). No production architecture or privacy protocol has been accepted. Developers, researchers and security reviewers are welcome.
 
