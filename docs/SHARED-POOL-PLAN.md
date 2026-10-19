@@ -3,9 +3,10 @@
 Updated: 2026-10-19. Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** the bounded payment/exit mechanics work on TN10. Independent
-wallet recovery and useful privacy remain unestablished. The next gates are
-recovery and privacy; a larger transaction count alone is not the next milestone.
+**Current position:** the bounded payment/exit mechanics and Stage 1 three-wallet
+recovery passed on TN10 under the declared public-data model. Useful privacy
+remains unestablished. Stage 2's privacy audit is next; a larger transaction count
+alone is not the next milestone.
 
 **Finish line:** a reproducible testnet wallet can receive, send and withdraw
 native test KAS, maintain correct backing, recover without privileged help, and
@@ -22,14 +23,14 @@ change would require a separate research decision, not an implementation shortcu
 | Branch stage | Roadmap phases | Status | Decision it must support |
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
-| 1. Independent recovery | 3–4 | Offline passed; [H7 live recovery](../poc/shared-pool/RECOVERY.md) in progress | Can users recover without the experiment's private files or services? |
+| 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
 | 2. Practical privacy | 5 | Preliminary H2 only; next | Does the candidate hide useful relationships under explicit low-activity assumptions? |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
 
-Execute stage 1 first. Stage 2's offline analysis can proceed independently and
-must finish before substantial wallet expansion. Stages 1 and 2 must justify
+Stage 1 is complete for its declared three-claimant workload. Execute Stage 2
+before substantial wallet expansion. Stages 1 and 2 must justify
 continuing this candidate before stages 3–4 expand it. A discovered safety flaw
 takes priority at any stage. Stage 5 review can start earlier; its completion is
 not implied by an implementing agent's self-review.
@@ -63,6 +64,16 @@ rebuilding 352.426 ms, and RPC discovery another 11,356.203 ms. These are measur
 TN10/workload results, not current fee quotations or wallet performance promises.
 
 ## 1. Independent recovery
+
+**Observed completion, 2026-10-19:** all three wallets restored from pre-payment
+backups on a separate host and exited through a separate public RPC after the
+original prover/data source stopped. Offline controls, a complete rehearsal and
+a fresh measured trial passed; the interrupted first attempt was also drained
+through ordinary independent exits. Keep three private keys plus the descriptor
+pin, and the initial depositor's note opening. Retained public parameters/history
+and a correct node view remain requirements. This is one initial deposit with
+three synthetic claimants, not general pruning/reorg recovery or a privacy result.
+Exact payouts, costs, limits and evidence are in [RECOVERY.md](../poc/shared-pool/RECOVERY.md).
 
 **Hypothesis / decision:** a recipient can be offline during payment, then recover
 and exit using a declared backup and authenticated public data. Determine the

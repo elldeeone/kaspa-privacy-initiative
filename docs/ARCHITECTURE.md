@@ -12,6 +12,10 @@ the original experiment manifest or receiver list. The proof relation and
 covenant are unchanged. [RFC-0008](rfc/0008-independent-wallet-recovery.md) and the
 [recovery report](../poc/shared-pool/RECOVERY.md) distinguish offline validation,
 independent-host TN10 evidence and remaining availability assumptions.
+That bounded gate passed: all three wallets recovered and exited in a complete
+rehearsal and fresh measured trial, with the original services stopped. Retain
+this recovery path for the candidate; useful privacy and broader failure
+conditions remain open, and the result does not select a production architecture.
 
 [ADR-0019](adr/0019-compact-public-settlement.md) replaces the bounded arrays in
 a separate experimental variant with note, indexed-nullifier and root-history

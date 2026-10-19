@@ -47,7 +47,13 @@ def export(source: Path, destination: Path, role: str):
         raw = original.read_bytes()
         out = destination / (target or relative)
         out.parent.mkdir(parents=True, exist_ok=True)
-        if original.suffix == '.json':
+        if relative == 'public/descriptor.json':
+            # Backups authenticate the exact descriptor bytes, not a parsed
+            # object. It contains no private paths/keys; preserve its pin.
+            decoded = json.loads(raw)
+            assert sanitize(decoded) == decoded
+            encoded = raw
+        elif original.suffix == '.json':
             encoded = (json.dumps(sanitize(json.loads(raw)), indent=2, sort_keys=True) + '\n').encode()
         elif original.suffix == '.bin':
             assert relative == 'public/vk.bin'

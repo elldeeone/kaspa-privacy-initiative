@@ -1,10 +1,100 @@
 # Independent recovery of three compact-pool wallets
 
-Status: offline passed; first funded rehearsal interrupted before an exit
-broadcast. Transport fix and ordinary cleanup in progress, 2026-10-19.
+Status: **bounded Stage 1 passed** — offline recovery, a complete TN10 rehearsal
+and a fresh measured trial, 2026-10-19.
 Branch: `shared-pool-four-wallet`. [Specification](../../docs/rfc/0008-independent-wallet-recovery.md),
 [decision](../../docs/adr/0020-independent-wallet-recovery.md),
 [source review](../../research/independent-recovery-source-review-2026-10-19.md).
+
+## Result and decision
+
+All three wallets recovered from pre-payment backups and received their native
+payouts after the original Alice prover and public HTTP source stopped. Each
+restored client used a separate host, its own backup, an independently retained
+public copy and a different RPC node. Each generated its first private exit
+proof after restoration. No original wallet directory, receiver list, new-note
+export, precomputed exit proof or operator signature was provided.
+
+| Wallet, in exit order | Confirmed payout, tKAS | Parameter load, seconds | Private proof, seconds | Complete recovery, seconds |
+| --- | ---: | ---: | ---: | ---: |
+| Bob | 3.782704 | 104.666 | 12.196 | 136.012 |
+| Carol | 1.782704 | 105.413 | 12.273 | 150.787 |
+| Alice | 3.348936 | 104.560 | 12.368 | 150.532 |
+
+These are the fresh measured trial's three observations. Five commitments were
+created and spent; no reserve or unpaid claim remained. All six transaction
+bodies/full hashes matched the original node's accepted-chain data. Each wallet
+also checked its own exact accepted exit through the separate public RPC, and
+both nodes confirmed the payouts. Cleanup and rehearsal paid the same amounts.
+
+The recovery host exposed eight logical CPUs on a Ryzen 9 7940HS and roughly
+8 GiB RAM, while also running the existing TN10 node. Proving used
+`RAYON_NUM_THREADS=4`. Peak prover RSS was 2.74–2.77 GiB, excluding Node/RPC and
+the full node. Each restored client read 478,670,543 bytes from its public copy;
+478,600,432 bytes were the proving key. These are cold-restoration measurements,
+not routine payment latency or general hardware benchmarks.
+
+| Live sequence | Accepted transactions | Total fees, tKAS |
+| --- | ---: | ---: |
+| Interrupted rehearsal plus ordinary wallet cleanup | 6 | 1.087705 |
+| Fresh complete rehearsal | 6 | 1.087705 |
+| Fresh measured trial | 6 | 1.110008 |
+| Reuse of owned ordinary outputs for funding | 5 | 0.013730 |
+| Entire Stage 1 live work | 23 | 3.299148 |
+
+Each pool's two private payments and three exits cost 1.085656 tKAS. Ordinary
+funding was additional: 0.002049 tKAS in rehearsal and 0.024352 tKAS in the
+measured trial. The latter's small change output increased mining/storage mass
+to 24,352; the funding builder charged the measured mass at 100 sompi/mass.
+The interrupted prefix is counted once, within its cleanup sequence. Its
+unsubmitted proof incurred no native fee. Aggregate accounting reconciles
+21.539188 tKAS of initial ordinary inputs to 18.240040 tKAS of remaining ordinary
+outputs and 3.299148 tKAS of fees.
+
+**Decision:** retain this recovery path and its explicit backup/public-data
+requirements for the compact candidate. Stage 1 is complete for three synthetic
+claimants from one initial deposit per pool. This does not close every roadmap
+recovery condition or establish useful privacy. Stage 2's chain-only privacy
+audit is next; do not expand wallet features merely because recovery passed.
+
+## Failure, controls and evidence
+
+The first funded rehearsal stopped after its two payments: Bob's proof finished,
+but synchronous parameter decoding/proving blocked WebSocket processing and the
+RPC connection disconnected before submission. The reserve was observed unspent
+and no exit submission intent existed. The client now closes RPC during local
+proof work, reconnects and checks the current reserve before broadcasting.
+Fresh independent wallet runs drained that interrupted pool. A separate full
+rehearsal then passed before the measured trial; cleanup was not used to satisfy
+the complete-rehearsal gate.
+
+Offline validation covered all three restores, 26 recovery controls, 113
+inherited native rejections and independent public-tree/ledger reconstruction.
+Controls include wrong backups/keys/parameters, pool/domain substitution,
+malformed amounts, missing/reordered/corrupted history, stale or forged heads,
+spent claims and unavailable public sources. A valid short archive can extend
+from accepted chain data; unavailable required sources cause a safe halt.
+
+Execution code checkpoint: `6fa1ea3`. Every run records exact source and binary
+hashes; the final offline gate, cleanup, rehearsal and trial match. The existing
+compact circuit, covenant, setup and fee/note floors were unchanged.
+
+- [Measured summary](evidence/2026-10-19-recovery/summary.json),
+  [aggregate accounting](evidence/2026-10-19-recovery/aggregate-accounting.json),
+  [backup inventory](evidence/2026-10-19-recovery/backup-inventory.json).
+- [Final offline gate](evidence/2026-10-19-recovery/offline/offline-result.json),
+  [rehearsal](evidence/2026-10-19-recovery/rehearsal/result.json),
+  [fresh trial](evidence/2026-10-19-recovery/trial/result.json).
+- [Interruption](evidence/2026-10-19-recovery/interrupted-run/summary.json),
+  [cleanup](evidence/2026-10-19-recovery/cleanup/result.json),
+  [runtime](evidence/2026-10-19-recovery/runtime-environment.json),
+  [artifact checks](evidence/2026-10-19-recovery/artifact-verification.json),
+  [adversarial second pass](RECOVERY-REVIEW.md).
+
+Exports contain no backup keys/openings or proving key. The descriptor retains
+its exact original bytes so its backup pin remains valid. Other sanitized JSON
+records retain separate source/export hashes. This evidence deliberately labels
+synthetic wallets and is not a chain-observer input or an anonymity measurement.
 
 ## Question and fixed workload
 

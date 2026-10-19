@@ -43,8 +43,23 @@ backups. It requires their reserve still to be unspent, generates new wallet
 authorizations and never calls the earlier funding/payment broadcasters. A
 cleanup result cannot satisfy the measured trial's complete-rehearsal gate.
 
+Evidence review caught another boundary: reformatting the public descriptor's
+JSON changes the byte hash stored in a backup. The exporter now preserves its
+exact original bytes and checks that it contains nothing requiring redaction.
+The other sanitized JSON records retain separate source/export hashes. Runtime
+recovery always used the original descriptor bytes; no live input was changed.
+
 There are no changes to the compact circuit, covenant, note/nullifier derivation,
 fee policy or setup. The original experiment module only exposes existing helper
 functions to the new recovery module. Public-data availability, trusted chain
 view, cold startup, exact-fee authorization and finite capacity remain explicit
 limits. No new privileged recovery authority was introduced.
+
+Final evidence: the revised offline gate, ordinary interrupted-pool cleanup,
+complete fresh TN10 rehearsal and measured trial passed. All nine successful
+restored-wallet runs created their own exit proofs and received payouts; the three
+pools drained. The initial failed proof was never submitted. The sanitized
+artifacts were rechecked for export integrity, native validity and independent
+public state/amount reconstruction. The aggregate ledger reconciles all 23
+accepted Stage 1 transactions, including ordinary funding reuse. See the
+[report](RECOVERY.md) for exact costs and retained-data/setup limitations.

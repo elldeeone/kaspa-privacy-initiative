@@ -4,7 +4,8 @@ The initiative should treat these as questions to answer, not conclusions to def
 
 [Stage 1 recovery](docs/rfc/0008-independent-wallet-recovery.md) tests the compact
 candidate using pre-payment private backups, independently retained public data
-and a separate node. The initial depositor's note opening is an additional
+and a separate node; its bounded offline/rehearsal/measured trial passed. The
+initial depositor's note opening is an additional
 backup requirement; recipient keys do not eliminate the need for public history.
 After this bounded test, what retention, pruning and reorg model would preserve
 recovery for long-offline users? Does the compact transaction layout provide

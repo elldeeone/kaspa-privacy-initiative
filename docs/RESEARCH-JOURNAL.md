@@ -49,6 +49,13 @@ passed. Keep compact public settlement for further research: it removes the
 old array limit at the tested scale, while history retention, initial proving,
 fees and privacy remain open. [Measured evidence](../poc/shared-pool/COMPACT.md).
 
+Stage 1 recovery now passed offline and in complete TN10 rehearsal/measured
+trials. Three wallets restored from pre-payment backups on a separate host,
+discovered their notes and created their first exit proofs after the original
+services stopped. Keep the initial depositor's note opening as well as the three
+keys and pool pin. Public history/parameters must remain independently available.
+Useful privacy is the next decision gate. [Evidence](../poc/shared-pool/RECOVERY.md).
+
 ## Hypotheses and decisions
 
 | ID | Falsifiable claim | Evidence/status | Decision |
@@ -59,7 +66,7 @@ fees and privacy remain open. [Measured evidence](../poc/shared-pool/COMPACT.md)
 | H4 | After two wallets race on the same reserve, the losing wallet can discover accepted state, rebuild its proof and exit using its own keys and public data. | Funded rehearsal and fresh measured trial passed. Both losers generated a new proof after discovering the accepted successor and received payouts after the winner stopped. | Keep permissionless self-proving recovery. Address cold startup and sustained-contention fairness before claiming usability or general liveness. |
 | H5 | Bob's private withdrawal authorization can survive Alice's unrelated payment, with public-only transaction rebuilding and no further proof. | Supported offline and in complete TN10 rehearsal/measured trials. The exact proof/auth bytes survived a change from 3 to 5 commitments; Bob's stopped prover was not needed. Full local rebuilding took 20.650/20.783 ms with no additional proof. | Retain authorization/current-settlement separation. The larger covenant raises exit fees; investigate scale, contention and anchor-choice privacy separately. |
 | H6 | Compact native state can preserve Bob's exact proof through 100 payments, with no second proof or privileged settlement service. | Full offline gate, complete short TN10 rehearsal and fresh 100-payment trial passed; all 204 measured native transactions confirmed and every claim drained. | Retain fixed-depth public settlement for further research. Native size/mass stayed constant at payments 1, 10 and 100; history retention, fee cost and old-anchor privacy remain unresolved. |
-| H7 | Three wallets can recover incoming payments from pre-payment backups and public data, then create their first exit proofs without the original services. | Offline passed; funded recovery in progress after a pre-broadcast RPC interruption. | Keep the initial note opening for the depositor; require independently retained public data. No complete live result yet. |
+| H7 | Three wallets can recover incoming payments from pre-payment backups and public data, then create their first exit proofs without the original services. | Offline, complete TN10 rehearsal and fresh measured trial passed. All three payouts confirmed and every claim drained; an interrupted first attempt was also recovered through ordinary exits. | Retain this recovery path and declared backup/public-data requirements. Cold loading, data retention and useful privacy remain open; proceed to Stage 2's privacy audit. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
@@ -67,7 +74,7 @@ real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
 
-### 2026-10-19 — Stage 1 independent recovery (H7), started
+### 2026-10-19 — Stage 1 independent recovery (H7), completed bounded test
 
 The owner authorized backup definition, offline implementation/execution and,
 only if it passes, TN10 rehearsal and measured trial. All three wallets must
@@ -88,8 +95,27 @@ blocked WebSocket processing and the RPC connection dropped. The reserve was
 observed unspent; no submission intent existed. Close RPC during local proof
 work, reconnect and recheck the current reserve before sending. A fresh offline
 restoration of all three saved-fixture backups passed with the revised client.
-Fresh ordinary cleanup of the interrupted pool precedes another complete
-rehearsal and measured trial. No complete live H7 success is claimed yet.
+Fresh ordinary cleanup drained the interrupted pool. A separate complete
+rehearsal and fresh measured trial then passed with the same finalized runtime.
+All three recovered clients ran away from the original host, with one private
+backup each, a retained public copy and a separate public TN10 RPC. The original
+prover and HTTP data source stopped before each set of restores. The public
+mirror omitted the original manifest/receiver list; backups supplied no future
+note openings or prepared exit proofs.
+
+Bob, Carol and Alice received 3.782704, 1.782704 and 3.348936 tKAS respectively.
+Every pool drained completely. The measured trial cost 1.110008 tKAS including
+funding; all Stage 1 live work cost 3.299148 tKAS across 23 accepted transactions,
+including interruption cleanup and five ordinary funding-reuse transactions.
+The final funding fee increased because its small change output raised storage
+mass. The two private payments and three exits still cost 1.085656 tKAS per pool.
+
+Measured cold recovery took 136–151 seconds per wallet: roughly 105 seconds
+loading parameters and 12 seconds proving, plus public-data/confirmation work.
+Each restored wallet read about 479 MB of public files. Preserve the evidence
+boundary: one initial deposit, three synthetic claimants, retained public data,
+correct node views and single-party setup. This is recovery evidence, not an
+anonymity result or independent cryptographic review. Stage 2 is the next gate.
 See [recovery report](../poc/shared-pool/RECOVERY.md) and
 [review](../poc/shared-pool/RECOVERY-REVIEW.md).
 

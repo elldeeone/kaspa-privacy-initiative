@@ -55,3 +55,20 @@ Record actual host/node separation; do not claim three independent humans or an
 audit. [RFC-0008](../rfc/0008-independent-wallet-recovery.md) defines the gates;
 [source review](../../research/independent-recovery-source-review-2026-10-19.md)
 records reuse and current upstream checks.
+
+## Observed outcome
+
+The offline gate, complete TN10 rehearsal and fresh measured trial passed.
+Three restored clients independently discovered notes, generated their first
+exit proofs and received exact native payouts on a separate host after the
+original prover and public source stopped. All claims/reserves drained. The
+first funded attempt hit an RPC disconnect before exit submission; a transport
+fix and fresh ordinary wallet cleanup recovered that pool before the complete
+rehearsal. No special recovery signer or covenant path was added.
+
+Retain the declared backup and public-data model for further research. The
+initial-note control confirms the depositor cannot recover that original claim
+from keys alone. Cold parameter loading remains expensive, and public data must
+remain available independently. This bounded result does not establish useful
+privacy, arbitrary reorg/pruning recovery or production security.
+[Measured evidence](../../poc/shared-pool/RECOVERY.md).

@@ -13,6 +13,10 @@ receiver list, future note export or prepared authorization. Live clients use
 ordinary RPC, so connection metadata remains visible; this is not network
 privacy or a chain-only anonymity experiment. General reorg, pruning and
 concurrent recovery remain outside this bounded test. See [results](poc/shared-pool/RECOVERY.md).
+The offline gate, full TN10 rehearsal and fresh trial passed with all three
+claims paid and complete drain. An initial RPC interruption was recovered through
+ordinary wallet exits. These observations support only the declared backup,
+public-data and correct-node model; no invariant or setup assumption is weakened.
 
 The compact-state experiment in [ADR-0019](docs/adr/0019-compact-public-settlement.md)
 adds authenticated public Merkle update witnesses. An untrusted witness provider

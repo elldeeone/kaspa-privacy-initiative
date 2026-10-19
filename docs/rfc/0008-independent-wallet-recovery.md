@@ -1,6 +1,8 @@
 # RFC-0008: Stage 1 independent three-wallet recovery
 
-Status: implementation authorized; no H7 result yet. [ADR-0020](../adr/0020-independent-wallet-recovery.md).
+Status: bounded H7 completed, 2026-10-19. [ADR-0020](../adr/0020-independent-wallet-recovery.md).
+Offline, full TN10 rehearsal and fresh measured trial passed; all three wallets
+exited independently. [Results and remaining limits](../../poc/shared-pool/RECOVERY.md).
 
 ## Fixed workload and backups
 
