@@ -3,10 +3,12 @@
 Updated: 2026-10-19. Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** the bounded payment/exit mechanics and Stage 1 three-wallet
-recovery passed on TN10 under the declared public-data model. Useful privacy
-remains unestablished. Stage 2's privacy audit is next; a larger transaction count
-alone is not the next milestone.
+**Current position:** bounded payment/exit mechanics and Stage 1 three-wallet
+recovery passed on TN10. Stage 2's initial public-field audit is complete and
+activated its old-anchor redesign condition: the first H6 withdrawal identifies
+one source transaction despite 100 later payments. Useful privacy remains
+unestablished. Test fresh authorization while retaining a private exit fallback
+before expanding the wallet; see [the audit](../poc/shared-pool/PRIVACY.md).
 
 **Finish line:** a reproducible testnet wallet can receive, send and withdraw
 native test KAS, maintain correct backing, recover without privileged help, and
@@ -24,13 +26,14 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | Preliminary H2 only; next | Does the candidate hide useful relationships under explicit low-activity assumptions? |
+| 2. Practical privacy | 5 | H8 audit complete; redesign gate activated; policy thresholds untested | Does the candidate hide useful relationships under explicit low-activity assumptions? |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
 
-Stage 1 is complete for its declared three-claimant workload. Execute Stage 2
-before substantial wallet expansion. Stages 1 and 2 must justify
+Stage 1 is complete for its declared three-claimant workload. Stage 2 requires
+the [anchor-policy follow-on](rfc/0009-compact-anchor-privacy.md) before substantial
+wallet expansion. Stages 1 and 2 must justify
 continuing this candidate before stages 3–4 expand it. A discovered safety flaw
 takes priority at any stage. Stage 5 review can start earlier; its completion is
 not implied by an implementing agent's self-review.
@@ -115,6 +118,18 @@ backup requirement explicitly. Static public mirrors may suffice; do not build
 an operator network without evidence that it is needed.
 
 ## 2. Practical privacy
+
+**Observed audit outcome, 2026-10-19:** the public-only observer found a unique
+source transaction for the first H6 exit in both retained compact runs. Two
+possible note positions share that source; this does not identify a person.
+Coverage is 1/4 and 1/102 exits, with abstention elsewhere; H7 leaves two source
+transactions for each of its three exits. A small joint-value sensitivity admits
+three sources instead of one with a newer anchor, but no replacement proof was
+generated. [H8 report](../poc/shared-pool/PRIVACY.md) and
+[ADR-0021](adr/0021-separate-exit-fallback-and-privacy-policy.md) retain reusable
+exits and reject frozen-proof waiting as this case's privacy remedy. Stop before
+the conditional traffic simulator/funded trial. The 25%/25%/30-minute policy
+thresholds below are untested; the candidate has not passed practical privacy.
 
 **Hypothesis / decision:** an established wallet policy can materially reduce
 chain-only relationship inference at tolerable delay/cost. Determine whether to
@@ -266,6 +281,7 @@ still fail a declared usability target. Use fresh trial identities for retries,
 complete rehearsals through terminal payouts, and keep all amounts in integer
 sompi. Never weaken a check or erase a failed run.
 
-**Immediate next artifact:** a stage-1 recovery input inventory and bounded test
-specification, plus the stage-2 observer/attack specification. No experiment was
-run to create this plan.
+**Immediate next artifact:** a bounded paired offline specification for genuinely
+fresh authorization versus a privately held old exit fallback, following
+[RFC-0009](rfc/0009-compact-anchor-privacy.md). Stage 2's initial audit is complete;
+its redesign decision does not authorize advancing to wallet expansion.

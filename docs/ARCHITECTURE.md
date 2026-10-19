@@ -2,6 +2,16 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[Stage 2's compact privacy audit](../poc/shared-pool/PRIVACY.md) reached its
+redesign condition: an old count-three proof identifies the withdrawal's source
+transaction even after 100 payments. [ADR-0021](adr/0021-separate-exit-fallback-and-privacy-policy.md)
+retains reusable proofs for independent exits and proposes testing fresh local
+authorization for the normal privacy path. [RFC-0009](rfc/0009-compact-anchor-privacy.md)
+is open; an abstract candidate-set improvement is not a tested wallet policy.
+No circuit, covenant or L1 change was made. Keep unused fallback authorizations
+private, since old/new versions share a nullifier and expose the old restriction
+if both are published. Full-exit amounts and single-deposit ancestry remain public.
+
 [ADR-0020](adr/0020-independent-wallet-recovery.md) adds independent restoration
 tooling for the compact variant. A wallet keeps its three existing private keys
 and an authenticated pool-descriptor hash; the initial depositor additionally

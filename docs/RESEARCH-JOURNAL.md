@@ -10,8 +10,8 @@ can complete without privileged cooperation. No new token. Work within current
 Kaspa L1; consensus changes are a last resort. Testnet only, no real funds.
 
 The [shared-pool branch plan](SHARED-POOL-PLAN.md) maps these results to the
-repository phases and defines completion, stop and redesign criteria. Recovery
-and practical privacy are the next decision gates. A completed hypothesis below
+repository phases and defines completion, stop and redesign criteria. Bounded
+recovery passed; practical privacy requires redesign. A completed hypothesis below
 does not by itself close a roadmap phase.
 
 ## Current position
@@ -54,7 +54,14 @@ trials. Three wallets restored from pre-payment backups on a separate host,
 discovered their notes and created their first exit proofs after the original
 services stopped. Keep the initial depositor's note opening as well as the three
 keys and pool pin. Public history/parameters must remain independently available.
-Useful privacy is the next decision gate. [Evidence](../poc/shared-pool/RECOVERY.md).
+Useful privacy remains a decision gate. [Evidence](../poc/shared-pool/RECOVERY.md).
+
+Stage 2's initial audit now identifies the source transaction of Bob's H6 exit
+from public fields alone, despite 100 intervening payments. Keep reusable proofs
+as independent exit fallbacks; frozen-proof waiting cannot fix this source link.
+An abstract fresh-anchor comparison increases source candidates from one to three
+in the small trace, selecting a paired genuine-proof test as the next step. The
+traffic-policy thresholds remain untested. [Audit](../poc/shared-pool/PRIVACY.md).
 
 ## Hypotheses and decisions
 
@@ -67,12 +74,52 @@ Useful privacy is the next decision gate. [Evidence](../poc/shared-pool/RECOVERY
 | H5 | Bob's private withdrawal authorization can survive Alice's unrelated payment, with public-only transaction rebuilding and no further proof. | Supported offline and in complete TN10 rehearsal/measured trials. The exact proof/auth bytes survived a change from 3 to 5 commitments; Bob's stopped prover was not needed. Full local rebuilding took 20.650/20.783 ms with no additional proof. | Retain authorization/current-settlement separation. The larger covenant raises exit fees; investigate scale, contention and anchor-choice privacy separately. |
 | H6 | Compact native state can preserve Bob's exact proof through 100 payments, with no second proof or privileged settlement service. | Full offline gate, complete short TN10 rehearsal and fresh 100-payment trial passed; all 204 measured native transactions confirmed and every claim drained. | Retain fixed-depth public settlement for further research. Native size/mass stayed constant at payments 1, 10 and 100; history retention, fee cost and old-anchor privacy remain unresolved. |
 | H7 | Three wallets can recover incoming payments from pre-payment backups and public data, then create their first exit proofs without the original services. | Offline, complete TN10 rehearsal and fresh measured trial passed. All three payouts confirmed and every claim drained; an interrupted first attempt was also recovered through ordinary exits. | Retain this recovery path and declared backup/public-data requirements. Cold loading, data retention and useful privacy remain open; proceed to Stage 2's privacy audit. |
+| H8 | Public anchor and single-spend constraints uniquely identify the source transaction of the first H6 full exit even after later payments. | Confirmed in retained two-payment and 100-payment traces by an isolated chain-only observer. Coverage 1/4 and 1/102; source certificate leaves two note positions. Small joint-value and fresh-anchor controls also executed. | Stage 2 audit complete with redesign: retain exit fallback, reject frozen-proof delay for this case, test fresh authorization next. Privacy policy thresholds and real-world anonymity remain unestablished. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 — Stage 2 initial privacy audit (H8), redesign gate reached
+
+The owner authorized pushing the branch and executing Stage 2. Pushed the existing
+checkpoint `af9bae8` to the owner's fork after scanning 3,274 new-history blobs
+against 216 locally available secret values and credential patterns; no findings.
+No upstream issue comment or PR was created.
+
+Recorded the [audit specification](../poc/shared-pool/PRIVACY-AUDIT-SPEC.md) before
+executing the new observer, while explicitly acknowledging H6/H7 are already
+known exploratory traces. Refreshed upstream/P13 and established-protocol sources
+in the [source review](../research/compact-privacy-source-review-2026-10-19.md).
+This audit changes no proof relation, covenant, setup or L1 rule.
+
+Projected only accepted transaction bodies and block-header fields. The observer
+ran with no home/secret/truth mounts and no network. It found one source transaction
+for each selected first H6 exit, at withdrawal and after complete drain, with two
+possible note positions. All-exit source prediction coverage is 1/4 and 1/102;
+other exits are abstentions, not demonstrated private payments. H7's three exits
+each retain two source transactions under the small joint integer model. All
+109 full exits expose consumed value as payout plus fee. Every trace has one
+initial deposit, so deposit ancestry does not measure independent-user privacy.
+
+A fresh-anchor abstract sensitivity changes the small H6 target from one source
+to three, including full drainage. No modified proof/transaction was generated;
+the old proof would fail with changed authorization. Twelve control tests passed,
+including 340 brute-force matching systems/1,252 target queries. New native
+transactions and fees were both zero. [Report and evidence](../poc/shared-pool/PRIVACY.md).
+
+The documented old-anchor stop condition applies: no traffic simulator or new
+funded privacy trial. The 25% inference/25% fee/30-minute delay thresholds remain
+untested. Independent later deposits and partial exits are not compact features.
+Keep reusable authorization for exit liveness; investigate fresh proof creation
+against recent anchors as the normal path. Keep unused fallback authorization
+private: its nullifier would link it to a fresh one if both were published.
+[ADR-0021](adr/0021-separate-exit-fallback-and-privacy-policy.md) records the decision;
+[RFC-0009](rfc/0009-compact-anchor-privacy.md) scopes the open follow-on. Stage 3–4
+expansion remains behind useful privacy. No real-user anonymity or independent
+cryptographic-review claim.
 
 ### 2026-10-19 — Stage 1 independent recovery (H7), completed bounded test
 

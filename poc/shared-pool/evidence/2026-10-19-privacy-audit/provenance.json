@@ -1,0 +1,39 @@
+{
+  "baseline": "af9bae8afabbdb56bc52b59980ffb48f5f824af5",
+  "cases": {
+    "compact-rehearsal": {
+      "retained_chain_file": "poc/shared-pool/evidence/2026-10-19-compact/rehearsal/chain-confirmed.json",
+      "retained_chain_sha256": "98def777ff2d1dd66284e341632d1c8f47e0bf9521623ee7811dc4d35c86c643",
+      "observer_input_sha256": "89de59d1af402af85cf229c4bff00d1817e7d90b3560d56fe29aac32791ef4ca",
+      "observer_output_sha256": "8efa8dbcef8308c44811f4608ad1e868deed2480ad46bd4441699f9febd88297",
+      "joint_values": true,
+      "transactions": 8
+    },
+    "compact-trial": {
+      "retained_chain_file": "poc/shared-pool/evidence/2026-10-19-compact/trial/chain-confirmed.json",
+      "retained_chain_sha256": "bd2da1780de1c3d7ff9177f13bf5b9f99eca20f521bbdf1eec48aff1735d494a",
+      "observer_input_sha256": "9710b070dd93bf589972d833774a63f63bf63a4c7369467344c4dcc408d6921e",
+      "observer_output_sha256": "368a6b65a2ea789915587df0f1d0641a3e5143b1647f6d2ade8c584675e109bb",
+      "joint_values": false,
+      "transactions": 204
+    },
+    "recovery-trial": {
+      "retained_chain_file": "poc/shared-pool/evidence/2026-10-19-recovery/trial/chain-confirmed.json",
+      "retained_chain_sha256": "03de52bc2df41b53829a3752166f42449146695030f107818f118b16e3da34db",
+      "observer_input_sha256": "4ae2ce4b564bb21121e5c1acc433a5a5de8b033b1543d166de6ea2c5eb9ad91d",
+      "observer_output_sha256": "588e23854c14e874c9c6cc95fec5892e753b3bd73154e0005cbf6b8f26a378b6",
+      "joint_values": true,
+      "transactions": 6
+    }
+  },
+  "software_sha256": {
+    "compact_observer.py": "0ad295793fb263b2823809e5bd4f14fc551daeba953d9fc17e3d46de508a0190",
+    "run-privacy-audit.py": "1d91a959c0462b8e90ae57ec33c5aebe748ca98021815c5b61159c12abb860f0",
+    "test_compact_observer.py": "638679057f3a60a5e14c735fade86560386ffc945f34821093b9133b87737fb0",
+    "PRIVACY-AUDIT-SPEC.md": "b9024e323706df6842965cbcec36de6882e9711909ccbd02a690378c0d858f7f"
+  },
+  "new_native_transactions": 0,
+  "new_native_fees_sompi": 0,
+  "chain_projection": "Only transaction and accepted block header, canonical compact JSON with sorted keys and final newline",
+  "scope": "Offline reanalysis of earlier accepted synthetic TN10 traces; no fresh network observation"
+}

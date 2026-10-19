@@ -203,6 +203,11 @@ plausible notes or people: identified earlier spends and amount information can
 reduce the possibilities further. Choosing a newer anchor would require a new
 private proof in this design.
 
+The subsequent [Stage 2 audit](PRIVACY.md) constructs that source-link certificate
+from public fields: both surviving note positions belong to the first transfer.
+It retains reusable exits but selects a fresh-authorization policy comparison
+before further wallet expansion. No private relation changed in that audit.
+
 ## Reproduction
 
 Use Rust 1.95.0 and the existing locked native/SDK pin

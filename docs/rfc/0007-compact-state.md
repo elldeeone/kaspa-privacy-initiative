@@ -31,3 +31,11 @@ zero remaining liabilities/reserve. At payments 1, 10 and 100, transaction size
 and compute mass were unchanged. Local public reconstruction still grew to
 352 ms and RPC discovery took another 11.4 seconds; smaller state does not imply
 constant wallet catch-up work, lower fees or improved old-anchor privacy.
+
+Stage 2's subsequent [privacy audit](../../poc/shared-pool/PRIVACY.md) uniquely
+identifies the source transaction of the retained H6 first exit from its old
+anchor and public spentness constraints. Preserve the H6 liveness result, but
+do not present frozen-proof waiting as privacy growth.
+[ADR-0021](../adr/0021-separate-exit-fallback-and-privacy-policy.md) and
+[RFC-0009](0009-compact-anchor-privacy.md) separate a private exit fallback from
+the proposed fresh-authorization privacy path; no relation changed in this audit.

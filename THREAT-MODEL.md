@@ -1,5 +1,17 @@
 # Threat Model
 
+[H8's chain-only audit](poc/shared-pool/PRIVACY.md) shows a deterministic source
+transaction link for the first H6 exit, even though its two possible note positions
+remain indistinguishable under the modeled public constraints. The count-three
+anchor cannot include later notes; the initial note was already spent. This
+does not identify an owner or person, or prove every other exit anonymous. Full
+exits expose consumed value as payout plus fee, and one-deposit pools expose a
+single funding ancestor. Fresh-anchor authorization may remove this ceiling but
+is not a privacy guarantee. If old and fresh authorizations are both visible,
+their shared nullifier exposes the old restriction; a proposed fallback must stay
+private. Public research bundles/labels, RPC access and network metadata are
+separate observation surfaces. No protocol assumption or invariant was relaxed.
+
 The [H7 recovery tooling](docs/adr/0020-independent-wallet-recovery.md) treats
 public mirrors as replaceable data sources. A private backup pins the pool
 descriptor, which pins parameters and funding identity; native replay validates
