@@ -1,6 +1,6 @@
 # RFC-0011: Two-input payments, private change and partial withdrawals
 
-**Status:** Open — bounded H13 mechanics passed offline/TN10; H14/H15 passed modest offline inference screens, including known client construction rules. Strong privacy and broader qualification remain open.
+**Status:** Open — bounded H13 mechanics passed offline/TN10; H14/H15 passed modest inference screens. H16's participant-disclosure screen fails on two startup payment links and exposes further withdrawal links. Strong privacy and broader qualification remain open.
 **Date:** 2026-10-20 (Australia/Sydney).
 **Branch / inspected baseline:** `shared-pool-four-wallet` / `228e5d0`.
 **Scope decision:** [ADR-0024](../adr/0024-two-input-private-payment-scope.md).
@@ -58,7 +58,19 @@ remain 0/28 for fresh proofs; unique payment sources remain 2/24 for both.
 The tested profile reduces fresh exit candidates to 9–10 source transactions.
 Retain fresh normal authorizations and private fallbacks. This conditional
 client-knowledge result neither changes the protocol nor closes strong privacy;
-participant/account knowledge is a further untested adversary boundary.
+participant/account knowledge was its next untested adversary boundary.
+
+**H16 participant follow-up:** [the completed study](../../poc/shared-pool/PARTICIPANT-PRIVACY.md)
+adds one participant's legitimate records at a time, excluding its own targets.
+All 64 observations complete. Two extra fresh payment-source links at appearance
+fail the strict frozen claim; at least half remain ambiguous in every pair and
+fresh retains more alternatives in all sixteen pairs. Distinct targets linked
+by at least one separate eligible participant are 4/24 fresh payments and 7/28
+fresh exits, versus 6/24 and 28/28 saved. These are not pooled disclosures or
+anonymity percentages. Keep fresh normal proofs/private fallbacks. The proposed
+next investigation is common-size partial payouts/private remainder through
+complete drainage, using this relation and preserving immediate exits. Its
+benefit is unmeasured; no protocol change or further test is authorized here.
 
 ## Decision to investigate
 

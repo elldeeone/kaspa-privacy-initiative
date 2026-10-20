@@ -37,6 +37,31 @@ separates chain data from RPC/network/recipient knowledge, and lists inflation,
 double-spend, capacity, service-loss and fee-limit obligations. No security
 invariant is weakened and no strong-privacy claim is added.
 
+[H16](poc/shared-pool/PARTICIPANT-PRIVACY.md) tests chain observation plus one
+complete, honest participant record, separately for each wallet. The record
+reveals own receipts, authored inputs/output values and local receive-address
+equality; it does not reveal an incoming sender, another wallet's future spends,
+other records or network access. The primary observer additionally assumes this
+client's single-author inputs and fixed change ownership, not protocol-enforced
+ownership rules. Unknown authorities are not bounded to four.
+
+Excluding already-known participant targets, two new fresh payment-source links
+are forced at startup. Separate participant views also force 7/28 distinct
+fresh full-exit sources versus 28/28 saved; this does not mean one observer
+links every target or establish an anonymity percentage. Records alone force
+six fresh full exits and two partials; the ownership assumptions add one of
+each. Source alternatives are not owner-identity or hidden-amount guarantees.
+Fresh proofs/private fallbacks remain candidates; strong privacy is open.
+Withdrawal-amount policy is an untested follow-up, not a newly adopted defense.
+
+H16's second pass found that the inherited H14/H15 sandbox exposed host case/arm
+labels through process/mount metadata, though the observers did not read them.
+H16 was fully repeated without `/proc` or a supervisor, with dropped capabilities
+and denied nested user namespaces. All 64 probes pass and all 30 completed
+earlier predictions agree. The older numerical evidence remains intact; its
+isolation receipts do not demonstrate resistance to arbitrary metadata inspection.
+None of this changes the protocol's setup, backing, recovery or liveness model.
+
 [H12](poc/shared-pool/NORMALIZED-DEPOSITS.md) finds a bounded mitigation for
 funding-origin reconstruction: equal net private credits, with fresh proofs and
 all four deposits before payments, leave four feasible deposit labels through

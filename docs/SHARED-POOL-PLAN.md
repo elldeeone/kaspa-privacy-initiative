@@ -3,13 +3,16 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H15's [known-wallet comparison](../poc/shared-pool/WALLET-POLICY-PRIVACY.md)
-passes the same modest screen on unchanged H14 workloads. Construction-rule
-knowledge makes 20/28 saved exits uniquely linkable and leaves 0/28 fresh exits
-unique, with only 9–10 fresh source candidates. Both policies retain 2/24 unique
-payment links. Retain fresh normal proofs/private fallbacks. Stage 2's strong
-privacy gate stays open; the next proposed adversary knows one participant's
-own activity. H15 uses no new proofs, funds, network trial or publication.
+**Current position:** H16's [participant-disclosure comparison](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
+fails its strict screen on two additional startup payment links. Separate
+participant views force sources for 4/24 fresh payments and 7/28 fresh full
+exits, versus 6/24 and 28/28 saved. These are distinct synthetic targets linked
+by at least one eligible participant, not pooled disclosures or a privacy
+percentage. Fresh retains more alternatives in all sixteen matched pairs.
+Keep fresh normal proofs/private fallbacks and the compact research candidate.
+Stage 2 stays open; prioritize withdrawal-amount policy using existing partial
+withdrawals. All 64 observations and 30 controls complete. H16 adds no proofs,
+funds, network trial or publication.
 
 **Previous mechanics:** H13's authorized bounded offline and TN10 implementation passed:
 two private inputs, spendable private change, partial withdrawal and four wallets
@@ -65,7 +68,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H11/H12/H14/H15 bounded screens complete; H13 mechanics pass offline and TN10; strong privacy remains open | Retain fresh normal authorizations/private fallbacks; participant knowledge remains an untested privacy boundary. |
+| 2. Practical privacy | 5 | H11/H12/H14/H15 bounded screens complete; H16 disclosure screen fails; H13 mechanics pass offline/TN10 | Retain fresh normal proofs/private fallbacks; investigate withdrawal amounts and explain startup limits before wallet expansion. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -158,6 +161,25 @@ an operator network without evidence that it is needed.
 
 ## 2. Practical privacy
 
+**H16 observed outcome:** one participant's complete records create two new
+fresh payment-source singletons at startup. The other frozen clauses pass:
+at least half remain ambiguous in every pair, and fresh retains more alternatives
+in all sixteen pairs. After drain, distinct payment/partial/exit targets linked
+by at least one separate eligible participant are 4/24, 3/8, 7/28 fresh versus
+6/24, 4/8, 28/28 saved. The disclosure screen fails and the broad gate remains
+open. See [results and validation](../poc/shared-pool/PARTICIPANT-PRIVACY.md).
+
+Records alone force six of those fresh full exits and two partials. The extra
+ownership assumptions add one of each; removing only those assumptions leaves
+most measured withdrawal leakage. **Next proposed question:** can one frozen
+common partial-payout size with private remainder reduce links to original
+payments through full drainage? Use the existing v6 mechanics, account for
+every fee and eventual remainder, and preserve immediate independent exits.
+Do not count additional self-change notes as new independent privacy. Stop if
+the effect disappears at final drainage, depends on invented background traffic,
+or exceeds a predeclared cost/delay budget. This investigation is unrun and
+not authorized by this plan update. No protocol change is selected.
+
 **H15 observed outcome:** the observer now knows fixed deposit/partial padding,
 one-note full exits and receipt-time fallbacks. The four frozen paired ledgers
 still pass the modest screen; fresh retains five or six ambiguous payment
@@ -166,11 +188,9 @@ links. Saved full-exit uniqueness rises to 20/28; fresh stays at 0/28, but with
 9–10 source candidates. [H15](../poc/shared-pool/WALLET-POLICY-PRIVACY.md) separates
 shape from anchor effects and preserves H14's protocol-only baseline.
 
-This does not complete the broader privacy thresholds below. The next proposed
-bounded attack gives the observer one participant's own activity, then scores
-only relationships not involving that participant. It would test insider
-knowledge without inventing public wallet identities. It has not been scoped,
-authorized or run; no additional experiment follows from this plan update.
+This did not complete the broader privacy thresholds below. H16 above now
+tests the proposed participant adversary on the same frozen inputs, excluding
+already-known sends, receipts and own withdrawals from its scored targets.
 
 **Current mechanics gate, H13:** [RFC-0011](rfc/0011-two-input-private-payments.md)
 specifies two-input/two-output normal payments, partial withdrawal change and a

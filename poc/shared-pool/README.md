@@ -1,6 +1,16 @@
 # Four-wallet shared native-KAS pool — TN10
 
-Latest measured follow-up: [H15 known wallet behavior](WALLET-POLICY-PRIVACY.md)
+Latest measured follow-up: [H16 participant disclosure](PARTICIPANT-PRIVACY.md)
+fails its strict screen on two additional startup payment links. Across separate
+participant views, 4/24 fresh payments and 7/28 fresh full exits have uniquely
+determined sources, versus 6/24 and 28/28 saved. These are synthetic targets
+linked by at least one eligible participant, not pooled knowledge or a privacy
+percentage. Fresh retains more payment alternatives in all sixteen matched
+pairs. All 64 observations and 30 controls complete; no new proofs or funds.
+Keep fresh normal proofs/private fallbacks and investigate withdrawal amounts
+before wallet expansion. Strong privacy remains open.
+
+Earlier measured follow-up: [H15 known wallet behavior](WALLET-POLICY-PRIVACY.md)
 passes the same modest screen on unchanged H14 inputs. With the added client
 rules, saved exits have 20/28 uniquely linked sources and fresh exits have 0/28;
 both policies retain the same 2/24 unique payment links. Fresh withdrawals have

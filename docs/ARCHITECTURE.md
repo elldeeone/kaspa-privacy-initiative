@@ -22,6 +22,15 @@ hidden private change from still-visible deposits, payouts, timing and anchors.
 The new single-party setup and costs are measured but unreviewed. Independent
 review, broader exit qualification, network acceptance and useful privacy remain open.
 
+[H16's participant-disclosure study](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
+keeps this implementation unchanged. Its strict screen fails on two startup
+payment links; fresh normal proofs retain more alternatives and fewer forced
+withdrawal links than saved exits. Retain the compact settlement/fallback
+candidate, with strong privacy still open. The proposed next investigation is
+withdrawal-amount policy using existing partial withdrawals and private change,
+including complete drainage and every fee. No policy or architecture change is
+adopted by the inference result.
+
 [H12's bounded funding-policy comparison](../poc/shared-pool/NORMALIZED-DEPOSITS.md)
 adds equal net credits to H11's fresh-proof/private-fallback candidate. Its
 offline screen leaves four funding deposits possible after full drain when all
