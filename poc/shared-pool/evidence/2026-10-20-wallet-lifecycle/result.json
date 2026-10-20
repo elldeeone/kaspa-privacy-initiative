@@ -1,0 +1,342 @@
+{
+  "scope": "offline genuine v6 proofs and native validation; synthetic ancestry",
+  "chain_acceptance_verified": false,
+  "pool_proofs": 6,
+  "native_pool_transactions": 7,
+  "separate_malformed_delivery_fork_proofs": 1,
+  "malformed_delivery_neither_credited_nor_blocked_valid_prior_claim": true,
+  "initial_descriptor_unchanged": true,
+  "B_backup_created_after_bootstrap_before_admission": true,
+  "B_original_backup_unchanged": true,
+  "original_workers_stopped_before_recovery": true,
+  "original_A_backup_inaccessible_during_B_recovery": true,
+  "terminal_payout_spend_native_validated": true,
+  "parameters": {
+    "sha256": "6f95db952f84420717b3b677e1368bc85776791eb1ccf409cb390a4e4fb39593",
+    "bytes": 962197520
+  },
+  "vk_sha256": "9e6ab30d2442fb6ab6fbb5c8aa9f11d8f161fe47ada094d7810fd9240ee119ef",
+  "accounting": {
+    "admitted_sompi": "1200000000",
+    "founding_change_sompi": "98987400",
+    "founding_fee_sompi": "1012600",
+    "founding_input_sompi": "2100000000",
+    "initial_reserve_sompi": "2000000000",
+    "paid_sompi": "2960000000",
+    "pool_fees_sompi": "240000000",
+    "remaining_reserve_sompi": "0"
+  },
+  "controls": [
+    {
+      "name": "B-first-clean-recovery-pay-invalid-request",
+      "rejected": true,
+      "error": "selected position absent or not owned"
+    },
+    {
+      "name": "B-first-clean-recovery-pay-invalid-request",
+      "rejected": true,
+      "error": "duplicate selected position"
+    },
+    {
+      "name": "B-first-clean-recovery-pay-invalid-request",
+      "rejected": true,
+      "error": "payment below v6 note floor"
+    },
+    {
+      "name": "B-second-clean-recovery-exit-invalid-request",
+      "rejected": true,
+      "error": "selected position already spent"
+    },
+    {
+      "name": "genuine-proof-malformed-delivery-does-not-credit-or-block-prior-claim",
+      "passed": true
+    },
+    {
+      "name": "wrong-head",
+      "rejected": true
+    },
+    {
+      "name": "missing-history",
+      "rejected": true
+    },
+    {
+      "name": "missing-funding-parent",
+      "rejected": true
+    },
+    {
+      "name": "wrong-pool",
+      "rejected": true
+    }
+  ],
+  "process_isolation": [
+    {
+      "process": "founder",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-00-founded",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "A-original",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-01-bootstrapped",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "initialize-B",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "initialize-C",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-public-funding",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-synthetic-funding-parent",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-02-B-parent",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-original-admission",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-03-B-admitted",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-04-B-offline-receipt",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-first-clean-recovery-scan",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-first-clean-recovery",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "C-independent-exit",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-05-B-payment-change",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-06-C-exited",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-second-clean-recovery-scan",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-second-clean-recovery",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-07-drained",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-restored-native-payout-spend",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "A-genuine-malformed-delivery",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "checkpoint-fork-malformed-delivery",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-malformed-delivery-scan",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "B-valid-claim-after-malformed-delivery",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "wrong-head",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "missing-history",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "missing-funding-parent",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    },
+    {
+      "process": "wrong-pool",
+      "host_home_visible": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "controller_directory_visible": false,
+      "scope": "fresh process and user/mount/PID/network namespaces; same physical host"
+    }
+  ],
+  "limits": [
+    "No accepted-chain proof, transaction broadcast, or actual funding.",
+    "Expected heads are this experiment driver's offline oracle, not independently authenticated chain endpoints.",
+    "Same-host process/mount/network isolation is not independent-host recovery.",
+    "No security audit or real-world privacy/performance qualification.",
+    "Malformed delivery control uses a separate fork; its fee is not included in the six-operation accounting.",
+    "Existing-claim control after malformed delivery checked request/circuit preparation; no eighth proof was generated."
+  ]
+}

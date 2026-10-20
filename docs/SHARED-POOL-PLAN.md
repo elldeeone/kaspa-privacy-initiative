@@ -22,9 +22,10 @@ research/testnet only. The later roadmap does not authorize funded trials, paid
 infrastructure, participant recruitment or upstream publication. Existing branches,
 secrets, protocol instances and evidence stay intact.
 
-**Current work:** consolidate the current candidate's deposit, private
-transfer/change, exit and recovery interfaces under the accepted
-[RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md). The first
+**Current position:** milestone 2's bounded offline integration gate is complete:
+new own-key admission, recovered receipts, payment/change and fresh terminal exit
+share one current-version interface. Qualification against the accepted
+[RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md) remains open. The first
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
@@ -67,16 +68,34 @@ record any future change explicitly without reclassifying old failures.
 
 ## Milestone 2 — Consolidate one protocol candidate
 
-**Status:** started. [RFC-0013](rfc/0013-coherent-v6-lifecycle.md) maps the lifecycle
+**Status:** complete for the bounded offline integration gate on 2026-10-20.
+[RFC-0013](rfc/0013-coherent-v6-lifecycle.md) maps the lifecycle
 and all sixteen invariants. [ADR-0028](adr/0028-public-funding-replay.md) scopes an
 additive offline public replay component with actual funding-parent bodies and
 no participant roster. The [reuse review](../research/shielded-kas-lifecycle-integration-2026-10-20.md)
-records current upstream/H7/v6 boundaries. The full lifecycle remains incomplete.
+records current upstream/H7/v6 boundaries.
 
 The [first component's checks](../poc/shared-pool/PUBLIC-REPLAY.md) pass: both
 retained histories replay exactly, 15 focused tests pass, and both CLI modes
 reach the original terminal state/accounting. No new participant, proof or funded
 trial was created; the accepted-chain view remains an external assumption.
+
+Replay was committed/pushed at `fa1dcf1`. The owner then authorized the next
+local slice: [own-key admission and backup recovery](adr/0029-own-key-admission-and-recovery.md).
+Its [complete trace passes](../poc/shared-pool/WALLET-LIFECYCLE.md): a wallet created
+after bootstrap admits with its own key, receives while offline, restores both
+notes from its original backup, spends into payment/change, restores again and
+freshly exits through terminal drainage. The descriptor and backup stay unchanged.
+Six positive proofs reconcile 32 = 29.6 native payouts + 2.4 pool fees + zero
+reserve. A separate seventh proof tests malformed delivery without blocking a
+valid prior claim. Nine integration controls and 29 wallet/replay tests pass.
+
+**Completion boundary:** synthetic funding ancestry, externally supplied offline
+heads and same-host process isolation. No new testnet acceptance, independent
+public-data survival, general recovery, useful privacy, cryptographic assurance
+or milestone 1 performance qualification is established. The restored-key native
+payout-spend check uses a known derivation index; automatic native coin discovery
+is later wallet work.
 
 Use one circuit, covenant, parameter identity, wallet format and public-data format
 for deposit, private transfer/change, withdrawal and recovery. Map all security
@@ -111,7 +130,7 @@ Architecture changes require the relevant RFC, ADR and synchronized threat model
 
 ## Milestone 4 — Deliver a usable wallet lifecycle
 
-**Status:** experiment clients exist; general client incomplete.
+**Status:** current-version offline own-key lifecycle passes; general client incomplete.
 
 Support independently generated keys, offline receiving, authenticated scanning,
 repeated private payments, private change, deposits and partial/full withdrawals.
@@ -127,7 +146,9 @@ an untrusted prover is necessary. Measure cold and warm operation separately.
 
 ## Milestone 5 — Make recovery and data availability ordinary
 
-**Status:** older-version bounded recovery passed; current-version work remains.
+**Status:** older-version separate-host recovery and current-version bounded
+offline backup recovery pass. Current-version independent-host/public-data
+survival and live recovery remain open.
 
 Restore a newly received payment using a backup that predates it, on another machine,
 without precomputed exits or sender/coordinator note exports. Authenticate the pool,
@@ -245,9 +266,10 @@ version used by recovery (5) and settlement fault testing (6). Measurements feed
 architecture selection (8). The independent-user trial (9) follows qualification;
 the reproducible release (10) includes the resulting evidence and limitations.
 
-Milestone 1 is closed. Start milestone 2 from the accepted requirements and
-source/capability gaps: map one coherent lifecycle, then remove fixture-only
-participation without weakening native funding validation. The
+Milestone 1 and the bounded offline milestone 2 gate are closed. Next prioritize
+milestone 3's relation/setup review alongside milestone 4's ordinary client and
+milestone 5's authenticated history and independent data survival. Keep the known
+fee/cold-load gaps visible before expanding live scope. The
 persistent-balance versus prompt-cashout comparison is an early diagnostic inside
 this programme, not the whole programme or a reason to delay all useful integration.
 

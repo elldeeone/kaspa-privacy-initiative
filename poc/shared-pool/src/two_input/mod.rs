@@ -4,8 +4,10 @@ pub mod circuit;
 pub mod covenant;
 pub mod harness;
 pub mod live;
+pub mod lifecycle;
 pub mod replay;
 pub mod tree;
+pub mod wallet;
 use crate::{
     Result, native,
     protocol::{H, MAX_SOMPI, NOTE_TAG, Note, OWNER_TAG, Wallet, hash, random},

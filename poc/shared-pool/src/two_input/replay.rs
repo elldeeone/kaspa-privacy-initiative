@@ -34,7 +34,7 @@ pub struct Descriptor {
 }
 
 impl Descriptor {
-    fn validate(&self, vk: &[u8]) -> Result<u64> {
+    pub(super) fn validate(&self, vk: &[u8]) -> Result<u64> {
         if self.format != DESCRIPTOR_FORMAT
             || self.network != "testnet-10"
             || self.genesis != GENESIS_HEX
@@ -120,13 +120,13 @@ impl Replay {
 /// zero locktime/gas, empty payload and no output covenant metadata. The common
 /// native parser checks the canonical ID and envelope. Native subnetwork plus
 /// nonempty ordinary inputs excludes a coinbase parent before creating context.
-struct Parents {
+pub(super) struct Parents {
     transactions: HashMap<String, Transaction>,
     consumed: HashSet<(String, u32)>,
 }
 
 impl Parents {
-    fn new(bodies: &[Value]) -> Result<Self> {
+    pub(super) fn new(bodies: &[Value]) -> Result<Self> {
         let mut transactions = HashMap::new();
         for body in bodies {
             let tx = native::parse_tx(body)
@@ -151,7 +151,7 @@ impl Parents {
         })
     }
 
-    fn consume(
+    pub(super) fn consume(
         &mut self,
         point: &kaspa_consensus_core::tx::TransactionOutpoint,
     ) -> Result<native::Utxo> {
@@ -182,7 +182,7 @@ impl Parents {
     }
 }
 
-fn bundle(tx: &Transaction) -> Result<Bundle> {
+pub(super) fn bundle(tx: &Transaction) -> Result<Bundle> {
     let signature = &tx
         .inputs
         .first()

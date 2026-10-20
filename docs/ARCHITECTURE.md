@@ -2,21 +2,32 @@
 
 **Status:** exploratory. No architecture has been selected.
 
-[RFC-0013](rfc/0013-coherent-v6-lifecycle.md) starts current-version lifecycle
-integration. [ADR-0028](adr/0028-public-funding-replay.md) scopes an additive offline
+[RFC-0013](rfc/0013-coherent-v6-lifecycle.md) records the completed bounded offline
+current-version integration. [ADR-0028](adr/0028-public-funding-replay.md) scopes an additive offline
 public replay path whose descriptor identifies the pool rather than its users.
 Actual funding-parent bodies supply native input context; proof declarations alone
 do not establish backing. Authenticated accepted-chain/current-head selection
 remains external to this component. Strict parent-format and retained-history
 limits are explicit; the existing v6 relation and historical runners stay unchanged.
-This is a foundation for new-user admission and recovery, not their completed proof.
+This replay component supplies the public-state foundation for the wallet below.
+
+[ADR-0029](adr/0029-own-key-admission-and-recovery.md) now scopes an offline
+own-key wallet around that replay interface. Backups pin pool and exact parameter
+identities; receipt scanning covers ADMIT and SPEND with position-bound
+nullifiers. The wallet derives native exits from its own key and generates fresh
+proofs after restoration. [Source/reuse review](../research/shielded-kas-admission-recovery-2026-10-20.md)
+records the existing primitives and older-recovery incompatibilities. The
+[complete local trace](../poc/shared-pool/WALLET-LIFECYCLE.md) passes admission,
+two original-backup restores, payment/change and fresh terminal exit.
+Synthetic ancestry, offline expected heads and same-host isolation remain;
+new chain acceptance and general recovery remain open.
 
 [ADR-0027](adr/0027-shielded-payment-targets.md) adopts the
 [RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md) and closes
 milestone 1. These targets constrain future architecture choices; they do not
 select a proof system/runtime, qualify v6 or change deployed pool rules.
-Milestone 2 starts consolidating the current candidate's lifecycle and native
-funding/recovery interfaces. The small-payment fee target is a known challenge
+Milestone 2 closes only bounded offline integration of the candidate's lifecycle
+and native funding/recovery interfaces. The small-payment fee target is a known challenge
 for individually verified transitions under the pinned relay policy.
 
 [ADR-0026](adr/0026-scheduled-common-payout-screen.md) records H18's completed

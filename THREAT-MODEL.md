@@ -17,6 +17,20 @@ authenticated accepted-chain view; matching bytes alone establish neither chain
 acceptance nor current spendability. Unsupported parent formats and missing older
 parents fail explicitly. No private witness or privileged role is introduced.
 
+[ADR-0029](docs/adr/0029-own-key-admission-and-recovery.md) adds a local recovery
+boundary: the backup authenticates pool and exact proving parameters, and the
+caller independently supplies the expected history endpoint. A hostile provider
+can withhold data; a valid prefix cannot satisfy a different expected endpoint.
+The endpoint's acceptance/currentness still requires external evidence.
+Decryptability alone never credits a note: ownership, commitment, position,
+v6 value bounds and current spentness must also pass. A backup predating receipts
+must recover them without a saved proof or controller-supplied plaintext.
+Malformed delivery in a valid public transition must not block scanning or exit
+of unrelated valid notes. Private selection positions and derived payout-key
+indices stay out of public transaction wrappers.
+The offline test isolates recovery from original wallet/controller files, but
+does not claim endpoint compromise, independent-host or network privacy protection.
+
 [H18](poc/shared-pool/SCHEDULED-PAYOUT.md) gives the chain observer
 the declared remainder-delay distribution and service/queue assumptions, in
 addition to the existing amount and wallet rules. Each participant disclosure

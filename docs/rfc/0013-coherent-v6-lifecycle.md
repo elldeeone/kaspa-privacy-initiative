@@ -1,7 +1,9 @@
 # RFC-0013: One current-version native-KAS payment lifecycle
 
-**Status:** Open — milestone 2 integration. First offline replay slice scoped by
-[ADR-0028](../adr/0028-public-funding-replay.md).
+**Status:** Accepted — bounded offline integration scope implemented and tested;
+not protocol adoption or live-wallet qualification. Decisions:
+[ADR-0028](../adr/0028-public-funding-replay.md) and
+[ADR-0029](../adr/0029-own-key-admission-and-recovery.md).
 
 **Date:** 2026-10-20
 
@@ -30,7 +32,10 @@ remains applicable to recipient spendability, historical roots and query leakage
 
 ## Candidate lifecycle and ownership of each obligation
 
-| Boundary | Candidate interface and data | Current integration gap |
+This table records the starting gaps. The outcome below identifies those tested
+by the bounded offline integration; broader obligations remain open.
+
+| Boundary | Candidate interface and data | Starting integration gap |
 | --- | --- | --- |
 | Pool identity | Authenticated descriptor: TN10/genesis, domain, exact VK identity, initial commitment/value and founding transaction identity. | Current descriptor also lists all four funding sources. Separate pool identity from participant discovery. |
 | User identity | Existing local `Wallet` spending/viewing/native secrets and public `Receive` data. | General v6 local-key/backup/address interface, overwrite protection and authenticated recipient exchange. |
@@ -152,6 +157,29 @@ coverage gaps, not evidence that native KAS itself forbids admission.
 
 ## Milestone 2 exit gate and later work
 
+### Second slice: own-key admission and recovery
+
+[ADR-0029](../adr/0029-own-key-admission-and-recovery.md) scopes the authorized
+offline continuation after `fa1dcf1`. A versioned private backup pins the public
+pool and exact proving parameters and retains the wallet's three existing keys.
+Only the founder needs its initial note opening. Later notes must be recoverable
+from public encrypted ADMIT/SPEND outputs and position-bound spentness.
+
+The wallet must rebuild validated public history against a separately supplied
+expected endpoint before scanning or proving. An expected endpoint is an external
+trust input, not chain acceptance established by this offline component. Admission
+uses an actual supported funding parent and the participant's native signature;
+payment/change and exit use locally recovered owned unspent notes.
+
+The decisive local trace creates a new participant after bootstrap, seals its
+backup before admission, admits funds, receives while offline, restores, spends
+two recovered inputs into payment/change, and restores again to withdraw the
+change through terminal drainage. Six fresh proofs use the existing v6 parameters;
+synthetic funding ancestry and no new chain acceptance are explicit. The ADR
+defines exact amounts, accounting and negative controls before execution.
+
+### Full integration gate
+
 After this first slice, connect current-version local key/backup, new ADMIT proving,
 recipient scanning, ordinary spend/change and independent exit to the same public
 state interface. The decisive integrated trace is an unknown participant joining
@@ -174,5 +202,23 @@ and both CLI modes reproduce state/accounting through drainage. The
 historical replay from isolated rejection controls and record the external
 chain-view assumption. No new proofs or funded transactions were used.
 
-Milestone 2 remains open: arbitrary new admission, current-version backup recovery
-and the complete independent lifecycle are not yet demonstrated by this component.
+The [own-key lifecycle result](../../poc/shared-pool/WALLET-LIFECYCLE.md) now closes
+milestone 2's bounded offline integration gate. A wallet initialized after valid
+bootstrap admits with its own funding key, receives offline, restores from its
+original backup, spends two recovered notes into payment/change, restores again,
+and generates a fresh terminal exit. No descriptor edit, plaintext-note export
+or saved exit is required. Six positive proofs reconcile 32 = 29.6 native payouts
+plus 2.4 pool fees plus zero reserve. The restored native key also signs a locally
+valid spend of the terminal payout using the known derivation index.
+
+Fourteen wallet tests, fifteen replay tests and nine integration controls pass.
+A seventh genuine proof on a separate fork demonstrates that an unusable delivery
+neither credits value nor prevents preparation of an existing valid claim.
+The executed source/binary identities and both public lineages are retained.
+
+These are native-validated synthetic histories with a driver-supplied expected
+head and same-host isolation. Live arbitrary admission, authenticated current
+accepted history, independently surviving public data, general/native coin
+discovery, cryptographic assurance and privacy remain open. Observed fees and
+proving/load times do not satisfy all adopted targets. This outcome closes an
+integration gate, not those separate qualification gates.

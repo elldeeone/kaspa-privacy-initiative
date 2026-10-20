@@ -28,12 +28,17 @@ Milestone 1 is complete as a requirements decision. The owner adopted
 followed by starting milestone 2. The targets are prospective; no current
 implementation has passed this new qualification.
 
-Milestone 2 has started with [RFC-0013](rfc/0013-coherent-v6-lifecycle.md), a coherent
-current-version lifecycle and enforcement map. [ADR-0028](adr/0028-public-funding-replay.md)
-scopes an additive offline component that removes the replay participant roster
-while preserving actual native funding checks. Its
-[first checks pass](../poc/shared-pool/PUBLIC-REPLAY.md) on both retained histories;
-the full current-version admission/recovery lifecycle remains incomplete.
+Milestone 2 is complete for the bounded offline integration gate in
+[RFC-0013](rfc/0013-coherent-v6-lifecycle.md). The
+[public replay component](../poc/shared-pool/PUBLIC-REPLAY.md) at `fa1dcf1` removes
+the participant roster while preserving native funding checks. The subsequent
+[own-key wallet trace](../poc/shared-pool/WALLET-LIFECYCLE.md) passes new admission,
+offline receipt, original-backup recovery, payment/change, second recovery and
+fresh terminal exit. Six positive proofs reconcile 32 = 29.6 payouts + 2.4 pool
+fees; a separate seventh proof checks unusable delivery.
+Synthetic ancestry, externally supplied offline heads and same-host isolation
+remain explicit. Live acceptance, general recovery and the adopted targets
+are not qualified by this result.
 Integration, cryptographic review and privacy evaluation remain separate work.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
@@ -213,6 +218,56 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — New participant and backup recovery
+
+- **Authorization/checkpoint:** the owner directed committing/pushing the replay
+  slice, then continuing milestone 2 with new admission and backup recovery.
+  Replay is now committed/pushed as `fa1dcf1`.
+- **Decision:** [ADR-0029](adr/0029-own-key-admission-and-recovery.md) specifies a
+  local wallet wrapper and six-proof lifecycle on unchanged v6 parameters;
+  [RFC-0013](rfc/0013-coherent-v6-lifecycle.md) records the bounded integration gate.
+  No funded trial is initiated.
+- **Source basis:** [new review](../research/shielded-kas-admission-recovery-2026-10-20.md)
+  refreshes current sources and identifies reuse of existing keys, encryption,
+  proving and settlement. ADMIT receipts and positioned nullifiers make the
+  older H7 scanner unsuitable without adaptation. Retained exact v6 parameters
+  were available; full-byte hashes and embedded VK checks passed before use.
+- **Prospective test:** initialize B after founder bootstrap; seal B's backup
+  before admission and incoming payment. Restore with only that backup and
+  public data, spend both recovered notes into a payment and private change,
+  then restore again and freshly withdraw the change through drainage.
+  Required pool accounting is 32 = 29.6 payout + 2.4 fees + zero remaining tKAS.
+- **Falsifiers:** privileged note/key export, changed descriptor/setup, missing
+  ADMIT receipts, incorrect positions/spentness, unauthorized or unbacked value,
+  unsafe credit of malformed delivery, or failure to complete native-validated
+  terminal exit. Negative controls and isolated recovery access accompany the
+  positive trace.
+- **Observed:** the full trace passed on unchanged descriptor, backup and
+  parameters: six positive proofs, nine integration controls and 29 isolated
+  process checks. Fourteen wallet tests and fifteen replay tests pass. B also
+  signed a locally valid ordinary spend of its terminal payout using its restored
+  native key and a known local derivation index. Automatic native coin discovery
+  is not implemented.
+- **Adversarial review:** fixed a malformed-receipt scan denial of service and a
+  private input-position leak through the public payout derivation index.
+  A separate seventh genuine proof delivered an unusable opening; B credited
+  nothing new and still prepared/circuit-checked its valid prior claim. This was
+  no eighth proof or completed exit. Author-side review is not an independent audit.
+- **Evidence:** [report and public exports](../poc/shared-pool/WALLET-LIFECYCLE.md)
+  preserve both full lineages, funding contexts, VK and exact source/binary hashes.
+  All 17 candidate hashes stayed unchanged. Both exported histories replay exactly;
+  private-field and fresh-secret export checks pass. Backups and local views stay
+  outside Git. Earlier evidence and protocol instances are unchanged.
+- **Costs:** six pool fees total 2.4 tKAS; founding/ordinary funding fees add
+  0.030416 separately. The terminal ordinary-spend control costs 0.002038 and
+  the separate malicious fork costs 0.4. Preparation takes 38.132–39.315 seconds,
+  proving 20.495–21.486 seconds and parameter loading 202.939–205.838 seconds.
+  These component observations expose target gaps; they are not p95 qualification.
+- **Outcome:** milestone 2's bounded offline integration gate passes. All funding
+  ancestry is synthetic, expected heads come from the driver, and isolation is
+  on one host. No new testnet acceptance, useful privacy, independent cryptographic
+  assurance, general recovery or milestone 1 performance pass follows.
 
 ### 2026-10-20 (Australia/Sydney) — Milestone 2 lifecycle integration started
 

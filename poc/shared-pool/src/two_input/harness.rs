@@ -15,12 +15,12 @@ use std::{
     time::Instant,
 };
 use tree::PublicState;
-fn compressed<T: CanonicalSerialize>(v: &T) -> Result<Vec<u8>> {
+pub(super) fn compressed<T: CanonicalSerialize>(v: &T) -> Result<Vec<u8>> {
     let mut b = Vec::new();
     v.serialize_compressed(&mut b)?;
     Ok(b)
 }
-fn output(w: &Wallet, d: &H, v: u64) -> Result<Note> {
+pub(super) fn output(w: &Wallet, d: &H, v: u64) -> Result<Note> {
     if v == 0 {
         let w = Wallet::fresh();
         let mut n = w.receive(d).note(1)?;
@@ -30,7 +30,7 @@ fn output(w: &Wallet, d: &H, v: u64) -> Result<Note> {
         w.receive(d).note(v)
     }
 }
-fn selected(w: &Wallet, n: &Note, pos: u32, s: &PublicState) -> Result<Input> {
+pub(super) fn selected(w: &Wallet, n: &Note, pos: u32, s: &PublicState) -> Result<Input> {
     Ok(Input {
         real: true,
         note: n.clone(),
@@ -41,7 +41,7 @@ fn selected(w: &Wallet, n: &Note, pos: u32, s: &PublicState) -> Result<Input> {
         dummy_seed: [0; 32],
     })
 }
-fn authorize(
+pub(super) fn authorize(
     d: H,
     s: &PublicState,
     ins: Vec<Input>,
@@ -131,7 +131,7 @@ fn authorize(
         bundle,
     ))
 }
-fn prove(pk: &ProvingKey<Bn254>, c: Circuit, mut b: Bundle) -> Result<Bundle> {
+pub(super) fn prove(pk: &ProvingKey<Bn254>, c: Circuit, mut b: Bundle) -> Result<Bundle> {
     let t = Instant::now();
     let inputs = c.auth.inputs();
     let p = Groth16::<Bn254>::create_random_proof_with_reduction(c, pk, &mut OsRng)?;

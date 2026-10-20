@@ -117,10 +117,15 @@ not independent cryptographic assurance.
 
 ## What remains
 
-Milestone 2 remains open. Connect local keys/backups, independent new-admission
+At this first component's checkpoint, milestone 2 remained open. The next work was
+to connect local keys/backups, independent new-admission
 construction, recipient scanning, ordinary spend/change and independent exit to
 one current-version state interface. The decisive trace is a previously unknown
 participant joining after valid bootstrap, receiving while offline, restoring
 from a prior backup, spending and withdrawing after the original controller
 disappears. No participant-list edit, plaintext-note export or saved exit may be
 required. No new funded trial is initiated by this component.
+
+The subsequent [own-key admission/recovery result](WALLET-LIFECYCLE.md) completes
+that bounded offline integration gate. It adds fresh proofs on synthetic ancestry;
+it does not change this component's historical evidence or establish live recovery.

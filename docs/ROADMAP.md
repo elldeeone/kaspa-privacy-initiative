@@ -6,8 +6,9 @@ For the independent `shielded-kas-research` branch (formerly
 `shared-pool-four-wallet`), follow the ten-milestone
 [branch execution plan](SHARED-POOL-PLAN.md) and [research journal](RESEARCH-JOURNAL.md).
 They retain the bounded direct-L1 evidence and define the path to an independently
-usable testnet payment system. Milestone 1 has adopted the privacy/operating requirements; current work starts
-consolidating one protocol candidate in milestone 2.
+usable testnet payment system. Milestone 1 has adopted the privacy/operating
+requirements; milestone 2's bounded offline admission/payment/recovery integration
+passes. Live qualification, independent assurance and useful privacy remain open.
 They do not mark the broader phases below complete or replace upstream history.
 
 ## Current focus, 2026-10-18

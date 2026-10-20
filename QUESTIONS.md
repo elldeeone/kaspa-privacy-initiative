@@ -5,17 +5,27 @@ The initiative should treat these as questions to answer, not conclusions to def
 [Milestone 1's accepted requirements](docs/rfc/0012-useful-privacy-requirements.md)
 now fix the repeated-payment use case and quantitative privacy/operating targets.
 Which current-L1 architecture can meet them, especially the small-payment fee
-endpoint? How can one current-version client support arbitrary admission, recipient
-acceptance and recovery without fixture metadata? Milestone 2 starts these
-integration questions. The [decision](docs/adr/0027-shielded-payment-targets.md)
+endpoint? How can one current-version client authenticate live admission, receipt
+acceptance and recovery without fixture metadata? Milestone 2's bounded offline
+integration now passes; the live/data-survival questions remain. The
+[decision](docs/adr/0027-shielded-payment-targets.md)
 closes requirements only; exact experiment manifests remain prospective.
 
 [RFC-0013](docs/rfc/0013-coherent-v6-lifecycle.md) now maps the coherent lifecycle
 and invariant obligations. Its first slice resolves funding from actual public
 parent bodies rather than a participant list. How will a general client obtain
 authenticated parents older than its discovery window, identify the current
-accepted reserve, and restore v6 receipts from a pre-payment backup? The offline
-component does not resolve these availability and wallet questions by itself.
+accepted reserve, and preserve everything needed for v6 backup recovery?
+Offline receipt recovery now passes; the component does not resolve independent
+availability or accepted-head authentication.
+
+[ADR-0029](docs/adr/0029-own-key-admission-and-recovery.md)'s
+[bounded trace passes](poc/shared-pool/WALLET-LIFECYCLE.md): a new own-key participant
+admits, restores admission/payment notes from a prior backup, spends recovered
+value/change, and freshly exits through drainage on unchanged v6 parameters.
+How will live clients authenticate a fresh endpoint, discover native payout coins
+and recover from surviving independent public sources? The local synthetic trace
+does not answer those questions or establish useful privacy.
 
 [H18's completed comparison](poc/shared-pool/SCHEDULED-PAYOUT.md) rejects the
 tested short-delay common-payout policy: the strongest attack's success is
