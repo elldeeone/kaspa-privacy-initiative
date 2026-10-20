@@ -28,8 +28,12 @@ Milestone 1 is complete as a requirements decision. The owner adopted
 followed by starting milestone 2. The targets are prospective; no current
 implementation has passed this new qualification.
 
-Milestone 2 begins with a coherent current-version lifecycle and enforcement map,
-then removes fixture-only participation while preserving native backing checks.
+Milestone 2 has started with [RFC-0013](rfc/0013-coherent-v6-lifecycle.md), a coherent
+current-version lifecycle and enforcement map. [ADR-0028](adr/0028-public-funding-replay.md)
+scopes an additive offline component that removes the replay participant roster
+while preserving actual native funding checks. Its
+[first checks pass](../poc/shared-pool/PUBLIC-REPLAY.md) on both retained histories;
+the full current-version admission/recovery lifecycle remains incomplete.
 Integration, cryptographic review and privacy evaluation remain separate work.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
@@ -209,6 +213,43 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Milestone 2 lifecycle integration started
+
+- **Starting point:** milestone 1 adoption was committed/pushed at `a869d16`,
+  followed by fee-basis wording clarification at `cbeaa6f`.
+  [RFC-0013](rfc/0013-coherent-v6-lifecycle.md) maps the current lifecycle and all
+  sixteen invariants; [ADR-0028](adr/0028-public-funding-replay.md) records the
+  bounded first implementation scope.
+- **Source/reuse result:** [current upstream and local review](../research/shielded-kas-lifecycle-integration-2026-10-20.md)
+  identifies reusable own-key, backup and public-history contracts, but no general
+  v6 wallet to import. The old H7 and upstream RISC Zero relations do not share
+  v6 proof/backup identities.
+- **First slice:** public replay without a participant roster, resolving actual
+  founding/admission inputs from canonical parent bodies. Reuse retained genuine
+  proofs and require exact state/native reconstruction and rejection controls.
+  A new depositor still needs its own proof/signature; no live admission follows
+  from replaying an existing trace.
+- **Trust boundary:** actual parent bytes are stronger input context than
+  self-declared authorization amounts, but accepted-chain/current-head evidence
+  remains external. Strict ordinary-parent formats and available retained history
+  bound this first slice. Missing older parents cannot be fabricated.
+- **Result:** the additive component replays both retained histories exactly:
+  fourteen native founding/pool transactions each, original public state and
+  proof/auth bytes, 56 tKAS entering the reserve = 50.8 payout + 5.2 pool fees +
+  zero remaining. Founding fees are accounted separately. Fifteen focused tests
+  and both CLI modes pass; malformed funding, reused inputs, damaged native
+  authorization and broken/terminal history reject. These are offline checks
+  of retained evidence and isolated controls, not new chain acceptance.
+- **Review:** a second adversarial pass found no implementation blocker and
+  requested additional direct funding-output boundary controls, now included.
+  This does not establish cryptographic correctness or useful privacy.
+- **Status:** this first local slice is complete;
+  [report, commands and limits](../poc/shared-pool/PUBLIC-REPLAY.md). Full milestone
+  2 remains open: connect local keys/backups, new admission, scanning, spending
+  and independent recovery/exit without a participant list or secret export.
+  No new funded experiment, proof setup or change to previous pool instances
+  was performed.
 
 ### 2026-10-20 (Australia/Sydney) — Milestone 1 targets adopted and closed
 

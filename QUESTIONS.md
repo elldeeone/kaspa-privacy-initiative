@@ -10,6 +10,13 @@ acceptance and recovery without fixture metadata? Milestone 2 starts these
 integration questions. The [decision](docs/adr/0027-shielded-payment-targets.md)
 closes requirements only; exact experiment manifests remain prospective.
 
+[RFC-0013](docs/rfc/0013-coherent-v6-lifecycle.md) now maps the coherent lifecycle
+and invariant obligations. Its first slice resolves funding from actual public
+parent bodies rather than a participant list. How will a general client obtain
+authenticated parents older than its discovery window, identify the current
+accepted reserve, and restore v6 receipts from a pre-payment backup? The offline
+component does not resolve these availability and wallet questions by itself.
+
 [H18's completed comparison](poc/shared-pool/SCHEDULED-PAYOUT.md) rejects the
 tested short-delay common-payout policy: the strongest attack's success is
 unchanged on new workloads in both regimes/profiles. Fees and delay fit the

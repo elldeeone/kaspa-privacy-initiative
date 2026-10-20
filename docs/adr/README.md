@@ -58,3 +58,4 @@ The open state architecture comparison is [RFC-0001](../rfc/0001-state-architect
 - [ADR-0026: independently scheduled common payouts](0026-scheduled-common-payout-screen.md) — Offline privacy gate failed; short-delay policy rejected and conditional native/TN10 step not triggered.
 
 - [ADR-0027: adopt shielded-payment qualification targets](0027-shielded-payment-targets.md) — Accepted requirements; milestone 1 complete, implementation qualification remains open.
+- [ADR-0028: begin lifecycle integration with public funding replay](0028-public-funding-replay.md) — Bounded offline component on the unchanged v6 relation; full wallet integration remains open.

@@ -2,6 +2,15 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[RFC-0013](rfc/0013-coherent-v6-lifecycle.md) starts current-version lifecycle
+integration. [ADR-0028](adr/0028-public-funding-replay.md) scopes an additive offline
+public replay path whose descriptor identifies the pool rather than its users.
+Actual funding-parent bodies supply native input context; proof declarations alone
+do not establish backing. Authenticated accepted-chain/current-head selection
+remains external to this component. Strict parent-format and retained-history
+limits are explicit; the existing v6 relation and historical runners stay unchanged.
+This is a foundation for new-user admission and recovery, not their completed proof.
+
 [ADR-0027](adr/0027-shielded-payment-targets.md) adopts the
 [RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md) and closes
 milestone 1. These targets constrain future architecture choices; they do not

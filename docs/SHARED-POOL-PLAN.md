@@ -67,9 +67,16 @@ record any future change explicitly without reclassifying old failures.
 
 ## Milestone 2 — Consolidate one protocol candidate
 
-**Status:** authorized next work. Bounded v6 mechanisms exist; integrated lifecycle
-incomplete. Begin with a source-backed interface/invariant map and the public
-replay/admission boundary, preserving existing instances and evidence.
+**Status:** started. [RFC-0013](rfc/0013-coherent-v6-lifecycle.md) maps the lifecycle
+and all sixteen invariants. [ADR-0028](adr/0028-public-funding-replay.md) scopes an
+additive offline public replay component with actual funding-parent bodies and
+no participant roster. The [reuse review](../research/shielded-kas-lifecycle-integration-2026-10-20.md)
+records current upstream/H7/v6 boundaries. The full lifecycle remains incomplete.
+
+The [first component's checks](../poc/shared-pool/PUBLIC-REPLAY.md) pass: both
+retained histories replay exactly, 15 focused tests pass, and both CLI modes
+reach the original terminal state/accounting. No new participant, proof or funded
+trial was created; the accepted-chain view remains an external assumption.
 
 Use one circuit, covenant, parameter identity, wallet format and public-data format
 for deposit, private transfer/change, withdrawal and recovery. Map all security

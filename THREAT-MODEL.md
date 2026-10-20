@@ -9,6 +9,14 @@ adopted, not demonstrated. [ADR-0027](docs/adr/0027-shielded-payment-targets.md)
 closes milestone 1 without changing a mechanism, invariant or historical result.
 Network anonymity and endpoint-compromise claims require separate qualification.
 
+[RFC-0013](docs/rfc/0013-coherent-v6-lifecycle.md) separates actual native funding
+evidence from the proof's deposit declaration and from a participant roster.
+The first offline replay component checks parent identity/output context and
+funding single-use while retaining full native validation. It assumes an externally
+authenticated accepted-chain view; matching bytes alone establish neither chain
+acceptance nor current spendability. Unsupported parent formats and missing older
+parents fail explicitly. No private witness or privileged role is introduced.
+
 [H18](poc/shared-pool/SCHEDULED-PAYOUT.md) gives the chain observer
 the declared remainder-delay distribution and service/queue assumptions, in
 addition to the existing amount and wallet rules. Each participant disclosure

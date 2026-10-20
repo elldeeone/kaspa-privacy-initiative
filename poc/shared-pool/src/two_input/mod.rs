@@ -4,6 +4,7 @@ pub mod circuit;
 pub mod covenant;
 pub mod harness;
 pub mod live;
+pub mod replay;
 pub mod tree;
 use crate::{
     Result, native,
