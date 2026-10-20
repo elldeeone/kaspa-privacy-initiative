@@ -208,8 +208,10 @@ Include offline receiving, continued shielded spending, independent cashouts, sp
 periods and consented adversarial participants. Remove the preferred services and
 exercise backup recovery while other users remain active.
 
-Keep private records separate from attack inputs. Measure actual accepted native
-transactions, wallet/network exposure, usability, costs, failures and interventions.
+Keep undisclosed ground truth separate; attackers receive only the participant
+records and infrastructure observations declared for their profile. Measure actual
+accepted native transactions, wallet/network exposure, usability, costs, failures
+and interventions.
 An implementing team's extra wallets do not establish an honest population.
 
 **Gate:** the same version maintains backing, pays all supported claims and meets
@@ -259,8 +261,9 @@ recovery workload, not milestone 1 or current-version general recovery here.
 | 4 Usable payment cycle | Milestones 2, 4 and 9. |
 | 5 Independent review | Milestones 3 and 10, with review starting early. |
 
-H11-H18's historical 25% relative privacy improvement, 25% additional whole-ledger
-fees and 30-minute delay screens remain attached to their original experiments.
+Each experiment retains its own frozen criteria. Where used, the historical 25%
+relative privacy improvement, 25% additional whole-ledger fees and 30-minute delay
+screens remain attached to their original experiments.
 They are not automatically the new user-level privacy or operating requirements.
 Any future numerical target is specified before evaluation; replacing a research
 question does not turn an earlier failure into a pass.
