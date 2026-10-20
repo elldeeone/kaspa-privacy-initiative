@@ -6,6 +6,7 @@ from pathlib import Path
 import unittest
 
 from common_payout_generate import build, accounting
+from common_payout_bounds import suffix_domains
 from common_payout_observer import CommonModel, origin_map
 from common_payout_score import claim_metric, costs
 from participant_privacy_observer import prefix_view
@@ -85,6 +86,61 @@ def enumerate_small(data, view=None, q=2):
 
 
 class CommonPayoutControls(unittest.TestCase):
+    def test_suffix_domains_contain_every_enumerated_state(self):
+        # Includes repeated cashouts from the same chain, varied earlier
+        # splits, and interleaved terminal cashouts; no hidden one-per-owner rule.
+        for initial in range(9, 16):
+            for middle in range(1, 4):
+                last = initial-8-middle
+                if last <= 0:
+                    continue
+                data = fixture(initial, [(1, 0, 0, 1), (1, 0, 2, 3),
+                                         (2, 0, middle, 5), (1, 0, 1, 5),
+                                         (2, 0, last, 7)])
+                # Only the final drain is a supported suffix because the
+                # previous partial has a different payout. Earlier Q still
+                # follows the one-input policy in this small model.
+                states = enumerate_small(data)
+                model = CommonModel(data, payout=2, floor=1, payout_floor=1)
+                derived = suffix_domains(data, model.births, 2)
+                self.assertIsNotNone(derived)
+                start, domains = derived
+                for values, _, history, _ in states:
+                    used = {p for i, c in history.items() if i < start for p in c}
+                    for p, value in enumerate(values):
+                        if p not in used:
+                            self.assertIn(value, domains[p])
+                self.assertEqual(model.check(), bool(states))
+        data, _ = sample()
+        model = CommonModel(data, payout=2, floor=1, payout_floor=1)
+        start, domains = suffix_domains(data, model.births, 2)
+        for values, _, history, _ in enumerate_small(data):
+            used = {p for i, c in history.items() if i < start for p in c}
+            for p, value in enumerate(values):
+                if p not in used:
+                    self.assertIn(value, domains[p])
+        repeated = fixture(14, [(1, 0, 0, 1), (1, 0, 2, 3),
+                                (1, 0, 2, 5), (2, 0, 6, 7)])
+        states = enumerate_small(repeated)
+        self.assertTrue(states)
+        model = CommonModel(repeated, payout=2, floor=1, payout_floor=1)
+        for target in (1, 2, 3):
+            expected = {origins[h[target][0]] for _, _, h, origins in states}
+            self.assertEqual({o for o in (-1, 0) if model.check(target, origin=o)}, expected)
+
+    def test_suffix_shortcut_disabled_before_drain_and_with_variable_fees(self):
+        data, _ = sample()
+        partial = dict(data, events=data["events"][:4])
+        model = CommonModel(partial, payout=2, floor=1, payout_floor=1)
+        self.assertEqual(model.suffix_domains, 0)
+        varied = copy.deepcopy(data)
+        varied["events"][2]["fee"] += 1
+        for e in varied["events"][2:]:
+            e["reserve_out"] -= 1
+        varied["events"][-1]["payout"] -= 1
+        varied["events"][-1]["reserve_out"] += 1
+        self.assertIsNone(suffix_domains(varied, model.births, 2))
+
     def test_independent_integer_and_provenance_oracle(self):
         data, plan = sample()
         for end in (3, 6):

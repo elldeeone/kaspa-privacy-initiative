@@ -12,6 +12,7 @@ import time
 
 import z3
 
+from common_payout_bounds import add_suffix_domains
 from participant_privacy_observer import (
     ParticipantModel, ParticipantZ3Model, prefix_view, view_facts,
 )
@@ -83,6 +84,10 @@ class CommonModel:
             self.relaxed = ParticipantZ3Model(data, view, "wallet", floor, payout_floor, relaxed=True)
         add_policy(self.integer, data, payout, floor, False)
         add_policy(self.relaxed, data, payout, floor, True)
+        # Entailed even over rational amounts: every remaining one-input chain
+        # ends in a visible full payout. Keep the independent integer relation
+        # unchanged so every returned graph still passes the original check.
+        self.suffix_domains = add_suffix_domains(self.relaxed, data, payout)
         self.data, self.payout = data, payout
         self.births, self.upper = self.integer.births, self.integer.upper
         self.feasible = {i: set() for i in self.integer.select}

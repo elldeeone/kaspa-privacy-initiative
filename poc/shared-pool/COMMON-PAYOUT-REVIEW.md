@@ -49,3 +49,29 @@ soundness, recipient anonymity or resistance to implementation fingerprints.
 Preserving usable exits is intentionally independent of achieving a privacy
 screen. A participant may choose its old fallback when normal policy is
 unavailable, even if publishing it leaks its earlier anchor.
+
+There is also a simple necessary amount constraint on a chain of these
+single-input common cashouts. If a note of value V undergoes k Q withdrawals
+at constant fee F and is then fully drained for native payout T, then
+`V = T + F + k*(Q+F)`. Its final payout preserves V's residue modulo Q+F.
+A participant who already knows V can test possible k values against the
+visible remaining payouts. This is not sufficient to identify a source by
+itself; spentness, intervening payments and unknown values still matter.
+It explains why matching the first payout sizes cannot establish lasting
+privacy. It applies to the declared constant-size/fee, single-input cashout
+chain, not to every use of the two-input protocol.
+
+The first inference attempt was stopped before scoring after four observations
+finished. Slow exact searches repeatedly rediscovered that cashout arithmetic.
+The replacement adds an entailed finite amount domain: an unspent note entering
+the cashout-only suffix must equal a final payout plus its fee plus k visible
+common debits. Notes already spent before that suffix are exempt; partial
+histories and varying common fees disable the shortcut. It does not constrain
+which wallet paid, how many wallets exist, or which final leg belongs to which
+Q payout. The integer certificate model remains unchanged.
+
+Two additional controls compare these bounds with independent enumeration,
+including repeated cashouts from one note chain and intervening unsupported
+operations. The original predictions are retained for comparison with the
+replacement run. Input bytes, native calibration, payout size and thresholds
+are unchanged; unfinished old searches are not counted as privacy.

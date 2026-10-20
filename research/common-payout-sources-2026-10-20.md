@@ -46,3 +46,12 @@ H14-H16 observations and immutable local evidence provide the exact fields,
 fee/floor conventions and baseline. Common payouts are established policy
 ideas; the unresolved local decision is whether their private remainders and
 extra fees leave any benefit after this pool is fully drained.
+
+Follow-up during execution: the
+[SDK comparison](https://github.com/kaspanet/rusty-kaspa/compare/01b532e8b553523216471682649693af92f0fd16...4edcbbccb449f84832afb1ca157904b35f37d006)
+contains nine commits, including client compute-commit/mass changes, paginated
+UTXO APIs and `no_std` refactoring. It is not merely the latest TLS commit.
+H17 deliberately does not upgrade its native dependency during a frozen
+comparison. Its fees are exact selected debits under the pinned v6 profile,
+and its native validation result applies to that pinned build. Qualification
+against a newer SDK or live relay policy remains separate work.

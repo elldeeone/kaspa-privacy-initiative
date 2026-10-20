@@ -20,7 +20,7 @@ spec = importlib.util.spec_from_file_location("h16", HERE / "participant-privacy
 h16 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(h16)
 read, save, sha = h16.read, h16.save, h16.sha
-OBSERVER_FILES = ("common_payout_observer.py", *h16.OBSERVER_FILES)
+OBSERVER_FILES = ("common_payout_observer.py", "common_payout_bounds.py", *h16.OBSERVER_FILES)
 SOURCES = (*OBSERVER_FILES, "common_payout_generate.py", "common_payout_score.py",
            "common_payout_tests.py", "common-payout.py", "participant_privacy_view.py",
            "src/two_input/harness.rs", "src/two_input/harness/study.rs")

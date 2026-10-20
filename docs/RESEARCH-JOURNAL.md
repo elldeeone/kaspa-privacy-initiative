@@ -169,6 +169,10 @@ real-world anonymity. Passing tests is not proof of cryptographic correctness.
 - Eight new small controls pass, including independent integer/provenance
   enumeration. Twenty blinded observations and one genuine v6 calibration
   are running; inference is not scored until all observers finish.
+- The first observer attempt was retained and stopped before scoring after
+  four completions. Publicly entailed cashout-suffix amount domains accelerate
+  the replacement exact search; ten controls now pass. The replacement uses
+  identical prepared inputs, with no payout, threshold or calibration change.
 - No consensus/circuit/covenant/parameter change, TN10 broadcast, funds, push
   or upstream posting. See [scope](../poc/shared-pool/COMMON-PAYOUT-SPEC.md).
 
