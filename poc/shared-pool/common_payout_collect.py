@@ -131,9 +131,10 @@ def collect(root, original, alternatives):
         original_preparation_sha256=sha(original / "preparation.json"),
         scores_opened_only_after_complete_matrix=True))
     h17.score_run(root, 1, time.monotonic(), executions, config)
-    resources = read(root / "resources.json")
-    resources["scope"] = "collection validation and scoring only; observation runtimes are per job"
-    save(root / "resources.json", resources)
+    save(root / "resource-scope.json", dict(
+        wall_scope="truth validation and scoring only; excludes observation and collection time",
+        child_counters_scope="children of the collection process, including source-pin queries",
+        observation_runtime="per-job seconds in summary.json; not an end-to-end benchmark"))
 
 
 if __name__ == "__main__":
