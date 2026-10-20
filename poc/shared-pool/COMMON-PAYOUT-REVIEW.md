@@ -127,6 +127,16 @@ and a normal payment using two positive inputs remains feasible. The runner
 snapshots its modules and records the two deliberate module-name mappings;
 existing running observers and source files are not modified.
 
+The last difficult case also gets a direct CP-SAT search, using four workers
+and no timeout. It searches a clone of the same integer relation with the
+already justified suffix domains and one-input equations. Candidate input sets
+are encoded as an allowed Boolean table; cashout origins use the same inferred
+provenance. Every positive graph is checked again against the original integer
+model without those search cuts. Only `INFEASIBLE` eliminates candidates;
+unknown or invalid-model status is an error. The same oracle and two-input
+control pass. This is another exact solver path, not a weaker adversary or a
+new traffic assumption.
+
 Two optional H16 diagnostic processes were also still consuming CPU after an
 earlier attempted stop. Their stderr paths and retained script digest matched
 the unfinished diagnostics, and neither had produced a result. They were
