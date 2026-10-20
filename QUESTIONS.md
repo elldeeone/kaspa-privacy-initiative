@@ -2,6 +2,11 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[H18's authorized scope](poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md) asks whether
+the common-payout benefit survives independent scheduling and timing-aware
+best guesses on new workloads, within the existing fee and delay limits.
+Offline results decide whether its conditional TN10 validation proceeds.
+
 [RFC-0011](docs/rfc/0011-two-input-private-payments.md) now has a bounded
 [offline result](poc/shared-pool/TWO-INPUT.md) and
 [TN10 result](poc/shared-pool/TWO-INPUT-TN10.md): two-input payments, spendable

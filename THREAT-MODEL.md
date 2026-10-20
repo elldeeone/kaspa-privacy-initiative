@@ -1,5 +1,13 @@
 # Threat Model
 
+[H18](poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md) will give the chain observer
+the declared remainder-delay distribution and service/queue assumptions, in
+addition to the existing amount and wallet rules. Each participant disclosure
+remains separate; RPC/network access is excluded. Timing compatibility and
+maximum-score guesses are conditional models, not calibrated posterior
+probabilities. Immediate fallback remains a supported, potentially revealing
+choice. No new private protocol or trust authority is introduced.
+
 The experimental [two-input relation](docs/rfc/0011-two-input-private-payments.md)
 adds zero-value padding, merged private inputs and partial withdrawals with
 private change. Its [bounded offline trace](poc/shared-pool/TWO-INPUT.md) and

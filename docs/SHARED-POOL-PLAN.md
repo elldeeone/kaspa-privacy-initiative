@@ -3,7 +3,13 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H17's [common partial-payout test](../poc/shared-pool/COMMON-PAYOUT.md)
+**Authorized continuation:** H18's
+[scheduled-payout scope](../poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md) freezes
+one local policy, new paired workloads and timing-aware best guesses before
+execution. Native calibration and TN10 proceed only if the offline gate passes.
+No change to Stage 2's cost/delay limits or the v6 protocol.
+
+**Latest completed result:** H17's [common partial-payout test](../poc/shared-pool/COMMON-PAYOUT.md)
 passes its frozen privacy screen and genuine offline mechanics. After full
 drain, separate participant views force 4/28 original cashout sources versus
 7/28 before, with no pair regression or new payment-source links. All four

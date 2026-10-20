@@ -16,6 +16,13 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
+H18's [scheduled-payout scope](../poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md)
+is being frozen before implementation. The owner authorized the policy,
+new offline timing-aware workloads and conditional TN10 validation. Keep Q at
+2 tKAS; test bounded local remainder scheduling, immediate exits and full
+drainage against full-coverage guesses. Stage 2 stays open. A failed offline
+gate stops this continuation before funding.
+
 H17's [common-size partial payout test](../poc/shared-pool/COMMON-PAYOUT.md)
 passes its frozen privacy screen and genuine offline exit checks. Separate
 participant views force 4/28 original cashout sources after complete drainage,

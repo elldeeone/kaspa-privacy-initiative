@@ -55,3 +55,4 @@ The open state architecture comparison is [RFC-0001](../rfc/0001-state-architect
 - [ADR-0023: test equal net credits as a wallet funding policy](0023-equal-net-deposit-policy.md) — Bounded candidate policy; general privacy unestablished.
 - [ADR-0024: specify two-input private payments before further experiments](0024-two-input-private-payment-scope.md) — Accepted scope, followed by authorized offline implementation; bounded H13 passed, RFC-0011 remains Open.
 - [ADR-0025: screen common partial payouts without changing the protocol](0025-common-payout-offline-screen.md) — Owner-authorized offline policy comparison; preserve independent exits and count complete drainage.
+- [ADR-0026: independently scheduled common payouts](0026-scheduled-common-payout-screen.md) — Frozen offline comparison; native/TN10 validation conditional on its complete gate.

@@ -6,6 +6,12 @@
 **Scope decision:** [ADR-0024](../adr/0024-two-input-private-payment-scope.md).
 **Observer and adversarial review:** [review](../../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md).
 
+**Authorized H18 continuation:** the
+[scheduled-payout scope](../../poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md)
+tests a local optional policy and timing-aware observer on unchanged v6.
+It adds no protocol restriction. Offline privacy/cost failure stops before
+the conditionally authorized native calibration and TN10 trials.
+
 The owner subsequently authorized committing the documentation and implementing
 and running this test **offline only**, before the further TN10 authorization
 below. Documentation was frozen in `c50855a`. That first implementation did not

@@ -1,0 +1,114 @@
+{
+  "schema": "kpi-h18-scheduled-payout-v1",
+  "baseline_commit": "e063e0d",
+  "payout_sompi": 200000000,
+  "fee_sompi": 40000000,
+  "note_floor_sompi": 60000000,
+  "payout_floor_sompi": 10000000,
+  "service_minutes": 2,
+  "delay_minutes": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "delay_weights": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "cases_per_regime": 12,
+  "regimes": [
+    "overlap",
+    "sparse"
+  ],
+  "controls": [
+    "singleton",
+    "immediate"
+  ],
+  "participants": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "master_seed_sha256": "6c7f9440c20a7de2d3a629b2baf3146fd74712f8d501a9be079ab12e855fc010",
+  "deposit_units": [
+    1500,
+    2500
+  ],
+  "amount_unit_sompi": 1000000,
+  "payment_percent": [
+    35,
+    65
+  ],
+  "partial_percent": [
+    15,
+    30
+  ],
+  "prefix_gap_minutes": [
+    2,
+    8
+  ],
+  "overlap_request_minutes": [
+    0,
+    30
+  ],
+  "sparse_quiet_minutes": 120,
+  "sparse_gap_minutes": [
+    20,
+    45
+  ],
+  "bootstrap_draws": 2000,
+  "statistics_seed": 180018,
+  "min_relative_improvement": 0.25,
+  "max_extra_fee_fraction": 0.25,
+  "max_p95_added_minutes": 30,
+  "attacks": [
+    "uniform",
+    "recent",
+    "timing_graph"
+  ],
+  "native_case": "overlap-00",
+  "unchanged_sources": {
+    "two-input-privacy-workloads.json": "6342ce661623ce48a315bd4822590132a41badbb23ac9e21572c2afc4a610a4d",
+    "two_input_privacy_generate.py": "e1aba0a1882f762d8f7970cf1e44d17fc403cb16319d41786bdc0502e5da495e",
+    "two_input_privacy_observer.py": "96ccf7f9899da8b02e6b1e43a542684e5c38c09d0a80b7554901f7982a74b35b",
+    "two_input_privacy_z3.py": "e73b3d88403cd8bf219d21e7fab82b60760566eafbf34eaea87e758aacc1552e",
+    "two_input_privacy_exact.py": "b4ad5bb151f44f38fc7d0d4634c417f03e97861cf6b8978214c4c24210e3a8c5",
+    "wallet_policy_observer.py": "a007a52cce17de82c88f1c1ce58c11922a3183202184db91910eee76dc518376",
+    "wallet-policy-privacy.py": "151507422c1abc0b5f9ef9d07fd2aa0da10d00e3e904e5be88320e7b769aa226",
+    "two-input-privacy.py": "b742f420eb7e015818ba249459c0564eadcea499ab3d681c3ab6fac0caa6f6f4",
+    "src/protocol.rs": "ad4573aeba2f40901ce79df22280225c43d3696242aa96c94d814e2ab7ba43d8",
+    "src/compact/mod.rs": "d59eb33bd27cfaf8cfdcb1780d09609e309b5bdbaf6f6fa6d7512981e030e5c3",
+    "src/two_input/circuit.rs": "59071901c3abc25daab68c982ef065f8755c09abbb2ce30e6010d821813dd2a7",
+    "src/two_input/covenant.rs": "3b6d73c1ebada11d156f3020b444c881160e2f4d8eb7ae629a23ac267bf0d96d",
+    "participant_privacy_observer.py": "6d7ecaceaf3fd91ac3e96b18e24ae81f7508e8879e569cf2c51353ae36b7675d",
+    "participant_privacy_view.py": "f3acb78bf211e04da05cc0dba480502f4b4611d62ab6a4002f8dd5da71866d52",
+    "privacy-study-requirements.txt": "63f6f17fd47a247f57d02fdebcf3186189e709a6e8dab44d88c7d8eda38772b0",
+    "Cargo.lock": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+    "common_payout_observer.py": "b3d01509cc02f4199e2aab7ba96e55c32b6771c77652ff99b3cfea760c9f7090",
+    "common_payout_bounds.py": "80620e4f43f18958a6acb8f6bd79d64a877b50e04feed52041d2fbddacf0b566",
+    "common_payout_batch_observer.py": "b5367b9a2b6642567aa961a536c8ab7cfe6b9d437154e6ae6c24f9471a9dff38",
+    "common_payout_integer_observer.py": "444ba112483f8369be18d01cd7eb310041cab49b240be142e2f5b3f9a8ec2edb"
+  },
+  "prior_manifests": {
+    "evidence/2026-10-20-common-partial-reconstruction/SHA256SUMS.json": "ec1de57ca1dbea0a599482fa925b79ebf00b092829002a1bc1f41f1ea5fd4055",
+    "evidence/2026-10-20-common-partial-calibration/SHA256SUMS.json": "82dcaba31634967cd9468acd9d5a523f6e402cc752ac77680dccf3b0cd92c553"
+  }
+}
