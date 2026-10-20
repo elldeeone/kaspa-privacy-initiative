@@ -194,9 +194,13 @@ old result or change a target retrospectively.
 
 Fees above qualify the reference-rate workload. Recompute actual transaction
 costs at reference, 2× and 5× rates and require user-controlled exits at all three,
-including valid small change claims and loss of a preferred service. The source
-reference is 100 sompi per unit of normalized mining mass: therefore freeze
-100, 200 and 500 sompi/mass as these research cases, not future market quotations.
+including valid small change claims and loss of a preferred service. Freeze
+100, 200 and 500 sompi per normalized mining-mass unit as those research cases.
+The numerical reference comes from the pinned default relay rate, whose minimum
+fee uses `relay_mass = max(compute_mass, ceil(transient_mass / 2))`. Research
+costing uses `mining_mass = max(relay_mass, storage_mass)` and can exceed that
+relay minimum. These are fixed research assumptions, not market quotations or
+guarantees of inclusion.
 The 1%/2% ordinary-cost targets are not silently extended to arbitrary congestion.
 Every accepted liability remains accounted for even when a fee scenario fails.
 A missing repricing path or economically stranded supported claim is a failure,
