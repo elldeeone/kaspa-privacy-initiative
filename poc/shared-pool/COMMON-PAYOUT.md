@@ -31,6 +31,26 @@ optional partial, both mutually exclusive winner orders, and all seven saved
 change/unaffected-note exits after further activity. Fresh drainage is a
 separate branch; the primary privacy measurements use fresh exits.
 
+## Privacy comparison
+
+The complete-history comparison is pending the full observation matrix:
+
+| Forced source links after full drainage | Baseline fresh exits | Common partials and tails |
+| --- | ---: | ---: |
+| Chain-only, original cashout claims | 0/28 | Pending |
+| Separate participants, distinct original cashout claims | 7/28 | Pending |
+| Separate participants, overlapping claim observations | 7/84 | Pending |
+| Chain-only, original private payments | 2/24 | Pending |
+| Separate participants, distinct original private payments | 4/24 | Pending |
+| Separate participants, overlapping payment observations | 6/48 | Pending |
+
+A participant row means one participant's own records added to the chain view.
+The distinct count is the union of targets linked by at least one such view,
+without combining their evidence. All singleton claims must retain the true
+source; other results are candidate sets with abstention, not probabilities.
+The early equal-payout horizon is diagnostic only: it has not yet completed
+the original claims.
+
 ## Frozen cost
 
 | Per case | Baseline | Common partials plus final drainage |
@@ -45,6 +65,10 @@ Fee increase is 21.05%, within the existing 25% screen. The ten-minute
 inter-event schedule exceeds the existing 30-minute p95 completion-delay
 screen. Neither is an observed chain fee-market quote or actual waiting time.
 No test KAS or real funds are spent offline.
+These totals include every transaction in the frozen pool trace. Starting
+reserve and depositor UTXOs are synthetic fixtures: creating/funding them is
+outside this offline trace. A funded trial would also have to count its actual
+allocation/genesis transactions; 9.2 tKAS is not an end-to-end live fee quote.
 
 ## Genuine mechanics result
 
@@ -85,6 +109,9 @@ excluded.
 
 Four Rayon threads; observer searches ran concurrently. These are contended
 CPU measurements, not isolated proving benchmarks or fee-market quotations.
+The matched H14 calibration generated 26 proofs. H17 generates eight more:
+four partial authorizations and four replacement-change saved exits. Both
+calibrations also create fresh final alternatives for their comparison.
 The initial UTXOs are synthetic. The unchanged native dependency is
 `01b532e8b553523216471682649693af92f0fd16`; no new SDK or live node was qualified.
 Supplying authenticated public state is a fixture assumption, not a new

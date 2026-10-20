@@ -43,6 +43,10 @@ The public-body calibration verifier mounts only its executable, one selected
 public trace, system libraries and an empty result directory. It receives no
 private plan or unused exit requests. Its `/proc` is not used as an observer
 blinding boundary; the inference workers use the stricter no-`/proc` sandbox.
+Partial-payout destinations are fresh synthetic native scripts in the inherited
+calibration harness; their temporary native keys are not retained. Saved final
+exits instead bind wallet-derived payout keys. The test verifies authorized
+native outputs and accounting, not a later spend of those native outputs.
 
 The model treats cryptographic bytes as opaque and does not prove hiding,
 soundness, recipient anonymity or resistance to implementation fingerprints.
@@ -70,6 +74,15 @@ histories and varying common fees disable the shortcut. It does not constrain
 which wallet paid, how many wallets exist, or which final leg belongs to which
 Q payout. The integer certificate model remains unchanged.
 
+The justification is value conservation plus zero terminal reserve: every
+positive note still live in that suffix must eventually be consumed. A
+single-input Q step has exactly one positive successor; a full drain has none.
+Thus each remaining positive chain ends at a visible drain, and summing its
+debits gives the formula above. The domain allows every later drain and every
+possible count of intervening Q steps, rather than choosing a hidden tail.
+This argument does not apply across an intervening two-input payment or a
+different partial-payout amount; the suffix stops there.
+
 Two additional controls compare these bounds with independent enumeration,
 including repeated cashouts from one note chain and intervening unsupported
 operations. The original predictions are retained for comparison with the
@@ -83,3 +96,30 @@ observations had finished in that interval, giving six retained comparisons.
 Neither the native run nor replacement workers were stopped. Interruption and
 cleanup receipts preserve this operational failure; it does not turn the
 uncompleted searches into negative inference answers.
+
+The finite domains do not speed up every query. A later resumption reuses seven
+completed predictions, retains active searches and schedules the remaining
+jobs with either pinned implementation of the same relation. The two completed
+plain/bounded overlaps agree row-for-row. Per-job source pins identify the
+engine actually used; no result is relabeled as coming from a newer build.
+Choosing the bounded engine for a disclosed initial-note owner uses a fact
+already in that participant's view. It adds no observer knowledge.
+All twenty logical observations must finish before any truth-based scoring.
+Resumption resource counters cover that controller's lifetime and children,
+not the earlier work or the adopted processes.
+
+Three individual-query observations exceeded an hour. An additional batch
+query implementation leaves those searches running and asks for any remaining
+candidate at once. Each positive graph still passes the same integer check;
+only exact UNSAT eliminates the remaining candidates. Its independently
+computed graph provenance must satisfy the pending origin query. A tiny
+integer oracle checks all input sets and origins across both horizons and
+participant views, including cached repeats and empty candidate lists.
+This changes search order and grouping, not the feasible relation. Completed
+same-input runs must agree before a batch result is used.
+
+Two optional H16 diagnostic processes were also still consuming CPU after an
+earlier attempted stop. Their stderr paths and retained script digest matched
+the unfinished diagnostics, and neither had produced a result. They were
+stopped; the H16 evidence, scores and manifest are unchanged. This cleanup is
+recorded separately from the twenty H17 observations.
