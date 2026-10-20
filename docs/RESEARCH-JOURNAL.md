@@ -40,6 +40,11 @@ Synthetic ancestry, externally supplied offline heads and same-host isolation
 remain explicit. Live acceptance, general recovery and the adopted targets
 are not qualified by this result.
 Integration, cryptographic review and privacy evaluation remain separate work.
+The owner has moved the first current-candidate privacy gate ahead of dedicated
+milestone 3 work. The immediate task is to audit the actual public surface, then
+freeze and run a blinded evaluation against the unchanged milestone 1 targets.
+Milestone 7 becomes broader validation. This gate has not yet run; the M2 recovery
+trace establishes no privacy result.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
@@ -218,6 +223,31 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 — Privacy testing moved before milestone 3
+
+- **Direction:** the owner challenged waiting until milestone 7 to test the
+  design's privacy premise. The old plan mentioned parallel privacy work but
+  prioritized cryptographic review and wallet/recovery expansion in its next step.
+- **Change:** the [plan](SHARED-POOL-PLAN.md#early-privacy-gate--before-milestone-3)
+  now puts a privacy gate immediately after M2 and before dedicated milestone 3
+  work. Routine safety review remains continuous. Milestone 7 expands/repeats
+  privacy validation with broader clients, infrastructure and users.
+- **Evidence:** [review](../research/shielded-kas-early-privacy-gate-2026-10-20.md)
+  uses the candidate at `bf4505c`, the accepted RFC-0012 targets, current public
+  wallet/native interfaces and existing H16/H18 failures. M2 demonstrates
+  mechanics on synthetic ancestry, not anonymity. Old source-transaction
+  inference results do not qualify owner identity or private amount protection.
+- **Next test:** public-surface/direct-link audit first; then a frozen held-out
+  persistent-balance versus prompt-cashout comparison with 32 roles, eight
+  active/colluding roles and C/C+P/C+P+A observers through full drainage. Score
+  both endpoints, relationships and private values. Keep truth separate from
+  observers and treat missing cases or invalid controls as incomplete.
+- **Decision rule:** a reproducible supported-claim counterexample can stop the
+  candidate early. A pass requires the complete frozen privacy gates and controls;
+  a small screen with no discovered attack is insufficient. Known fee/latency
+  failures remain separate failures. No privacy result, implementation change,
+  new proof, funded experiment or publication follows from this planning update.
 
 ### 2026-10-20 (Australia/Sydney) — New participant and backup recovery
 

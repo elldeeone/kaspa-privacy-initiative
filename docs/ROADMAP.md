@@ -9,6 +9,8 @@ They retain the bounded direct-L1 evidence and define the path to an independent
 usable testnet payment system. Milestone 1 has adopted the privacy/operating
 requirements; milestone 2's bounded offline admission/payment/recovery integration
 passes. Live qualification, independent assurance and useful privacy remain open.
+The immediate next gate tests the integrated candidate's privacy before dedicated
+milestone 3 work; milestone 7 later broadens and independently validates it.
 They do not mark the broader phases below complete or replace upstream history.
 
 ## Current focus, 2026-10-18

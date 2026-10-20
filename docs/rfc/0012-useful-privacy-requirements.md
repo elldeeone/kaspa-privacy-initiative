@@ -310,6 +310,13 @@ Links point to existing code/reports at the baseline named above.
 
 ## Smallest decisive next evaluation
 
+**Work order updated after milestone 2:** this is now the immediate privacy gate
+before dedicated milestone 3 cryptographic/setup work or further wallet expansion.
+The [branch plan](../SHARED-POOL-PLAN.md#early-privacy-gate--before-milestone-3)
+records the gate. Milestone 7 broadens and independently validates privacy later;
+it is not the first test. Routine safety review continues throughout. This changes
+scheduling, not the adopted targets or the cryptographic assumptions.
+
 The next *specified* evaluation is a blinded comparison of persistent shielded
 spending and prompt cashout under the same declared user requests and total
 resources. It is not run by this RFC and does not replace wallet integration.
@@ -342,6 +349,10 @@ not required to succeed. Their outcomes are measured rather than prescribed.
 The requirements envelope above is adopted. The next evaluation must freeze its
 concrete workload and measurement manifest. Early adversarial screening may find a
 decisive failure before a full run; it must not claim success from incomplete cases.
+Report an early **privacy** verdict separately from the combined privacy/cost/exit
+verdict above. The known v6 fee and resource gaps remain failures; they cannot be
+waived by a privacy pass. An absence of attacks in the three-wallet integration
+trace is not a pass against the 32-role requirements.
 
 ## Outcome and remaining decisions
 

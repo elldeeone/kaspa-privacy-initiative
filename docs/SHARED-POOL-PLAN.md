@@ -29,6 +29,10 @@ share one current-version interface. Qualification against the accepted
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
+**Next action:** run the early privacy gate below before dedicated milestone 3
+work or further wallet/recovery expansion. Milestone 7 is broader validation, not
+the first privacy test. Routine safety review and fixes continue throughout.
+
 ## Evidence carried forward
 
 | Existing work | Supported result | Boundary for the new programme |
@@ -110,9 +114,73 @@ funding. Retain evidence from each earlier version under its original identity.
 lifecycle with its own keys, without descriptor edits or privileged state exports.
 Every accepted liability is backed and every enforcement assumption is visible.
 
+## Early privacy gate — Before milestone 3
+
+**Status:** next priority, not yet executed. The owner challenged the work order
+after the milestone 2 commit `bf4505c`: test whether the integrated candidate can
+meet the intended privacy promise before investing further in that candidate.
+Keep milestone numbers stable; this brings privacy evaluation forward from 7.
+The [evidence and scope review](../research/shielded-kas-early-privacy-gate-2026-10-20.md)
+separates current findings from untested claims.
+
+1. Audit the complete current public surface: native transaction bytes, funding
+   ancestry, amounts, ciphertexts, anchors, nullifiers, output order, timing and
+   exported wallet metadata. Include what counterparties know. Check for direct
+   identifiers and deterministic amount/relationship deductions before building
+   a larger model. Existing M2 transcripts are calibration data, not a privacy
+   sample; their published experiment narrative must not become observer input.
+   Classify shared receive data and auxiliary proof timings by actual exposure;
+   local-only diagnostics are not automatically public-chain observations.
+2. Freeze a blinded evaluation of repeated spending from persistent shielded
+   balances, with prompt cashout as a matched comparison. Use RFC-0012's 32 user
+   roles, eight active/colluding roles and C, C+P and C+P+A views. Include
+   interleaved admissions, varied amounts, sparse activity, private change,
+   pooled disclosures, amount tagging and exits. Freeze distributions, adversary
+   powers, eligible targets, baselines, sample size, attack selection and
+   statistical procedure before generating/scoring held-out data.
+   Thirty-two roles need not supply 32 plausible honest alternatives at every
+   payment. If the public prior itself breaches a cap, report that workload's
+   information limit; do not exclude those targets after scoring.
+3. Score sender and recipient identity separately, relationship targeting and
+   private amounts at payment, later cashouts and complete drainage. Reuse
+   existing observers only where their inputs and semantics match current v6;
+   source-transaction alternatives are not user identities or amount privacy.
+   Calibrate any modeled transcript against actual current transaction bytes.
+   Label modeled histories separately from genuine proof/native validation.
+   Separate observer predictions from the scorer's private truth.
+
+The adopted RFC-0012 gates remain unchanged: identity accuracy at most 10%;
+amount guessing within ±10% at most 20%; both with at most five percentage
+points advantage over the frozen baseline; relationship precision at most 50%
+at 5%, 10% and 25% coverage; zero logically forced unauthorized disclosures.
+Use its confidence-bound, multiple-comparison and independent-session rules.
+Singleton/all-other-users-adversarial controls must detect known disclosure;
+they cannot be treated as a qualifying 32-role population.
+
+**Failure:** a reproducible disclosure defeats a supported claim, the held-out
+privacy gates fail, or private witness material crosses the declared boundary.
+Stop expansion of that candidate and choose a concrete redesign, an explicitly
+reviewed claim change, or abandonment. Preserve the failure; do not tune the
+evaluated seeds or silently lower targets.
+
+**Pass:** all frozen privacy gates and controls pass on the complete eligible
+held-out workload. This justifies proceeding to deeper candidate review under
+the stated cryptographic/setup assumptions; it is not proof of privacy or security.
+**Incomplete:** missing cases, unresolved solver results, invalid controls,
+unfrozen details or insufficient statistical power. Finding no attack in a small
+screen cannot pass this gate.
+
+Report cost/latency/exit results separately. Known fee and prover gaps remain
+failures against milestone 1; a privacy pass cannot qualify the overall system.
+Immediate user-controlled exits stay available. Network/infrastructure privacy,
+independently operated users and broader deployment workloads remain milestone 7
+obligations. No new funded test or protocol change is authorized by this work order.
+
 ## Milestone 3 — Review cryptography and setup trust
 
 **Status:** author review and negative controls exist; independent assurance open.
+Dedicated milestone work follows the early privacy gate. Safety triage and
+review needed to interpret that gate continue immediately.
 
 Review the actual private relation and native covenant together: bootstrap backing,
 range/conservation, real/padded slots, nullifiers, historical anchors, recipient
@@ -121,7 +189,9 @@ record adaptations; their security does not transfer automatically to this proto
 
 Evaluate a reviewed multiparty setup process and a feasible transparent-proof route
 against the current single-party assumption, including proving and recovery costs.
-Start review alongside specification and integration, before wallet polish.
+Continue routine review alongside specification and integration, before wallet
+polish; do not start a setup/proof-system engineering programme before checking
+the current candidate's privacy premise.
 
 **Gate:** unresolved credible inflation, double-spend or unauthorized-exit findings
 block expansion. Experimental setup can support conditional research only; tests,
@@ -184,9 +254,12 @@ envelope without privileged scheduling, subsidy or rescue. Replay cannot pay twi
 Repeated starvation at modest activity challenges the architecture. An uneconomic
 claim fails the supported exit target; do not shrink the envelope after results.
 
-## Milestone 7 — Attack complete payment privacy
+## Milestone 7 — Broaden and independently validate payment privacy
 
 **Status:** blinded arithmetic observers exist; broader independent evaluation open.
+The first current-candidate privacy gate is before milestone 3. This milestone
+repeats and expands that evaluation as real clients, recovery and settlement
+behavior become available; an early pass is not carried forward automatically.
 
 Build independent attacks using full public transaction bytes and documented wallet
 behaviour. Cover varied/interleaved payment graphs, persistent balances, known
@@ -260,18 +333,20 @@ decision. This is a research/testnet release; mainnet remains a separate decisio
 
 ## Dependencies and immediate work
 
-Milestone 1 defines the evaluation contract. Integration (2), cryptographic review
-(3) and privacy work (7) then proceed together. Wallet work (4) supplies the current
+Milestone 1 defines the evaluation contract. Integration (2) is followed by the
+early privacy gate before dedicated cryptographic/setup work (3). Routine safety
+review accompanies every step; privacy attacks continue throughout and broaden
+in milestone 7. Wallet work (4) supplies the current
 version used by recovery (5) and settlement fault testing (6). Measurements feed
 architecture selection (8). The independent-user trial (9) follows qualification;
 the reproducible release (10) includes the resulting evidence and limitations.
 
-Milestone 1 and the bounded offline milestone 2 gate are closed. Next prioritize
-milestone 3's relation/setup review alongside milestone 4's ordinary client and
-milestone 5's authenticated history and independent data survival. Keep the known
-fee/cold-load gaps visible before expanding live scope. The
-persistent-balance versus prompt-cashout comparison is an early diagnostic inside
-this programme, not the whole programme or a reason to delay all useful integration.
+Milestone 1 and the bounded offline milestone 2 gate are closed. Next audit the
+current public surface and freeze the early privacy evaluation. Resolve its
+pass/fail/incomplete result before expanding into milestones 3–6. Keep the known
+fee/cold-load gaps visible. Existing failed H16/H18 screens remain warnings;
+neither those old workloads nor the M2 mechanics trace qualifies the new privacy
+requirements.
 
 ## Earlier stages and frozen evidence
 
@@ -285,7 +360,7 @@ recovery workload, not milestone 1 or current-version general recovery here.
 | Earlier stage | Continuing obligation |
 | --- | --- |
 | 1 Independent recovery | Milestones 2, 5 and 6, qualified on the current version. |
-| 2 Practical privacy | Milestones 1 and 7; H18 stays failed and its TN10 condition stays unmet. |
+| 2 Practical privacy | Milestone 1, the early privacy gate before 3, and broader milestone 7; H18 stays failed and its TN10 condition stays unmet. |
 | 3 Failure and fee limits | Milestones 5, 6 and 8. |
 | 4 Usable payment cycle | Milestones 2, 4 and 9. |
 | 5 Independent review | Milestones 3 and 10, with review starting early. |
