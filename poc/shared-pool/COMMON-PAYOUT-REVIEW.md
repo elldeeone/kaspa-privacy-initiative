@@ -3,7 +3,7 @@
 Scope: the author reviewed the H17 additions separately from implementation.
 This is not independent review or cryptographic assurance. See the
 [frozen specification](COMMON-PAYOUT-SPEC.md) and
-[measured report](COMMON-PAYOUT.md) for the eventual execution verdict.
+[measured report](COMMON-PAYOUT.md) for the completed execution verdict.
 
 ## Invariants and mechanisms
 
@@ -142,3 +142,35 @@ earlier attempted stop. Their stderr paths and retained script digest matched
 the unfinished diagnostics, and neither had produced a result. They were
 stopped; the H16 evidence, scores and manifest are unchanged. This cleanup is
 recorded separately from the twenty H17 observations.
+
+## Completed result review
+
+All twenty observations were assembled with their actual source/input pins
+before scoring: nineteen retained SMT results and one complete integer result.
+Five complete same-input comparisons agree on every row. Forty original
+amount/input-graph checks retain truth at both horizons for every observer.
+The complete predictions contain 540 rows; 136 checked earlier/later candidate
+sets obey the expected narrowing relation. Unfinished solver variants are
+retained as operational evidence and contribute no inference answer.
+
+The primary denominator remains 28 original claims, with 84 overlapping
+eligible participant/claim observations. Unique links decline from seven to
+four on both counts. The three removed links belong to split claims; all four
+remaining ones belong to unsplit claims. There are no new claim links, no
+case/participant regression and no new uniquely linked original payment.
+Thus the frozen privacy clauses pass after full drainage, not merely after the
+equal first payouts. The candidate is still conditional on this small known
+workload and client policy. Original payment singletons remain unchanged.
+
+The first final collector successfully wrote all scores, then tried to rewrite
+an existing resource file through a write-once helper. The resulting
+`FileExistsError` was a metadata bug after scoring. The fix writes a separate
+scope receipt. Collection and truth validation were repeated on the exact same
+twenty immutable predictions; the complete summary is byte-identical. Both
+attempts and the failure receipt remain available.
+
+The combined gate still fails: fees rise 21.05%, within budget, but the fixed
+schedule adds 40 minutes against a 30-minute target. Preserve optional common
+cashouts as a candidate for a separately scoped scheduling assessment. Do not
+adopt the schedule, retune this study's size, close Stage 2 or infer general
+anonymity from this result. Immediate saved exits remain independently usable.

@@ -67,10 +67,11 @@ fail the strict frozen claim; at least half remain ambiguous in every pair and
 fresh retains more alternatives in all sixteen pairs. Distinct targets linked
 by at least one separate eligible participant are 4/24 fresh payments and 7/28
 fresh exits, versus 6/24 and 28/28 saved. These are not pooled disclosures or
-anonymity percentages. Keep fresh normal proofs/private fallbacks. The proposed
-next investigation is common-size partial payouts/private remainder through
-complete drainage, using this relation and preserving immediate exits. Its
-benefit is unmeasured; no protocol change or further test is authorized here.
+anonymity percentages. Keep fresh normal proofs/private fallbacks. H17 below
+subsequently measures common partial payouts through complete drainage:
+cashout-source links decline to 4/28 without new payment links, while the fixed
+schedule fails the delay target. No protocol change or further test is
+authorized by this RFC update.
 
 ## Decision to investigate
 
@@ -522,7 +523,11 @@ wallet, with all private remainders eventually drained. This uses the existing
 relation, exact fee and saved-fallback mechanism; it adds no protocol constraint.
 [ADR-0025](../adr/0025-common-payout-offline-screen.md) accepts only this offline
 screen. The genuine calibration passes all four wallets' saved exits and both
-full/partial winner orders. The stronger observer's complete-history privacy
-comparison is pending. The 21.05% additional fee is counted, and the fixed
-40-minute completion delay does not meet the existing 30-minute policy target.
-Independent exits remain usable regardless of the policy's privacy outcome.
+full/partial winner orders. All twenty observations and forty original-witness
+checks pass. Separate participant views force 4/28 original cashout sources
+after full drainage, down from 7/28, with no pair regression or newly unique
+payment source. The 21.05% additional fee is counted, while forty added
+synthetic minutes fail the existing thirty-minute policy target.
+Keep optional common cashouts as a research candidate without adopting the
+fixed schedule. Independent exits remain usable; strong privacy and Stage 2
+completion do not follow from the bounded improvement.

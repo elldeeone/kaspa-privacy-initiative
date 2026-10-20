@@ -17,13 +17,20 @@ does not by itself close a roadmap phase.
 ## Current position
 
 H17's [common-size partial payout test](../poc/shared-pool/COMMON-PAYOUT.md)
-passes genuine offline mechanics; the privacy comparison is still running.
-Size and criteria were committed in
-`71d2aca` before implementation/observation: one 200,000,000-sompi payout per
-wallet, all final remainders and fees included. The independent-exit calibration
-reuses v6 and its parameters. No new privacy result is claimed yet. Its four
-extra operations cost 160,000,000 sompi and add 40 synthetic minutes to complete
-cashout; the existing 30-minute delay target is not changed.
+passes its frozen privacy screen and genuine offline exit checks. Separate
+participant views force 4/28 original cashout sources after complete drainage,
+down from 7/28. No pair regresses and original payment links remain 4/24;
+chain-only cashout links stay 0/28 and payment links 2/24. All four wallets exit
+independently, with seven saved final proofs unchanged.
+
+Size and criteria were committed in `71d2aca`: one 200,000,000-sompi payout per
+wallet, all tails and fees included. The four extra operations cost 160,000,000
+sompi; total pool fees rise from 7.6 to 9.2 test KAS. The fixed schedule adds
+40 synthetic minutes against the unchanged 30-minute target, so the combined
+gate fails and Stage 2 remains open. Keep optional common cashouts as a research
+candidate; assess practical scheduling separately before wallet expansion.
+Twenty complete observations, 40 original-witness checks and the genuine
+calibration pass. This establishes no real-world anonymity or new live result.
 
 H16's [participant-disclosure study](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
 fails its strict screen: one participant's records expose two additional
@@ -38,13 +45,12 @@ Strong privacy remains open. All 64 observations and 30 controls complete,
 with truth retained and 1,216 original amount/input-graph prefix checks passing.
 No new proofs or funds were used.
 
-The two new fresh payment links are already visible at startup: excluding the
+The two new fresh payment links were already visible at startup: excluding the
 participant's own deposit leaves only the bootstrap source. Later fresh exits
 do not create additional unique payment links in these fixtures, but participant
-records expose some partial and full withdrawals. The proposed next question is
-common-size partial payouts/private remainder through complete drainage, scored
-against original payments and with every fee included. The subsequent H17
-authorization above implements that question; it is not a claimed remedy.
+records expose some partial and full withdrawals. H17 tests the resulting
+common-payout question through complete drainage and all fees. Its measured
+cashout improvement leaves those earlier payment links unchanged.
 
 H14's [genuine calibration](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
 remains unchanged: all four wallets paid, seven saved proofs preserved, both
@@ -154,6 +160,7 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H14 | Fresh exits retain multiple payment-source combinations through full drainage in at least half of six payments per case, and increase alternatives relative to saved exits in at least one case, without losing independent exits. | Frozen at `1bf14d0`; modest screen passed in four paired offline ledgers. Fresh ambiguity is 5/6 or 6/6, with more source alternatives in two cases. Unique payment links remain 2/24 in both arms; full-exit recency guesses fall from 28/28 to 8/28. One genuine 26-proof calibration drains both arms with all four wallets paid and seven saved proofs unchanged. | Retain fresh normal authorizations and private fallbacks. Strong privacy is not established; evaluate public wallet-policy knowledge before wallet expansion. |
 | H15 | Fresh exits retain at least three ambiguous payment-source sets per six-payment case and more alternatives than saved exits in at least one pair when the observer knows the prototype construction defaults. | Frozen at `7bf197f`; modest screen passed in all four pairs on unchanged H14 inputs. Fresh has 5/6 or 6/6 ambiguous payments and more alternatives in every pair. Unique payment sources remain 2/24 for both; unique full-exit sources are 20/28 saved and 0/28 fresh, with only 9–10 fresh candidates. | Retain fresh normal authorizations/private fallbacks. Strong privacy is open; next consider an observer with one participant's own activity, excluding that participant's relationships from scoring. |
 | H16 | One complete participant record creates no new unique uninvolved fresh-payment sources; at least half remain ambiguous in every case/participant pair; fresh retains more alternatives in at least one pair. | Frozen at `5c44c55`; first clause fails on two startup payments, other clauses pass in all sixteen pairs. Separate participant views force sources for 4/24 fresh payments and 7/28 fresh exits, versus 6/24 and 28/28 saved. All 64 observations, 30 controls and 1,216 original-witness prefix checks pass. | Keep fresh normal proofs/private fallbacks and the compact research candidate. Strong privacy remains open. Prioritize common-size partial payouts/private remainder as an untested wallet-policy question, preserving full-drain accounting and immediate independent exits. |
+| H17 | One frozen 2-tKAS partial payout per wallet reduces the seven linked original cashout claims to at most five through full drain, without pair regression or new original-payment links, while preserving independent exits. | Privacy clauses pass: 7/28 → 4/28 distinct claims, or 7/84 → 4/84 separate-participant observations; original payment links unchanged. All twenty observations, forty original-witness checks and genuine fresh/saved drainage pass. Fees +21.05% pass; forty added synthetic minutes fail the thirty-minute delay target. | Retain optional common cashouts as a research candidate, with fresh normal proofs/private fallbacks. Do not adopt this fixed schedule or close Stage 2. Scope practical scheduling separately; no general anonymity or live result follows. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
@@ -161,27 +168,57 @@ real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
 
-### 2026-10-20 UTC — Common-size partial payouts (H17), execution started
+### 2026-10-20 UTC — Common-size partial payouts (H17)
 
 - Owner authorized this bounded offline test, independent exits, and code,
   results and journal on `shared-pool-four-wallet`.
 - `71d2aca` freezes Q=200,000,000 sompi, the four original workloads,
   original-claim provenance metrics, both horizons and rejection criteria.
-- Eight new small controls pass, including independent integer/provenance
-  enumeration. Twenty blinded observations and one genuine v6 calibration
-  are running; inference is not scored until all observers finish.
-- The first observer attempt was retained and stopped before scoring after
-  four completions. Publicly entailed cashout-suffix amount domains accelerate
-  the replacement exact search; ten controls now pass. The replacement uses
-  identical prepared inputs, with no payout, threshold or calibration change.
+- Result: the frozen privacy clauses pass. Distinct original claims linked by
+  at least one separate eligible participant fall from 7/28 to 4/28, and the
+  overlapping observation count falls from 7/84 to 4/84. No pair regresses,
+  no claim becomes newly unique and no original payment acquires a new unique
+  source. Chain-only stays 0/28 cashouts and 2/24 payments; participant payment
+  links stay 4/24 distinct, or 6/48 overlapping observations.
+- The three removed links belong to split claims; all four remaining links
+  belong to unsplit claims. Equal-payout legs have no singleton at either
+  horizon, including after every tail exits. Original-source candidates after
+  drain are 9–10 chain-only and 6–9 for those equal-payout legs with one
+  participant's records. These are creating transactions, not people or odds.
+- Validation: all 20 logical observations finish before truth scoring, with
+  540 full prediction rows, 40 original integer amount/input-graph checks and
+  136 candidate-set narrowing checks. Ten base controls and additional solver
+  oracle/two-input controls pass. Five complete same-input solver comparisons
+  agree on all 27 rows each.
+- Exact SMT searches were slow. Retain nineteen completed plain/bounded
+  results; the last case completes in 60.578 seconds with direct integer
+  CP-SAT and the same relation. Its positive graphs are checked against the
+  original integer model. Publicly implied suffix domains and one-input
+  balances, and batched queries, change only search. No unknown result is
+  counted as privacy. All earlier attempts remain available.
 - Genuine mechanics passed: 34 proofs; four optional pre-partial saved full
   exits and seven fresh/seven saved final exits in isolated workers. Both
   winner orders and final replay/alternative rejection pass. Both branches
   pay every wallet, consume 920,000,000 sompi in fees, pay 4,680,000,000 sompi
   and leave zero from 5,600,000,000 funded. All 23 public transaction bodies per
   branch independently revalidate and exactly match the model.
+- Cost: 23 versus 19 pool operations, fees 9.2 versus 7.6 test KAS, exactly
+  one extra 0.4 fee per wallet. Calibration needs 34 versus 26 proofs. The
+  +21.05% fee passes its screen; +40 synthetic minutes fails the unchanged
+  30-minute delay target. No actual test KAS is spent, and synthetic starting
+  funding UTXOs omit allocation/genesis transactions from this offline trace.
+- A collector metadata write failed after complete scoring because the
+  resource file already existed. A separate scope receipt fixes it. Repeating
+  collection/validation on the same predictions leaves the complete summary
+  unchanged; no observations were rerun for that fix.
+- Decision: keep optional common cashouts as a bounded research candidate,
+  together with fresh normal proofs/private fallbacks. Do not adopt this fixed
+  schedule or close Stage 2. A separately scoped scheduling comparison can
+  address the delay; startup inference and general privacy remain open.
 - No consensus/circuit/covenant/parameter change, TN10 broadcast, funds, push
-  or upstream posting. See [scope](../poc/shared-pool/COMMON-PAYOUT-SPEC.md).
+  or upstream posting. See [scope](../poc/shared-pool/COMMON-PAYOUT-SPEC.md),
+  [report](../poc/shared-pool/COMMON-PAYOUT.md) and
+  [sanitized results](../poc/shared-pool/evidence/2026-10-20-common-partial-reconstruction/summary.json).
 
 ### 2026-10-20 UTC — One participant's records (H16)
 

@@ -1,6 +1,7 @@
 # ADR-0025: Screen common partial payouts without changing the protocol
 
-Status: Accepted for the owner-authorized offline comparison only.
+Status: Offline comparison complete; retain optional cashout shaping as a
+research candidate. Fixed schedule not adopted.
 Date: 2026-10-20 UTC. Branch: `shared-pool-four-wallet`.
 
 H16 found fresh full-exit source links under a single participant's knowledge.
@@ -20,3 +21,14 @@ This accepts an experiment, not a production wallet policy. Reject repetition
 with tuned sizes if complete drainage removes the benefit. The existing
 30-minute branch delay target remains in force; the fixed schedule already
 implies 40 added minutes. A positive privacy finding alone cannot close Stage 2.
+
+Outcome: [the completed test](../../poc/shared-pool/COMMON-PAYOUT.md) passes
+its privacy screen. Separate participant views force 4/28 original cashout
+sources after drainage, down from 7/28, with no pair regression or newly unique
+payment source. All four wallets exit independently; seven saved final proofs
+remain unchanged. Native fees rise from 7.6 to 9.2 test KAS per fixture.
+
+The combined gate fails the unchanged delay target. Keep fresh normal proofs,
+private saved fallbacks and optional partial cashouts as research candidates.
+A further scope may test practical scheduling at the same payout size; this
+result establishes neither strong privacy nor readiness for funded expansion.

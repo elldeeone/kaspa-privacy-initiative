@@ -1,0 +1,97 @@
+{
+  "initial-interruption": {
+    "source_commit": "1a9ad37",
+    "reason": "Add entailed public suffix amount domains to accelerate exact searches; no score or threshold change",
+    "completed_observations": [
+      "a0-s0/participant-1/predictions.json",
+      "a0-s0/participant-2/predictions.json",
+      "a0-s0/participant-3/predictions.json",
+      "a0-s1/participant-2/predictions.json"
+    ],
+    "scoring_started": false,
+    "stopped_process_count": 13,
+    "stopped_utc": "2026-10-20T05:53:33Z"
+  },
+  "initial-cleanup": {
+    "reason": "Namespace PID 1 ignored SIGTERM. Matched stderr to this interrupted run and used SIGKILL on only its remaining workers.",
+    "stopped": [
+      {
+        "log": "a0-s0/participant-0/observer.log"
+      },
+      {
+        "log": "a0-s1/participant-0/observer.log"
+      },
+      {
+        "log": "a0-s1/participant-1/observer.log"
+      },
+      {
+        "log": "a0-s1/participant-3/observer.log"
+      }
+    ],
+    "completed_observations": [
+      "a0-s0/chain/predictions.json",
+      "a0-s0/participant-1/predictions.json",
+      "a0-s0/participant-2/predictions.json",
+      "a0-s0/participant-3/predictions.json",
+      "a0-s1/chain/predictions.json",
+      "a0-s1/participant-2/predictions.json"
+    ],
+    "utc": "2026-10-20T06:02:49Z"
+  },
+  "legacy-diagnostic-cleanup": {
+    "reason": "Complete the already-recorded H16 optional-probe stop: namespace PID 1 had ignored SIGTERM. No result was available or used.",
+    "stopped": [
+      {
+        "profile": "records"
+      },
+      {
+        "profile": "wallet"
+      }
+    ],
+    "original_diagnostic_sha256": "170f23d9ebef9f423d45e7fc17212ff6624f1c8bf8c93c77b9080781c7716568",
+    "utc": "2026-10-20T06:10:52Z",
+    "historical_evidence_unchanged": true
+  },
+  "redundant-batch-stop": {
+    "reason": "The original equivalent observation completed; stop this redundant unfinished variant. No batch inference result was used.",
+    "completed_original_sha256": "71f8bd95c15d0965b6d22fb767fde359ca56395b27eaa84553672dee8e05f545",
+    "utc": "2026-10-20T08:07:36.493368+00:00"
+  },
+  "final-supersession": {
+    "complete_observations": 20,
+    "summary_sha256": "6a3cebb076592a65267212bf26e291010addc0b22fea5363bc0bb573d8719f76",
+    "stopped": [
+      {
+        "variant": "original-SMT",
+        "reason": "A complete equivalent integer observation was collected and all truth checks passed."
+      },
+      {
+        "variant": "batch-SMT",
+        "reason": "A complete equivalent integer observation was collected and all truth checks passed."
+      },
+      {
+        "variant": "propagating-SMT",
+        "reason": "A complete equivalent integer observation was collected and all truth checks passed."
+      },
+      {
+        "variant": "paused-prior-controller"
+      }
+    ],
+    "utc": "2026-10-20T08:19:45.041577+00:00",
+    "unfinished_variants_used_for_inference": false
+  },
+  "collector-error": {
+    "stage": "after complete scoring",
+    "exception": "FileExistsError: resources.json",
+    "cause": "write-once save called on an existing resource measurement",
+    "observations_complete": true,
+    "scores_preserved": true
+  },
+  "collector-fix": {
+    "original_summary_sha256": "6a3cebb076592a65267212bf26e291010addc0b22fea5363bc0bb573d8719f76",
+    "final_summary_sha256": "6a3cebb076592a65267212bf26e291010addc0b22fea5363bc0bb573d8719f76",
+    "summaries_identical": true,
+    "observations_rerun": false,
+    "collection_and_truth_validation_repeated": true
+  }
+}

@@ -1,6 +1,15 @@
 # Four-wallet shared native-KAS pool — TN10
 
-Latest measured follow-up: [H16 participant disclosure](PARTICIPANT-PRIVACY.md)
+Latest offline follow-up: [H17 common partial payouts](COMMON-PAYOUT.md)
+passes its frozen privacy screen: separate participant views link 4/28 original
+cashout sources through full drain, down from 7/28, with no new payment links.
+All four wallets exit independently; seven saved proofs remain unchanged.
+All twenty observations and forty original-witness checks pass. Fees rise from
+7.6 to 9.2 test KAS; forty added synthetic minutes fail the thirty-minute delay
+target. Retain optional common cashouts as a research candidate; Stage 2 and
+strong privacy remain open. No funds or new TN10 run.
+
+Earlier measured follow-up: [H16 participant disclosure](PARTICIPANT-PRIVACY.md)
 fails its strict screen on two additional startup payment links. Across separate
 participant views, 4/24 fresh payments and 7/28 fresh full exits have uniquely
 determined sources, versus 6/24 and 28/28 saved. These are synthetic targets

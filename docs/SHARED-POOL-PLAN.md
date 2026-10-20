@@ -4,12 +4,18 @@ Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
 **Current position:** H17's [common partial-payout test](../poc/shared-pool/COMMON-PAYOUT.md)
-passes genuine offline mechanics: all four wallets exit in fresh/saved branches,
-all seven saved proofs remain unchanged, and both branches drain to zero.
-The twenty exact observer runs are still in progress. Q=2 tKAS and the original
-claim metrics were frozen in `71d2aca`. All fees and tails count; the additional
-1.6-tKAS fee is within the 25% screen, while 40 synthetic minutes exceed the
-existing 30-minute delay target. Stage 2 remains open.
+passes its frozen privacy screen and genuine offline mechanics. After full
+drain, separate participant views force 4/28 original cashout sources versus
+7/28 before, with no pair regression or new payment-source links. All four
+wallets exit in fresh/saved branches, seven saved proofs remain unchanged and
+both branches drain to zero. Twenty observations and forty original-witness
+checks pass.
+
+Q=2 tKAS and the original claim metrics were frozen in `71d2aca`. All fees
+and tails count: +1.6 tKAS is within the 25% fee screen, while +40 synthetic
+minutes exceeds the unchanged 30-minute delay target. The combined gate fails.
+Retain optional common cashouts as a research candidate; scope practical
+scheduling separately. Stage 2 and strong privacy remain open.
 
 **Previous privacy result:** H16's [participant-disclosure comparison](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
 fails its strict screen on two additional startup payment links. Separate
@@ -18,8 +24,8 @@ exits, versus 6/24 and 28/28 saved. These are distinct synthetic targets linked
 by at least one eligible participant, not pooled disclosures or a privacy
 percentage. Fresh retains more alternatives in all sixteen matched pairs.
 Keep fresh normal proofs/private fallbacks and the compact research candidate.
-Stage 2 stays open; prioritize withdrawal-amount policy using existing partial
-withdrawals. All 64 observations and 30 controls complete. H16 adds no proofs,
+H17 above addresses one resulting withdrawal-policy question. All 64
+observations and 30 controls complete. H16 adds no proofs,
 funds, network trial or publication.
 
 **Previous mechanics:** H13's authorized bounded offline and TN10 implementation passed:
@@ -76,7 +82,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H16 disclosure screen fails; H17 mechanics pass offline, privacy comparison running | Retain fresh normal proofs/private fallbacks; decide the frozen common-payout screen before wallet expansion. |
+| 2. Practical privacy | 5 | H17 privacy screen and exits pass; fixed schedule fails the delay gate | Retain optional common cashouts, fresh normal proofs/private fallbacks; scope practical scheduling before wallet expansion. Strong privacy remains open. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -179,14 +185,18 @@ open. See [results and validation](../poc/shared-pool/PARTICIPANT-PRIVACY.md).
 
 Records alone force six of those fresh full exits and two partials. The extra
 ownership assumptions add one of each; removing only those assumptions leaves
-most measured withdrawal leakage. **Next proposed question:** can one frozen
-common partial-payout size with private remainder reduce links to original
-payments through full drainage? Use the existing v6 mechanics, account for
-every fee and eventual remainder, and preserve immediate independent exits.
-Do not count additional self-change notes as new independent privacy. Stop if
-the effect disappears at final drainage, depends on invented background traffic,
-or exceeds a predeclared cost/delay budget. This investigation is unrun and
-not authorized by this plan update. No protocol change is selected.
+most measured withdrawal leakage. The subsequently authorized **H17** test
+answers the common-payout question positively within four frozen cases:
+cashout-source links fall 7/28 → 4/28 through complete drainage, with original
+payment links unchanged and all independent exits preserved. Original economic
+claims are counted, so extra change notes cannot inflate the score.
+
+Its fixed schedule exceeds the delay budget despite meeting the fee screen.
+Retain the optional policy as a research candidate. The next scoping question
+is whether practical scheduling preserves this benefit within the unchanged
+delay target, with every tail and fee still counted. Do not retune the frozen
+size or silently relax the budget. This plan authorizes no further experiment,
+funding or protocol change.
 
 **H15 observed outcome:** the observer now knows fixed deposit/partial padding,
 one-note full exits and receipt-time fallbacks. The four frozen paired ledgers

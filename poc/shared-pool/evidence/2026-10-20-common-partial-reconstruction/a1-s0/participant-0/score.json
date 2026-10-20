@@ -1,0 +1,1093 @@
+{
+  "claims": [
+    {
+      "claim": 1,
+      "baseline_sources": [
+        3,
+        5,
+        8,
+        11
+      ],
+      "baseline_linked": false,
+      "linked": false,
+      "min_leg_candidates": 5,
+      "leg_candidate_counts": [
+        6,
+        5
+      ],
+      "legs": [
+        {
+          "event": 13,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            7,
+            8,
+            10,
+            11
+          ]
+        },
+        {
+          "event": 17,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            7,
+            8,
+            11
+          ]
+        }
+      ],
+      "before_drain": [
+        {
+          "event": 13,
+          "through": 15,
+          "kind": "cashout",
+          "sources": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "claim": 2,
+      "baseline_sources": [
+        10
+      ],
+      "baseline_linked": true,
+      "linked": false,
+      "min_leg_candidates": 4,
+      "leg_candidate_counts": [
+        6,
+        4
+      ],
+      "legs": [
+        {
+          "event": 14,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            7,
+            8,
+            10,
+            11
+          ]
+        },
+        {
+          "event": 18,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            10,
+            11
+          ]
+        }
+      ],
+      "before_drain": [
+        {
+          "event": 14,
+          "through": 15,
+          "kind": "cashout",
+          "sources": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "claim": 3,
+      "baseline_sources": [
+        3,
+        5,
+        7,
+        8,
+        11
+      ],
+      "baseline_linked": false,
+      "linked": false,
+      "min_leg_candidates": 5,
+      "leg_candidate_counts": [
+        6,
+        5
+      ],
+      "legs": [
+        {
+          "event": 15,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            7,
+            8,
+            10,
+            11
+          ]
+        },
+        {
+          "event": 19,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            7,
+            8,
+            11
+          ]
+        }
+      ],
+      "before_drain": [
+        {
+          "event": 15,
+          "through": 15,
+          "kind": "cashout",
+          "sources": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "claim": 5,
+      "baseline_sources": [
+        3,
+        5,
+        8,
+        11
+      ],
+      "baseline_linked": false,
+      "linked": false,
+      "min_leg_candidates": 6,
+      "leg_candidate_counts": [
+        6
+      ],
+      "legs": [
+        {
+          "event": 21,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            7,
+            8,
+            10,
+            11
+          ]
+        }
+      ],
+      "before_drain": []
+    },
+    {
+      "claim": 6,
+      "baseline_sources": [
+        3,
+        5,
+        8,
+        11
+      ],
+      "baseline_linked": false,
+      "linked": false,
+      "min_leg_candidates": 5,
+      "leg_candidate_counts": [
+        5
+      ],
+      "legs": [
+        {
+          "event": 22,
+          "through": 22,
+          "kind": "cashout",
+          "sources": [
+            3,
+            5,
+            7,
+            8,
+            11
+          ]
+        }
+      ],
+      "before_drain": []
+    }
+  ],
+  "payments": [
+    {
+      "event": 3,
+      "baseline_candidates": 3,
+      "candidates": 3,
+      "baseline_linked": false,
+      "linked": false,
+      "newly_linked": false,
+      "horizons": [
+        {
+          "event": 3,
+          "through": 15,
+          "kind": "payment",
+          "input_sets": [
+            [
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5
+            ]
+          ],
+          "source_sets": [
+            [
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2
+            ]
+          ],
+          "prediction": [
+            5
+          ],
+          "source_prediction": [
+            2
+          ]
+        },
+        {
+          "event": 3,
+          "through": 22,
+          "kind": "payment",
+          "input_sets": [
+            [
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5
+            ]
+          ],
+          "source_sets": [
+            [
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2
+            ]
+          ],
+          "prediction": [
+            5
+          ],
+          "source_prediction": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "event": 5,
+      "baseline_candidates": 5,
+      "candidates": 5,
+      "baseline_linked": false,
+      "linked": false,
+      "newly_linked": false,
+      "horizons": [
+        {
+          "event": 5,
+          "through": 15,
+          "kind": "payment",
+          "input_sets": [
+            [
+              3
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              7
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9
+            ]
+          ],
+          "source_sets": [
+            [
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4
+            ]
+          ],
+          "prediction": [
+            9
+          ],
+          "source_prediction": [
+            4
+          ]
+        },
+        {
+          "event": 5,
+          "through": 22,
+          "kind": "payment",
+          "input_sets": [
+            [
+              3
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              7
+            ],
+            [
+              8
+            ]
+          ],
+          "source_sets": [
+            [
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3
+            ]
+          ],
+          "prediction": [
+            8
+          ],
+          "source_prediction": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "event": 11,
+      "baseline_candidates": 4,
+      "candidates": 4,
+      "baseline_linked": false,
+      "linked": false,
+      "newly_linked": false,
+      "horizons": [
+        {
+          "event": 11,
+          "through": 15,
+          "kind": "payment",
+          "input_sets": [
+            [
+              3
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              3,
+              12
+            ],
+            [
+              3,
+              13
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              3,
+              17
+            ],
+            [
+              3,
+              21
+            ],
+            [
+              5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              5,
+              11
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              5,
+              13
+            ],
+            [
+              5,
+              16
+            ],
+            [
+              5,
+              17
+            ],
+            [
+              5,
+              19
+            ],
+            [
+              5,
+              21
+            ],
+            [
+              7
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              11
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              7,
+              13
+            ],
+            [
+              7,
+              16
+            ],
+            [
+              7,
+              17
+            ],
+            [
+              7,
+              19
+            ],
+            [
+              7,
+              21
+            ],
+            [
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              8,
+              12
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              8,
+              16
+            ],
+            [
+              8,
+              17
+            ],
+            [
+              8,
+              19
+            ],
+            [
+              8,
+              21
+            ],
+            [
+              9
+            ],
+            [
+              9,
+              11
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              9,
+              13
+            ],
+            [
+              9,
+              16
+            ],
+            [
+              9,
+              17
+            ],
+            [
+              9,
+              19
+            ],
+            [
+              9,
+              21
+            ],
+            [
+              11
+            ],
+            [
+              11,
+              12
+            ],
+            [
+              11,
+              13
+            ],
+            [
+              11,
+              16
+            ],
+            [
+              11,
+              17
+            ],
+            [
+              11,
+              19
+            ],
+            [
+              11,
+              21
+            ],
+            [
+              12
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              12,
+              16
+            ],
+            [
+              12,
+              17
+            ],
+            [
+              12,
+              19
+            ],
+            [
+              12,
+              21
+            ],
+            [
+              13
+            ],
+            [
+              13,
+              16
+            ],
+            [
+              13,
+              17
+            ],
+            [
+              13,
+              19
+            ],
+            [
+              13,
+              21
+            ],
+            [
+              16
+            ],
+            [
+              16,
+              17
+            ],
+            [
+              16,
+              19
+            ],
+            [
+              16,
+              21
+            ],
+            [
+              17
+            ],
+            [
+              17,
+              19
+            ],
+            [
+              17,
+              21
+            ],
+            [
+              19
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              21
+            ]
+          ],
+          "source_sets": [
+            [
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              10
+            ],
+            [
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              5,
+              10
+            ],
+            [
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              9
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              10
+            ]
+          ],
+          "prediction": [
+            21
+          ],
+          "source_prediction": [
+            10
+          ]
+        },
+        {
+          "event": 11,
+          "through": 22,
+          "kind": "payment",
+          "input_sets": [
+            [
+              7,
+              19
+            ],
+            [
+              8,
+              19
+            ],
+            [
+              11,
+              19
+            ],
+            [
+              12,
+              19
+            ],
+            [
+              16,
+              19
+            ],
+            [
+              17,
+              19
+            ]
+          ],
+          "source_sets": [
+            [
+              3,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              8,
+              9
+            ]
+          ],
+          "prediction": [
+            17,
+            19
+          ],
+          "source_prediction": [
+            8,
+            9
+          ]
+        }
+      ]
+    }
+  ],
+  "all_truth_survives": true,
+  "eligible_events": [
+    3,
+    5,
+    8,
+    10,
+    11,
+    13,
+    14,
+    15,
+    17,
+    18,
+    19,
+    21,
+    22
+  ]
+}

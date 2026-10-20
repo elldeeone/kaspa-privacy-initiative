@@ -1,0 +1,34 @@
+{
+  "propagating": {
+    "variant": "single-input-balance-implications",
+    "source_commit": "03fa94d7d5bdc91cb9355df44d306dcc4203f2bb",
+    "mappings": {
+      "common_payout_batch_impl.py": {
+        "source": "common_payout_batch_observer.py",
+        "sha256": "b5367b9a2b6642567aa961a536c8ab7cfe6b9d437154e6ae6c24f9471a9dff38"
+      },
+      "common_payout_batch_observer.py": {
+        "source": "common_payout_propagating_observer.py",
+        "sha256": "774fb513cb4903137d069488bef3395ce157cca716c9984cb42626856c4f1d7f"
+      }
+    },
+    "launcher_sha256": "a68f3d75988a7fc977f187b5aa627f5f48db12ba1d2239c54cf0b976450b9184",
+    "tests_sha256": "6c7402b7353eeb79f1cd58aeeca80eac329f589db5020bd131317076c72859a6"
+  },
+  "integer": {
+    "variant": "integer",
+    "source_commit": "28b94199f395ab6ea56d84347673c2bc35a84d07",
+    "mappings": {
+      "common_payout_batch_impl.py": {
+        "source": "common_payout_batch_observer.py",
+        "sha256": "b5367b9a2b6642567aa961a536c8ab7cfe6b9d437154e6ae6c24f9471a9dff38"
+      },
+      "common_payout_batch_observer.py": {
+        "source": "common_payout_integer_observer.py",
+        "sha256": "444ba112483f8369be18d01cd7eb310041cab49b240be142e2f5b3f9a8ec2edb"
+      }
+    },
+    "launcher_sha256": "104da8e31d66c21063119c65b66bb33e380ced656695f6752cb0968c71bfc86c",
+    "tests_sha256": "cb4e0dddbde8b76884f23b6409c396f33dde572cbe07d2b50817cdf71b81047d"
+  }
+}

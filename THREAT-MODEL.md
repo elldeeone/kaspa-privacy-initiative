@@ -57,9 +57,14 @@ without adopting it as a defense. Its additional observer assumption is that
 a visible 2-tKAS partial uses one input and keeps positive change; v6 itself
 permits two inputs. Each Q-change inherits its input's original source in the
 inferred graph. Final odd-sized remainders can retain amount information despite
-equal early payouts. The genuine full/partial alternatives exclude each other,
-and saved change exits remain independently usable. Privacy inference is still
-running; neither valid exits nor fixed payout sizes establish anonymity.
+equal early payouts. In the four frozen cases, participant original-source links
+decline from 7/28 to 4/28 after complete drainage, with no new payment links.
+All remaining links concern unsplit claims; source alternatives do not imply
+hidden amounts, owner anonymity or protection from RPC/network observation.
+The genuine full/partial alternatives exclude each other and saved change
+exits remain independently usable. The fixed schedule fails the delay target.
+Retain optional shaping as a research candidate, not an established defense
+for arbitrary workloads or saved-proof publication.
 
 H16's second pass found that the inherited H14/H15 sandbox exposed host case/arm
 labels through process/mount metadata, though the observers did not read them.
