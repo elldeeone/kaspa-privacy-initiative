@@ -1,0 +1,135 @@
+{
+  "accounting": [
+    {
+      "accounting": {
+        "outstanding_permission_rent_excluded": 0,
+        "pending_deposits": 1000000000,
+        "private_liability": 0,
+        "reserve_principal": 1000000000,
+        "state_covenant_rent_excluded": 100000000,
+        "unpaid_exits": 0
+      },
+      "root": "d18bb327901042de782ad4cb28026b9337a003174569f24df2cd5f5162a5451b",
+      "stage": "deposit",
+      "tip": "df6a36cbae0852fd153408b0d1718e956893fda3dd6954ff34d5cfa5b7b4d138"
+    },
+    {
+      "accounting": {
+        "outstanding_permission_rent_excluded": 0,
+        "pending_deposits": 0,
+        "private_liability": 1000000000,
+        "reserve_principal": 1000000000,
+        "state_covenant_rent_excluded": 100000000,
+        "unpaid_exits": 0
+      },
+      "root": "79bc951df3bdc84dee8d96f7c87c941dfd773e0a66300766fb7a3cc889577784",
+      "stage": "credit-transfer",
+      "tip": "e766fb7bd4df580f1969f7f61bf3930656ba652a854044cdb3a88b6dbb805b5f"
+    },
+    {
+      "accounting": {
+        "outstanding_permission_rent_excluded": 0,
+        "pending_deposits": 0,
+        "private_liability": 600000000,
+        "reserve_principal": 1000000000,
+        "state_covenant_rent_excluded": 100000000,
+        "unpaid_exits": 400000000
+      },
+      "root": "6c6037a7cb0b1242d565e6c5e0cc328fbb3da30ea0e6413ee791be24a187d576",
+      "stage": "bob-exit",
+      "tip": "f7c1aa830edac35838fe963f03c76c78193fe574ffcb196bc28caccfeb7d7261"
+    },
+    {
+      "accounting": {
+        "outstanding_permission_rent_excluded": 0,
+        "pending_deposits": 0,
+        "private_liability": 600000000,
+        "reserve_principal": 600000000,
+        "state_covenant_rent_excluded": 100000000,
+        "unpaid_exits": 0
+      },
+      "root": "902125a30dc7ca490b447606dc958d00e2c36c43c1190f5bda6e442a463a9046",
+      "stage": "bob-reconcile",
+      "tip": "57eed47b70e5f26450063d1adb59af392b66cf0246e3f6be0505dc4a8c12f0d7"
+    },
+    {
+      "accounting": {
+        "outstanding_permission_rent_excluded": 0,
+        "pending_deposits": 0,
+        "private_liability": 0,
+        "reserve_principal": 600000000,
+        "state_covenant_rent_excluded": 100000000,
+        "unpaid_exits": 600000000
+      },
+      "root": "c85e4bb565358f909642d505a293ee28905969f1d8f65351147f0e4eeb089b61",
+      "stage": "alice-exit",
+      "tip": "b4d1eebd24b63cff88ee81a9d690d3b48c83c3215a311bde0a8d33a66cb08f53"
+    },
+    {
+      "accounting": {
+        "outstanding_permission_rent_excluded": 0,
+        "pending_deposits": 0,
+        "private_liability": 0,
+        "reserve_principal": 0,
+        "state_covenant_rent_excluded": 100000000,
+        "unpaid_exits": 0
+      },
+      "root": "4cbbe70a9fde378820b019a0ed11674165a5080fc707c232ad922a08df2c7d63",
+      "stage": "alice-reconcile",
+      "tip": "059a9de8fb83d446bef3444db739854e025a7f261e3e4a1ff4ad38f1f705db6c"
+    }
+  ],
+  "additionalExecutionCases": [
+    "permission-only",
+    "wallet-replay",
+    "auth-root",
+    "auth-tip",
+    "auth-inclusion",
+    "auth-last-touch",
+    "auth-covenant",
+    "auth-lane",
+    "unreconciled-payout"
+  ],
+  "instance": "Unfunded synthetic native context; future TN10 must bootstrap a fresh covenant pinned to this program",
+  "nativePayouts": [
+    {
+      "genuineIssuanceProofAvailable": false,
+      "outputs": 3,
+      "payoutTransactionId": "4795347a068ee17f7410893f6299ee42cceabc55994f622f4e93d31c9422aa87",
+      "permissionTransactionId": "484ef8c8ea48083a8b7c4713387c90a1a9d61a493180344722dd828cd6455e84",
+      "scriptUnits": [
+        3322,
+        181,
+        100001
+      ],
+      "stage": "bob-exit",
+      "syntheticPermissionUTXO": true
+    },
+    {
+      "genuineIssuanceProofAvailable": false,
+      "outputs": 2,
+      "payoutTransactionId": "5f8116631f1487a724722455032678d666c227cf1341df19e30f97a7a2f1696e",
+      "permissionTransactionId": "846f4ede996f7caa910179d29ddca9e0d4b47cd88d0a4e31f5bbcfdc52b651bb",
+      "scriptUnits": [
+        3386,
+        181,
+        100001
+      ],
+      "stage": "alice-exit",
+      "syntheticPermissionUTXO": true
+    }
+  ],
+  "nativePermissionIssuanceProven": false,
+  "newOuterReceipts": 0,
+  "scope": "LOCAL_REAL_WALLET_PROOFS_NATIVE_PAYOUTS_AND_GUEST_EXPECTATIONS_NOT_OUTER_PROOFS",
+  "sourceWalletProofs": "PR55 public fixtures only; no role secrets",
+  "stages": [
+    "deposit",
+    "credit-transfer",
+    "bob-exit",
+    "bob-reconcile",
+    "alice-exit",
+    "alice-reconcile"
+  ],
+  "stateRentSeparated": 100000000
+}
