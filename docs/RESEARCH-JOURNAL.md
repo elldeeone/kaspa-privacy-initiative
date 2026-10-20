@@ -22,21 +22,18 @@ payment system. Focus the normal privacy hypothesis on persistent shielded balan
 measure entry, cashout and emergency-exit disclosures separately. Permissionless
 exit remains a requirement even when its use reduces privacy.
 
-Milestone 1 has started: [RFC-0012](rfc/0012-useful-privacy-requirements.md) drafts
-the privacy promise, observer knowledge, user-level metrics, operating requirements
-and falsifiers, with a source/capability map of the current v6 candidate. The
-[primary-source refresh](../research/shielded-kas-privacy-requirements-2026-10-20.md)
-records what established designs contribute and what is not inherited.
-Use-case thresholds remain open. Integration, independent cryptographic review and
-privacy attacks then proceed together. Later milestones cover a usable wallet,
-current-version recovery, settlement under faults, measured architecture selection,
-independently owned testnet activity and a reproducible research release.
+Milestone 1 is complete as a requirements decision. The owner adopted
+[RFC-0012's targets](rfc/0012-useful-privacy-requirements.md), recorded in
+[ADR-0027](adr/0027-shielded-payment-targets.md), and authorized their commit/push
+followed by starting milestone 2. The targets are prospective; no current
+implementation has passed this new qualification.
 
-The branch and its 16 previously local commits were pushed at `c3afb1b`. The owner
-then authorized updating and pushing this plan/journal and beginning milestone 1.
-This scope includes local requirements/source work; it does not initiate a funded
-trial, paid service, recruitment or new protocol implementation. The roadmap is a
-work programme, not evidence of its outcomes.
+Milestone 2 begins with a coherent current-version lifecycle and enforcement map,
+then removes fixture-only participation while preserving native backing checks.
+Integration, cryptographic review and privacy evaluation remain separate work.
+The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
+and earlier capability map remain the starting evidence. No new funded trial,
+paid service, recruitment or upstream publication is initiated by this step.
 
 ## Evidence position through H18
 
@@ -212,6 +209,35 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Milestone 1 targets adopted and closed
+
+- **Decision:** the owner adopted the recommended numerical targets and directed
+  closing milestone 1, committing/pushing the documentation, then starting
+  milestone 2. [RFC-0012](rfc/0012-useful-privacy-requirements.md) is Accepted;
+  [ADR-0027](adr/0027-shielded-payment-targets.md) records the rationale.
+- **Target profile:** repeated payments from shielded balances, 10–1,000 tKAS;
+  complete fee accounting; ordinary CPU-only laptop operation; explicit proof,
+  payment, cold-start, exit and fresh-recovery times. Privacy gates cover
+  uninvolved identities, private amounts and targeted subsets in a 32-role/eight-
+  adversary workload through full drainage. The RFC holds the exact numbers,
+  definitions and uncertainty requirements.
+- **Safety and availability:** invariants remain unchanged. Reference, 2× and 5×
+  fee scenarios must preserve user-controlled exits, including small change and
+  service loss. Performance targets do not abort trials or remove liabilities.
+  Acceptance latency is not consensus finality; network anonymity needs separate
+  evidence.
+- **Known gaps:** H13's proving/startup/memory and small-payment fees miss the
+  adopted targets. Pinned default Groth16 verification cost alone exceeds the
+  10-KAS endpoint's 1% budget. This motivates research into amortization or other
+  designs, without selecting a new architecture or claiming current-L1 impossibility.
+- **Completion boundary:** specification, source/reuse review and capability map
+  complete milestone 1. No implementation, security, privacy or performance pass
+  is implied. H1-H18 retain their original frozen criteria and evidence.
+- **Next work:** start milestone 2 with current-version interfaces and enforcement
+  obligations, including removal of the live adapter's fixture participant list
+  while retaining actual native funding verification. The previously published
+  draft checkpoint is `8bb7561`.
 
 ### 2026-10-20 (Australia/Sydney) — Privacy requirements draft (milestone 1)
 

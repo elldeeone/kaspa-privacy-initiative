@@ -16,18 +16,17 @@ cashouts and emergency exits have separately measured disclosure. An independent
 exit remains available even when exercising it sacrifices privacy. No token,
 privileged withdrawal path, real funds or mainnet deployment is part of this plan.
 
-The owner approved this ten-milestone roadmap, its documentation commit/push, and
-starting milestone 1. Milestone 1 defines requirements and evaluation; it does not
-implement a new cryptographic subsystem. The later milestones describe the
-programme, not authorization for funded trials, paid infrastructure, participant
-recruitment or upstream publication. Existing branches, secrets and evidence stay
-intact. Routine source research and local milestone-1 documentation can proceed.
+The owner adopted milestone 1's targets, authorized their documentation
+commit/push, and directed starting milestone 2. Local integration work remains
+research/testnet only. The later roadmap does not authorize funded trials, paid
+infrastructure, participant recruitment or upstream publication. Existing branches,
+secrets, protocol instances and evidence stay intact.
 
-**Current work:** define the privacy promise, adversaries, observations,
-measurements and operating requirements. The first integrated delivery target
-combines that specification with one current-version wallet lifecycle and an
-independent attack suite. It spans milestones 1, 2, 4 and 7; it is not already
-complete because individual older experiments passed.
+**Current work:** consolidate the current candidate's deposit, private
+transfer/change, exit and recovery interfaces under the accepted
+[RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md). The first
+integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
+Requirements acceptance does not mean that any implementation meets them.
 
 ## Evidence carried forward
 
@@ -49,32 +48,28 @@ privacy results are not real-world anonymity.
 
 ## Milestone 1 — Define the privacy promise
 
-**Status:** started. [RFC-0012](rfc/0012-useful-privacy-requirements.md) drafts the
-requirements, observer profiles, falsifiers and current capability map. The
-[primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
-records reuse/adaptation boundaries. The use-case and quantitative qualification
-envelope remain open; this is not a completed privacy evaluation.
+**Status:** complete as a requirements decision on 2026-10-20.
+[RFC-0012](rfc/0012-useful-privacy-requirements.md) is accepted and is the
+source of truth for the adopted payment-size, privacy, fee, hardware, latency,
+recovery and fee-stress targets. [ADR-0027](adr/0027-shielded-payment-targets.md)
+records the owner-directed decision.
 
-Specify the intended user activity, protected relationships and amounts, explicit
-public information, adversaries and required honest participation. Separate
-payments from an existing shielded balance, entering/leaving the pool, and recovery.
-Compare persistent balances with prompt cashout rather than assuming either is private.
+The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md),
+observer definitions, falsifiers and current capability map are complete for this
+milestone. The profile protects ordinary internal payment relationships/amounts,
+measures later disclosure and preserves immediate independent exit. Experiments
+must freeze concrete workloads and statistical procedures before evaluation.
 
-Define owner/payment attribution, funding relationship inference, amount disclosure,
-attack precision/coverage, uncertainty and observation horizons. Evaluate actual
-payers and recipients rather than treating note counts as people. Set usable
-payment sizes, hardware, fees and delay targets before scoring; distinguish chosen
-research thresholds from established privacy guarantees and measured baselines.
-
-**Deliverable and gate:** an open privacy RFC, current-source/reuse review and
-requirement-to-evidence map. Every proposed claim names its adversary, observations,
-assumptions, failure condition and evidence still needed. Unresolved numeric targets
-remain explicit; they cannot silently become a passing gate. This completes a
-requirements milestone, not a privacy validation.
+**Completion boundary:** requirements are adopted; privacy, cryptographic security,
+independent wallet recovery and performance are not established. Current v6 has
+known cost/resource gaps against the profile. Keep the targets fixed while testing;
+record any future change explicitly without reclassifying old failures.
 
 ## Milestone 2 — Consolidate one protocol candidate
 
-**Status:** bounded v6 mechanisms exist; integrated lifecycle incomplete.
+**Status:** authorized next work. Bounded v6 mechanisms exist; integrated lifecycle
+incomplete. Begin with a source-backed interface/invariant map and the public
+replay/admission boundary, preserving existing instances and evidence.
 
 Use one circuit, covenant, parameter identity, wallet format and public-data format
 for deposit, private transfer/change, withdrawal and recovery. Map all security
@@ -243,9 +238,9 @@ version used by recovery (5) and settlement fault testing (6). Measurements feed
 architecture selection (8). The independent-user trial (9) follows qualification;
 the reproducible release (10) includes the resulting evidence and limitations.
 
-Review the draft privacy RFC and choose its use-case/qualification envelope.
-Use the source/capability gaps to scope the first coherent wallet increment and
-independent attack suite. The
+Milestone 1 is closed. Start milestone 2 from the accepted requirements and
+source/capability gaps: map one coherent lifecycle, then remove fixture-only
+participation without weakening native funding validation. The
 persistent-balance versus prompt-cashout comparison is an early diagnostic inside
 this programme, not the whole programme or a reason to delay all useful integration.
 

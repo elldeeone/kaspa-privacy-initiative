@@ -56,3 +56,5 @@ The open state architecture comparison is [RFC-0001](../rfc/0001-state-architect
 - [ADR-0024: specify two-input private payments before further experiments](0024-two-input-private-payment-scope.md) — Accepted scope, followed by authorized offline implementation; bounded H13 passed, RFC-0011 remains Open.
 - [ADR-0025: screen common partial payouts without changing the protocol](0025-common-payout-offline-screen.md) — Owner-authorized offline policy comparison; preserve independent exits and count complete drainage.
 - [ADR-0026: independently scheduled common payouts](0026-scheduled-common-payout-screen.md) — Offline privacy gate failed; short-delay policy rejected and conditional native/TN10 step not triggered.
+
+- [ADR-0027: adopt shielded-payment qualification targets](0027-shielded-payment-targets.md) — Accepted requirements; milestone 1 complete, implementation qualification remains open.

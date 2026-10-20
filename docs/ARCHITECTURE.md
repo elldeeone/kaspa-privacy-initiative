@@ -2,6 +2,14 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[ADR-0027](adr/0027-shielded-payment-targets.md) adopts the
+[RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md) and closes
+milestone 1. These targets constrain future architecture choices; they do not
+select a proof system/runtime, qualify v6 or change deployed pool rules.
+Milestone 2 starts consolidating the current candidate's lifecycle and native
+funding/recovery interfaces. The small-payment fee target is a known challenge
+for individually verified transitions under the pinned relay policy.
+
 [ADR-0026](adr/0026-scheduled-common-payout-screen.md) records H18's completed
 optional local-withdrawal comparison on unchanged v6. Its short-delay policy
 fits the fee/delay limits but does not reduce the strongest tested attack's

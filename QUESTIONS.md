@@ -2,13 +2,13 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
-[Milestone 1's requirements draft](docs/rfc/0012-useful-privacy-requirements.md)
-now asks which repeated-payment use case, observer combinations, absolute
-disclosure limits and cost/hardware/fault envelope should qualify the candidate.
-How should merged funding sets, amounts and real participant control be scored?
-These choices precede any new usefulness verdict. The
-[source/capability review](research/shielded-kas-privacy-requirements-2026-10-20.md)
-informs that decision without selecting new cryptography or an execution runtime.
+[Milestone 1's accepted requirements](docs/rfc/0012-useful-privacy-requirements.md)
+now fix the repeated-payment use case and quantitative privacy/operating targets.
+Which current-L1 architecture can meet them, especially the small-payment fee
+endpoint? How can one current-version client support arbitrary admission, recipient
+acceptance and recovery without fixture metadata? Milestone 2 starts these
+integration questions. The [decision](docs/adr/0027-shielded-payment-targets.md)
+closes requirements only; exact experiment manifests remain prospective.
 
 [H18's completed comparison](poc/shared-pool/SCHEDULED-PAYOUT.md) rejects the
 tested short-delay common-payout policy: the strongest attack's success is
