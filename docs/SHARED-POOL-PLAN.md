@@ -116,7 +116,14 @@ Every accepted liability is backed and every enforcement assumption is visible.
 
 ## Early privacy gate — Before milestone 3
 
-**Status:** next priority, not yet executed. The owner challenged the work order
+**Status:** the public-byte audit and
+[specified amount-inference calibration](../poc/shared-pool/EARLY-PRIVACY-SPEC.md)
+are complete; the 32-role held-out gate remains open. The
+[first-slice report](../poc/shared-pool/EARLY-PRIVACY.md) records 48 cross-checked
+amount bounds. Later cashout narrows one payment's upper bound from 30.4 to
+20.4 tKAS; neither ordinary payment is uniquely determined by the tested models.
+This is calibration, not owner anonymity or an amount-guessing result.
+The owner challenged the work order
 after the milestone 2 commit `bf4505c`: test whether the integrated candidate can
 meet the intended privacy promise before investing further in that candidate.
 Keep milestone numbers stable; this brings privacy evaluation forward from 7.
@@ -341,8 +348,9 @@ version used by recovery (5) and settlement fault testing (6). Measurements feed
 architecture selection (8). The independent-user trial (9) follows qualification;
 the reproducible release (10) includes the resulting evidence and limitations.
 
-Milestone 1 and the bounded offline milestone 2 gate are closed. Next audit the
-current public surface and freeze the early privacy evaluation. Resolve its
+Milestone 1 and the bounded offline milestone 2 gate are closed. The initial
+public-surface/amount calibration is complete. Next freeze the 32-role/eight-adversary
+held-out evaluation, including common ownership and pooled disclosures. Resolve its
 pass/fail/incomplete result before expanding into milestones 3–6. Keep the known
 fee/cold-load gaps visible. Existing failed H16/H18 screens remain warnings;
 neither those old workloads nor the M2 mechanics trace qualifies the new privacy

@@ -1,0 +1,3804 @@
+{
+  "analysis": {
+    "schema": "kpi-early-privacy-amounts-v1",
+    "complete": true,
+    "meaning": "Exact integer extrema and zero feasibility, not a contiguous set or probability",
+    "initial_position": {
+      "position": 0,
+      "public_value_sompi": 2000000000
+    },
+    "created_positions": 8,
+    "equal_nonzero_commitment_positions": [],
+    "profiles": {
+      "relation": {
+        "complete": true,
+        "rows": [
+          {
+            "position": 1,
+            "created_event": 0,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 0,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1960000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 1,
+            "created_event": 0,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1960000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    120000000,
+                    1040000000,
+                    920000000,
+                    2040000000,
+                    80000000,
+                    1920000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      4
+                    ],
+                    "3": [
+                      6
+                    ],
+                    "4": [
+                      5,
+                      7
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    60000000,
+                    1100000000,
+                    60000000,
+                    1000000000,
+                    80000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      6
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 1,
+            "created_event": 0,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1960000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    1000000000,
+                    160000000,
+                    120000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      2,
+                      5
+                    ],
+                    "4": [
+                      3
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1000000000,
+                    160000000,
+                    120000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      1,
+                      5
+                    ],
+                    "4": [
+                      3
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 2,
+            "created_event": 0,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 0,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1960000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 2,
+            "created_event": 0,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1960000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    60000000,
+                    1100000000,
+                    60000000,
+                    1000000000,
+                    80000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      6
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    60000000,
+                    1100000000,
+                    920000000,
+                    1000000000,
+                    940000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      6
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 2,
+            "created_event": 0,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1960000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1000000000,
+                    160000000,
+                    120000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      1,
+                      5
+                    ],
+                    "4": [
+                      3
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    1000000000,
+                    160000000,
+                    120000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      2,
+                      5
+                    ],
+                    "4": [
+                      3
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 3,
+            "created_event": 1,
+            "output_slot": 0,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 1,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1160000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    0,
+                    1160000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    1160000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 3,
+            "created_event": 1,
+            "output_slot": 0,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1160000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    0,
+                    1160000000,
+                    980000000,
+                    2040000000,
+                    940000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      4
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      1,
+                      7
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    960000000,
+                    1000000000,
+                    1160000000,
+                    0,
+                    1120000000,
+                    0,
+                    920000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1
+                    ],
+                    "4": [
+                      2
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 3,
+            "created_event": 1,
+            "output_slot": 0,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1160000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    0,
+                    1160000000,
+                    1120000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      2,
+                      5
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    940000000,
+                    180000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3
+                    ],
+                    "4": [
+                      5,
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 4,
+            "created_event": 1,
+            "output_slot": 1,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 1,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1160000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    1160000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    0,
+                    1160000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 4,
+            "created_event": 1,
+            "output_slot": 1,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1160000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    960000000,
+                    1000000000,
+                    1160000000,
+                    0,
+                    1120000000,
+                    0,
+                    920000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1
+                    ],
+                    "4": [
+                      2
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1020000004,
+                    939999996,
+                    0,
+                    1160000000,
+                    60000004,
+                    1059999996,
+                    1019999996,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      6
+                    ],
+                    "4": [
+                      2,
+                      5
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 4,
+            "created_event": 1,
+            "output_slot": 1,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1160000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    1160000000,
+                    0,
+                    920000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    0,
+                    1160000000,
+                    1120000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      2,
+                      5
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 5,
+            "created_event": 2,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 2,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3080000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    60000000,
+                    1100000000,
+                    0,
+                    1120000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3,
+                      4
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    1160000000,
+                    0,
+                    3080000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      3
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 5,
+            "created_event": 2,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3080000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    100000000,
+                    1060000000,
+                    0,
+                    60000000,
+                    1000000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      2,
+                      4
+                    ],
+                    "4": [
+                      7
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    0,
+                    1160000000,
+                    3080000000,
+                    0,
+                    1000000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      4
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 5,
+            "created_event": 2,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3080000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    0,
+                    1160000000,
+                    0,
+                    1120000000,
+                    0,
+                    920000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      2
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    3080000000,
+                    0,
+                    2040000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      8
+                    ],
+                    "5": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 6,
+            "created_event": 2,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 2,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3080000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    60000000,
+                    1100000000,
+                    1120000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3,
+                      4
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    1160000000,
+                    0,
+                    0,
+                    3080000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      3
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 6,
+            "created_event": 2,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3080000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    100000000,
+                    1060000000,
+                    60000000,
+                    0,
+                    940000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      2,
+                      4
+                    ],
+                    "4": [
+                      5,
+                      7
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    3080000000,
+                    1000000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      4
+                    ],
+                    "3": [
+                      6
+                    ],
+                    "4": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 6,
+            "created_event": 2,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3080000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    0,
+                    1160000000,
+                    1120000000,
+                    0,
+                    60000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      2,
+                      5
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    0,
+                    3080000000,
+                    2040000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      6
+                    ],
+                    "4": [
+                      8
+                    ],
+                    "5": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 7,
+            "created_event": 3,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 3,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    160000000,
+                    1800000000,
+                    60000000,
+                    1100000000,
+                    60000000,
+                    60000000,
+                    0,
+                    80000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      5,
+                      6
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    3020000000,
+                    3040000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      3
+                    ],
+                    "3": [
+                      5,
+                      6
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 7,
+            "created_event": 3,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 2040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    1060000000,
+                    100000000,
+                    940000000,
+                    80000000,
+                    0,
+                    60000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      4
+                    ],
+                    "4": [
+                      5,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    960000000,
+                    1000000000,
+                    0,
+                    1160000000,
+                    1120000000,
+                    0,
+                    2040000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      1,
+                      5
+                    ],
+                    "4": [
+                      2
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 7,
+            "created_event": 3,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 2040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    0,
+                    1160000000,
+                    1120000000,
+                    0,
+                    0,
+                    1080000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      2,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    1160000000,
+                    0,
+                    0,
+                    920000000,
+                    2040000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2
+                    ],
+                    "3": [
+                      3,
+                      6
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 8,
+            "created_event": 3,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 3,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    160000000,
+                    1800000000,
+                    60000000,
+                    1100000000,
+                    60000000,
+                    60000000,
+                    80000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      5,
+                      6
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    0,
+                    1160000000,
+                    120000000,
+                    2960000000,
+                    0,
+                    3040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      4
+                    ],
+                    "3": [
+                      5,
+                      6
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 8,
+            "created_event": 3,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 2040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    1060000000,
+                    100000000,
+                    940000000,
+                    80000000,
+                    60000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      4
+                    ],
+                    "4": [
+                      5,
+                      7
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    60000001,
+                    1099999999,
+                    0,
+                    2959999999,
+                    940000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      4
+                    ],
+                    "3": [
+                      3,
+                      6
+                    ],
+                    "4": [
+                      1,
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 8,
+            "created_event": 3,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 2040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    980000000,
+                    980000000,
+                    1060000000,
+                    100000000,
+                    0,
+                    60000000,
+                    940000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      4
+                    ],
+                    "3": [
+                      2
+                    ],
+                    "4": [
+                      6,
+                      7
+                    ],
+                    "5": [
+                      1,
+                      3
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    0,
+                    1960000000,
+                    60000000,
+                    1100000000,
+                    1040000000,
+                    940000000,
+                    60000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      3
+                    ],
+                    "3": [
+                      4,
+                      5
+                    ],
+                    "4": [
+                      6,
+                      7
+                    ],
+                    "5": [
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "queries": {
+          "cp_sat": 73,
+          "z3": 121
+        }
+      },
+      "current_wallet_shape": {
+        "complete": true,
+        "rows": [
+          {
+            "position": 1,
+            "created_event": 0,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 0,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 1960000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 1,
+            "created_event": 0,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 1960000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    1160000000,
+                    0,
+                    60000010,
+                    1119999990,
+                    79999990,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      6
+                    ],
+                    "4": [
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    2040000000,
+                    940000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      3,
+                      6
+                    ],
+                    "4": [
+                      5,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 1,
+            "created_event": 0,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 1960000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    1000000000,
+                    180000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    1100000000,
+                    1980000000,
+                    1000000000,
+                    60000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 2,
+            "created_event": 0,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 0,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1900000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 2,
+            "created_event": 0,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1900000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    2040000000,
+                    940000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      3,
+                      6
+                    ],
+                    "4": [
+                      5,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    1160000000,
+                    0,
+                    1120000000,
+                    0,
+                    1000000000,
+                    140000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 2,
+            "created_event": 0,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": true,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 1900000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    1060000000,
+                    940000000,
+                    980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1
+                    ],
+                    "4": [
+                      5,
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    60000000,
+                    1900000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    1000000000,
+                    180000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 3,
+            "created_event": 1,
+            "output_slot": 0,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 1,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 1160000000,
+            "maximum_sompi": 1160000000,
+            "zero_possible": false,
+            "forced": true,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 3,
+            "created_event": 1,
+            "output_slot": 0,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 1160000000,
+            "maximum_sompi": 1160000000,
+            "zero_possible": false,
+            "forced": true,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    140000000,
+                    1820000000,
+                    1160000000,
+                    0,
+                    100000000,
+                    0,
+                    220000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    140000000,
+                    1820000000,
+                    1160000000,
+                    0,
+                    100000000,
+                    0,
+                    220000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 3,
+            "created_event": 1,
+            "output_slot": 0,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 1160000000,
+            "maximum_sompi": 1160000000,
+            "zero_possible": false,
+            "forced": true,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    1000000000,
+                    180000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    1160000000,
+                    0,
+                    920000000,
+                    0,
+                    1060000000,
+                    980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      7,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 4,
+            "created_event": 1,
+            "output_slot": 1,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 1,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 0,
+            "zero_possible": true,
+            "forced": true,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 4,
+            "created_event": 1,
+            "output_slot": 1,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 0,
+            "zero_possible": true,
+            "forced": true,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    980000000,
+                    940000000,
+                    60000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      6,
+                      7
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    140000000,
+                    1820000000,
+                    1160000000,
+                    0,
+                    100000000,
+                    0,
+                    220000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 4,
+            "created_event": 1,
+            "output_slot": 1,
+            "creation_mode": 0,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 0,
+            "zero_possible": true,
+            "forced": true,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    1000000000,
+                    180000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    1000000000,
+                    180000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 5,
+            "created_event": 2,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 2,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 3080000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1060000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    3080000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 5,
+            "created_event": 2,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 3080000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    1060000000,
+                    1980000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1,
+                      6
+                    ],
+                    "4": [
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    3080000000,
+                    0,
+                    1000000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 5,
+            "created_event": 2,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 3080000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    1000000000,
+                    180000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    3080000000,
+                    0,
+                    1000000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 6,
+            "created_event": 2,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 2,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3020000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    1920000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    3020000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 6,
+            "created_event": 2,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3020000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    1120000000,
+                    0,
+                    920000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1
+                    ],
+                    "4": [
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    3020000000,
+                    1000000000,
+                    1980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      6
+                    ],
+                    "4": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 6,
+            "created_event": 2,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 3020000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    1160000000,
+                    0,
+                    920000000,
+                    0,
+                    880000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      1
+                    ],
+                    "5": [
+                      3,
+                      7
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    3020000000,
+                    2040000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      5,
+                      6
+                    ],
+                    "4": [
+                      8
+                    ],
+                    "5": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 7,
+            "created_event": 3,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 3,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 3040000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1060000000,
+                    60000000,
+                    1800000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1899999999,
+                    60000001,
+                    1160000000,
+                    0,
+                    1180000001,
+                    0,
+                    3040000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      3
+                    ],
+                    "3": [
+                      1,
+                      5
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 7,
+            "created_event": 3,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 2040000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1000000000,
+                    960000000,
+                    1160000000,
+                    0,
+                    100000000,
+                    820000000,
+                    60000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      1
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    1860000000,
+                    2040000000,
+                    940000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      3,
+                      6
+                    ],
+                    "4": [
+                      5,
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 7,
+            "created_event": 3,
+            "output_slot": 0,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 60000000,
+            "maximum_sompi": 2040000000,
+            "zero_possible": false,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "UNSAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    940000000,
+                    1020000000,
+                    1160000000,
+                    0,
+                    160000000,
+                    1980000000,
+                    60000000,
+                    60000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2,
+                      3
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      1,
+                      7
+                    ],
+                    "5": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    1920000000,
+                    0,
+                    2040000000,
+                    1000000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      8
+                    ],
+                    "5": [
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 8,
+            "created_event": 3,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 3,
+            "horizons": [
+              "creation"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 2980000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    60000000,
+                    1060000000,
+                    1080000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      5,
+                      6
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    60000000,
+                    3020000000,
+                    60000000,
+                    2980000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      3
+                    ],
+                    "3": [
+                      5,
+                      6
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 8,
+            "created_event": 3,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 4,
+            "horizons": [
+              "later_drain"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 2040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    1000000000,
+                    920000000,
+                    1120000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1
+                    ],
+                    "3": [
+                      3
+                    ],
+                    "4": [
+                      5
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1960000000,
+                    0,
+                    1160000000,
+                    0,
+                    180000000,
+                    940000000,
+                    60000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      3
+                    ],
+                    "3": [
+                      1,
+                      5
+                    ],
+                    "4": [
+                      6,
+                      7
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "position": 8,
+            "created_event": 3,
+            "output_slot": 1,
+            "creation_mode": 1,
+            "bootstrap_diagnostic": false,
+            "through_event": 5,
+            "horizons": [
+              "later_drain",
+              "final"
+            ],
+            "minimum_sompi": 0,
+            "maximum_sompi": 2040000000,
+            "zero_possible": true,
+            "forced": false,
+            "certificates": {
+              "cp_sat_minimum": "OPTIMAL",
+              "cp_sat_maximum": "OPTIMAL",
+              "z3_minimum_endpoint": "SAT",
+              "z3_below_minimum": "UNSAT",
+              "z3_maximum_endpoint": "SAT",
+              "z3_above_maximum": "UNSAT",
+              "z3_zero": "SAT",
+              "cp_sat_endpoint_witnesses": [
+                {
+                  "values": [
+                    2000000000,
+                    880000000,
+                    1080000000,
+                    1160000000,
+                    0,
+                    1040000000,
+                    0,
+                    1000000000,
+                    0
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      2
+                    ],
+                    "3": [
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      1,
+                      3
+                    ]
+                  }
+                },
+                {
+                  "values": [
+                    2000000000,
+                    1900000000,
+                    60000000,
+                    1160000000,
+                    0,
+                    1920000000,
+                    0,
+                    1000000000,
+                    2040000000
+                  ],
+                  "input_positions": {
+                    "0": [
+                      0
+                    ],
+                    "2": [
+                      1,
+                      2
+                    ],
+                    "3": [
+                      3,
+                      5
+                    ],
+                    "4": [
+                      7
+                    ],
+                    "5": [
+                      8
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "queries": {
+          "cp_sat": 73,
+          "z3": 121
+        }
+      }
+    },
+    "assumptions": [
+      "Commitments bind their note values; equal nonzero commitments imply equal values.",
+      "Positions and spending opportunities remain distinct when commitment bytes repeat.",
+      "Identifiers otherwise hide linkage; this is an assumption, not a cryptographic test.",
+      "Current-wallet shape is a relaxation without common input ownership.",
+      "Endpoint witnesses are feasible public models, not observed private state.",
+      "Minute is constant zero and unused; destination, funding groups and event IDs do not reveal owners.",
+      "Prefix data and native validity must be established by the separate native replay."
+    ]
+  },
+  "input_sha256": "b49e2d9dbfd153b609dc782376fc20663b9518826deb97b06c03e9a326bdea63"
+}

@@ -323,6 +323,13 @@ resources. It is not run by this RFC and does not replace wallet integration.
 First audit the current public transcript and define structural funding targets and
 observer exclusions; do not build a new simulator before those are correct.
 
+The [initial public-byte/amount calibration](../../poc/shared-pool/EARLY-PRIVACY.md)
+is now complete on the published three-wallet M2 history. Later cashout narrows
+one ordinary payment's amount bounds, but the tested models force neither
+ordinary payment amount. This does not score guessing accuracy, ownership or
+pooled/active disclosure; the held-out evaluation and all adopted gates remain
+open. Its 48 cross-checked bounds are method calibration, not qualifying samples.
+
 Use interleaved admissions, mixed amounts and sparse periods, with held-out
 payment graphs. Give observers C and declared P records, including known common
 funding; a separate active-attacker arm removes controlled wallets from cover.

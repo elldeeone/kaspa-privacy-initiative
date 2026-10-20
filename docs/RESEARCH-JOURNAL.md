@@ -41,10 +41,13 @@ remain explicit. Live acceptance, general recovery and the adopted targets
 are not qualified by this result.
 Integration, cryptographic review and privacy evaluation remain separate work.
 The owner has moved the first current-candidate privacy gate ahead of dedicated
-milestone 3 work. The immediate task is to audit the actual public surface, then
-freeze and run a blinded evaluation against the unchanged milestone 1 targets.
-Milestone 7 becomes broader validation. This gate has not yet run; the M2 recovery
-trace establishes no privacy result.
+milestone 3 work. The immediate task is to freeze and run a blinded evaluation
+against the unchanged milestone 1 targets.
+Milestone 7 becomes broader validation. The public-surface audit and
+[first calibration slice](../poc/shared-pool/EARLY-PRIVACY.md) are complete:
+later withdrawals narrow one payment amount's upper bound, without forcing either
+ordinary payment amount in the tested models. The held-out privacy gate has not
+run. The M2 recovery trace itself establishes no privacy result.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
@@ -223,6 +226,36 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 — Early privacy test: first calibration completed
+
+- **Authorization/checkpoint:** the owner directed committing/pushing the work
+  order, then starting the early privacy test. The plan is pushed as `6dff59d`.
+- **Scope:** [frozen first-slice specification](../poc/shared-pool/EARLY-PRIVACY-SPEC.md),
+  SHA-256 `1b21810517d21d1221364e4c63f258710022100c8942dcc795c200266142e96e`.
+  Decode actual M2 public native bytes; cross-check exact amount extrema under
+  relation-only and current-wallet-shape constraints. Published three-wallet
+  evidence calibrates the method; it is not held-out 32-role qualification.
+- **Source audit:** H15/H16's one-input DRAIN policy is not the current wallet's
+  one-or-two-input rule. The earlier decoder's distinct-commitment and artificial
+  timing assumptions must not silently carry forward. Preserve old results under
+  their original scope and reject false unique deductions in new controls.
+- **Result:** method-04 completes 48 position/horizon amount bounds, cross-checked
+  with CP-SAT and integer Z3. All 20 controls pass, including 454 tiny exhaustive
+  feasible-value comparisons. With current-wallet shape, payment position 5 has
+  extrema 0.6–30.8 tKAS throughout; position 7 narrows from 0.6–30.4 to 0.6–20.4
+  after a later cashout. Only public ADMIT credit 11.6 and padding zero are forced.
+  Extrema are not continuous sets, probabilities or guessing-accuracy scores.
+- **Attempts:** preserve three interrupted solver-search attempts. The completed
+  attempt adds runtime diagnostics and uses eight CP-SAT workers; inputs,
+  constraints, integer domains, metrics and specification are unchanged.
+  [Report and retained evidence](../poc/shared-pool/EARLY-PRIVACY.md).
+- **Boundary/next:** calibration completes; the 32-role/eight-adversary held-out
+  gate stays open. Freeze its workload, ownership/disclosure model, attacks,
+  baselines and statistics next. A source-derived funding/exit address-reuse path
+  remains untested. No new proofs, funds, broadcasts or privacy pass. The
+  [source review](../research/shielded-kas-privacy-surface-sources-2026-10-20.md)
+  retains the public-byte, participant and infrastructure boundaries.
 
 ### 2026-10-20 — Privacy testing moved before milestone 3
 
