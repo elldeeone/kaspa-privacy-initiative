@@ -1,6 +1,6 @@
 # RFC-0011: Two-input payments, private change and partial withdrawals
 
-**Status:** Open — bounded H13 mechanics passed offline and on TN10; broader qualification and privacy remain open.
+**Status:** Open — bounded H13 mechanics passed offline/TN10 and H14 passed its modest offline inference screen; strong privacy and broader qualification remain open.
 **Date:** 2026-10-20 (Australia/Sydney).
 **Branch / inspected baseline:** `shared-pool-four-wallet` / `228e5d0`.
 **Scope decision:** [ADR-0024](../adr/0024-two-input-private-payment-scope.md).
@@ -39,6 +39,15 @@ paid. Each isolated client fetches accepted history, reconstructs/validates it,
 and broadcasts its own saved exits. Six private proofs/authorizations remain
 identical; the prover is stopped before funding. This closes live execution for
 that trace, not the remaining broad qualification, recovery or privacy questions.
+
+**H14 privacy follow-up:** the owner authorized a frozen, blinded offline
+reconstruction test. [Results](../../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
+retain 2/24 unique payment-source links under both policies, while fresh proofs
+reduce correct full-exit recency guesses from 28/28 to 8/28. Genuine calibration
+preserves seven saved proofs and all four wallets drain both branches. No
+circuit, covenant, setup or invariant changes are made by this study. Its
+protocol-only observer does not know the generator's default output/padding
+policy; that and broader adversary knowledge remain open privacy questions.
 
 ## Decision to investigate
 

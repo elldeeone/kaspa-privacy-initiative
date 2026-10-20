@@ -16,11 +16,15 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
-H14 is now frozen before generation/scoring: four paired offline ledgers test
-whether fresh exits retain multiple payment-source combinations through full
-drainage, compared with private saved exits. The new observer must model two
-real inputs, zero padding and merged histories. No result is recorded yet.
-[Hypothesis, controls and decision](../poc/shared-pool/TWO-INPUT-PRIVACY-SPEC.md).
+H14's [blinded reconstruction](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
+passes its frozen modest offline screen. Across four paired ledgers, fresh and
+saved exits both leave 2/24 payment-source links uniquely identifiable. Fresh
+exits increase payment alternatives in two cases and reduce correct recency
+source guesses for full exits from 28/28 to 8/28. All true inputs survive the
+observer. One genuine paired calibration pays all four wallets, preserves seven
+saved proofs and drains both branches with the unchanged v6 relation. Keep
+fresh normal authorizations/private fallbacks; test known wallet behavior next.
+Strong privacy and Stage 2's broader gate remain open. No funds were spent.
 
 H13 now passes its **bounded offline and TN10 payment/exit trace**. The documentation was
 committed first as `c50855a`; the new immutable v6 circuit/covenant supports
@@ -34,8 +38,8 @@ and one correct RPC, with four known depositors. General recovery and real-world
 anonymity do not follow. The [offline](../poc/shared-pool/TWO-INPUT.md) and
 [TN10](../poc/shared-pool/TWO-INPUT-TN10.md) reports record cost, controls and gaps;
 [RFC-0011](rfc/0011-two-input-private-payments.md) remains Open. Keep this relation
-as a research candidate, preserve older variants, and review merging/padding
-in a new observer before more privacy experiments. Independent review, broader
+as a research candidate and preserve older variants. H14 below adds the
+merging/padding observer; known wallet behavior remains to be evaluated. Independent review, broader
 qualification, cold-start cost and strong privacy remain open.
 
 H12's equal-net funding comparison passes its frozen offline screen. With all
@@ -123,12 +127,58 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H11 | Fresh latest-root proofs reduce full-coverage source inference by at least 25% in both frozen low-activity regimes, within the fee/delay screen. | Passed: 35.6% / 61.5% reduction through complete drain; 64 primary ledgers plus 17 controls. Two genuine native calibrations match; four no-prover drains pass, with zero extra native fee. | Retain fresh proofs/private fallbacks. The bounded study is complete; funding origins remain mostly exposed. Test equal net credits separately before a larger relation change. |
 | H12 | Equal net credits reduce deposit-origin inference through full drain while preserving independently payable saved/fresh exits. | Passed in 64 paired ledgers; 0/704 equal-net withdrawals uniquely assigned to a deposit. Genuine calibrations, saved/fresh adapter drains, complete TN10 rehearsal and measured trial passed; all four wallets independently paid. | Retain the bounded candidate funding policy on the existing relation; interleaving, mixed amounts and external knowledge remain open. |
 | H13 | Two private inputs can fund varied payments/change and partial withdrawals while every positive note retains an independent exit, including an unrelated unchanged saved fallback after later activity. | Supported for the bounded offline/TN10 trace: 13 pool operations, four wallets paid, six unchanged saved proofs, private change re-spent, backing reconciled to zero. Live clients independently reconstruct accepted history on one host/RPC. Constructed capacity-boundary exit passes; general recovery and broader qualification remain open. | Retain v6 as a research candidate. Selected fee 0.4 tKAS, warm proof about 20–22 seconds; review cost and merging/padding inference before further runs. No privacy outcome is claimed. |
+| H14 | Fresh exits retain multiple payment-source combinations through full drainage in at least half of six payments per case, and increase alternatives relative to saved exits in at least one case, without losing independent exits. | Frozen at `1bf14d0`; modest screen passed in four paired offline ledgers. Fresh ambiguity is 5/6 or 6/6, with more source alternatives in two cases. Unique payment links remain 2/24 in both arms; full-exit recency guesses fall from 28/28 to 8/28. One genuine 26-proof calibration drains both arms with all four wallets paid and seven saved proofs unchanged. | Retain fresh normal authorizations and private fallbacks. Strong privacy is not established; evaluate public wallet-policy knowledge before wallet expansion. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 UTC — Blinded two-input reconstruction (H14)
+
+- Hypothesis and falsifier: committed the four economic workloads, attacks,
+  controls and decision in `1bf14d0` before generation/scoring. Fresh exits must
+  leave at least three of six payments with multiple source sets in every case,
+  and strictly increase alternatives in at least one paired case. This is a
+  necessary screen, not a strong-privacy threshold.
+- Observation: all eight observers complete. Fresh and saved policies each
+  leave 2/24 private-payment source sets uniquely identifiable; those are the
+  early payments before another deposit. Fresh exits increase source alternatives
+  in two of four cases. Saved exits retroactively narrow ten payments, without
+  producing additional unique links. The fixed recency rule guesses full-exit
+  sources correctly in 28/28 saved cases and 8/28 fresh cases; only 4/28 and 0/28
+  respectively are logically forced. Correct guesses and unique inference are
+  separate metrics. No real-world anonymity percentage follows.
+- Mechanical calibration: unchanged v6 circuit/covenant/VK; 26 genuine proofs
+  and synthetic native UTXOs. Both nineteen-operation branches pay all four
+  wallets and drain. Seven receipt-time saved proofs remain byte-identical.
+  Exit adapters have public state/bundles only; current spentness rejects the
+  alternate authorization and replay in both winner orders. Rechecking all
+  transported bodies verifies both branches; invalid proof/backing/lineage
+  mutations fail. Other cases are models, not native proof executions.
+- Controls and methods: two integer encodings and the final exact graph search
+  match independent tiny enumeration. Every true input/source set survives;
+  all 536 required joint observation points are scored. Filesystem/network
+  isolation excludes the manifest, generator and truth. Seven incomplete
+  observer batches are retained; economic/public inputs are byte-identical.
+  Solver ordering, integer presolve and conservation-derived bounds changed
+  computation only. Nine earlier completed predictions match 603 required
+  observation points exactly. Unknown/unfinished search never counts as privacy.
+- Cost: zero actual tKAS; each branch models 7.6 tKAS in fees at 0.4 per pool
+  operation. Seven additional fresh proofs take 150.232 seconds; cold loading
+  takes 203.054 seconds. All warm proofs take 21.020–21.988 seconds. Peak native
+  proof-process memory is about 6.49 GiB. Traffic times are synthetic.
+- Interpretation/decision: keep fresh normal authorizations and private exit
+  fallbacks. The clearest benefit is exit linkability; forced payment links did
+  not improve. Remaining source sets are marginal possibilities, not identities
+  or uniform probabilities. Known one-note withdrawal/deposit-padding behavior,
+  common funding and outside knowledge remain stronger attacks. Evaluate those
+  before broad wallet work. Stage 2 and the later review/usability gates stay open.
+- Evidence: [report](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md),
+  [frozen scope](../poc/shared-pool/TWO-INPUT-PRIVACY-SPEC.md),
+  [sanitized results](../poc/shared-pool/evidence/2026-10-20-two-input-reconstruction/summary.json),
+  [adversarial review](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION-REVIEW.md).
 
 ### 2026-10-20 UTC — TN10 continuation of H13
 

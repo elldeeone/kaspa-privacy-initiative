@@ -1,6 +1,13 @@
 # Four-wallet shared native-KAS pool — TN10
 
-Latest measured follow-up: [H13 on TN10](TWO-INPUT-TN10.md), following the
+Latest measured follow-up: [H14 blinded reconstruction](TWO-INPUT-RECONSTRUCTION.md)
+passes its frozen four-pair offline screen. Fresh exits reduce correct recency
+guesses from 28/28 to 8/28; both policies leave the same 2/24 payment links
+uniquely identifiable. Genuine native calibration drains both branches using
+all four wallets, including seven unchanged saved proofs. Strong privacy and
+known-wallet-policy inference remain open.
+
+Earlier measured follow-up: [H13 on TN10](TWO-INPUT-TN10.md), following the
 [offline test](TWO-INPUT.md), passes private change, partial withdrawal, four
 wallets paid through six unchanged saved proofs, and zero reserve. This is a new
 immutable v6 relation/setup; existing proofs/evidence remain in their original

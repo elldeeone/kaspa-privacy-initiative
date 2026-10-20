@@ -1,0 +1,25 @@
+{
+  "fresh_transactions_reverified": 19,
+  "saved_transactions_reverified": 19,
+  "controls": [
+    {
+      "mutation": "invalid-proof",
+      "rejected": true,
+      "exit_code": 1,
+      "reason": "two-input: failed to verify the signature script: ZK Integrity: ARK serialization error: the input buffer contained invalid data"
+    },
+    {
+      "mutation": "wrong-initial-backing",
+      "rejected": true,
+      "exit_code": 1,
+      "reason": "two-input: calculated contextual mass (including storage mass) 11 is not equal to the committed mass field 10"
+    },
+    {
+      "mutation": "wrong-lineage",
+      "rejected": true,
+      "exit_code": 1,
+      "reason": "two-input: transaction is not canonical/ID mismatch"
+    }
+  ],
+  "binary_sha256": "8a91caee6ab02d3a3e0a8e320a70dd8b423fbf7c1caaad0d285050713898d1e7"
+}

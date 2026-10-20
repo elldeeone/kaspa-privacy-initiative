@@ -3,7 +3,16 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H13's authorized bounded offline and TN10 implementation passed:
+**Current position:** H14's [blinded offline comparison](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
+passes its modest frozen screen. Fresh exits leave more payment-source alternatives
+in two cases and reduce correct full-exit recency guesses from 28/28 to 8/28.
+Unique payment links remain 2/24 in both arms. A genuine paired calibration pays
+all four wallets with seven unchanged saved proofs and both reserves drained.
+Retain fresh normal proofs/private fallbacks; test public wallet-policy knowledge
+before expanding the wallet. This does not close Stage 2's strong-privacy gate.
+No funds, network trials or upstream publication were part of H14.
+
+**Previous mechanics:** H13's authorized bounded offline and TN10 implementation passed:
 two private inputs, spendable private change, partial withdrawal and four wallets
 paid through six unchanged saved proofs. Thirteen pool operations drain the
 reserve to zero; TN10 adds ordinary allocation and genesis. The
@@ -57,7 +66,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | Bounded H11/H12 complete; H13 mechanics pass offline and TN10, broader qualification open | Review the v6 relation/limits and use a correct merging/padding observer before varied-payment privacy claims. |
+| 2. Practical privacy | 5 | H11/H12/H14 bounded screens complete; H13 mechanics pass offline and TN10; strong privacy remains open | Retain fresh normal authorizations/private fallbacks and test known wallet behavior before broader wallet work. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -150,6 +159,17 @@ an operator network without evidence that it is needed.
 
 ## 2. Practical privacy
 
+**H14 observed outcome:** the merging/padding-aware observer now evaluates four
+frozen paired ledgers through complete drainage. Its modest screen passes, with
+five or six ambiguous payment sources per six-payment case. Both policies still
+have two unique payment-source links out of 24. Fresh authorizations primarily
+help withdrawal inference: recency guesses are correct in 8/28 fresh exits versus
+28/28 saved exits. See the [result](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md).
+This is not a real-world anonymity score or completion of the broader privacy
+thresholds below. The next gate is an observer informed by public wallet policy,
+including one-note exits and deposit padding, before more wallet functionality.
+This plan update authorizes no additional run.
+
 **Current mechanics gate, H13:** [RFC-0011](rfc/0011-two-input-private-payments.md)
 specifies two-input/two-output normal payments, partial withdrawal change and a
 no-append full-exit fallback. [ADR-0024](adr/0024-two-input-private-payment-scope.md)
@@ -165,9 +185,9 @@ value conservation, terminal accounting, capacity and proof preservation. Stop
 or redesign if a valid funded claim can be stranded within the declared fee/data
 model, if a privileged party is needed, or if current L1 cannot express the
 checks. The [report](../poc/shared-pool/TWO-INPUT.md) establishes bounded costs
-and saved-proof exits and names remaining tests. A later privacy study needs frozen economic workloads and a model
-that permits merges and padding; do not reuse the old unique-deposit target or
-thresholds as if they already evaluated this relation. General privacy stays open.
+and saved-proof exits and names remaining tests. H14 uses frozen economic
+workloads and permits merges and padding. Its source-set metrics do not reuse
+the old unique-deposit target or close general privacy.
 
 **Observed audit outcome, 2026-10-19:** the public-only observer found a unique
 source transaction for the first H6 exit in both retained compact runs. Two

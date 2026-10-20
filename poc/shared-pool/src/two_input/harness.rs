@@ -1,4 +1,5 @@
 //! Offline synthetic UTXOs with genuine proofs and native validation.
+mod study;
 use super::*;
 use crate::compact::experiment::{read, save, write};
 use ark_bn254::Bn254;
@@ -205,6 +206,7 @@ fn exit_request(r: &ExitRequest) -> Result<Value> {
     native::policy(&tx, &e)?;
     Ok(native::tx_json(&tx))
 }
+#[derive(Clone)]
 struct Ledger {
     domain: H,
     state: PublicState,
@@ -600,6 +602,15 @@ pub(super) fn demo(params: &Path, out: &Path, prepared: Option<Preparation>) -> 
 pub fn run() -> Result<()> {
     let a = std::env::args().collect::<Vec<_>>();
     match a.get(1).map(String::as_str) {
+        Some("verify-study") => study::verify_raw(
+            Path::new(a.get(2).ok_or("verify-study PUBLIC_TRACE OUT")?),
+            Path::new(a.get(3).ok_or("verify-study PUBLIC_TRACE OUT")?),
+        ),
+        Some("study") => study::run(
+            Path::new(a.get(2).ok_or("study PARAMS PLAN OUT")?),
+            Path::new(a.get(3).ok_or("study PARAMS PLAN OUT")?),
+            Path::new(a.get(4).ok_or("study PARAMS PLAN OUT")?),
+        ),
         Some("audit") => super::audit::run(
             Path::new(a.get(2).ok_or("audit PRIVATE_RESULT OUT")?),
             Path::new(a.get(3).ok_or("audit PRIVATE_RESULT OUT")?),
@@ -634,7 +645,7 @@ pub fn run() -> Result<()> {
             );
             Ok(())
         }
-        _ => Err("setup DIR | demo PARAMS OUT | controls | exit REQUEST | boundary REQUEST OUT | audit PRIVATE_RESULT OUT".into()),
+        _ => Err("setup DIR | demo PARAMS OUT | controls | exit REQUEST | boundary REQUEST OUT | audit PRIVATE_RESULT OUT | study PARAMS PLAN OUT | verify-study PUBLIC_TRACE OUT".into()),
     }
 }
 
