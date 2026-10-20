@@ -1,11 +1,18 @@
 # Four-wallet shared native-KAS pool — TN10
 
-Latest measured follow-up: [H14 blinded reconstruction](TWO-INPUT-RECONSTRUCTION.md)
+Latest measured follow-up: [H15 known wallet behavior](WALLET-POLICY-PRIVACY.md)
+passes the same modest screen on unchanged H14 inputs. With the added client
+rules, saved exits have 20/28 uniquely linked sources and fresh exits have 0/28;
+both policies retain the same 2/24 unique payment links. Fresh withdrawals have
+only 9–10 source candidates, so strong privacy remains unestablished. Sixteen
+observer runs and sixteen controls pass; no new proofs or funds are used.
+
+Earlier follow-up: [H14 blinded reconstruction](TWO-INPUT-RECONSTRUCTION.md)
 passes its frozen four-pair offline screen. Fresh exits reduce correct recency
 guesses from 28/28 to 8/28; both policies leave the same 2/24 payment links
 uniquely identifiable. Genuine native calibration drains both branches using
-all four wallets, including seven unchanged saved proofs. Strong privacy and
-known-wallet-policy inference remain open.
+all four wallets, including seven unchanged saved proofs. H15 above adds the
+known-construction-rule observer; strong privacy remains open.
 
 Earlier measured follow-up: [H13 on TN10](TWO-INPUT-TN10.md), following the
 [offline test](TWO-INPUT.md), passes private change, partial withdrawal, four

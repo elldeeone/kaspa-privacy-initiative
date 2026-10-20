@@ -16,15 +16,19 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
-H14's [blinded reconstruction](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
-passes its frozen modest offline screen. Across four paired ledgers, fresh and
-saved exits both leave 2/24 payment-source links uniquely identifiable. Fresh
-exits increase payment alternatives in two cases and reduce correct recency
-source guesses for full exits from 28/28 to 8/28. All true inputs survive the
-observer. One genuine paired calibration pays all four wallets, preserves seven
-saved proofs and drains both branches with the unchanged v6 relation. Keep
-fresh normal authorizations/private fallbacks; test known wallet behavior next.
-Strong privacy and Stage 2's broader gate remain open. No funds were spent.
+H15's [known-wallet observer](../poc/shared-pool/WALLET-POLICY-PRIVACY.md)
+passes the same modest screen on H14's unchanged transcripts. Known padding,
+one-note exits and receipt-time fallback roots increase uniquely linked saved
+withdrawals from 4/28 to 20/28; fresh remains 0/28, with 9–10 source candidates.
+Both policies still have 2/24 unique payment-source links. Fresh retains more
+payment alternatives in all four pairs. All sixteen observations, sixteen
+controls and 1,072 joint observation points complete without excluding truth.
+Keep fresh normal authorizations and private fallbacks. Strong privacy remains
+open, including participant/account knowledge. No new proofs or funds were used.
+
+H14's [genuine calibration](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
+remains unchanged: all four wallets paid, seven saved proofs preserved, both
+branches drained. H15 inherits these mechanics; it does not rerun or extend them.
 
 H13 now passes its **bounded offline and TN10 payment/exit trace**. The documentation was
 committed first as `c50855a`; the new immutable v6 circuit/covenant supports
@@ -128,12 +132,53 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H12 | Equal net credits reduce deposit-origin inference through full drain while preserving independently payable saved/fresh exits. | Passed in 64 paired ledgers; 0/704 equal-net withdrawals uniquely assigned to a deposit. Genuine calibrations, saved/fresh adapter drains, complete TN10 rehearsal and measured trial passed; all four wallets independently paid. | Retain the bounded candidate funding policy on the existing relation; interleaving, mixed amounts and external knowledge remain open. |
 | H13 | Two private inputs can fund varied payments/change and partial withdrawals while every positive note retains an independent exit, including an unrelated unchanged saved fallback after later activity. | Supported for the bounded offline/TN10 trace: 13 pool operations, four wallets paid, six unchanged saved proofs, private change re-spent, backing reconciled to zero. Live clients independently reconstruct accepted history on one host/RPC. Constructed capacity-boundary exit passes; general recovery and broader qualification remain open. | Retain v6 as a research candidate. Selected fee 0.4 tKAS, warm proof about 20–22 seconds; review cost and merging/padding inference before further runs. No privacy outcome is claimed. |
 | H14 | Fresh exits retain multiple payment-source combinations through full drainage in at least half of six payments per case, and increase alternatives relative to saved exits in at least one case, without losing independent exits. | Frozen at `1bf14d0`; modest screen passed in four paired offline ledgers. Fresh ambiguity is 5/6 or 6/6, with more source alternatives in two cases. Unique payment links remain 2/24 in both arms; full-exit recency guesses fall from 28/28 to 8/28. One genuine 26-proof calibration drains both arms with all four wallets paid and seven saved proofs unchanged. | Retain fresh normal authorizations and private fallbacks. Strong privacy is not established; evaluate public wallet-policy knowledge before wallet expansion. |
+| H15 | Fresh exits retain at least three ambiguous payment-source sets per six-payment case and more alternatives than saved exits in at least one pair when the observer knows the prototype construction defaults. | Frozen at `7bf197f`; modest screen passed in all four pairs on unchanged H14 inputs. Fresh has 5/6 or 6/6 ambiguous payments and more alternatives in every pair. Unique payment sources remain 2/24 for both; unique full-exit sources are 20/28 saved and 0/28 fresh, with only 9–10 fresh candidates. | Retain fresh normal authorizations/private fallbacks. Strong privacy is open; next consider an observer with one participant's own activity, excluding that participant's relationships from scoring. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 UTC — Known wallet behavior (H15)
+
+- Hypothesis/freeze: committed the rules and input/source hashes as `7bf197f`
+  before observation. Reused all eight H14 public transcripts and original
+  hidden truth byte-for-byte. No new amounts, schedules, identifiers or proofs.
+- Observer: first profile knows deposit/partial padding and one-note full exits;
+  primary profile additionally knows receipt-time fallback anchors. Current
+  roots still allow older notes; fresh/saved labels and private input choices
+  are never supplied. No automatic coin-selection policy exists to infer.
+- Outcome: all four pairs pass the frozen modest screen. Fresh leaves five or
+  six ambiguous payment sources per six-payment case and more alternatives in
+  every pair. Both policies retain the same 2/24 uniquely linked payment sources.
+  Fresh source-set totals fall from H14's 746 to 722; saved falls from 676 to
+  548 with shape rules and 375 with the receipt-anchor rule. These are marginal
+  alternatives, not joint histories, people or probabilities.
+- Withdrawals: unique full-exit sources are 20/28 saved versus 0/28 fresh; fixed
+  recency guesses are correct in 28/28 versus 8/28. Fresh has 9–10 candidate
+  source transactions per exit, compared with H14's 77–78 source combinations.
+  Shape alone leaves saved uniqueness at 4/28; receipt-anchor knowledge accounts
+  for the increase to 20/28. Exact spent-note positions are unique for 8/28 saved
+  exits and 0/28 fresh exits. Partial-withdrawal sources remain non-unique.
+- Drainage: source alternatives narrow for four fresh-policy payments and twenty
+  saved-policy payments. No additional payment becomes unique. Both encodings
+  and the exact hybrid engine agree with independent exhaustive tiny ledgers.
+  Sixteen controls, sixteen observations and all 1,072 joint horizons pass;
+  every true set survives and wallet/shape/protocol candidate sets nest.
+- Cost/safety: one complete full run, 9 minutes 17.01 seconds with four workers;
+  zero funds and zero new proofs. Native code, parameters and H14 calibration
+  are unchanged. Private truth/provenance and unused capabilities stay outside
+  Git. This is a conditional known-client attack, not a consensus statement or
+  a cryptographic/real-world privacy result. RPC/network observation is absent.
+- Decision: retain fresh normal authorizations/private fallbacks. Stage 2 stays
+  open. The next proposed narrow question is whether a participant's own
+  activity lets an observer reconstruct relationships between the other users.
+  That follow-up is unrun and would exclude already-known participant targets.
+- Evidence: [report](../poc/shared-pool/WALLET-POLICY-PRIVACY.md),
+  [frozen scope](../poc/shared-pool/WALLET-POLICY-PRIVACY-SPEC.md),
+  [sanitized results](../poc/shared-pool/evidence/2026-10-20-wallet-policy-reconstruction/summary.json),
+  [adversarial review](../poc/shared-pool/WALLET-POLICY-PRIVACY-REVIEW.md).
 
 ### 2026-10-20 UTC — Blinded two-input reconstruction (H14)
 

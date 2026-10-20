@@ -1,6 +1,6 @@
 # RFC-0011: Two-input payments, private change and partial withdrawals
 
-**Status:** Open — bounded H13 mechanics passed offline/TN10 and H14 passed its modest offline inference screen; strong privacy and broader qualification remain open.
+**Status:** Open — bounded H13 mechanics passed offline/TN10; H14/H15 passed modest offline inference screens, including known client construction rules. Strong privacy and broader qualification remain open.
 **Date:** 2026-10-20 (Australia/Sydney).
 **Branch / inspected baseline:** `shared-pool-four-wallet` / `228e5d0`.
 **Scope decision:** [ADR-0024](../adr/0024-two-input-private-payment-scope.md).
@@ -48,6 +48,17 @@ preserves seven saved proofs and all four wallets drain both branches. No
 circuit, covenant, setup or invariant changes are made by this study. Its
 protocol-only observer does not know the generator's default output/padding
 policy; that and broader adversary knowledge remain open privacy questions.
+
+**H15 known-client follow-up:** the owner authorized stronger offline inference
+on the same frozen workloads. [Results](../../poc/shared-pool/WALLET-POLICY-PRIVACY.md)
+add fixed deposit/partial padding, one-note full exits and receipt-time fallback
+anchors. Source sets remain ambiguous for five or six of six fresh-policy
+payments per case. Uniquely linked full exits rise to 20/28 for saved proofs and
+remain 0/28 for fresh proofs; unique payment sources remain 2/24 for both.
+The tested profile reduces fresh exit candidates to 9–10 source transactions.
+Retain fresh normal authorizations and private fallbacks. This conditional
+client-knowledge result neither changes the protocol nor closes strong privacy;
+participant/account knowledge is a further untested adversary boundary.
 
 ## Decision to investigate
 

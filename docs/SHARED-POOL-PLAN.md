@@ -3,14 +3,13 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H14's [blinded offline comparison](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
-passes its modest frozen screen. Fresh exits leave more payment-source alternatives
-in two cases and reduce correct full-exit recency guesses from 28/28 to 8/28.
-Unique payment links remain 2/24 in both arms. A genuine paired calibration pays
-all four wallets with seven unchanged saved proofs and both reserves drained.
-Retain fresh normal proofs/private fallbacks; test public wallet-policy knowledge
-before expanding the wallet. This does not close Stage 2's strong-privacy gate.
-No funds, network trials or upstream publication were part of H14.
+**Current position:** H15's [known-wallet comparison](../poc/shared-pool/WALLET-POLICY-PRIVACY.md)
+passes the same modest screen on unchanged H14 workloads. Construction-rule
+knowledge makes 20/28 saved exits uniquely linkable and leaves 0/28 fresh exits
+unique, with only 9–10 fresh source candidates. Both policies retain 2/24 unique
+payment links. Retain fresh normal proofs/private fallbacks. Stage 2's strong
+privacy gate stays open; the next proposed adversary knows one participant's
+own activity. H15 uses no new proofs, funds, network trial or publication.
 
 **Previous mechanics:** H13's authorized bounded offline and TN10 implementation passed:
 two private inputs, spendable private change, partial withdrawal and four wallets
@@ -66,7 +65,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H11/H12/H14 bounded screens complete; H13 mechanics pass offline and TN10; strong privacy remains open | Retain fresh normal authorizations/private fallbacks and test known wallet behavior before broader wallet work. |
+| 2. Practical privacy | 5 | H11/H12/H14/H15 bounded screens complete; H13 mechanics pass offline and TN10; strong privacy remains open | Retain fresh normal authorizations/private fallbacks; participant knowledge remains an untested privacy boundary. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -159,16 +158,19 @@ an operator network without evidence that it is needed.
 
 ## 2. Practical privacy
 
-**H14 observed outcome:** the merging/padding-aware observer now evaluates four
-frozen paired ledgers through complete drainage. Its modest screen passes, with
-five or six ambiguous payment sources per six-payment case. Both policies still
-have two unique payment-source links out of 24. Fresh authorizations primarily
-help withdrawal inference: recency guesses are correct in 8/28 fresh exits versus
-28/28 saved exits. See the [result](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md).
-This is not a real-world anonymity score or completion of the broader privacy
-thresholds below. The next gate is an observer informed by public wallet policy,
-including one-note exits and deposit padding, before more wallet functionality.
-This plan update authorizes no additional run.
+**H15 observed outcome:** the observer now knows fixed deposit/partial padding,
+one-note full exits and receipt-time fallbacks. The four frozen paired ledgers
+still pass the modest screen; fresh retains five or six ambiguous payment
+sources per six-payment case. Both policies have 2/24 unique payment-source
+links. Saved full-exit uniqueness rises to 20/28; fresh stays at 0/28, but with
+9–10 source candidates. [H15](../poc/shared-pool/WALLET-POLICY-PRIVACY.md) separates
+shape from anchor effects and preserves H14's protocol-only baseline.
+
+This does not complete the broader privacy thresholds below. The next proposed
+bounded attack gives the observer one participant's own activity, then scores
+only relationships not involving that participant. It would test insider
+knowledge without inventing public wallet identities. It has not been scoped,
+authorized or run; no additional experiment follows from this plan update.
 
 **Current mechanics gate, H13:** [RFC-0011](rfc/0011-two-input-private-payments.md)
 specifies two-input/two-output normal payments, partial withdrawal change and a
