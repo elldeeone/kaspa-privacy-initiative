@@ -1,469 +1,286 @@
-# Shared-pool branch plan
+# Shielded native KAS research plan
 
-Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
-Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
+Updated: 2026-10-20 (Australia/Sydney). Branch: `shielded-kas-research`.
+Evidence baseline: `c3afb1b94f023057bfe99d780271f6de52c43da4`.
 
-**Latest completed result:** H18's
-[scheduled-payout comparison](../poc/shared-pool/SCHEDULED-PAYOUT.md) fails
-its frozen privacy gate on 24 new paired ledgers. The strongest fixed attack
-has identical success under full and scheduled partial exits in both activity
-regimes and observer profiles. Added fees (21.05%) and p95 delay (16 synthetic
-minutes) meet the unchanged limits. All 252 observations and 504 exact
-original-graph checks complete. No newly unique original-payment source appears.
+## Destination and current decision
 
-Reject this particular 2-tKAS/5–15-minute policy as a demonstrated privacy
-mitigation. The conditional native/TN10 step is not triggered; no funds or
-new proofs are used. Stage 2 remains open. Keep the existing payment/change
-and independent-exit mechanisms; decide how to handle isolated full cashouts
-before another wallet implementation or live trial. Do not retune the frozen
-workloads or silently relax the gate.
+Build an independently usable testnet payment system: separate people hold their
+own keys, receive private payments, spend them again, recover on another machine,
+and withdraw native test KAS after the original services disappear. The result
+must state its privacy, cost, availability and trust limits.
 
-**Previous result:** H17's [common partial-payout test](../poc/shared-pool/COMMON-PAYOUT.md)
-passes its frozen privacy screen and genuine offline mechanics. After full
-drain, separate participant views force 4/28 original cashout sources versus
-7/28 before, with no pair regression or new payment-source links. All four
-wallets exit in fresh/saved branches, seven saved proofs remain unchanged and
-both branches drain to zero. Twenty observations and forty original-witness
-checks pass.
+Retain the direct-L1 pool as the current research candidate. Focus the privacy
+hypothesis on payments between persistent shielded balances; deposits, ordinary
+cashouts and emergency exits have separately measured disclosure. An independent
+exit remains available even when exercising it sacrifices privacy. No token,
+privileged withdrawal path, real funds or mainnet deployment is part of this plan.
 
-Q=2 tKAS and the original claim metrics were frozen in `71d2aca`. All fees
-and tails count: +1.6 tKAS is within the 25% fee screen, while +40 synthetic
-minutes exceeds the unchanged 30-minute delay target. The combined gate fails.
-Retain optional common cashouts as a research candidate; scope practical
-scheduling separately. Stage 2 and strong privacy remain open.
+The owner approved this ten-milestone roadmap, its documentation commit/push, and
+starting milestone 1. Milestone 1 defines requirements and evaluation; it does not
+implement a new cryptographic subsystem. The later milestones describe the
+programme, not authorization for funded trials, paid infrastructure, participant
+recruitment or upstream publication. Existing branches, secrets and evidence stay
+intact. Routine source research and local milestone-1 documentation can proceed.
 
-**Previous privacy result:** H16's [participant-disclosure comparison](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
-fails its strict screen on two additional startup payment links. Separate
-participant views force sources for 4/24 fresh payments and 7/28 fresh full
-exits, versus 6/24 and 28/28 saved. These are distinct synthetic targets linked
-by at least one eligible participant, not pooled disclosures or a privacy
-percentage. Fresh retains more alternatives in all sixteen matched pairs.
-Keep fresh normal proofs/private fallbacks and the compact research candidate.
-H17 above addresses one resulting withdrawal-policy question. All 64
-observations and 30 controls complete. H16 adds no proofs,
-funds, network trial or publication.
+**Current work:** define the privacy promise, adversaries, observations,
+measurements and operating requirements. The first integrated delivery target
+combines that specification with one current-version wallet lifecycle and an
+independent attack suite. It spans milestones 1, 2, 4 and 7; it is not already
+complete because individual older experiments passed.
 
-**Previous mechanics:** H13's authorized bounded offline and TN10 implementation passed:
-two private inputs, spendable private change, partial withdrawal and four wallets
-paid through six unchanged saved proofs. Thirteen pool operations drain the
-reserve to zero; TN10 adds ordinary allocation and genesis. The
-[live report](../poc/shared-pool/TWO-INPUT-TN10.md) records
-costs, controls and limitations. [RFC-0011](rfc/0011-two-input-private-payments.md)
-remains Open; this supplies candidate payment mechanics, not practical privacy
-or general recovery. Live clients reconstruct accepted history without the
-original prover/controller state, within a four-depositor, one-host/RPC fixture.
-The original spec is committed as `c50855a`. No new privacy run or publication
-is part of this bounded continuation.
+## Evidence carried forward
 
-**Earlier completed evidence:** H11's bounded fresh-proof screen is complete. H12's
-equal-net funding comparison also passes its frozen offline screen: all four
-funding deposits remain feasible for every target through drain in the declared
-all-deposits-first workload. Genuine calibration, isolated exit adapters and
-complete TN10 rehearsal/measured trials pass, with all four wallets paid.
-Keep fresh proofs/private fallbacks and equal
-net credit as candidate wallet policies. Strong or general privacy is not
-established. [H12 result](../poc/shared-pool/NORMALIZED-DEPOSITS.md).
-
-**Earlier milestones:** bounded payment/exit mechanics and Stage 1 three-wallet
-recovery passed on TN10. Stage 2's initial public-field audit is complete and
-activated its old-anchor redesign condition: the first H6 withdrawal identifies
-one source transaction despite 100 later payments. H9's bounded offline
-fresh-proof comparison now passed: the target retains 3/5 possible sources in
-two/four-payment fixtures, while a private old fallback remains independently
-usable and only one proof can spend. Useful privacy remains unestablished;
-see [the comparison](../poc/shared-pool/FRESH-PROOF.md).
-
-The independent-deposit prerequisite is specified in
-[RFC-0010](rfc/0010-compact-independent-deposits.md): a new immutable pool version,
-the existing private circuit, two notes per funded admission, and four wallets
-draining with proofs saved before later deposits. H10's implementation passed
-the offline gate and complete TN10 rehearsal/fresh trial: all four wallets paid
-using eight unchanged saved proofs and zero reserve. Stage 2's privacy thresholds
-remain unchanged. [Measured report](../poc/shared-pool/DEPOSITS.md).
-
-**Finish line:** a reproducible testnet wallet can receive, send and withdraw
-native test KAS, maintain correct backing, recover without privileged help, and
-state measured privacy and operating limits. This plan does not promise mainnet.
-
-## Scope and order
-
-This is our independent execution plan within the [repository roadmap](ROADMAP.md),
-not a replacement for its requirements or an upstream-approved protocol. Decisions
-follow evidence; they do not depend on a maintainer reply. Work within current
-Kaspa L1, with no new token, real funds or privileged withdrawal path. A consensus
-change would require a separate research decision, not an implementation shortcut.
-
-| Branch stage | Roadmap phases | Status | Decision it must support |
-| --- | --- | --- | --- |
-| Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
-| 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H18 scheduling fits cost/delay limits but fails the privacy gate | Reject the tested short-delay policy; retain private change, fresh normal proofs/private fallbacks. Resolve isolated cashout limits before wallet expansion. Strong privacy remains open. |
-| 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
-| 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
-| 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
-
-Stage 1 is complete for its declared three-claimant workload. Stage 2's
-[anchor-policy study](rfc/0009-compact-anchor-privacy.md) now supports continuing
-the candidate, with a substantial funding-origin limitation. This is a measured
-screening result, not completion of general privacy or stages 3–4. A discovered safety flaw
-takes priority at any stage. Stage 5 review can start earlier; its completion is
-not implied by an implementing agent's self-review.
-
-Creation of this plan authorizes no new experiment, funding, service deployment
-or upstream publication. Existing artifacts and variants stay intact. The next
-implementation needs a concrete experiment specification within the user's
-authorized scope; no standing requirement to seek a maintainer's permission.
-
-## Evidence we can carry forward
-
-These tests were developed incrementally. This plan does not retroactively
-preregister them or combine different protocol variants into one working system.
-
-| Journal entry | Supported result | Boundary carried forward |
+| Existing work | Supported result | Boundary for the new programme |
 | --- | --- | --- |
-| [H1](../poc/self-funded/README.md) | Payment and independent authorized payouts paid native fees from claims. | One bounded sequence; experimental setup and retained artifacts. |
-| [H2](../poc/shared-pool/README.md) | Four wallets exited; partial change with equal first payouts preserved more amount ambiguity. | One synthetic workload; no improvement in unique-source identification. Partial exits are absent from the compact variant. |
-| [H3/H4](../poc/shared-pool/CONTENTION.md) | A note floor and one competing-exit recovery worked in version 3. | Tested fee assumptions; loser generated a new proof. Not compact-state contention evidence. |
-| [H5](../poc/shared-pool/ANCHORED.md) | An existing private authorization survived one unrelated payment. | Small array state, existing authorization, public bootstrap/history available. |
-| [H6](../poc/shared-pool/COMPACT.md) | Exact proof reused after 100 payments; 204 native transactions confirmed and all claims drained. | Serial workload, finite depth, retained metadata/history; no recovery-from-backup or anonymity result. |
+| [H5/H6 reusable authorization and compact settlement](../poc/shared-pool/COMPACT.md) | An unchanged private authorization settled after 100 intervening payments; the tested pool drained on TN10. | Finite capacity, retained history and serial activity; not general contention or anonymity. |
+| [H7 independent recovery](../poc/shared-pool/RECOVERY.md) | Three older-version wallets restored from pre-payment backups on a separate host and generated their own exit proofs. | Retained exact parameters/history and correct nodes; this is not recovery of the newer v6 relation. |
+| [H10/H12 deposits and funding policy](../poc/shared-pool/NORMALIZED-DEPOSITS.md) | Independent admission mechanics and bounded equal-net-credit inference results. | All-deposits-first symmetry and shared live funding ancestry do not establish independent anonymity participants. |
+| [H13 two-input payments](../poc/shared-pool/TWO-INPUT-TN10.md) | v6 private payment/change, partial withdrawal and four wallets paid through six unchanged saved exits on TN10. | One host/RPC, four known funding sources and precomputed capabilities; general current-version wallet recovery remains open. |
+| [H14-H16 reconstruction and disclosures](../poc/shared-pool/PARTICIPANT-PRIVACY.md) | Fresh proofs retain more alternatives than saved anchors; participant records expose additional links. | Source-transaction alternatives are not owner anonymity or a private-amount guarantee. H16's strict screen failed. |
+| [H17 common payouts](../poc/shared-pool/COMMON-PAYOUT.md) | The bounded privacy screen improved; genuine offline exits drained both arms. | The schedule failed its delay target; no general or live privacy result. |
+| [H18 independently scheduled payouts](../poc/shared-pool/SCHEDULED-PAYOUT.md) | Strongest tested attack success was unchanged in all four comparisons. | Reject the tested short-delay policy. Its conditional native/TN10 continuation remains stopped. |
 
-The compact baseline has no later deposits or partial withdrawals. Its proof
-binds an exact fee and historical anchor; fee repricing needs new authorization,
-and public rebasing does not enlarge that anchor's candidate set. Single-party
-setup, history availability and a correct node view remain assumptions.
+Keep fresh normal authorizations, private fallback capabilities, native integer
+accounting, private change and blinded evidence collection as candidate mechanisms.
+Single-party setup, unaudited composition, data availability and fee adequacy remain
+assumptions. Passing implementation tests is not cryptographic security; synthetic
+privacy results are not real-world anonymity.
 
-For cost comparisons, H6 measured 21,688,400 sompi per transfer and 21,729,600
-sompi for Bob's exit at 100 sompi/mass. His original proof took 9,759 ms, public
-rebuilding 352.426 ms, and RPC discovery another 11,356.203 ms. These are measured
-TN10/workload results, not current fee quotations or wallet performance promises.
+## Milestone 1 — Define the privacy promise
 
-## 1. Independent recovery
+**Status:** first authorized work package; specification and source review next.
 
-**Observed completion, 2026-10-19:** all three wallets restored from pre-payment
-backups on a separate host and exited through a separate public RPC after the
-original prover/data source stopped. Offline controls, a complete rehearsal and
-a fresh measured trial passed; the interrupted first attempt was also drained
-through ordinary independent exits. Keep three private keys plus the descriptor
-pin, and the initial depositor's note opening. Retained public parameters/history
-and a correct node view remain requirements. This is one initial deposit with
-three synthetic claimants, not general pruning/reorg recovery or a privacy result.
-Exact payouts, costs, limits and evidence are in [RECOVERY.md](../poc/shared-pool/RECOVERY.md).
+Specify the intended user activity, protected relationships and amounts, explicit
+public information, adversaries and required honest participation. Separate
+payments from an existing shielded balance, entering/leaving the pool, and recovery.
+Compare persistent balances with prompt cashout rather than assuming either is private.
 
-**Hypothesis / decision:** a recipient can be offline during payment, then recover
-and exit using a declared backup and authenticated public data. Determine the
-minimum backup and availability requirements before building more wallet features.
+Define owner/payment attribution, funding relationship inference, amount disclosure,
+attack precision/coverage, uncertainty and observation horizons. Evaluate actual
+payers and recipients rather than treating note counts as people. Set usable
+payment sizes, hardware, fees and delay targets before scoring; distinguish chosen
+research thresholds from established privacy guarantees and measured baselines.
 
-**Smallest test:** three wallets, with Bob offline for his incoming payment.
-Stop all original wallet/prover processes and experiment state services. Restore
-each wallet separately, discover its claims and complete all native payouts.
-Bob's backup must predate the incoming payment and contain no plaintext or witness
-for that payment. A newly received note needs its first private proof; this is a
-different test from H6's reuse of an already-created proof.
+**Deliverable and gate:** an open privacy RFC, current-source/reuse review and
+requirement-to-evidence map. Every proposed claim names its adversary, observations,
+assumptions, failure condition and evidence still needed. Unresolved numeric targets
+remain explicit; they cannot silently become a passing gate. This completes a
+requirements milestone, not a privacy validation.
 
-**Complete and supported when:**
+## Milestone 2 — Consolidate one protocol candidate
 
-- The input inventory names every private backup field and public dependency:
-  pool identity/descriptor, accepted history, ciphertexts, verification and
-  proving parameters, and independently obtained chain state. Authenticate the
-  descriptor and parameters against the intended pool; do not publish the
-  experiment manifest's receiver list as a wallet bootstrap shortcut.
-- All three wallets recover and receive the exact expected payout, with complete
-  backing/fee reconciliation. No sender secret, coordinator export of new notes,
-  precomputed exit authorization or privileged signature is supplied.
-- Offline isolation passes, followed by a complete TN10 rehearsal and fresh
-  measured trial. The live recovery uses infrastructure independent of the
-  original experiment services; same-node replay alone does not close the
-  [roadmap recovery gate](ROADMAP.md#early-exit-and-recovery-gate).
-- One public-history source can disappear and another independently accessible
-  source suffices. Corrupt, substituted, missing and stale data are rejected or
-  detected before acceptance. Losing all required history causes a reported safe
-  halt, not invented witnesses; this negative control is not recovery success.
-- Record the backup recipe, public-data inventory, per-wallet payouts, fetched
-  bytes, proof/startup/recovery times, fees and actual shutdown/isolation evidence.
+**Status:** bounded v6 mechanisms exist; integrated lifecycle incomplete.
 
-**Stop/redesign:** any wallet needs unpublished operator data; a required public
-artifact has no independent recovery path; invalid history is accepted; or a
-claim remains unpaid within the declared available-data model. If keys alone
-are insufficient, record that failed hypothesis and specify/test the additional
-backup requirement explicitly. Static public mirrors may suffice; do not build
-an operator network without evidence that it is needed.
+Use one circuit, covenant, parameter identity, wallet format and public-data format
+for deposit, private transfer/change, withdrawal and recovery. Map all security
+invariants to proof, covenant, wallet or availability obligations. Establish the
+backing argument from valid genesis through terminal drainage, retaining liabilities
+until their actual payout. Preserve native integer-sompi semantics throughout.
 
-## 2. Practical privacy
+Replace fixture-only participant/funding discovery with validation of actual native
+funding. Retain evidence from each earlier version under its original identity.
 
-**H18 observed outcome:** the independently scheduled policy fails the required
-25% attack-family reduction in all four comparisons: improvement is zero.
-Fees and delay pass; no new original-payment singleton appears. All 48 sparse
-common payouts pair with their actual remainder under the normal scheduling
-assumptions, restoring the full baseline's source alternatives. Overlap widens
-some alternatives without reducing the winning guess attack. This rejects one
-wallet policy, not the native payment/exit mechanics or every current-L1 design.
-The stop condition applies: no native calibration or TN10 continuation.
-The [report](../poc/shared-pool/SCHEDULED-PAYOUT.md) preserves costs, controls,
-model boundaries and the recovered incomplete solver run.
+**Gate:** a previously unknown participant can join and complete the supported
+lifecycle with its own keys, without descriptor edits or privileged state exports.
+Every accepted liability is backed and every enforcement assumption is visible.
 
-**H16 observed outcome:** one participant's complete records create two new
-fresh payment-source singletons at startup. The other frozen clauses pass:
-at least half remain ambiguous in every pair, and fresh retains more alternatives
-in all sixteen pairs. After drain, distinct payment/partial/exit targets linked
-by at least one separate eligible participant are 4/24, 3/8, 7/28 fresh versus
-6/24, 4/8, 28/28 saved. The disclosure screen fails and the broad gate remains
-open. See [results and validation](../poc/shared-pool/PARTICIPANT-PRIVACY.md).
+## Milestone 3 — Review cryptography and setup trust
 
-Records alone force six of those fresh full exits and two partials. The extra
-ownership assumptions add one of each; removing only those assumptions leaves
-most measured withdrawal leakage. The subsequently authorized **H17** test
-answers the common-payout question positively within four frozen cases:
-cashout-source links fall 7/28 → 4/28 through complete drainage, with original
-payment links unchanged and all independent exits preserved. Original economic
-claims are counted, so extra change notes cannot inflate the score.
+**Status:** author review and negative controls exist; independent assurance open.
 
-Its fixed schedule exceeds the delay budget despite meeting the fee screen.
-H18 above answers the subsequent bounded-scheduling question negatively on
-new workloads. Retain H17's earlier result within its original scope, without
-adopting either tested schedule as a practical defense. Do not retune the
-frozen size or silently relax the budget. This plan authorizes no further
-experiment, funding or protocol change.
+Review the actual private relation and native covenant together: bootstrap backing,
+range/conservation, real/padded slots, nullifiers, historical anchors, recipient
+spendability, replay and terminal release. Compare established constructions and
+record adaptations; their security does not transfer automatically to this protocol.
 
-**H15 observed outcome:** the observer now knows fixed deposit/partial padding,
-one-note full exits and receipt-time fallbacks. The four frozen paired ledgers
-still pass the modest screen; fresh retains five or six ambiguous payment
-sources per six-payment case. Both policies have 2/24 unique payment-source
-links. Saved full-exit uniqueness rises to 20/28; fresh stays at 0/28, but with
-9–10 source candidates. [H15](../poc/shared-pool/WALLET-POLICY-PRIVACY.md) separates
-shape from anchor effects and preserves H14's protocol-only baseline.
+Evaluate a reviewed multiparty setup process and a feasible transparent-proof route
+against the current single-party assumption, including proving and recovery costs.
+Start review alongside specification and integration, before wallet polish.
 
-This did not complete the broader privacy thresholds below. H16 above now
-tests the proposed participant adversary on the same frozen inputs, excluding
-already-known sends, receipts and own withdrawals from its scored targets.
+**Gate:** unresolved credible inflation, double-spend or unauthorized-exit findings
+block expansion. Experimental setup can support conditional research only; tests,
+parameter hashes and source review cannot establish honest setup or erased trapdoors.
+Architecture changes require the relevant RFC, ADR and synchronized threat model.
 
-**Current mechanics gate, H13:** [RFC-0011](rfc/0011-two-input-private-payments.md)
-specifies two-input/two-output normal payments, partial withdrawal change and a
-no-append full-exit fallback. [ADR-0024](adr/0024-two-input-private-payment-scope.md)
-records the documentation-first decision and subsequent owner authorization.
-The bounded offline and TN10 implementation passes with private change, partial
-withdrawal, six unchanged saved-proof exits and all four wallets paid. Live
-clients discover accepted state through RPC without operator state; the capacity
-test still uses a constructed boundary state. This does not complete Stage 2,
-broader mechanical qualification or general wallet recovery.
+## Milestone 4 — Deliver a usable wallet lifecycle
 
-Before broader qualification, resolve review objections concerning dummy NF injection,
-value conservation, terminal accounting, capacity and proof preservation. Stop
-or redesign if a valid funded claim can be stranded within the declared fee/data
-model, if a privileged party is needed, or if current L1 cannot express the
-checks. The [report](../poc/shared-pool/TWO-INPUT.md) establishes bounded costs
-and saved-proof exits and names remaining tests. H14 uses frozen economic
-workloads and permits merges and padding. Its source-set metrics do not reuse
-the old unique-deposit target or close general privacy.
+**Status:** experiment clients exist; general client incomplete.
 
-**Observed audit outcome, 2026-10-19:** the public-only observer found a unique
-source transaction for the first H6 exit in both retained compact runs. Two
-possible note positions share that source; this does not identify a person.
-Coverage is 1/4 and 1/102 exits, with abstention elsewhere; H7 leaves two source
-transactions for each of its three exits. A small joint-value sensitivity admits
-three sources instead of one with a newer anchor, but no replacement proof was
-generated. [H8 report](../poc/shared-pool/PRIVACY.md) and
-[ADR-0021](adr/0021-separate-exit-fallback-and-privacy-policy.md) retain reusable
-exits and reject frozen-proof waiting as this case's privacy remedy. Stop before
-the conditional traffic simulator/funded trial. The 25%/25%/30-minute policy
-thresholds below are untested; the candidate has not passed practical privacy.
+Support independently generated keys, offline receiving, authenticated scanning,
+repeated private payments, private change, deposits and partial/full withdrawals.
+Validate recipient ownership and spendability before showing a claim as available.
+Keep private proving local initially and name every service's information access.
 
-**Bounded follow-on, H9:** genuinely fresh proofs now expand the target's source
-candidates from 1 to 3/5 after two/four payments, including full drainage. With
-no activity the source stays unique. Both old/fresh winner orders reject the
-second spend; six isolated rebuilds need no wallet/PK/network. The old fallback
-and alternate histories remain private. Added native fee is zero; fresh proof
-work is 9.514–9.589 seconds, with 100.414 seconds for cold parameter loading.
-The [frozen specification](../poc/shared-pool/FRESH-PROOF-SPEC.md) and
-[report](../poc/shared-pool/FRESH-PROOF.md) explicitly limit this to three designed
-offline fixtures. This selects a mechanism for further policy work, without
-passing or revising the population thresholds or authorizing TN10/wallet expansion.
+Provide clear balances, documented backup/restore, fee handling and interrupted
+operation recovery without editing proofs, Merkle paths or transaction JSON.
 
-**Completed workload prerequisite, H10:** [RFC-0010](rfc/0010-compact-independent-deposits.md)
-and [ADR-0022](adr/0022-compact-two-note-deposits.md) scope independently signed
-native deposits into a fresh immutable compact pool. Each deposit adds two notes
-and accepted history without changing existing spentness; prior proofs within
-that new pool must remain usable. The main fixture has four separately funded
-wallets, 13 native transactions and eight prepared exits, with all provers stopped
-before drainage. Require exact backing, byte-identical old proofs, each wallet's
-terminal role and no operator help. Existing v4 proofs are preserved as evidence,
-not migrated. Offline fees/composition and all four terminal roles passed;
-complete TN10 rehearsal and a fresh trial paid all eight claims using their
-original proofs. The measured 14-transaction run including ordinary allocation
-cost 2.656933 tKAS. This prerequisite supplies
-real admission mechanics for the later study; it cannot pass the privacy gate.
+**Gate:** separate users complete the same current-version workflow with ordinary
+wallet inputs. No fixture key bundle, researcher intervention or secret supplied to
+an untrusted prover is necessary. Measure cold and warm operation separately.
 
-**Hypothesis / decision:** an established wallet policy can materially reduce
-chain-only relationship inference at tolerable delay/cost. Determine whether to
-retain the layout, change it, or narrow the intended use case.
+## Milestone 5 — Make recovery and data availability ordinary
 
-**Completed bounded study, H11:** [the result](../poc/shared-pool/PRIVACY-STUDY.md)
-retains all 64 primary ledgers plus 17 controls, with 882 withdrawals through
-complete drain. Relative inference reductions are 35.6% / 61.5%, with paired
-95% intervals [32.2%, 39.1%] / [58.3%, 64.6%]. Added native fee is zero; the
-measured cold-load-plus-proof component estimate is about 122 seconds at p95,
-excluding RPC/confirmation. Two genuine native calibrations match the model;
-both proof arms drain without PK/wallet inputs. The 20-minute wait produces no
-gain without further activity. The predeclared screen passed; high residual
-funding-origin inference is a separate limitation, not a changed pass criterion.
-**Follow-on H12:** the separately frozen
-[equal-net comparison](../poc/shared-pool/NORMALIZED-DEPOSITS-SPEC.md) is now
-executed offline. It preserves total funding and topology across net/gross/varied
-policies. Its four-way deposit ambiguity survives complete drain, with the
-singleton and early-exit controls retaining their linkage. Native calibration
-passes; complete TN10 rehearsal and measured trial both paid all four wallets
-using unchanged exit proofs, with no remaining reserve. General interleaved-user
-privacy and mixed-denomination behavior remain open.
+**Status:** older-version bounded recovery passed; current-version work remains.
 
-**Study definition:** [H11's frozen specification](../poc/shared-pool/PRIVACY-STUDY-SPEC.md)
-compares saved versus fresh proofs with independently funded admissions. A
-bounded waiting control assumes no invented background traffic. Two low-activity
-regimes, all eventual withdrawals, separate truth/observer processes and native
-calibration precede the keep/redesign decision. Equal payouts with private change
-remain a separate proposed relation; they are not silently imported into v5.
+Restore a newly received payment using a backup that predates it, on another machine,
+without precomputed exits or sender/coordinator note exports. Authenticate the pool,
+parameters, current accepted state and all material needed to reconstruct witnesses.
 
-**Complete when:**
+Distribute verifiable public parameters, history and ciphertexts using independently
+retained copies. Start with ordinary files/archives; introduce authenticated snapshots
+only when justified. Test publisher loss, a pruned node, corrupt/missing data, lost
+local caches and replacement data providers.
 
-- Preregister workloads, seeds, exact observer fields, attacks and decision
-  thresholds before evaluation. Include singleton activity as a negative control,
-  two low-activity regimes, and independent deposit funding plus a shared-funding
-  control. Do not infer user counts from note counts. Public amounts/timing,
-  addresses/scripts, reserve ancestry, nullifiers, anchor age/count and all other
-  serialized fields belong to the chain observer. Private wallet-owner labels,
-  note ownership and the hidden payment graph belong only to the scoring process;
-  attack code must not read them. RPC/IP information is a separate arm.
-- Baselines cover timing/order, amount compatibility and jointly consistent
-  payment histories. The primary target is the transaction that created a
-  withdrawal's consumed note, on a preregistered matched set of withdrawals;
-  report deposit-ancestor inference separately. Report correct source inference,
-  precision versus coverage, remaining candidates, abstentions, extra delay,
-  native fees and transaction count. Hold observation horizons and coverage
-  comparable, include eventual withdrawals, and report uncertainty across
-  independently generated ledgers.
-- As a proposed research decision threshold, require at least a 25% relative
-  reduction in correct top-1 source inference at full coverage in both declared
-  low-activity regimes, with paired 95% intervals excluding no improvement.
-  Additional total native fees must be at most 25%, and p95 added withdrawal
-  delay at most 30 minutes. These are branch screening targets, not anonymity or
-  user-acceptance guarantees; any revision must precede evaluation and be logged.
-  A relative gain alone is insufficient to claim useful privacy: report absolute
-  attack success and its comparison with an observer using only public priors.
-- The report distinguishes measured current behavior from modeled modifications,
-  lists each policy's assumptions/protocol changes, and records keep/redesign/stop.
-  No synthetic score becomes a claim about real-world anonymity. Network/RPC
-  privacy remains open unless separately tested.
+**Gate:** every supported claimant recovers and exits using its own documented
+backup and surviving independent public sources. Missing all indispensable data is
+a recovery failure even if the client safely halts. Public parameters are not wallet
+secrets; being once included on L1 does not establish permanent availability.
 
-**Stop/redesign:** no policy meets the declared tradeoff; improvement relies on
-hidden observer data, excluded failed cases, unbounded delay, assumed background
-users or a trusted mixer; old anchors defeat the target; or the outcome merely
-repeats a known limitation without selecting between designs. A null result
-completes the study but does not pass the candidate. Do not fund a live privacy
-trial when offline results cannot inform a new design decision.
+## Milestone 6 — Finish independent settlement and exits
 
-## 3. Failure and fee limits
+**Status:** saved-proof settlement works in bounded traces; broader liveness open.
 
-**Hypothesis / decision:** compact settlement supports independent retries and
-exits within a stated fee, contention, history and capacity envelope. Specify
-that envelope instead of claiming unconditional liveness.
+Handle stale reserve inputs, both race winner orders, ambiguous submissions, dropped
+RPC connections and competing exits. Reconcile accepted outcomes before retrying;
+rebuild current public settlement while preserving valid private authorization.
+Test progress during finite competing-payment schedules, then measure sustained
+competition. Record each claimant's progress, retries, costs and any intervention.
 
-**Complete and supported when:**
+Cover baseline and increased fees, minimum claims, commitment/nullifier capacity and
+controlled reorg/rollback. An exact-fee proof cannot be silently repriced; fresh
+user-controlled proving may be needed. Separate consensus validity, relay acceptance
+and actual inclusion. Keep simulated faults distinct from TN10 observations.
 
-- Two compact wallets race, with each winner order tested. The loser discovers
-  accepted state and exits with identical authorization/proof after the winner
-  stops. Also test exit attempts during a declared finite competing-payment
-  schedule, recording every user's retries, proof work and payout; a serial
-  post-activity exit does not satisfy this case or prove sustained fairness.
-- Offline fee cases cover the measured baseline and 2x/4x rates, including the
-  minimum accepted note. Any necessary repricing preserves authorization,
-  backing and payout constraints. Record when new private proof work is needed;
-  do not silently change an exact-fee authorization. Validate viable cases on
-  TN10 under actual relay policy; do not manipulate the public network's fees.
-- Controlled rollback/replay cases invalidate orphaned anchors and reconstruct
-  accepted spentness without double payment. Capacity exhaustion preserves all
-  existing exits and rejects unsupported new activity. Keep simulated reorgs
-  and synthetic capacity fixtures distinct from live observations.
-- A bounded failure matrix records safety, recovery outcome, required data,
-  latency/cost and the decision for every case. All supported claims can drain.
+**Gate:** all supported claims remain backed and exit within the declared operating
+envelope without privileged scheduling, subsidy or rescue. Replay cannot pay twice.
+Repeated starvation at modest activity challenges the architecture. An uneconomic
+claim fails the supported exit target; do not shrink the envelope after results.
 
-**Stop/redesign:** an in-envelope claim becomes uneconomic/unspendable, repeated
-competition prevents demonstrated progress, rollback loses liabilities, or any
-case needs privileged rescue. Never weaken spentness or state validation. A
-safe halt preserves safety but does not pass liveness. Out-of-envelope failures
-must narrow the documented support claim; the envelope cannot be shrunk after
-results merely to mark the stage passed.
+## Milestone 7 — Attack complete payment privacy
 
-## 4. Usable payment cycle
+**Status:** blinded arithmetic observers exist; broader independent evaluation open.
 
-**Hypothesis / decision:** the retained design supports a repeatable user workflow
-on explicitly supported hardware, with comprehensible backup and fee behavior.
+Build independent attacks using full public transaction bytes and documented wallet
+behaviour. Cover varied/interleaved payment graphs, persistent balances, known
+counterparties, collusion, attacker-controlled wallets, amount tagging, retries,
+old-proof exposure and eventual withdrawals. Measure RPC requests, scanning and
+broadcast exposure as distinct observer profiles.
 
-**Complete and supported when:**
+Keep attack development separate from held-out evaluation. Continue observing after
+individual cashouts and through final drainage. Report absolute performance against
+public-prior baselines, precision/coverage and uncertainty, not just improvements
+over revealing saved anchors. Never turn solver failures into privacy or extra
+wallets owned by one actor into independent honest participants.
 
-- One coherent version supports later deposits, offline receiving, private send,
-  partial withdrawal/change and full exit. Repeat the cycle with three users and
-  independently drain all claims. Earlier variants' features do not count as
-  features of the compact version.
-- A clean testnet user can follow the documented wallet commands without editing
-  proofs, Merkle paths or transaction JSON. Deterministically reject unspendable
-  received notes before showing them as usable balance. Exercise backup/restore
-  and the supported failure cases through the same wallet path.
-- Before optimization, state the intended payment sizes, supported hardware and
-  numerical fee/time/memory budgets in the experiment specification. Completion
-  requires measured compliance, including cold startup/parameter download,
-  warm proofs, scanning, RPC discovery and payout separately. Current timings
-  are baselines, not an adopted usability target.
-- Selected privacy policies and their limits are reflected in the workflow;
-  RPC and broadcast exposure is documented separately. No service receives
-  private witnesses merely to make proving look faster.
+**Gate:** the specified use case survives its frozen requirements under the declared
+observations, with failure regions reported. A negative finding selects a narrower
+claim, a concrete redesign or stopping that approach. More seeds or timer changes
+alone are not a new milestone. Synthetic success remains a research screen.
 
-**Stop/redesign:** costs miss the declared use case, added features break recovery
-or privacy, or routine use requires hidden manual/operator help. Preserve a small
-working command-line client; defer UI polish until the full cycle passes.
+## Milestone 8 — Select architecture from measured limits
 
-## 5. Independent review and branch conclusion
+**Status:** direct pool retained provisionally; production architecture unselected.
 
-**Complete when:** reviewers independent of the implementation assess the actual
-proof/covenant relation, setup assumptions, value accounting, spentness, native
-payout binding, history/backup requirements and privacy claims. Findings have
-reproducible evidence and explicit dispositions; no unresolved critical issue is
-carried into a broader testnet pilot. Produce a reproducible testnet specification
-and a clear continue/redesign/stop conclusion. Experimental single-party setup
-does not become an acceptable production setup by passing functional tests.
+Measure proof/startup/recovery time, memory, transaction mass, per-user payment and
+cashout costs, capacity and settlement/exit progress. Compare alternatives under the
+same backing, privacy, recoverability and exit requirements.
 
-**Stop/defer:** independent review is unavailable, critical issues remain, or the
-needed trust/performance assumptions conflict with the north star. Mainnet is a
-separate decision outside this branch plan, even if every testnet stage passes.
+| Candidate | Evidence that would justify it |
+| --- | --- |
+| Direct shared pool | Meets the chosen workload and gives users reliable progress. |
+| Batching | Per-payment proof/fee overhead or reserve contention is the limiting factor; batchers remain replaceable and exits independent. |
+| Based-app execution | L1-ordered submissions and verifiable processing of activity are demonstrated requirements; adopting the current vProgs runtime is a separate decision. |
+| Shards | Required parallelism outweighs measured privacy fragmentation, with correct cross-shard backing and exits. |
+| Consensus change | A specific necessary requirement cannot be met with current capabilities after credible alternatives are evaluated. |
 
-## How this plan stays current
+**Gate:** record the choice and reconsideration conditions in an ADR. A faster
+exclusive operator cannot satisfy permissionless exits. Resource measurements must
+fit the use case selected before evaluation, not a retrospectively relaxed target.
 
-For each new experiment, record in the [journal](RESEARCH-JOURNAL.md): stage and
-hypothesis; exact version and inputs; predicted outcomes and decision thresholds;
-result/evidence; costs and assumptions; and the next decision. Update the status
-table above at the same time. A study can be complete with a negative result;
-mark the candidate `redesign` or `stopped`, not `passed`.
+## Milestone 9 — Run an independently owned testnet trial
 
-A new experiment must close a listed criterion or change a stated design
-decision. Otherwise, do not run it. Add or reorder stages only with a journal
-entry explaining the new evidence and which decision changes. Do not extend a
-completed test merely to collect larger numbers.
+**Status:** future work after safety, recovery and privacy qualification.
 
-Before changing cryptographic/state/exit architecture, refresh the relevant
-primary-source and mature-protocol comparisons, update the RFC and record the
-decision in an ADR. Keep [invariants](../SECURITY-INVARIANTS.md), architecture,
-threat model and open questions synchronized. This plan changes work order and
-acceptance criteria; it changes no protocol rule or invariant.
+Separate people generate and retain their own keys on their own devices, obtain
+public data independently, and choose payment requests across multiple sessions.
+Include offline receiving, continued shielded spending, independent cashouts, sparse
+periods and consented adversarial participants. Remove the preferred services and
+exercise backup recovery while other users remain active.
 
-Inflation, double spends, unauthorized payout or acceptance of unverifiable
-state stop the affected trial immediately. Preserve evidence and resolve the
-cause before funding that path again. Operational harness limits alone are not
-protocol failures: record them and fix the harness. Measured resource costs can
-still fail a declared usability target. Use fresh trial identities for retries,
-complete rehearsals through terminal payouts, and keep all amounts in integer
-sompi. Never weaken a check or erase a failed run.
+Keep private records separate from attack inputs. Measure actual accepted native
+transactions, wallet/network exposure, usability, costs, failures and interventions.
+An implementing team's extra wallets do not establish an honest population.
 
-**Current result:** independent deposits passed H10, the fresh-proof population
-screen passed H11, and equal net credits passed H12's bounded offline comparison.
-Code, journal and sanitized evidence stay on this branch. Conditional TN10
-validation also passed with all four wallets independently paid. Preserve
-the remaining Stage 3–5 gates and the privacy limits: four compatible deposit
-labels are not a general anonymity guarantee or permission to expand wallet
-features without addressing the documented assumptions.
+**Gate:** the same version maintains backing, pays all supported claims and meets
+its declared privacy/operating targets under those observed conditions. Coordinator
+rescue is recorded as workflow failure. Complete an authorized rehearsal through
+terminal payout before a measured TN10 trial; use fresh identities for retries.
+
+## Milestone 10 — Deliver a reproducible testnet research release
+
+**Status:** future work, with publication within the owner's authorized scope.
+
+Package the client, protocol specification, public recovery artifacts, independent
+verification tools and reproducible evidence. Include measured limits, privacy
+claims that survived, failed cases, setup assumptions and unresolved findings.
+
+**Gate:** another team can reproduce the lifecycle and challenge its conclusions
+without our private experiment directories. Record a continue, redesign or stop
+decision. This is a research/testnet release; mainnet remains a separate decision.
+
+## Dependencies and immediate work
+
+Milestone 1 defines the evaluation contract. Integration (2), cryptographic review
+(3) and privacy work (7) then proceed together. Wallet work (4) supplies the current
+version used by recovery (5) and settlement fault testing (6). Measurements feed
+architecture selection (8). The independent-user trial (9) follows qualification;
+the reproducible release (10) includes the resulting evidence and limitations.
+
+Begin with the privacy RFC and source/capability map. Use the resulting gaps to
+scope the first coherent wallet increment and independent attack suite. The
+persistent-balance versus prompt-cashout comparison is an early diagnostic inside
+this programme, not the whole programme or a reason to delay all useful integration.
+
+## Earlier stages and frozen evidence
+
+This roadmap replaces the work order of the
+[previous five-stage branch plan](https://github.com/elldeeone/kaspa-privacy-initiative/blob/c3afb1b94f023057bfe99d780271f6de52c43da4/docs/SHARED-POOL-PLAN.md).
+The branch was renamed from `shared-pool-four-wallet`; historical references retain
+that original name. H1-H18, their frozen criteria, failed outcomes and raw/exported
+evidence are unchanged. Earlier "Stage 1 complete" means the bounded older-version
+recovery workload, not milestone 1 or current-version general recovery here.
+
+| Earlier stage | Continuing obligation |
+| --- | --- |
+| 1 Independent recovery | Milestones 2, 5 and 6, qualified on the current version. |
+| 2 Practical privacy | Milestones 1 and 7; H18 stays failed and its TN10 condition stays unmet. |
+| 3 Failure and fee limits | Milestones 5, 6 and 8. |
+| 4 Usable payment cycle | Milestones 2, 4 and 9. |
+| 5 Independent review | Milestones 3 and 10, with review starting early. |
+
+H11-H18's historical 25% relative privacy improvement, 25% additional whole-ledger
+fees and 30-minute delay screens remain attached to their original experiments.
+They are not automatically the new user-level privacy or operating requirements.
+Any future numerical target is specified before evaluation; replacing a research
+question does not turn an earlier failure into a pass.
+
+## Recording progress and preserving the constraints
+
+For each milestone, update this plan and the [journal](RESEARCH-JOURNAL.md) with
+its question, exact candidate identity, evidence level, result, remaining gap and
+decision. Preserve observations that contradict the candidate. Keep facts,
+interpretations and untested proposals separate; milestone numbering is not a
+claim of completion.
+
+Before architecture changes, refresh primary/mature-protocol sources, update the
+RFC/ADR, [architecture](ARCHITECTURE.md), [threat model](../THREAT-MODEL.md) and
+[open questions](../QUESTIONS.md). Preserve all [invariants](../SECURITY-INVARIANTS.md).
+This roadmap changes research direction and work order, not protocol rules.
+
+Inflation, double spending, unauthorized payout or unverifiable accepted state
+stops the affected path. Resolve the cause before further funding. Operational
+harness limits alone are not protocol failures: preserve the failed run and repair
+the harness. Never weaken a safety check, invent an unpaid claim away, expose
+wallet secrets or conflate synthetic, local-native, TN10 and independent-review
+results. Every native amount remains integer sompi.

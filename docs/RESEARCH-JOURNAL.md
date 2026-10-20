@@ -9,12 +9,33 @@ North star: private native-KAS payments, correct backing, and exits that users
 can complete without privileged cooperation. No new token. Work within current
 Kaspa L1; consensus changes are a last resort. Testnet only, no real funds.
 
-The [shared-pool branch plan](SHARED-POOL-PLAN.md) maps these results to the
-repository phases and defines completion, stop and redesign criteria. Bounded
-recovery passed; fresh-proof screening passed, while strong privacy remains open. A completed hypothesis below
-does not by itself close a roadmap phase.
+The [shielded-KAS branch plan](SHARED-POOL-PLAN.md) defines the current ten-milestone
+programme. Branch: `shielded-kas-research`, formerly `shared-pool-four-wallet`.
+Historical experiment names, identities and results below are unchanged. A completed
+hypothesis does not by itself close a programme milestone.
 
 ## Current position
+
+The owner approved a broader research programme on 2026-10-20 (Australia/Sydney):
+retain the direct-L1 candidate and work toward an independently usable testnet
+payment system. Focus the normal privacy hypothesis on persistent shielded balances;
+measure entry, cashout and emergency-exit disclosures separately. Permissionless
+exit remains a requirement even when its use reduces privacy.
+
+The next work is milestone 1: define the privacy promise, observer knowledge,
+user-level metrics, operating requirements and falsifiers, with a source/capability
+map of the current v6 candidate. Integration, independent cryptographic review and
+privacy attacks then proceed together. Later milestones cover a usable wallet,
+current-version recovery, settlement under faults, measured architecture selection,
+independently owned testnet activity and a reproducible research release.
+
+The branch and its 16 previously local commits were pushed at `c3afb1b`. The owner
+then authorized updating and pushing this plan/journal and beginning milestone 1.
+This scope includes local requirements/source work; it does not initiate a funded
+trial, paid service, recruitment or new protocol implementation. The roadmap is a
+work programme, not evidence of its outcomes.
+
+## Evidence position through H18
 
 H18's [scheduled-payout comparison](../poc/shared-pool/SCHEDULED-PAYOUT.md)
 is complete: the frozen privacy gate fails, while fees and delay pass.
@@ -188,6 +209,35 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Broader shielded-KAS roadmap
+
+- **Decision:** adopt the ten-milestone [branch plan](SHARED-POOL-PLAN.md), retaining
+  direct covenant settlement as the research candidate. The destination is a
+  coherent testnet wallet used by separate owners, with private payments, correct
+  native backing and recovery/exits after original services disappear.
+- **Reason:** the independent source/evidence assessment supports the native
+  mechanics but does not establish useful privacy or general exit liveness.
+  Current v6 saved exits do not inherit the older version's backup-recovery result.
+  Source-transaction candidate counts do not establish owner or amount privacy.
+  H18's short-delay cashout policy remains rejected.
+- **Order:** privacy requirements; coherent protocol; early cryptographic/setup
+  review; usable wallet; recovery/data availability; fault-tolerant exits; complete
+  privacy evaluation; measured architecture choice; independently owned testnet
+  trial; reproducible research release. Integration, review and attacks overlap.
+- **First deliverable:** an open privacy RFC and current-source/capability map.
+  Persistent shielded spending is a testable use-case hypothesis; prompt cashout
+  has to earn a separate claim. New requirements must name observable information,
+  participant/collusion assumptions, metrics, costs and failure conditions.
+- **Continuity:** the branch is now `shielded-kas-research`. H1-H18 and their
+  frozen criteria/evidence remain unchanged. The previous five-stage plan is
+  retained at [the pre-roadmap checkpoint](https://github.com/elldeeone/kaspa-privacy-initiative/blob/c3afb1b94f023057bfe99d780271f6de52c43da4/docs/SHARED-POOL-PLAN.md).
+  No old failed screen becomes a pass, and no invariant or deployed pool changes.
+- **Authority and boundary:** the owner requested plan/journal updates, commit and
+  push, then starting milestone 1. This records research direction; no new proof,
+  native transaction, funded experiment or independent cryptographic assurance is
+  claimed. Later testnet trials and publication follow their separately scoped
+  authorization rather than being inferred from this roadmap.
 
 ### 2026-10-20 UTC — Independently scheduled common payouts (H18), completed
 

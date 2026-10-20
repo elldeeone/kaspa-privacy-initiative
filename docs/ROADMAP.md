@@ -2,11 +2,12 @@
 
 This roadmap is intentionally research-first. Phases are research gates, not delivery promises. No state architecture or scaling path has been accepted.
 
-For the independent `shared-pool-four-wallet` branch, follow the
+For the independent `shielded-kas-research` branch (formerly
+`shared-pool-four-wallet`), follow the ten-milestone
 [branch execution plan](SHARED-POOL-PLAN.md) and [research journal](RESEARCH-JOURNAL.md).
-They map bounded direct-L1 results to these phases, identify the next recovery
-and privacy gates, and define completion/stop criteria. They do not mark the
-broader phases below complete or replace the upstream research history.
+They retain the bounded direct-L1 evidence and define the path to an independently
+usable testnet payment system. The current work is the privacy specification.
+They do not mark the broader phases below complete or replace upstream history.
 
 ## Current focus, 2026-10-18
 
