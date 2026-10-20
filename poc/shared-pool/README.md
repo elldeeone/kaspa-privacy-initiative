@@ -1,6 +1,16 @@
 # Four-wallet shared native-KAS pool — TN10
 
-Latest offline follow-up: [H17 common partial payouts](COMMON-PAYOUT.md)
+Latest offline follow-up: [H18 scheduled common payouts](SCHEDULED-PAYOUT.md)
+fails its frozen privacy gate on 24 new paired ledgers. The strongest fixed
+attack guesses equally well with full and scheduled partial exits in both
+activity regimes and observer profiles. Added fees (21.05%) and p95 delay
+(16 synthetic minutes) pass. All 252 observations and 504 exact truth checks
+complete. Under the modeled policy, all 48 sparse common payouts pair with
+their actual remainder. Reject this particular short-delay policy; preserve
+private change and independent exits. Stage 2 remains open. The conditional
+native/TN10 step is not triggered; no funds or new proofs were used.
+
+Earlier offline follow-up: [H17 common partial payouts](COMMON-PAYOUT.md)
 passes its frozen privacy screen: separate participant views link 4/28 original
 cashout sources through full drain, down from 7/28, with no new payment links.
 All four wallets exit independently; seven saved proofs remain unchanged.

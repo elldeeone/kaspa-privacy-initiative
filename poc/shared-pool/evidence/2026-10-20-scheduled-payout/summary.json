@@ -1,0 +1,227 @@
+{
+  "regimes": {
+    "overlap": {
+      "chain": {
+        "ledgers": 12,
+        "targets": {
+          "full": 84,
+          "scheduled": 84
+        },
+        "attack_accuracy": {
+          "full": {
+            "uniform": 0.09523809523809523,
+            "recent": 0.26190476190476186,
+            "timing_graph": 0.10714285714285714
+          },
+          "scheduled": {
+            "uniform": 0.11904761904761904,
+            "recent": 0.26190476190476186,
+            "timing_graph": 0.17857142857142855
+          }
+        },
+        "family_accuracy": {
+          "full": 0.26190476190476186,
+          "scheduled": 0.26190476190476186
+        },
+        "relative_reduction": 0.0,
+        "paired_improvement_95ci": [
+          0.0,
+          0.0
+        ],
+        "unique_claims": {
+          "full": 0,
+          "scheduled": 0
+        },
+        "candidate_counts": {
+          "full": {
+            "min": 7,
+            "median": 9.0,
+            "max": 9
+          },
+          "scheduled": {
+            "min": 9,
+            "median": 9.0,
+            "max": 9
+          }
+        },
+        "passes": false
+      },
+      "participants": {
+        "ledgers": 12,
+        "targets": {
+          "full": 252,
+          "scheduled": 252
+        },
+        "attack_accuracy": {
+          "full": {
+            "uniform": 0.21428571428571427,
+            "recent": 0.369047619047619,
+            "timing_graph": 0.30952380952380953
+          },
+          "scheduled": {
+            "uniform": 0.2579365079365079,
+            "recent": 0.369047619047619,
+            "timing_graph": 0.3055555555555555
+          }
+        },
+        "family_accuracy": {
+          "full": 0.369047619047619,
+          "scheduled": 0.369047619047619
+        },
+        "relative_reduction": 0.0,
+        "paired_improvement_95ci": [
+          0.0,
+          0.007936507936507964
+        ],
+        "unique_claims": {
+          "full": 24,
+          "scheduled": 24
+        },
+        "candidate_counts": {
+          "full": {
+            "min": 1,
+            "median": 6.0,
+            "max": 8
+          },
+          "scheduled": {
+            "min": 1,
+            "median": 7.0,
+            "max": 8
+          }
+        },
+        "passes": false
+      },
+      "cost": {
+        "p95_added_minutes": 16,
+        "maximum_added_minutes": 18,
+        "max_extra_fee_fraction": 0.21052631578947367,
+        "fee_passes": true,
+        "delay_passes": true
+      }
+    },
+    "sparse": {
+      "chain": {
+        "ledgers": 12,
+        "targets": {
+          "full": 84,
+          "scheduled": 84
+        },
+        "attack_accuracy": {
+          "full": {
+            "uniform": 0.11904761904761904,
+            "recent": 0.2738095238095238,
+            "timing_graph": 0.14285714285714285
+          },
+          "scheduled": {
+            "uniform": 0.19047619047619047,
+            "recent": 0.2738095238095238,
+            "timing_graph": 0.20238095238095238
+          }
+        },
+        "family_accuracy": {
+          "full": 0.2738095238095238,
+          "scheduled": 0.2738095238095238
+        },
+        "relative_reduction": 0.0,
+        "paired_improvement_95ci": [
+          -0.023809523809523836,
+          0.0
+        ],
+        "unique_claims": {
+          "full": 0,
+          "scheduled": 0
+        },
+        "candidate_counts": {
+          "full": {
+            "min": 7,
+            "median": 9.0,
+            "max": 9
+          },
+          "scheduled": {
+            "min": 7,
+            "median": 9.0,
+            "max": 9
+          }
+        },
+        "passes": false
+      },
+      "participants": {
+        "ledgers": 12,
+        "targets": {
+          "full": 252,
+          "scheduled": 252
+        },
+        "attack_accuracy": {
+          "full": {
+            "uniform": 0.25,
+            "recent": 0.376984126984127,
+            "timing_graph": 0.2579365079365079
+          },
+          "scheduled": {
+            "uniform": 0.30158730158730157,
+            "recent": 0.376984126984127,
+            "timing_graph": 0.3333333333333333
+          }
+        },
+        "family_accuracy": {
+          "full": 0.376984126984127,
+          "scheduled": 0.376984126984127
+        },
+        "relative_reduction": 0.0,
+        "paired_improvement_95ci": [
+          -0.031746031746031744,
+          0.0
+        ],
+        "unique_claims": {
+          "full": 24,
+          "scheduled": 24
+        },
+        "candidate_counts": {
+          "full": {
+            "min": 1,
+            "median": 6.0,
+            "max": 8
+          },
+          "scheduled": {
+            "min": 1,
+            "median": 6.0,
+            "max": 8
+          }
+        },
+        "passes": false
+      },
+      "cost": {
+        "p95_added_minutes": 16,
+        "maximum_added_minutes": 17,
+        "max_extra_fee_fraction": 0.21052631578947367,
+        "fee_passes": true,
+        "delay_passes": true
+      }
+    }
+  },
+  "new_unique_payment_links": [],
+  "privacy_screen_passes": false,
+  "fee_screen_passes": true,
+  "delay_screen_passes": true,
+  "offline_gate_passes": false,
+  "all_truth_survives": true,
+  "exact_truth_checks": 504,
+  "narrowing_metric_checks": 2304,
+  "observations": 252,
+  "actual_tkas_spent": 0,
+  "real_world_anonymity_established": false,
+  "controls": {
+    "full": {
+      "singleton_claims": 2,
+      "singleton_links": 2,
+      "immediate_saved_claims": 2,
+      "passed": true
+    },
+    "scheduled": {
+      "singleton_claims": 2,
+      "singleton_links": 2,
+      "immediate_saved_claims": 2,
+      "passed": true
+    }
+  }
+}

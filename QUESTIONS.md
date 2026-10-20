@@ -2,10 +2,15 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
-[H18's authorized scope](poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md) asks whether
-the common-payout benefit survives independent scheduling and timing-aware
-best guesses on new workloads, within the existing fee and delay limits.
-Offline results decide whether its conditional TN10 validation proceeds.
+[H18's completed comparison](poc/shared-pool/SCHEDULED-PAYOUT.md) rejects the
+tested short-delay common-payout policy: the strongest attack's success is
+unchanged on new workloads in both regimes/profiles. Fees and delay fit the
+limits, but all sparse common payouts can be paired with their remainder
+under the declared normal-policy timing assumptions. No conditional TN10 run
+follows. What cashout behavior can realistically retain overlap with other
+activity while preserving immediate independent exit? Decide the acceptable
+privacy/latency tradeoff before another implementation, rather than tuning
+these frozen workloads or claiming all current-L1 designs are excluded.
 
 [RFC-0011](docs/rfc/0011-two-input-private-payments.md) now has a bounded
 [offline result](poc/shared-pool/TWO-INPUT.md) and
@@ -31,8 +36,8 @@ links from 7/28 to 4/28 across separate participant views after all remainders e
 Original payment links stay unchanged, and all four wallets independently
 exit with saved proofs. Four extra operations add 1.6 tKAS to the fixture;
 its forty added synthetic minutes exceed the unchanged thirty-minute target.
-Can practical scheduling retain the benefit within that target, with all
-remainders and fees still counted? The fixed schedule is not adopted. Startup
+H18 tests one practical schedule within that target and fails its privacy
+requirement on new workloads. Neither tested schedule is adopted. Startup
 inference, broader workloads and real-world privacy remain unresolved; no L1
 change is selected.
 

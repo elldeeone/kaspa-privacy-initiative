@@ -1,0 +1,41 @@
+{
+  "original_completed_observations": 251,
+  "missing_job": [
+    "sparse-05",
+    "scheduled",
+    "participant-1"
+  ],
+  "original_failure": "Kernel OOM; exit 137; no predictions produced",
+  "original_anon_rss_kib": 23362756,
+  "initial_replay": "Same rules and two workers; stopped after 167.08 seconds to avoid another host OOM; no prediction produced",
+  "captured_model_sha256": "d86796caf5ca19d36e41be0c8eafb7347183124be8238a4a35e868d6e5231e5f",
+  "diagnostics_only": {
+    "baseline": {
+      "workers": 2,
+      "presolve": true,
+      "status": "UNKNOWN",
+      "seconds": 10.0449,
+      "booleans": 679155
+    },
+    "one_worker": {
+      "workers": 1,
+      "presolve": true,
+      "status": "OPTIMAL",
+      "seconds": 0.155236,
+      "booleans": 1368
+    },
+    "no_presolve": {
+      "workers": 2,
+      "presolve": false,
+      "status": "OPTIMAL",
+      "seconds": 0.570955,
+      "booleans": 1997
+    }
+  },
+  "diagnostic_boundary": "Ten-second probes locate search pathology; no diagnostic result, timeout or incomplete enumeration enters privacy scoring.",
+  "resolution": "One-worker scheduling only for the incomplete observation. Constraints, input bytes, objectives and exact certificates unchanged. No completed observation rerun or selected.",
+  "primary_completion": "All 252 prediction files present and hashed before any primary truth scoring.",
+  "single_worker_controls": "All nine existing exhaustive/negative controls pass again in 8.529 seconds.",
+  "privacy_score_tuning": false,
+  "private_query_and_views_exported": false
+}

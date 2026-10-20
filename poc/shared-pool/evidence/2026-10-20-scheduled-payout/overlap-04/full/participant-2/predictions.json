@@ -1,0 +1,286 @@
+{
+  "untimed": {
+    "rows": [
+      {
+        "event": 0,
+        "kind": "payment",
+        "candidates": [
+          1
+        ],
+        "guesses": {
+          "uniform": 1,
+          "recent": 1
+        }
+      },
+      {
+        "event": 4,
+        "kind": "payment",
+        "candidates": [
+          2,
+          4,
+          6
+        ],
+        "guesses": {
+          "uniform": 4,
+          "recent": 4
+        }
+      },
+      {
+        "event": 8,
+        "kind": "payment",
+        "candidates": [
+          2,
+          4,
+          6,
+          32,
+          34,
+          36,
+          64,
+          66,
+          96,
+          128,
+          130,
+          132,
+          160,
+          192,
+          256,
+          258,
+          260,
+          288,
+          320,
+          384
+        ],
+        "guesses": {
+          "uniform": 160,
+          "recent": 256
+        }
+      },
+      {
+        "event": 12,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 0,
+          "recent": 11
+        }
+      },
+      {
+        "event": 15,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 8,
+          "recent": 11
+        }
+      },
+      {
+        "event": 16,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 4,
+          "recent": 11
+        }
+      },
+      {
+        "event": 17,
+        "kind": "cashout",
+        "candidates": [
+          10
+        ],
+        "guesses": {
+          "uniform": 10,
+          "recent": 10
+        }
+      },
+      {
+        "event": 18,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 11,
+          "recent": 11
+        }
+      }
+    ],
+    "queries": 51,
+    "integer_certificates": 38
+  },
+  "timed": {
+    "rows": [
+      {
+        "event": 0,
+        "kind": "payment",
+        "candidates": [
+          1
+        ],
+        "guesses": {
+          "uniform": 1,
+          "recent": 1,
+          "timing_graph": 1
+        }
+      },
+      {
+        "event": 4,
+        "kind": "payment",
+        "candidates": [
+          2,
+          4,
+          6
+        ],
+        "guesses": {
+          "uniform": 4,
+          "recent": 4,
+          "timing_graph": 2
+        }
+      },
+      {
+        "event": 8,
+        "kind": "payment",
+        "candidates": [
+          2,
+          4,
+          6,
+          32,
+          34,
+          36,
+          64,
+          66,
+          96,
+          128,
+          130,
+          132,
+          160,
+          192,
+          256,
+          258,
+          260,
+          288,
+          320,
+          384
+        ],
+        "guesses": {
+          "uniform": 160,
+          "recent": 256,
+          "timing_graph": 128
+        }
+      },
+      {
+        "event": 12,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 0,
+          "recent": 11,
+          "timing_graph": 4
+        }
+      },
+      {
+        "event": 15,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 8,
+          "recent": 11,
+          "timing_graph": 8
+        }
+      },
+      {
+        "event": 16,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 4,
+          "recent": 11,
+          "timing_graph": 11
+        }
+      },
+      {
+        "event": 17,
+        "kind": "cashout",
+        "candidates": [
+          10
+        ],
+        "guesses": {
+          "uniform": 10,
+          "recent": 10,
+          "timing_graph": 10
+        }
+      },
+      {
+        "event": 18,
+        "kind": "cashout",
+        "candidates": [
+          0,
+          4,
+          6,
+          8,
+          9,
+          11
+        ],
+        "guesses": {
+          "uniform": 11,
+          "recent": 11,
+          "timing_graph": 9
+        }
+      }
+    ],
+    "queries": 49,
+    "integer_certificates": 36
+  },
+  "input_sha256": "d41d974352dee820b52830332873265eeec8a021edf2f97834af06b443eab0a7",
+  "view_sha256": "8ab04fd7551d16fac9276f05c7d7289a8f83b87eb14f480a052520f3b454cbf9",
+  "seconds": 5.793618868978228,
+  "meaning": "conditional feasible sources and fixed heuristics; not posterior/anonymity",
+  "complete_prediction_sha256": "bf178c126dea96b0bb6263031d81be0f8760e873c13acdf34344dcebbbf22c73",
+  "export_boundary": "eligible targets only; no private records/requests/seed/keys"
+}

@@ -2,10 +2,13 @@
 
 **Status:** exploratory. No architecture has been selected.
 
-[ADR-0026](adr/0026-scheduled-common-payout-screen.md) scopes H18's optional
-local withdrawal scheduling on unchanged v6. Its delay and timing assumptions
-are an experimental wallet policy, not protocol restrictions. Independent
-saved exits remain available; no new coordinator or operator role is added.
+[ADR-0026](adr/0026-scheduled-common-payout-screen.md) records H18's completed
+optional local-withdrawal comparison on unchanged v6. Its short-delay policy
+fits the fee/delay limits but does not reduce the strongest tested attack's
+success, so it is not adopted and the conditional TN10 step is stopped.
+The timing assumptions remain experimental wallet behavior, not protocol
+restrictions. Keep private change and independent saved exits; no coordinator,
+operator role, new relation or setup is introduced. [Result](../poc/shared-pool/SCHEDULED-PAYOUT.md).
 
 [RFC-0011](rfc/0011-two-input-private-payments.md) defines a new compact pool
 relation for two private inputs, two padded outputs, private payment change and

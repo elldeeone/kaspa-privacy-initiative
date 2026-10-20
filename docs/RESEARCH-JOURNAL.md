@@ -16,12 +16,25 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
-H18's [scheduled-payout scope](../poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md)
-was frozen in `b3fe70e` before implementation. The owner authorized the policy,
-new offline timing-aware workloads and conditional TN10 validation. Keep Q at
-2 tKAS; test bounded local remainder scheduling, immediate exits and full
-drainage against full-coverage guesses. Stage 2 stays open. A failed offline
-gate stops this continuation before funding.
+H18's [scheduled-payout comparison](../poc/shared-pool/SCHEDULED-PAYOUT.md)
+is complete: the frozen privacy gate fails, while fees and delay pass.
+Across 24 new paired ledgers, the strongest fixed attack has the same success
+with full and scheduled partial exits: 22/84 and 23/84 chain-only guesses,
+93/252 and 95/252 separate-participant guesses, for overlapping and sparse
+activity respectively. These are synthetic attack outcomes, not privacy levels.
+All 48 sparse common payouts have one correctly matched, time-compatible tail
+under the declared normal-policy/clock assumptions. Some alternatives widen
+with overlap, but the required reduction in guessing success is absent.
+
+The policy adds 1.6 modeled tKAS per ledger (21.05%) and 16 synthetic minutes
+at p95. All 252 observations, 504 original-graph checks, nine controls repeated
+under the solver replay setting, and a separate immediate-change exit control
+complete. One memory-exhausted observation is recovered with one solver worker;
+no rule, workload or completed prediction is changed. Reject this particular
+short-delay policy as a demonstrated privacy mitigation. The conditional
+native/TN10 step is not triggered; zero funds or new proofs are used. Stage 2
+remains open. Keep private change and independent exits; decide how to handle
+isolated complete cashouts before another wallet or live implementation.
 
 H17's [common-size partial payout test](../poc/shared-pool/COMMON-PAYOUT.md)
 passes its frozen privacy screen and genuine offline exit checks. Separate
@@ -168,6 +181,7 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H15 | Fresh exits retain at least three ambiguous payment-source sets per six-payment case and more alternatives than saved exits in at least one pair when the observer knows the prototype construction defaults. | Frozen at `7bf197f`; modest screen passed in all four pairs on unchanged H14 inputs. Fresh has 5/6 or 6/6 ambiguous payments and more alternatives in every pair. Unique payment sources remain 2/24 for both; unique full-exit sources are 20/28 saved and 0/28 fresh, with only 9–10 fresh candidates. | Retain fresh normal authorizations/private fallbacks. Strong privacy is open; next consider an observer with one participant's own activity, excluding that participant's relationships from scoring. |
 | H16 | One complete participant record creates no new unique uninvolved fresh-payment sources; at least half remain ambiguous in every case/participant pair; fresh retains more alternatives in at least one pair. | Frozen at `5c44c55`; first clause fails on two startup payments, other clauses pass in all sixteen pairs. Separate participant views force sources for 4/24 fresh payments and 7/28 fresh exits, versus 6/24 and 28/28 saved. All 64 observations, 30 controls and 1,216 original-witness prefix checks pass. | Keep fresh normal proofs/private fallbacks and the compact research candidate. Strong privacy remains open. Prioritize common-size partial payouts/private remainder as an untested wallet-policy question, preserving full-drain accounting and immediate independent exits. |
 | H17 | One frozen 2-tKAS partial payout per wallet reduces the seven linked original cashout claims to at most five through full drain, without pair regression or new original-payment links, while preserving independent exits. | Privacy clauses pass: 7/28 → 4/28 distinct claims, or 7/84 → 4/84 separate-participant observations; original payment links unchanged. All twenty observations, forty original-witness checks and genuine fresh/saved drainage pass. Fees +21.05% pass; forty added synthetic minutes fail the thirty-minute delay target. | Retain optional common cashouts as a research candidate, with fresh normal proofs/private fallbacks. Do not adopt this fixed schedule or close Stage 2. Scope practical scheduling separately; no general anonymity or live result follows. |
+| H18 | Independently scheduled 2-tKAS partials and 5–15-minute tails reduce full-coverage source guessing by at least 25% in both activity regimes and observer profiles, within unchanged fee/delay limits. | Frozen at `b3fe70e`; privacy fails in all four comparisons: zero reduction. Fees +21.05% and p95 delay +16 synthetic minutes pass. All 252 observations and 504 exact original-graph checks complete; no new unique payment-source links. | Reject this short-delay policy as a demonstrated privacy mitigation. Stop before conditional native/TN10; preserve independent exits and earlier results. Stage 2 remains open. No retuning or general impossibility claim follows. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
@@ -175,7 +189,7 @@ real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
 
-### 2026-10-20 UTC — Independently scheduled common payouts (H18), started
+### 2026-10-20 UTC — Independently scheduled common payouts (H18), completed
 
 - The owner authorized the frozen local policy, offline comparison and
   conditional native/TN10 validation. Q stays at 200,000,000 sompi, with
@@ -189,6 +203,39 @@ real-world anonymity. Passing tests is not proof of cryptographic correctness.
 - The observer receives public fields and at most one participant's records,
   with the same metadata isolation as H16. All predictions must finish before
   hidden-truth scoring. A failed gate stops before TN10.
+- `de2eeb5` implements the blinded comparison. All 252 predictions complete
+  before scoring, including one originally incomplete observation recovered
+  with a separately hashed one-worker wrapper. The initial process was killed
+  by the kernel at approximately 23 GB anonymous RSS; the identical captured
+  query solves in 0.16 seconds with one worker. The complete missing observation
+  takes 14.37 seconds. All completed predictions and failed attempts are retained;
+  controls pass under both search settings. No timeout becomes ambiguity.
+- Result: all four required attack-family improvements are zero. Correct
+  guesses remain 22/84 and 23/84 chain-only, and 93/252 and 95/252 across
+  separate participant views. The paired intervals do not establish improvement.
+  Unique participant cashout observations stay 24/252 in both arms/regimes;
+  no original payment acquires a new unique source.
+- Post-score explanation: all 48 sparse common payouts have exactly one
+  time-compatible remainder, agreeing with truth. Their original-source
+  alternatives match the full baseline in all 336 eligible claim/view pairs.
+  Overlap permits more tail pairings and some wider source sets, but does not
+  reduce the winning attack. Even the inherited untimed model retains the same
+  unique-claim totals; this is not a pure timestamp-effect claim or a replication
+  of H17's four-case benefit on the new workloads.
+- Accounting: 19 versus 23 pool operations, 7.6 versus 9.2 modeled tKAS fees;
+  all wallets receive payouts and all reserves drain. Added completion delay
+  is 16 synthetic minutes at p95 in both regimes, at most 18/17 minutes.
+  These pass the operational screens; ordinary allocation/genesis are not
+  modeled. Actual test KAS spent is zero.
+- All 504 original amount/input-graph checks and 2,304 narrowing checks pass.
+  A separate post-partial escape control accepts immediate change exit under
+  the original relation while the normal-timer observer rejects that history.
+  The optional wait is not a protocol lock; these are observer/arithmetic
+  controls, not new genuine proofs or a live independent-exit result.
+- Decision: do not proceed to the conditional native/TN10 step. Reject this
+  particular short-delay policy as a demonstrated mitigation, preserve v6
+  payment/change/exit mechanics, and keep Stage 2 open. No seed, denomination,
+  budget or delay is retuned. [Result and evidence](../poc/shared-pool/SCHEDULED-PAYOUT.md).
 - [Author's second pass](../poc/shared-pool/SCHEDULED-PAYOUT-REVIEW.md) and
   [source refresh](../research/scheduled-payout-sources-2026-10-20.md).
 

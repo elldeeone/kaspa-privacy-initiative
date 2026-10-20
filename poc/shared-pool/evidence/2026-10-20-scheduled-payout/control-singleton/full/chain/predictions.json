@@ -1,0 +1,89 @@
+{
+  "untimed": {
+    "rows": [
+      {
+        "event": 0,
+        "kind": "payment",
+        "candidates": [
+          1
+        ],
+        "guesses": {
+          "uniform": 1,
+          "recent": 1
+        }
+      },
+      {
+        "event": 1,
+        "kind": "cashout",
+        "candidates": [
+          0
+        ],
+        "guesses": {
+          "uniform": 0,
+          "recent": 0
+        }
+      },
+      {
+        "event": 2,
+        "kind": "cashout",
+        "candidates": [
+          0
+        ],
+        "guesses": {
+          "uniform": 0,
+          "recent": 0
+        }
+      }
+    ],
+    "queries": 3,
+    "integer_certificates": 1
+  },
+  "timed": {
+    "rows": [
+      {
+        "event": 0,
+        "kind": "payment",
+        "candidates": [
+          1
+        ],
+        "guesses": {
+          "uniform": 1,
+          "recent": 1,
+          "timing_graph": 1
+        }
+      },
+      {
+        "event": 1,
+        "kind": "cashout",
+        "candidates": [
+          0
+        ],
+        "guesses": {
+          "uniform": 0,
+          "recent": 0,
+          "timing_graph": 0
+        }
+      },
+      {
+        "event": 2,
+        "kind": "cashout",
+        "candidates": [
+          0
+        ],
+        "guesses": {
+          "uniform": 0,
+          "recent": 0,
+          "timing_graph": 0
+        }
+      }
+    ],
+    "queries": 3,
+    "integer_certificates": 1
+  },
+  "input_sha256": "a3898f6b4f80222ed72858a355dfa08f9afa962679041e02afa35157ae0317ba",
+  "view_sha256": null,
+  "seconds": 0.028094809997128323,
+  "meaning": "conditional feasible sources and fixed heuristics; not posterior/anonymity",
+  "complete_prediction_sha256": "a7842ee5c74a64990ced5440b6d1d24dd737a4d3e681fd7bb96148036327056a",
+  "export_boundary": "eligible targets only; no private records/requests/seed/keys"
+}

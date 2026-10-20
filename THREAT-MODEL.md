@@ -1,12 +1,23 @@
 # Threat Model
 
-[H18](poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md) will give the chain observer
+[H18](poc/shared-pool/SCHEDULED-PAYOUT.md) gives the chain observer
 the declared remainder-delay distribution and service/queue assumptions, in
 addition to the existing amount and wallet rules. Each participant disclosure
 remains separate; RPC/network access is excluded. Timing compatibility and
 maximum-score guesses are conditional models, not calibrated posterior
 probabilities. Immediate fallback remains a supported, potentially revealing
 choice. No new private protocol or trust authority is introduced.
+The completed comparison fails its privacy gate: attack-family success stays
+unchanged under both policies, despite acceptable modeled fees/delay. In sparse
+activity all 48 common payouts have a sole time-compatible actual remainder,
+restoring the ordinary full-exit source alternatives under these assumptions.
+This does not identify every source or demonstrate general deanonymization.
+The inherited untimed model also retains the same unique-claim totals; do not
+attribute the entire negative result to timestamps. Immediate post-partial
+exit remains valid outside the normal-timer model, as a separate arithmetic
+control checks. No precise acceptance-time field, RPC/network observer or new
+native validation is implied. Reject the tested scheduling policy; preserve
+the existing private-change and independent-exit mechanisms.
 
 The experimental [two-input relation](docs/rfc/0011-two-input-private-payments.md)
 adds zero-value padding, merged private inputs and partial withdrawals with

@@ -3,13 +3,22 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Authorized continuation:** H18's
-[scheduled-payout scope](../poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md) freezes
-one local policy, new paired workloads and timing-aware best guesses before
-execution. Native calibration and TN10 proceed only if the offline gate passes.
-No change to Stage 2's cost/delay limits or the v6 protocol.
+**Latest completed result:** H18's
+[scheduled-payout comparison](../poc/shared-pool/SCHEDULED-PAYOUT.md) fails
+its frozen privacy gate on 24 new paired ledgers. The strongest fixed attack
+has identical success under full and scheduled partial exits in both activity
+regimes and observer profiles. Added fees (21.05%) and p95 delay (16 synthetic
+minutes) meet the unchanged limits. All 252 observations and 504 exact
+original-graph checks complete. No newly unique original-payment source appears.
 
-**Latest completed result:** H17's [common partial-payout test](../poc/shared-pool/COMMON-PAYOUT.md)
+Reject this particular 2-tKAS/5–15-minute policy as a demonstrated privacy
+mitigation. The conditional native/TN10 step is not triggered; no funds or
+new proofs are used. Stage 2 remains open. Keep the existing payment/change
+and independent-exit mechanisms; decide how to handle isolated full cashouts
+before another wallet implementation or live trial. Do not retune the frozen
+workloads or silently relax the gate.
+
+**Previous result:** H17's [common partial-payout test](../poc/shared-pool/COMMON-PAYOUT.md)
 passes its frozen privacy screen and genuine offline mechanics. After full
 drain, separate participant views force 4/28 original cashout sources versus
 7/28 before, with no pair regression or new payment-source links. All four
@@ -88,7 +97,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H17 privacy screen and exits pass; fixed schedule fails the delay gate | Retain optional common cashouts, fresh normal proofs/private fallbacks; scope practical scheduling before wallet expansion. Strong privacy remains open. |
+| 2. Practical privacy | 5 | H18 scheduling fits cost/delay limits but fails the privacy gate | Reject the tested short-delay policy; retain private change, fresh normal proofs/private fallbacks. Resolve isolated cashout limits before wallet expansion. Strong privacy remains open. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -181,6 +190,17 @@ an operator network without evidence that it is needed.
 
 ## 2. Practical privacy
 
+**H18 observed outcome:** the independently scheduled policy fails the required
+25% attack-family reduction in all four comparisons: improvement is zero.
+Fees and delay pass; no new original-payment singleton appears. All 48 sparse
+common payouts pair with their actual remainder under the normal scheduling
+assumptions, restoring the full baseline's source alternatives. Overlap widens
+some alternatives without reducing the winning guess attack. This rejects one
+wallet policy, not the native payment/exit mechanics or every current-L1 design.
+The stop condition applies: no native calibration or TN10 continuation.
+The [report](../poc/shared-pool/SCHEDULED-PAYOUT.md) preserves costs, controls,
+model boundaries and the recovered incomplete solver run.
+
 **H16 observed outcome:** one participant's complete records create two new
 fresh payment-source singletons at startup. The other frozen clauses pass:
 at least half remain ambiguous in every pair, and fresh retains more alternatives
@@ -198,11 +218,11 @@ payment links unchanged and all independent exits preserved. Original economic
 claims are counted, so extra change notes cannot inflate the score.
 
 Its fixed schedule exceeds the delay budget despite meeting the fee screen.
-Retain the optional policy as a research candidate. The next scoping question
-is whether practical scheduling preserves this benefit within the unchanged
-delay target, with every tail and fee still counted. Do not retune the frozen
-size or silently relax the budget. This plan authorizes no further experiment,
-funding or protocol change.
+H18 above answers the subsequent bounded-scheduling question negatively on
+new workloads. Retain H17's earlier result within its original scope, without
+adopting either tested schedule as a practical defense. Do not retune the
+frozen size or silently relax the budget. This plan authorizes no further
+experiment, funding or protocol change.
 
 **H15 observed outcome:** the observer now knows fixed deposit/partial padding,
 one-note full exits and receipt-time fallbacks. The four frozen paired ledgers

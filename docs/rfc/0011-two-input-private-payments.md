@@ -6,11 +6,17 @@
 **Scope decision:** [ADR-0024](../adr/0024-two-input-private-payment-scope.md).
 **Observer and adversarial review:** [review](../../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md).
 
-**Authorized H18 continuation:** the
-[scheduled-payout scope](../../poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md)
+**Completed H18 continuation:** the
+[scheduled-payout comparison](../../poc/shared-pool/SCHEDULED-PAYOUT.md)
 tests a local optional policy and timing-aware observer on unchanged v6.
-It adds no protocol restriction. Offline privacy/cost failure stops before
-the conditionally authorized native calibration and TN10 trials.
+It fails the frozen privacy gate: no reduction in attack-family guessing
+success across either activity regime or observer profile. Fees (+21.05%) and
+p95 added delay (16 synthetic minutes) pass. All 252 observations and 504
+original-graph checks complete; no new original-payment singleton appears.
+Reject this particular short-delay policy and stop before the conditional
+native calibration/TN10 trials. The payment/change/independent-exit relation
+and the broader open privacy question remain unchanged. No protocol timing
+restriction or new native evidence is introduced.
 
 The owner subsequently authorized committing the documentation and implementing
 and running this test **offline only**, before the further TN10 authorization
