@@ -2,18 +2,20 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
-[RFC-0011](docs/rfc/0011-two-input-private-payments.md) now specifies the proposed
-two-input/two-output relation with private change and partial withdrawals. Can
-its padded inputs be constrained without letting an attacker insert another
-user's nullifier, and can the no-append fallback plus reserved NF capacity
-preserve every positive claim's exit? What note floor and proving/native cost
-does the actual larger layout require? Can varied, interleaved payments retain
-useful ambiguity through later withdrawals under a model that permits merging?
-These are open questions, not new test results. Exact-fee, public-data, setup,
-contention and reorg assumptions remain. Implementation and tests are on hold;
-the [scope ADR](docs/adr/0024-two-input-private-payment-scope.md) and
-[observer review](poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) define the next
-design gate without requiring a maintainer decision.
+[RFC-0011](docs/rfc/0011-two-input-private-payments.md) now has a bounded
+[offline result](poc/shared-pool/TWO-INPUT.md): two-input payments, spendable
+private change, partial withdrawal and all four wallets paid through six
+unchanged saved proofs. The selected fee is 0.4 synthetic tKAS per operation;
+the new circuit takes about 20–22 seconds per warm proof and 215 seconds to
+cold-load its parameters on this run. Can review validate its constrained
+padding, backing induction and no-append exit capacity beyond the tested trace
+and constructed boundary state? Can the costly native budget be reduced safely?
+Can varied, interleaved payments retain useful ambiguity after full drainage
+under an observer that permits merging and padding? Exact fees, public-data
+availability, experimental setup, contention and reorg assumptions remain.
+The [scope ADR](docs/adr/0024-two-input-private-payment-scope.md) and
+[observer review](poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) leave general
+privacy and broader qualification open. The current authorization ends offline.
 
 [H12](poc/shared-pool/NORMALIZED-DEPOSITS.md) answers the narrow equal-net question
 positively in its all-deposits-first workload: four deposit candidates remain
@@ -33,8 +35,8 @@ other spend. Which common-anchor/withdrawal policy improves inference success
 across independent ledgers at acceptable proving cost and delay? How much
 remains inferable from full-exit amounts and one-input split structure?
 [RFC-0009](docs/rfc/0009-compact-anchor-privacy.md) keeps that population question
-open. Independent admission now has a v5 candidate; partial exits remain absent
-from the compact variant.
+open. Independent admission has a v5 candidate; partial exits remain absent
+from that older compact variant and are now tested separately in v6 offline.
 
 [RFC-0010](docs/rfc/0010-compact-independent-deposits.md) records the deposit
 prerequisite: can a distinct native branch reuse the existing two-output proof

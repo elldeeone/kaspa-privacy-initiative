@@ -16,16 +16,18 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
-The owner has authorized a **documentation-only redesign specification** for
-normal varied payments. [RFC-0011](rfc/0011-two-input-private-payments.md) proposes
-two private inputs, two padded outputs, private change and partial withdrawals,
-while retaining independent full-exit fallbacks. It is a new immutable pool
-candidate, not a change to existing v4/v5 code or proof compatibility. H13 below
-is proposed and untested. The
-[observer/adversarial review](../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md)
-records remaining native-boundary inference and new padding/capacity obligations.
-No code, parameter generation or tests are authorized by this step. New costs,
-independent review and strong privacy remain open; earlier results follow.
+H13 now passes its **authorized bounded offline test**. The documentation was
+committed first as `c50855a`; the new immutable v6 circuit/covenant supports
+two-input payment, private change and partial withdrawal change that can be
+spent again. All four wallets receive payouts through six unchanged saved
+proofs, with correct native backing and zero remaining reserve. Genuine proofs
+and native validation use synthetic UTXOs; isolated exit workers receive public
+state from the harness. No v6 TN10 or real-world anonymity result follows.
+The [report](../poc/shared-pool/TWO-INPUT.md) records cost, controls and gaps;
+[RFC-0011](rfc/0011-two-input-private-payments.md) remains Open. Keep this relation
+as a research candidate, preserve older variants, and review merging/padding
+in a new observer before more privacy experiments. Independent review, broader
+qualification, cold-start cost and strong privacy remain open.
 
 H12's equal-net funding comparison passes its frozen offline screen. With all
 four deposits before payments, every withdrawal retains four funding candidates
@@ -111,13 +113,56 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Offline plus complete TN10 rehearsal/fresh trial passed. All four wallets paid using eight unchanged saved proofs; both reserves drained. | Retain this admission candidate for the population privacy study; Stage 2 remains open. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
 | H11 | Fresh latest-root proofs reduce full-coverage source inference by at least 25% in both frozen low-activity regimes, within the fee/delay screen. | Passed: 35.6% / 61.5% reduction through complete drain; 64 primary ledgers plus 17 controls. Two genuine native calibrations match; four no-prover drains pass, with zero extra native fee. | Retain fresh proofs/private fallbacks. The bounded study is complete; funding origins remain mostly exposed. Test equal net credits separately before a larger relation change. |
 | H12 | Equal net credits reduce deposit-origin inference through full drain while preserving independently payable saved/fresh exits. | Passed in 64 paired ledgers; 0/704 equal-net withdrawals uniquely assigned to a deposit. Genuine calibrations, saved/fresh adapter drains, complete TN10 rehearsal and measured trial passed; all four wallets independently paid. | Retain the bounded candidate funding policy on the existing relation; interleaving, mixed amounts and external knowledge remain open. |
-| H13 | Two private inputs can fund varied payments/change and partial withdrawals while every positive note retains an independent exit, including an unrelated unchanged saved fallback after later activity. | Proposed in RFC-0011; documentation and author design review only. No code, setup or tests. | Review a new immutable relation/covenant before implementation. Keep direct settlement and exact fees as candidates; rebuild the observer's assumptions for merging/padding. No privacy outcome is claimed. |
+| H13 | Two private inputs can fund varied payments/change and partial withdrawals while every positive note retains an independent exit, including an unrelated unchanged saved fallback after later activity. | Supported for the bounded offline trace: 13 native transactions, four wallets paid, six unchanged saved proofs, private change re-spent, backing reconciled to zero. Constructed capacity-boundary exit passes; live recovery and broader qualification remain open. | Retain v6 as a research candidate. Selected fee 0.4 synthetic tKAS, warm proof about 20–22 seconds; review cost and merging/padding inference before further runs. No privacy outcome is claimed. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-19 UTC — Two-input offline mechanics (H13)
+
+- Hypothesis/falsifier: the new relation can merge two receipts, retain private
+  payment/withdrawal change and preserve unrelated saved exits. Reject it if
+  change is unspendable, backing fails, a second authorization spends the same
+  note, or an exit needs a privileged/private prover secret after proof saving.
+- Authorization: commit docs, build/run offline and keep code/journal on
+  `shared-pool-four-wallet`. Spec checkpoint `c50855a`; no TN10, push or upstream
+  publication. Native SDK remains `01b532e8b553523216471682649693af92f0fd16`.
+- Observed: 13 native-validated synthetic transactions, payment of 7.31 with
+  11.89 private change, 2.11 partial payout leaving 4.8 private change, then a
+  re-spend of that change. Six unchanged proof/auth exits run in isolated
+  workers without keys, PK or external network. All four wallets paid;
+  `56 = 50.8 payouts + 5.2 fees + 0 reserve` in synthetic tKAS.
+- Controls: 279 native reserve-script mutations rejected, supplementary actual
+  funding/signature controls, 15 constraint fixtures and five unit tests passed.
+  Normal/fallback alternatives cannot both spend in the two tested winner
+  orders. A constructed maximum-CM/near-maximum-NF state accepts a saved terminal
+  proof without appending CMs; it is not a replayed full-capacity history.
+- Cost: selected exact fee 0.4 tKAS per operation; 330,497–331,628 mining mass,
+  30-million declared reserve script units, about 14.85–15.03 million used.
+  Minimum note 0.6, payout floor 0.1; 36 mass-only exit sweeps support the bounded
+  envelope. Circuit 4,372,824 constraints; PK 962,197,520 bytes. Warm proofs
+  20.131–22.286 seconds, cold load 214.688 seconds, main fixture 534.974 seconds.
+  Concurrent constraint checks make these workload timings, not clean benchmarks.
+- Correction: the supplementary omitted-funding fixture initially failed the
+  harness balance check before native execution; its output was adjusted to
+  preserve balance and reach covenant rejection. Protocol checks were unchanged.
+- Interpretation/decision: the application can support these payment semantics
+  with current pinned L1 primitives. Keep the candidate, but do not convert
+  encrypted change into an anonymity claim. The previous single-parent observer
+  is unsuitable after merging. Review/qualify the outstanding cases before any
+  funded run; general privacy and all-fee-market exit liveness remain open.
+- Limits: single-party setup, supplied synthetic chain context, retained public
+  data and exact fees. The parent knows fixture secrets; worker isolation proves
+  absence of a private exit dependency, not live discovery or full recovery.
+  No funds moved and no live claims remain. Sanitized artifacts omit raw proofs,
+  saved fallbacks, note openings, private keys and parameters.
+- Evidence: [measured report and author review](../poc/shared-pool/TWO-INPUT.md),
+  [summary](../poc/shared-pool/evidence/2026-10-19-two-input-offline/summary.json),
+  [RFC-0011](rfc/0011-two-input-private-payments.md),
+  [ADR-0024](adr/0024-two-input-private-payment-scope.md).
 
 ### 2026-10-20 (Australia/Sydney) — Two-input design specification (H13, untested)
 

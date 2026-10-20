@@ -3,7 +3,13 @@
 **2026-10-20 (Australia/Sydney). Specification review only.** Applies to
 [RFC-0011](../../docs/rfc/0011-two-input-private-payments.md), not the current
 compact executable. Inspected branch baseline: `228e5d0`. No code, experiments
-or new privacy measurements accompany this review.
+or new privacy measurements accompanied the original design review.
+
+**Implementation follow-up:** [H13](TWO-INPUT.md) subsequently passes bounded
+offline payment and saved-exit mechanics. Its author second pass and limitations
+are recorded there. This document's observer analysis remains a design analysis;
+no anonymity score, population inference experiment or independent audit was
+added. The old v4/v5 observer still cannot score v6 merges/padding correctly.
 
 **Assessment:** two inputs and private change remove avoidable application
 restrictions and make varied private payments possible in principle. They do
@@ -128,12 +134,14 @@ four-wallet TN10 acceptance are not real-world anonymity percentages.
 ## Adversarial second pass on the design
 
 This is the author's design review, not independent cryptographic review.
-The following obligations are part of the specification, not passed checks.
+The following obligations are part of the specification. The subsequent
+[implementation report](TWO-INPUT.md#controls-and-remaining-qualification-gaps)
+records which bounded checks passed; this table is not an exhaustive pass claim.
 
 | Failure attempt | Required defense / remaining limit |
 | --- | --- |
 | Inflate by disabling a real slot or using field wrap | Boolean real flags, zero dummy values, positive real-note bounds, checked aggregate sums and exact economic equations; all paths constrain the same statement digest. |
-| Spend the same note in both slots or via normal/fallback proofs | Real NF independent of slot/anchor/mode, distinct real positions, unequal public NFs, and current NF nonmembership. Both alternative proof winner orders need later qualification. |
+| Spend the same note in both slots or via normal/fallback proofs | Real NF independent of slot/anchor/mode, distinct real positions, unequal public NFs, and current NF nonmembership. Both winner orders pass bounded offline controls; broader interleavings remain open. |
 | Insert a victim's pending NF through a dummy slot | Dummy NF must be derived in-circuit from a separate tagged HMAC preimage. Arbitrary public dummy NFs are forbidden. This unreviewed composition and fresh-randomness assumption are explicit review gates. |
 | Apply both NF updates against the old root | Sequential predecessor rewrite/append with NF 1 checked against NF 0's successor. Preserve every prior NF and compare full 256-bit values. |
 | Credit a deposit without paying or redirect a payout | Bind real funding outpoint/value/script; require native funding signature and exact reserve successor; constrain exact payout destination/value and actual fee. Reject foreign inputs/outputs. |
@@ -146,10 +154,10 @@ The following obligations are part of the specification, not passed checks.
 | Remove the operator or raise fees | Own keys plus available authenticated public data/software suffice in the model; saved proofs avoid private re-proving only while their fee remains adequate. Data loss, fee spikes and contention can still block timely settlement. |
 | Exploit reorgs or leak fallback material | Rebuild from one accepted lineage and roll back orphaned state; never merge incompatible roots. Keep alternative authorizations private. Broader reorg/network policies remain open. |
 
-The proposal's extra constraints, setup and script work have no new measured
-cost. Its padded arity and private change are **privacy mechanisms to evaluate**,
+The proposal's extra constraints, setup and script costs are now measured for
+the bounded offline fixture in the report. Its padded arity and private change are **privacy mechanisms to evaluate**,
 not evidence of an achieved privacy level. If independent review rejects the
 dummy construction, capacity argument or exit semantics, redesign the RFC
-before implementation. If later permitted measurements show that usable varied
+before broader qualification. If later permitted measurements show that usable varied
 payments remain reconstructable or uneconomic, report that result and reconsider
 the design rather than relabeling candidate counts as strong privacy.

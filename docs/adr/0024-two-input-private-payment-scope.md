@@ -1,9 +1,15 @@
 # ADR-0024: Specify two-input private payments before further experiments
 
-**Status:** Accepted — research/documentation scope only.
+**Status:** Accepted — specification, subsequently authorized bounded offline implementation.
 **Date:** 2026-10-20 (Australia/Sydney).
 **Branch:** `shared-pool-four-wallet`; inspected baseline `228e5d0`.
 **Proposal:** [RFC-0011](../rfc/0011-two-input-private-payments.md), still Open.
+
+**Subsequent owner authorization:** commit the documentation, then implement and
+run the two-input/two-output test offline, including private change, partial
+withdrawals and unchanged saved-proof exits. `c50855a` preserves the original
+scope. This authorizes bounded experimental implementation, not protocol adoption,
+independent cryptographic assurance or a funded testnet trial.
 
 ## Problem
 
@@ -21,15 +27,17 @@ resolve whether the payment relation itself is an adequate foundation.
 ## Decision and authority
 
 Write a concrete two-input/two-output proposal and its observer review before
-building or running more tests. The owner authorized documentation only. This
-ADR accepts that scope, **not cryptographic correctness, protocol adoption,
-implementation, parameter generation, new experiments or publication**.
+building or running more tests. The original documentation-only authorization
+was completed in `c50855a`. The owner's follow-up authorized this bounded
+offline implementation, parameter generation and test. It does **not** authorize
+protocol adoption, funded trials or publication, or establish cryptographic correctness.
 
 Retain direct covenant settlement as the candidate because it already separates
 private ownership authorization from publicly rebuildable current settlement.
 No current-L1 primitive has been identified as missing for a two-input relation.
-This remains an architectural inference until the actual larger layout is
-qualified. No consensus change or mandatory runtime is part of this decision.
+The actual larger layout now passes the bounded offline native validation in
+[H13](../../poc/shared-pool/TWO-INPUT.md). No consensus change or mandatory runtime
+is part of this decision; network acceptance and production suitability remain open.
 
 The proposal must contain:
 
@@ -82,15 +90,22 @@ padding; the old one-deposit-per-note model is no longer valid.
 
 ## Reconsideration and outcome
 
-Stop before implementation if the proposed relation can mint, double spend,
+Stop or redesign if the proposed relation can mint, double spend,
 invalidate another user's note through dummy inputs, release excess reserve,
 strand an otherwise valid claim at capacity, or require operator-only recovery
 data. Revisit settlement architecture if a separately authorized qualification
 finds unacceptable native limits, proving cost or contention. Revisit the
 privacy claim if varied/interleaved public traces remain reconstructable.
 
-Current outcome: the RFC and
-[privacy/adversarial review](../../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md)
-record the candidate and outstanding obligations. No new result, setup,
-implementation or test is produced by this decision. Stage 2 remains open for
-general payment privacy.
+Current outcome: retain the new v6 relation as a research candidate after the
+authorized offline run. Thirteen synthetic transactions pass native validation;
+private payment/withdrawal change is spendable; all four wallets receive payouts
+through six unchanged saved-proof exits and backing reconciles to zero.
+The profile uses a new single-party setup, a 0.6-tKAS note floor, 0.1-tKAS
+payout floor, 0.4-tKAS selected exact fee and a deliberately generous 30-million
+script-unit reserve budget. These are bounded experimental choices, not adopted
+production parameters. The [report](../../poc/shared-pool/TWO-INPUT.md) records
+mass, proving cost, boundary controls, author review and remaining gaps.
+The isolated exits consume supplied public state; live discovery/recovery is
+unproven for this adapter. Stage 2 remains open for general payment privacy, and
+the [observer review](../../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) still applies.

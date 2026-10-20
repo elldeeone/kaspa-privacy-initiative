@@ -1,10 +1,25 @@
 # RFC-0011: Two-input payments, private change and partial withdrawals
 
-**Status:** Open — documentation proposal only; no implementation or new results.
+**Status:** Open — bounded H13 mechanics passed offline; broader qualification and privacy remain open.
 **Date:** 2026-10-20 (Australia/Sydney).
 **Branch / inspected baseline:** `shared-pool-four-wallet` / `228e5d0`.
 **Scope decision:** [ADR-0024](../adr/0024-two-input-private-payment-scope.md).
 **Observer and adversarial review:** [review](../../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md).
+
+The owner subsequently authorized committing the documentation and implementing
+and running this test **offline only**. Documentation was frozen in `c50855a`.
+This supersedes the documentation-only execution boundary below, not the security
+requirements. No TN10 run, funding, push or upstream publication is authorized.
+The implementation remains an unaudited experimental candidate.
+
+**Observed follow-up:** [H13's report](../../poc/shared-pool/TWO-INPUT.md) records
+13 natively validated synthetic transactions, private change and its re-spend,
+one partial withdrawal, and all four wallets draining through six unchanged
+saved proofs. The public-only workers have no wallet keys, PK or network;
+the harness supplies their current public state. A constructed capacity-boundary
+state also permits a saved terminal exit. This is not live-chain recovery or
+real-world privacy evidence. The original design intent below remains normative
+for the experiment; untested qualification obligations are identified in the report.
 
 ## Decision to investigate
 
@@ -18,7 +33,7 @@ This addresses a restriction of our application, not an identified restriction
 of Kaspa L1. No token, privileged withdrawal key, required relayer, vProgs
 runtime or consensus change is proposed. It is not a claim of strong privacy.
 
-**H13, proposed mechanical hypothesis:** within the declared fee, capacity and
+**H13, mechanical hypothesis:** within the declared fee, capacity and
 public-data assumptions, two owned notes can fund a varied payment and private
 change; a later partial withdrawal can leave spendable private change; and every
 positive note can independently exit. A saved fallback for an unrelated unspent
@@ -41,14 +56,14 @@ single-parent observer can be carried over as measurements of this relation.
 | Native settlement | Historical private membership plus current public covenant checks | Retain separation; update two nullifiers atomically |
 | Counts | One nullifier per consumed positive note | Two public nullifiers per spend, including padding; counts are not liabilities |
 | Capacity | Depth-16 trees with existing rules | Depth-16 commitment/history trees; depth-17 nullifier tree; exits need no new commitment slots |
-| Evidence | Bounded offline and TN10 reports exist | Specification and design review only |
+| Evidence | Bounded offline and TN10 reports exist | Bounded genuine-proof/native offline trace; no v6 TN10 or privacy result |
 
 Use a **new immutable candidate pool, provisionally v6**, with a new circuit,
 setup, VK and covenant. Existing pools, source variants and evidence stay intact.
 Existing v4/v5 proof bytes cannot authorize v6 claims. Proof preservation means
 preserving proofs created within the same new pool across its later activity;
-it does not mean migration or an in-place upgrade. No new parameters are created
-by this documentation task.
+it does not mean migration or an in-place upgrade. The subsequent authorized
+offline implementation generated fresh experimental single-party parameters.
 
 BN254 Groth16 still requires trusted setup for the new circuit. Public parameter
 hashes establish identity and availability, not honest setup or erased trapdoors.
@@ -86,8 +101,12 @@ meet the immutable candidate note floor `Vmin`; every positive payout meets
 `Pmin`. Define `Vmin >= F_exit_budget + Pmin`, where `F_exit_budget` covers a
 single-real-input fallback in both continuing and terminal forms under a declared
 fee-rate/mass envelope, including storage mass over the allowed reserve and
-payout amounts. **These new numerical constants are not qualified yet.**
-Do not inherit the old 0.6-tKAS note floor as a measured v6 bound.
+payout amounts. The measured candidate now uses `Vmin=60,000,000`,
+`Pmin=10,000,000` and selected exact `F=40,000,000` sompi at 100 sompi/mass.
+The [new mass measurements and storage bound](../../poc/shared-pool/TWO-INPUT.md#measured-cost-and-fee-envelope)
+support this bounded choice; it is not inherited qualification from v5.
+The minimum output passes the private constraint check and mass-only exit
+sweeps; a genuine minimum-value native exit remains a qualification gap.
 
 | Mode | Private relation | Native reserve transition | Outputs in private state |
 | --- | --- | --- | --- |
@@ -398,30 +417,38 @@ is added. Policy must disclose this before accepting a note.
 
 This proposal adds a second private membership/ownership check, padded-slot
 constraints and two public NF insertions. It changes proving parameters and
-covenant work. Proposed payload length is derivable above; **script mass,
-compute budget, relayability, fee, proving time/RAM and key size are unmeasured**.
+covenant work. The implemented payload is 5,228 bytes and the padded redeem
+script is 24,576 bytes. Main-trace mining mass is 330,497–331,628 with a
+30,000,000-unit reserve compute budget; actual full-transaction usage is
+14,847,195–15,029,210 units. All 13 transactions pass the local native policy
+screen. Selected fee is 40,000,000 sompi each, 520,000,000 total, without any
+broadcast or funds spent. The circuit has 4,372,824 constraints and a
+962,197,520-byte PK; warm proofs took 20.131–22.286 seconds. Cold loading took
+214.688 seconds. RAM peak, real relay acceptance and a tighter compute budget
+remain unqualified. Exact evidence and timing conditions are in the report.
 The existing v5 21,893,200 / 22,005,200 / 21,934,400-sompi transfer/admission/exit
 fees at 100 sompi/mass are comparison baselines only, not v6 quotations.
 Count admission, merges, partial-withdrawal change and eventual drain when
 assessing cost. Two inputs need not double verifier cost, but neither constant
 proof size nor current L1 primitives establish affordable total cost.
 
-Before implementation, resolve review of dummy-NF derivation, output padding,
-conservation/terminal induction, bootstrap and the capacity argument. A later
-authorized offline implementation may establish native costs; before any funded
-qualification, freeze the canonical profile, fee-rate envelope,
-`Vmin/Pmin/F_exit_budget`, native limits and exact encodings against the pinned
-SDK using those costs. The layout above is a reviewable candidate; a change must
-update the RFC/ADR rather than silently change a format.
+The implementing agent's second-pass review covers dummy-NF derivation, output
+padding, conservation/terminal induction, bootstrap and capacity. This does not
+replace independent review. Before funded qualification, close the report's
+remaining gaps and freeze the canonical profile, fee-rate envelope,
+`Vmin/Pmin/F_exit_budget`, native limits and encodings against the pinned SDK.
+The layout above remains a research candidate; changes must update this RFC/ADR.
 
-A separately authorized future mechanical qualification must cover two receipts
+The complete mechanical qualification checklist covers two receipts
 paying a third wallet with change; a partial withdrawal and re-spend of change;
 all four independently funded wallets exiting; an unrelated saved proof unchanged
 across these operations and a later deposit; both winner orders of normal versus
 fallback; native backing; boundary amounts; duplicate/reordered inputs; wrong state/domain;
 sequential NF updates; malformed delivery; and capacity exhaustion followed by
-independent drainage. These are **acceptance criteria, not tests run or authorized
-by this document**. Only after qualification and further authorization could a
+independent drainage. The bounded offline run covers the central positive trace
+and controls described in the report; it does not exhaust this list. The
+capacity result uses a constructed prestate, not full-history drainage. Only
+after qualification and further authorization could a
 complete TN10 rehearsal/trial establish execution of this particular layout.
 
 Stop or redesign if arbitrary dummy NFs can invalidate other users' claims,
@@ -432,4 +459,4 @@ make supported ordinary payments uneconomic, compare batching/another settlement
 architecture explicitly. If realistic public constraints still reconstruct
 relationships, report that privacy failure rather than increasing synthetic
 participant counts until a score improves. No production or strong-privacy
-decision follows from writing this specification.
+decision follows from this specification or the bounded offline result.

@@ -1,14 +1,24 @@
 # Threat Model
 
-The proposed [two-input relation](docs/rfc/0011-two-input-private-payments.md)
+The experimental [two-input relation](docs/rfc/0011-two-input-private-payments.md)
 adds zero-value padding, merged private inputs and partial withdrawals with
-private change. It is documentation only; existing code and evidence are
-unchanged. Critical obligations are constrained dummy-nullifier derivation,
+private change. Its [bounded offline trace](poc/shared-pool/TWO-INPUT.md) passes
+native validation with four wallets paid through six unchanged saved proofs;
+earlier variants and evidence remain unchanged. Critical obligations are constrained dummy-nullifier derivation,
 sequential current NF insertions, all-path value/range checks, native funding
 and payout binding, and termination by authorized reserve debit rather than
 entry counts. A wider NF tree and no-append full-exit path are intended to leave
-room for every remaining positive note to exit at commitment capacity. Neither
-that composition nor its costs have been qualified.
+room for every remaining positive note to exit at commitment capacity. A
+constructed capacity-boundary state supports a genuine saved terminal proof,
+but is not a replayed valid full-capacity history. New costs are measured;
+independent review of the composition and broader qualification remain open.
+
+This adapter supplies current public state/UTXOs to isolated workers; it does
+not itself establish chain discovery or recovery from independent public
+sources. Workers have no private keys, PK or external network; the generating
+controller knows the fixture's secrets. The new experimental single-party
+setup remains a soundness assumption. The 0.6-tKAS floor and 0.4-tKAS selected
+fee cover the declared local envelope, not arbitrary future fee markets.
 
 The candidate retains fresh normal proofs and private saved fallbacks, exact
 fee authorization, independent genesis/lineage validation and locally recoverable

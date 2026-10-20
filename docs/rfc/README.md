@@ -11,4 +11,4 @@ When a durable architecture or design decision is reached, record its rationale 
 - [RFC-0001: State architecture for the first native-KAS privacy PoC](0001-state-architecture.md) — Open; no architecture selected.
 - [RFC-0006: Reusable private authorization](0006-reusable-private-authorization.md) — Bounded experiment completed; broader scale, privacy and liveness questions remain open.
 - [RFC-0010: Independent deposits without replacing saved exit proofs](0010-compact-independent-deposits.md) — Bounded v5 offline and TN10 experiment passed; broader privacy remains open.
-- [RFC-0011: Two-input payments, private change and partial withdrawals](0011-two-input-private-payments.md) — Open; documentation proposal and observer review only, no implementation or tests.
+- [RFC-0011: Two-input payments, private change and partial withdrawals](0011-two-input-private-payments.md) — Open; bounded H13 mechanics passed offline. Broader qualification and practical privacy remain open.
