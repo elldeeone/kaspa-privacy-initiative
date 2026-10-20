@@ -1,0 +1,64 @@
+{
+  "model": {
+    "passed": true,
+    "complete": true,
+    "tests": [
+      "recipient-only-keeps-sender-and-sibling-ambiguity",
+      "stable-role-permutation",
+      "different-owner-input-combination-rejected",
+      "two-input-drain-and-fixed-positive-change",
+      "separate-and-pooled-complete-records-forced-sender",
+      "all-other-owners-disclosed",
+      "equal-commitments-distinct-position-spends",
+      "future-cashout-does-not-constrain-birth-prefix",
+      "future-participant-receipt-removed-from-earlier-prefix",
+      "future-equal-commitment-does-not-label-earlier-prefix",
+      "unknown-fields-and-wrong-binding-rejected",
+      "inconsistent-records-are-incomplete",
+      "32-role-sparse-linked-payout-and-unlinked-identity-control"
+    ],
+    "controls": 13,
+    "exhaustive_proposition_comparisons": 545,
+    "pending": [],
+    "meaning": "Explicit development controls; no held-out workload, proofs or chain acceptance"
+  },
+  "workload": {
+    "passed": true,
+    "controls": [
+      "recipient-only-not-author-or-sibling",
+      "prefix-disclosure-isolation",
+      "complete-pooled-records",
+      "least-excess-input-count-position-and-floor",
+      "unaffordable-request-rejected-without-resampling",
+      "foreign-input",
+      "already-spent-input",
+      "two-input-exit-and-full-lifecycle-accounting",
+      "one-sompi-conservation-mutation",
+      "exact-decimal-sampler-endpoints",
+      "matched-requests-capital-and-prompt-receipt-exits",
+      "failed-transition-preserves-prefix",
+      "pre-fee-native-input-range"
+    ],
+    "scope": "tiny explicit development fixtures only; no held-out request seed generated"
+  },
+  "observer": {
+    "passed": true,
+    "controls": [
+      "recipient-only-full-witness-containment",
+      "public-only-full-witness-containment",
+      "complete-pooled-forced-facts",
+      "equal-commitments-distinct-two-input-exit",
+      "retained-single-use-and-positive-change-owner",
+      "prefix-before-cashout-does-not-retain-future-inputs",
+      "omitted-equation-full-witness-containment",
+      "spurious-slice-alternative-is-not-full-history-or-privacy",
+      "checked-witness-handoff-popped-pins-and-per-slice-cache",
+      "candidate-sender-disagreement-rejected",
+      "forced-negation-remains-unrestricted-in-z3",
+      "deterministic-three-cashout-selection-and-later-disclosed-author"
+    ],
+    "full_witnesses_checked": 50,
+    "forced_propositions_compared": 15,
+    "scope": "explicit tiny exhaustive controls; no held-out inference"
+  }
+}

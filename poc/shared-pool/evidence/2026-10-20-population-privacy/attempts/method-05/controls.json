@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "result": {
+    "model": {
+      "passed": true,
+      "complete": true,
+      "tests": [
+        "recipient-only-keeps-sender-and-sibling-ambiguity",
+        "stable-role-permutation",
+        "different-owner-input-combination-rejected",
+        "two-input-drain-and-fixed-positive-change",
+        "separate-and-pooled-complete-records-forced-sender",
+        "all-other-owners-disclosed",
+        "equal-commitments-distinct-position-spends",
+        "future-cashout-does-not-constrain-birth-prefix",
+        "future-participant-receipt-removed-from-earlier-prefix",
+        "future-equal-commitment-does-not-label-earlier-prefix",
+        "unknown-fields-and-wrong-binding-rejected",
+        "inconsistent-records-are-incomplete",
+        "32-role-sparse-linked-payout-and-unlinked-identity-control"
+      ],
+      "controls": 13,
+      "exhaustive_proposition_comparisons": 545,
+      "pending": [],
+      "meaning": "Explicit development controls; no held-out workload, proofs or chain acceptance"
+    },
+    "workload": {
+      "passed": true,
+      "controls": [
+        "recipient-only-not-author-or-sibling",
+        "prefix-disclosure-isolation",
+        "complete-pooled-records",
+        "least-excess-input-count-position-and-floor",
+        "unaffordable-request-rejected-without-resampling",
+        "foreign-input",
+        "already-spent-input",
+        "two-input-exit-and-full-lifecycle-accounting",
+        "one-sompi-conservation-mutation",
+        "exact-decimal-sampler-endpoints",
+        "matched-requests-capital-and-prompt-receipt-exits",
+        "failed-transition-preserves-prefix",
+        "pre-fee-native-input-range"
+      ],
+      "scope": "tiny explicit development fixtures only; no held-out request seed generated"
+    },
+    "observer": {
+      "passed": true,
+      "complete": true,
+      "controls": [
+        "independent-first-eligible-drain-and-odd-sompi-half",
+        "inclusive-amount-and-exact-integer-tolerance-boundaries",
+        "residual-range-chronology-target-exclusion-and-defensive-spend-boundary",
+        "residual-tie-order-and-negative-residual",
+        "handchecked-total-half-residual-fallback-and-no-initial-admission-seeds",
+        "schema-poison-and-missing-coverage-rejected",
+        "full-scorer-accounting-dual-truth-sat-and-field-specific-exclusions"
+      ],
+      "scope": "Explicit development fixtures only; no held-out data or privacy qualification"
+    }
+  },
+  "result_sha256": "bfb6069ce69d8ff8a3df11e2880619bfa9cdfc3e6ea8643db356b77bd02e9671"
+}

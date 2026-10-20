@@ -123,6 +123,22 @@ are complete; the 32-role held-out gate remains open. The
 amount bounds. Later cashout narrows one payment's upper bound from 30.4 to
 20.4 tKAS; neither ordinary payment is uniquely determined by the tested models.
 This is calibration, not owner anonymity or an amount-guessing result.
+The [32-role/eight-adversary test](../poc/shared-pool/POPULATION-PRIVACY.md)
+has now started under [RFC-0014](rfc/0014-owner-aware-privacy-evaluation.md).
+Its first stage seeks forced disclosures with an explicit ownership model;
+26 controls passed and four matched request sets generated. Full-history
+reconstruction has not produced a prediction; two equivalent formulations were
+stopped after approximately eight hours each and Z3 exhausted memory. Preserve
+these incomplete attempts. A reviewed local relaxation completed all 512
+ordinary targets across eight histories: no forced disclosure among 99 primary
+payments per arm, with generated truth separately checked in both original full
+models. This weaker result cannot establish privacy; no
+qualification pass is available. A separate fixed cashout-guessing batch completed
+all eight histories: prompt receipt cashout exposed 99/99 primary amounts exactly;
+the strongest of three simple attacks guessed 5/99 persistent amounts within 10%
+and none exactly (constant baseline 3/99). Four request sets and these limited
+attacks do not qualify privacy. This failure-seeking stage does not replace the
+powered rate study.
 The owner challenged the work order
 after the milestone 2 commit `bf4505c`: test whether the integrated candidate can
 meet the intended privacy promise before investing further in that candidate.
@@ -349,9 +365,15 @@ architecture selection (8). The independent-user trial (9) follows qualification
 the reproducible release (10) includes the resulting evidence and limitations.
 
 Milestone 1 and the bounded offline milestone 2 gate are closed. The initial
-public-surface/amount calibration is complete. Next freeze the 32-role/eight-adversary
-held-out evaluation, including common ownership and pooled disclosures. Resolve its
-pass/fail/incomplete result before expanding into milestones 3–6. Keep the known
+public-surface/amount calibration is complete. The frozen 32-role/eight-adversary
+ownership/disclosure test has bounded pooled final-history results. Preserve the
+immediate-cashout exposure and incomplete whole-history attempts. Continue with
+stronger practical attacks and native funding/exit script-linkage checks, and
+complete the remaining declared views/horizons; low simple-attack rates do not
+qualify the candidate. A supported failure still requires action under the frozen
+rules.
+Resolve the early gate's pass/fail/incomplete result before expanding into
+milestones 3–6. Keep the known
 fee/cold-load gaps visible. Existing failed H16/H18 screens remain warnings;
 neither those old workloads nor the M2 mechanics trace qualifies the new privacy
 requirements.

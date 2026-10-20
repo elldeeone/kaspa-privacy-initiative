@@ -1,0 +1,2456 @@
+{
+  "complete": true,
+  "cases": [
+    {
+      "case": "set-01-persistent",
+      "arm": "persistent",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 28,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    },
+    {
+      "case": "set-01-prompt",
+      "arm": "prompt",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 28,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 28,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 28,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 36,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 36,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 8,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 8,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 28
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 28
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 28
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 28
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 36
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 36
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 36
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    },
+    {
+      "case": "set-02-persistent",
+      "arm": "persistent",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 23,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 3,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 2,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 3,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 2,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 3,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 2,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 3,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 2,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    },
+    {
+      "case": "set-02-prompt",
+      "arm": "prompt",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 23,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 2,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 3,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 23,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 23,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 31,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 31,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 2,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 8,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 8,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 3,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 2,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 3,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 23
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 23
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 23
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 5,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 31
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 31
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 31
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 2,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 3,
+              "eligible": 17
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    },
+    {
+      "case": "set-03-persistent",
+      "arm": "persistent",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 24,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 3,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 3,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    },
+    {
+      "case": "set-03-prompt",
+      "arm": "prompt",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 24,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 24,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 24,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 27,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 27,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 3,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 3,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 27
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 27
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 27
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 3
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 3
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 3
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 21
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    },
+    {
+      "case": "set-04-persistent",
+      "arm": "persistent",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 24,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 0,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 2,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 0,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    },
+    {
+      "case": "set-04-prompt",
+      "arm": "prompt",
+      "view": "pooled",
+      "complete": true,
+      "tested_primary_targets": 24,
+      "variants": {
+        "baseline": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 1,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_total": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 24,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 24,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 32,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 32,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 8,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 8,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "cashout_half": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        },
+        "known_note_residual": {
+          "primary": {
+            "sender": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "recipient": {
+              "correct": 2,
+              "eligible": 24
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 24
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 24
+            }
+          },
+          "all_undisclosed": {
+            "sender": {
+              "correct": 1,
+              "eligible": 48
+            },
+            "recipient": {
+              "correct": 3,
+              "eligible": 32
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 32
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 32
+            }
+          },
+          "startup": {
+            "sender": {
+              "correct": 0,
+              "eligible": 12
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 8
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 8
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 8
+            }
+          },
+          "adversary_endpoint": {
+            "sender": {
+              "correct": 1,
+              "eligible": 16
+            },
+            "recipient": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_within_10pct": {
+              "correct": 0,
+              "eligible": 0
+            },
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 0
+            }
+          }
+        }
+      },
+      "qualification_pass": false
+    }
+  ],
+  "prediction_batch_sha256": "0594e89e3e05ddd35bb76111ac6a3ecc067575c390c73a47c519a94184f957ff",
+  "qualification_pass": false,
+  "scope": "Deterministic guessing accuracy on eight fixed modeled histories only"
+}

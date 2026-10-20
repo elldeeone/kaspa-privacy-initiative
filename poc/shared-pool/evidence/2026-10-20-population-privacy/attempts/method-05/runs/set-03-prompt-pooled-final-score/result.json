@@ -1,0 +1,2744 @@
+{
+  "complete": true,
+  "arm": "prompt",
+  "truth_consistency": {
+    "complete": true,
+    "cp_sat": "SAT",
+    "z3": "SAT"
+  },
+  "qualification_pass": false,
+  "variants": {
+    "baseline": {
+      "primary": {
+        "sender": {
+          "correct": 1,
+          "eligible": 24
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 24
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 24
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 24
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 1,
+          "eligible": 48
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 27
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 27
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 27
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 3
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 3
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 3
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 0,
+          "eligible": 21
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        }
+      }
+    },
+    "cashout_total": {
+      "primary": {
+        "sender": {
+          "correct": 1,
+          "eligible": 24
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 24
+        },
+        "amount_within_10pct": {
+          "correct": 24,
+          "eligible": 24
+        },
+        "amount_exact": {
+          "correct": 24,
+          "eligible": 24
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 1,
+          "eligible": 48
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 27
+        },
+        "amount_within_10pct": {
+          "correct": 27,
+          "eligible": 27
+        },
+        "amount_exact": {
+          "correct": 27,
+          "eligible": 27
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 3
+        },
+        "amount_within_10pct": {
+          "correct": 3,
+          "eligible": 3
+        },
+        "amount_exact": {
+          "correct": 3,
+          "eligible": 3
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 0,
+          "eligible": 21
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        }
+      }
+    },
+    "cashout_half": {
+      "primary": {
+        "sender": {
+          "correct": 1,
+          "eligible": 24
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 24
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 24
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 24
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 1,
+          "eligible": 48
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 27
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 27
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 27
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 3
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 3
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 3
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 0,
+          "eligible": 21
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        }
+      }
+    },
+    "known_note_residual": {
+      "primary": {
+        "sender": {
+          "correct": 1,
+          "eligible": 24
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 24
+        },
+        "amount_within_10pct": {
+          "correct": 2,
+          "eligible": 24
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 24
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 1,
+          "eligible": 48
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 27
+        },
+        "amount_within_10pct": {
+          "correct": 2,
+          "eligible": 27
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 27
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 3
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 3
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 3
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 0,
+          "eligible": 21
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "event": 16,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 18,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 20,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 22,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 24,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 26,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": true,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 28,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 30,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": true,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 32,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 34,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 36,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 38,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 40,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 42,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 44,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": true,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 46,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": true,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 64,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 66,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 68,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 70,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 72,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 74,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 76,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 78,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 80,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 82,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 84,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 86,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 88,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 90,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 92,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 94,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 96,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 98,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 100,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 102,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 104,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 106,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 108,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 110,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 112,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 114,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 116,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 118,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 120,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 122,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 124,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 126,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 128,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 130,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 132,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 134,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": true,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 136,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 138,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 140,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": true,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 142,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 144,
+      "through_event": 191,
+      "primary_eligible": false,
+      "directly_known": {
+        "sender": false,
+        "recipient": true,
+        "amount": true
+      },
+      "startup": false,
+      "adversary_endpoint": true,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 146,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 148,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 150,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": true,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 152,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 154,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 156,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": false
+        }
+      }
+    },
+    {
+      "event": 158,
+      "through_event": 191,
+      "primary_eligible": true,
+      "directly_known": {
+        "sender": false,
+        "recipient": false,
+        "amount": false
+      },
+      "startup": false,
+      "adversary_endpoint": false,
+      "correct": {
+        "baseline": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "cashout_total": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": true,
+          "amount_exact": true
+        },
+        "cashout_half": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        },
+        "known_note_residual": {
+          "sender": false,
+          "recipient": false,
+          "amount_within_10pct": false,
+          "amount_exact": false
+        }
+      }
+    }
+  ],
+  "tested_primary_targets": 24,
+  "limit": "Finite modeled guesses; four request sets and limited baselines cannot qualify privacy"
+}

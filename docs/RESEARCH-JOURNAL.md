@@ -46,8 +46,18 @@ against the unchanged milestone 1 targets.
 Milestone 7 becomes broader validation. The public-surface audit and
 [first calibration slice](../poc/shared-pool/EARLY-PRIVACY.md) are complete:
 later withdrawals narrow one payment amount's upper bound, without forcing either
-ordinary payment amount in the tested models. The held-out privacy gate has not
-run. The M2 recovery trace itself establishes no privacy result.
+ordinary payment amount in the tested models. The
+[32-role/eight-adversary first stage](../poc/shared-pool/POPULATION-PRIVACY.md)
+has started: 26 controls passed and four paired request sets generated. The
+full-history solvers have produced no predictions; interrupted searches and a
+confirmed Z3 out-of-memory kill are preserved. A narrower local search completed
+all eight histories with no forced undisclosed facts. A separate cashout-guessing
+batch also completed all eight:
+99/99 primary immediate-cashout amounts were recovered exactly; the strongest
+of three simple attacks guessed 5/99 persistent amounts within 10%, none exactly.
+All predictions were sealed before scoring and every history passed both original
+full-model truth checks. These bounded results are not a privacy pass. The M2
+recovery trace itself establishes no privacy result.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
@@ -226,6 +236,88 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-21 (Australia/Sydney; 2026-10-20 UTC) — Privacy tests: computational limits and bounded results
+
+- **Observation:** the original Boolean CP-SAT search returned no initial answer
+  before interruption. Compact input indices and explicit per-note monetary-flow
+  equations also returned no initial answer after approximately eight hours each.
+  An independent original-model Z3 probe exited 137; the kernel log confirms an
+  out-of-memory kill. None produced a held-out prediction or privacy finding.
+- **Preservation:** all methods used the same generated first persistent history
+  and pooled view. No seeds, amounts, eligibility rules, thresholds or integer
+  domains changed. Frozen sources, passing controls, isolation manifests and
+  interruption/termination evidence are retained in the
+  [public evidence](../poc/shared-pool/evidence/2026-10-20-population-privacy/README.md).
+  The first checkpoint and private generated histories remain intact.
+- **Checks:** method 02 compared 15 complete tiny prefix sets (36 projected
+  solutions); method 03 compared 13 sets (33 projected solutions), including
+  checks in both old and new encodings. These controls support implementation
+  equivalence on the tested cases, not privacy or general solver tractability.
+- **Decision:** stop the stalled searches and try an explicitly weaker
+  [local disclosure relaxation](../poc/shared-pool/POPULATION-PRIVACY-METHOD-04.md).
+  Keep exact constraints for bootstrap, disclosed authors, each target and its
+  first three later cashouts. A forced fact can still be decisive after dual
+  solver checks and sealed-prediction/full-truth validation. Alternatives in
+  this slice are inconclusive. This is an analysis change, not a protocol change.
+- **Boundary:** computation failure is not evidence of privacy. The early gate
+  remains open and milestone 3 remains blocked by it. No funds, new proofs,
+  broadcasts or publication were used in this continuation.
+- **Completed local batch:** method 04's frozen isolated controls passed
+  (26 original plus 12 new). All eight histories completed 64 targets each,
+  with no forced disclosure among 99 primary payments per arm and no undisclosed
+  forced facts in other strata. Each prediction was sealed before both original
+  full models checked actual truth. This deliberately weaker attack also fails
+  to force prompt-cashout amounts that the simple matching attack recovers
+  exactly; logical alternatives here cannot support a privacy claim.
+- **Completed practical measurement:** method 05 froze three public cashout
+  guesses and limited constant/public-hash baselines. All eight prediction files
+  were sealed before any score. Its 26 original plus seven new controls passed;
+  all eight concrete histories satisfy both original full models and accounting.
+  Primary denominators are 28, 23, 24 and 24 per arm, totaling 99 paired payments.
+  Prompt cashout exposes all 99 amounts exactly. Persistent within-10% counts are
+  baseline 3, total-cashout 4, half-cashout 0 and known-note residual 5; exact
+  recovery is zero for every persistent variant. Recipient residual guesses
+  score 4/99 versus the limited role baseline's 6/99; sender is baseline-only.
+  A separate author-team review checked every score counter against 512 scored
+  rows and checked prediction seals/isolation. Seeds and full truth remain private.
+- **Interpretation/next:** prompt-cashout exposure is reproduced. These fixed
+  attacks perform poorly on persistent histories; four independent request sets,
+  weak baselines and missing stronger attacks cannot establish anonymity or a
+  privacy-gate pass. Continue practical native-linkage/behavioral attack testing
+  without requiring whole-history reconstruction first. Preserve the exact
+  measurements and all incomplete attempts; do not move milestone 3 past the gate.
+
+### 2026-10-20 — Start the 32-role/eight-adversary privacy test
+
+- **Checkpoint:** the owner authorized committing/pushing calibration, then
+  starting this test. Commit `aa6ed4947f7c25db128cd5d89b7c021d6b8fe690`
+  is verified on remote `shielded-kas-research`.
+- **Question:** can current-wallet ownership rules, eight colluding participants'
+  records and later withdrawals force a private internal-payment fact?
+  [RFC-0014](rfc/0014-owner-aware-privacy-evaluation.md) separates a decisive
+  conditional counterexample from statistical/privacy qualification.
+- **Design:** four independent hidden request sets, each paired across persistent
+  balances and prompt receipt cashout, with 32 roles, eight active roles, mixed
+  amounts, interleaved admission, sparse/overlap regimes and full drainage.
+  Primary targets are uninvolved honest-to-honest payments after all admissions.
+  [Specification](../poc/shared-pool/POPULATION-PRIVACY-SPEC.md), code and dependency
+  bytes were frozen before seed generation; seeds and truth stay outside Git.
+- **Checks:** 13 model and 13 workload controls passed in isolation. The model
+  controls include 545 exact propositions checked by independent tiny exhaustive
+  enumeration. A second author-team review found no pre-run blocker. Passing
+  controls does not establish cryptographic security or complete attack coverage.
+- **Progress:** eight histories generated with 64 ordinary payments each and no
+  skipped requests, seed retries or unpaid modeled claims. The first observer is
+  running on persistent request set 1 with pooled records and final public history.
+  No held-out prediction or separately scored disclosure has completed.
+- **Boundary/next:** this first stage can reject a claim but cannot pass the
+  adopted privacy rates. Missing cases, views and horizons remain open. Review
+  the first result against pinned generated truth; preserve any failure and its
+  exact assumptions. Native script/address reuse, complete byte-level coverage,
+  realistic priors, infrastructure exposure and independent users remain separate.
+  No funds, new proofs, broadcasts or protocol changes.
+  [Report and public checkpoint](../poc/shared-pool/POPULATION-PRIVACY.md).
 
 ### 2026-10-20 — Early privacy test: first calibration completed
 

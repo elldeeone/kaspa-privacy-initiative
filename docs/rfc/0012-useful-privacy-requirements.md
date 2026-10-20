@@ -329,6 +329,16 @@ one ordinary payment's amount bounds, but the tested models force neither
 ordinary payment amount. This does not score guessing accuracy, ownership or
 pooled/active disclosure; the held-out evaluation and all adopted gates remain
 open. Its 48 cross-checked bounds are method calibration, not qualifying samples.
+The [32-role owner-aware first stage](../../poc/shared-pool/POPULATION-PRIVACY.md)
+has started under [RFC-0014](0014-owner-aware-privacy-evaluation.md), with a frozen
+failure-seeking workload and isolated pooled-record observer. The whole-history
+solver remains incomplete, but a bounded guessing batch completed all eight
+histories: immediate cashout exposes 99/99 primary amounts exactly; the best of
+three fixed simple attacks guesses 5/99 persistent amounts within 10% and none
+exactly. A weaker local exact-disclosure search has separate bounded results.
+Four request sets, limited priors and incomplete attack coverage cannot qualify
+the rate thresholds below; all adopted gates and statistical qualification remain
+open.
 
 Use interleaved admissions, mixed amounts and sparse periods, with held-out
 payment graphs. Give observers C and declared P records, including known common
