@@ -1,5 +1,13 @@
 # Threat Model
 
+[RFC-0012](docs/rfc/0012-useful-privacy-requirements.md) is the current open
+requirements draft for broader shielded-KAS research. It separates chain,
+participant/collusion, active, infrastructure and endpoint observers; internal
+payments, ingress/egress and urgent recovery; and cryptographic confidentiality
+from user-level inference. Its qualification envelope remains open. It introduces
+no new mechanism or stronger privacy claim; the evidence-specific models below
+retain their original scope.
+
 [H18](poc/shared-pool/SCHEDULED-PAYOUT.md) gives the chain observer
 the declared remainder-delay distribution and service/queue assumptions, in
 addition to the existing amount and wallet rules. Each participant disclosure

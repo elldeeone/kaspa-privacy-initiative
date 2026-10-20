@@ -12,3 +12,4 @@ When a durable architecture or design decision is reached, record its rationale 
 - [RFC-0006: Reusable private authorization](0006-reusable-private-authorization.md) — Bounded experiment completed; broader scale, privacy and liveness questions remain open.
 - [RFC-0010: Independent deposits without replacing saved exit proofs](0010-compact-independent-deposits.md) — Bounded v5 offline and TN10 experiment passed; broader privacy remains open.
 - [RFC-0011: Two-input payments, private change and partial withdrawals](0011-two-input-private-payments.md) — Open; bounded H13 mechanics passed offline. Broader qualification and practical privacy remain open.
+- [RFC-0012: Useful privacy requirements for native KAS payments](0012-useful-privacy-requirements.md) — Open; milestone 1 draft defines observers, protected information, falsifiers and current evidence gaps. Quantitative qualification remains open.

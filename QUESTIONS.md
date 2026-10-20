@@ -2,6 +2,14 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[Milestone 1's requirements draft](docs/rfc/0012-useful-privacy-requirements.md)
+now asks which repeated-payment use case, observer combinations, absolute
+disclosure limits and cost/hardware/fault envelope should qualify the candidate.
+How should merged funding sets, amounts and real participant control be scored?
+These choices precede any new usefulness verdict. The
+[source/capability review](research/shielded-kas-privacy-requirements-2026-10-20.md)
+informs that decision without selecting new cryptography or an execution runtime.
+
 [H18's completed comparison](poc/shared-pool/SCHEDULED-PAYOUT.md) rejects the
 tested short-delay common-payout policy: the strongest attack's success is
 unchanged on new workloads in both regimes/profiles. Fees and delay fit the

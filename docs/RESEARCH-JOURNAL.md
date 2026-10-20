@@ -22,9 +22,12 @@ payment system. Focus the normal privacy hypothesis on persistent shielded balan
 measure entry, cashout and emergency-exit disclosures separately. Permissionless
 exit remains a requirement even when its use reduces privacy.
 
-The next work is milestone 1: define the privacy promise, observer knowledge,
-user-level metrics, operating requirements and falsifiers, with a source/capability
-map of the current v6 candidate. Integration, independent cryptographic review and
+Milestone 1 has started: [RFC-0012](rfc/0012-useful-privacy-requirements.md) drafts
+the privacy promise, observer knowledge, user-level metrics, operating requirements
+and falsifiers, with a source/capability map of the current v6 candidate. The
+[primary-source refresh](../research/shielded-kas-privacy-requirements-2026-10-20.md)
+records what established designs contribute and what is not inherited.
+Use-case thresholds remain open. Integration, independent cryptographic review and
 privacy attacks then proceed together. Later milestones cover a usable wallet,
 current-version recovery, settlement under faults, measured architecture selection,
 independently owned testnet activity and a reproducible research release.
@@ -209,6 +212,35 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 (Australia/Sydney) — Privacy requirements draft (milestone 1)
+
+- **Work completed:** source/evidence review and an open
+  [requirements RFC](rfc/0012-useful-privacy-requirements.md), after the roadmap
+  was committed/pushed through `76ac3f5`. The draft names internal payments,
+  public ingress/egress and urgent recovery separately; defines chain,
+  participant, active, infrastructure and endpoint observers; and maps eight
+  requirements to falsifiers and current evidence gaps.
+- **Source basis:** the [dated review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
+  pins current Kaspa and mature-protocol material. Requirements are adapted;
+  no primitive, runtime or inherited security assurance is selected. Source
+  inspection is not network deployment verification.
+- **Main findings:** v6's payment/change and saved-exit evidence does not establish
+  current-version pre-payment-backup recovery, arbitrary participant admission or
+  general settlement retries. Ciphertext binding is not proof of correct delivery.
+  Old anchors, witness queries and service observations require explicit privacy
+  treatment. Merged inputs have structural deposit ancestry, but do not uniquely
+  assign each source's sompi to later outputs.
+- **Evaluation proposed:** compare persistent shielded activity with prompt cashout
+  using held-out user-level relationship, amount and funding targets through full
+  drainage. Include participant/collusion and active-user controls, costs and
+  delay. This specifies the question; no new simulator or trial was run.
+- **Still open:** the intended activity/participant envelope, acceptable absolute
+  disclosure, target device/cost/latency and fault envelope. Until those are fixed,
+  there is no scored usefulness pass. Milestone 1 is started, not declared complete.
+- **Boundary:** documentation and read-only source analysis only. No new proof,
+  transaction, funded trial, protocol change or independent cryptographic audit.
+  H1-H18 and their original criteria/evidence remain unchanged.
 
 ### 2026-10-20 (Australia/Sydney) — Broader shielded-KAS roadmap
 

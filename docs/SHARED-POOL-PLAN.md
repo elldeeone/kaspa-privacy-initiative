@@ -49,7 +49,11 @@ privacy results are not real-world anonymity.
 
 ## Milestone 1 — Define the privacy promise
 
-**Status:** first authorized work package; specification and source review next.
+**Status:** started. [RFC-0012](rfc/0012-useful-privacy-requirements.md) drafts the
+requirements, observer profiles, falsifiers and current capability map. The
+[primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
+records reuse/adaptation boundaries. The use-case and quantitative qualification
+envelope remain open; this is not a completed privacy evaluation.
 
 Specify the intended user activity, protected relationships and amounts, explicit
 public information, adversaries and required honest participation. Separate
@@ -239,8 +243,9 @@ version used by recovery (5) and settlement fault testing (6). Measurements feed
 architecture selection (8). The independent-user trial (9) follows qualification;
 the reproducible release (10) includes the resulting evidence and limitations.
 
-Begin with the privacy RFC and source/capability map. Use the resulting gaps to
-scope the first coherent wallet increment and independent attack suite. The
+Review the draft privacy RFC and choose its use-case/qualification envelope.
+Use the source/capability gaps to scope the first coherent wallet increment and
+independent attack suite. The
 persistent-balance versus prompt-cashout comparison is an early diagnostic inside
 this programme, not the whole programme or a reason to delay all useful integration.
 
