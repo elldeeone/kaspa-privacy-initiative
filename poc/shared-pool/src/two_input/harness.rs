@@ -284,7 +284,14 @@ fn fallback(
     )?;
     prove(pk, c, b)
 }
-fn demo(params: &Path, out: &Path) -> Result<()> {
+pub(super) struct Preparation {
+    pub domain: H,
+    pub wallets: Vec<Wallet>,
+    pub initial: Note,
+    pub sources: Vec<native::Utxo>,
+    pub reserve: native::Utxo,
+}
+pub(super) fn demo(params: &Path, out: &Path, prepared: Option<Preparation>) -> Result<()> {
     use std::os::unix::fs::PermissionsExt;
     fs::create_dir(out)?;
     fs::set_permissions(out, fs::Permissions::from_mode(0o700))?;
@@ -294,8 +301,11 @@ fn demo(params: &Path, out: &Path) -> Result<()> {
     )?))?;
     let vk = compressed(&pk.vk)?;
     eprintln!("parameters loaded {} ms", start.elapsed().as_millis());
-    let wallets: Vec<_> = (0..4).map(|_| Wallet::fresh()).collect();
-    let d = hash(
+    let wallets: Vec<_> = prepared
+        .as_ref()
+        .map(|p| p.wallets.clone())
+        .unwrap_or_else(|| (0..4).map(|_| Wallet::fresh()).collect());
+    let fresh_domain = hash(
         &[
             b"KPI/COMPACT/TN10/v6\0".as_slice(),
             &hex::decode(crate::protocol::GENESIS_HEX)?,
@@ -306,15 +316,22 @@ fn demo(params: &Path, out: &Path) -> Result<()> {
         ]
         .concat(),
     );
-    let initial = output(&wallets[0], &d, 2_000_000_000)?;
+    let d = prepared.as_ref().map_or(fresh_domain, |p| p.domain);
+    let initial = match &prepared {
+        Some(p) => p.initial.clone(),
+        None => output(&wallets[0], &d, 2_000_000_000)?,
+    };
     let state = PublicState::initial(initial.commitment(&d))?;
-    let reserve = native::Utxo {
-        txid: hex::encode(random()),
-        index: 0,
-        amount: initial.value,
-        spk: hex::encode(native::encode_spk(&reserve_spk(&d, &state, &vk)?)),
-        daa: 0,
-        is_coinbase: false,
+    let reserve = match &prepared {
+        Some(p) => p.reserve.clone(),
+        None => native::Utxo {
+            txid: hex::encode(random()),
+            index: 0,
+            amount: initial.value,
+            spk: hex::encode(native::encode_spk(&reserve_spk(&d, &state, &vk)?)),
+            daa: 0,
+            is_coinbase: false,
+        },
     };
     let mut l = Ledger {
         domain: d,
@@ -354,13 +371,16 @@ fn demo(params: &Path, out: &Path) -> Result<()> {
         ));
     }
     for owner in 1..4 {
-        let u = native::Utxo {
-            txid: hex::encode(random()),
-            index: 0,
-            amount: 1_000_000_000 + owner as u64 * 100_000_000,
-            spk: hex::encode(native::encode_spk(&native::p2pk(&wallets[owner].native)?)),
-            daa: 0,
-            is_coinbase: false,
+        let u = match &prepared {
+            Some(p) => p.sources[owner].clone(),
+            None => native::Utxo {
+                txid: hex::encode(random()),
+                index: 0,
+                amount: 1_000_000_000 + owner as u64 * 100_000_000,
+                spk: hex::encode(native::encode_spk(&native::p2pk(&wallets[owner].native)?)),
+                daa: 0,
+                is_coinbase: false,
+            },
         };
         let os = [
             output(&wallets[owner], &d, u.amount - FEE)?,
@@ -567,12 +587,14 @@ fn demo(params: &Path, out: &Path) -> Result<()> {
     if l.reserve.amount != 0 || by_wallet.contains(&0) {
         return Err("not all wallets paid/drained".into());
     }
-    let report = json!({"offline_only":true,"synthetic_native_utxos":true,"real_groth16_proofs":true,"saved_proofs_unchanged":unchanged,"isolated_exit_clients":unchanged,"exit_clients_have_private_keys_or_pk":false,"wallet_exit_payouts_sompi":by_wallet,"private_change_decrypted":true,"partial_withdrawal_sompi":211_000_000,"partial_change_respent":true,"normal_and_fallback_mutually_exclusive":true,"reserve_remaining":l.reserve.amount,"total_input_sompi":l.credits,"total_payout_sompi":l.payouts,"total_fee_sompi":l.fees,"operations":l.rows.len(),"elapsed_ms":start.elapsed().as_millis(),"native_adversarial_controls":l.controls,"rows":l.rows});
+    let report = json!({"offline_only":true,"synthetic_native_utxos":prepared.is_none(),"planned_native_utxos":prepared.is_some(),"real_groth16_proofs":true,"saved_proofs_unchanged":unchanged,"isolated_exit_clients":unchanged,"exit_clients_have_private_keys_or_pk":false,"wallet_exit_payouts_sompi":by_wallet,"private_change_decrypted":true,"partial_withdrawal_sompi":211_000_000,"partial_change_respent":true,"normal_and_fallback_mutually_exclusive":true,"reserve_remaining":l.reserve.amount,"total_input_sompi":l.credits,"total_payout_sompi":l.payouts,"total_fee_sompi":l.fees,"operations":l.rows.len(),"elapsed_ms":start.elapsed().as_millis(),"native_adversarial_controls":l.controls,"rows":l.rows});
     save(&out.join("result-private.json"), &report)?;
-    println!(
-        "{}",
-        json!({"operations":report["operations"],"saved_exits":unchanged,"wallets_paid":4,"reserve_remaining":0,"fee_sompi":l.fees})
-    );
+    if prepared.is_none() {
+        println!(
+            "{}",
+            json!({"operations":report["operations"],"saved_exits":unchanged,"wallets_paid":4,"reserve_remaining":0,"fee_sompi":l.fees})
+        );
+    }
     Ok(())
 }
 pub fn run() -> Result<()> {
@@ -591,6 +613,7 @@ pub fn run() -> Result<()> {
         Some("demo") => demo(
             Path::new(a.get(2).ok_or("demo PARAMS OUT")?),
             Path::new(a.get(3).ok_or("demo PARAMS OUT")?),
+            None,
         ),
         Some("exit") => {
             let r: ExitRequest = read(Path::new(a.get(2).ok_or("exit REQUEST")?))?;

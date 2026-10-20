@@ -1,6 +1,6 @@
 # ADR-0024: Specify two-input private payments before further experiments
 
-**Status:** Accepted — specification, subsequently authorized bounded offline implementation.
+**Status:** Accepted — specification, subsequently authorized bounded offline and TN10 implementation.
 **Date:** 2026-10-20 (Australia/Sydney).
 **Branch:** `shared-pool-four-wallet`; inspected baseline `228e5d0`.
 **Proposal:** [RFC-0011](../rfc/0011-two-input-private-payments.md), still Open.
@@ -10,6 +10,15 @@ run the two-input/two-output test offline, including private change, partial
 withdrawals and unchanged saved-proof exits. `c50855a` preserves the original
 scope. This authorizes bounded experimental implementation, not protocol adoption,
 independent cryptographic assurance or a funded testnet trial.
+
+**Further authorization, 2026-10-20 UTC:** run the same test on TN10, with a
+complete rehearsal and then a fresh measured identity. Preserve the exact v6
+circuit/covenant/parameters; add the client adapter needed to discover accepted
+state and settle saved proofs without the original prover or operator state.
+The adapter is restricted to the known four-depositor fixture and a correct
+public RPC view. It does not establish general wallet recovery or anonymity.
+The new instruction supersedes the earlier offline-only execution boundary;
+no invariant, setup assumption or exact-fee limitation changes.
 
 ## Problem
 
@@ -29,15 +38,17 @@ resolve whether the payment relation itself is an adequate foundation.
 Write a concrete two-input/two-output proposal and its observer review before
 building or running more tests. The original documentation-only authorization
 was completed in `c50855a`. The owner's follow-up authorized this bounded
-offline implementation, parameter generation and test. It does **not** authorize
-protocol adoption, funded trials or publication, or establish cryptographic correctness.
+offline implementation, parameter generation and test. The later instruction
+above adds the same bounded TN10 trace. Neither authorizes protocol adoption or
+publication, nor establishes cryptographic correctness.
 
 Retain direct covenant settlement as the candidate because it already separates
 private ownership authorization from publicly rebuildable current settlement.
 No current-L1 primitive has been identified as missing for a two-input relation.
-The actual larger layout now passes the bounded offline native validation in
-[H13](../../poc/shared-pool/TWO-INPUT.md). No consensus change or mandatory runtime
-is part of this decision; network acceptance and production suitability remain open.
+The larger layout now passes bounded
+[offline](../../poc/shared-pool/TWO-INPUT.md) and
+[TN10](../../poc/shared-pool/TWO-INPUT-TN10.md) execution. No consensus change or
+mandatory runtime is part of this decision; production suitability remains open.
 
 The proposal must contain:
 
@@ -98,7 +109,8 @@ finds unacceptable native limits, proving cost or contention. Revisit the
 privacy claim if varied/interleaved public traces remain reconstructable.
 
 Current outcome: retain the new v6 relation as a research candidate after the
-authorized offline run. Thirteen synthetic transactions pass native validation;
+authorized offline run and its TN10 continuation. Thirteen pool operations
+(plus ordinary allocation/genesis on TN10) pass native validation;
 private payment/withdrawal change is spendable; all four wallets receive payouts
 through six unchanged saved-proof exits and backing reconciles to zero.
 The profile uses a new single-party setup, a 0.6-tKAS note floor, 0.1-tKAS
@@ -106,6 +118,8 @@ payout floor, 0.4-tKAS selected exact fee and a deliberately generous 30-million
 script-unit reserve budget. These are bounded experimental choices, not adopted
 production parameters. The [report](../../poc/shared-pool/TWO-INPUT.md) records
 mass, proving cost, boundary controls, author review and remaining gaps.
-The isolated exits consume supplied public state; live discovery/recovery is
-unproven for this adapter. Stage 2 remains open for general payment privacy, and
+The live isolated clients discover accepted state through a correct RPC rather
+than supplied controller state. They share one host and pin four known funding
+sources; general recovery, pruning/reorgs and contention remain unproven for
+this adapter. Stage 2 remains open for general payment privacy, and
 the [observer review](../../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) still applies.

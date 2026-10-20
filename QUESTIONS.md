@@ -3,11 +3,12 @@
 The initiative should treat these as questions to answer, not conclusions to defend.
 
 [RFC-0011](docs/rfc/0011-two-input-private-payments.md) now has a bounded
-[offline result](poc/shared-pool/TWO-INPUT.md): two-input payments, spendable
+[offline result](poc/shared-pool/TWO-INPUT.md) and
+[TN10 result](poc/shared-pool/TWO-INPUT-TN10.md): two-input payments, spendable
 private change, partial withdrawal and all four wallets paid through six
-unchanged saved proofs. The selected fee is 0.4 synthetic tKAS per operation;
-the new circuit takes about 20–22 seconds per warm proof and 215 seconds to
-cold-load its parameters on this run. Can review validate its constrained
+unchanged saved proofs. The selected fee is 0.4 tKAS per pool operation;
+the new circuit takes about 20–22 seconds per warm proof and roughly 3.4 minutes
+to cold-load parameters in the recorded runs. Can review validate its constrained
 padding, backing induction and no-append exit capacity beyond the tested trace
 and constructed boundary state? Can the costly native budget be reduced safely?
 Can varied, interleaved payments retain useful ambiguity after full drainage
@@ -15,7 +16,9 @@ under an observer that permits merging and padding? Exact fees, public-data
 availability, experimental setup, contention and reorg assumptions remain.
 The [scope ADR](docs/adr/0024-two-input-private-payment-scope.md) and
 [observer review](poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md) leave general
-privacy and broader qualification open. The current authorization ends offline.
+privacy and broader qualification open. Live clients reconstruct accepted state
+from one RPC without the original prover; general recovery, arbitrary new
+depositors and adversarial availability remain untested for this adapter.
 
 [H12](poc/shared-pool/NORMALIZED-DEPOSITS.md) answers the narrow equal-net question
 positively in its all-deposits-first workload: four deposit candidates remain

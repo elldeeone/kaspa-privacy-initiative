@@ -6,8 +6,9 @@ compact executable. Inspected branch baseline: `228e5d0`. No code, experiments
 or new privacy measurements accompanied the original design review.
 
 **Implementation follow-up:** [H13](TWO-INPUT.md) subsequently passes bounded
-offline payment and saved-exit mechanics. Its author second pass and limitations
-are recorded there. This document's observer analysis remains a design analysis;
+offline payment and saved-exit mechanics, followed by the
+[same workload on TN10](TWO-INPUT-TN10.md). Author second passes and limitations
+are recorded in those reports. This document's observer analysis remains a design analysis;
 no anonymity score, population inference experiment or independent audit was
 added. The old v4/v5 observer still cannot score v6 merges/padding correctly.
 

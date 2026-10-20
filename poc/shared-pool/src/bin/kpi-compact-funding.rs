@@ -24,6 +24,24 @@ fn key_for(row:&Value,source:&native::Utxo,funding:&Path)->Result<H>{
         if payload.len()==3892 {key_limit=key_limit.max(u32::from_le_bytes(payload[644..648].try_into()?));}
         if key_limit>65535 {return Err("origin commitment count range".into());}
     }
+    if m["format"]=="kpi-two-input-live-v1" {
+        // Ordinary v6 payouts only. Terminal state bytes are zero, so recover
+        // the highest public commitment count from the preceding lineage.
+        let history:Vec<Value>=read(&root.join("public/history.json"))?;
+        for raw in history {
+            let payload=hex::decode(raw["payload"].as_str().ok_or("v6 payload")?)?;
+            if payload.len()==5228 {key_limit=key_limit.max(u32::from_le_bytes(payload[756..760].try_into()?));}
+        }
+        if key_limit>65535 {return Err("v6 commitment count range".into());}
+        let private:Value=read(&root.join("wallets.json"))?;
+        for v in private["wallets"].as_array().ok_or("v6 wallets")? {
+            let w:Wallet=serde_json::from_value(v.clone())?;
+            for key in std::iter::once(w.native).chain((0..=key_limit).map(|n|w.payout_key(&domain,n))) {
+                if matches(&key){return Ok(key);}
+            }
+        }
+        return Err("no owned v6 ordinary payout key".into());
+    }
     if m["format"]=="kpi-normalized-v5-v1" {
         let private:Value=read(&root.join("prepared/wallets.json"))?;
         for v in private["funding_keys"].as_array().ok_or("funding keys")? {

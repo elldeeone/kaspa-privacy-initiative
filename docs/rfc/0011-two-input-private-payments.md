@@ -1,16 +1,28 @@
 # RFC-0011: Two-input payments, private change and partial withdrawals
 
-**Status:** Open — bounded H13 mechanics passed offline; broader qualification and privacy remain open.
+**Status:** Open — bounded H13 mechanics passed offline and on TN10; broader qualification and privacy remain open.
 **Date:** 2026-10-20 (Australia/Sydney).
 **Branch / inspected baseline:** `shared-pool-four-wallet` / `228e5d0`.
 **Scope decision:** [ADR-0024](../adr/0024-two-input-private-payment-scope.md).
 **Observer and adversarial review:** [review](../../poc/shared-pool/TWO-INPUT-PRIVACY-REVIEW.md).
 
 The owner subsequently authorized committing the documentation and implementing
-and running this test **offline only**. Documentation was frozen in `c50855a`.
-This supersedes the documentation-only execution boundary below, not the security
-requirements. No TN10 run, funding, push or upstream publication is authorized.
+and running this test **offline only**, before the further TN10 authorization
+below. Documentation was frozen in `c50855a`. That first implementation did not
+authorize funding or publication and did not change the security requirements.
 The implementation remains an unaudited experimental candidate.
+
+**Further owner authorization, 2026-10-20 UTC:** run the same four-wallet workload
+on TN10. The live adapter retains the exact circuit, VK and covenant and adds
+ordinary funding, accepted-lineage reconstruction and isolated autonomous
+saved-proof clients. Qualify the adapter offline, then complete a fresh funded
+rehearsal before a fresh measured trial. Each wallet receives only its own
+saved capabilities and pinned descriptor/VK, fetches accepted history through
+RPC, validates it and broadcasts its own exit. The original prover must stop
+before broadcasts. This is the bounded four-depositor workload, not generic
+wallet recovery, unknown-depositor discovery or a new privacy study. Broader
+qualification gaps below are not silently marked complete. Keep all raw keys
+and unused capabilities outside Git; no push or upstream posting is authorized.
 
 **Observed follow-up:** [H13's report](../../poc/shared-pool/TWO-INPUT.md) records
 13 natively validated synthetic transactions, private change and its re-spend,
@@ -20,6 +32,13 @@ the harness supplies their current public state. A constructed capacity-boundary
 state also permits a saved terminal exit. This is not live-chain recovery or
 real-world privacy evidence. The original design intent below remains normative
 for the experiment; untested qualification obligations are identified in the report.
+
+**TN10 follow-up:** [the live report](../../poc/shared-pool/TWO-INPUT-TN10.md)
+records the same positive trace with actual native funding and all four wallets
+paid. Each isolated client fetches accepted history, reconstructs/validates it,
+and broadcasts its own saved exits. Six private proofs/authorizations remain
+identical; the prover is stopped before funding. This closes live execution for
+that trace, not the remaining broad qualification, recovery or privacy questions.
 
 ## Decision to investigate
 
@@ -56,7 +75,7 @@ single-parent observer can be carried over as measurements of this relation.
 | Native settlement | Historical private membership plus current public covenant checks | Retain separation; update two nullifiers atomically |
 | Counts | One nullifier per consumed positive note | Two public nullifiers per spend, including padding; counts are not liabilities |
 | Capacity | Depth-16 trees with existing rules | Depth-16 commitment/history trees; depth-17 nullifier tree; exits need no new commitment slots |
-| Evidence | Bounded offline and TN10 reports exist | Bounded genuine-proof/native offline trace; no v6 TN10 or privacy result |
+| Evidence | Bounded offline and TN10 reports exist | Bounded genuine-proof/native offline and TN10 trace; no v6 privacy measurement |
 
 Use a **new immutable candidate pool, provisionally v6**, with a new circuit,
 setup, VK and covenant. Existing pools, source variants and evidence stay intact.
@@ -424,8 +443,9 @@ script is 24,576 bytes. Main-trace mining mass is 330,497–331,628 with a
 screen. Selected fee is 40,000,000 sompi each, 520,000,000 total, without any
 broadcast or funds spent. The circuit has 4,372,824 constraints and a
 962,197,520-byte PK; warm proofs took 20.131–22.286 seconds. Cold loading took
-214.688 seconds. RAM peak, real relay acceptance and a tighter compute budget
-remain unqualified. Exact evidence and timing conditions are in the report.
+214.688 seconds. The TN10 follow-up records peak RAM and actual relay acceptance
+for the same trace; a tighter compute budget remains unqualified. Exact evidence
+and timing conditions are in the respective reports.
 The existing v5 21,893,200 / 22,005,200 / 21,934,400-sompi transfer/admission/exit
 fees at 100 sompi/mass are comparison baselines only, not v6 quotations.
 Count admission, merges, partial-withdrawal change and eventual drain when
@@ -434,8 +454,8 @@ proof size nor current L1 primitives establish affordable total cost.
 
 The implementing agent's second-pass review covers dummy-NF derivation, output
 padding, conservation/terminal induction, bootstrap and capacity. This does not
-replace independent review. Before funded qualification, close the report's
-remaining gaps and freeze the canonical profile, fee-rate envelope,
+replace independent review. Before broader funded qualification, close the report's
+remaining gaps and retain a frozen canonical profile, fee-rate envelope,
 `Vmin/Pmin/F_exit_budget`, native limits and encodings against the pinned SDK.
 The layout above remains a research candidate; changes must update this RFC/ADR.
 
@@ -447,9 +467,10 @@ fallback; native backing; boundary amounts; duplicate/reordered inputs; wrong st
 sequential NF updates; malformed delivery; and capacity exhaustion followed by
 independent drainage. The bounded offline run covers the central positive trace
 and controls described in the report; it does not exhaust this list. The
-capacity result uses a constructed prestate, not full-history drainage. Only
-after qualification and further authorization could a
-complete TN10 rehearsal/trial establish execution of this particular layout.
+capacity result uses a constructed prestate, not full-history drainage. The
+owner-authorized TN10 continuation repeats the central trace with this exact
+profile after adapter qualification. It establishes execution of that layout;
+it does not claim to complete the larger checklist.
 
 Stop or redesign if arbitrary dummy NFs can invalidate other users' claims,
 padding can create value or hide a skipped spend check, a terminal/capacity rule
@@ -459,4 +480,4 @@ make supported ordinary payments uneconomic, compare batching/another settlement
 architecture explicitly. If realistic public constraints still reconstruct
 relationships, report that privacy failure rather than increasing synthetic
 participant counts until a score improves. No production or strong-privacy
-decision follows from this specification or the bounded offline result.
+decision follows from this specification or the bounded offline/TN10 results.

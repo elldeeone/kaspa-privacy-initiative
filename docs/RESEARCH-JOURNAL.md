@@ -16,14 +16,17 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
-H13 now passes its **authorized bounded offline test**. The documentation was
+H13 now passes its **bounded offline and TN10 payment/exit trace**. The documentation was
 committed first as `c50855a`; the new immutable v6 circuit/covenant supports
 two-input payment, private change and partial withdrawal change that can be
 spent again. All four wallets receive payouts through six unchanged saved
 proofs, with correct native backing and zero remaining reserve. Genuine proofs
-and native validation use synthetic UTXOs; isolated exit workers receive public
-state from the harness. No v6 TN10 or real-world anonymity result follows.
-The [report](../poc/shared-pool/TWO-INPUT.md) records cost, controls and gaps;
+and native validation first used synthetic UTXOs. The live continuation adds
+actual funding and isolated clients that discover accepted history and submit
+their exits without the stopped prover or controller state. They share one host
+and one correct RPC, with four known depositors. General recovery and real-world
+anonymity do not follow. The [offline](../poc/shared-pool/TWO-INPUT.md) and
+[TN10](../poc/shared-pool/TWO-INPUT-TN10.md) reports record cost, controls and gaps;
 [RFC-0011](rfc/0011-two-input-private-payments.md) remains Open. Keep this relation
 as a research candidate, preserve older variants, and review merging/padding
 in a new observer before more privacy experiments. Independent review, broader
@@ -113,13 +116,60 @@ result. [Report](../poc/shared-pool/DEPOSITS.md).
 | H10 | Three later signed native deposits can each add two backed claims without invalidating saved exit proofs; all four wallets independently drain their eight notes. | Offline plus complete TN10 rehearsal/fresh trial passed. All four wallets paid using eight unchanged saved proofs; both reserves drained. | Retain this admission candidate for the population privacy study; Stage 2 remains open. Preserve v4 evidence; use a new immutable pool with the exact existing private relation/VK. |
 | H11 | Fresh latest-root proofs reduce full-coverage source inference by at least 25% in both frozen low-activity regimes, within the fee/delay screen. | Passed: 35.6% / 61.5% reduction through complete drain; 64 primary ledgers plus 17 controls. Two genuine native calibrations match; four no-prover drains pass, with zero extra native fee. | Retain fresh proofs/private fallbacks. The bounded study is complete; funding origins remain mostly exposed. Test equal net credits separately before a larger relation change. |
 | H12 | Equal net credits reduce deposit-origin inference through full drain while preserving independently payable saved/fresh exits. | Passed in 64 paired ledgers; 0/704 equal-net withdrawals uniquely assigned to a deposit. Genuine calibrations, saved/fresh adapter drains, complete TN10 rehearsal and measured trial passed; all four wallets independently paid. | Retain the bounded candidate funding policy on the existing relation; interleaving, mixed amounts and external knowledge remain open. |
-| H13 | Two private inputs can fund varied payments/change and partial withdrawals while every positive note retains an independent exit, including an unrelated unchanged saved fallback after later activity. | Supported for the bounded offline trace: 13 native transactions, four wallets paid, six unchanged saved proofs, private change re-spent, backing reconciled to zero. Constructed capacity-boundary exit passes; live recovery and broader qualification remain open. | Retain v6 as a research candidate. Selected fee 0.4 synthetic tKAS, warm proof about 20–22 seconds; review cost and merging/padding inference before further runs. No privacy outcome is claimed. |
+| H13 | Two private inputs can fund varied payments/change and partial withdrawals while every positive note retains an independent exit, including an unrelated unchanged saved fallback after later activity. | Supported for the bounded offline/TN10 trace: 13 pool operations, four wallets paid, six unchanged saved proofs, private change re-spent, backing reconciled to zero. Live clients independently reconstruct accepted history on one host/RPC. Constructed capacity-boundary exit passes; general recovery and broader qualification remain open. | Retain v6 as a research candidate. Selected fee 0.4 tKAS, warm proof about 20–22 seconds; review cost and merging/padding inference before further runs. No privacy outcome is claimed. |
 
 Candidate counts are marginal logical possibilities, not probabilities, people
 or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 UTC — TN10 continuation of H13
+
+- Observation: the complete funded rehearsal and fresh measured trial passed.
+  Each paid all four clients through six unchanged saved exits, including the
+  terminal payout. All 15 accepted transaction bodies/full hashes per run match;
+  both reserves are zero. Alice kept 11.89 private change; Bob withdrew 2.11,
+  then privately re-spent his 4.8 change. Exits discovered accepted history
+  themselves with the original prover stopped, receiving no controller state.
+- Cost: 0.4 tKAS per pool operation; 5.215345/5.216205 tKAS per full run,
+  including allocation/genesis. Eighteen ordinary coin-consolidation transactions
+  cost 0.049428 tKAS, bringing total test fees to 10.480978 tKAS. Warm proofs took
+  20.036–21.430 seconds; preparation took about 8.5 minutes per run and peaked
+  at 6.44 GiB RSS. Native saved-exit replay/build was 40–60 ms in the rehearsal,
+  excluding RPC time. The circuit, covenant and VK are unchanged from `bf64f3d`.
+- Qualification correction: descriptor reserialization initially masked all
+  negative fixtures behind a hash mismatch. Those results are invalid evidence.
+  Exact-byte copying and expected-cause assertions corrected the six controls;
+  the gate passed before pool funding. Ten ordinary consolidation transactions
+  had already completed. No proof or covenant check was weakened.
+- Evidence: [report](../poc/shared-pool/TWO-INPUT-TN10.md),
+  [measured receipt](../poc/shared-pool/evidence/2026-10-20-two-input-tn10/trial/result.json),
+  [accepted bodies](../poc/shared-pool/evidence/2026-10-20-two-input-tn10/trial/chain-confirmed.json)
+  and [public-only export replay](../poc/shared-pool/evidence/2026-10-20-two-input-tn10/public-replay-check.json).
+  Both exported traces replay without private files or network. Only accepted
+  bodies, public verification material and allowlisted checks are committed.
+- Decision: retain this bounded payment relation for review. This closes the
+  requested TN10 mechanics test, not Stage 2, general recovery or strong
+  privacy. Review merging/padding inference and cost before another study;
+  no further experiment or upstream publication follows automatically.
+
+- Test contract: repeat the same 13 pool operations after offline adapter
+  qualification, with a complete rehearsal before a fresh measured identity.
+  Preserve exact proof/authorization bytes and backing; each client gets only
+  its own saved capabilities and descriptor/VK, not the controller's current
+  state. Ordinary allocation/genesis are counted separately. Never repeat a
+  submission within a used identity.
+- Boundary: four generated test wallets on one host, using the owner's correct TN10
+  RPC view and a pinned four-depositor source set. This is not generic recovery,
+  multi-node verification, unknown-depositor support or a privacy measurement.
+  Shared test funding is one public cluster. Ordinary payouts may be recycled;
+  this creates no privileged reserve withdrawal path.
+- Falsifier: any accepted value mismatch, modified private proof, unavailable
+  saved exit within the declared model, or reliance on the original prover's
+  keys/current state blocks success. Record full accepted transaction bodies and
+  full hashes, script/fee measurements and isolated process exits. Keep private
+  wallet files, PK and unpublished alternative capabilities outside Git.
 
 ### 2026-10-19 UTC — Two-input offline mechanics (H13)
 

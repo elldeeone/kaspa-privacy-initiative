@@ -1,12 +1,14 @@
 # Four-wallet shared native-KAS pool — TN10
 
-Latest measured follow-up: [H13 two-input payments and private change](TWO-INPUT.md)
-passes its bounded **offline** test: private change, partial withdrawal, four
+Latest measured follow-up: [H13 on TN10](TWO-INPUT-TN10.md), following the
+[offline test](TWO-INPUT.md), passes private change, partial withdrawal, four
 wallets paid through six unchanged saved proofs, and zero reserve. This is a new
 immutable v6 relation/setup; existing proofs/evidence remain in their original
 versions. The [specification](../../docs/rfc/0011-two-input-private-payments.md)
 and [observer review](TWO-INPUT-PRIVACY-REVIEW.md) preserve the boundaries: synthetic
-UTXOs, supplied public state, no new privacy measurement and no v6 TN10 run.
+UTXOs in the original offline run. The live clients instead reconstruct accepted
+state from RPC and submit their own exits, with the prover stopped. This is a
+four-depositor fixture on one host/RPC; no new privacy measurement is claimed.
 
 Earlier measured follow-up: [H12 equal net deposits](NORMALIZED-DEPOSITS.md) compares
 varied, equal gross and equal net funding with fresh proofs. It passes the

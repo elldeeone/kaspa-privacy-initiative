@@ -3,6 +3,7 @@ mod audit;
 pub mod circuit;
 pub mod covenant;
 pub mod harness;
+pub mod live;
 pub mod tree;
 use crate::{
     Result, native,

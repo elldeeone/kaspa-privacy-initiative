@@ -1,0 +1,71 @@
+{
+  "cause": "Descriptor reserialization changed its byte hash and masked the intended rejection checks.",
+  "correctedBeforePoolFunding": true,
+  "correctedControls": [
+    {
+      "error": "two-input live adapter: missing public history",
+      "name": "missing-history",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: reserve lineage discontinuity",
+      "name": "missing-middle",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: saved descriptor identity",
+      "name": "wrong-descriptor",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: transaction is not canonical/ID mismatch",
+      "name": "inflated-reserve",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: failed to verify the signature script: ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+      "name": "corrupt-saved-proof",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: drained pool",
+      "name": "second-spend",
+      "rejected": true
+    }
+  ],
+  "fix": "Copy unchanged descriptor bytes exactly; assert the intended cause for each rejection.",
+  "initialControls": [
+    {
+      "error": "two-input live adapter: saved descriptor identity",
+      "name": "missing-history",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: saved descriptor identity",
+      "name": "missing-middle",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: saved descriptor identity",
+      "name": "wrong-descriptor",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: saved descriptor identity",
+      "name": "inflated-reserve",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: saved descriptor identity",
+      "name": "corrupt-saved-proof",
+      "rejected": true
+    },
+    {
+      "error": "two-input live adapter: saved descriptor identity",
+      "name": "second-spend",
+      "rejected": true
+    }
+  ],
+  "initialNegativeControlsValidEvidence": false,
+  "ordinaryConsolidationBeforeCorrection": true
+}

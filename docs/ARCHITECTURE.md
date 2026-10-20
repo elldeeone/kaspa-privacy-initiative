@@ -5,10 +5,13 @@
 [RFC-0011](rfc/0011-two-input-private-payments.md) defines a new compact pool
 relation for two private inputs, two padded outputs, private payment change and
 partial withdrawals. [ADR-0024](adr/0024-two-input-private-payment-scope.md)
-records the scope and subsequent offline implementation. [H13](../poc/shared-pool/TWO-INPUT.md)
-passes its bounded genuine-proof/native offline trace: private change, partial
+records the scope and subsequent implementation. H13 passes its bounded
+[offline](../poc/shared-pool/TWO-INPUT.md) and
+[TN10](../poc/shared-pool/TWO-INPUT-TN10.md) trace: private change, partial
 withdrawal, four wallets paid through six unchanged saved proofs, and zero
-reserve. Public state is supplied by the harness; this is not live recovery.
+reserve. The live clients discover and validate accepted history themselves,
+without the stopped prover or controller state. They share one host/RPC and
+pin four known funding sources; this is not general wallet recovery.
 Retain historical private authorization and current native covenant settlement,
 with a no-append full-exit fallback, exact claim-funded fees and no privileged
 withdrawal key. Padding requires new nullifier/capacity rules; terminal release

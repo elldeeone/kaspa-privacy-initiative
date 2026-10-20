@@ -2,8 +2,9 @@
 
 The experimental [two-input relation](docs/rfc/0011-two-input-private-payments.md)
 adds zero-value padding, merged private inputs and partial withdrawals with
-private change. Its [bounded offline trace](poc/shared-pool/TWO-INPUT.md) passes
-native validation with four wallets paid through six unchanged saved proofs;
+private change. Its [bounded offline trace](poc/shared-pool/TWO-INPUT.md) and
+[TN10 continuation](poc/shared-pool/TWO-INPUT-TN10.md) pass with four wallets
+paid through six unchanged saved proofs;
 earlier variants and evidence remain unchanged. Critical obligations are constrained dummy-nullifier derivation,
 sequential current NF insertions, all-path value/range checks, native funding
 and payout binding, and termination by authorized reserve debit rather than
@@ -13,10 +14,15 @@ constructed capacity-boundary state supports a genuine saved terminal proof,
 but is not a replayed valid full-capacity history. New costs are measured;
 independent review of the composition and broader qualification remain open.
 
-This adapter supplies current public state/UTXOs to isolated workers; it does
-not itself establish chain discovery or recovery from independent public
-sources. Workers have no private keys, PK or external network; the generating
-controller knows the fixture's secrets. The new experimental single-party
+The original offline adapter supplies current public state/UTXOs to isolated
+workers. The live adapter instead downloads accepted history and checks native
+funding/lineage in each client's namespace; it supplies no current controller
+state. Clients have their own saved capabilities and pinned descriptor/VK,
+with no wallet keys or PK. The generating controller still knows the fixture's
+secrets. All four clients share one host and one correct RPC view, and the
+descriptor restricts discovery to four known depositors. This does not test
+malicious RPCs, pruning, rollback or contention; the RPC also sees client access.
+The new experimental single-party
 setup remains a soundness assumption. The 0.6-tKAS floor and 0.4-tKAS selected
 fee cover the declared local envelope, not arbitrary future fee markets.
 

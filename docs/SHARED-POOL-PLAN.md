@@ -3,14 +3,17 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H13's authorized bounded offline implementation passed:
+**Current position:** H13's authorized bounded offline and TN10 implementation passed:
 two private inputs, spendable private change, partial withdrawal and four wallets
-paid through six unchanged saved proofs. Thirteen synthetic native transactions
-drain the reserve to zero. The [report](../poc/shared-pool/TWO-INPUT.md) records
+paid through six unchanged saved proofs. Thirteen pool operations drain the
+reserve to zero; TN10 adds ordinary allocation and genesis. The
+[live report](../poc/shared-pool/TWO-INPUT-TN10.md) records
 costs, controls and limitations. [RFC-0011](rfc/0011-two-input-private-payments.md)
 remains Open; this supplies candidate payment mechanics, not practical privacy
-or live recovery. The original spec is committed as `c50855a`. The authorization
-ends with the offline work; no v6 TN10 trial or new privacy run is authorized.
+or general recovery. Live clients reconstruct accepted history without the
+original prover/controller state, within a four-depositor, one-host/RPC fixture.
+The original spec is committed as `c50855a`. No new privacy run or publication
+is part of this bounded continuation.
 
 **Earlier completed evidence:** H11's bounded fresh-proof screen is complete. H12's
 equal-net funding comparison also passes its frozen offline screen: all four
@@ -54,7 +57,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | Bounded H11/H12 complete; H13 mechanics pass offline, broader qualification open | Review the v6 relation/limits and use a correct merging/padding observer before varied-payment privacy claims. |
+| 2. Practical privacy | 5 | Bounded H11/H12 complete; H13 mechanics pass offline and TN10, broader qualification open | Review the v6 relation/limits and use a correct merging/padding observer before varied-payment privacy claims. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |
@@ -151,10 +154,11 @@ an operator network without evidence that it is needed.
 specifies two-input/two-output normal payments, partial withdrawal change and a
 no-append full-exit fallback. [ADR-0024](adr/0024-two-input-private-payment-scope.md)
 records the documentation-first decision and subsequent owner authorization.
-The bounded offline implementation passes with private change, partial withdrawal,
-six unchanged saved-proof exits and all four wallets paid. Its isolated workers
-use supplied public state; the capacity test uses a constructed boundary state.
-This does not complete Stage 2, broader mechanical qualification or live recovery.
+The bounded offline and TN10 implementation passes with private change, partial
+withdrawal, six unchanged saved-proof exits and all four wallets paid. Live
+clients discover accepted state through RPC without operator state; the capacity
+test still uses a constructed boundary state. This does not complete Stage 2,
+broader mechanical qualification or general wallet recovery.
 
 Before broader qualification, resolve review objections concerning dummy NF injection,
 value conservation, terminal accounting, capacity and proof preservation. Stop

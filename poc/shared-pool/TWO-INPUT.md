@@ -1,5 +1,9 @@
 # Two-input payments and saved-proof exits — offline result
 
+Follow-up: the same workload now has a separate
+[funded TN10 report](TWO-INPUT-TN10.md). This page preserves the original offline
+result and its evidence boundary.
+
 **Result: the bounded H13 payment/exit test passed offline.** Two receipts funded
 a payment and private change; a partial withdrawal left change that was spent
 again; all four synthetic wallets received payouts through six unchanged saved
