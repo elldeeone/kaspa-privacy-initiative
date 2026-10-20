@@ -16,6 +16,14 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
+H17's [common-size partial payout test](../poc/shared-pool/COMMON-PAYOUT.md)
+is now authorized and running offline. Size and criteria were committed in
+`71d2aca` before implementation/observation: one 200,000,000-sompi payout per
+wallet, all final remainders and fees included. The independent-exit calibration
+reuses v6 and its parameters. No new privacy result is claimed yet. Its four
+extra operations cost 160,000,000 sompi and add 40 synthetic minutes to complete
+cashout; the existing 30-minute delay target is not changed.
+
 H16's [participant-disclosure study](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
 fails its strict screen: one participant's records expose two additional
 early fresh-policy payment sources. Across separate participant disclosures,
@@ -34,8 +42,8 @@ participant's own deposit leaves only the bootstrap source. Later fresh exits
 do not create additional unique payment links in these fixtures, but participant
 records expose some partial and full withdrawals. The proposed next question is
 common-size partial payouts/private remainder through complete drainage, scored
-against original payments and with every fee included. It is not implemented,
-authorized as a new run, or a claimed remedy.
+against original payments and with every fee included. The subsequent H17
+authorization above implements that question; it is not a claimed remedy.
 
 H14's [genuine calibration](../poc/shared-pool/TWO-INPUT-RECONSTRUCTION.md)
 remains unchanged: all four wallets paid, seven saved proofs preserved, both
@@ -151,6 +159,18 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 UTC — Common-size partial payouts (H17), execution started
+
+- Owner authorized this bounded offline test, independent exits, and code,
+  results and journal on `shared-pool-four-wallet`.
+- `71d2aca` freezes Q=200,000,000 sompi, the four original workloads,
+  original-claim provenance metrics, both horizons and rejection criteria.
+- Eight new small controls pass, including independent integer/provenance
+  enumeration. Twenty blinded observations and one genuine v6 calibration
+  are running; inference is not scored until all observers finish.
+- No consensus/circuit/covenant/parameter change, TN10 broadcast, funds, push
+  or upstream posting. See [scope](../poc/shared-pool/COMMON-PAYOUT-SPEC.md).
 
 ### 2026-10-20 UTC — One participant's records (H16)
 

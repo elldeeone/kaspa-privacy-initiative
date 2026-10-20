@@ -85,10 +85,36 @@ fn isolated(r: &ExitRequest, path: &Path) -> Result<Value> {
 }
 
 pub(super) fn run(params: &Path, input: &Path, out: &Path) -> Result<()> {
+    run_inner(params, input, out, None)
+}
+
+/// Opt-in H17 calibration; the historical H14 command retains its old behavior.
+pub(super) fn common(params: &Path, input: &Path, out: &Path) -> Result<()> {
+    run_inner(params, input, out, Some(200_000_000))
+}
+
+fn run_inner(params: &Path, input: &Path, out: &Path, common: Option<u64>) -> Result<()> {
     use std::os::unix::fs::PermissionsExt;
     let plan: Plan = read(input)?;
     if plan.schema != "kpi-h14-private-plan-v1" {
         return Err("study plan schema".into());
+    }
+    let mut optional = BTreeMap::new();
+    for s in &plan.steps {
+        if common == Some(s.payout) && s.mode == 1 {
+            if s.inputs.len() != 1
+                || s.values[0] < 60_000_000
+                || s.values[1] != 0
+                || optional.insert(s.inputs[0], s.owners[0]).is_some()
+            {
+                return Err("invalid common-payout fixture".into());
+            }
+        }
+    }
+    if common.is_some()
+        && (optional.len() != 4 || (0..4).any(|owner| !optional.values().any(|v| *v == owner)))
+    {
+        return Err("common-payout fixture needs four independent owners".into());
     }
     fs::create_dir(out)?;
     fs::set_permissions(out, fs::Permissions::from_mode(0o700))?;
@@ -125,6 +151,8 @@ pub(super) fn run(params: &Path, input: &Path, out: &Path) -> Result<()> {
     };
     let mut notes = BTreeMap::from([(0, (0usize, initial))]);
     let mut saved = BTreeMap::new();
+    let mut before_partial = BTreeMap::new();
+    let mut optional_checks = Vec::new();
     let mut proofs = Vec::new();
     for s in &plan.steps {
         if l.state.commitments.len() != s.count_before as usize {
@@ -174,11 +202,49 @@ pub(super) fn run(params: &Path, input: &Path, out: &Path) -> Result<()> {
         let t = Instant::now();
         let b = prove(&pk, c, b)?;
         proofs.push(json!({"kind":"operation","milliseconds":t.elapsed().as_millis()}));
+        let old = if common == Some(s.payout) && s.mode == 1 {
+            let old: &Bundle = before_partial
+                .get(&s.inputs[0])
+                .ok_or("missing pre-partial saved exit")?;
+            if old.auth()?.nfs[0] != b.auth()?.nfs[0] {
+                return Err("partial and original exit nullifiers differ".into());
+            }
+            let request = ExitRequest {
+                domain: d,
+                state: l.state.clone(),
+                reserve: l.reserve.clone(),
+                vk: hex::encode(&l.vk),
+                bundle: old.clone(),
+            };
+            let rebuilt = isolated(&request, &out.join(format!("optional-{}.json", s.label)))?;
+            let mut alternate = l.clone();
+            alternate.accept(old, None)?;
+            if rebuilt["tx"] != alternate.rows.last().unwrap()["tx"]
+                || alternate.accept(&b, None).is_ok()
+            {
+                return Err("original exit did not exclude partial withdrawal".into());
+            }
+            Some(old.clone())
+        } else {
+            None
+        };
         l.accept(
             &b,
             fund.as_ref()
                 .map(|u| (u, &wallets[s.depositor.unwrap()].native)),
         )?;
+        if let Some(old) = old {
+            if l.clone().accept(&old, None).is_ok() {
+                return Err("partial withdrawal did not exclude original exit".into());
+            }
+            optional_checks.push(json!({
+                "original_position":s.inputs[0],"owner":s.owners[0],
+                "saved_before_partial":true,"unchanged_authorization":true,
+                "isolated":true,"wallet_keys_mounted":false,"proving_key_available":false,
+                "full_wins_partial_rejected":true,"partial_wins_full_rejected":true,
+                "old_proof_sha256":hex::encode(hash(&hex::decode(&old.proof)?))
+            }));
+        }
         if l.reserve.amount != s.reserve_out {
             return Err("plan reserve differs".into());
         }
@@ -195,6 +261,16 @@ pub(super) fn run(params: &Path, input: &Path, out: &Path) -> Result<()> {
                 )?;
             }
             notes.insert(pos, (owner, n.clone()));
+            if let Some(expected_owner) = optional.get(&pos) {
+                if *expected_owner != owner {
+                    return Err("optional cashout owner differs".into());
+                }
+                let t = Instant::now();
+                let old = fallback(&pk, d, &l.state, &wallets[owner], &n, pos)?;
+                proofs.push(json!({"kind":"pre_partial_saved_exit",
+                    "milliseconds":t.elapsed().as_millis()}));
+                before_partial.insert(pos, old);
+            }
             if let Some(dr) = plan.drains.iter().find(|dr| dr.position == pos) {
                 if dr.owner != owner
                     || dr.value != n.value
@@ -273,7 +349,8 @@ pub(super) fn run(params: &Path, input: &Path, out: &Path) -> Result<()> {
         &out.join("summary.json"),
         &json!({"offline_only":true,"synthetic_utxos":true,
         "real_groth16_proofs":true,"load_ms":load_ms,"elapsed_ms":start.elapsed().as_millis(),
-        "vk_sha256":hex::encode(hash(&l.vk)),"proofs":proofs,"arms":arms}),
+        "vk_sha256":hex::encode(hash(&l.vk)),"proofs":proofs,"arms":arms,
+        "common_payout_sompi":common,"optional_exit_checks":optional_checks}),
     )?;
     Ok(())
 }

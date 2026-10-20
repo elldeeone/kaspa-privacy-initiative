@@ -611,6 +611,11 @@ pub fn run() -> Result<()> {
             Path::new(a.get(3).ok_or("study PARAMS PLAN OUT")?),
             Path::new(a.get(4).ok_or("study PARAMS PLAN OUT")?),
         ),
+        Some("common-study") => study::common(
+            Path::new(a.get(2).ok_or("common-study PARAMS PLAN OUT")?),
+            Path::new(a.get(3).ok_or("common-study PARAMS PLAN OUT")?),
+            Path::new(a.get(4).ok_or("common-study PARAMS PLAN OUT")?),
+        ),
         Some("audit") => super::audit::run(
             Path::new(a.get(2).ok_or("audit PRIVATE_RESULT OUT")?),
             Path::new(a.get(3).ok_or("audit PRIVATE_RESULT OUT")?),
@@ -645,7 +650,7 @@ pub fn run() -> Result<()> {
             );
             Ok(())
         }
-        _ => Err("setup DIR | demo PARAMS OUT | controls | exit REQUEST | boundary REQUEST OUT | audit PRIVATE_RESULT OUT | study PARAMS PLAN OUT | verify-study PUBLIC_TRACE OUT".into()),
+        _ => Err("setup DIR | demo PARAMS OUT | controls | exit REQUEST | boundary REQUEST OUT | audit PRIVATE_RESULT OUT | study PARAMS PLAN OUT | common-study PARAMS PLAN OUT | verify-study PUBLIC_TRACE OUT".into()),
     }
 }
 
