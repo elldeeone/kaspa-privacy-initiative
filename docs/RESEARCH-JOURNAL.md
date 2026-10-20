@@ -58,9 +58,53 @@ of three simple attacks guessed 5/99 persistent amounts within 10%, none exactly
 All predictions were sealed before scoring and every history passed both original
 full-model truth checks. These bounded results are not a privacy pass. The M2
 recovery trace itself establishes no privacy result.
+The subsequent [native address-reuse diagnostic](../poc/shared-pool/ADDRESS-REUSE.md)
+completed seven genuine offline proofs and found a conditional internal-payment
+disclosure. Review funding/exit key separation next; the 32-role gate remains
+open and no wallet derivation change has been made.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
+
+## 2026-10-21 — Native funding/exit address reuse
+
+The owner authorized committing/pushing the completed population checkpoint,
+then testing native script reuse offline. Checkpoint `dbf4dac` was pushed to
+`origin/shielded-kas-research`; the new experiment is a local continuation.
+The [prospective specification](../poc/shared-pool/ADDRESS-REUSE-SPEC.md) and
+executable/dependency bytes were frozen before fresh wallet generation.
+
+**Observed:** seven genuine proofs completed two matched economic histories:
+20-tKAS founding, 12 admission, 19.2 internal payment and terminal 30.4 payout.
+Each reconciles 32 = 30.4 payout + 1.6 pool fees. Funding index 3 repeats B's
+mandated exit script; index 0 avoids the equality. Both histories pass native
+validation and independent replay. There were no funds or broadcasts; ancestry
+and expected heads are synthetic. Four invalid wallet requests were rejected.
+
+**Privacy result:** both isolated predictions were sealed before either private
+scorer ran. CP-SAT and Z3 force sender A, recipient B and exactly 19.2 tKAS only
+for the matching final history when the script-derived owner link is included.
+The same transcript without that link, the different-index control, and all
+creation-horizon profiles leave those fields ambiguous. Actual truth satisfies
+both encodings in both arms. Seven control groups passed; a second author-team
+review independently checked 90 saved hypothetical assignments and the public
+scripts, anchors, native replay identities and observation/scoring order.
+
+**Limits:** this is a two-funded-wallet diagnostic, not the 32-role workload.
+The full three-field deduction assumes known distinct funding-owner pseudonyms,
+self-bootstrap with zero change, self-admission and own-key/common-owner exits.
+Generic wallet PAY does not enforce self-bootstrap. Without that assumption,
+A could bootstrap to B and B could self-pay; sender uniqueness no longer follows.
+The report separately gives an analytic recipient deduction from positive last
+PAY output, immediate full drainage, valid backing/conservation and the exit
+ownership binding; that is not a newly tested relaxed-bootstrap solver model.
+No ambiguity score establishes real-world anonymity or cryptographic security.
+
+**Next:** review separate funding and exit key derivation with explicit backup
+version/recovery behavior. Keep the failed current behavior and controls as
+regressions. Do not silently change old backup interpretation or mistake removal
+of this link for a fix to amount/timing inference. No protocol/key change or new
+funded test is part of this result. [Report and evidence](../poc/shared-pool/ADDRESS-REUSE.md).
 
 ## Evidence position through H18
 

@@ -31,6 +31,19 @@ indices stay out of public transaction wrappers.
 The offline test isolates recovery from original wallet/controller files, but
 does not claim endpoint compromise, independent-host or network privacy protection.
 
+The [native address-reuse test](poc/shared-pool/ADDRESS-REUSE.md) demonstrates
+that keeping derivation indices out of wrappers does not prevent native script
+reuse. Funding and exits share a key namespace; an allowed matching index
+repeats the native spending condition. With declared funding-owner associations
+and self-bootstrap/current-wallet policies, the tested sparse final history
+then exposes a previously ambiguous sender, recipient and amount. Removing
+self-bootstrap removes the sender-uniqueness conclusion. The report separates
+a narrower analytic recipient deduction from that measured stronger model.
+These ownership bindings are assumptions, not general v6 circuit guarantees.
+Neither the different-index control nor this diagnostic qualifies the 32-role
+privacy promise. Key separation and recovery behavior require a separate design
+decision; no key or backup interpretation changes in this test.
+
 [H18](poc/shared-pool/SCHEDULED-PAYOUT.md) gives the chain observer
 the declared remainder-delay distribution and service/queue assumptions, in
 addition to the existing amount and wallet rules. Each participant disclosure

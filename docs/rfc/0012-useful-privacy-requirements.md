@@ -338,7 +338,11 @@ three fixed simple attacks guesses 5/99 persistent amounts within 10% and none
 exactly. A weaker local exact-disclosure search has separate bounded results.
 Four request sets, limited priors and incomplete attack coverage cannot qualify
 the rate thresholds below; all adopted gates and statistical qualification remain
-open.
+open. The separate [native script-reuse diagnostic](../../poc/shared-pool/ADDRESS-REUSE.md)
+confirms conditional internal-payment disclosure in a sparse two-funded-wallet
+history. Its known startup/ownership assumptions and small population do not
+instantiate this RFC's 32-role qualification; they motivate review of the wallet
+key scheme without changing any requirement or threshold.
 
 Use interleaved admissions, mixed amounts and sparse periods, with held-out
 payment graphs. Give observers C and declared P records, including known common

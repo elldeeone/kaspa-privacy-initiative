@@ -1,6 +1,6 @@
 # Shielded native KAS research plan
 
-Updated: 2026-10-20 (Australia/Sydney). Branch: `shielded-kas-research`.
+Updated: 2026-10-21 (Australia/Sydney). Branch: `shielded-kas-research`.
 Evidence baseline: `c3afb1b94f023057bfe99d780271f6de52c43da4`.
 
 ## Destination and current decision
@@ -139,6 +139,14 @@ the strongest of three simple attacks guessed 5/99 persistent amounts within 10%
 and none exactly (constant baseline 3/99). Four request sets and these limited
 attacks do not qualify privacy. This failure-seeking stage does not replace the
 powered rate study.
+The subsequent [native address-reuse test](../poc/shared-pool/ADDRESS-REUSE.md)
+demonstrates an allowed funding/exit script collision with seven genuine offline
+proofs. In its two-funded-wallet diagnostic, the link resolves the internal
+sender, recipient and exact amount under known funding associations and a
+declared self-bootstrap schedule; the same-history ablation and different-index
+control remain ambiguous. This is a concrete wallet privacy problem, not a
+32-role rate verdict. Review separate funding/exit derivation and backup recovery
+before broader candidate expansion; no derivation change is adopted yet.
 The owner challenged the work order
 after the milestone 2 commit `bf4505c`: test whether the integrated candidate can
 meet the intended privacy promise before investing further in that candidate.

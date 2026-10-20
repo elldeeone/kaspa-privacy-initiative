@@ -22,6 +22,13 @@ two original-backup restores, payment/change and fresh terminal exit.
 Synthetic ancestry, offline expected heads and same-host isolation remain;
 new chain acceptance and general recovery remain open.
 
+The [native script-reuse diagnostic](../poc/shared-pool/ADDRESS-REUSE.md) confirms
+that caller-selected funding indices can collide with this wallet's exit
+derivation. A sparse, known-startup history then exposes an internal payment
+through the repeated native script. This motivates a funding/exit key-separation
+and recovery design review; the experiment changes no architecture, derivation,
+backup format or invariant. Its conditional disclosure is not a 32-role verdict.
+
 [ADR-0027](adr/0027-shielded-payment-targets.md) adopts the
 [RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md) and closes
 milestone 1. These targets constrain future architecture choices; they do not

@@ -60,6 +60,21 @@ Neither follow-up changes the workload, target eligibility, asset model or
 RFC-0012 thresholds. The [results](../../poc/shared-pool/POPULATION-PRIVACY.md)
 must distinguish completed measurements from the unresolved whole-history search.
 
+## Native script-reuse diagnostic
+
+The owner-authorized [offline follow-up](../../poc/shared-pool/ADDRESS-REUSE.md)
+confirms an allowed native funding/exit script collision using seven fresh
+proofs. Its sparse two-funded-wallet case exposes sender, recipient and exact
+amount only after the link is included, under known funding associations and
+the declared self-bootstrap/current-wallet policies. Same-transcript ablation,
+creation horizons and the different-index control leave those fields ambiguous.
+Generic wallet PAY does not enforce self-bootstrap, so this is a conditional
+diagnostic, not a three-field disclosure claim for arbitrary histories.
+
+The finding motivates a separate funding/exit key-separation and recovery design
+review. It does not instantiate or replace this RFC's 32-role qualification,
+and does not relax RFC-0012. The frozen population results remain unchanged.
+
 ## Decision rules and remaining work
 
 A supported, previously undisclosed fact is a counterexample only after both
@@ -80,4 +95,6 @@ advantage and selective-precision comparison. Infrastructure observations and
 independent real users remain separate obligations.
 
 No wallet, circuit, covenant, key derivation or asset model changes are proposed.
-All security invariants remain unchanged; no funds, broadcasts or new proofs.
+All security invariants remain unchanged. The population measurements generated
+no native proofs. The separate address-reuse diagnostic generated seven offline
+proofs with synthetic ancestry; neither experiment used funds or broadcasts.

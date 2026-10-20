@@ -111,8 +111,11 @@ The [calibration decoder](early_privacy_surface.py) and
 Proof bytes, ciphertext bytes, nullifier/tree witnesses, signatures, real native
 scripts, infrastructure observations and real time are not synthesized here.
 Their complete current-version qualification remains separate. In particular,
-funding/exit derivation namespace reuse remains an untested native-wallet issue;
-opaque modeled destinations do not establish its absence.
+funding/exit derivation namespace reuse is absent from this population model;
+opaque modeled destinations do not establish its absence in the wallet. A
+[subsequent seven-proof native diagnostic](ADDRESS-REUSE.md) confirms the collision
+and conditional internal disclosure in a separate two-funded-wallet history.
+It does not change the frozen population model or qualify its 32-role claim.
 
 ## Local disclosure result
 

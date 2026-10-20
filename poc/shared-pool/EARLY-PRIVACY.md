@@ -40,7 +40,10 @@ index equal to a later exit's minimum note position can reuse a native script.
 This is a source-derived allowed-use boundary-link risk, not an executed exploit
 or automatically a disclosure of an undisclosed internal payment. The existing
 M2 trace does not exhibit that collision. Changing the key scheme is not part of
-this test.
+this test. A [subsequent native experiment](ADDRESS-REUSE.md) executes the
+collision and a different-index control, demonstrating conditional internal
+disclosure in a separate sparse history. It does not change this calibration's
+original evidence or conclusions.
 
 The [primary-source review](../../research/shielded-kas-privacy-surface-sources-2026-10-20.md)
 records why fixed change order, public native values, counterparty knowledge,
@@ -129,5 +132,6 @@ baselines and statistical procedures. Full native bytes remain available to
 attacks; a restricted arithmetic model does not exhaust them. Infrastructure,
 network, cryptographic assurance and known fee/latency gaps remain separate.
 Next freeze and execute that held-out evaluation before dedicated milestone 3
-work. Keep the source-derived address-reuse path as a separate untested case;
-this calibration is neither a supported-use-case failure nor a privacy pass.
+work. The address-reuse path has since been tested separately in
+[the native diagnostic](ADDRESS-REUSE.md); this calibration itself is neither a
+supported-use-case failure nor a privacy pass.
