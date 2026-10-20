@@ -17,7 +17,7 @@ does not by itself close a roadmap phase.
 ## Current position
 
 H18's [scheduled-payout scope](../poc/shared-pool/SCHEDULED-PAYOUT-SPEC.md)
-is being frozen before implementation. The owner authorized the policy,
+was frozen in `b3fe70e` before implementation. The owner authorized the policy,
 new offline timing-aware workloads and conditional TN10 validation. Keep Q at
 2 tKAS; test bounded local remainder scheduling, immediate exits and full
 drainage against full-coverage guesses. Stage 2 stays open. A failed offline
@@ -174,6 +174,23 @@ or joint-history counts. Synthetic results must never become claims of
 real-world anonymity. Passing tests is not proof of cryptographic correctness.
 
 ## Experiment record
+
+### 2026-10-20 UTC — Independently scheduled common payouts (H18), started
+
+- The owner authorized the frozen local policy, offline comparison and
+  conditional native/TN10 validation. Q stays at 200,000,000 sompi, with
+  a 5–15 minute local remainder timer and immediate saved-exit override.
+- `b3fe70e` commits the policy, observer, 24 new paired ledgers, two controls,
+  decision thresholds and private master-seed hash before implementation.
+- Nine controls pass: tiny exhaustive amount/ownership/source enumeration,
+  the complete timing-score objective, queue boundaries, two-input preservation,
+  full accounting, wrong amounts, immediate exits, parsing and missing-matrix
+  rejection. No new cryptographic or native implementation is introduced.
+- The observer receives public fields and at most one participant's records,
+  with the same metadata isolation as H16. All predictions must finish before
+  hidden-truth scoring. A failed gate stops before TN10.
+- [Author's second pass](../poc/shared-pool/SCHEDULED-PAYOUT-REVIEW.md) and
+  [source refresh](../research/scheduled-payout-sources-2026-10-20.md).
 
 ### 2026-10-20 UTC — Common-size partial payouts (H17)
 
