@@ -1,0 +1,32 @@
+{
+  "schema": "kpi-h14-frozen-v1",
+  "fee_sompi": 40000000,
+  "note_floor_sompi": 60000000,
+  "payout_floor_sompi": 10000000,
+  "interval_minutes": 10,
+  "amount_rows": [
+    {"deposits": [2000000000,1100000000,1200000000,1300000000], "bootstrap_first":900000000, "P1":431000000,"P2":817000000,"P3":323000000,"P4":611000000,"P5":541000000,"P6":473000000,"W1":127000000,"W2":213000000},
+    {"deposits": [2200000000,1400000000,1000000000,1600000000], "bootstrap_first":1000000000, "P1":537000000,"P2":1023000000,"P3":419000000,"P4":807000000,"P5":653000000,"P6":583000000,"W1":163000000,"W2":191000000}
+  ],
+  "operations": {
+    "bootstrap":{"inputs":["genesis:0"],"owners":[0,0]},
+    "DB":{"depositor":1,"owners":[1,1]},
+    "DC":{"depositor":2,"owners":[2,2]},
+    "DD":{"depositor":3,"owners":[3,3]},
+    "P1":{"inputs":["bootstrap:0"],"owners":[1,0]},
+    "P2":{"inputs":["P1:0","DB:0"],"owners":[2,1]},
+    "P3":{"inputs":["P2:0"],"owners":[3,2]},
+    "P4":{"inputs":["P3:0","DD:0"],"owners":[0,3]},
+    "W1":{"inputs":["P2:1"],"owners":[1,1]},
+    "P5":{"inputs":["P4:0","P1:1"],"owners":[2,0]},
+    "W2":{"inputs":["DC:0"],"owners":[2,2]},
+    "P6":{"inputs":["P3:1","P5:0"],"owners":[1,2]}
+  },
+  "schedules": [
+    ["bootstrap","P1","DB","P2","DC","P3","DD","P4","W1","P5","W2","P6"],
+    ["bootstrap","DC","P1","DB","DD","P2","W1","P3","W2","P4","P5","P6"]
+  ],
+  "drains": ["bootstrap:1","W1:0","W2:0","P4:1","P5:1","P6:0","P6:1"],
+  "reverse_drain_for_schedule": 1,
+  "native_calibration": {"amount_row":0,"schedule":0,"arms":["fresh","saved"]}
+}

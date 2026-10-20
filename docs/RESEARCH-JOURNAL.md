@@ -16,6 +16,12 @@ does not by itself close a roadmap phase.
 
 ## Current position
 
+H14 is now frozen before generation/scoring: four paired offline ledgers test
+whether fresh exits retain multiple payment-source combinations through full
+drainage, compared with private saved exits. The new observer must model two
+real inputs, zero padding and merged histories. No result is recorded yet.
+[Hypothesis, controls and decision](../poc/shared-pool/TWO-INPUT-PRIVACY-SPEC.md).
+
 H13 now passes its **bounded offline and TN10 payment/exit trace**. The documentation was
 committed first as `c50855a`; the new immutable v6 circuit/covenant supports
 two-input payment, private change and partial withdrawal change that can be
