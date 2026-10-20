@@ -22,7 +22,8 @@ spec.loader.exec_module(h16)
 read, save, sha = h16.read, h16.save, h16.sha
 OBSERVER_FILES = ("common_payout_observer.py", "common_payout_bounds.py", *h16.OBSERVER_FILES)
 SOURCES = (*OBSERVER_FILES, "common_payout_generate.py", "common_payout_score.py",
-           "common_payout_tests.py", "common-payout.py", "participant_privacy_view.py",
+           "common_payout_tests.py", "common-payout.py", "common_payout_resume.py",
+           "participant_privacy_view.py",
            "src/two_input/harness.rs", "src/two_input/harness/study.rs")
 BASE = HERE / "evidence/2026-10-20-participant-reconstruction"
 CHAIN = HERE / "evidence/2026-10-20-wallet-policy-reconstruction"
@@ -134,7 +135,15 @@ def run(root, workers):
             for participant in [None, *config["participants"]]]
     with ThreadPoolExecutor(max_workers=workers) as pool:
         executions = list(pool.map(lambda args: observe(root, *args), jobs))
+    score_run(root, workers, started, executions, config)
+
+
+def score_run(root, workers, started, executions, config):
     # Open scoring truth only when all isolated jobs have committed predictions.
+    expected = {(c, name) for c in config["cases"]
+                for name in ["chain", *[f"participant-{p}" for p in config["participants"]]]}
+    if {(e["case"], e["observer"]) for e in executions} != expected or len(executions) != 20:
+        raise ValueError("incomplete observation matrix")
     all_scores, all_costs, checks = [], {}, 0
     for case in config["cases"]:
         folder = root / case
