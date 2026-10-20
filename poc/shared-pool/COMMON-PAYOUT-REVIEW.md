@@ -118,6 +118,15 @@ participant views, including cached repeats and empty candidate lists.
 This changes search order and grouping, not the feasible relation. Completed
 same-input runs must agree before a batch result is used.
 
+A second optional solver aid writes the one-input balance explicitly:
+`selected[p] => value[p] = sum(outputs) + payout + fee`. This follows from
+the existing exactly-one-input and transaction-conservation constraints,
+over rational amounts as well as integers. It is added only to full drains
+and the declared one-input Q policy. The independent tiny oracle still agrees,
+and a normal payment using two positive inputs remains feasible. The runner
+snapshots its modules and records the two deliberate module-name mappings;
+existing running observers and source files are not modified.
+
 Two optional H16 diagnostic processes were also still consuming CPU after an
 earlier attempted stop. Their stderr paths and retained script digest matched
 the unfinished diagnostics, and neither had produced a result. They were
