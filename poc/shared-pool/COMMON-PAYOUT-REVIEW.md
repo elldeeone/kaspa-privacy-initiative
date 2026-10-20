@@ -75,3 +75,11 @@ including repeated cashouts from one note chain and intervening unsupported
 operations. The original predictions are retained for comparison with the
 replacement run. Input bytes, native calibration, payout size and thresholds
 are unchanged; unfinished old searches are not counted as privacy.
+
+The first termination attempt did not stop every sandbox child: namespace PID
+1 ignored SIGTERM. Four surviving workers were identified by their stderr
+paths into the interrupted run and stopped with SIGKILL. Two further old
+observations had finished in that interval, giving six retained comparisons.
+Neither the native run nor replacement workers were stopped. Interruption and
+cleanup receipts preserve this operational failure; it does not turn the
+uncompleted searches into negative inference answers.

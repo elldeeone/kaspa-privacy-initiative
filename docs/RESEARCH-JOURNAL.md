@@ -17,7 +17,8 @@ does not by itself close a roadmap phase.
 ## Current position
 
 H17's [common-size partial payout test](../poc/shared-pool/COMMON-PAYOUT.md)
-is now authorized and running offline. Size and criteria were committed in
+passes genuine offline mechanics; the privacy comparison is still running.
+Size and criteria were committed in
 `71d2aca` before implementation/observation: one 200,000,000-sompi payout per
 wallet, all final remainders and fees included. The independent-exit calibration
 reuses v6 and its parameters. No new privacy result is claimed yet. Its four
@@ -173,6 +174,12 @@ real-world anonymity. Passing tests is not proof of cryptographic correctness.
   four completions. Publicly entailed cashout-suffix amount domains accelerate
   the replacement exact search; ten controls now pass. The replacement uses
   identical prepared inputs, with no payout, threshold or calibration change.
+- Genuine mechanics passed: 34 proofs; four optional pre-partial saved full
+  exits and seven fresh/seven saved final exits in isolated workers. Both
+  winner orders and final replay/alternative rejection pass. Both branches
+  pay every wallet, consume 920,000,000 sompi in fees, pay 4,680,000,000 sompi
+  and leave zero from 5,600,000,000 funded. All 23 public transaction bodies per
+  branch independently revalidate and exactly match the model.
 - No consensus/circuit/covenant/parameter change, TN10 broadcast, funds, push
   or upstream posting. See [scope](../poc/shared-pool/COMMON-PAYOUT-SPEC.md).
 

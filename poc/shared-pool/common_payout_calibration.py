@@ -4,6 +4,7 @@ import argparse
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -16,13 +17,37 @@ def read(path):
 
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for block in iter(lambda: source.read(1024*1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def write(path, data):
     with path.open("x") as out:
         json.dump(data, out, indent=2)
         out.write("\n")
+
+
+def run(root, params, executable):
+    """Fresh private identity only; preserve any existing run on collision."""
+    here = Path(__file__).resolve().parent
+    binary = root / "kpi-two-input"
+    with executable.open("rb") as source, binary.open("xb") as target:
+        shutil.copyfileobj(source, target)
+    binary.chmod(0o700)
+    write(root / "native-pins.json", dict(
+        freeze="71d2aca", binary_sha256=sha(binary),
+        params={n: sha(params / n) for n in ("pk.bin", "vk.bin", "setup.json")},
+        plan_sha256=sha(root / "a0-s0/plan.json"), rayon_threads=4,
+        sources={str(p.relative_to(here)): sha(p) for p in sorted((here / "src").rglob("*.rs"))},
+        cargo_lock_sha256=sha(here / "Cargo.lock")))
+    with (root / "native.log").open("x") as log:
+        subprocess.run(["/usr/bin/time", "-v", "-o", str(root / "native-resource.txt"),
+                        str(binary), "common-study", str(params), str(root / "a0-s0/plan.json"),
+                        str(root / "native")], env=dict(os.environ, RAYON_NUM_THREADS="4"),
+                       stdout=log, stderr=log, check=True)
 
 
 def check(root):
@@ -133,11 +158,17 @@ def export(root, dest):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=("check", "export"))
+    parser.add_argument("command", choices=("run", "check", "export"))
     parser.add_argument("root", type=Path)
     parser.add_argument("destination", type=Path, nargs="?")
+    parser.add_argument("--params", type=Path)
+    parser.add_argument("--binary", type=Path)
     args = parser.parse_args()
-    if args.command == "check":
+    if args.command == "run":
+        if args.params is None or args.binary is None:
+            parser.error("run requires --params and --binary")
+        run(args.root.resolve(), args.params.resolve(), args.binary.resolve())
+    elif args.command == "check":
         check(args.root)
     else:
         export(args.root, args.destination)

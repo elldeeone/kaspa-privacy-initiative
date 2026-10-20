@@ -3,7 +3,15 @@
 Updated: 2026-10-20 (Australia/Sydney). Branch: `shared-pool-four-wallet`.
 Evidence baseline: `203198b3a604dd2388533a8c69484efe032e0cf8`.
 
-**Current position:** H16's [participant-disclosure comparison](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
+**Current position:** H17's [common partial-payout test](../poc/shared-pool/COMMON-PAYOUT.md)
+passes genuine offline mechanics: all four wallets exit in fresh/saved branches,
+all seven saved proofs remain unchanged, and both branches drain to zero.
+The twenty exact observer runs are still in progress. Q=2 tKAS and the original
+claim metrics were frozen in `71d2aca`. All fees and tails count; the additional
+1.6-tKAS fee is within the 25% screen, while 40 synthetic minutes exceed the
+existing 30-minute delay target. Stage 2 remains open.
+
+**Previous privacy result:** H16's [participant-disclosure comparison](../poc/shared-pool/PARTICIPANT-PRIVACY.md)
 fails its strict screen on two additional startup payment links. Separate
 participant views force sources for 4/24 fresh payments and 7/28 fresh full
 exits, versus 6/24 and 28/28 saved. These are distinct synthetic targets linked
@@ -68,7 +76,7 @@ change would require a separate research decision, not an implementation shortcu
 | --- | --- | --- | --- |
 | Baseline: payment and settlement | 2–3 | Bounded results recorded | Keep the direct-L1 candidate for further tests; broader recovery remains open. |
 | 1. Independent recovery | 3–4 | [Bounded H7 completed](../poc/shared-pool/RECOVERY.md): offline, complete TN10 rehearsal and fresh trial | Can users recover without the experiment's private files or services? |
-| 2. Practical privacy | 5 | H11/H12/H14/H15 bounded screens complete; H16 disclosure screen fails; H13 mechanics pass offline/TN10 | Retain fresh normal proofs/private fallbacks; investigate withdrawal amounts and explain startup limits before wallet expansion. |
+| 2. Practical privacy | 5 | H16 disclosure screen fails; H17 mechanics pass offline, privacy comparison running | Retain fresh normal proofs/private fallbacks; decide the frozen common-payout screen before wallet expansion. |
 | 3. Failure and fee limits | 4 | Partial H3–H6 evidence | Under what conditions can every valid claim still exit? |
 | 4. Usable payment cycle | 6 | Not complete | Can a testnet user operate the resulting design without manual proof handling? |
 | 5. Independent review | 7 | Not complete | Does independent scrutiny justify broader testnet use or require redesign? |

@@ -27,9 +27,13 @@ keeps this implementation unchanged. Its strict screen fails on two startup
 payment links; fresh normal proofs retain more alternatives and fewer forced
 withdrawal links than saved exits. Retain the compact settlement/fallback
 candidate, with strong privacy still open. The proposed next investigation is
-withdrawal-amount policy using existing partial withdrawals and private change,
-including complete drainage and every fee. No policy or architecture change is
-adopted by the inference result.
+withdrawal-amount policy using existing partial withdrawals and private change.
+[H17](../poc/shared-pool/COMMON-PAYOUT.md) now implements that bounded offline
+comparison under [ADR-0025](adr/0025-common-payout-offline-screen.md). Its genuine
+cashout/drain mechanics pass; inference is still running. The protocol and
+setup remain byte-identical, and optional shaping never replaces the independent
+full exit. All final remainders and fees count. No policy or architecture change
+is adopted by these mechanics.
 
 [H12's bounded funding-policy comparison](../poc/shared-pool/NORMALIZED-DEPOSITS.md)
 adds equal net credits to H11's fresh-proof/private-fallback candidate. Its

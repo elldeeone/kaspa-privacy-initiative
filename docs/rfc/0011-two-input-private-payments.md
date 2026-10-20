@@ -513,3 +513,16 @@ architecture explicitly. If realistic public constraints still reconstruct
 relationships, report that privacy failure rather than increasing synthetic
 participant counts until a score improves. No production or strong-privacy
 decision follows from this specification or the bounded offline/TN10 results.
+
+## Common-size withdrawal policy follow-up
+
+The owner authorized [H17](../../poc/shared-pool/COMMON-PAYOUT-SPEC.md), frozen
+in `71d2aca` before implementation: one 200,000,000-sompi partial cashout per
+wallet, with all private remainders eventually drained. This uses the existing
+relation, exact fee and saved-fallback mechanism; it adds no protocol constraint.
+[ADR-0025](../adr/0025-common-payout-offline-screen.md) accepts only this offline
+screen. The genuine calibration passes all four wallets' saved exits and both
+full/partial winner orders. The stronger observer's complete-history privacy
+comparison is pending. The 21.05% additional fee is counted, and the fixed
+40-minute completion delay does not meet the existing 30-minute policy target.
+Independent exits remain usable regardless of the policy's privacy outcome.

@@ -20,6 +20,15 @@ privacy and broader qualification open. Live clients reconstruct accepted state
 from one RPC without the original prover; general recovery, arbitrary new
 depositors and adversarial availability remain untested for this adapter.
 
+[H17](poc/shared-pool/COMMON-PAYOUT.md) freezes one 2-tKAS partial cashout per
+wallet, followed by complete drainage. Genuine v6 mechanics pass with all four
+wallets exiting through unchanged saved proofs. Does the policy reduce links
+to original cashout sources after the distinctive remainders are public? The
+exact chain/participant comparison is still running. All fees count: four
+extra operations add 1.6 tKAS in the fixture. Its 40-minute synthetic completion
+delay already exceeds the unchanged 30-minute branch target. This does not
+establish a privacy remedy or require an L1 change.
+
 [H12](poc/shared-pool/NORMALIZED-DEPOSITS.md) answers the narrow equal-net question
 positively in its all-deposits-first workload: four deposit candidates remain
 for every withdrawal through drainage on the existing relation. What survives
