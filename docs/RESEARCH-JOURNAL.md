@@ -41,8 +41,7 @@ remain explicit. Live acceptance, general recovery and the adopted targets
 are not qualified by this result.
 Integration, cryptographic review and privacy evaluation remain separate work.
 The owner has moved the first current-candidate privacy gate ahead of dedicated
-milestone 3 work. The immediate task is to freeze and run a blinded evaluation
-against the unchanged milestone 1 targets.
+milestone 3 work. Evaluation continues against the unchanged milestone 1 targets.
 Milestone 7 becomes broader validation. The public-surface audit and
 [first calibration slice](../poc/shared-pool/EARLY-PRIVACY.md) are complete:
 later withdrawals narrow one payment amount's upper bound, without forcing either
@@ -65,10 +64,66 @@ under [ADR-0030](adr/0030-separate-funding-and-exit-keys.md), preserving exact
 legacy backup behavior. The [offline retest](../poc/shared-pool/ADDRESS-KEY-SEPARATION.md)
 passes ten genuine proofs, original-backup recovery and native payout spending.
 Both fresh-v2 cases remove this script-equality inference; the legacy control
-retains it. The 32-role gate remains open.
+retains it. The subsequent
+[stronger practical screen](../poc/shared-pool/POPULATION-PRIVACY-STRONG.md)
+completed sixteen fresh histories: the strongest tested variant guessed 3.72%
+of primary senders, 5.68% of recipients and 4.34% of amounts within 10%, only
+slightly above its prior. No raw cap exceedance or certified breach was found
+in the declared primary comparisons.
+All histories, full-model truth checks and independent recounts completed.
+This is a bounded synthetic result with wide uncertainty and limited attacks;
+the 32-role gate remains open.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
+
+## 2026-10-21 — Stronger practical privacy screen
+
+The owner authorized freezing attacks and criteria, then running fresh
+32-user/eight-adversary histories through a result. Candidate `52c2092` preserves
+the preceding key-separation implementation and evidence. The new
+[specification](../poc/shared-pool/POPULATION-PRIVACY-STRONG-SPEC.md) and
+[source review](../research/shielded-kas-strong-privacy-screen-2026-10-21.md)
+were frozen before sampling hidden seeds. No previous attempt was overwritten.
+
+**Question:** can known deposits/notes, nonadaptive amount tags, chronology and
+later cashout splits reveal internal persistent-balance payments? Three fixed
+heuristics and a policy-aware prior predict sender, recipient and amount, with
+selective relationship rankings. They make guesses, not disclosure certificates.
+Freeze 16 independent four-round histories, eight overlap/eight sparse, the
+pooled final view, unchanged RFC caps, and simultaneous bounds for 99 comparisons.
+The prospective specification explicitly excludes a qualification pass at this
+sample size and scope.
+
+**Execution:** all 62 control groups passed before hidden seed generation.
+All 16 predictions were sealed before any scoring. All 2,048 ordinary payments
+were predicted; 968 meet the primary honest-to-honest/post-admission predicate.
+Every history drained with exact accounting and passed actual-truth checks in
+both original full encodings. There was no solver failure, missing request,
+seed replacement, history retry or post-score attack change.
+
+**Result:** `bounded-screen-complete-no-certified-breach`, with no raw cap
+exceedance in the declared primary comparisons either. Split balance was
+strongest on the pooled primary metrics:
+36/968 senders, 55/968 recipients and 42/968 amounts within 10%, against prior
+counts of 31, 52 and 37. It guessed both parties correctly on 3/968 and the exact
+amount on 1/968. Those hits are not uniqueness proofs. Selective relationship
+precision stayed low. A separate author-team checker reproduced all sixteen
+scores and all 99 intervals; it is not an external audit.
+
+**Interpretation:** retain the candidate for further testing, with no new wallet
+policy or milestone-3 clearance. The sixteen-history rate-bound radius is about
+50.88 percentage points, so the absence of a certified breach is weak evidence
+by itself; the low raw rates describe only these attacks and this artificial
+workload. Native bytes/network observations, other views/horizons, adaptive
+attacks and independent users remain untested. More histories alone cannot fix
+these omissions. Keep earlier cashout, legacy-key and H16/H18 failures intact.
+
+**Retained outcome:** [report and evidence](../poc/shared-pool/POPULATION-PRIVACY-STRONG.md).
+Private seeds/truth stay outside Git. Frozen sources and original evidence remain
+unchanged. No native proofs, funds, broadcasts, setup or protocol changes were
+made. Next scope the missing observations and qualification power prospectively;
+do not reinterpret this completed screen as anonymity or cryptographic security.
 
 ## 2026-10-21 — Funding-key separation and backup compatibility
 

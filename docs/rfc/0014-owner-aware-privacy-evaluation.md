@@ -72,8 +72,57 @@ Generic wallet PAY does not enforce self-bootstrap, so this is a conditional
 diagnostic, not a three-field disclosure claim for arbitrary histories.
 
 The finding motivates a separate funding/exit key-separation and recovery design
-review. It does not instantiate or replace this RFC's 32-role qualification,
-and does not relax RFC-0012. The frozen population results remain unchanged.
+review. That follow-up is now implemented at `52c2092`: the
+[ten-proof offline retest](../../poc/shared-pool/ADDRESS-KEY-SEPARATION.md) removes
+the tested link for fresh v2 backups while preserving legacy recovery and its
+known weakness. Neither experiment instantiates or replaces this RFC's 32-role
+qualification or relaxes RFC-0012. Frozen population results remain unchanged.
+
+## Stronger practical screen after key separation
+
+The owner authorized a [fresh prospective screen](../../poc/shared-pool/POPULATION-PRIVACY-STRONG-SPEC.md)
+against candidate `52c209296184d880221432fcbf56bb20d3f64d10`. Freeze its attacks,
+criteria, source and dependencies before sampling hidden seeds. Use 16 independent
+persistent-balance histories with 32 roles, eight colluding active roles and four
+payment rounds; half overlap and half have modeled quiet gaps. Start with pooled
+participant records through full drainage. The new minimum capital/distributions
+and exact workload are explicit in the new specification, not edits to old runs.
+
+Three practical attacks combine known deposits/notes, tagged receipts, timing
+and possible cashout splits. They predict both parties and amounts against a
+frozen policy-aware prior, with relationship ranking at fixed coverage. They
+issue guesses, not forced-disclosure certificates. Seal every prediction before
+private scoring. Validate actual history/policy/accounting separately, including
+truth inclusion in both original full encodings.
+
+The fixed 99-comparison uncertainty family uses independent-history means, with
+wide simultaneous bounds. Raw cap exceedances are exploratory signals; only the
+specified lower-bound breaches certify a screen failure. Sixteen histories are
+a bounded attack-screen budget, not adequate qualification power. No outcome can
+pass the complete early privacy gate. Missing views/horizons, stronger priors,
+actual native-byte surfaces and independent-user evidence remain open.
+
+### Completed stronger-screen result
+
+The [frozen batch](../../poc/shared-pool/POPULATION-PRIVACY-STRONG.md) completed
+all sixteen histories and 2,048 ordinary predictions, including 968 primary
+eligible payments. All controls, policy/accounting checks and truth inclusion
+in both full encodings passed. A separate author-team checker reproduced all
+scores and 99 intervals. Every prediction was sealed before private scoring;
+no seeds, attacks or criteria were replaced after seeing outcomes.
+
+The strongest tested variant guessed 36/968 senders, 55/968 recipients and 42/968
+amounts within 10%; the prior guessed 31, 52 and 37 respectively. No declared
+primary estimate exceeds its cap and no simultaneous lower bound certifies a breach.
+The recorded outcome is `bounded-screen-complete-no-certified-breach`, with
+`qualification_pass: false`. The approximately 50.88-percentage-point rate
+radius at sixteen histories cannot establish the adopted thresholds. Correct
+exact guesses are not forced-disclosure certificates.
+
+Retain this result as a completed bounded measurement. The other views/horizons,
+stronger priors, realistic workload/native surfaces and adequate qualification
+power remain open before the early gate can close. No protocol, wallet, setup
+or invariant change follows from this screen.
 
 ## Decision rules and remaining work
 

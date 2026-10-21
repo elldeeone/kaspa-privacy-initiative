@@ -29,9 +29,11 @@ share one current-version interface. Qualification against the accepted
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
-**Next action:** run the early privacy gate below before dedicated milestone 3
-work or further wallet/recovery expansion. Milestone 7 is broader validation, not
-the first privacy test. Routine safety review and fixes continue throughout.
+**Next action:** complete the early privacy gate's remaining views/horizons and
+design a sufficiently powered qualification study before dedicated milestone 3
+work or further wallet/recovery expansion. The stronger practical screen below
+is complete, with low observed attack rates but no qualification pass. Milestone
+7 remains broader validation. Routine safety review and fixes continue throughout.
 
 ## Evidence carried forward
 
@@ -151,8 +153,19 @@ recovery and its known risk. The
 [ten-proof offline retest](../poc/shared-pool/ADDRESS-KEY-SEPARATION.md) passes
 original-backup recovery and native payout spending in both versions. Both fresh
 v2 cases avoid the equality and its conditional disclosure; the legacy case
-still leaks. Keep this regression while extending the stronger practical attack
-and persistent-balance evaluation. This does not close the 32-role gate.
+still leaks. Keep this regression. The subsequent
+[stronger practical screen](../poc/shared-pool/POPULATION-PRIVACY-STRONG.md) is
+complete: 16 fresh independent histories, 32 roles/eight active colluding roles
+each, four payment rounds and 968 primary eligible payments. The strongest
+tested attack guessed 36/968 senders, 55/968 recipients and 42/968 amounts within
+10%, versus prior counts of 31, 52 and 37. All histories drained, both full-model
+truth checks passed, and separate recounting reproduced all scores and 99
+intervals. There are no raw cap exceedances or certified breaches in the declared
+primary comparisons. This is a completed bounded synthetic screen, not a privacy
+pass: sixteen histories give
+wide uncertainty, and only the pooled final view and limited attacks were tested.
+The 32-role gate remains open; no protocol or wallet change follows from this
+result.
 The owner challenged the work order
 after the milestone 2 commit `bf4505c`: test whether the integrated candidate can
 meet the intended privacy promise before investing further in that candidate.
@@ -381,11 +394,14 @@ the reproducible release (10) includes the resulting evidence and limitations.
 Milestone 1 and the bounded offline milestone 2 gate are closed. The initial
 public-surface/amount calibration is complete. The frozen 32-role/eight-adversary
 ownership/disclosure test has bounded pooled final-history results. Preserve the
-immediate-cashout exposure and incomplete whole-history attempts. Continue with
-stronger practical attacks and native funding/exit script-linkage checks, and
-complete the remaining declared views/horizons; low simple-attack rates do not
-qualify the candidate. A supported failure still requires action under the frozen
-rules.
+immediate-cashout exposure and incomplete whole-history attempts. Funding/exit
+key separation removes one conditional native link for fresh v2 backups while
+retaining legacy recovery and its weakness. The fresh sixteen-history stronger
+attack screen is complete with low observed rates and no certified breach.
+Complete the remaining declared views/horizons, challenge the synthetic workload
+and observer surface, and freeze an adequately powered qualification study;
+neither more samples alone nor low heuristic rates qualify the candidate. A
+supported failure still requires action under the frozen rules.
 Resolve the early gate's pass/fail/incomplete result before expanding into
 milestones 3–6. Keep the known
 fee/cold-load gaps visible. Existing failed H16/H18 screens remain warnings;

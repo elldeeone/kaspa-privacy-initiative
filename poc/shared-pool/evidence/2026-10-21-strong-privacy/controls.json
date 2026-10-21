@@ -1,0 +1,182 @@
+{
+  "passed": true,
+  "completed_utc": "2026-10-21T00:21:30.763196+00:00",
+  "result_sha256": "ccee49ba55f4ceb50c635f769d2f1e77ade1c190a74d427c8fcb64a645d8bf7b",
+  "result": {
+    "passed": true,
+    "results": {
+      "model": {
+        "passed": true,
+        "complete": true,
+        "tests": [
+          "recipient-only-keeps-sender-and-sibling-ambiguity",
+          "stable-role-permutation",
+          "different-owner-input-combination-rejected",
+          "two-input-drain-and-fixed-positive-change",
+          "separate-and-pooled-complete-records-forced-sender",
+          "all-other-owners-disclosed",
+          "equal-commitments-distinct-position-spends",
+          "future-cashout-does-not-constrain-birth-prefix",
+          "future-participant-receipt-removed-from-earlier-prefix",
+          "future-equal-commitment-does-not-label-earlier-prefix",
+          "unknown-fields-and-wrong-binding-rejected",
+          "inconsistent-records-are-incomplete",
+          "32-role-sparse-linked-payout-and-unlinked-identity-control"
+        ],
+        "controls": 13,
+        "exhaustive_proposition_comparisons": 545,
+        "pending": [],
+        "meaning": "Explicit development controls; no held-out workload, proofs or chain acceptance"
+      },
+      "workload": {
+        "passed": true,
+        "complete": true,
+        "controls": [
+          "fixed128-payments-32-tags-16-startup-three-sparse-gaps",
+          "affordability-max-amount-capital-continuation-with-fragments",
+          "independent-selector-two-input-ties-and-zero-dust-floor-boundaries",
+          "published-development-seed-both-regimes-full-policy-and-accounting",
+          "sparse-only-changes-declared-timing",
+          "opaque-labels-independent-of-request-seed",
+          "reject-changed-tag",
+          "reject-changed-round",
+          "reject-changed-time",
+          "reject-changed-capital",
+          "reject-missing-request",
+          "reject-boolean-input-position",
+          "reject-boolean-request-index",
+          "reject-modeled-funding-payout-alias",
+          "reject-added-payout-owner-side-information",
+          "reject-financially-consistent-incomplete-drainage",
+          "full-original-cp-sat-and-z3-pinned-development-truth"
+        ],
+        "truth_consistency": {
+          "complete": true,
+          "cp_sat": "SAT",
+          "z3": "SAT"
+        },
+        "development_seed": {
+          "requests": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "opaque": "1f1e1d1c1b1a191817161514131211100f0e0d0c0b0a09080706050403020100"
+        },
+        "scope": "published development fixtures only; no held-out seeds or predictions"
+      },
+      "observer": {
+        "schema": "kpi-population-strong-controls-v1",
+        "passed": true,
+        "complete": true,
+        "controls": [
+          {
+            "name": "hand-checked same-owner split and residual cashouts",
+            "passed": true
+          },
+          {
+            "name": "missing tag uses unchanged prior fallback",
+            "passed": true
+          },
+          {
+            "name": "plausible exact match can select the wrong payment",
+            "passed": true
+          },
+          {
+            "name": "known notes retain literal sompi without denomination rounding",
+            "passed": true
+          },
+          {
+            "name": "later known spend excludes an earlier guessed consumption",
+            "passed": true
+          },
+          {
+            "name": "future-spend guard is exact event equality",
+            "passed": true
+          },
+          {
+            "name": "no unborn note or target output reused as cashout coinput",
+            "passed": true
+          },
+          {
+            "name": "disclosed future target spend rejects another exit",
+            "passed": true
+          },
+          {
+            "name": "two-note inputs must have one owner",
+            "passed": true
+          },
+          {
+            "name": "no guessed-note feedback and deterministic ties",
+            "passed": true
+          },
+          {
+            "name": "equality-derived known change rejects contradicting residuals",
+            "passed": true
+          },
+          {
+            "name": "known change owner checked even for a whole cashout residual",
+            "passed": true
+          },
+          {
+            "name": "extra payout-owner and truth fields rejected",
+            "passed": true
+          },
+          {
+            "name": "participant tag split preserves change owner and output ordering",
+            "passed": true
+          },
+          {
+            "name": "participant complete records and phase sender prior",
+            "passed": true
+          },
+          {
+            "name": "newer known coinput may be used only after its own birth",
+            "passed": true
+          },
+          {
+            "name": "equal contents do not transfer participant author provenance",
+            "passed": true
+          },
+          {
+            "name": "contradictory known facts rejected",
+            "passed": true
+          },
+          {
+            "name": "zero change needs only a single later cashout residual",
+            "passed": true
+          },
+          {
+            "name": "known positive change cannot be treated as zero",
+            "passed": true
+          },
+          {
+            "name": "prompt single-note payout total is an explicit candidate",
+            "passed": true
+          },
+          {
+            "name": "frozen policy and complete final batch required",
+            "passed": true
+          }
+        ],
+        "count": 22,
+        "held_out_data_used": false,
+        "candidate_truncation": false
+      },
+      "scorer": {
+        "passed": true,
+        "complete": true,
+        "tests": [
+          "integer-inclusive-ten-percent-boundaries",
+          "lexicographic-rank-ordinal-tie-ceiling-small-n-empty",
+          "independent-history-multiplicity-two-tails-paired-range-empty",
+          "pooled-payment-rate-not-substituted-for-equal-history-mean",
+          "known-authorship-versus-receipt-joint-exclusion-primary-strata",
+          "strict-schema-complete-targets-fixed-variants-digests-canonical-integers",
+          "all-history-caps-aggregate-only-no-qualification",
+          "zero-success-with-wide-bounds-is-not-a-privacy-pass",
+          "empty-primary-not-silently-dropped",
+          "missing-reordered-duplicate-histories-rejected"
+        ],
+        "family_intervals": 99,
+        "scope": "Hand-built scoring and statistical controls; no held-out execution"
+      }
+    }
+  }
+}

@@ -1,0 +1,758 @@
+{
+  "schema": "kpi-population-strong-score-v1",
+  "complete": true,
+  "public_sha256": "77aecb5e6ef40257a21563648e9b586e904465a86997071dcf7b537de86b740e",
+  "view_sha256": "c69550486a6ec500aa350a51c97e7a2a4a07b54617183016035a42988c77afa6",
+  "prediction_sha256": "9819eb37ba9e841c3335b49b93ca345bfd8ae48692cf391f5fcd3da58a286307",
+  "policy_sha256": "040e0f2c5da9f8e35f37c5ce334efa63e86b2313416259696ade0bdc3e853dbf",
+  "regime": "sparse",
+  "arm": "persistent",
+  "horizon": "final",
+  "targets": 128,
+  "truth_consistency": {
+    "complete": true,
+    "cp_sat": "SAT",
+    "z3": "SAT"
+  },
+  "policy_validation": {
+    "passed": true,
+    "complete": true,
+    "payments": 128,
+    "startup_payments": 16,
+    "active_payments": 32,
+    "full_drainage": true,
+    "scope": "exact policy/accounting check; no seed-randomness or cryptographic claim"
+  },
+  "qualification_pass": false,
+  "tested_primary_targets": 59,
+  "variants": {
+    "prior": {
+      "primary": {
+        "sender": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 59
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 59,
+            "nominal_percent": 5,
+            "realized_coverage": 0.05084745762711865
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 6,
+            "population": 59,
+            "nominal_percent": 10,
+            "realized_coverage": 0.1016949152542373
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 15,
+            "population": 59,
+            "nominal_percent": 25,
+            "realized_coverage": 0.2542372881355932
+          }
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 1,
+          "eligible": 96
+        },
+        "recipient": {
+          "correct": 2,
+          "eligible": 71
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 96
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 71
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 71
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 5,
+            "population": 96,
+            "nominal_percent": 5,
+            "realized_coverage": 0.052083333333333336
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 10,
+            "population": 96,
+            "nominal_percent": 10,
+            "realized_coverage": 0.10416666666666667
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 24,
+            "population": 96,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 1,
+            "population": 12,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08333333333333333
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 12,
+            "nominal_percent": 10,
+            "realized_coverage": 0.16666666666666666
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 12,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 25,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08
+          },
+          "10": {
+            "correct": 1,
+            "eligible": 3,
+            "population": 25,
+            "nominal_percent": 10,
+            "realized_coverage": 0.12
+          },
+          "25": {
+            "correct": 1,
+            "eligible": 7,
+            "population": 25,
+            "nominal_percent": 25,
+            "realized_coverage": 0.28
+          }
+        }
+      }
+    },
+    "cashout_residual": {
+      "primary": {
+        "sender": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "recipient": {
+          "correct": 3,
+          "eligible": 59
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 59,
+            "nominal_percent": 5,
+            "realized_coverage": 0.05084745762711865
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 6,
+            "population": 59,
+            "nominal_percent": 10,
+            "realized_coverage": 0.1016949152542373
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 15,
+            "population": 59,
+            "nominal_percent": 25,
+            "realized_coverage": 0.2542372881355932
+          }
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 2,
+          "eligible": 96
+        },
+        "recipient": {
+          "correct": 4,
+          "eligible": 71
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 96
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 71
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 71
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 5,
+            "population": 96,
+            "nominal_percent": 5,
+            "realized_coverage": 0.052083333333333336
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 10,
+            "population": 96,
+            "nominal_percent": 10,
+            "realized_coverage": 0.10416666666666667
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 24,
+            "population": 96,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 1,
+            "population": 12,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08333333333333333
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 12,
+            "nominal_percent": 10,
+            "realized_coverage": 0.16666666666666666
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 12,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 25,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08
+          },
+          "10": {
+            "correct": 1,
+            "eligible": 3,
+            "population": 25,
+            "nominal_percent": 10,
+            "realized_coverage": 0.12
+          },
+          "25": {
+            "correct": 1,
+            "eligible": 7,
+            "population": 25,
+            "nominal_percent": 25,
+            "realized_coverage": 0.28
+          }
+        }
+      }
+    },
+    "split_balance": {
+      "primary": {
+        "sender": {
+          "correct": 2,
+          "eligible": 59
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 59,
+            "nominal_percent": 5,
+            "realized_coverage": 0.05084745762711865
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 6,
+            "population": 59,
+            "nominal_percent": 10,
+            "realized_coverage": 0.1016949152542373
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 15,
+            "population": 59,
+            "nominal_percent": 25,
+            "realized_coverage": 0.2542372881355932
+          }
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 3,
+          "eligible": 96
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 71
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 96
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 71
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 71
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 5,
+            "population": 96,
+            "nominal_percent": 5,
+            "realized_coverage": 0.052083333333333336
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 10,
+            "population": 96,
+            "nominal_percent": 10,
+            "realized_coverage": 0.10416666666666667
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 24,
+            "population": 96,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 1,
+            "population": 12,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08333333333333333
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 12,
+            "nominal_percent": 10,
+            "realized_coverage": 0.16666666666666666
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 12,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 25,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08
+          },
+          "10": {
+            "correct": 1,
+            "eligible": 3,
+            "population": 25,
+            "nominal_percent": 10,
+            "realized_coverage": 0.12
+          },
+          "25": {
+            "correct": 1,
+            "eligible": 7,
+            "population": 25,
+            "nominal_percent": 25,
+            "realized_coverage": 0.28
+          }
+        }
+      }
+    },
+    "tag_split": {
+      "primary": {
+        "sender": {
+          "correct": 2,
+          "eligible": 59
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 59
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 59,
+            "nominal_percent": 5,
+            "realized_coverage": 0.05084745762711865
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 6,
+            "population": 59,
+            "nominal_percent": 10,
+            "realized_coverage": 0.1016949152542373
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 15,
+            "population": 59,
+            "nominal_percent": 25,
+            "realized_coverage": 0.2542372881355932
+          }
+        }
+      },
+      "all_undisclosed": {
+        "sender": {
+          "correct": 3,
+          "eligible": 96
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 71
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 96
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 71
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 71
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 5,
+            "population": 96,
+            "nominal_percent": 5,
+            "realized_coverage": 0.052083333333333336
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 10,
+            "population": 96,
+            "nominal_percent": 10,
+            "realized_coverage": 0.10416666666666667
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 24,
+            "population": 96,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "startup": {
+        "sender": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "recipient": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "relationship": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "amount_within_10pct": {
+          "correct": 1,
+          "eligible": 12
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 12
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 1,
+            "population": 12,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08333333333333333
+          },
+          "10": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 12,
+            "nominal_percent": 10,
+            "realized_coverage": 0.16666666666666666
+          },
+          "25": {
+            "correct": 0,
+            "eligible": 3,
+            "population": 12,
+            "nominal_percent": 25,
+            "realized_coverage": 0.25
+          }
+        }
+      },
+      "adversary_endpoint": {
+        "sender": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "recipient": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "relationship": {
+          "correct": 1,
+          "eligible": 25
+        },
+        "amount_within_10pct": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "amount_exact": {
+          "correct": 0,
+          "eligible": 0
+        },
+        "selective_relationship": {
+          "5": {
+            "correct": 0,
+            "eligible": 2,
+            "population": 25,
+            "nominal_percent": 5,
+            "realized_coverage": 0.08
+          },
+          "10": {
+            "correct": 1,
+            "eligible": 3,
+            "population": 25,
+            "nominal_percent": 10,
+            "realized_coverage": 0.12
+          },
+          "25": {
+            "correct": 1,
+            "eligible": 7,
+            "population": 25,
+            "nominal_percent": 25,
+            "realized_coverage": 0.28
+          }
+        }
+      }
+    }
+  }
+}
