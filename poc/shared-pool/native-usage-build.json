@@ -1,0 +1,197 @@
+{
+  "schema": "kpi-native-usage-build-v1",
+  "created_utc": "2026-10-21T01:17:11.564175+00:00",
+  "base_commit": "9ae5b3efeb1698cf45d35e064c95f91c1ac5a54e",
+  "compiler": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)",
+  "source_sha256": {
+    "poc/shared-pool/src/anchored/circuit.rs": "be2176a3dbe5d1b066317eb1e7004bd2ed7ecd2c40ec9586d4b3c57e20778c93",
+    "poc/shared-pool/src/anchored/controls.rs": "99eb4420c67606f8282df02e5f54486feae25039b135c5689069fa0d51bc6260",
+    "poc/shared-pool/src/anchored/covenant.rs": "5549172ec8961a69d373d70e66f0f914306f32f485e9aa829372544c85662b96",
+    "poc/shared-pool/src/anchored/experiment.rs": "0fa4b96881a6c7278796b6a2fb6d2a99a6fd00c12cdde437b47b2385cbc27547",
+    "poc/shared-pool/src/anchored/mod.rs": "bfbcf6e3a2242247c46f036ba03ea6c6e69e33a4cff0f2cf9cf6e602c6ceda83",
+    "poc/shared-pool/src/anchored/tests.rs": "5da8b6a56a1c748ac423eb2f682bc24384f8fae63e864a9028d6a01d331e92ba",
+    "poc/shared-pool/src/app.rs": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663",
+    "poc/shared-pool/src/bin/kpi-anchored.rs": "505e6e771e8548f7a013bbbca16483adcfffbc0ed746bffa0b40b10850e673b5",
+    "poc/shared-pool/src/bin/kpi-compact-funding.rs": "14f1b3acb8f48514481478e0b687f656f1e607651d0c1522cc0fc5b6a9a91d5b",
+    "poc/shared-pool/src/bin/kpi-compact.rs": "6b7e5c58ac8605fc4627250433529af06e75fa57821ef86427df0cc540c761e1",
+    "poc/shared-pool/src/bin/kpi-deposits.rs": "6e8d33d836431de80deb86c96f451a915547ff30d6ecaeb03046371daa6bc2b6",
+    "poc/shared-pool/src/bin/kpi-fresh-proof.rs": "26bb94c556a7d47f7e92f2b3e38249365574717eb0795fbf3e79e51589c23df1",
+    "poc/shared-pool/src/bin/kpi-normalized-deposits.rs": "3ed6ebd5994cad176ddbb435041e485c33ef7ed0a0d9731941952b78268f5f67",
+    "poc/shared-pool/src/bin/kpi-privacy-study.rs": "f7a61714e6b4b562cd2b5dcd88065ecae56e1edf52c57d160f5d342b5a7d4719",
+    "poc/shared-pool/src/bin/kpi-recovery.rs": "3591fca33bf731a4d81b3e8a0a7b5170acd6985ad88312b19841f8f2e8bafc58",
+    "poc/shared-pool/src/bin/kpi-two-input-lifecycle.rs": "6d4aa23010e8fcf595008ae046e7a33655e07d9007d15e6898bacaf909a9a4c4",
+    "poc/shared-pool/src/bin/kpi-two-input-live.rs": "3f66a3b1faeef1cb5d3fbf0c4b2e360b77574d94dc43022ad38efee6e0f739d4",
+    "poc/shared-pool/src/bin/kpi-two-input-replay.rs": "f1ea042660e10326d6bd428a0dc870df86b40936af7f0e8407d156905488ea94",
+    "poc/shared-pool/src/bin/kpi-two-input-wallet.rs": "d2c824e78c99163694ccda34f33ed47731b6065083359e8760c0c5fdbddce1f6",
+    "poc/shared-pool/src/bin/kpi-two-input.rs": "4188ad8e568e781a3d976c052c8d2b96e59569618f3ef08d5aaa2e9f53ddcca3",
+    "poc/shared-pool/src/circuit.rs": "574a7c5c7dfc19ed77253258a9b62e38c974b082222845b593dbf6bc4ce9cd86",
+    "poc/shared-pool/src/compact/circuit.rs": "278af7d43253356688251ae4f2969e033779af0df0458fdf3283feeed942b638",
+    "poc/shared-pool/src/compact/controls.rs": "ba13a4f98b02c0b8d7fae1287a1a12b76733dfd4981aafbd9e9ddac4713ddf87",
+    "poc/shared-pool/src/compact/covenant.rs": "297825946e0bd22e3638f7592e02f3673684472ceebc41bcc7c8dae14b931766",
+    "poc/shared-pool/src/compact/deposits/covenant.rs": "3a5b7a4074f732e24b216c441b49cbd06b080cd2882427602578a8f574eaa6ea",
+    "poc/shared-pool/src/compact/deposits/harness/controls.rs": "09fe082ef67b81f8d91694a3f6f255bc4e004aee5b62ae040ae98904ad76cc53",
+    "poc/shared-pool/src/compact/deposits/harness.rs": "e38b13e8666236e28a182f6d3179b353e6c276a22f4fd42ede702f57eb31ddcc",
+    "poc/shared-pool/src/compact/deposits/mod.rs": "6635349b29fc8a93c0691df33d1a3dd4acc4f378984214fc5091ead74c92ac6a",
+    "poc/shared-pool/src/compact/deposits/tests.rs": "c5c3c4335e6dddcd6bc494e12f0e3cf78a7a79cdbd011e28f95616879a31532f",
+    "poc/shared-pool/src/compact/experiment.rs": "5a277b048011024a9c9692780e67de710e72b46bb3a06d447b8e9649980c32cf",
+    "poc/shared-pool/src/compact/fresh.rs": "1611e0e70bf60385d6495def3f2cac00d1d449e93369ceb737e0954529463a47",
+    "poc/shared-pool/src/compact/mod.rs": "d59eb33bd27cfaf8cfdcb1780d09609e309b5bdbaf6f6fa6d7512981e030e5c3",
+    "poc/shared-pool/src/compact/normalization.rs": "db636ded0f72c081a2c757d4f29e2ae0d955f49775f43aa34eccd85849a3b440",
+    "poc/shared-pool/src/compact/recovery.rs": "3911a09058b9d3db5c2f95827ece7ff9a8104ebd6cb72fb7cc93b11e1cf117c9",
+    "poc/shared-pool/src/compact/study.rs": "db9dc8cbfe7d640d5088c4f5dab695c72c324834065b7447c5f33fb4b40073f5",
+    "poc/shared-pool/src/compact/tests.rs": "9817a5b02dab964f6fbca316196b9a4d78e91c4c292f70f41bee56645f53eeab",
+    "poc/shared-pool/src/compact/tree.rs": "4ac46cb3e514e58181d0a4e2195e882f22d1df83d8dc6ea926fac47102ea0dc6",
+    "poc/shared-pool/src/covenant.rs": "55a94214ed8dcaef639bf77f491e5253284a38279ca003c9a1dc50b9cc6d7da8",
+    "poc/shared-pool/src/fixtures.rs": "fdd2576c79bb9f77e05c56a2c9e02c0d9e3f199cff318f230cb5236c4bb86edf",
+    "poc/shared-pool/src/lib.rs": "19f16cabbe0614d83a1d72111499875a0a7638e17b2921cd780a83199905b411",
+    "poc/shared-pool/src/main.rs": "81b71a7be9896731cbafb05430d72370d1be73e0092c51eeb9509fd027b82662",
+    "poc/shared-pool/src/native.rs": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f",
+    "poc/shared-pool/src/protocol.rs": "5243cab1b36e0d9cae8bf13e81b7fcdb033c8dc1bc7405daa401c69334cc4ec4",
+    "poc/shared-pool/src/tests.rs": "04c9379637e42c3b5fca0e9500c04592557e21cbafac63cabfb273146bb5794c",
+    "poc/shared-pool/src/two_input/audit.rs": "06ee842c16e7a913e9221dcafe059a45e67acae3d9977485385d4f704e7304ab",
+    "poc/shared-pool/src/two_input/circuit.rs": "59071901c3abc25daab68c982ef065f8755c09abbb2ce30e6010d821813dd2a7",
+    "poc/shared-pool/src/two_input/covenant.rs": "3b6d73c1ebada11d156f3020b444c881160e2f4d8eb7ae629a23ac267bf0d96d",
+    "poc/shared-pool/src/two_input/harness/study.rs": "dbacfdd33346d2ab7ca385b9e6a5bf87eddcb99a9de608b2ea48528ab44032de",
+    "poc/shared-pool/src/two_input/harness.rs": "1bad02792f96632892487ec6af9aa94aa4fc2f14c6ecab28602f75174286583d",
+    "poc/shared-pool/src/two_input/lifecycle.rs": "240ab6ef76122d78bc6e047a1096819425032c04e1883153fced177e5130ed24",
+    "poc/shared-pool/src/two_input/live.rs": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023",
+    "poc/shared-pool/src/two_input/mod.rs": "255f8e908fcb1c4a76dcc8ebe0ca5f4e9ddbadc8ba46f63036cb413298bc8150",
+    "poc/shared-pool/src/two_input/replay/tests.rs": "97e37e58cedbc6dbf4b4ca4ae9c1e634f7c4b2010275076b2721db2ea20dbb1c",
+    "poc/shared-pool/src/two_input/replay.rs": "9e2de9ae756e9af65fb3f7c75fff7170e3a06170a8eb85d0b0da05d758b1b66e",
+    "poc/shared-pool/src/two_input/tests.rs": "85749c72f8043d556799cd2045c386093737caa506cb387aa52b553428f3b643",
+    "poc/shared-pool/src/two_input/tree.rs": "9fc004721ae2a22c6faa26f2a046eefd7bb707e3c83077be01a7913b464891ed",
+    "poc/shared-pool/src/two_input/wallet/tests.rs": "8375ce42bcd647060565df32992dc5dd0ed31be9c9e8fc1ce0b93d6180cfe827",
+    "poc/shared-pool/src/two_input/wallet.rs": "3039fe885379aeec3b2378ee4b881a46e01b5bc1d3e6e68d706852c6a39070e5",
+    "poc/shared-pool/Cargo.toml": "cfdc8e104c93e4575b1f2cf5d9b441566674b7b801856d18fc7aeb5ba50234f3",
+    "poc/shared-pool/Cargo.lock": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+    "poc/shared-pool/native_usage_generate.py": "1d034dac4ebec6f8c603ffbe9ba58b6e606bb27214ebddb9e1a98250c67268bd",
+    "poc/shared-pool/two-input-lifecycle.py": "4686981b665641ac1b8ed3a904efe725c11c3525f7d8bda57608506fefadd796",
+    "poc/shared-pool/population_privacy_workload.py": "c8fbc006011e713fc50ea3d0c97b6cdaf8204c90d15d03bbba89308325c489ae",
+    "poc/shared-pool/early_privacy_surface.py": "95f87feb361f92f25dcbaa08d8a667a3bb809e60b11e857959929c1574a32ff6"
+  },
+  "sources_unchanged_during_build": true,
+  "binary_sha256": {
+    "kpi-two-input-wallet": "1ee3835b1b0ed3e4c4ca0ce4f5ee1cd6f85b79d19b2cef10a7402ece42e298a3",
+    "kpi-two-input-lifecycle": "67d54d203f5e101deae92c388e0e961132a5896e871215d5e43444343d2382bd",
+    "kpi-two-input-replay": "4e9f84bd1f94aed744690d600227311500d0e8b72d359a4a184914e7c93eb584"
+  },
+  "checks": [
+    {
+      "command": [
+        "cargo",
+        "+1.95.0",
+        "build",
+        "--release",
+        "--locked",
+        "--offline",
+        "--bin",
+        "kpi-two-input-lifecycle",
+        "--bin",
+        "kpi-two-input-wallet",
+        "--bin",
+        "kpi-two-input-replay"
+      ],
+      "working_directory": "poc/shared-pool",
+      "returncode": 0,
+      "elapsed_seconds": 0.20655978200375102
+    },
+    {
+      "command": [
+        "cargo",
+        "+1.95.0",
+        "test",
+        "--release",
+        "--locked",
+        "--offline",
+        "--lib",
+        "native_usage_tests",
+        "--",
+        "--nocapture"
+      ],
+      "working_directory": "poc/shared-pool",
+      "returncode": 0,
+      "elapsed_seconds": 6.7916958710120525,
+      "result": {
+        "passed": 2,
+        "failed": 0,
+        "filter": "native_usage_tests"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "native_usage_generate.py",
+        "--controls"
+      ],
+      "working_directory": "poc/shared-pool",
+      "returncode": 0,
+      "elapsed_seconds": 0.04875190299935639,
+      "result": {
+        "complete": true,
+        "passed": true,
+        "controls": 13,
+        "development_only": true,
+        "development_payments": 64,
+        "development_pool_operations": 167
+      }
+    }
+  ],
+  "published_native_context_controls": {
+    "passed": true,
+    "controls": [
+      {
+        "name": "exact_context",
+        "expected_accept": true,
+        "actual_accept": true,
+        "passed": true,
+        "reason": "native validation passed"
+      },
+      {
+        "name": "wrong_amount",
+        "expected_accept": false,
+        "actual_accept": false,
+        "passed": true,
+        "reason": "two-input offline lifecycle: failed to verify the signature script: false stack entry at end of script execution"
+      },
+      {
+        "name": "wrong_script",
+        "expected_accept": false,
+        "actual_accept": false,
+        "passed": true,
+        "reason": "two-input offline lifecycle: failed to verify the signature script: false stack entry at end of script execution"
+      },
+      {
+        "name": "altered_signature",
+        "expected_accept": false,
+        "actual_accept": false,
+        "passed": true,
+        "reason": "two-input offline lifecycle: failed to verify the signature script: false stack entry at end of script execution"
+      },
+      {
+        "name": "wrong_outpoint",
+        "expected_accept": false,
+        "actual_accept": false,
+        "passed": true,
+        "reason": "two-input offline lifecycle: native input outpoint"
+      }
+    ],
+    "source_fixture": {
+      "lineage.json": "430c38fa93a2cccdf1e1b96fe83270f2271c407d495a9f8de1a423a1f5ab4a62",
+      "parents.json": "79acc6e2d00c4f53ff794cb7d226168091952d23bc7ddb52b565dfd3a9c09b59"
+    },
+    "helper_sha256": "67d54d203f5e101deae92c388e0e961132a5896e871215d5e43444343d2382bd",
+    "new_wallets": 0,
+    "new_pool_proofs": 0,
+    "chain_acceptance_verified": false
+  },
+  "published_native_replay_control": {
+    "passed": true,
+    "fixture": "poc/shared-pool/evidence/2026-10-21-native-key-separation/native/v2-same-index",
+    "lineage_sha256": "430c38fa93a2cccdf1e1b96fe83270f2271c407d495a9f8de1a423a1f5ab4a62",
+    "parents_sha256": "79acc6e2d00c4f53ff794cb7d226168091952d23bc7ddb52b565dfd3a9c09b59",
+    "replay_binary_sha256": "4e9f84bd1f94aed744690d600227311500d0e8b72d359a4a184914e7c93eb584",
+    "proofs_generated": 0
+  },
+  "scope": "Local release build and implementation controls; no fresh experiment, chain acceptance or cryptographic audit claim"
+}

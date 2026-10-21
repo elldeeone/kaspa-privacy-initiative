@@ -1,0 +1,116 @@
+# RFC-0015: Native transaction privacy under varied usage
+
+Status: prospective experiment design, 2026-10-21 UTC.
+Base checkpoint: `9ae5b3efeb1698cf45d35e064c95f91c1ac5a54e`.
+Owner direction: commit/push the completed stronger screen, then freeze and run
+the next privacy test with more realistic usage and actual transaction data.
+
+## Question
+
+Does the current v2 wallet expose internal payments when people repeatedly pay
+the same contacts, spend receipts, cash out during activity and send transparent
+native coins back into the pool? What additional information comes from actual
+scripts, outpoints, proofs, ciphertexts and public settlement bytes?
+
+The [source review](../../research/shielded-kas-native-usage-privacy-2026-10-21.md)
+finds that existing wallet and replay interfaces can produce and validate these
+transactions without a new protocol, circuit, setup, key scheme or runtime.
+The preceding [synthetic screen](../../poc/shared-pool/POPULATION-PRIVACY-STRONG.md)
+is retained unchanged. Its low heuristic rates and wide bounds do not qualify
+privacy.
+
+## Native evidence and limits
+
+Use one fresh history with 32 newly generated v2 wallets and eight colluding
+roles. Produce genuine proofs, ciphertexts, funding signatures, native P2PK/P2SH
+transactions and complete native replay. Use existing pinned public parameters.
+Funding ancestry and accepted heads are offline fixtures, not chain acceptance.
+No funds or broadcasts are required. This is varied synthetic usage of real
+wallet transactions, not representative human activity or measured network data.
+
+Amortize public proving-key loading with the existing local `serve` interface.
+It accepts a backup per command. Generation therefore trusts one experiment
+process with all fresh fixture wallets; observers are separately isolated. This
+is not a test of independent people or provider confidentiality.
+
+Experiment-only helpers may accept varied funding values and create ordinary
+signed transfers from an exit to a funding address. Preserve existing helper
+commands and validation. Do not change wallet or proof semantics to manufacture
+arbitrary partial exits: EXIT consumes whole selected one/two notes.
+
+## Workload to freeze
+
+The executable specification will fix all selections, ties and control cases
+before hidden seed sampling. One 32-role history contains 64 ordinary payments:
+eight colluding roles each send twice; a hidden permutation assigns honest roles
+to four receive-only users, eight with one send, eight with two, and four with
+six sends. Initial capitals are 350/700/1,400 tKAS. Honest amounts mix common
+10/20/25/40/50-tKAS invoices with irregular amounts in the same range. Preferred
+counterparties repeat with probability 70%; other recipients remain possible.
+Cashout modes mix prompt received-note withdrawal, accumulated receipt
+withdrawal and retention. Explicit modeled request times are separate from
+transaction dependency order; neither proves chain timing.
+
+Retain an identifiable capital/change chain privately to guarantee affordability
+through six maximum payments. Selection can use one/two inputs. Cashouts during
+activity consume received/remainder claims, not that reserve capital chain.
+No request is silently dropped, seed resampled or shortfall subsidized.
+Finish with full one/two-note drainage and exact integer-sompi accounting.
+
+Include genuine exit-to-ordinary-transfer-to-admission flows for both self
+top-ups and cross-user native payments. A transparent value-flow edge must never
+be silently treated as proof of common ownership. Reused and fresh funding
+indices supply declared controls. Final choices and counts belong in the frozen
+executable specification, not post-result adjustments.
+
+## Observation and attacks
+
+Derive events and byte features from actual native transaction bodies, after
+independent native replay. Bind full artifact hashes and full transaction hashes,
+not txids alone. Funding identities use `(transaction ID, output index)`.
+Never give an observer private actions, selected positions, key indices, honest
+scan results, hidden role classes, proof-generation durations or full truth.
+
+Freeze a policy-aware prior, cashout/residual and split-value guesses, a native
+funding/payout graph heuristic, and repeated-ciphertext/shape diagnostics. Preserve
+wrong guesses and a cross-user funding control. A graph-based owner guess stays
+a guess unless separately established by a valid ownership argument. Ciphertext
+length/equality tests are not cryptographic security tests.
+
+Evaluate public-only, each separate adversarial participant and pooled records.
+Explicitly identify any public funding/contact directory supplied as side
+information. Evaluate ordinary payments at creation, the first later cashout
+and complete drainage. Both public bytes and participant records are cut at the
+same horizon; later disclosures must not leak into earlier inputs. Exclude
+already-known facts field by field, not by treating a receipt as sender knowledge.
+
+All predictions must be sealed before any private scoring. Controls use only
+hand-built or previously published development data. Source, binary, parameter,
+workload, attack and scorer identities are frozen before fresh generation.
+
+## Criteria
+
+Report correct/eligible counts for sender, recipient, both parties, exact amount
+and amount within 10%, together with fixed selective relationship rankings and
+prior differences. Compare point estimates with unchanged RFC-0012 caps using
+exact rational arithmetic. Retain primary honest-to-honest/post-admission results
+and diagnostics separately. A single history is one dependent scenario, not
+64 independent trials and not a population qualification study.
+
+- **Demonstrated conditional disclosure:** an otherwise unknown internal fact
+  has a reproducible public-data derivation, independently checked against the
+  supported model and private truth. State every ownership/behavior assumption.
+  Stop expansion of the affected claim pending a redesign or scope decision.
+- **Completed native screen:** every planned native operation, observation,
+  control and score completes. Report measured cap exceedances as practical
+  warnings and show whether the prior alone already exceeds them. Low rates
+  cannot qualify privacy. Transparent boundary links are reported separately
+  from internal-payment exposure.
+- **Incomplete evidence:** missing native activity, contaminated views, failed
+  controls, inconsistent accounting or unresolved checks. Preserve the attempt
+  and identify the failing step; do not retune it into a successful result.
+
+No outcome passes the quantitative privacy gate or authorizes milestone 3.
+Keep setup, cryptographic review, network observation, data availability and
+independent user testing as separate obligations. The security invariants and
+native-KAS asset/exit model remain unchanged.

@@ -1,0 +1,237 @@
+{
+  "passed": true,
+  "completed_utc": "2026-10-21T01:21:29.076160+00:00",
+  "result_sha256": "e051c49c3f2f7aa4924bc4dcf9241d25da97e264787b923e0ef90f0bbb761241",
+  "result": {
+    "passed": true,
+    "results": {
+      "runner": {
+        "passed": true,
+        "controls": [
+          "absolute-child-rejected",
+          "parent-traversal-rejected",
+          "symlink-ancestor-rejected-before-resolution",
+          "unfrozen-controller-rejected-before-inputs"
+        ]
+      },
+      "generator": {
+        "complete": true,
+        "passed": true,
+        "controls": 13,
+        "development_only": true,
+        "development_payments": 64,
+        "development_pool_operations": 167
+      },
+      "observer": {
+        "schema": "kpi-native-usage-observer-controls-v1",
+        "complete": true,
+        "passed": true,
+        "adapter": {
+          "schema": "kpi-native-usage-surface-controls-v1",
+          "complete": true,
+          "passed": true,
+          "tests": [
+            "exact funding outpoints keep different parent-output owners",
+            "bridge matches payout index one and preserves source ordinal",
+            "same transaction id with reserve index is not a payout edge",
+            "terminal payout index zero",
+            "future source payout rejected",
+            "future unused parent rejected",
+            "duplicate parent input rejected",
+            "bridge private label cannot enter initial directory",
+            "ambiguous same-script owners rejected",
+            "exact known initial script labels bridge destination only",
+            "fresh bridge script leaves destination owner unknown",
+            "participant authored ADMIT can label its own funding destination",
+            "conflicting participant and script associations rejected",
+            "multi-input parent preserves every selected output by source-payout edge",
+            "distinct parents cannot reuse one known payout",
+            "distinct parents cannot reuse a non-payout input",
+            "parent cannot respent founding funding outpoint",
+            "modeled timing binds exact ordered event identities",
+            "future timing row rejected",
+            "boolean minute rejected",
+            "authored transaction ids normalize to ordinals without recipient sibling disclosure",
+            "future authored event rejected",
+            "wrong disclosed input owner rejected",
+            "missing own change receipt rejected",
+            "disclosed amount conservation rejected",
+            "unsupported pooled subset rejected",
+            "private extra field rejected",
+            "equal commitment contradictory disclosures rejected",
+            "receipt cannot contradict public initial value",
+            "complete publicly known participant ADMIT accepted",
+            "known participant ADMIT cannot omit authored record",
+            "known participant ADMIT cannot omit self-credit receipt",
+            "receipt cannot claim ADMIT zero padding as positive",
+            "observation points use public next DRAIN and final with no bootstrap target",
+            "prefix drops future parent, future same-parent directory output and future disclosures",
+            "prefix cutting does not mutate complete inputs"
+          ],
+          "count": 36,
+          "scope": "Hand-built public adapter checks; no native proof or bridge-spend validation"
+        },
+        "controls": [
+          {
+            "name": "exact prior sweep matches exhaustive development support",
+            "passed": true
+          },
+          {
+            "name": "exact prior sweep matches exhaustive development support",
+            "passed": true
+          },
+          {
+            "name": "exact prior sweep matches exhaustive development support",
+            "passed": true
+          },
+          {
+            "name": "sompi-exact invoice prior is fixed and in support neighborhood",
+            "passed": true
+          },
+          {
+            "name": "known same-owner input split contains hand-ledger payment",
+            "passed": true
+          },
+          {
+            "name": "fixed public control tags do not disclose their recipients",
+            "passed": true
+          },
+          {
+            "name": "unknown recurring sender prior uses declared activity mixture",
+            "passed": true
+          },
+          {
+            "name": "honest local hypotheses honor exact cent support and bounds",
+            "passed": true
+          },
+          {
+            "name": "plausible fractional split cannot label an honest sender",
+            "passed": true
+          },
+          {
+            "name": "active exact tags restrict sender hypotheses without creating facts",
+            "passed": true
+          },
+          {
+            "name": "public first control uses ordinal zero and later role0 uses ordinal one",
+            "passed": true
+          },
+          {
+            "name": "disclosed active send ordinal counts earlier authored PAYs only",
+            "passed": true
+          },
+          {
+            "name": "second disclosed active send uses ordinal one",
+            "passed": true
+          },
+          {
+            "name": "no graph hypothesis is put in known-note registry",
+            "passed": true
+          },
+          {
+            "name": "self-return graph supplies an explicit fallible owner hypothesis",
+            "passed": true
+          },
+          {
+            "name": "known self-return can strengthen a correct local recipient candidate",
+            "passed": true
+          },
+          {
+            "name": "cross-user native flow produces a deliberately wrong common-owner guess",
+            "passed": true
+          },
+          {
+            "name": "wrong graph hypothesis remains a scored guess, not a forced assertion",
+            "passed": true
+          },
+          {
+            "name": "fresh unassociated funding script causes boundary abstention",
+            "passed": true
+          },
+          {
+            "name": "creation prefix has no later-cashout matches",
+            "passed": true
+          },
+          {
+            "name": "known later spend excludes a different earlier consumption",
+            "passed": true
+          },
+          {
+            "name": "input and output positions cannot be reused as cashout coinputs",
+            "passed": true
+          },
+          {
+            "name": "later disclosed receipt spend rules out another exit",
+            "passed": true
+          },
+          {
+            "name": "whole-cashout match cannot override known change owner",
+            "passed": true
+          },
+          {
+            "name": "hypotheses never mutate facts and repeated execution is deterministic",
+            "passed": true
+          },
+          {
+            "name": "recipient-only record is not a sender record",
+            "passed": true
+          },
+          {
+            "name": "conflicting private receipt assertions reject rather than rank",
+            "passed": true
+          },
+          {
+            "name": "zero change uses a single later residual",
+            "passed": true
+          },
+          {
+            "name": "positive known change cannot be guessed zero",
+            "passed": true
+          },
+          {
+            "name": "policy is exact-pinned and never accepts unrelated private fields",
+            "passed": true
+          }
+        ],
+        "count": 30,
+        "prior_amount_sompi": 4500000000,
+        "candidate_truncation": false,
+        "native_proofs_generated": false,
+        "held_out_data_used": false
+      },
+      "scorer": {
+        "complete": true,
+        "passed": true,
+        "tests": [
+          "exact-rational-caps-and-advantage-boundaries",
+          "rank-ties-ceiling-small-groups-empty",
+          "cashout-cutoff-public-order-not-hidden-recipient",
+          "explicit-public-individual-pooled-profiles",
+          "native-accounting-recycled-value-all-change-and-topological-order",
+          "native-global-double-spend-rejected",
+          "native-bridge-inflation-rejected",
+          "native-missing-outpoint-rejected",
+          "native-duplicate-body-rejected",
+          "independent-prefix-parent-time-view-cuts",
+          "metric-specific-public-facts-exact-amount-boundary-paired-denominators",
+          "recipient-only-exclusion-empty-primary-incomplete",
+          "self-cross-unknown-bridge-false-positive-and-abstention-counts",
+          "missing-required-activity-retained-incomplete",
+          "complete-prediction-prefix-schema-positive",
+          "prediction-missing-target-rejected",
+          "prediction-future-or-wrong-view-hash-rejected",
+          "prediction-unknown-variant-rejected",
+          "prediction-target-order-rejected",
+          "prediction-bool-amount-rejected",
+          "prediction-altered-public-diagnostics-rejected",
+          "equal-value-same-owner-consumption-chronology-rejected",
+          "original-cp-z3-fixed-truth-positive-two-input-drain",
+          "fixed-truth-one-sompi-inflation-rejected",
+          "fixed-truth-cross-owner-spend-rejected",
+          "fixed-truth-replayed-input-rejected"
+        ],
+        "scope": "Explicit scoring/accounting controls; no held-out execution or privacy qualification"
+      }
+    }
+  }
+}

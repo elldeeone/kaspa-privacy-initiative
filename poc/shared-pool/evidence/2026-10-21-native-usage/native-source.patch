@@ -1,0 +1,271 @@
+diff --git a/poc/shared-pool/src/two_input/lifecycle.rs b/poc/shared-pool/src/two_input/lifecycle.rs
+index 69ee765..9f22f8a 100644
+--- a/poc/shared-pool/src/two_input/lifecycle.rs
++++ b/poc/shared-pool/src/two_input/lifecycle.rs
+@@ -3,7 +3,7 @@
+ use super::{replay, reserve_spk, tree::PublicState, wallet};
+ use crate::{
+     Result, native,
+-    protocol::{GENESIS_HEX, H, Wallet, hash, random},
++    protocol::{GENESIS_HEX, H, MAX_SOMPI, Wallet, hash, random},
+ };
+ use kaspa_consensus_core::tx::TransactionOutput;
+ use serde::{Serialize, de::DeserializeOwned};
+@@ -36,6 +36,9 @@ fn dir(p: &Path) -> Result<()> {
+     Ok(())
+ }
+ fn synthetic_parent(spk: &str, amount: u64) -> Result<Value> {
++    if amount == 0 || amount > MAX_SOMPI - 100_000_000 {
++        return Err("synthetic funding amount range".into());
++    }
+     let key = Wallet::fresh().payout_key(&random(), 0);
+     let input = native::Utxo {
+         txid: hex::encode(random()),
+@@ -54,22 +57,29 @@ fn synthetic_parent(spk: &str, amount: u64) -> Result<Value> {
+     Ok(json!({
+         "scope":"synthetic source UTXO; no chain acceptance or funded transaction",
+         "chain_acceptance_verified":false,
++        "native_validation_passed":true,
+         "transaction":native::tx_json(&tx),
+         "input":input,
+         "ordinary_fee_sompi":fee.to_string(),
+     }))
+ }
+ fn founder(vk_path: &Path, pin_path: &Path, out: &Path) -> Result<Value> {
++    founder_amount(vk_path, pin_path, out, 2_000_000_000)
++}
++fn founder_amount(vk_path: &Path, pin_path: &Path, out: &Path, amount: u64) -> Result<Value> {
++    if amount < super::NOTE_FLOOR + super::FEE || amount > MAX_SOMPI - 200_000_000 {
++        return Err("founder amount range".into());
++    }
+     let vk = fs::read(vk_path)?;
+     let pin: wallet::ParameterPin = read(pin_path)?;
+     let domain: H = hash(&[b"KPI/v6/offline-own-key-lifecycle\0".as_slice(), &random()].concat());
+     let keys = Wallet::fresh();
+-    let note = keys.receive(&domain).note(2_000_000_000)?;
++    let note = keys.receive(&domain).note(amount)?;
+     let state = PublicState::initial(note.commitment(&domain))?;
+     let funding_key = keys.funding_key(&domain, 0);
+     let parent = synthetic_parent(
+         &hex::encode(native::encode_spk(&native::p2pk(&funding_key)?)),
+-        2_100_000_000,
++        amount + 100_000_000,
+     )?;
+     let parent_tx = native::parse_tx(&parent["transaction"])?;
+     let input = native::Utxo::output(&parent_tx, 0, 0);
+@@ -77,7 +87,7 @@ fn founder(vk_path: &Path, pin_path: &Path, out: &Path) -> Result<Value> {
+         &input,
+         &funding_key,
+         vec![TransactionOutput::new(
+-            2_000_000_000,
++            amount,
+             reserve_spk(&domain, &state, &vk)?,
+         )],
+     )?;
+@@ -88,7 +98,7 @@ fn founder(vk_path: &Path, pin_path: &Path, out: &Path) -> Result<Value> {
+         genesis: GENESIS_HEX.into(),
+         domain,
+         initial_commitment: note.commitment(&domain),
+-        initial_value_sompi: "2000000000".into(),
++        initial_value_sompi: amount.to_string(),
+         vk_sha256: hex::encode(hash(&vk)),
+         funding_txid: tx.id().to_string(),
+         funding_full_hash: kaspa_consensus_core::hashing::tx::hash(&tx).to_string(),
+@@ -270,6 +280,107 @@ fn payout_spend(
+         "fee_sompi":fee.to_string(),
+     }))
+ }
++
++/// Experiment-only transparent exit-to-funding transfer. The exact input is an
++/// actual prior payout, not a synthetic replacement. Cross-user destinations are
++/// supported: a public spend edge does not establish common ownership. The
++/// caller must additionally enforce global once-only native outpoint use.
++fn bridge_transaction(
++    payout: &kaspa_consensus_core::tx::Transaction,
++    key: &H,
++    output_index: usize,
++    funding_spk: &str,
++    amount: u64,
++) -> Result<Value> {
++    let output = payout
++        .outputs
++        .get(output_index)
++        .ok_or("payout output index")?;
++    if output.script_public_key != native::p2pk(key)? {
++        return Err("exact payout not controlled by restored exit key".into());
++    }
++    let bytes = hex::decode(funding_spk)?;
++    if bytes.len() != 36 || bytes[..3] != [0, 0, 0x20] || bytes[35] != 0xac {
++        return Err("bridge destination must be canonical P2PK".into());
++    }
++    if amount < super::NOTE_FLOOR + super::FEE || amount > MAX_SOMPI {
++        return Err("bridge funding amount range".into());
++    }
++    let input = native::Utxo::output(payout, output_index, 0);
++    let (tx, entries) = native::ordinary(
++        &input,
++        key,
++        vec![TransactionOutput::new(
++            amount,
++            native::decode_spk(funding_spk)?,
++        )],
++    )?;
++    let fee = native::validate(&tx, &entries)?;
++    if tx.outputs.len() != 2
++        || tx.outputs[0].value != amount
++        || tx.outputs[1]
++            .value
++            .checked_add(amount)
++            .and_then(|v| v.checked_add(fee))
++            != Some(input.amount)
++    {
++        return Err("bridge accounting mismatch".into());
++    }
++    Ok(json!({
++        "scope":"signed ordinary exit-to-funding transfer; no chain acceptance",
++        "chain_acceptance_verified":false,"native_validation_passed":true,
++        "input":input,"transaction":native::tx_json(&tx),
++        "fee_sompi":fee.to_string(),"change_sompi":tx.outputs[1].value.to_string(),
++    }))
++}
++fn payout_to_funding(
++    backup_path: &Path,
++    descriptor_path: &Path,
++    payout_path: &Path,
++    key_index: u32,
++    output_index: usize,
++    funding_spk: &str,
++    amount: u64,
++) -> Result<Value> {
++    let backup: wallet::Backup = read(backup_path)?;
++    let descriptor: replay::Descriptor = read(descriptor_path)?;
++    let payout: Value = read(payout_path)?;
++    bridge_transaction(
++        &native::parse_tx(&payout)?,
++        &backup.exit_key(&descriptor, key_index)?,
++        output_index,
++        funding_spk,
++        amount,
++    )
++}
++fn canonical_amount(value: &str) -> Result<u64> {
++    let amount: u64 = value.parse()?;
++    if amount.to_string() != value || amount > MAX_SOMPI {
++        return Err("canonical integer sompi required".into());
++    }
++    Ok(amount)
++}
++fn check_native(transaction: &Path, inputs: &Path) -> Result<Value> {
++    let tx = native::parse_tx(&read::<Value>(transaction)?)?;
++    let inputs: Vec<native::Utxo> = read(inputs)?;
++    if inputs.len() != tx.inputs.len() {
++        return Err("native input count".into());
++    }
++    for (utxo, input) in inputs.iter().zip(&tx.inputs) {
++        if utxo.outpoint()? != input.previous_outpoint {
++            return Err("native input outpoint".into());
++        }
++    }
++    let entries = inputs
++        .iter()
++        .map(native::Utxo::entry)
++        .collect::<Result<Vec<_>>>()?;
++    let fee = native::validate(&tx, &entries)?;
++    Ok(
++        json!({"native_validation_passed":true,"chain_acceptance_verified":false,
++        "fee_sompi":fee.to_string(),"full_hash":kaspa_consensus_core::hashing::tx::hash(&tx).to_string()}),
++    )
++}
+ pub fn run() -> Result<()> {
+     let a: Vec<String> = std::env::args().collect();
+     let arg = |i: usize| {
+@@ -279,13 +390,88 @@ pub fn run() -> Result<()> {
+     };
+     let result = match a.get(1).map(String::as_str) {
+         Some("founder") if a.len() == 5 => founder(Path::new(arg(2)?), Path::new(arg(3)?), Path::new(arg(4)?))?,
++        Some("founder-amount") if a.len() == 6 => founder_amount(Path::new(arg(2)?), Path::new(arg(3)?), Path::new(arg(4)?), canonical_amount(arg(5)?)?)?,
+         Some("fund") if a.len() == 3 => synthetic_parent(arg(2)?, 1_200_000_000)?,
++        Some("fund-amount") if a.len() == 4 => synthetic_parent(arg(2)?, canonical_amount(arg(3)?)?)?,
+         Some("checkpoint") if a.len() == 3 => checkpoint(Path::new(arg(2)?))?,
+         Some("payout-spend") if a.len() == 6 => payout_spend(Path::new(arg(2)?), Path::new(arg(3)?), Path::new(arg(4)?), arg(5)?.parse()?)?,
++        Some("payout-to-funding") if a.len() == 9 => payout_to_funding(Path::new(arg(2)?), Path::new(arg(3)?), Path::new(arg(4)?), arg(5)?.parse()?, arg(6)?.parse()?, arg(7)?, canonical_amount(arg(8)?)?)?,
++        Some("check-native") if a.len() == 4 => check_native(Path::new(arg(2)?), Path::new(arg(3)?))?,
+         Some("prepare-check") if a.len() == 5 => prepare_check(Path::new(arg(2)?), Path::new(arg(3)?), Path::new(arg(4)?))?,
+         Some("bad-delivery") if a.len() == 7 => bad_delivery(Path::new(arg(2)?), Path::new(arg(3)?), Path::new(arg(4)?), Path::new(arg(5)?), Path::new(arg(6)?))?,
+-        _ => return Err("founder VK PIN_JSON NEWDIR | fund PUBLIC_SPK_HEX | checkpoint PUBLIC_DIR | payout-spend BACKUP DESCRIPTOR PAYOUT_TX KEY_INDEX | prepare-check BACKUP PUBLIC ACTION | bad-delivery SENDER_BACKUP PUBLIC RECIPIENT PK PIN".into()),
++        _ => return Err("founder VK PIN_JSON NEWDIR | founder-amount VK PIN_JSON NEWDIR SOMPI | fund PUBLIC_SPK_HEX | fund-amount PUBLIC_SPK_HEX SOMPI | checkpoint PUBLIC_DIR | payout-spend BACKUP DESCRIPTOR PAYOUT_TX KEY_INDEX | payout-to-funding BACKUP DESCRIPTOR PAYOUT_TX KEY_INDEX OUTPUT_INDEX FUNDING_SPK SOMPI | check-native TX_JSON INPUT_UTXOS_JSON | prepare-check BACKUP PUBLIC ACTION | bad-delivery SENDER_BACKUP PUBLIC RECIPIENT PK PIN".into()),
+     };
+     println!("{}", serde_json::to_string(&result)?);
+     Ok(())
+ }
++
++#[cfg(test)]
++mod native_usage_tests {
++    use super::*;
++
++    #[test]
++    fn canonical_amount_and_funding_bounds() -> Result<()> {
++        assert_eq!(canonical_amount("0")?, 0);
++        assert_eq!(canonical_amount(&MAX_SOMPI.to_string())?, MAX_SOMPI);
++        for value in ["01", "+1", "-1", "1.0", " 1", "18446744073709551616"] {
++            assert!(canonical_amount(value).is_err());
++        }
++        assert!(canonical_amount(&(MAX_SOMPI + 1).to_string()).is_err());
++        let spk = hex::encode(native::encode_spk(&native::p2pk(&[7; 32])?));
++        assert!(synthetic_parent(&spk, 0).is_err());
++        assert!(synthetic_parent(&spk, MAX_SOMPI - 100_000_000 + 1).is_err());
++        let missing = Path::new("/nonexistent-kpi-native-usage-test");
++        assert!(
++            founder_amount(
++                missing,
++                missing,
++                missing,
++                super::super::NOTE_FLOOR + super::super::FEE - 1
++            )
++            .is_err()
++        );
++        assert!(founder_amount(missing, missing, missing, MAX_SOMPI - 200_000_000 + 1).is_err());
++        Ok(())
++    }
++
++    #[test]
++    fn exact_payout_bridge_validates_and_rejects_wrong_context() -> Result<()> {
++        let key = [7; 32];
++        let spk = hex::encode(native::encode_spk(&native::p2pk(&key)?));
++        // Ordinary public development transaction, not a new pool proof or a
++        // held-out wallet. The bridge checks the exact output and native key.
++        let parent = synthetic_parent(&spk, 2_000_000_000)?;
++        let tx = native::parse_tx(&parent["transaction"])?;
++        let destination = hex::encode(native::encode_spk(&native::p2pk(&[9; 32])?));
++        for amount in [super::super::NOTE_FLOOR + super::super::FEE, 1_900_000_000] {
++            let result = bridge_transaction(&tx, &key, 0, &destination, amount)?;
++            assert_eq!(result["native_validation_passed"], true);
++            assert_eq!(result["input"]["txid"], tx.id().to_string());
++            assert_eq!(result["input"]["index"], 0);
++            let bridge = native::parse_tx(&result["transaction"])?;
++            assert_eq!(bridge.outputs[0].value, amount);
++            assert_eq!(
++                bridge.outputs[0].script_public_key,
++                native::decode_spk(&destination)?
++            );
++            let fee: u64 = result["fee_sompi"].as_str().unwrap().parse()?;
++            assert_eq!(amount + bridge.outputs[1].value + fee, tx.outputs[0].value);
++            assert!(bridge.outputs[1].value > 0);
++        }
++        assert!(bridge_transaction(&tx, &[8; 32], 0, &destination, 1_000_000_000).is_err());
++        assert!(bridge_transaction(&tx, &key, 2, &destination, 1_000_000_000).is_err());
++        assert!(
++            bridge_transaction(
++                &tx,
++                &key,
++                0,
++                &destination,
++                super::super::NOTE_FLOOR + super::super::FEE - 1
++            )
++            .is_err()
++        );
++        assert!(bridge_transaction(&tx, &key, 0, &destination, 2_000_000_000).is_err());
++        assert!(bridge_transaction(&tx, &key, 0, "0000", 1_000_000_000).is_err());
++        Ok(())
++    }
++}

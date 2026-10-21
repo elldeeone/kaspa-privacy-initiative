@@ -29,11 +29,24 @@ share one current-version interface. Qualification against the accepted
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
-**Next action:** complete the early privacy gate's remaining views/horizons and
-design a sufficiently powered qualification study before dedicated milestone 3
-work or further wallet/recovery expansion. The stronger practical screen below
-is complete, with low observed attack rates but no qualification pass. Milestone
-7 remains broader validation. Routine safety review and fixes continue throughout.
+**Next action:** investigate the withdrawal-related amount-guessing warnings in
+the [completed native usage screen](../poc/shared-pool/NATIVE-USAGE-PRIVACY.md),
+then freeze a decisive mitigation comparison before dedicated milestone 3 work
+or further wallet/recovery expansion. The broader early privacy gate and a
+sufficiently powered qualification study remain open. Milestone 7 remains
+broader validation. Routine safety review and fixes continue throughout.
+
+The owner authorized the next bounded test under
+[RFC-0015](rfc/0015-native-usage-privacy-screen.md): one fresh 32-wallet history
+with genuine offline native transactions, uneven activity, repeat contacts,
+intermediate cashouts and transparent self/cross-user re-entry controls. Freeze
+all attacks and criteria before generation, then evaluate public/participant
+prefixes through a completed result. This has completed: public-plus-directory
+amount guesses improve from prior 7/36 to 12/36 within 10% after the next public
+withdrawal, exceeding both frozen caps. All 64 payments and 59 withdrawals
+completed, with 159 genuine proofs and exact native accounting. One history
+cannot supply statistical qualification or chain/network evidence. Preserve the
+warning; do not advance the privacy claim or retune the retained test.
 
 ## Evidence carried forward
 
@@ -166,6 +179,13 @@ pass: sixteen histories give
 wide uncertainty, and only the pooled final view and limited attacks were tested.
 The 32-role gate remains open; no protocol or wallet change follows from this
 result.
+The subsequent [native usage screen](../poc/shared-pool/NATIVE-USAGE-PRIVACY.md)
+completed all 83 prefixes and ten profiles. It finds transaction-derived amount
+advantage in a varied-usage history: C+D next-withdrawal 12/36 versus prior 7/36,
+and pooled next-withdrawal/final 10/36. A separate P1 final sender comparison
+also exceeds the five-point prior-improvement cap (2/36 versus 0/36). No primary
+joint relationship guess succeeds, which is not a proof of privacy. These
+finite-case warnings now take priority over expanding this candidate.
 The owner challenged the work order
 after the milestone 2 commit `bf4505c`: test whether the integrated candidate can
 meet the intended privacy promise before investing further in that candidate.

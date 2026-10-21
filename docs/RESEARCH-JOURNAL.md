@@ -73,9 +73,90 @@ in the declared primary comparisons.
 All histories, full-model truth checks and independent recounts completed.
 This is a bounded synthetic result with wide uncertainty and limited attacks;
 the 32-role gate remains open.
+The subsequent [native usage screen](../poc/shared-pool/NATIVE-USAGE-PRIVACY.md)
+has completed and raised finite-case privacy warnings. At the next public
+withdrawal, C+D guesses 12/36 honest-to-honest amounts within 10%, against prior
+7/36. This exceeds the absolute and prior-improvement caps; the prior alone
+does not exceed the observed absolute cap. Investigate withdrawal-related
+inference before dedicated milestone 3 work. The completed native accounting
+and full drainage do not qualify privacy.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
+
+## 2026-10-21 — Native usage privacy: completed with warnings
+
+Generation completed at 04:05:40 UTC, the prediction batch was sealed at
+04:12:30 UTC and scoring completed at 04:13:25 UTC (15:13 Australia/Sydney).
+The frozen attempt completed 159 proof-bearing operations, including 64
+ordinary payments and 59 withdrawals, with all claims drained. Native replay,
+whole-experiment integer accounting, original-backup preservation and both
+concrete-witness solver checks passed. All 83 prefixes, ten observer profiles
+and 1,920 target/profile/horizon combinations completed.
+
+A separate post-run arithmetic recount agrees with every aggregate score and
+warning: zero discrepancies across 228 comparison groups, including 2,400
+metric counters and 1,440 ranked counters. It checks the completed prediction
+seals before its sole fixed hidden-truth read and imports no frozen scoring
+logic. Twenty public controls passed. The closed-allowlist public exporter
+passes 31 controls, preserves exact bytes/hashes (with reversible prediction
+compression), and excludes seeds, backups, full truth and honest wallet records.
+
+Primary results concern 36 honest-to-honest payments. C+D residual/native-graph
+amount guesses at the next public withdrawal hit 12/36 within 10% (33.33%),
+versus prior 7/36 (19.44%): +13.89 percentage points. Exact hits are 6/36.
+Final C+D attack accuracy is 10/36 (27.78%); pooled next-withdrawal/final
+accuracy is also 10/36. The observed prior alone remains below 20%, unlike its
+21.10% expectation under the published mixture. Preserve that distinction.
+
+The score records 95 amount comparison warnings and one P1 final split sender
+warning (2/36 versus prior 0/36, +5.56 pp). These repeated comparisons are not
+independent discoveries or certified population breaches. No primary joint
+sender–recipient guess is correct. Four public native bridge edges produce
+one correct same-owner guess, one cross-user false positive and two abstentions
+per profile; value flow is not ownership proof.
+
+**Decision:** preserve the finite-case warning and the frozen criteria. Document,
+commit and push the evidence, then investigate the withdrawal inference and
+candidate mitigations. No protocol change, new privacy qualification, funded
+trial or milestone 3 authorization follows. Later analysis of this seen history
+must be labeled exploratory. The [report](../poc/shared-pool/NATIVE-USAGE-PRIVACY.md)
+links the public evidence and its exact identity/serialization receipts.
+
+### Prospective design retained
+
+The owner authorized committing/pushing the completed stronger screen, then
+starting a new test with more realistic usage and actual transaction data.
+Checkpoint `9ae5b3efeb1698cf45d35e064c95f91c1ac5a54e` is pushed to
+`origin/shielded-kas-research`. The preceding results and private evidence remain
+unchanged.
+
+[RFC-0015](rfc/0015-native-usage-privacy-screen.md) and the
+[prospective specification](../poc/shared-pool/NATIVE-USAGE-PRIVACY-SPEC.md)
+define one fresh 32-wallet/eight-colluder native history: 64 payments, uneven
+activity, repeat counterparties, common/irregular invoice values, receipt spending,
+intermediate withdrawals and four genuine self/cross-user re-entry controls.
+The initial ownership directory is explicit side information. Native value flow
+is not silently promoted to common ownership. Each observer gets only the
+transactions, parents and participant records available at its declared prefix.
+
+Use current v2 wallet/proof semantics and existing parameters. New experiment
+helpers vary funding amounts and sign ordinary payout-to-funding transfers while
+preserving all checks. Freeze source, binaries, workload, attacks and criteria
+before hidden seed sampling or fresh wallet creation. Seal all predictions before
+scoring. The planned outcome is a finite native-case measurement, not population
+qualification; no funds, broadcasts or observed network timing are involved.
+
+Frozen at 2026-10-21 01:21:18 UTC, before seed sampling at 01:21:42 UTC:
+`f841e1d66a1f3e5fdd564aefe035701e3a32c41ffe0f7d4ca498d94509e74ac5`.
+All 109 isolated development control groups passed (4 runner, 13 generator,
+36 adapter, 30 observer, 26 scorer). Separate native-context negative controls,
+published native replay and a full-size public-fixture solver check passed.
+At that pre-run checkpoint generation had started and no privacy result was
+asserted. The fixed
+honest amount prior already predicts about 21.10% within 10% under the published
+usage mixture, exceeding the 20% absolute target in expectation. Preserve this
+pre-run warning and measure transaction-derived advantage separately.
 
 ## 2026-10-21 — Stronger practical privacy screen
 
