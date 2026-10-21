@@ -60,11 +60,63 @@ full-model truth checks. These bounded results are not a privacy pass. The M2
 recovery trace itself establishes no privacy result.
 The subsequent [native address-reuse diagnostic](../poc/shared-pool/ADDRESS-REUSE.md)
 completed seven genuine offline proofs and found a conditional internal-payment
-disclosure. Review funding/exit key separation next; the 32-role gate remains
-open and no wallet derivation change has been made.
+disclosure. The owner authorized a fresh-v2 funding-key separation follow-up
+under [ADR-0030](adr/0030-separate-funding-and-exit-keys.md), preserving exact
+legacy backup behavior. The [offline retest](../poc/shared-pool/ADDRESS-KEY-SEPARATION.md)
+passes ten genuine proofs, original-backup recovery and native payout spending.
+Both fresh-v2 cases remove this script-equality inference; the legacy control
+retains it. The 32-role gate remains open.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
+
+## 2026-10-21 — Funding-key separation and backup compatibility
+
+The owner authorized committing/pushing the completed address-reuse result,
+then separating funding/exit derivation and rerunning the test. Checkpoint
+`b62cfd1910d77f9962882b1088d6cc718e7df1b2` is pushed to
+`origin/shielded-kas-research`. Earlier experiment sources/evidence are preserved.
+
+**Decision:** [ADR-0030](adr/0030-separate-funding-and-exit-keys.md) assigns a
+funding-specific HMAC label to fresh v2 backups and preserves the exit derivation
+byte-for-byte. Explicit legacy v1 backups keep both old paths and their known
+reuse risk. Unknown/mixed profiles reject. No automatic migration, new secret,
+proof relation, setup, privileged role or changed invariant is introduced.
+
+**Prospective checks:** fixed derivation vectors and profile/ownership controls;
+fresh v2 matched-index/different-index histories; a fresh legacy backup generated
+by the frozen old CLI and recovered by the new wallet; unchanged original-backup
+restoration and native payout spending; unchanged privacy observer and retained
+positive control. Freeze the new experiment before wallet creation and seal
+predictions before truth scoring. No funds or broadcasts are authorized here.
+
+**Observed:** 35 focused implementation tests and all ten genuine native proofs
+passed. Both fresh-v2 cases use different funding/exit scripts, including equal
+numeric indices. The genuine v1 backup made by the old CLI derives exactly the
+same funding information under both binaries and retains its old script reuse.
+All three fresh recovery processes discover the expected notes from original
+backups, generate valid exits and sign valid native payout spends. Each history
+reconciles 32 = 30.4 payouts + 1.6 pool fees with zero reserve. Eight invalid
+requests reject, including the intended wrong-purpose ownership errors; 45
+process guards and all 76 before/after source/binary pins pass. No funds,
+broadcasts, setup changes or new chain-acceptance evidence are involved.
+
+**Privacy result:** all three predictions were sealed before any private scoring.
+Actual truth passes both original encodings. Sender, recipient and amount remain
+ambiguous in all four observer profiles for each v2 case. Only the legacy final
+linked profile forces all three, and the historical public positive control
+still works. This is removal of the tested conditional inference, not a privacy
+level, anonymity rate, external cryptographic audit or 32-role gate pass.
+An adversarial author-team review independently checked 180 saved satisfying
+assignments and 24 fresh solver queries for all six forced facts, including the
+historical positive control. It also checked source identity, all intended
+rejection causes, process isolation and seal-before-score order, with no blocker.
+
+**Next boundary:** preserve explicit v1 compatibility and its recorded weakness;
+do not relabel old backups as a privacy migration. Continue testing stronger
+practical attacks and persistent shielded balances before dedicated milestone 3
+work. Arbitrary native UTXO/index discovery and general recovery remain open.
+[Report, exact identities and evidence](../poc/shared-pool/ADDRESS-KEY-SEPARATION.md).
 
 ## 2026-10-21 — Native funding/exit address reuse
 

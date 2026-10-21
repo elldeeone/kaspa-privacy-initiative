@@ -60,3 +60,4 @@ The open state architecture comparison is [RFC-0001](../rfc/0001-state-architect
 - [ADR-0027: adopt shielded-payment qualification targets](0027-shielded-payment-targets.md) — Accepted requirements; milestone 1 complete, implementation qualification remains open.
 - [ADR-0028: begin lifecycle integration with public funding replay](0028-public-funding-replay.md) — Bounded offline component on the unchanged v6 relation; full wallet integration remains open.
 - [ADR-0029: own-key admission and backup recovery](0029-own-key-admission-and-recovery.md) — Bounded offline wallet integration and complete recovery/spend/exit test on unchanged v6 parameters.
+- [ADR-0030: separate funding and exit keys](0030-separate-funding-and-exit-keys.md) — Fresh backup v2 uses a funding-specific derivation; explicit v1 recovery remains compatible and retains its known reuse risk.

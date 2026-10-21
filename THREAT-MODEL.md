@@ -41,8 +41,18 @@ self-bootstrap removes the sender-uniqueness conclusion. The report separates
 a narrower analytic recipient deduction from that measured stronger model.
 These ownership bindings are assumptions, not general v6 circuit guarantees.
 Neither the different-index control nor this diagnostic qualifies the 32-role
-privacy promise. Key separation and recovery behavior require a separate design
-decision; no key or backup interpretation changes in this test.
+privacy promise. No key or backup interpretation changes in that test.
+[ADR-0030](docs/adr/0030-separate-funding-and-exit-keys.md) subsequently separates
+funding/exit purposes for fresh v2 wallets. Exact v1 metadata preserves historical
+derivation and its reuse risk; mismatched profiles reject rather than guessing.
+Relabeling an old backup cannot remove historical links. Native index discovery,
+amount/timing inference, compromised endpoints and history availability remain
+separate risks. The [offline retest](poc/shared-pool/ADDRESS-KEY-SEPARATION.md)
+passes original-backup recovery, exit and native payout spending for both
+profiles without a new secret or mutable sidecar. The unchanged observer no
+longer forces the payment in either fresh-v2 case; it still forces all three
+fields in the legacy final linked control under the same declared assumptions.
+This removes the demonstrated alias, not general financial inference.
 
 [H18](poc/shared-pool/SCHEDULED-PAYOUT.md) gives the chain observer
 the declared remainder-delay distribution and service/queue assumptions, in

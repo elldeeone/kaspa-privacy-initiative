@@ -3,7 +3,8 @@
 **Status:** Accepted — bounded offline integration scope implemented and tested;
 not protocol adoption or live-wallet qualification. Decisions:
 [ADR-0028](../adr/0028-public-funding-replay.md) and
-[ADR-0029](../adr/0029-own-key-admission-and-recovery.md).
+[ADR-0029](../adr/0029-own-key-admission-and-recovery.md), with the bounded
+key-separation follow-up in [ADR-0030](../adr/0030-separate-funding-and-exit-keys.md).
 
 **Date:** 2026-10-20
 
@@ -31,6 +32,23 @@ not another relation's proofs, parameter identities or backup formats. The
 remains applicable to recipient spendability, historical roots and query leakage.
 
 ## Candidate lifecycle and ownership of each obligation
+
+### Native key separation follow-up
+
+The [address-reuse finding](../../poc/shared-pool/ADDRESS-REUSE.md) warrants a
+wallet-only change: fresh v2 backups use `KPI/funding-key/v1` for funding and
+retain `KPI/payout-key/v2` for exits. Explicit v1 backups preserve both historical
+paths without migration. The original backup must recover incoming notes and
+both key purposes; no extra secret or index sidecar is required. Unsupported
+version/profile pairs and v2 funding from its exit-purpose script reject.
+The [frozen offline retest](../../poc/shared-pool/ADDRESS-KEY-SEPARATION.md) passes
+ten genuine proofs across two fresh-v2 cases and one genuine old-CLI-created v1
+case. All restore the original backup, exit and spend the native payout. V2
+removes the script-equality link and its conditional disclosure in the unchanged
+observer; v1 remains recoverable and retains the leak. Earlier results continue
+to describe their original candidate. This does not close the broader privacy gate.
+
+### Lifecycle obligations
 
 This table records the starting gaps. The outcome below identifies those tested
 by the bounded offline integration; broader obligations remain open.

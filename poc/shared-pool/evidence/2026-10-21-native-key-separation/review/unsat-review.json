@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "scope": "Public script comparison and independent rerun of unrestricted original-model candidate/negation queries; no private truth",
+  "freeze_sha256": "f201c632b9a9211e6d7c0fc66c31444f1c362fc836386f7c5fa59afab8f750f2",
+  "reviewer_sha256": "b3a89e60adb15a01fbf6b3809108687639cd9696f5948dcaaa84efc8ddb7f68f",
+  "cases": [
+    {
+      "case": "historical-positive",
+      "selected_script_equalities": [
+        false,
+        true
+      ],
+      "prediction_sha256": "215a6e86e632ae1b293e5acfb88fe0031d055c5be22e7e7201cda5681e50e1c9"
+    },
+    {
+      "case": "v2-same-index",
+      "selected_script_equalities": [
+        false,
+        false
+      ],
+      "prediction_sha256": "bc64e40769648c6e5874dff34df665365b4df2c2dfcfc4ed61eb87b48f093a69"
+    },
+    {
+      "case": "v2-different-index",
+      "selected_script_equalities": [
+        false,
+        false
+      ],
+      "prediction_sha256": "4e03eeafa27a36555ce1581675f200baeeb0ece63915c47810754ceecd648d72"
+    },
+    {
+      "case": "legacy-v1-same-index",
+      "selected_script_equalities": [
+        false,
+        true
+      ],
+      "prediction_sha256": "fc107d5259216193a8b198b0aa1e792aec4e610a25e509c972b51d37210646b7"
+    }
+  ],
+  "forced_facts": 6,
+  "unrestricted_solver_queries": 24,
+  "checks": [
+    {
+      "case": "historical-positive",
+      "field": "sender",
+      "candidate": 0,
+      "checked": {
+        "cp_sat": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        },
+        "z3": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        }
+      }
+    },
+    {
+      "case": "historical-positive",
+      "field": "recipient",
+      "candidate": 1,
+      "checked": {
+        "cp_sat": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        },
+        "z3": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        }
+      }
+    },
+    {
+      "case": "historical-positive",
+      "field": "amount",
+      "candidate": 1920000000,
+      "checked": {
+        "cp_sat": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        },
+        "z3": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        }
+      }
+    },
+    {
+      "case": "legacy-v1-same-index",
+      "field": "sender",
+      "candidate": 0,
+      "checked": {
+        "cp_sat": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        },
+        "z3": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        }
+      }
+    },
+    {
+      "case": "legacy-v1-same-index",
+      "field": "recipient",
+      "candidate": 1,
+      "checked": {
+        "cp_sat": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        },
+        "z3": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        }
+      }
+    },
+    {
+      "case": "legacy-v1-same-index",
+      "field": "amount",
+      "candidate": 1920000000,
+      "checked": {
+        "cp_sat": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        },
+        "z3": {
+          "candidate": "SAT",
+          "different": "UNSAT"
+        }
+      }
+    }
+  ]
+}

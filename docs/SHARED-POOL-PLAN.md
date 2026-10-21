@@ -145,8 +145,14 @@ proofs. In its two-funded-wallet diagnostic, the link resolves the internal
 sender, recipient and exact amount under known funding associations and a
 declared self-bootstrap schedule; the same-history ablation and different-index
 control remain ambiguous. This is a concrete wallet privacy problem, not a
-32-role rate verdict. Review separate funding/exit derivation and backup recovery
-before broader candidate expansion; no derivation change is adopted yet.
+32-role rate verdict. [ADR-0030](adr/0030-separate-funding-and-exit-keys.md) now
+adopts funding/exit separation for fresh v2 backups, while preserving exact v1
+recovery and its known risk. The
+[ten-proof offline retest](../poc/shared-pool/ADDRESS-KEY-SEPARATION.md) passes
+original-backup recovery and native payout spending in both versions. Both fresh
+v2 cases avoid the equality and its conditional disclosure; the legacy case
+still leaks. Keep this regression while extending the stronger practical attack
+and persistent-balance evaluation. This does not close the 32-role gate.
 The owner challenged the work order
 after the milestone 2 commit `bf4505c`: test whether the integrated candidate can
 meet the intended privacy promise before investing further in that candidate.

@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "scores": [
+    {
+      "arm": "v2-same-index",
+      "result": {
+        "boundary_matches_setup": true,
+        "complete": true,
+        "qualification_pass": false,
+        "rows": [
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "creation",
+            "script_association_used": false
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "creation",
+            "script_association_used": true
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "final",
+            "script_association_used": false
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "final",
+            "script_association_used": true
+          }
+        ],
+        "scope": "Constructed conditional diagnostic; no 32-role, cryptographic-security or chain-acceptance claim",
+        "truth_consistency": {
+          "cp_sat": true,
+          "z3": true
+        }
+      },
+      "score_sha256": "6513e847fa0dd3633aacadb6fb7847eaaf67c10d84ffba90487f474134f9136b"
+    },
+    {
+      "arm": "v2-different-index",
+      "result": {
+        "boundary_matches_setup": true,
+        "complete": true,
+        "qualification_pass": false,
+        "rows": [
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "creation",
+            "script_association_used": false
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "creation",
+            "script_association_used": true
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "final",
+            "script_association_used": false
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "final",
+            "script_association_used": true
+          }
+        ],
+        "scope": "Constructed conditional diagnostic; no 32-role, cryptographic-security or chain-acceptance claim",
+        "truth_consistency": {
+          "cp_sat": true,
+          "z3": true
+        }
+      },
+      "score_sha256": "6513e847fa0dd3633aacadb6fb7847eaaf67c10d84ffba90487f474134f9136b"
+    },
+    {
+      "arm": "legacy-v1-same-index",
+      "result": {
+        "boundary_matches_setup": true,
+        "complete": true,
+        "qualification_pass": false,
+        "rows": [
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "creation",
+            "script_association_used": false
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "creation",
+            "script_association_used": true
+          },
+          {
+            "forced": {
+              "amount": false,
+              "recipient": false,
+              "sender": false
+            },
+            "horizon": "final",
+            "script_association_used": false
+          },
+          {
+            "forced": {
+              "amount": true,
+              "recipient": true,
+              "sender": true
+            },
+            "horizon": "final",
+            "script_association_used": true
+          }
+        ],
+        "scope": "Constructed conditional diagnostic; no 32-role, cryptographic-security or chain-acceptance claim",
+        "truth_consistency": {
+          "cp_sat": true,
+          "z3": true
+        }
+      },
+      "score_sha256": "963f75de2b12df23557dbe78ae1024432ec3f14997cb181b5b49c5550d86ea68"
+    }
+  ],
+  "prediction_batch_sha256": "f5ea751e217b0b5a4d3caa5aa15e0e52e5bc83468408dacf21e3a0c8e6d21c69",
+  "historical_positive_passed": true,
+  "chain_acceptance_verified": false,
+  "privacy_qualification": false,
+  "scope": "This script-equality inference is removed in fresh v2 arms; other privacy remains unqualified"
+}

@@ -19,9 +19,12 @@ use std::{
     time::Instant,
 };
 
-pub const BACKUP_FORMAT: &str = "kpi-v6-wallet-backup-v1";
+pub const BACKUP_FORMAT: &str = "kpi-v6-wallet-backup-v2";
+const LEGACY_BACKUP_FORMAT: &str = "kpi-v6-wallet-backup-v1";
 pub const RECEIVE_FORMAT: &str = "kpi-v6-receive-v1";
-pub const KEY_DERIVATION: &str = "KPI/payout-key/v2";
+pub const DERIVATION_PROFILE: &str = "KPI/funding-key/v1+KPI/payout-key/v2";
+const FUNDING_DERIVATION: &str = "KPI/funding-key/v1";
+const EXIT_DERIVATION: &str = "KPI/payout-key/v2";
 pub const SCOPE: &str = "offline local wallet; accepted history, freshness and funding unspentness are external assumptions";
 
 fn hash_text(s: &str) -> Result<()> {
@@ -115,7 +118,7 @@ impl Backup {
             format: BACKUP_FORMAT.into(),
             descriptor_sha256: descriptor_hash(descriptor)?,
             parameters,
-            native_derivation: KEY_DERIVATION.into(),
+            native_derivation: DERIVATION_PROFILE.into(),
             wallet,
             initial_note,
         };
@@ -133,10 +136,11 @@ impl Backup {
 
     fn check(&self, descriptor: &replay::Descriptor) -> Result<()> {
         self.parameters.check()?;
-        if self.format != BACKUP_FORMAT
-            || self.native_derivation != KEY_DERIVATION
-            || self.descriptor_sha256 != descriptor_hash(descriptor)?
-        {
+        let supported = matches!(
+            (self.format.as_str(), self.native_derivation.as_str()),
+            (BACKUP_FORMAT, DERIVATION_PROFILE) | (LEGACY_BACKUP_FORMAT, EXIT_DERIVATION)
+        );
+        if !supported || self.descriptor_sha256 != descriptor_hash(descriptor)? {
             return Err("backup version/pool/derivation mismatch".into());
         }
         if let Some(note) = &self.initial_note {
@@ -166,17 +170,28 @@ impl Backup {
         })
     }
 
-    pub fn native_key(&self, descriptor: &replay::Descriptor, index: u32) -> Result<H> {
+    /// Explicit legacy dispatch preserves already-funded v1 scripts. Loading a
+    /// backup never upgrades it or falls back after an ownership failure.
+    pub fn funding_key(&self, descriptor: &replay::Descriptor, index: u32) -> Result<H> {
+        self.check(descriptor)?;
+        Ok(if self.format == LEGACY_BACKUP_FORMAT {
+            self.wallet.payout_key(&descriptor.domain, index)
+        } else {
+            self.wallet.funding_key(&descriptor.domain, index)
+        })
+    }
+
+    pub fn exit_key(&self, descriptor: &replay::Descriptor, index: u32) -> Result<H> {
         self.check(descriptor)?;
         Ok(self.wallet.payout_key(&descriptor.domain, index))
     }
 
     /// Local funding information is deliberately separate from PublicReceive.
     pub fn funding(&self, descriptor: &replay::Descriptor, index: u32) -> Result<Value> {
-        let spk = native::p2pk(&self.native_key(descriptor, index)?)?;
+        let spk = native::p2pk(&self.funding_key(descriptor, index)?)?;
         Ok(json!({
             "descriptor_sha256": self.descriptor_sha256,
-            "native_derivation": KEY_DERIVATION,
+            "native_derivation": if self.format == LEGACY_BACKUP_FORMAT { EXIT_DERIVATION } else { FUNDING_DERIVATION },
             "native_key_index": index,
             "script_public_key": hex::encode(native::encode_spk(&spk)),
             "address": native::address(&spk)?,
@@ -422,7 +437,7 @@ impl Context {
                     return Err("admission before bootstrap".into());
                 }
                 let source = self.funding(txid, *index)?;
-                let key = backup.native_key(&self.descriptor, *native_key_index)?;
+                let key = backup.funding_key(&self.descriptor, *native_key_index)?;
                 if source.spk != hex::encode(native::encode_spk(&native::p2pk(&key)?)) {
                     return Err("funding output is not owned by this wallet/key index".into());
                 }
@@ -495,7 +510,7 @@ impl Context {
                     .checked_sub(FEE)
                     .filter(|v| *v >= PAYOUT_FLOOR)
                     .ok_or("exit payout below v6 payout floor after fee")?;
-                let key = backup.native_key(&self.descriptor, *native_key_index)?;
+                let key = backup.exit_key(&self.descriptor, *native_key_index)?;
                 let spk = native::encode_spk(&native::p2pk(&key)?)
                     .try_into()
                     .map_err(|_| "native payout script size")?;

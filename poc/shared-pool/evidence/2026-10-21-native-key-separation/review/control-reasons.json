@@ -1,0 +1,18 @@
+{
+  "scope": "Review of the source-defined helper error wrapper; no raw stderr exported",
+  "both_wrong_purpose_controls_rejected_for_expected_reason": true,
+  "rows": [
+    {
+      "arm": "v2-same-index",
+      "expected_error": "two-input offline lifecycle: funding output is not owned by this wallet/key index",
+      "exact_message_match": true,
+      "stderr_sha256": "9ed5f946fb455f9f87b106d86bef165aaa848b90ccb291c44c557042863734ce"
+    },
+    {
+      "arm": "v2-different-index",
+      "expected_error": "two-input offline lifecycle: funding output is not owned by this wallet/key index",
+      "exact_message_match": true,
+      "stderr_sha256": "9ed5f946fb455f9f87b106d86bef165aaa848b90ccb291c44c557042863734ce"
+    }
+  ]
+}

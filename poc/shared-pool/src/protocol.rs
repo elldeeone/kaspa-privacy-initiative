@@ -155,6 +155,23 @@ impl Wallet {
         }
         unreachable!("valid secp256k1 scalar sampling exhausted")
     }
+    /// Fresh-wallet funding purpose. The legacy payout derivation above stays
+    /// unchanged so historical funding and exit keys remain recoverable.
+    pub fn funding_key(&self, d: &H, index: u32) -> H {
+        for retry in 0u32.. {
+            let mut mac =
+                Hmac::<Sha256>::new_from_slice(&self.native).expect("HMAC accepts 32-byte key");
+            mac.update(b"KPI/funding-key/v1\0");
+            mac.update(d);
+            mac.update(&index.to_le_bytes());
+            mac.update(&retry.to_le_bytes());
+            let candidate: H = mac.finalize().into_bytes().into();
+            if secp256k1::SecretKey::from_slice(&candidate).is_ok() {
+                return candidate;
+            }
+        }
+        unreachable!("valid secp256k1 scalar sampling exhausted")
+    }
     pub fn receive(&self, d: &H) -> Receive {
         let incoming = *SecretKey::from(self.viewing).public_key().as_bytes();
         Receive {
@@ -347,5 +364,107 @@ impl Transition {
             Fr::from_le_bytes_mod_order(&h[..16]),
             Fr::from_le_bytes_mod_order(&h[16..]),
         ]
+    }
+}
+
+#[cfg(test)]
+mod native_derivation_tests {
+    use super::*;
+
+    #[test]
+    fn independent_legacy_and_funding_known_answers() {
+        // Public fixture values, computed independently with Python stdlib
+        // hmac/hashlib and checked against the secp256k1 scalar order. Each
+        // vector accepts retry 0; this is not rejection-path coverage.
+        let wallet = Wallet {
+            spending: [0; 32],
+            viewing: [0; 32],
+            native: [0x11; 32],
+        };
+        let vectors = [
+            (
+                0x22,
+                0,
+                "9ec39f5a7bff3f8cbbcd8e7226baeff2566f60bd227f7f3838300e3bda8e174c",
+                "4e6140ecaa4fa441cb0f97ca494a305f998773982bc16dc19917ea6f47ac1d25",
+            ),
+            (
+                0x22,
+                1,
+                "7fe888d648d0ecb42cb9644e3aef37108c4d1826798c63de6bd4618b992f57ef",
+                "7f1191842f8b4db20c4b97aa7ff013a1a0b744acb3e2bdc2a18ac142fac64d0b",
+            ),
+            (
+                0x22,
+                3,
+                "06fd1553e12f0d480d6a224a2c08eb82707f3b11e76fb4e1590049e1d49babbb",
+                "5316e177a941dd19e324bd8c64271938637aa9113cd0f889d8446009631eb7fb",
+            ),
+            (
+                0x22,
+                0x01020304,
+                "57d00183773f133ac61aac483380dcdc1e22bac6de6f1ae7ae3b14ffc98b60a0",
+                "d5bce2fd363c65b087647c26714a9b8d4cc42a4840195b7e2324f34953b3d6bf",
+            ),
+            (
+                0x22,
+                u32::MAX,
+                "a26fa30bdf4e2eb2dbaf5fdd64dcf33ded4e04448a8809bbaa0d8d5fe1cf4765",
+                "76bea26182e1b9bc74cd141fad7cd71152eb19ed2da4d55a2bb4e141f18c3b8c",
+            ),
+            (
+                0x23,
+                0,
+                "7fcf70cac7663ca4098e3e2f9b3830da8930b24920c80c08a0bc03056b50d59a",
+                "eade61a6f688ff098e60916c3144ac7aad44f961eb218d32f560f4554ab4ab19",
+            ),
+        ];
+        let mut scripts = std::collections::HashSet::new();
+        for (domain_byte, index, payout, funding) in vectors {
+            let domain = [domain_byte; 32];
+            let payout_key = wallet.payout_key(&domain, index);
+            let funding_key = wallet.funding_key(&domain, index);
+            assert_eq!(hex::encode(payout_key), payout);
+            assert_eq!(hex::encode(funding_key), funding);
+            for key in [payout_key, funding_key] {
+                let spk = crate::native::p2pk(&key).unwrap();
+                assert!(scripts.insert(crate::native::encode_spk(&spk)));
+            }
+        }
+        let zero = Wallet {
+            native: [0; 32],
+            ..wallet
+        };
+        assert_eq!(
+            hex::encode(zero.payout_key(&[0; 32], 0)),
+            "c61f12011768e8dc75e0413448e4d15c9b2f9ae60cc25246d7fb03ef123f6f2c"
+        );
+        assert_eq!(
+            hex::encode(zero.funding_key(&[0; 32], 0)),
+            "7b92e61e79df83cca08d692cb3100f4e86621bfe9e0c1701c216c0ba0d3c69c8"
+        );
+    }
+
+    #[test]
+    fn native_derivation_depends_on_native_master_not_note_keys() {
+        let wallet = Wallet {
+            spending: [1; 32],
+            viewing: [2; 32],
+            native: [3; 32],
+        };
+        let note_keys = Wallet {
+            spending: [4; 32],
+            viewing: [5; 32],
+            ..wallet.clone()
+        };
+        let native_key = Wallet {
+            native: [6; 32],
+            ..wallet.clone()
+        };
+        let d = [7; 32];
+        assert_eq!(wallet.payout_key(&d, 3), note_keys.payout_key(&d, 3));
+        assert_eq!(wallet.funding_key(&d, 3), note_keys.funding_key(&d, 3));
+        assert_ne!(wallet.payout_key(&d, 3), native_key.payout_key(&d, 3));
+        assert_ne!(wallet.funding_key(&d, 3), native_key.funding_key(&d, 3));
     }
 }

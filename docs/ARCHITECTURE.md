@@ -25,9 +25,17 @@ new chain acceptance and general recovery remain open.
 The [native script-reuse diagnostic](../poc/shared-pool/ADDRESS-REUSE.md) confirms
 that caller-selected funding indices can collide with this wallet's exit
 derivation. A sparse, known-startup history then exposes an internal payment
-through the repeated native script. This motivates a funding/exit key-separation
-and recovery design review; the experiment changes no architecture, derivation,
-backup format or invariant. Its conditional disclosure is not a 32-role verdict.
+through the repeated native script. That experiment changes no architecture,
+derivation, backup format or invariant; its conditional disclosure is not a
+32-role verdict. The subsequent [ADR-0030](adr/0030-separate-funding-and-exit-keys.md)
+adopts separate funding keys for fresh v2 backups, with unchanged exit keys and
+explicit legacy v1 interpretation. No migration or fallback is introduced.
+Legacy backups retain the known reuse risk. The
+[new candidate's offline retest](../poc/shared-pool/ADDRESS-KEY-SEPARATION.md)
+passes ten genuine proofs and original-backup recovery/payout spending for both
+profiles. Fresh v2 removes the tested script-equality inference; legacy v1 keeps
+the positive control. Proofs, pool identity and recovery requirements are unchanged.
+Broader payment privacy remains unqualified.
 
 [ADR-0027](adr/0027-shielded-payment-targets.md) adopts the
 [RFC-0012 requirements](rfc/0012-useful-privacy-requirements.md) and closes

@@ -66,7 +66,7 @@ fn founder(vk_path: &Path, pin_path: &Path, out: &Path) -> Result<Value> {
     let keys = Wallet::fresh();
     let note = keys.receive(&domain).note(2_000_000_000)?;
     let state = PublicState::initial(note.commitment(&domain))?;
-    let funding_key = keys.payout_key(&domain, 0);
+    let funding_key = keys.funding_key(&domain, 0);
     let parent = synthetic_parent(
         &hex::encode(native::encode_spk(&native::p2pk(&funding_key)?)),
         2_100_000_000,
@@ -244,7 +244,7 @@ fn payout_spend(
     let descriptor: replay::Descriptor = read(descriptor_path)?;
     let payout: Value = read(payout_path)?;
     let tx = native::parse_tx(&payout)?;
-    let key = backup.native_key(&descriptor, index)?;
+    let key = backup.exit_key(&descriptor, index)?;
     let spk = native::p2pk(&key)?;
     let (position, output) = tx
         .outputs
@@ -254,7 +254,7 @@ fn payout_spend(
         .ok_or("payout not controlled by restored key")?;
     let input = native::Utxo::output(&tx, position, 0);
     let destination =
-        native::p2pk(&backup.native_key(&descriptor, index.checked_add(1).ok_or("key index")?)?)?;
+        native::p2pk(&backup.exit_key(&descriptor, index.checked_add(1).ok_or("key index")?)?)?;
     let (spend, entries) = native::ordinary(
         &input,
         &key,

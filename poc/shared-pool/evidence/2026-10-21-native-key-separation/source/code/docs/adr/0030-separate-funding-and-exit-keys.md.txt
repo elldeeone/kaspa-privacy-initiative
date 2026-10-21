@@ -1,0 +1,77 @@
+# ADR-0030: Separate native funding and exit keys for fresh backups
+
+**Status:** Accepted — owner-authorized offline wallet change; no protocol adoption.
+
+**Date:** 2026-10-21 Australia/Sydney (2026-10-20 UTC).
+
+**Related RFC:** [RFC-0013](../rfc/0013-coherent-v6-lifecycle.md).
+
+## Problem and evidence
+
+The [address-reuse diagnostic](../../poc/shared-pool/ADDRESS-REUSE.md), preserved
+at `b62cfd1`, demonstrates that a caller-selected funding index can equal the
+position-derived exit index. Both paths then derive the same native script.
+Under the diagnostic's declared funding-owner and startup assumptions this
+association resolves an otherwise ambiguous internal payment. It establishes
+neither a reuse frequency nor a general privacy rate.
+
+## Decision
+
+Separate funding and exit purposes for newly created wallets. Reuse the existing
+HMAC-SHA256 and secp256k1 scalar rejection mechanism, with a distinct fixed funding
+label. The [source review](../../research/shielded-kas-native-key-separation-2026-10-21.md)
+records the relevant upstream and mature-protocol comparisons. This is a bounded
+change to the existing experimental derivation, not a new cryptographic primitive
+or a claim of standards compliance or cryptographic security.
+
+Recognize exactly these backup-format/derivation-profile pairs:
+
+| Backup `format` | Backup `native_derivation` | Funding key | Exit key |
+| --- | --- | --- | --- |
+| `kpi-v6-wallet-backup-v1` | `KPI/payout-key/v2` | Existing payout derivation | Existing payout derivation |
+| `kpi-v6-wallet-backup-v2` | `KPI/funding-key/v1+KPI/payout-key/v2` | New funding derivation | Existing payout derivation |
+
+Keep the serialized fields unchanged. Reject unknown or mismatched pairs. Fresh
+`create` and founder creation emit v2. Loading v1 must preserve its behavior and
+must not rewrite its backup. There is no automatic migration, metadata relabeling,
+or fallback between purposes. A relabeled old secret would still link historical
+funding to future exits, so it cannot claim the fresh-wallet result.
+
+The existing exit HMAC message remains byte-for-byte:
+`KPI/payout-key/v2\0 || domain[32] || index_u32_le || retry_u32_le`.
+The new funding message substitutes only the label `KPI/funding-key/v1\0`.
+Both use the existing native secret as HMAC key and reject candidates outside
+the valid secp256k1 secret-scalar range. Keep explicit, fixed-width encodings and
+the existing retry sequence. Do not change spending/viewing keys, note encryption,
+commitments, nullifiers, proofs, parameter identities, fees or native validation.
+
+Use purpose-specific wallet methods: funding display, founder funding and ADMIT
+use funding keys; EXIT and native payout spending use exit keys. EXIT's index
+remains the minimum selected note position, recoverable from public-history scan
+and the original backup. Do not export it in public transaction wrappers.
+
+## Recovery and security boundaries
+
+The original backup contains everything needed to derive both purposes; no new
+secret, mutable index cache or private controller state becomes a prerequisite.
+Original v1 backups must still control their historical funding and exit scripts,
+scan receipts and authorize spends. They retain the demonstrated reuse weakness.
+Fresh v2 must reject a funding parent controlled only by its exit-purpose key.
+
+Authenticated pool/parameter identity, accepted public history and current-state
+availability remain required. Automatic discovery of arbitrary native UTXOs and
+their indices remains outside this change. Separation removes one deterministic
+alias; it does not conceal public amounts/timing, identify independent users,
+qualify the 32-role privacy gate or establish real-world anonymity.
+
+## Decisive checks
+
+Preserve independent fixed vectors for legacy and new derivation, explicit
+version/profile rejection, index/domain boundaries, signed native recovery and
+original-backup restoration. Repeat the prior paired native workload with fresh
+v2 wallets and the unchanged observer; equal numeric funding/exit indices must
+now produce distinct actual scripts. Keep the prior positive control and source
+evidence intact. Freeze the new experiment before wallet creation, validate real
+proofs and replay, and seal predictions before scoring private truth. Any proof,
+accounting, recovery, isolation or control failure prevents the corresponding
+success claim. Perform an adversarial second review.

@@ -33,10 +33,17 @@ fn parent(key: &H, value: u64) -> Transaction {
     .0
 }
 fn initial() -> (Context, Backup) {
+    initial_profile(false)
+}
+fn initial_profile(legacy: bool) -> (Context, Backup) {
     let wallet = Wallet::fresh();
     let domain = random();
     let note = wallet.receive(&domain).note(2_000_000_000).unwrap();
-    let key = wallet.payout_key(&domain, 0);
+    let key = if legacy {
+        wallet.payout_key(&domain, 0)
+    } else {
+        wallet.funding_key(&domain, 0)
+    };
     let parent = parent(&key, 2_100_000_000);
     let vk = vk();
     let state = tree::PublicState::initial(note.commitment(&domain)).unwrap();
@@ -65,6 +72,11 @@ fn initial() -> (Context, Backup) {
         last_full_hash: descriptor.funding_full_hash.clone(),
     };
     let backup = Backup::new(wallet, &descriptor, &vk, pin(), Some(note)).unwrap();
+    let backup = if legacy {
+        legacy_fixture(&backup)
+    } else {
+        backup
+    };
     let context = Context::new(
         descriptor,
         vk,
@@ -74,6 +86,14 @@ fn initial() -> (Context, Backup) {
     )
     .unwrap();
     (context, backup)
+}
+/// Build an explicit serialized pre-v2 fixture without adding a production
+/// migration or legacy-creation API. No prior private wallet is read.
+fn legacy_fixture(backup: &Backup) -> Backup {
+    let mut stored = serde_json::to_value(backup).unwrap();
+    stored["format"] = json!("kpi-v6-wallet-backup-v1");
+    stored["native_derivation"] = json!("KPI/payout-key/v2");
+    serde_json::from_slice(&serde_json::to_vec(&stored).unwrap()).unwrap()
 }
 fn rejected<T>(result: Result<T>, cause: &str) {
     let error = result.err().expect("unexpected success").to_string();
@@ -162,6 +182,243 @@ fn backup_and_receive_pin_the_typed_descriptor_without_linking_native_address() 
             .check(&context.descriptor),
         "derivation",
     );
+}
+
+#[test]
+fn backup_versions_accept_only_exact_profiles_without_rewriting() {
+    let (context, fresh) = initial();
+    assert_eq!(fresh.format, "kpi-v6-wallet-backup-v2");
+    assert_eq!(
+        fresh.native_derivation,
+        "KPI/funding-key/v1+KPI/payout-key/v2"
+    );
+    let newcomer = Backup::fresh(&context.descriptor, &context.vk, pin()).unwrap();
+    assert_eq!(newcomer.format, fresh.format);
+    assert_eq!(newcomer.native_derivation, fresh.native_derivation);
+    let legacy = legacy_fixture(&fresh);
+    for (backup, expected_tag) in [
+        (&fresh, "KPI/funding-key/v1"),
+        (&legacy, "KPI/payout-key/v2"),
+    ] {
+        let before = serde_json::to_vec(backup).unwrap();
+        let restored: Backup = serde_json::from_slice(&before).unwrap();
+        restored.check(&context.descriptor).unwrap();
+        let display = restored.funding(&context.descriptor, 3).unwrap();
+        assert_eq!(display["native_derivation"], expected_tag);
+        assert_eq!(
+            display["script_public_key"],
+            hex::encode(native::encode_spk(
+                &native::p2pk(&restored.funding_key(&context.descriptor, 3).unwrap()).unwrap()
+            ))
+        );
+        assert_eq!(before, serde_json::to_vec(&restored).unwrap());
+    }
+    assert_eq!(
+        serde_json::to_value(fresh.receive(&context.descriptor).unwrap()).unwrap(),
+        serde_json::to_value(legacy.receive(&context.descriptor).unwrap()).unwrap()
+    );
+    for index in [0, 3, u32::MAX] {
+        assert_eq!(
+            legacy.funding_key(&context.descriptor, index).unwrap(),
+            legacy.exit_key(&context.descriptor, index).unwrap()
+        );
+        assert_eq!(
+            legacy.exit_key(&context.descriptor, index).unwrap(),
+            fresh.exit_key(&context.descriptor, index).unwrap()
+        );
+        assert_ne!(
+            legacy.funding_key(&context.descriptor, index).unwrap(),
+            fresh.funding_key(&context.descriptor, index).unwrap()
+        );
+    }
+    for format in [
+        "kpi-v6-wallet-backup-v1",
+        "kpi-v6-wallet-backup-v2",
+        "kpi-v6-wallet-backup-v3",
+        "",
+    ] {
+        for profile in [
+            "KPI/payout-key/v2",
+            "KPI/funding-key/v1+KPI/payout-key/v2",
+            "KPI/funding-key/v1",
+            "",
+        ] {
+            let supported = (format == "kpi-v6-wallet-backup-v1" && profile == "KPI/payout-key/v2")
+                || (format == "kpi-v6-wallet-backup-v2"
+                    && profile == "KPI/funding-key/v1+KPI/payout-key/v2");
+            let mut stored = serde_json::to_value(&fresh).unwrap();
+            stored["format"] = json!(format);
+            stored["native_derivation"] = json!(profile);
+            let loaded: Backup = serde_json::from_value(stored).unwrap();
+            assert_eq!(
+                loaded.funding_key(&context.descriptor, 0).is_ok(),
+                supported
+            );
+            assert_eq!(loaded.exit_key(&context.descriptor, 0).is_ok(), supported);
+            assert_eq!(loaded.receive(&context.descriptor).is_ok(), supported);
+            assert_eq!(loaded.funding(&context.descriptor, 0).is_ok(), supported);
+        }
+    }
+    for field in ["format", "native_derivation"] {
+        let mut stored = serde_json::to_value(&fresh).unwrap();
+        stored.as_object_mut().unwrap().remove(field);
+        assert!(serde_json::from_value::<Backup>(stored).is_err());
+    }
+}
+
+#[test]
+fn restored_legacy_and_v2_backups_sign_actual_native_scripts() {
+    for legacy in [true, false] {
+        let (context, original) = initial_profile(legacy);
+        let bytes = serde_json::to_vec(&original).unwrap();
+        let funding = original.funding_key(&context.descriptor, 0).unwrap();
+        let exit = original.exit_key(&context.descriptor, 0).unwrap();
+        drop(original);
+        let restored: Backup = serde_json::from_slice(&bytes).unwrap();
+        assert_eq!(
+            restored.funding_key(&context.descriptor, 0).unwrap(),
+            funding
+        );
+        assert_eq!(restored.exit_key(&context.descriptor, 0).unwrap(), exit);
+        // Validate the actual founding signature against its public parent.
+        let founding = native::parse_tx(&context.replay.records[0].transaction).unwrap();
+        let source = native::parse_tx(&context.parents[0]).unwrap();
+        assert_eq!(
+            source.outputs[0].script_public_key,
+            native::p2pk(&funding).unwrap()
+        );
+        native::validate(
+            &founding,
+            &[native::Utxo::output(&source, 0, 0).entry().unwrap()],
+        )
+        .unwrap();
+        // Independently constructed ordinary funding/payout UTXOs. This tests
+        // restored native control, not pool proof or chain acceptance.
+        for key in [funding, exit] {
+            let source = parent(&key, 1_000_000_000);
+            let input = native::Utxo::output(&source, 0, 0);
+            let (spend, entries) = native::ordinary(
+                &input,
+                &key,
+                vec![TransactionOutput::new(
+                    500_000_000,
+                    native::p2pk(&restored.exit_key(&context.descriptor, 1).unwrap()).unwrap(),
+                )],
+            )
+            .unwrap();
+            assert!(native::validate(&spend, &entries).unwrap() > 0);
+            if !legacy {
+                let wrong = if key == funding { exit } else { funding };
+                let mut wrong_signature = spend.clone();
+                rejected(
+                    native::sign(&mut wrong_signature, &entries, 0, &wrong),
+                    "ownership",
+                );
+            }
+        }
+        assert_eq!(bytes, serde_json::to_vec(&restored).unwrap());
+    }
+}
+
+#[test]
+fn admission_uses_declared_purpose_without_ownership_fallback() {
+    let (mut context, _) = bootstrapped();
+    let fresh = Backup::fresh(&context.descriptor, &context.vk, pin()).unwrap();
+    let legacy = legacy_fixture(&fresh);
+    for (key, fresh_accepts) in [
+        (
+            fresh.wallet.funding_key(&context.descriptor.domain, 3),
+            true,
+        ),
+        (
+            fresh.wallet.payout_key(&context.descriptor.domain, 3),
+            false,
+        ),
+    ] {
+        let funding = parent(&key, 1_200_000_000);
+        context.parents.push(native::tx_json(&funding));
+        let action = Action::Admit {
+            txid: funding.id().to_string(),
+            index: 0,
+            native_key_index: 3,
+        };
+        for (backup, accepts) in [(&fresh, fresh_accepts), (&legacy, !fresh_accepts)] {
+            if accepts {
+                let plan = context.plan(backup, &action).unwrap();
+                assert_eq!(plan.funding_key, Some(key));
+            } else {
+                rejected(context.plan(backup, &action), "not owned");
+            }
+        }
+    }
+}
+
+#[test]
+fn original_pre_admission_backup_recovers_receipts_and_exit_for_both_profiles() {
+    for legacy in [true, false] {
+        let (mut context, founder) = bootstrapped();
+        let recipient = Backup::fresh(&context.descriptor, &context.vk, pin()).unwrap();
+        let recipient = if legacy {
+            legacy_fixture(&recipient)
+        } else {
+            recipient
+        };
+        let original_bytes = serde_json::to_vec(&recipient).unwrap();
+        let funding = parent(
+            &recipient.funding_key(&context.descriptor, 3).unwrap(),
+            1_200_000_000,
+        );
+        context.parents.push(native::tx_json(&funding));
+        let admitted = context
+            .plan(
+                &recipient,
+                &Action::Admit {
+                    txid: funding.id().to_string(),
+                    index: 0,
+                    native_key_index: 3,
+                },
+            )
+            .unwrap();
+        append_unproved(&mut context, &admitted);
+        let address = recipient.receive(&context.descriptor).unwrap();
+        drop(recipient);
+        let payment = context
+            .plan(
+                &founder,
+                &Action::Pay {
+                    positions: vec![1],
+                    recipient: address,
+                    amount_sompi: "1920000000".into(),
+                },
+            )
+            .unwrap();
+        append_unproved(&mut context, &payment);
+        drop(founder);
+        let restored: Backup = serde_json::from_slice(&original_bytes).unwrap();
+        assert_eq!(
+            context.inspect(&restored).unwrap()["balance_sompi"],
+            "3080000000"
+        );
+        let exit = context
+            .plan(
+                &restored,
+                &Action::Exit {
+                    positions: vec![3, 5],
+                    native_key_index: 3,
+                },
+            )
+            .unwrap();
+        assert_eq!(exit.bundle.auth().unwrap().payout, 3_040_000_000);
+        assert_eq!(
+            exit.bundle.auth().unwrap().spk.as_slice(),
+            native::encode_spk(
+                &native::p2pk(&restored.exit_key(&context.descriptor, 3).unwrap()).unwrap()
+            )
+        );
+        assert_eq!(original_bytes, serde_json::to_vec(&restored).unwrap());
+        // Placeholder pool proofs are confined to this selection/scan fixture.
+        // The separately frozen offline trial supplies genuine proof/replay.
+    }
 }
 
 #[test]
@@ -330,7 +587,7 @@ fn scanning_tracks_admission_spend_padding_and_positioned_spentness() {
     let recipient = Backup::fresh(&context.descriptor, &context.vk, pin()).unwrap();
     let original_backup = serde_json::to_vec(&recipient).unwrap();
     let funding = parent(
-        &recipient.native_key(&context.descriptor, 0).unwrap(),
+        &recipient.funding_key(&context.descriptor, 0).unwrap(),
         1_200_000_000,
     );
     context.parents.push(native::tx_json(&funding));
@@ -390,7 +647,7 @@ fn malformed_decryptable_delivery_cannot_block_existing_owned_notes() {
     let (mut context, founder) = bootstrapped();
     let recipient = Backup::fresh(&context.descriptor, &context.vk, pin()).unwrap();
     let funding = parent(
-        &recipient.native_key(&context.descriptor, 0).unwrap(),
+        &recipient.funding_key(&context.descriptor, 0).unwrap(),
         1_200_000_000,
     );
     context.parents.push(native::tx_json(&funding));
@@ -446,7 +703,7 @@ fn equal_commitments_at_different_positions_have_independent_spentness() {
     let (mut context, founder) = bootstrapped();
     let recipient = Backup::fresh(&context.descriptor, &context.vk, pin()).unwrap();
     let funding = parent(
-        &recipient.native_key(&context.descriptor, 0).unwrap(),
+        &recipient.funding_key(&context.descriptor, 0).unwrap(),
         1_200_000_000,
     );
     context.parents.push(native::tx_json(&funding));
@@ -614,7 +871,7 @@ fn admission_requires_bootstrap_owned_actual_parent_and_fresh_outpoint() {
         "missing funding parent",
     );
     let funding = parent(
-        &backup.native_key(&context.descriptor, 0).unwrap(),
+        &backup.funding_key(&context.descriptor, 0).unwrap(),
         NOTE_FLOOR + FEE - 1,
     );
     context.parents.push(native::tx_json(&funding));
@@ -630,7 +887,7 @@ fn admission_requires_bootstrap_owned_actual_parent_and_fresh_outpoint() {
         "floor",
     );
     let funding = parent(
-        &backup.native_key(&context.descriptor, 0).unwrap(),
+        &backup.funding_key(&context.descriptor, 0).unwrap(),
         NOTE_FLOOR + FEE,
     );
     context.parents.push(native::tx_json(&funding));
@@ -682,7 +939,7 @@ fn exit_destination_and_index_are_reconstructible_from_own_backup() {
         )
         .unwrap();
     let expected = native::encode_spk(
-        &native::p2pk(&backup.native_key(&context.descriptor, 1).unwrap()).unwrap(),
+        &native::p2pk(&backup.exit_key(&context.descriptor, 1).unwrap()).unwrap(),
     );
     assert_eq!(exit.bundle.auth().unwrap().spk.as_slice(), expected);
     assert_eq!(exit.bundle.auth().unwrap().payout, 1_920_000_000);

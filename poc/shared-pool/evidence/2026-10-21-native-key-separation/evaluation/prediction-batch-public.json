@@ -1,0 +1,35 @@
+{
+  "complete": true,
+  "export_derivative": true,
+  "freeze_sha256": "f201c632b9a9211e6d7c0fc66c31444f1c362fc836386f7c5fa59afab8f750f2",
+  "omitted_fields": [
+    "records.*.arm operational/private metadata",
+    "records.*.seal duplicate"
+  ],
+  "preparation_sha256": "ff4688ac7adf07e6c7087c47fec0e3333132e25a822c7339dbc3a25705fa4029",
+  "records": [
+    {
+      "arm": "v2-same-index",
+      "prediction_path": "runs/v2-same-index-observe/result.json",
+      "seal_path": "runs/v2-same-index-observe/prediction-seal.json",
+      "seal_sha256": "56f6d0ddf56c42a8fb866329c9b5f46bee9dcc9e83532339dace866a4f07e720"
+    },
+    {
+      "arm": "v2-different-index",
+      "prediction_path": "runs/v2-different-index-observe/result.json",
+      "seal_path": "runs/v2-different-index-observe/prediction-seal.json",
+      "seal_sha256": "fe425567640b01ee64a1613474b8a0618268469d30e236a13e36c0c10269f886"
+    },
+    {
+      "arm": "legacy-v1-same-index",
+      "prediction_path": "runs/legacy-v1-same-index-observe/result.json",
+      "seal_path": "runs/legacy-v1-same-index-observe/prediction-seal.json",
+      "seal_sha256": "f4b27208b314b410ffcba3c094e0eacc2068beed5c8e0c602f76f8f1a01f7e72"
+    }
+  ],
+  "schema": "kpi-native-key-separation-prediction-batch-v1",
+  "scoring_started": false,
+  "sealed_utc": "2026-10-20T23:50:22.805686+00:00",
+  "source_artifact": "evaluation prediction-batch.json",
+  "source_sha256": "f5ea751e217b0b5a4d3caa5aa15e0e52e5bc83468408dacf21e3a0c8e6d21c69"
+}
