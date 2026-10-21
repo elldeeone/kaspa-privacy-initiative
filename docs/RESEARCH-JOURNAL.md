@@ -84,6 +84,46 @@ The [primary-source review](../research/shielded-kas-privacy-requirements-2026-1
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
 
+## 2026-10-21 — Withdrawal amount investigation
+
+The completed native result, public evidence, independent arithmetic recount,
+RFC status and branch plan were committed and pushed at
+`2c036c0fe01b11ee68306c90ca8cfd56d7e0235f`. The owner then directed investigating
+why withdrawals improve amount guesses and what might reduce the leakage.
+
+The [source investigation](../research/shielded-kas-withdrawal-privacy-2026-10-21.md)
+finds a concrete wallet-policy mechanism: whole-note EXIT publishes the selected
+notes' sum minus a public fee. The frozen attacker adds the fee and optionally
+subtracts a known co-input, then ranks plausible payment/change explanations.
+Modeled times affect recency ranking; they are not real network measurements.
+The post-run trace reproduces 864 sealed guesses exactly. At the next public
+withdrawal, C+D's twelve within-10% hits are six exact true-receipt whole exits,
+five approximate matches to other receipts and one prior fallback. Compared
+with prior seven hits there are eight gains and three losses. Pooled's ten hits
+are the same six exact receipt matches and four prior fallbacks. Native-graph
+and residual amounts coincide for all 36 targets at that horizon; no selected
+graph ownership tier explains the improvement. Actual receipt relationships
+are scorer-side diagnostic facts, not newly supplied observer inputs.
+The [aggregate diagnosis](../poc/shared-pool/artifacts/native-usage-withdrawal-diagnosis-20261021.json)
+passes twelve public controls and source review. Its first final-drainage phase
+label was corrected with the initial artifact retained; all non-phase aggregate
+counts stayed identical. No original privacy result or frozen input was changed.
+
+The existing v6 relation already supports partial native payouts with private
+change; the current own-key wallet command does not expose that operation.
+Retain optional balance-based cashouts as the candidate to compare, with later
+private spending and full final drainage. A fresh address does not hide value,
+and partial payout followed by a linkable tail reconstructs the original amount.
+H17/H18 evidence remains unchanged; the failed short-delay policy is not adopted.
+
+The proposed comparison must match external cash needs, account for baseline
+over-withdrawal and candidate underfulfillment, include tail/re-entry fees, and
+allow stronger observers to ignore extra disclosures and use the public-only
+strategy. A directional privacy improvement would not fix the known fee gap or
+the 21.10% expected price-prior accuracy against a 20% absolute target. No target,
+wallet behavior, proof relation, exit invariant or parameter identity is changed
+by this investigation; no fresh experiment or funded trial is started.
+
 ## 2026-10-21 — Native usage privacy: completed with warnings
 
 Generation completed at 04:05:40 UTC, the prediction batch was sealed at

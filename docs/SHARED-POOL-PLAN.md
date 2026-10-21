@@ -29,10 +29,13 @@ share one current-version interface. Qualification against the accepted
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
-**Next action:** investigate the withdrawal-related amount-guessing warnings in
-the [completed native usage screen](../poc/shared-pool/NATIVE-USAGE-PRIVACY.md),
-then freeze a decisive mitigation comparison before dedicated milestone 3 work
-or further wallet/recovery expansion. The broader early privacy gate and a
+**Next action:** use the [withdrawal investigation](../research/shielded-kas-withdrawal-privacy-2026-10-21.md)
+to design a prospective comparison of whole-note cashouts against requested
+native payouts with private change and continued shielded spending. The existing
+v6 relation supports partial payouts; the current wallet interface only exposes
+whole-note EXIT. Preserve immediate independent full exit, count all tails and
+fees, and do not adopt a wallet policy before the comparison. H18's short-delay
+policy remains rejected. The broader early privacy gate and a
 sufficiently powered qualification study remain open. Milestone 7 remains
 broader validation. Routine safety review and fixes continue throughout.
 
@@ -46,7 +49,10 @@ amount guesses improve from prior 7/36 to 12/36 within 10% after the next public
 withdrawal, exceeding both frozen caps. All 64 payments and 59 withdrawals
 completed, with 159 genuine proofs and exact native accounting. One history
 cannot supply statistical qualification or chain/network evidence. Preserve the
-warning; do not advance the privacy claim or retune the retained test.
+warning; do not advance the privacy claim or retune the retained test. Its
+known-price prior has expected accuracy above the absolute 20% cap, so a future
+test must separately assess transaction-derived advantage and this requirements
+tension without changing either the old workload or adopted targets.
 
 ## Evidence carried forward
 
