@@ -29,14 +29,20 @@ share one current-version interface. Qualification against the accepted
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
-**Next action:** use the [withdrawal investigation](../research/shielded-kas-withdrawal-privacy-2026-10-21.md)
-to design a prospective comparison of whole-note cashouts against requested
-native payouts with private change and continued shielded spending. The existing
-v6 relation supports partial payouts; the current wallet interface only exposes
-whole-note EXIT. Preserve immediate independent full exit, count all tails and
-fees, and do not adopt a wallet policy before the comparison. H18's short-delay
-policy remains rejected. The broader early privacy gate and a
-sufficiently powered qualification study remain open. Milestone 7 remains
+**Next action:** investigate why the frozen partial-payout comparison fails in
+sparse activity: classify the pooled split/tail hits against actual change
+lineage and common-price coincidences, and assess realistic cash-demand
+correlation. This is a new exploratory diagnosis, not a retuning of the failed
+screen. The [completed comparison](../poc/shared-pool/WORKING-BALANCE-PRIVACY.md)
+improves overlapping independent-demand amount scores from 13/40 to 8/40, but
+sparse pooled final remains 11/37 in both arms. Receipt-correlated partials
+worsen guesses. All eight modeled histories conserve value and drain, but the
+frozen directional gate fails. Stop its conditional native continuation; retain
+partial payout/private change as mechanics without adopting this wallet policy.
+The existing v6 relation supports partial payouts; the own-key wallet interface
+still exposes whole-note EXIT. H18's short-delay policy remains rejected.
+The broader early privacy gate and a sufficiently powered qualification study
+remain open. Milestone 7 remains
 broader validation. Routine safety review and fixes continue throughout.
 
 The owner authorized the next bounded test under

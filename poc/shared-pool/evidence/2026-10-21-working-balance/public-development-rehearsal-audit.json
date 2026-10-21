@@ -1,0 +1,35 @@
+{
+  "schema": "kpi-working-balance-public-rehearsal-audit-v1",
+  "completed_utc": "2026-10-21T05:52:36.160251+00:00",
+  "public_development_input": "bytes(range(32)); no fresh entropy",
+  "prediction_jobs": 1528,
+  "sealed_before_truth": true,
+  "isolated_score_complete": true,
+  "accounting_bundles_validated": 8,
+  "current_stricter_score_identical": true,
+  "export": {
+    "exported": true,
+    "files": 13819,
+    "bytes": 78873536,
+    "qualification_pass": false
+  },
+  "freeze_sha256": "3ef556ae0a27e79814a23e242f41fa74bbe762ad543c8851c420de25b407a176",
+  "score_sha256": "88796b05533237173e12cbffe85eea45b8d307fe05162d35a311262fae43528f",
+  "current_sources": {
+    "working_balance_trial.py": "d8c73c52929743641c7180565f6e3af4abcfc8f55e53ce0902de8235eec0aa65",
+    "working_balance_trial_tests.py": "ea56a131495832d1e0aa7f4bad221a971ba8204d5f2f627165dd78e195ab0130",
+    "working_balance_model.py": "a1a8c3989d85f2309dcd726cd2d076c77c4ea77e407a7dfbd8c05f975dafbe00",
+    "working_balance_model_tests.py": "d4c6a36f18909d46f6bdd8a0ab4efcc32c951460f4815ba4d4dd02b58caa9ab5",
+    "working_balance_observer.py": "b492d5a2e63836751f51f5151c002c3ec6492c224b518846c45eca23f3ea7495",
+    "working_balance_observer_tests.py": "0f2ac35622e23dfafa960e8877b743118500c3530015eaa9b59b49c208d38147",
+    "working_balance_validate.py": "407c1abeebc913b8112754d70705eae41a36f86cf954aa946dfa565abef3eb14",
+    "working_balance_validator_tests.py": "833b7082a67a0ce0f9e98e94f896d64cb5eb6b0bfddc7882485a8f7320c13218",
+    "WORKING-BALANCE-PRIVACY-SPEC.md": "16f9c5669e68731db787c84e28857fef3024601daacff86ed2c1a625a76c87d6"
+  },
+  "qualification_pass": false,
+  "notes": [
+    "After all observations sealed, score sandbox mount fanout was repaired; no observations or attacks changed.",
+    "Original snapshot independently checked before packaging; final stricter verifier and scorer agree exactly.",
+    "No development privacy accuracy or directional outcome reported."
+  ]
+}

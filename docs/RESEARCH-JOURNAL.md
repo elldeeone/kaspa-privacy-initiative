@@ -80,9 +80,88 @@ withdrawal, C+D guesses 12/36 honest-to-honest amounts within 10%, against prior
 does not exceed the observed absolute cap. Investigate withdrawal-related
 inference before dedicated milestone 3 work. The completed native accounting
 and full drainage do not qualify privacy.
+The subsequent [working-balance comparison](../poc/shared-pool/WORKING-BALANCE-PRIVACY.md)
+is complete and fails its frozen directional gate. Partial payouts improve the
+overlapping independent-demand case, but sparse pooled final amount guessing
+is unchanged at 11/37 and receipt-correlated cashouts become more guessable.
+All eight arithmetic histories conserve value and drain. Retain partial payout
+and change as mechanics; do not adopt this wallet policy or begin its conditional
+native continuation. The next question is whether sparse split/tail hits follow
+actual change lineage or common-price coincidences, alongside the practical
+cash-demand correlation assumption.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
+
+## 2026-10-21 — Working-balance withdrawals: mixed benefit, frozen gate failed
+
+The owner authorized committing/pushing the investigation, then comparing
+whole-note withdrawals with partial payouts and private change under frozen
+attacks and criteria through a completed result. The investigation was pushed
+as `feef0e02150aca9f74081c89e75ffd7a2a31fb69` on `shielded-kas-research`.
+[RFC-0016](rfc/0016-working-balance-withdrawals.md) and
+[ADR-0031](adr/0031-arithmetic-working-balance-screen.md) scope the new comparison
+as an arithmetic rejection screen before native integration. Existing wallet,
+proof relation, setup, key derivation and exit invariants stay unchanged.
+
+The [specification](../poc/shared-pool/WORKING-BALANCE-PRIVACY-SPEC.md), model,
+13 attacks, scorer and controls were frozen before fresh sampling. The
+[prefreeze review](../poc/shared-pool/WORKING-BALANCE-PRIVACY-REVIEW.md) and a
+complete public-seed rehearsal passed. A rehearsal sandbox argument-limit
+failure was fixed by staging the same exact file allowlist read-only; original
+predictions were preserved and stricter scoring agreed exactly. Development
+accuracies were not used to select attacks or thresholds.
+
+Fresh attempt `working-balance-privacy-20261021-01` froze at 05:53:27 UTC and
+sampled at 05:53:48, after 68 isolated public unittest cases passed. Four fresh
+economic histories each ran under both policies: overlapping/sparse activity
+crossed with independent/half-receipt-correlated cash requests. Each history has
+32 roles, eight colluders, 64 private payments, 32 cash requests, two urgent
+exits and final drainage. Cash requests earmark native liquidity, not merchant
+spending; whole-note overshoot remains owned and reusable. There is no cover
+traffic, extra subsidy or compulsory exit delay.
+
+All 1,506 observer jobs sealed before truth scoring, which completed at
+06:05:05 UTC. Every obligation and all eight independent arithmetic replays
+pass, including ownership, unique consumption, bridge ancestry, fee accounting
+and zero final reserve. This establishes arithmetic consistency, not native
+proof validity, signing, real latency or backup recovery. A separate public
+[aggregate audit](../poc/shared-pool/artifacts/working-balance-result-audit-20261021.json)
+finds no discrepancies across 48 groups, 7,800 metric rows, 16 decisions and
+eight accounting summaries. Its six public control groups pass; it does not
+independently recompute accuracy against hidden per-payment truth.
+
+**Result:** overlapping independent-demand amount guessing falls 13/40→8/40
+for both observers at next payout and final drainage, matching prior 8/40.
+Sparse C+D improves only 10/37→9/37 (2.70 points), below the required five.
+Sparse pooled final stays 11/37 in both arms: the candidate's `split_tail`
+reaches 5.41 points above prior 9/37. Some identity non-regression gates fail
+too, but arm-specific creation priors already differ; do not label every such
+count difference as a new causal withdrawal disclosure.
+
+In receipt-correlated stress cases, partial payout amount scores worsen to
+21/42 and 22/36, with 19 and 21 exact hits from the half-cash inverse attack.
+Their earlier-prefix guesses remain available after drainage. Stress amount
+scores were reported separately under the frozen contract. Exact matches may
+include common-price coincidences; the 45-tKAS prior optimizes within-10%
+accuracy and is not an exact-match information baseline.
+
+Partial payouts eliminate ordinary-request overshoot and avoid 11/13 re-entries
+in the independent cases; 16 and 17 retained partial-change notes are consumed
+by later PAYs. Modeled total fees are 68.811→68.800 and 71.213→69.600 tKAS
+there, but rise 64→68.4 and 63.201→69.201 in the correlated cases. The low-value
+ordinary-fee gap and the prior/absolute-privacy target conflict remain. No
+capital-normalized fee ratio qualifies the adopted lifecycle target.
+
+**Decision:** preserve the failed frozen gate and stop its conditional native
+continuation. Partial payout/private change remains useful mechanics, not an
+adopted privacy fix. The next exploratory diagnosis should classify sparse
+split/tail support against actual change lineage and price coincidences, then
+inform a separately frozen candidate if warranted. Do not retune this result.
+The [full report](../poc/shared-pool/WORKING-BALANCE-PRIVACY.md) and
+[public evidence package](../poc/shared-pool/evidence/2026-10-21-working-balance/README.md)
+retain the mixed findings. No real funds, broadcasts, new token or milestone
+qualification follows; new comparison work remains local at this checkpoint.
 
 ## 2026-10-21 — Withdrawal amount investigation
 

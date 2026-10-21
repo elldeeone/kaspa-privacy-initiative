@@ -2,6 +2,19 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[RFC-0016](rfc/0016-working-balance-withdrawals.md) and
+[ADR-0031](adr/0031-arithmetic-working-balance-screen.md) scope an arithmetic
+comparison of whole-note cashouts with requested partial payouts and retained
+private change. This tests wallet behavior on the existing relation before
+adding a wallet command. It introduces no protocol, circuit, setup, operator
+or exit-authority change. Both arms retain immediate complete exit, account
+for outside cash and re-entry, and eventually drain every private remainder.
+The [completed screen](../poc/shared-pool/WORKING-BALANCE-PRIVACY.md) fails its
+frozen continuation gate: overlapping independent demand improves, but sparse
+pooled final amount accuracy does not; receipt-correlated partials worsen
+guessing. The conditional native continuation is stopped. Existing partial-
+payout mechanics remain available for research; no new wallet policy is adopted.
+
 [RFC-0013](rfc/0013-coherent-v6-lifecycle.md) records the completed bounded offline
 current-version integration. [ADR-0028](adr/0028-public-funding-replay.md) scopes an additive offline
 public replay path whose descriptor identifies the pool rather than its users.

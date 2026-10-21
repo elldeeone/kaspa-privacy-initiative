@@ -1,5 +1,24 @@
 # Threat Model
 
+The [working-balance comparison](poc/shared-pool/WORKING-BALANCE-PRIVACY-SPEC.md)
+adds a bounded arithmetic screen for withdrawal amount leakage. It compares
+public-plus-initial-directory and pooled eight-participant observers, preserving
+the public strategy under collusion. Public payouts, fees, re-entry ancestry
+and modeled order remain visible; private change is only an idealized hidden
+value in this model. Tail sums, known co-input subtraction, receipt-correlated
+requests and fixed earlier-prefix guesses attack the proposed behavior.
+All predictions precede truth scoring. No result of this screen establishes
+proof confidentiality, native recovery, network anonymity or actual user
+behavior. Sparse activity, correlated cash needs and urgent complete exits
+remain explicit cases, not exceptions hidden from the score.
+The [completed result](poc/shared-pool/WORKING-BALANCE-PRIVACY.md) rejects the
+tested policy under its frozen gate. Retained change helps one independent-
+demand case but does not remove sparse pooled split/tail inference. Known
+half-receipt cashouts become more guessable with partial payouts. Some identity
+count regressions already exist in arm-specific creation priors; report them
+without claiming a new causal identity leak. No threat or qualification target
+is relaxed by this result.
+
 [RFC-0012](docs/rfc/0012-useful-privacy-requirements.md) is the accepted
 requirements profile for broader shielded-KAS research. It separates chain,
 participant/collusion, active, infrastructure and endpoint observers; internal
