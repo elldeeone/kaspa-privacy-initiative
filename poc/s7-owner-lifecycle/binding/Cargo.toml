@@ -1,0 +1,21 @@
+[package]
+name = "kpi-s7-lifecycle-binding"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "kpi_two_v6_binding"
+
+[workspace]
+
+[features]
+default = []
+compiled-research-instance = []
+
+[dependencies]
+kpi-accelerated-bn254 = { path = "../../accelerated-bn254/common" }
+kpi-groth16-comparison = { path = "../../groth16-comparison/common" }
+ark-bn254 = { version = "=0.5.0", default-features = false, features = ["curve", "std"] }
+ark-groth16 = { version = "=0.5.0", default-features = false, features = ["std"] }
+ark-serialize = { version = "=0.5.0", default-features = false, features = ["std"] }

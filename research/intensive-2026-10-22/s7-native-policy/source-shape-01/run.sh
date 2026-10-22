@@ -1,0 +1,3 @@
+#!/bin/bash
+set -euo pipefail
+exec /usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/source-shape-01/kpi_s7_policy_shape /checker --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/source-shape-01/model-policy.json /policy.json --bind /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/source-shape-01 /output --setenv PATH /usr/bin:/bin /checker /policy.json /output

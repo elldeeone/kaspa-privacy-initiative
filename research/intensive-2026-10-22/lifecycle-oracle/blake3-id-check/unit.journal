@@ -1,0 +1,12 @@
+Oct 22 14:34:50 forge systemd[1538]: Started kpi-public-blake3-id-20261022T1436.service - [systemd-run] /usr/bin/bwrap --unshare-net --ro-bind / / --bind /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle --dev /dev --proc /proc --chdir /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle /usr/bin/python3 /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/check_public_admit_id.py.
+Oct 22 14:34:51 forge bwrap[1958277]: Traceback (most recent call last):
+Oct 22 14:34:51 forge bwrap[1958277]:   File "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/check_public_admit_id.py", line 126, in <module>
+Oct 22 14:34:51 forge bwrap[1958277]:     main()
+Oct 22 14:34:51 forge bwrap[1958277]:     ~~~~^^
+Oct 22 14:34:51 forge bwrap[1958277]:   File "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/check_public_admit_id.py", line 64, in main
+Oct 22 14:34:51 forge bwrap[1958277]:     assert keyed("PayloadDigest", b"").hex() == expected_empty
+Oct 22 14:34:51 forge bwrap[1958277]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 22 14:34:51 forge bwrap[1958277]: AssertionError
+Oct 22 14:34:51 forge systemd[1538]: kpi-public-blake3-id-20261022T1436.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 14:34:51 forge systemd[1538]: kpi-public-blake3-id-20261022T1436.service: Failed with result 'exit-code'.
+Oct 22 14:34:51 forge systemd[1538]: kpi-public-blake3-id-20261022T1436.service: Consumed 753ms CPU time over 776ms wall clock time, 104.8M memory peak.

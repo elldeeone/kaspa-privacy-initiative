@@ -1,0 +1,13 @@
+# Supplied-public-input S7 native qualification plan
+
+DO_NOT_FUND. Local declared-UTXO evidence only. No accepted ancestry, owner workflow, public replay, or DRAIN proof construction.
+
+Freeze before execution: public Policy; producer Profile; selected compiled tuple (domain, poolID, inner VK SHA, pair image); actual initial factory's pre-pair PublicState and native outpoint/UTXO R=1660000000; canonical P1088; next S105; checked extractor's genuine native proof128. Root selection must independently bind the compiled guest tuple and image. Source-only model shape data is excluded from actual selection.
+
+Positive path constructs the paired body with the full immutable union and budget1700, requires exact fee80000000 and reserve1580000000, then calls pinned official isolation and Full using declared UTXOs. Separate exact native reserve metering, mass/standardness/default-relay policy and fixed-fee100/200/500 quotes follow. Rate500 must remain negative. The ordinary initial factory separately constructs and validates founding/bootstrap/ADMIT under unchanged40M fees. No tuning of fees, budget, profile, guard or proof after a negative result.
+
+Three host-factory controls are labeled separately: canonical P-domain at relative12, P header, S6 next-state tag. Twelve actual official Full plus reserve script controls retain the genuine proof: envelope magic; branch selector; P header; P domain relative12; canonical checked proof-A negation; actual prior txid; reversed actual prior txid bytes with unchanged index; actual prior index; input and output amounts both +1 while retaining80M fee; next root plus matching canonical successor SPK; altered successor policy hash; typed budget1. Each mutation is finalized and contextual storage recalculated before native validation. Full must reach the exact SignatureInvalid(expected) layer and the direct reserve error must equal the same typed cause. Context and negated-proof cases require Groth16 VerificationFailed; framing/policy cases require VerifyError; underbudget requires the exact direct or source-wrapped resource variant with its declared limit. All input hashes use the bytes read once.
+
+The separate ordinary SPEND helper constructs two alternative forks from the same validated n5/m2/R1660M public predecessor, each retaining40M fee with independent Full+meter,100/200/500 quotes and exact typed domain/proof-negation controls. They are never combined into a ledger. DRAIN remains unexecuted.
+
+Execution cap2CPU/3GiB RAM/swap0/10min, offline binary-only mount with immutable allowlisted inputs. Runtime waits root's final freeze/review/release. Invalid/timeout/OOM outcomes remain visible. Source build alone is not native qualification.

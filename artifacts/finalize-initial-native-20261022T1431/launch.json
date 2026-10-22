@@ -1,0 +1,23 @@
+{
+  "unit": "kpi-lifecycle-finalize-initial-native-20261022.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=kpi-lifecycle-finalize-initial-native-20261022.service",
+    "--property=Type=exec",
+    "--property=RemainAfterExit=yes",
+    "--property=CPUQuota=200%",
+    "--property=MemoryMax=3G",
+    "--property=MemorySwapMax=0",
+    "--property=TasksMax=256",
+    "--property=OOMPolicy=stop",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=600",
+    "--property=TimeoutStopSec=10",
+    "--property=StandardOutput=file:/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/stdout.log",
+    "--property=StandardError=file:/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/stderr.log",
+    "python3",
+    "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/run.py"
+  ],
+  "root_release": "faea97212d0e8da3c6971fa3230f210827e2cba7d2df6d59507906de4dd58d64"
+}

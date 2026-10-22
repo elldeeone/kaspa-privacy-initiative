@@ -1,0 +1,6 @@
+import subprocess,time,pathlib,json
+ev=pathlib.Path('/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421')
+t=time.monotonic()
+r=subprocess.run(['/usr/bin/bwrap', '--unshare-all', '--die-with-parent', '--new-session', '--clearenv', '--ro-bind', '/usr', '/usr', '--symlink', 'usr/bin', '/bin', '--symlink', 'usr/lib', '/lib', '--symlink', 'usr/lib64', '/lib64', '--proc', '/proc', '--dev', '/dev', '--tmpfs', '/tmp', '--ro-bind', '/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer', '/producer', '--bind', '/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415', '/fixture', '--ro-bind', '/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer', '/fixture/producer', '--setenv', 'RAYON_NUM_THREADS', '8', '--setenv', 'OMP_NUM_THREADS', '8', '--chdir', '/tmp', '/producer', 'setup-inner', '/fixture'])
+(ev/"result.json").write_text(json.dumps({"exit_code":r.returncode,"elapsed_seconds":time.monotonic()-t,"scope":"initial four proofs only; no owner workflow"},indent=2)+"\n")
+raise SystemExit(r.returncode)

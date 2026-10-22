@@ -1,0 +1,8 @@
+{
+  "scope": "Post-run wrapper mount observation; no semantic result or historical closed file changed",
+  "ordinary_packet": "ordinary-spend-native-01",
+  "ordinary_input_freeze_sha256": "4d7b9d94e43345038e8d6735f2140889f5e71a5aca453c2de7c1d4195c1cfba4",
+  "observation": "Ordinary wrapper mounted inputs read-only at /input but also bound their parent packet writable at /output, exposing a writable /output/inputs alias. Thus strict mount immutability was not achieved by that wrapper. All seven public input files were read once and hashed from their consumed bytes by the source-reviewed checker, and were hash-equal before/after, and no private input/network was mounted. Native semantic results remain actual observed outcomes; the mount boundary limitation is separate.",
+  "correction_for_pair": "Only dedicated packet/execution is bound writable at /output; packet/inputs has no writable alias, and binary is separate read-only source packet.",
+  "same_binary_input_rerun": "Not performed without root direction; original closed evidence retained."
+}

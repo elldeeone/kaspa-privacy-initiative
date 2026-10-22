@@ -44,3 +44,46 @@ tmp/
 # Local notes
 .local/
 a1-trial.local.json
+
+# Fresh public test parameters are retained locally and pinned in the evidence.
+/artifacts/initial-four-public-fixture-20261022T1415/public/proving-key.bin
+
+# Publish only these closed lifecycle stages; future runtime outputs stay local.
+/artifacts/*
+!/artifacts/producer-source-build-20261022T1415/
+!/artifacts/producer-source-build-warm-20261022T1419/
+!/artifacts/initial-four-setup-20261022T1421/
+!/artifacts/finalize-initial-source-build-20261022T1430/
+!/artifacts/finalize-initial-native-20261022T1431/
+!/artifacts/initial-four-public-fixture-20261022T1415/
+/artifacts/initial-four-public-fixture-20261022T1415/*
+!/artifacts/initial-four-public-fixture-20261022T1415/public/
+/artifacts/initial-four-public-fixture-20261022T1415/public/*
+!/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin
+!/artifacts/initial-four-public-fixture-20261022T1415/public/verification-profile.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/constants.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin
+!/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin
+!/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin
+!/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json
+!/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin
+!/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json
+
+# Keep generated executables local; publish their source, locks and hash evidence.
+/artifacts/initial-four-setup-20261022T1421/selected-producer
+/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer
+/research/intensive-2026-10-22/s7-native-policy/**/kpi_s7_policy_shape
+/research/intensive-2026-10-22/s7-native-policy/**/kpi_s7_pair_native_check
+/research/intensive-2026-10-22/s7-native-policy/**/kpi_s7_ordinary_spend_check
+/poc/s7-owner-lifecycle/proof/evidence/guest-program/guest.raw.elf
+/poc/s7-owner-lifecycle/proof/evidence/guest-program/guest.program.bin
+/research/intensive-2026-10-22/lifecycle-oracle/blake3-id-check*/libpublic_blake3.so

@@ -1,0 +1,15 @@
+294 227 0:54 /newroot / rw,nosuid,nodev,relatime - tmpfs tmpfs rw,uid=1000,gid=1000,inode64
+295 294 252:0 /usr /usr ro,nosuid,nodev,relatime master:1 - ext4 /dev/mapper/ubuntu--vg-ubuntu--lv rw
+296 294 0:59 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
+297 294 0:60 / /dev rw,nosuid,nodev,relatime - tmpfs tmpfs rw,mode=755,uid=1000,gid=1000,inode64
+298 297 0:7 /null /dev/null rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+299 297 0:7 /zero /dev/zero rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+300 297 0:7 /full /dev/full rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+301 297 0:7 /random /dev/random rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+302 297 0:7 /urandom /dev/urandom rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+303 297 0:7 /tty /dev/tty rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+304 297 0:61 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,mode=620,ptmxmode=666
+305 294 0:62 / /tmp rw,nosuid,nodev,relatime - tmpfs tmpfs rw,mode=755,uid=1000,gid=1000,inode64
+306 294 252:0 /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/native-checkers-final-source/kpi_s7_ordinary_spend_check /checker ro,nosuid,nodev,relatime master:1 - ext4 /dev/mapper/ubuntu--vg-ubuntu--lv rw
+307 294 252:0 /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/ordinary-spend-native-02/inputs /input ro,nosuid,nodev,relatime master:1 - ext4 /dev/mapper/ubuntu--vg-ubuntu--lv rw
+308 294 252:0 /home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/ordinary-spend-native-02/execution /output rw,nosuid,nodev,relatime master:1 - ext4 /dev/mapper/ubuntu--vg-ubuntu--lv rw
