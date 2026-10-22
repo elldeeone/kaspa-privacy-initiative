@@ -1,0 +1,46 @@
+{
+  "schema": "kpi-native-observation-source-pins-v1",
+  "source_checkpoint": {
+    "host": "forge",
+    "repository": "/home/luke/projects/kaspa-privacy-shared-pool",
+    "commit": "9e0dca5851f80a3c9fd9e09db1cc7f340aaf8e02",
+    "branch": "shielded-kas-research",
+    "source_access": "read-only SSH",
+    "fixture_transfer": "only three named already-public rehearsal files"
+  },
+  "fixtures": {
+    "descriptor.json": {
+      "bytes": 2155,
+      "sha256": "795eebdefb3eabea6446b3b1a9bd8c80e7f262fe32f7dfcf39efccbe7bbc07ac",
+      "git_blob": "219aba5aae61aa09dcfba8cceb38181e8858b596",
+      "source": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/rehearsal/descriptor.json"
+    },
+    "chain-confirmed.json": {
+      "bytes": 808582,
+      "sha256": "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8",
+      "git_blob": "1d3af74733bd743a393d8c81cea230b3aa8f3b1d",
+      "source": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/rehearsal/chain-confirmed.json"
+    },
+    "verification-key.json": {
+      "bytes": 752,
+      "sha256": "4fd7dc563e4a1f843c99d5517485ba7664a7dcb69057784ca2fac066b20cddaf",
+      "git_blob": "b2d4336e5b3083386df5de911d242ef3df42a3b3",
+      "source": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/verification-key.json"
+    }
+  },
+  "sources": {
+    "working_balance_model.py": "a1a8c3989d85f2309dcd726cd2d076c77c4ea77e407a7dfbd8c05f975dafbe00",
+    "working_balance_observer.py": "b492d5a2e63836751f51f5151c002c3ec6492c224b518846c45eca23f3ea7495",
+    "early_privacy_surface.py": "95f87feb361f92f25dcbaa08d8a667a3bb809e60b11e857959929c1574a32ff6",
+    "native_usage_surface.py": "aa60a0fb1c678b942aecb4c5786b861e0d705a5f1805d76d0063fe372eefed9c",
+    "src/two_input/mod.rs": "255f8e908fcb1c4a76dcc8ebe0ca5f4e9ddbadc8ba46f63036cb413298bc8150",
+    "src/two_input/covenant.rs": "3b6d73c1ebada11d156f3020b444c881160e2f4d8eb7ae629a23ac267bf0d96d",
+    "src/two_input/replay.rs": "9e2de9ae756e9af65fb3f7c75fff7170e3a06170a8eb85d0b0da05d758b1b66e",
+    "src/native.rs": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f",
+    "src/two_input/replay/tests.rs": "97e37e58cedbc6dbf4b4ca4ae9c1e634f7c4b2010275076b2721db2ea20dbb1c",
+    "src/two_input/wallet.rs": "3039fe885379aeec3b2378ee4b881a46e01b5bc1d3e6e68d706852c6a39070e5",
+    "src/protocol.rs": "5243cab1b36e0d9cae8bf13e81b7fcdb033c8dc1bc7405daa401c69334cc4ec4",
+    "src/two_input/harness.rs": "1bad02792f96632892487ec6af9aa94aa4fc2f14c6ecab28602f75174286583d",
+    "src/two_input/tree.rs": "9fc004721ae2a22c6faa26f2a046eefd7bb707e3c83077be01a7913b464891ed"
+  }
+}

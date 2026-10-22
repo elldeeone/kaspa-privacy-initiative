@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "v3": {
+    "source_raw_sha256": "f44e516f24a74fd463873b7d94ccffaba5134f6486cc7e7e0faedcfc223c0f19",
+    "cases": [
+      {
+        "case": "root_reused_foreign",
+        "passed": true
+      },
+      {
+        "case": "root_reused_as_direct_child",
+        "passed": true
+      },
+      {
+        "case": "descendant_reused",
+        "passed": true
+      },
+      {
+        "case": "known_survivors_after_root_vanishes",
+        "passed": true
+      },
+      {
+        "case": "new_adopted_child_and_prior_exclusion",
+        "passed": true
+      },
+      {
+        "case": "vanished_root_does_not_acquire_late_identity",
+        "passed": true
+      },
+      {
+        "case": "missing_metadata_cannot_certify_running_wrapper_gone",
+        "passed": true
+      },
+      {
+        "case": "reuse_between_pidfd_open_and_send",
+        "passed": true
+      }
+    ]
+  },
+  "v2_negative_control": {
+    "source_raw_sha256": "58c7845862842479825023497bb2cafc33aac41466845cc69056881cdf424acb",
+    "cases": [
+      {
+        "case": "root_reused_foreign",
+        "passed": false,
+        "reason": "replacement root/its descendants were adopted"
+      },
+      {
+        "case": "root_reused_as_direct_child",
+        "passed": false,
+        "reason": "replacement root was adopted through direct-child path"
+      },
+      {
+        "case": "descendant_reused",
+        "passed": false,
+        "reason": "replacement descendant or its children were adopted"
+      },
+      {
+        "case": "known_survivors_after_root_vanishes",
+        "passed": false,
+        "reason": ""
+      },
+      {
+        "case": "new_adopted_child_and_prior_exclusion",
+        "passed": true
+      },
+      {
+        "case": "vanished_root_does_not_acquire_late_identity",
+        "passed": false,
+        "reason": "missing initial identity was acquired from a later PID"
+      },
+      {
+        "case": "missing_metadata_cannot_certify_running_wrapper_gone",
+        "passed": false,
+        "reason": "running wrapper falsely certified cleaned"
+      },
+      {
+        "case": "reuse_between_pidfd_open_and_send",
+        "passed": true
+      }
+    ]
+  },
+  "seconds": 0.009091040999999994,
+  "all_subject_OS_process_proc_signal_calls_mocked": true,
+  "guards_module_imported": false,
+  "live_cleanup_signals_or_process_spawns": false,
+  "Linux_cgroup_namespace_driver_qualification": false
+}

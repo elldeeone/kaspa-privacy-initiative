@@ -1,0 +1,63 @@
+{
+  "observed_at_utc": "2026-10-22T08:02:15.218763+00:00",
+  "status": "MAC_EXECUTION_ON_HOLD_BY_PARENT_AFTER_POOLED_SWAP_STOP",
+  "method": "stdlib JSON field inventory and closed-form combinatorial bounds; no observer, adapter or NumPy import; no candidate subset enumeration",
+  "snapshot": "mac-artifact:work/mac-validation/snapshots/compute-v1-a3281bbc72d3",
+  "raw_manifest_sha256": "a3281bbc72d32627c16fba035fb01937f7963555da6ff3e39abe513110735270",
+  "views": {
+    "public": {
+      "events": 173,
+      "targets": 64,
+      "min_target": 32,
+      "payouts_after_target_floor": 76,
+      "whole_payouts": 44,
+      "partial_payouts": 32,
+      "size_2_subsets": 2850,
+      "size_3_subsets": 70300,
+      "total_subsets": 73150,
+      "known_note_positions": 70,
+      "notes_at_least_floor": 37,
+      "max_residual_rows": 1672,
+      "max_subset_rows": 2779700,
+      "max_packed_rows": 2781372,
+      "max_int64_array_bytes": 155756832,
+      "max_int64_array_mib": 148.54129028320312,
+      "two_retained_mask_bytes": 5562744,
+      "illustrative_packed_inner_list_bytes_at_row_bound": 311513664,
+      "largest_possible_candidate_value_bound": 432064200000
+    },
+    "pooled": {
+      "events": 173,
+      "targets": 64,
+      "min_target": 32,
+      "payouts_after_target_floor": 76,
+      "whole_payouts": 44,
+      "partial_payouts": 32,
+      "size_2_subsets": 2850,
+      "size_3_subsets": 70300,
+      "total_subsets": 73150,
+      "known_note_positions": 118,
+      "notes_at_least_floor": 81,
+      "max_residual_rows": 3608,
+      "max_subset_rows": 5998300,
+      "max_packed_rows": 6001908,
+      "max_int64_array_bytes": 336106848,
+      "max_int64_array_mib": 320.5364685058594,
+      "two_retained_mask_bytes": 12003816,
+      "illustrative_packed_inner_list_bytes_at_row_bound": 672213696,
+      "largest_possible_candidate_value_bound": 432064200000
+    }
+  },
+  "pooled_retains_two_engines": {
+    "max_combined_rows": 8783280,
+    "max_combined_packed_array_bytes": 491863680,
+    "observer_lines": "554-571"
+  },
+  "interpretation": {
+    "per_engine_raw_array_1gib_limit_cannot_be_crossed_by_allowlisted_fixtures": true,
+    "total_rss_bounded_below_1gib": false,
+    "candidate_counts_actual_measured": false,
+    "array_or_adapter_executed": false,
+    "late_allocation_guard_defect_fixed": false
+  }
+}

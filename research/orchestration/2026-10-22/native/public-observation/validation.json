@@ -1,0 +1,114 @@
+{
+  "schema": "kpi-native-observation-validation-v1",
+  "passed": true,
+  "scope": "public serialized-byte parsing and consistency only; no native VM/proof/chain verification",
+  "python_version": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "cases": [
+    {
+      "name": "pinned_public_native_fixture",
+      "passed": true,
+      "elapsed_seconds": 0.002232500002719462,
+      "process_peak_rss_bytes": 24788992,
+      "detail": {
+        "serialized_transactions": 15,
+        "pool_lineage_transactions": 14,
+        "operations": 13,
+        "mode_counts": {
+          "0": 3,
+          "1": 4,
+          "2": 6
+        },
+        "partial_payout_operations": 1,
+        "historical_anchor_operations": 4,
+        "terminal_reserve_sompi": "0",
+        "current_v2_wallet_key_behavior_tested": false
+      }
+    },
+    {
+      "name": "missing_fields_are_explicit_and_native_metadata_retained",
+      "passed": true,
+      "elapsed_seconds": 4.415982402861118e-06,
+      "process_peak_rss_bytes": 24788992,
+      "detail": "modeled minutes/identity absent; raw receipt timestamps and native startup retained"
+    },
+    {
+      "name": "raw_byte_references_round_trip",
+      "passed": true,
+      "elapsed_seconds": 0.0010495840106159449,
+      "process_peak_rss_bytes": 24788992,
+      "detail": {
+        "verified_raw_regions": 91,
+        "field_map_entries": 17
+      }
+    },
+    {
+      "name": "cipher_binding_mutation_rejected",
+      "passed": true,
+      "elapsed_seconds": 0.0007499579805880785,
+      "process_peak_rss_bytes": 24854528,
+      "detail": "ciphertext digest binding"
+    },
+    {
+      "name": "funding_amount_mutation_rejected",
+      "passed": true,
+      "elapsed_seconds": 0.000807165983133018,
+      "process_peak_rss_bytes": 24854528,
+      "detail": "funding byte/value binding"
+    },
+    {
+      "name": "reserve_outpoint_mutation_rejected",
+      "passed": true,
+      "elapsed_seconds": 0.0007252920186147094,
+      "process_peak_rss_bytes": 24854528,
+      "detail": "reserve lineage"
+    },
+    {
+      "name": "unsupported_mode_rejected",
+      "passed": true,
+      "elapsed_seconds": 0.0006876250263303518,
+      "process_peak_rss_bytes": 24870912,
+      "detail": "unsupported operation shape"
+    },
+    {
+      "name": "native_payout_value_mutation_rejected",
+      "passed": true,
+      "elapsed_seconds": 0.002042750013060868,
+      "process_peak_rss_bytes": 24920064,
+      "detail": "native payout output"
+    },
+    {
+      "name": "proof_verification_limit_is_explicit",
+      "passed": true,
+      "elapsed_seconds": 0.0021311669843271375,
+      "process_peak_rss_bytes": 25100288,
+      "detail": "in-memory proof mutation only changes observed bytes; parser does not authenticate it; on-disk fixture pins would reject drift"
+    }
+  ],
+  "total_elapsed_seconds": 0.013170332997106016,
+  "process_peak_rss_bytes": 25231360,
+  "limits": {
+    "per_case_seconds": 1,
+    "process_rss_bytes": 104857600
+  },
+  "coverage": {
+    "serialized_transactions": 15,
+    "pool_lineage_transactions": 14,
+    "operations": 13,
+    "mode_counts": {
+      "0": 3,
+      "1": 4,
+      "2": 6
+    },
+    "partial_payout_operations": 1,
+    "historical_anchor_operations": 4,
+    "terminal_reserve_sompi": "0",
+    "current_v2_wallet_key_behavior_tested": false
+  },
+  "equality_group_counts": {
+    "scripts": 0,
+    "commitments": 0,
+    "proofs": 0,
+    "ciphertexts": 0,
+    "ciphertext_prefixes": 0
+  }
+}

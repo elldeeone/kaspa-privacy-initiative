@@ -1,0 +1,39 @@
+{
+  "schema": "kpi-batching-native-source-review-v1",
+  "decision": "DEFER genuine batching experiment and heavy batching work",
+  "execution": "Source-only review; no tests, toy, proof, build, GPU or runtime executed",
+  "toy_root": "work/mac-validation/architecture-options",
+  "toy_files_sha256": {
+    "SPEC.md": "f750c3c152f338a3da026ed7f04fdb7f5b28180a2b32babeca9f918eea8e2c1f",
+    "check.py": "77893bc742c5e1d5f3aad6a40be36008275c6192a3cc2117f6a46c80abe72b3a",
+    "RESULT.json": "43709488d1c7c7b8b8598628dad75e9b8b0f001190d1729bc336173986a7ff2c",
+    "REPORT.md": "9f39d296c28497f6394b310ab7e619c264aa222e2e4f0ef3e80e83a9b7ec9e0b"
+  },
+  "project": {
+    "host": "forge",
+    "root": "/home/luke/projects/kaspa-privacy-shared-pool",
+    "commit": "9e0dca5851f80a3c9fd9e09db1cc7f340aaf8e02",
+    "inspected_files_clean": true,
+    "files_sha256": {
+      "poc/shared-pool/src/two_input/circuit.rs": "59071901c3abc25daab68c982ef065f8755c09abbb2ce30e6010d821813dd2a7",
+      "poc/shared-pool/src/two_input/mod.rs": "255f8e908fcb1c4a76dcc8ebe0ca5f4e9ddbadc8ba46f63036cb413298bc8150",
+      "poc/shared-pool/src/two_input/harness.rs": "1bad02792f96632892487ec6af9aa94aa4fc2f14c6ecab28602f75174286583d",
+      "poc/shared-pool/src/two_input/covenant.rs": "3b6d73c1ebada11d156f3020b444c881160e2f4d8eb7ae629a23ac267bf0d96d",
+      "poc/shared-pool/src/two_input/tree.rs": "9fc004721ae2a22c6faa26f2a046eefd7bb707e3c83077be01a7913b464891ed",
+      "poc/shared-pool/src/two_input/wallet.rs": "3039fe885379aeec3b2378ee4b881a46e01b5bc1d3e6e68d706852c6a39070e5",
+      "poc/shared-pool/src/protocol.rs": "5243cab1b36e0d9cae8bf13e81b7fcdb033c8dc1bc7405daa401c69334cc4ec4",
+      "poc/shared-pool/Cargo.toml": "cfdc8e104c93e4575b1f2cf5d9b441566674b7b801856d18fc7aeb5ba50234f3"
+    }
+  },
+  "native_dependency": {
+    "host": "forge",
+    "root": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e",
+    "commit": "01b532e8b553523216471682649693af92f0fd16",
+    "inspected_files_clean": true,
+    "files_sha256": {
+      "crypto/txscript/src/zk_precompiles/groth16/mod.rs": "cb9fa14115d445c727cb8639ba384bde37d9a01f6c6f7fd1c92f77861f8a388d",
+      "crypto/txscript/src/zk_precompiles/tags.rs": "b3288d447e0ea09447e6564c921389bd6d5668d6d302c8d409ded7895919ef03",
+      "crypto/txscript/src/opcodes/mod.rs": "201d69b5a8de3db27b94b3e850a7ee62c4920532886c1d19544baed7fd163731"
+    }
+  }
+}

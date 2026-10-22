@@ -1,0 +1,197 @@
+{
+  "witness_gate": "pass_conditional_model",
+  "ambiguity_gate": "pass_existence_only",
+  "checked_allocations": 6,
+  "valid_protocol_allocations": 4,
+  "own_change_client_allocations": 2,
+  "public_projection_sha256": "2a65453e7171a8a44bb42519f63d2b6897930331610b6308e16f048773653283",
+  "public_auth_digest_variant_compatible_allocations": 1,
+  "public_inner_proof_variant_compatible_allocations": 1,
+  "one_colluder_compatible_allocations": 1,
+  "recipient_position": 8,
+  "recipient_payout_sompi": 260000000,
+  "initial_reserve_sompi": 2980000000,
+  "after_first_batch_reserve_sompi": 2900000000,
+  "after_second_batch_reserve_sompi": 2820000000,
+  "negative_design_findings": [
+    "Public replay does not establish hidden conservation without a real sound validity proof.",
+    "Authorizations/digests or separately verifiable inner proofs distinguish this finite fixture's grouping.",
+    "One fully known member removes the two-member grouping ambiguity.",
+    "Missing recipient delivery prevents recovery even if flat state roots are otherwise consistent."
+  ],
+  "assumptions": [
+    "ideal own-key sealed-box opening",
+    "sound hidden batch validity assumed for acceptance",
+    "authenticated complete checkpoint and accepted headers",
+    "small-depth toy serialization",
+    "same-process API boundary, no process isolation or native/proof execution"
+  ],
+  "completed": true,
+  "checks": [
+    {
+      "name": "four protocol-valid allocations; two with each sender's own change",
+      "passed": true
+    },
+    {
+      "name": "different recipient/group assignments share identical fixed public bytes",
+      "passed": true
+    },
+    {
+      "name": "recipient recovers exactly its new note with no private operation input",
+      "passed": true
+    },
+    {
+      "name": "recipient full-exit witness and individual native amount",
+      "passed": true
+    },
+    {
+      "name": "unrelated prior holder needs no collector/grouping",
+      "passed": true
+    },
+    {
+      "name": "wrong key discovers no note",
+      "passed": true
+    },
+    {
+      "name": "later one-input/dummy operations preserve old recipient position and authorization",
+      "passed": true
+    },
+    {
+      "name": "reversed batch sequence",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "replayed batch",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "missing output/ciphertext data",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "missing ciphertext",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "ciphertext swap under retained accepted header",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "reversed flat append order",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "injected per-operation disclosure",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "changed exact fee",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "boolean fee",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "boolean successor sequence is not integer one",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "floating successor amount is not a canonical integer",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "zero nullifier",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "duplicate/colliding nullifier",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "previously spent nullifier",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "duplicate commitment",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "cross-operation input reuse",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "wrong private input owner",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "input after hidden historical anchor",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "input created inside same batch",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "hidden inflation rejected by reference validity checker",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "public replay alone cannot reject hidden inflation: sound proof is necessary",
+      "passed": true
+    },
+    {
+      "name": "unavailable recipient delivery explicitly fails recovery",
+      "passed": true
+    },
+    {
+      "name": "recipient rejects decrypted opening bound to wrong commitment",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "same note cannot produce another current unspent exit witness",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "name": "transparent authorization digests uniquely identify the fixture partition",
+      "passed": true
+    },
+    {
+      "name": "separately verifiable inner proofs also distinguish the fixture partition",
+      "passed": true
+    },
+    {
+      "name": "one member's complete record leaves one residual partition",
+      "passed": true
+    }
+  ],
+  "check_count": 34,
+  "elapsed_seconds": 0.024754750076681376,
+  "peak_rss_bytes": 24363008,
+  "python": "3.14.6",
+  "platform": "darwin",
+  "spec_sha256": "f750c3c152f338a3da026ed7f04fdb7f5b28180a2b32babeca9f918eea8e2c1f",
+  "source_sha256": "77893bc742c5e1d5f3aad6a40be36008275c6192a3cc2117f6a46c80abe72b3a"
+}

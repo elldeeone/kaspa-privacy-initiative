@@ -1,0 +1,196 @@
+{
+  "schema": "kpi-native-observation-field-map-v1",
+  "source_checkpoint": "9e0dca5851f80a3c9fd9e09db1cc7f340aaf8e02",
+  "amount_unit": "integer sompi",
+  "projection_contract": "partial only; null means unsupported/missing and must not be replaced by zero",
+  "field_count": 17,
+  "fields": [
+    {
+      "id": "amounts",
+      "status": "byte_reproducible",
+      "model_fields": [
+        "deposit",
+        "payout",
+        "fee",
+        "reserve"
+      ],
+      "native_counterpart": "Authorization byte offsets 257,205,213 and actual selected funding/native output values",
+      "normalization_effect": "integer sompi preserved; no erased-field reconstruction experiment",
+      "source": "src/two_input/mod.rs:93-111,178-219"
+    },
+    {
+      "id": "private_payment_change",
+      "status": "no_public_native_value",
+      "model_fields": [],
+      "native_counterpart": "Private note opening absent from public bytes; recipient/change slot convention is wallet policy",
+      "normalization_effect": "do not invent payment/change values or identify sender/recipient from ciphertext",
+      "source": "src/two_input/wallet.rs:467-525;src/protocol.rs:65-106"
+    },
+    {
+      "id": "operation_shape",
+      "status": "byte_reproducible",
+      "model_fields": [
+        "mode",
+        "new"
+      ],
+      "native_counterpart": "auth mode; native input/output counts; commitment slots",
+      "normalization_effect": "private real input count remains unknown; public native arity retained separately",
+      "source": "src/two_input/mod.rs:221-240"
+    },
+    {
+      "id": "founding_bootstrap",
+      "status": "native_model_mismatch",
+      "model_fields": [
+        "count_before"
+      ],
+      "native_counterpart": "founding reserve/initial commitment and bootstrap amount in first auth",
+      "normalization_effect": "native starts at commitment position 0/count 1; no silent model count reset",
+      "source": "src/two_input/replay.rs:229-255"
+    },
+    {
+      "id": "native_graph",
+      "status": "observed_but_reduced",
+      "model_fields": [
+        "event",
+        "event_id"
+      ],
+      "native_counterpart": "exact tx ID strings/outpoint indices and earlier public parent bodies",
+      "normalization_effect": "ordinal is derived; IDs not independently recomputed; funding_group opaque label not fabricated",
+      "source": "src/native.rs:442-500;src/two_input/replay.rs:119-181"
+    },
+    {
+      "id": "addresses_scripts",
+      "status": "observed_but_reduced",
+      "model_fields": [
+        "destination"
+      ],
+      "native_counterpart": "actual funding/payout/reserve script bytes; equality groups",
+      "normalization_effect": "destination preserved as actual script; generating fresh model labels would discard equality",
+      "source": "src/two_input/wallet.rs:173-198;early_privacy_surface.py:321-354"
+    },
+    {
+      "id": "owner_directory",
+      "status": "no_native_counterpart",
+      "model_fields": [],
+      "native_counterpart": "external association only; legacy descriptor sources not a 32-role directory",
+      "normalization_effect": "role/adversary/directory missing; no human identity inferred",
+      "source": "src/two_input/replay.rs:21-33"
+    },
+    {
+      "id": "nullifiers",
+      "status": "byte_reproducible",
+      "model_fields": [
+        "nullifiers"
+      ],
+      "native_counterpart": "two auth slots [76,140), ADMIT zeros",
+      "normalization_effect": "real bytes retained; no claim which slot is real/padding",
+      "source": "src/two_input/mod.rs:101;src/two_input/harness.rs:63-76"
+    },
+    {
+      "id": "commitments",
+      "status": "byte_reproducible",
+      "model_fields": [
+        "commitments",
+        "new"
+      ],
+      "native_counterpart": "initial cm and auth [140,204)",
+      "normalization_effect": "preserve exact equality/positions; model's fresh labels would erase cross-position equality",
+      "source": "early_privacy_surface.py:124-136"
+    },
+    {
+      "id": "anchor_roots_history",
+      "status": "observed_but_reduced",
+      "model_fields": [
+        "anchor_count",
+        "count_before"
+      ],
+      "native_counterpart": "auth count/root; old/successor state roots and counts",
+      "normalization_effect": "counts retained; roots remain in native_only, not model projection",
+      "source": "src/two_input/mod.rs:99-102;src/two_input/tree.rs:184-233"
+    },
+    {
+      "id": "public_settlement_witness",
+      "status": "observed_but_dropped",
+      "model_fields": [],
+      "native_counterpart": "payload [860,5228)",
+      "normalization_effect": "raw bytes retained by pinned reference/hash; no witness recomputation or private input-path claim",
+      "source": "early_privacy_surface.py:147-167"
+    },
+    {
+      "id": "proof_public_inputs",
+      "status": "observed_but_dropped",
+      "model_fields": [],
+      "native_counterpart": "128 proof bytes; SHA256(auth) two 128-bit limbs; VK/redeem",
+      "normalization_effect": "proof bytes and public inputs present; no proof or covenant execution verification",
+      "source": "src/two_input/mod.rs:89-92;src/two_input/covenant.rs:597-634"
+    },
+    {
+      "id": "ciphertext_delivery",
+      "status": "observed_but_dropped",
+      "model_fields": [],
+      "native_counterpart": "two 185-byte ciphertext slots and bound digest",
+      "normalization_effect": "digest/length/zero padding/equality checked; delivery/decryption and encryption correctness untested",
+      "source": "src/two_input/mod.rs:126-135,168-173;src/two_input/wallet.rs:581-614"
+    },
+    {
+      "id": "fees_size_mass",
+      "status": "observed_but_reduced",
+      "model_fields": [
+        "fee"
+      ],
+      "native_counterpart": "auth/native outputs fee; actual storageMass; signature/payload lengths",
+      "normalization_effect": "retained pool fee observed; no mass calculation or fee feasibility claims",
+      "source": "src/native.rs:373-411"
+    },
+    {
+      "id": "timing_order",
+      "status": "mixed_counterpart",
+      "model_fields": [
+        "event",
+        "minute"
+      ],
+      "native_counterpart": "reserve dependency ordinal; retained receipt header timestamp",
+      "normalization_effect": "minute null: modeled request time has no native field; header time is separate unverified historical metadata",
+      "source": "native_usage_surface.py:141-152,239-244"
+    },
+    {
+      "id": "native_envelope",
+      "status": "observed_but_dropped",
+      "model_fields": [],
+      "native_counterpart": "version/subnetwork/gas/locktime/sequence/computeBudget/signatures",
+      "normalization_effect": "candidate framing checked; no general transaction validation claim",
+      "source": "src/native.rs:442-500"
+    },
+    {
+      "id": "network",
+      "status": "not_captured",
+      "model_fields": [],
+      "native_counterpart": "none in transaction bytes; retained header is not network-origin data",
+      "normalization_effect": "no IP/RPC session/first-seen/retry/prover timing/recipient envelope capture",
+      "source": "src/two_input/wallet.rs:1-5"
+    }
+  ],
+  "future_native_test_inputs": {
+    "required": [
+      "authenticated pool descriptor and VK identity",
+      "complete canonical pool lineage including founding/bootstrap",
+      "actual selected funding-parent bodies and complete outpoint references",
+      "raw payload and signatureScript hex, not only arithmetic projection",
+      "exact native validation/proof-verification receipt with implementation and dependency pins",
+      "source/manifests and explicit observation-prefix boundary"
+    ],
+    "separate_optional_channels": [
+      "external role/address ownership directory with provenance",
+      "permitted participant authored records/decrypted receipts in an isolated profile",
+      "time metadata with type: modeled_request, block_header, first_seen, submission or proof_completion",
+      "network observations, only if explicitly measured and authorized"
+    ],
+    "must_not_infer": [
+      "private amounts/openings from opaque bytes",
+      "human owners from outpoint/script equality",
+      "request minute from header timestamp",
+      "current chain acceptance from retained file name",
+      "current v2 key behavior from legacy four-wallet fixture"
+    ]
+  }
+}

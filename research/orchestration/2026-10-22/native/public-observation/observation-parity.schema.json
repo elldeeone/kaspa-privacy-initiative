@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kpi-native-observation-parity-v1",
+  "title": "Partial native observation projection; not a frozen model input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "evidence",
+    "model_projection",
+    "native_only",
+    "unsupported_model_fields",
+    "coverage"
+  ],
+  "properties": {
+    "schema": {
+      "const": "kpi-native-observation-parity-v1"
+    },
+    "source_checkpoint": {
+      "type": "object"
+    },
+    "fixture_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "model",
+        "native_bytes",
+        "proof",
+        "tn10",
+        "native_txid_verified",
+        "full_hash_verified",
+        "public_witness_recomputed",
+        "proof_verified",
+        "covenant_executed",
+        "chain_acceptance_verified"
+      ],
+      "properties": {
+        "native_txid_verified": {
+          "const": false
+        },
+        "full_hash_verified": {
+          "const": false
+        },
+        "public_witness_recomputed": {
+          "const": false
+        },
+        "proof_verified": {
+          "const": false
+        },
+        "covenant_executed": {
+          "const": false
+        },
+        "chain_acceptance_verified": {
+          "const": false
+        }
+      }
+    },
+    "model_projection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roles",
+        "adversaries",
+        "events",
+        "commitments"
+      ],
+      "properties": {
+        "roles": {
+          "type": "null"
+        },
+        "adversaries": {
+          "type": "null"
+        },
+        "commitments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "event",
+              "event_id",
+              "minute",
+              "mode",
+              "fee",
+              "deposit",
+              "payout",
+              "reserve",
+              "anchor_count",
+              "count_before",
+              "new",
+              "nullifiers",
+              "destination",
+              "funding_group",
+              "bridge"
+            ],
+            "properties": {
+              "event": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "mode": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "fee": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "deposit": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "payout": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "reserve": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "anchor_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "count_before": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minute": {
+                "type": "null"
+              },
+              "funding_group": {
+                "type": "null"
+              },
+              "bridge": {
+                "type": "null"
+              },
+              "event_id": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "new": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "nullifiers": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              },
+              "destination": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "native_only": {
+      "type": "object",
+      "required": [
+        "founding",
+        "operations",
+        "equality_groups"
+      ]
+    },
+    "unsupported_model_fields": {
+      "type": "object",
+      "required": [
+        "minute",
+        "funding_group",
+        "bridge",
+        "roles",
+        "adversaries",
+        "directory",
+        "participant_view"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "serialized_transactions",
+        "pool_lineage_transactions",
+        "operations",
+        "mode_counts",
+        "partial_payout_operations",
+        "historical_anchor_operations",
+        "terminal_reserve_sompi",
+        "current_v2_wallet_key_behavior_tested"
+      ]
+    }
+  }
+}
