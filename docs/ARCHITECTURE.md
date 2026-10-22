@@ -2,6 +2,15 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+The [sparse-case diagnosis](../poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS.md)
+explains the failed partial-policy score without selecting a new architecture.
+Eight of eleven successful partial-pooled guesses use unrelated payout supports;
+three have ancestry without a closed value path. [ADR-0032](adr/0032-sparse-diagnosis-and-privacy-evaluation.md)
+retains direct-L1 mechanics and stops general cashout-policy tuning. Next audit
+public information, price priors and behavior assumptions before selecting a
+mitigation. Wrong support does not prove no predictive signal; current privacy
+requirements and unilateral-exit constraints remain unchanged.
+
 [RFC-0016](rfc/0016-working-balance-withdrawals.md) and
 [ADR-0031](adr/0031-arithmetic-working-balance-screen.md) scope an arithmetic
 comparison of whole-note cashouts with requested partial payouts and retained

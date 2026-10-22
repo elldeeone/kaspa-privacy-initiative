@@ -1,6 +1,6 @@
 # Shielded native KAS research plan
 
-Updated: 2026-10-21 (Australia/Sydney). Branch: `shielded-kas-research`.
+Updated: 2026-10-22 (Australia/Sydney). Branch: `shielded-kas-research`.
 Evidence baseline: `c3afb1b94f023057bfe99d780271f6de52c43da4`.
 
 ## Destination and current decision
@@ -29,21 +29,26 @@ share one current-version interface. Qualification against the accepted
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
-**Next action:** investigate why the frozen partial-payout comparison fails in
-sparse activity: classify the pooled split/tail hits against actual change
-lineage and common-price coincidences, and assess realistic cash-demand
-correlation. This is a new exploratory diagnosis, not a retuning of the failed
-screen. The [completed comparison](../poc/shared-pool/WORKING-BALANCE-PRIVACY.md)
-improves overlapping independent-demand amount scores from 13/40 to 8/40, but
-sparse pooled final remains 11/37 in both arms. Receipt-correlated partials
-worsen guesses. All eight modeled histories conserve value and drain, but the
-frozen directional gate fails. Stop its conditional native continuation; retain
-partial payout/private change as mechanics without adopting this wallet policy.
-The existing v6 relation supports partial payouts; the own-key wallet interface
-still exposes whole-note EXIT. H18's short-delay policy remains rejected.
-The broader early privacy gate and a sufficiently powered qualification study
-remain open. Milestone 7 remains
-broader validation. Routine safety review and fixes continue throughout.
+**Next action:** audit the public information and evaluation assumptions before
+selecting another mitigation. [ADR-0032](adr/0032-sparse-diagnosis-and-privacy-evaluation.md)
+retains the direct-L1 research platform and closes general cashout-policy tuning
+as the immediate work item. Use the existing genuine-native usage history as
+development evidence to separate public-price predictability from additional
+transaction signal, identify a named feature and opposing predictions, and
+justify cash needs independently of favorable scores. Preserve the adopted
+targets; the current common-price workload remains unqualified.
+
+The [sparse diagnosis](../poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS.md)
+reproduces the frozen result: of eleven successful partial-pooled guesses,
+eight use unrelated supports and three touch ancestry without closing an actual
+value path. Equal whole/partial totals share only three hits, with eight gains
+and eight losses. No inference of zero leakage or a required architecture rewrite
+follows. The original partial-policy gate remains failed, its native continuation
+stays stopped, and H18's short-delay policy remains rejected. Retain existing
+partial payout/private change mechanics; the own-key wallet still exposes
+whole-note EXIT. The broader early privacy gate and a sufficiently powered
+qualification study remain open. Milestone 7 remains broader validation.
+Routine safety review and fixes continue throughout.
 
 The owner authorized the next bounded test under
 [RFC-0015](rfc/0015-native-usage-privacy-screen.md): one fresh 32-wallet history

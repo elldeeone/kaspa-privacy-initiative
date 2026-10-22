@@ -1,0 +1,147 @@
+{
+  "schema": "kpi-sparse-independent-review-v1",
+  "independent_recount_agrees": true,
+  "reviewer": "separate agent using independent graph traversal and flow simulation",
+  "source_freeze_sha256": "a6eecde7a7d165b1cdbd83b60ceadfc771a7135c3ee44ed2ff5a0addb6e99642",
+  "public_seal_sha256": "4b931da82014ac752cefda9d07187a35359021432f398ad50d38f3ae3156e2f6",
+  "aggregate_sha256": "17239e55cdc1715304231594fc706a61d2701cbb7f9b13bb5b65fee9d755e3de",
+  "primary_targets": 37,
+  "selected_constructions": 1074,
+  "old_union_supports": 1035,
+  "partial_pooled_counts": {
+    "sender": 5,
+    "recipient": 0,
+    "relationship": 0,
+    "amount_exact": 2,
+    "amount_within_10pct": 11
+  },
+  "prior_to_split_tail": {
+    "sender": {
+      "targets": 37,
+      "before": 2,
+      "after": 5,
+      "both": 0,
+      "gains": 5,
+      "losses": 2,
+      "neither": 30
+    },
+    "recipient": {
+      "targets": 37,
+      "before": 2,
+      "after": 0,
+      "both": 0,
+      "gains": 0,
+      "losses": 2,
+      "neither": 35
+    },
+    "relationship": {
+      "targets": 37,
+      "before": 0,
+      "after": 0,
+      "both": 0,
+      "gains": 0,
+      "losses": 0,
+      "neither": 37
+    },
+    "amount_exact": {
+      "targets": 37,
+      "before": 0,
+      "after": 2,
+      "both": 0,
+      "gains": 2,
+      "losses": 0,
+      "neither": 35
+    },
+    "amount_within_10pct": {
+      "targets": 37,
+      "before": 9,
+      "after": 11,
+      "both": 5,
+      "gains": 6,
+      "losses": 4,
+      "neither": 22
+    }
+  },
+  "whole_to_partial_split_tail": {
+    "sender": {
+      "targets": 37,
+      "before": 1,
+      "after": 5,
+      "both": 0,
+      "gains": 5,
+      "losses": 1,
+      "neither": 31
+    },
+    "recipient": {
+      "targets": 37,
+      "before": 0,
+      "after": 0,
+      "both": 0,
+      "gains": 0,
+      "losses": 0,
+      "neither": 37
+    },
+    "relationship": {
+      "targets": 37,
+      "before": 0,
+      "after": 0,
+      "both": 0,
+      "gains": 0,
+      "losses": 0,
+      "neither": 37
+    },
+    "amount_exact": {
+      "targets": 37,
+      "before": 9,
+      "after": 2,
+      "both": 2,
+      "gains": 0,
+      "losses": 7,
+      "neither": 28
+    },
+    "amount_within_10pct": {
+      "targets": 37,
+      "before": 11,
+      "after": 11,
+      "both": 3,
+      "gains": 8,
+      "losses": 8,
+      "neither": 18
+    }
+  },
+  "support_classes": {
+    "ancestry_without_closed_value_path": 10,
+    "unrelated_selected_payouts": 21,
+    "wrong_branch_only": 6
+  },
+  "within_10pct_hits_by_support_class": {
+    "ancestry_without_closed_value_path": 3,
+    "unrelated_selected_payouts": 8
+  },
+  "route_flags": {
+    "inputs_match": 0,
+    "receipt_closed": 0,
+    "change_closed": 0,
+    "both_closed": 0,
+    "input_change_closed": 0,
+    "receipt_private_ancestry": 117,
+    "receipt_all_ancestry": 117,
+    "change_private_ancestry": 45,
+    "change_all_ancestry": 45,
+    "receipt_native_only": 0,
+    "change_native_only": 0,
+    "receipt_follows_change": 76,
+    "change_follows_receipt": 20,
+    "receipt_owner_matches": 0,
+    "change_owner_matches": 3
+  },
+  "public_export_aggregate_only": true,
+  "seed_opened": false,
+  "original_attempt_opened": false,
+  "limits": [
+    "Common-price numerical hits remain scored as hits.",
+    "Zero matching selected value paths does not show no transcript signal or exclude other attacks.",
+    "One paired synthetic history; no real-user or native transaction privacy evidence.",
+    "Same-host author-controlled verification is not independent attestation."
+  ]
+}

@@ -89,9 +89,73 @@ and change as mechanics; do not adopt this wallet policy or begin its conditiona
 native continuation. The next question is whether sparse split/tail hits follow
 actual change lineage or common-price coincidences, alongside the practical
 cash-demand correlation assumption.
+That question is now answered by the
+[sparse diagnosis](../poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS.md): eight
+of eleven partial-pooled successful guesses use unrelated supports, three touch
+ancestry without a closed value path, and none of 1,074 selected constructions
+matches the actual payment inputs. Numerical hits and the failed gate remain.
+[ADR-0032](adr/0032-sparse-diagnosis-and-privacy-evaluation.md) retains direct-L1
+mechanics, closes general cashout tuning as the immediate work item, and selects
+a public-information/evaluation audit before another mitigation. Wrong supports
+do not prove zero transaction signal or justify a runtime/structure rewrite.
 The [primary-source review](../research/shielded-kas-privacy-requirements-2026-10-20.md)
 and earlier capability map remain the starting evidence. No new funded trial,
 paid service, recruitment or upstream publication is initiated by this step.
+
+## 2026-10-22 — Sparse split/tail diagnosis and next direction
+
+The owner authorized tracing the sparse attack, documenting the finding and
+continuing until a clear next-direction decision. The
+[pre-truth contract](../poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS-SPEC.md)
+fixed classifications, controls, public tracing, private joins and the stop rule.
+All original sources/results remain unchanged at baseline `7d63e5b`.
+
+Thirty-five public controls and adversarial source review completed before
+freeze. The reviewer found a new-classifier input-order comparison error;
+set semantics and a reversed-order control corrected it before any truth access.
+The original 1,506-observation public seal audit passed. Four isolated public
+traces reproduce all 256 observable final targets, 3,328 base guesses/ranks and
+1,664 pooled public-copy comparisons. Every selected public construction is
+retained before truth selects the original 37 honest-to-honest targets.
+
+Attempt `working-balance-sparse-diagnosis-20261022-01` froze at
+2026-10-22 06:17:10 UTC (17:17 Australia/Sydney). Public traces sealed at 06:19:06;
+classification completed at 06:19:09. No seed was accessed. Both original
+arithmetic validations and complete permitted-view reconstruction pass.
+
+**Finding:** partial pooled final `split_tail` remains 11/37 within ten percent,
+two exact. Eight successful guesses use unrelated supports; three touch actual
+ancestry without a closed value path. Both exact matches are unrelated-support
+hits. None of 1,074 selected constructions matches actual payment inputs or
+closes an actual receipt/change flow. Prior9→attack11 means five shared hits,
+six gains and four losses. Whole11→partial11 means three shared, eight gained
+and eight lost; exact guesses fall nine→two. These are fixed-strategy counts,
+not a truth-selected per-target oracle or proof of disclosure.
+
+A separate agent's independent backward-ancestry/flow simulation reproduces all
+37 targets and 1,074 constructions without importing the diagnostic helpers.
+Public evidence includes aggregate results, all four compressed public traces,
+source/process/isolation identities and a review receipt. Detailed truth joins
+stay outside Git. Aggregate SHA256 is
+`17239e55cdc1715304231594fc706a61d2701cbb7f9b13bb5b65fee9d755e3de`;
+the original failed score remains
+`d2723f2a875d5d3df1e16348197e72a4c4b9e6ebc9623fbe8cca50c6e1a648f9`.
+
+**Decision:** [ADR-0032](adr/0032-sparse-diagnosis-and-privacy-evaluation.md)
+retains the direct-L1 mechanics and unqualified persistent-balance hypothesis,
+closes general cashout-policy tuning, and selects a public-information and
+evaluation-design audit using existing genuine-native usage data as development
+evidence. Separate price priors, additional transaction signal and justified
+cash needs before selecting another mechanism. A later structure change requires
+a named disclosure with opposing predictions; this score does not select one.
+
+The expected known-price prior remains about 21.10%, above the unchanged 20%
+absolute target. Keep this workload unqualified without dropping guessable
+cases or changing old criteria. Incorrect support does not erase a hit, prove no
+transaction signal, or exclude stronger attacks. The
+[source review](../research/shielded-kas-sparse-withdrawal-design-2026-10-22.md)
+refreshes primary sources and states behavior/model limits. No new history,
+proof, native transaction, policy, runtime, invariant or milestone is adopted.
 
 ## 2026-10-21 — Working-balance withdrawals: mixed benefit, frozen gate failed
 

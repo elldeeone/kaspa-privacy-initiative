@@ -154,6 +154,24 @@ mechanics, without adopting this policy as a privacy fix. Investigate sparse
 split/tail attribution and cash-demand correlation before a separate prospective
 candidate test. Preserve this rejection and the unchanged qualification targets.
 
+## Subsequent sparse-case diagnosis — 2026-10-22
+
+The owner-authorized [diagnosis](../../poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS.md)
+replays all final predictions before joining truth. In the partial pooled view,
+eight of eleven within-ten-percent hits use unrelated payout supports and three
+touch actual ancestry without closing receipt/change accounting. Both exact
+matches use unrelated supports. All 1,074 retained constructions have false
+actual-PAY-input hypotheses. This does not erase any numerical hit or rule out
+other attacks/additional transaction signal.
+
+Prior→attack contains six gains and four losses. Whole→partial stays 11→11
+but shares only three hits, with eight gains and eight losses. These observations
+explain the rejected score without identifying a required structure change.
+[ADR-0032](../adr/0032-sparse-diagnosis-and-privacy-evaluation.md) closes general
+cashout tuning as the next work item and calls for a public-information and
+evaluation-design audit. This RFC remains evaluated and rejected under its
+original gate; no policy, requirement, invariant or native continuation changes.
+
 [circuit]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/feef0e02150aca9f74081c89e75ffd7a2a31fb69/poc/shared-pool/src/two_input/circuit.rs#L220-L273
 [builder]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/feef0e02150aca9f74081c89e75ffd7a2a31fb69/poc/shared-pool/src/two_input/mod.rs#L194-L214
 [harness]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/feef0e02150aca9f74081c89e75ffd7a2a31fb69/poc/shared-pool/src/two_input/harness.rs#L453-L500

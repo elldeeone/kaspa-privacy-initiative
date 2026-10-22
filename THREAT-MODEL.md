@@ -1,5 +1,15 @@
 # Threat Model
 
+The [sparse diagnosis](poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS.md)
+separates correct numeric guesses from matching actual paths. In the partial
+pooled final view, eight successful guesses use unrelated selected payouts and
+three touch ancestry without closed accounting flow. All still count in the
+unchanged failed score. False explanations do not prove zero transaction signal,
+and structural ancestry does not allocate economic value after mixing. The
+known-price prior can itself exceed an absolute cap. These distinctions guide
+[the next research direction](docs/adr/0032-sparse-diagnosis-and-privacy-evaluation.md)
+without changing any threat, privacy target, protocol or exit dependency.
+
 The [working-balance comparison](poc/shared-pool/WORKING-BALANCE-PRIVACY-SPEC.md)
 adds a bounded arithmetic screen for withdrawal amount leakage. It compares
 public-plus-initial-directory and pooled eight-participant observers, preserving
@@ -13,7 +23,7 @@ behavior. Sparse activity, correlated cash needs and urgent complete exits
 remain explicit cases, not exceptions hidden from the score.
 The [completed result](poc/shared-pool/WORKING-BALANCE-PRIVACY.md) rejects the
 tested policy under its frozen gate. Retained change helps one independent-
-demand case but does not remove sparse pooled split/tail inference. Known
+demand case but does not reduce the sparse pooled amount-guessing score. Known
 half-receipt cashouts become more guessable with partial payouts. Some identity
 count regressions already exist in arm-specific creation priors; report them
 without claiming a new causal identity leak. No threat or qualification target
