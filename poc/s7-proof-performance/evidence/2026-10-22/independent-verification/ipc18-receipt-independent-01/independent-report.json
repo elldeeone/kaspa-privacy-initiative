@@ -1,0 +1,110 @@
+{
+  "verified_utc": "2026-10-22T21:49:41.663670+00:00",
+  "identities": {
+    "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/selected-host/kpi-s7-lifecycle-proof-host": {
+      "sha256": "f00ce3545c326758de12768043617b26f799134ff247a90df5121dbdfaa9e40e",
+      "bytes": 11965296
+    },
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/ipc18/receipt.bin": {
+      "sha256": "3ea11d808b1dac69a1aa1ba28543ce4874519270db977eb203125f557bdad83b",
+      "bytes": 223898
+    }
+  },
+  "identities_unchanged": true,
+  "image": "e21ab79e3aebdaba0355680d6a17bf0142bf0b3b5bbb687a6f2726499282a0d3",
+  "journal_sha256": "699697f07565d28faad6e45b9e6daa0a09dbcea3f475d51880a75289f7e49b57",
+  "claim_digest": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+  "official_control": "7a8f24092c34ed3eb81b3d0a0b796c588c615d3488ef9e61c21dbd1e4b83ea6e",
+  "cpu_affinity": [
+    0
+  ],
+  "address_space_limit": 2147483648,
+  "thread_env_limit": 1,
+  "cpu_seconds_limit": 600,
+  "development_mode": false,
+  "serialized_outer_journal_start": 223530,
+  "target": "outer Journal only; proved inner claim unchanged",
+  "exact_field_negatives": [
+    {
+      "case": "pool",
+      "journal_offset": 42,
+      "input_sha256": "6f05c895132adff22813b81dfc8c6b1487b9a6561262e66bd3e8d1efdbd0de10",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "3b887dc1151246f122f7da308178b32880ba2b3633271603c32bb2ecadbd56ac",
+      "exact_sdk_error_match": true
+    },
+    {
+      "case": "outpoint-txid",
+      "journal_offset": 74,
+      "input_sha256": "9e95fcea1430350299fa8d48a7ed67cc84762a14ed85e253617307a392cec842",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "b461138dd0ccc85dcebfdbda921d3f215fe750ef149a9ee7c4a73599abb4b050",
+      "exact_sdk_error_match": true
+    },
+    {
+      "case": "outpoint-index",
+      "journal_offset": 106,
+      "input_sha256": "423f5f8f8343df0a9f245f09a77da41a9aeed4ea0ded4f8a6716e31aef135059",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "79c4e9510fafab63f7f692e4ed89cb0f994ef3614eb13c7c53fa155733c693c1",
+      "exact_sdk_error_match": true
+    },
+    {
+      "case": "prior-state",
+      "journal_offset": 110,
+      "input_sha256": "0c04e235df346dd949256afc4acccf8834c0eb97c969f39c3a9547641d049f31",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "8d39b9ae3b3a6fc5b7209c1b1cc2f65e762c4da9ba1b95f7658efbc9d85c3254",
+      "exact_sdk_error_match": true
+    },
+    {
+      "case": "next-state",
+      "journal_offset": 215,
+      "input_sha256": "35a86a936a4fd26f3a2f6e669e8b15b7c3e94f0dcfc73106e2c04acb2cc909c3",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "7b4e65752bd8ed8099054da76c4d0bc7925c00bd70b7091dad6830af1df17027",
+      "exact_sdk_error_match": true
+    },
+    {
+      "case": "reserve",
+      "journal_offset": 320,
+      "input_sha256": "c7223e9e2431bd36bc4444ab98ac765706a0f853e198fc5a7e19636cec391c25",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "45df351d1774589501a99b311f4dd4652109819e3378dbbe2cbb282313897453",
+      "exact_sdk_error_match": true
+    },
+    {
+      "case": "successor-amount",
+      "journal_offset": 328,
+      "input_sha256": "86b2f49f1140d1db7c4ae9e09f5b049dd8ecc5599ca9b79d0db40c85a1866812",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "ace46409750006bc0b6645a8985f3384fb06765633ecaab87ee4265b8ace281e",
+      "exact_sdk_error_match": true
+    },
+    {
+      "case": "successor-amount-high-byte",
+      "journal_offset": 335,
+      "input_sha256": "a0865001ea7d7246b9416b341748ab064d90f82c193a914f93eb24b30ff41de2",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "proved_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "independent_changed_claim": "84dbf93a1fcbe11d374b62cfbae812fc9f7d6fb47537246af02667c7b1018473",
+      "exact_sdk_error_match": true
+    }
+  ],
+  "no_build_proof_native_or_owner_workflow": true
+}

@@ -4,6 +4,9 @@ This branch combines two separately published research snapshots. It contains
 source and public test data; a complete fundable private payment system has not
 been demonstrated. DO_NOT_FUND.
 
+The [current cost and correctness checkpoint](research/next-session/RESULTS.md)
+tracks the bounded follow-up work, its retained failures and remaining gates.
+
 | Snapshot | Retained result | Evidence |
 | --- | --- | --- |
 | [85e3939](https://github.com/elldeeone/kaspa-privacy-initiative/commit/85e39398fd97ff0299e07fad8899cd3f4cc454ac) | Development-instance J42 binding and synthetic J336 state proofs, supplied-context native checks, observation and v6 budget1600 | [Checkpoint](research/intensive-2026-10-22/FINAL-CHECKPOINT.md), [results](research/intensive-2026-10-22/RESULTS.md) |

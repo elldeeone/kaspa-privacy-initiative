@@ -1,0 +1,25 @@
+{
+  "schema": "future-monitor-regression-observation-v1",
+  "source": "Tool-captured unittest execution; structured observation, not a GPU measurement.",
+  "test_exit_code": 0,
+  "tests_passed": 9,
+  "real_child": {
+    "pid": 2424770,
+    "start_ticks": 39969626,
+    "live_state": "R",
+    "exited_state": "Z",
+    "exited_exe": null,
+    "exited_cmdline": "",
+    "reaped": true
+  },
+  "synthetic_nvml_row_mib": 1552,
+  "classification": "known_exited_stale_gpu_sample",
+  "stop_owned_unit": false,
+  "gpu_or_prover_used": false,
+  "used_in_historical_experiment": false,
+  "source_files": {
+    "pid_lifecycle.py": "a9a84ac24d2b1613bc783aef07257deac93ab1c3cbc6c047cad282aa9652aed7",
+    "README.md": "31cc40212d6fa71eb8870d08290d34535d803ad416ba24748ea52b9c53a83814",
+    "test_pid_lifecycle.py": "b5dc8155251e242f59add38d5fe5a47c1ee39fb05c53b6755ac167a827704159"
+  }
+}

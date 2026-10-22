@@ -1,0 +1,22 @@
+{
+  "unit": "kpi-v6-boundary-pilot-01.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=kpi-v6-boundary-pilot-01.service",
+    "--property=Type=exec",
+    "--property=RemainAfterExit=yes",
+    "--property=CPUQuota=800%",
+    "--property=MemoryMax=10G",
+    "--property=MemorySwapMax=0",
+    "--property=TasksMax=512",
+    "--property=KillMode=control-group",
+    "--property=OOMPolicy=stop",
+    "--property=RuntimeMaxSec=600",
+    "--property=TimeoutStopSec=10",
+    "--property=StandardOutput=file:/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/full-constraints-01/pilot-stdout.log",
+    "--property=StandardError=file:/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/full-constraints-01/pilot-stderr.log",
+    "python3",
+    "/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/full-constraints-01/pilot.py"
+  ]
+}

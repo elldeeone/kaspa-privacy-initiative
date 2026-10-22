@@ -1,0 +1,199 @@
+{
+  "schema": "kpi-ipc18-source-backed-broad-phase-analysis-v1",
+  "generated_at": "2026-10-22T21:42:00.194692+00:00",
+  "monitor": "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/stage-analysis/parser-boundary-smoke",
+  "captured_inputs": {
+    "stdout.log": {
+      "sha256": "6068c5debcb1c010be3d85eb0e609f2b00ea23b8897fdd6d9ebae8905c6e6be0",
+      "bytes": 1335
+    },
+    "stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "resource-samples.jsonl": {
+      "sha256": "b966f145f967938d70940c60f4a98844808f73b13a15c5786270e2adfabe4af7",
+      "bytes": 911
+    },
+    "terminal-result.json": {
+      "sha256": "92345ce5feda1c97602461b2ca5a7addc1fbde7199c8a15eb8ef2bb7437b80a8",
+      "bytes": 146
+    }
+  },
+  "read_only_inputs": true,
+  "actor_release_gate_written": false,
+  "first_lift_at": "2026-10-22T15:00:10.000000Z",
+  "boundary_overlap_seconds_each_side": 2.0,
+  "declared_session_segments": 2,
+  "counts": {
+    "session_start": 1,
+    "preflight_start": 2,
+    "segment_core_start": 2,
+    "lift_start": 2,
+    "lift_end": 2,
+    "join_start": 1,
+    "join_second_operand": 1,
+    "join_end": 1
+  },
+  "events": [
+    {
+      "kind": "session_start",
+      "at": "2026-10-22T15:00:00.000000Z",
+      "epoch": 1792681200.0,
+      "file": "stdout.log",
+      "line": 1
+    },
+    {
+      "kind": "preflight_start",
+      "at": "2026-10-22T15:00:01.000000Z",
+      "epoch": 1792681201.0,
+      "file": "stdout.log",
+      "line": 2
+    },
+    {
+      "kind": "segment_core_start",
+      "at": "2026-10-22T15:00:02.000000Z",
+      "epoch": 1792681202.0,
+      "file": "stdout.log",
+      "line": 3
+    },
+    {
+      "kind": "preflight_start",
+      "at": "2026-10-22T15:00:03.000000Z",
+      "epoch": 1792681203.0,
+      "file": "stdout.log",
+      "line": 4
+    },
+    {
+      "kind": "segment_core_start",
+      "at": "2026-10-22T15:00:04.000000Z",
+      "epoch": 1792681204.0,
+      "file": "stdout.log",
+      "line": 5
+    },
+    {
+      "kind": "lift_start",
+      "at": "2026-10-22T15:00:10.000000Z",
+      "epoch": 1792681210.0,
+      "file": "stdout.log",
+      "line": 6
+    },
+    {
+      "kind": "lift_end",
+      "at": "2026-10-22T15:00:11.000000Z",
+      "epoch": 1792681211.0,
+      "file": "stdout.log",
+      "line": 7
+    },
+    {
+      "kind": "lift_start",
+      "at": "2026-10-22T15:00:12.000000Z",
+      "epoch": 1792681212.0,
+      "file": "stdout.log",
+      "line": 8
+    },
+    {
+      "kind": "lift_end",
+      "at": "2026-10-22T15:00:13.000000Z",
+      "epoch": 1792681213.0,
+      "file": "stdout.log",
+      "line": 9
+    },
+    {
+      "kind": "join_start",
+      "at": "2026-10-22T15:00:14.000000Z",
+      "epoch": 1792681214.0,
+      "file": "stdout.log",
+      "line": 10
+    },
+    {
+      "kind": "join_second_operand",
+      "at": "2026-10-22T15:00:14.000000Z",
+      "epoch": 1792681214.0,
+      "file": "stdout.log",
+      "line": 11
+    },
+    {
+      "kind": "join_end",
+      "at": "2026-10-22T15:00:15.000000Z",
+      "epoch": 1792681215.0,
+      "file": "stdout.log",
+      "line": 12
+    }
+  ],
+  "primary_peak": {
+    "used_mib": 3000,
+    "at": "2026-10-22T15:00:09.000000+00:00",
+    "sample_line": 4,
+    "matching_gpu_processes": [
+      {
+        "pid": 42,
+        "used_mib": 3000
+      }
+    ]
+  },
+  "recursion_peak": {
+    "used_mib": 3000,
+    "at": "2026-10-22T15:00:09.000000+00:00",
+    "sample_line": 4,
+    "matching_gpu_processes": [
+      {
+        "pid": 42,
+        "used_mib": 3000
+      }
+    ]
+  },
+  "primary_peak_mib": 3000,
+  "recursion_peak_mib": 3000,
+  "fixed_margin_mib": 512,
+  "fixed_limit_mib": 6656,
+  "sum_plus_margin_mib": 6512,
+  "arithmetic_gate_passes": true,
+  "phase_attribution_complete": true,
+  "incomplete_or_review_reasons": [],
+  "runner_actor_admission_telemetry_reliable": true,
+  "sample_count": 9,
+  "malformed_sample_rows": [],
+  "sample_max_gap_seconds": 5.0,
+  "phase_sample_counts": {
+    "primary": 6,
+    "recursion": 7,
+    "both": 4
+  },
+  "lift_timing": {
+    "completed": 2,
+    "total_marker_seconds": 2.0,
+    "min_marker_seconds": 1.0,
+    "max_marker_seconds": 1.0,
+    "pairing_errors": []
+  },
+  "join_timing": {
+    "completed": 1,
+    "total_marker_seconds": 1.0,
+    "min_marker_seconds": 1.0,
+    "max_marker_seconds": 1.0,
+    "pairing_errors": []
+  },
+  "primary_broad_marker_seconds": 9.0,
+  "cpu_preflight_marker_timing": {
+    "count": 2,
+    "sum_seconds": 2.0,
+    "min_seconds": 1.0,
+    "median_seconds": 1.0,
+    "max_seconds": 1.0
+  },
+  "core_and_verification_proxy_marker_timing": {
+    "count": 2,
+    "sum_seconds": 7.0,
+    "min_seconds": 1.0,
+    "median_seconds": 3.5,
+    "max_seconds": 6.0
+  },
+  "limits": [
+    "Sample at is before NVML query; exact GPU observation occurs later",
+    "Both phases include all boundary samples within the frozen two-second overlap",
+    "Sampled peaks can miss brief allocations; 512MiB is a fixed admission margin, not a CUDA quota",
+    "Independent exact-claim receipt verification and reviewer acknowledgement remain separate gates",
+    "Log marker durations include host/prover work; they are not isolated CUDA kernel timings"
+  ]
+}

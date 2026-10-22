@@ -2,6 +2,24 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[ADR-0038](adr/0038-bounded-cost-and-proving-qualification.md) confines the next
+work to ordinary-budget qualification, unchanged-claim proving performance and
+self-consistent circuit boundaries. The [decision review](../research/next-session/ARCHITECTURE-DECISION-REVIEW.md)
+keeps accepted backing, financial privacy and independent exits open. A
+[new conditional lower bound](../research/next-session/fee-frontier/README.md)
+also excludes the unamortized ADMIT-plus-fresh-exit route from the 10-tKAS
+reference lifecycle target before payment costs. [Established alternatives](../research/next-session/native-kas-singleton-fee-alternatives-2026-10-22.md)
+relocate authorization cost, change its payer or require native protocol support;
+none is adopted here. GPU scheduling and operational-budget changes do not
+change the value relation, reserve authority or the failed price-prior result.
+
+The [ordinary1600 qualification](../research/next-session/ordinary-budget/REPORT.md)
+now passes four genuine and28 synthetic supplied-context cases, with45 typed
+reserve rejection controls and a separate mass-cap rejection. The unchanged40M
+fee covers rate200 for these cases; rate500 still fails. This is an independently
+reviewed candidate qualification, not default adoption: S7 factories remain1700,
+paired remains1700 and fresh DRAIN remains unexecuted.
+
 [ADR-0034](adr/0034-public-proof-composition-experiment.md) scopes a local,
 nonsettling [two-v6 composition package](../poc/two-v6-binding/README.md).
 Its shared checked host/guest relation binds two genuine private authorizations
@@ -50,13 +68,13 @@ relay/chain/backing remain explicit; neither
 lower measured mass nor the unchanged 80m fee qualifies the payment-fee target.
 
 [ADR-0037](adr/0037-offline-continuing-s7-owner-lifecycle.md) permits a separate
-offline continuing experiment, with a [fresh instance's state core](../../lifecycle/poc/s7-owner-lifecycle/state/src/lib.rs).
-Its [first four genuine proofs](../../lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json)
-cover bootstrap, ADMIT and a pair at common count 5. This remains partial: new
-native context, guest/receipt and native branch gates are not closed by that
-proof packet. Its public replay/owner CLI job is permanently parked following
-automatic safety rejection, so independent owner exits cannot complete this
-run. It does not select a fundable privacy architecture.
+offline continuing experiment, with a [fresh instance's state core](../poc/s7-owner-lifecycle/state/src/lib.rs).
+Its [first four genuine proofs](../artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json)
+cover bootstrap, ADMIT and a pair at common count 5. A genuine state receipt and
+paired native Full check subsequently pass in this separate profile. Its public
+replay/owner CLI job remains parked following automatic safety rejection;
+independent owner exits remain unexecuted. This does not select a fundable
+privacy architecture.
 Separate official Full checks now cover the supplied-seed founding/funding,
 bootstrap/ADMIT prefix and two alternative ordinary SPEND forks. Those forks
 consume the same predecessor and cannot be combined; the new guest/receipt and paired native Full checks now also pass. Accepted

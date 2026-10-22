@@ -1,0 +1,22 @@
+Oct 22 21:38:23 forge systemd[1538]: Started kpi-ordinary1600-build-01-20261022.service - [systemd-run] /bin/bash /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/build.sh kpi_s7_ordinary_budget_qualification.
+Oct 22 21:38:24 forge bash[2333967]:    Compiling kpi-shared-pool v0.1.0 (/src)
+Oct 22 21:39:00 forge bash[2333967]: error[E0425]: cannot find value `negative_count` in this scope
+Oct 22 21:39:00 forge bash[2333967]:    --> src/bin/kpi_s7_ordinary_budget_qualification.rs:451:232
+Oct 22 21:39:00 forge bash[2333967]:     |
+Oct 22 21:39:00 forge bash[2333967]: 451 | ...:pq},"ordinary":cases,"typed_negative_count":negative_count,"excessive_budget_control":{"budget":65535,"official_Full":true,"res...
+Oct 22 21:39:00 forge bash[2333967]:     |                                                 ^^^^^^^^^^^^^^ not found in this scope
+Oct 22 21:39:01 forge bash[2333967]: error[E0308]: `?` operator has incompatible types
+Oct 22 21:39:01 forge bash[2333967]:    --> src/bin/kpi_s7_ordinary_budget_qualification.rs:867:47
+Oct 22 21:39:01 forge bash[2333967]:     |
+Oct 22 21:39:01 forge bash[2333967]: 867 |             || policy::redeem(&input.policy, &state_bytes(&input.prior_state)?)?.len() != 24576
+Oct 22 21:39:01 forge bash[2333967]:     |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `[u8; 105]`, found `Vec<u8>`
+Oct 22 21:39:01 forge bash[2333967]:     |
+Oct 22 21:39:01 forge bash[2333967]:     = note: `?` operator cannot convert from `Vec<u8>` to `[u8; 105]`
+Oct 22 21:39:01 forge bash[2333967]:     = note: expected array `[u8; 105]`
+Oct 22 21:39:01 forge bash[2333967]:               found struct `Vec<u8>`
+Oct 22 21:39:01 forge bash[2333967]: Some errors have detailed explanations: E0308, E0425.
+Oct 22 21:39:01 forge bash[2333967]: For more information about an error, try `rustc --explain E0308`.
+Oct 22 21:39:01 forge bash[2333967]: error: could not compile `kpi-shared-pool` (bin "kpi_s7_ordinary_budget_qualification") due to 2 previous errors
+Oct 22 21:39:01 forge systemd[1538]: kpi-ordinary1600-build-01-20261022.service: Main process exited, code=exited, status=101/n/a
+Oct 22 21:39:01 forge systemd[1538]: kpi-ordinary1600-build-01-20261022.service: Failed with result 'exit-code'.
+Oct 22 21:39:01 forge systemd[1538]: kpi-ordinary1600-build-01-20261022.service: Consumed 1min 6.709s CPU time over 37.619s wall clock time, 927.3M memory peak.

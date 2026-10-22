@@ -1,5 +1,18 @@
 # Threat Model
 
+[ADR-0038](docs/adr/0038-bounded-cost-and-proving-qualification.md) adds bounded
+offline resource and constraint checks. It adds no withdrawal authority or
+production trust assumption. A native operational budget is excluded from the
+pinned version1 transaction ID and SIG_HASH_ALL but changes the full hash and
+metered/mass behavior; qualification must preserve proof-authorized fields and
+exercise actual native checks. This is not evidence of relay or inclusion
+liveness. A multi-worker GPU measurement must account for every worker, reject
+development/unresolved receipts and independently verify the exact original
+claim. Faster proving supplies no financial-privacy or independent-exit claim.
+The [fee-frontier analysis](research/next-session/fee-frontier/README.md) retains
+all liabilities when a fee scenario fails; a stranded claim cannot be removed
+from backing accounting or repaired by an undisclosed sponsor.
+
 [ADR-0034](docs/adr/0034-public-proof-composition-experiment.md)'s
 [two-v6 package](poc/two-v6-binding/README.md) is a nonsettling proof-composition
 experiment. Its genuine development receipt passes independent software and

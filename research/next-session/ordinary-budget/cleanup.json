@@ -1,0 +1,161 @@
+{
+  "format": "owned-ordinary1600-unit-cleanup-v1",
+  "wall_time_ns": 1792705327374020384,
+  "units": [
+    {
+      "unit": "kpi-ordinary1600-build-01-20261022",
+      "terminal": {
+        "Id": "kpi-ordinary1600-build-01-20261022.service",
+        "ActiveState": "failed",
+        "SubState": "failed",
+        "InvocationID": "77947bf6713742beb087f9e3046241d2",
+        "RuntimeMaxUSec": "20min",
+        "Result": "exit-code",
+        "ExecMainStartTimestampMonotonic": "397866776651",
+        "ExecMainExitTimestampMonotonic": "397904395777",
+        "ExecMainPID": "2333965",
+        "ExecMainCode": "1",
+        "ExecMainStatus": "101",
+        "ControlGroup": "",
+        "MemoryPeak": "972378112",
+        "MemorySwapPeak": "0",
+        "CPUUsageNSec": "66709183000",
+        "CPUQuotaPerSecUSec": "2s",
+        "MemoryMax": "3221225472",
+        "MemorySwapMax": "0"
+      },
+      "terminal_empty_or_removed_cgroup": true,
+      "observed_pids": [],
+      "unit_stop_needed": false
+    },
+    {
+      "unit": "kpi-ordinary1600-build-02-20261022",
+      "terminal": {
+        "Id": "kpi-ordinary1600-build-02-20261022.service",
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "InvocationID": "",
+        "RuntimeMaxUSec": "infinity",
+        "Result": "success",
+        "ExecMainStartTimestampMonotonic": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "0",
+        "ExecMainCode": "0",
+        "ExecMainStatus": "0",
+        "ControlGroup": "",
+        "MemoryPeak": "[not set]",
+        "MemorySwapPeak": "[not set]",
+        "CPUUsageNSec": "[not set]",
+        "CPUQuotaPerSecUSec": "infinity",
+        "MemoryMax": "infinity",
+        "MemorySwapMax": "infinity"
+      },
+      "terminal_empty_or_removed_cgroup": true,
+      "observed_pids": [],
+      "unit_stop_needed": false
+    },
+    {
+      "unit": "kpi-ordinary1600-actual-01-20261022",
+      "terminal": {
+        "Id": "kpi-ordinary1600-actual-01-20261022.service",
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "InvocationID": "",
+        "RuntimeMaxUSec": "infinity",
+        "Result": "success",
+        "ExecMainStartTimestampMonotonic": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "0",
+        "ExecMainCode": "0",
+        "ExecMainStatus": "0",
+        "ControlGroup": "",
+        "MemoryPeak": "[not set]",
+        "MemorySwapPeak": "[not set]",
+        "CPUUsageNSec": "[not set]",
+        "CPUQuotaPerSecUSec": "infinity",
+        "MemoryMax": "infinity",
+        "MemorySwapMax": "infinity"
+      },
+      "terminal_empty_or_removed_cgroup": true,
+      "observed_pids": [
+        {
+          "pid": 2339603,
+          "start_ticks": 39799474,
+          "cmdline": "/usr/bin/python3 -I -B /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/run-qualified.py /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/actual-01 actual ",
+          "same_PID_start_still_exists": false
+        },
+        {
+          "pid": 2339607,
+          "start_ticks": 39799479,
+          "cmdline": "/usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /checker --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /input.json --bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/actual-01 /output --chdir /output /checker /input.json /output/results actual ",
+          "same_PID_start_still_exists": false
+        },
+        {
+          "pid": 2339608,
+          "start_ticks": 39799479,
+          "cmdline": "/usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /checker --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /input.json --bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/actual-01 /output --chdir /output /checker /input.json /output/results actual ",
+          "same_PID_start_still_exists": false
+        },
+        {
+          "pid": 2339609,
+          "start_ticks": 39799479,
+          "cmdline": "/checker /input.json /output/results actual ",
+          "same_PID_start_still_exists": false
+        }
+      ],
+      "unit_stop_needed": false
+    },
+    {
+      "unit": "kpi-ordinary1600-boundaries-01-20261022",
+      "terminal": {
+        "Id": "kpi-ordinary1600-boundaries-01-20261022.service",
+        "ActiveState": "inactive",
+        "SubState": "dead",
+        "InvocationID": "",
+        "RuntimeMaxUSec": "infinity",
+        "Result": "success",
+        "ExecMainStartTimestampMonotonic": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "0",
+        "ExecMainCode": "0",
+        "ExecMainStatus": "0",
+        "ControlGroup": "",
+        "MemoryPeak": "[not set]",
+        "MemorySwapPeak": "[not set]",
+        "CPUUsageNSec": "[not set]",
+        "CPUQuotaPerSecUSec": "infinity",
+        "MemoryMax": "infinity",
+        "MemorySwapMax": "infinity"
+      },
+      "terminal_empty_or_removed_cgroup": true,
+      "observed_pids": [
+        {
+          "pid": 2340571,
+          "start_ticks": 39800303,
+          "cmdline": "/usr/bin/python3 -I -B /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/run-qualified.py /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/boundaries-01 boundaries ",
+          "same_PID_start_still_exists": false
+        },
+        {
+          "pid": 2340572,
+          "start_ticks": 39800308,
+          "cmdline": "/usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /checker --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /input.json --bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/boundaries-01 /output --chdir /output /checker /input.json /output/results boundaries ",
+          "same_PID_start_still_exists": false
+        },
+        {
+          "pid": 2340573,
+          "start_ticks": 39800309,
+          "cmdline": "/usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /checker --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /input.json --bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/boundaries-01 /output --chdir /output /checker /input.json /output/results boundaries ",
+          "same_PID_start_still_exists": false
+        },
+        {
+          "pid": 2340574,
+          "start_ticks": 39800309,
+          "cmdline": "/checker /input.json /output/results boundaries ",
+          "same_PID_start_still_exists": false
+        }
+      ],
+      "unit_stop_needed": false
+    }
+  ],
+  "no_other_units_touched": true
+}

@@ -1,0 +1,23 @@
+{
+  "unit": "kpi-v6-boundary-source-build-01.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=kpi-v6-boundary-source-build-01.service",
+    "--property=Type=exec",
+    "--property=RemainAfterExit=yes",
+    "--property=CPUQuota=400%",
+    "--property=MemoryMax=5G",
+    "--property=MemorySwapMax=0",
+    "--property=TasksMax=512",
+    "--property=KillMode=control-group",
+    "--property=OOMPolicy=stop",
+    "--property=RuntimeMaxSec=600",
+    "--property=TimeoutStopSec=10",
+    "--property=StandardOutput=file:/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/source-build-01/stdout.log",
+    "--property=StandardError=file:/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/source-build-01/stderr.log",
+    "python3",
+    "/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/source-build-01/run.py"
+  ],
+  "target": "/home/luke/projects/kpi-intensive-2026-10-22/v6-boundary-target"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "kpi-actor-worker-role-observation-v1",
+  "at": "2026-10-22T21:57:03.866506+00:00",
+  "unit": "kpi-b2-performance-actor18-8gib-20261022-01.service",
+  "control_group": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-b2-performance-actor18-8gib-20261022-01.service",
+  "source_sample_at": "2026-10-22T21:57:03.798730+00:00",
+  "captured_resource_prefix_bytes": 3733237,
+  "captured_resource_prefix_sha256": "5631c1334029f121d3b3bbf73632288c5849a677340034035bfbe104c0515c4b",
+  "workers": [
+    {
+      "pid": 2387956,
+      "start_ticks": 39888998,
+      "exe": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda",
+      "cmdline": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda --rpc --num-gpus 1 ",
+      "observed_cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-b2-performance-actor18-8gib-20261022-01.service",
+      "role": "rpc_parent_execute_only"
+    },
+    {
+      "pid": 2387963,
+      "start_ticks": 39888998,
+      "exe": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda",
+      "cmdline": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda --config /tmp/.tmpMT385M --addr 0.0.0.0:39129 ",
+      "observed_cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-b2-performance-actor18-8gib-20261022-01.service",
+      "config_path_in_namespace": "/tmp/.tmpMT385M",
+      "config_bytes": 65,
+      "config_sha256": "3f9f49f8ccfdd57161a3fdeb9a21f6e70d316c54ada8daa62a659b9821177560",
+      "config_text": "[[pools]]\ncount = 1\ntask_kinds = [\"ProveSegment\", \"ProveKeccak\"]\n",
+      "role": "primary_segment_keccak"
+    },
+    {
+      "pid": 2387964,
+      "start_ticks": 39888998,
+      "exe": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda",
+      "cmdline": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda --config /tmp/.tmpvr9OAm --addr 0.0.0.0:39129 ",
+      "observed_cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-b2-performance-actor18-8gib-20261022-01.service",
+      "config_path_in_namespace": "/tmp/.tmpvr9OAm",
+      "config_bytes": 70,
+      "config_sha256": "54a100fd5a6ea85a561731be68e8449accec85be303e258fccc73c2887cc6c44",
+      "config_text": "[[pools]]\ncount = 1\ntask_kinds = [\"Lift\", \"Join\", \"Union\", \"Resolve\"]\n",
+      "role": "secondary_recursion"
+    }
+  ],
+  "role_identification": "Exact selected executable, observed PID plus start_ticks, exact current cgroup and live read-only child config; no role inferred from PID order"
+}

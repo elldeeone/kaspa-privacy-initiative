@@ -2,6 +2,20 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[ADR-0038](docs/adr/0038-bounded-cost-and-proving-qualification.md) prioritizes
+cost and proving qualification before larger batches. Which architecture can
+avoid the [conditional admission-plus-exit fee floor](research/next-session/fee-frontier/README.md)
+without hiding a payer, requiring another user's arrival or changing supported
+claims retrospectively? The [current primary-source comparison](research/next-session/native-kas-singleton-fee-alternatives-2026-10-22.md)
+distinguishes a cheap claim after earlier settlement from the full unsettled
+singleton exit. The existing workload's price-prior limit remains independent
+of either cost optimization. No new architecture or requirement is selected.
+The [ordinary1600 candidate](research/next-session/ordinary-budget/REPORT.md)
+now closes the measured rate200 gap under unchanged fees, while S7 defaults
+remain1700. How should a separately reviewed adoption preserve historical
+operational budgets and qualify every intended mode without promoting
+source-only DRAIN coverage into executed exit evidence?
+
 [ADR-0034](docs/adr/0034-public-proof-composition-experiment.md)'s
 [two-v6 experiment](poc/two-v6-binding/README.md) now has genuine compatible
 development proofs, a pinned paired guest, an independently verified Succinct

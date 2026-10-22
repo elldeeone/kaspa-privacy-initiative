@@ -1,0 +1,51 @@
+{
+  "returncode": 0,
+  "wall_end_ns": 1792705231799116606,
+  "monotonic_end_ns": 397994978231560,
+  "before": {
+    "binary_sha256": "a5540f0ff3566cbfb16b448330074b413ed94955080372c67c2e9cb37e4ab05e",
+    "input_sha256": "1dd639067a871e025e01dbc6493fd4d46814615baf7d73c650caf4d4e717bbb7"
+  },
+  "after": {
+    "binary_sha256": "a5540f0ff3566cbfb16b448330074b413ed94955080372c67c2e9cb37e4ab05e",
+    "input_sha256": "1dd639067a871e025e01dbc6493fd4d46814615baf7d73c650caf4d4e717bbb7"
+  },
+  "input_binary_unchanged": true,
+  "live_checker_namespace_observed": [
+    {
+      "pid": 2339607,
+      "start_ticks": 39799479,
+      "mount_rows": []
+    }
+  ],
+  "observed_processes": [
+    {
+      "pid": 2339603,
+      "start_ticks": 39799474,
+      "cmdline": "/usr/bin/python3 -I -B /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/run-qualified.py /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/actual-01 actual "
+    },
+    {
+      "pid": 2339607,
+      "start_ticks": 39799479,
+      "cmdline": "/usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /checker --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /input.json --bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/actual-01 /output --chdir /output /checker /input.json /output/results actual "
+    },
+    {
+      "pid": 2339608,
+      "start_ticks": 39799479,
+      "cmdline": "/usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/native-runtime/ordinary1600-qualification-01/checker-source03 /checker --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/public-input.json /input.json --bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/actual-01 /output --chdir /output /checker /input.json /output/results actual "
+    },
+    {
+      "pid": 2339609,
+      "start_ticks": 39799479,
+      "cmdline": "/checker /input.json /output/results actual "
+    }
+  ],
+  "resource_snapshot_while_auditor_alive": {
+    "memory.peak": "25612288\n",
+    "memory.swap.peak": "0\n",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+    "cpu.stat": "usage_usec 315144\nuser_usec 230468\nsystem_usec 84675\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 2\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+    "cgroup.procs": "2339603\n",
+    "cgroup.events": "populated 1\nfrozen 0\n"
+  }
+}

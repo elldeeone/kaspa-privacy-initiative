@@ -1,0 +1,121 @@
+{
+  "format": "kpi-conditional-fee-frontier-v1",
+  "native_revision": "01b532e8b553523216471682649693af92f0fd16",
+  "kind": "source-derived necessary lower bounds; no observed transaction quote",
+  "source": [
+    {
+      "path": "crypto/txscript/src/zk_precompiles/tags.rs",
+      "sha256": "b3288d447e0ea09447e6564c921389bd6d5668d6d302c8d409ded7895919ef03"
+    },
+    {
+      "path": "crypto/txscript/src/zk_precompiles/groth16/mod.rs",
+      "sha256": "cb9fa14115d445c727cb8639ba384bde37d9a01f6c6f7fd1c92f77861f8a388d"
+    },
+    {
+      "path": "consensus/core/src/mass/units.rs",
+      "sha256": "0a47b4dda868da1df5064a9745c4f1278d9b3fd388db7416f5fb05068fef12ab"
+    }
+  ],
+  "two_public_input_verifier": {
+    "script_units": 14750000,
+    "necessary_budget": 1475,
+    "necessary_mass": 147500
+  },
+  "rows": [
+    {
+      "rate_sompi_per_mass": 100,
+      "principal_sompi": 1000000000,
+      "single_verifier_necessary_fee_sompi": 14750000,
+      "single_verifier_ordinary_one_percent_necessary_gate": false,
+      "two_verifier_lifecycle_necessary_fee_sompi": 29500000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": false,
+      "two_verifier_fee_principal_ratio": "59/2000"
+    },
+    {
+      "rate_sompi_per_mass": 100,
+      "principal_sompi": 10000000000,
+      "single_verifier_necessary_fee_sompi": 14750000,
+      "single_verifier_ordinary_one_percent_necessary_gate": true,
+      "two_verifier_lifecycle_necessary_fee_sompi": 29500000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": true,
+      "two_verifier_fee_principal_ratio": "59/20000"
+    },
+    {
+      "rate_sompi_per_mass": 100,
+      "principal_sompi": 100000000000,
+      "single_verifier_necessary_fee_sompi": 14750000,
+      "single_verifier_ordinary_one_percent_necessary_gate": true,
+      "two_verifier_lifecycle_necessary_fee_sompi": 29500000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": true,
+      "two_verifier_fee_principal_ratio": "59/200000"
+    },
+    {
+      "rate_sompi_per_mass": 200,
+      "principal_sompi": 1000000000,
+      "single_verifier_necessary_fee_sompi": 29500000,
+      "single_verifier_ordinary_one_percent_necessary_gate": false,
+      "two_verifier_lifecycle_necessary_fee_sompi": 59000000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": false,
+      "two_verifier_fee_principal_ratio": "59/1000"
+    },
+    {
+      "rate_sompi_per_mass": 200,
+      "principal_sompi": 10000000000,
+      "single_verifier_necessary_fee_sompi": 29500000,
+      "single_verifier_ordinary_one_percent_necessary_gate": true,
+      "two_verifier_lifecycle_necessary_fee_sompi": 59000000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": true,
+      "two_verifier_fee_principal_ratio": "59/10000"
+    },
+    {
+      "rate_sompi_per_mass": 200,
+      "principal_sompi": 100000000000,
+      "single_verifier_necessary_fee_sompi": 29500000,
+      "single_verifier_ordinary_one_percent_necessary_gate": true,
+      "two_verifier_lifecycle_necessary_fee_sompi": 59000000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": true,
+      "two_verifier_fee_principal_ratio": "59/100000"
+    },
+    {
+      "rate_sompi_per_mass": 500,
+      "principal_sompi": 1000000000,
+      "single_verifier_necessary_fee_sompi": 73750000,
+      "single_verifier_ordinary_one_percent_necessary_gate": false,
+      "two_verifier_lifecycle_necessary_fee_sompi": 147500000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": false,
+      "two_verifier_fee_principal_ratio": "59/400"
+    },
+    {
+      "rate_sompi_per_mass": 500,
+      "principal_sompi": 10000000000,
+      "single_verifier_necessary_fee_sompi": 73750000,
+      "single_verifier_ordinary_one_percent_necessary_gate": true,
+      "two_verifier_lifecycle_necessary_fee_sompi": 147500000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": true,
+      "two_verifier_fee_principal_ratio": "59/4000"
+    },
+    {
+      "rate_sompi_per_mass": 500,
+      "principal_sompi": 100000000000,
+      "single_verifier_necessary_fee_sompi": 73750000,
+      "single_verifier_ordinary_one_percent_necessary_gate": true,
+      "two_verifier_lifecycle_necessary_fee_sompi": 147500000,
+      "two_verifier_lifecycle_two_percent_necessary_gate": true,
+      "two_verifier_fee_principal_ratio": "59/40000"
+    }
+  ],
+  "reference_two_verifier_minimum_principal_for_two_percent_sompi": 1475000000,
+  "singleton_500": {
+    "claim_sompi": 60000000,
+    "payout_floor_sompi": 10000000,
+    "maximum_exit_fee_sompi": 50000000,
+    "necessary_verification_fee_sompi": 73750000,
+    "necessary_gate": false
+  },
+  "limits": [
+    "Two-verifier lifecycle assumes one attributable unamortized ADMIT and one fresh direct exit proof.",
+    "Exclude receiver-only histories and legitimately shared/amortized admission from that bound.",
+    "No alternative architecture impossibility, measured gas quote, proof validity, privacy or acceptance claim.",
+    "Transaction overhead, private payment, service costs and retries are omitted lower-bound costs, never free actual costs."
+  ]
+}

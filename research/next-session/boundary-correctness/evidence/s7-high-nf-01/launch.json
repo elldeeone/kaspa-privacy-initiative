@@ -1,0 +1,23 @@
+{
+  "unit": "kpi-s7-high-nf-boundary-01.service",
+  "command": [
+    "systemd-run",
+    "--user",
+    "--unit=kpi-s7-high-nf-boundary-01.service",
+    "--property=Type=exec",
+    "--property=RemainAfterExit=yes",
+    "--property=CPUQuota=100%",
+    "--property=MemoryMax=2G",
+    "--property=MemorySwapMax=0",
+    "--property=TasksMax=256",
+    "--property=KillMode=control-group",
+    "--property=OOMPolicy=stop",
+    "--property=RuntimeMaxSec=600",
+    "--property=TimeoutStopSec=10",
+    "--property=StandardOutput=file:/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/s7-high-nf-01/stdout.log",
+    "--property=StandardError=file:/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/s7-high-nf-01/stderr.log",
+    "python3",
+    "/home/luke/projects/kpi-intensive-2026-10-22/boundary-runtime/s7-high-nf-01/run.py"
+  ],
+  "root_released_targeted_high_nf_case": true
+}

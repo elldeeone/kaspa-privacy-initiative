@@ -1,0 +1,105 @@
+{
+  "schema": "kpi-actor18-posthoc-shutdown-diagnosis-v1",
+  "at": "2026-10-22T22:05:58.193333+00:00",
+  "original_frozen_status_preserved": true,
+  "original_unexpected_gpu_topology": true,
+  "original_actor_profile_memory_measurement_complete": false,
+  "analysis_sha256": "5235851fef1299f171d359094cbb915d6bfc0a1610f801eaf68dc506478daab0",
+  "task_counts_complete": true,
+  "actor_job_done_at": "2026-10-22T22:02:55.041942Z",
+  "worker_request_to_job_done_marker_seconds": 448.23168683052063,
+  "frozen_guard_sample": {
+    "sample_line": 2973,
+    "sample": {
+      "at": "2026-10-22T22:02:55.101701+00:00",
+      "seconds": 448.58408796496224,
+      "unit": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "MainPID": "2387923",
+        "Result": "success",
+        "ExecMainStartTimestamp": "Thu 2026-10-22 21:55:26 UTC",
+        "ExecMainExitTimestamp": "",
+        "ExecMainStatus": "0",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-b2-performance-actor18-8gib-20261022-01.service",
+        "MemoryPeak": "1356480512",
+        "MemorySwapPeak": "0",
+        "CPUUsageNSec": "785498073000",
+        "CPUQuotaPerSecUSec": "6s",
+        "MemoryMax": "8589934592",
+        "MemorySwapMax": "0"
+      },
+      "memory_current": 379240448,
+      "memory_peak": 1356480512,
+      "swap_current": 0,
+      "cpu_stat": "usage_usec 785500066\nuser_usec 739931594\nsystem_usec 45568471\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 4486\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+      "processes": [
+        {
+          "pid": 2387923,
+          "start_ticks": 39888970,
+          "exe": "/usr/bin/bwrap",
+          "cmdline": "/usr/bin/bwrap --die-with-parent --unshare-net --ro-bind / / --bind /home/luke/projects/kpi-intensive-2026-10-22/performance-target /home/luke/projects/kpi-intensive-2026-10-22/performance-target --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/performance-target/selected-client /home/luke/projects/kpi-intensive-2026-10-22/performance-target/selected-client --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/performance-target/tools /home/luke/projects/kpi-intensive-2026-10-22/performance-target/tools --dev-bind /dev /dev --proc /proc --tmpfs /tmp --chdir /home/luke/projects/kpi-intensive-2026-10-22/continuation /usr/bin/time -v -o /home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/resources.txt /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 HOME=/home/luke RISC0_PROVER=actor RISC0_SERVER_PATH=/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda RISC0_WORK_DIR=/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-work RISC0_HOME=/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-home XDG_CACHE_HOME=/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-cache GITHUB_TOKEN= RAYON_NUM_THREADS=6 OMP_NUM_THREADS=6 TOKIO_WORKER_THREADS=6 RISC0_DEFAULT_PROVER_NUM_GPUS=1 CUDA_VISIBLE_DEVICES=0 RISC0_INFO=1 TMPDIR=/tmp RUST_LOG=info,risc0_zkvm::host::server::prove=debug,risc0_zkvm::host::recursion::prove=debug LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu /home/luke/projects/kpi-intensive-2026-10-22/performance-target/selected-client/kpi-s7-proof-performance actor /home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/programs-stage00 /home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/publication/input.bin /home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01 "
+        },
+        {
+          "pid": 2387924,
+          "start_ticks": 39888971,
+          "exe": "/usr/bin/time",
+          "cmdline": "/usr/bin/time -v -o /home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/resources.txt /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 HOME=/home/luke RISC0_PROVER=actor RISC0_SERVER_PATH=/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda RISC0_WORK_DIR=/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-work RISC0_HOME=/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-home XDG_CACHE_HOME=/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-cache GITHUB_TOKEN= RAYON_NUM_THREADS=6 OMP_NUM_THREADS=6 TOKIO_WORKER_THREADS=6 RISC0_DEFAULT_PROVER_NUM_GPUS=1 CUDA_VISIBLE_DEVICES=0 RISC0_INFO=1 TMPDIR=/tmp RUST_LOG=info,risc0_zkvm::host::server::prove=debug,risc0_zkvm::host::recursion::prove=debug LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu /home/luke/projects/kpi-intensive-2026-10-22/performance-target/selected-client/kpi-s7-proof-performance actor /home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/programs-stage00 /home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/publication/input.bin /home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01 "
+        },
+        {
+          "pid": 2387927,
+          "start_ticks": 39888971,
+          "exe": "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/selected-client/kpi-s7-proof-performance",
+          "cmdline": "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/selected-client/kpi-s7-proof-performance actor /home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/programs-stage00 /home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/publication/input.bin /home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01 "
+        },
+        {
+          "pid": 2387956,
+          "start_ticks": 39888998,
+          "exe": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda",
+          "cmdline": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda --rpc --num-gpus 1 "
+        },
+        {
+          "pid": 2387963,
+          "start_ticks": 39888998,
+          "exe": "/proc/2387963/exe",
+          "cmdline": ""
+        }
+      ],
+      "gpu_query_returncode": 0,
+      "unexpected_gpu_topology": [
+        {
+          "pid": 2387963,
+          "start_ticks": 39888998,
+          "exe": "/proc/2387963/exe",
+          "cmdline": ""
+        }
+      ],
+      "unmatched_gpu_processes": [],
+      "matching_gpu_processes": [
+        {
+          "pid": 2387963,
+          "used_mib": 1552
+        }
+      ],
+      "gpu_telemetry_returncode": 0,
+      "gpu_global_csv": "0, 1621, 59, 124.82, 54, 1995, 6801, P2"
+    }
+  },
+  "job_done_to_guard_sample_seconds": 0.05975914001464844,
+  "candidate": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01/candidate-receipt.bin",
+    "bytes": 223898,
+    "sha256": "2891e246e4feff140528a28215562ac1bb512a206f3792b56a6277a89ef722cc",
+    "mtime_ns": 1792706575042234800,
+    "mtime_utc": "2026-10-22T22:02:55.042235+00:00"
+  },
+  "source_ordering": {
+    "source": "continuation/poc/s7-proof-performance/src/main.rs:58-68",
+    "before_drop": "Save+fsync candidate before explicit drop(prover)",
+    "after_drop_not_reached": "Original local receipt check, receipt.bin and report.json absent after guard interrupted Drop"
+  },
+  "diagnosis": "The sole flagged row names the captured primary PID2387963 with unchanged start_ticks39888998, empty cmdline and unresolved exe during shutdown, after all task completion; this is consistent with a process-exit/NVML visibility race, not evidence of a newly introduced GPU role. Preserve the original guard failure and incomplete resource qualification.",
+  "qualification_changed": false,
+  "retry_started": false,
+  "independent_receipt_verification": "Separate parent-owned observation, not performed by this parser"
+}

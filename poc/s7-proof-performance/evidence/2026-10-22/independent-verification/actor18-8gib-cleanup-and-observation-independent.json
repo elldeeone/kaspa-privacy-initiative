@@ -1,0 +1,82 @@
+{
+  "scope": "Read-only saved actor artifacts and live cleanup state; no repeat or proof generation.",
+  "identities": {
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/terminal-result.json": "6d666d0e4a79ecaac62603aecde137feb60663efe4eaf1dac457c5e23026eb2a",
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/post-guard-cleanup.json": "6290137bc07cdf7ddf9242fc48ac14bc6094a4c59793cce8786b89a6860a7fac",
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/launch.json": "69252450ff2cda5cce9b7f6993350bdf5a6dfff6386d8d49e0a962727d17cfba",
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/stdout.log": "4f4168ebf05a48a39cb3803d53951c5c3bca511c38b9ff0c12245d87b8ac2d30",
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/resource-samples.jsonl": "729d2ac6e010d8f68a3f46aec4167bcf3c23d7fd9a03d6a887ff180ae1ab038a",
+    "/home/luke/projects/kpi-intensive-2026-10-22/performance-target/actor18-8gib-20261022-01-monitor/resources.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "candidate_sha256": "2891e246e4feff140528a28215562ac1bb512a206f3792b56a6277a89ef722cc",
+  "independent_crypto_verification_report_sha256": "b778128cce2670027e4cf888fffc3ea74e4997fd3dd3253e098a8febdb950a2d",
+  "operational_result": "FAIL retained; missing post-Drop/client report and incomplete memory qualification",
+  "guard_diagnosis": "Known primary PID/start identity became empty cmdline/missing executable while exiting; frozen topology check classified it as unexpected. No additional GPU process observed.",
+  "guard_sample_at": "2026-10-22T22:02:55.101701+00:00",
+  "guard_identity": {
+    "pid": 2387963,
+    "start_ticks": 39888998,
+    "exe": "/proc/2387963/exe",
+    "cmdline": ""
+  },
+  "shutdown_warning_precedes_guard": "SDK Failed to shutdown warnings at22:02:55.043546/.067847 precede guard22:02:55.101701; causality must not be reversed.",
+  "job_done_timestamp": "2026-10-22T22:02:55.041987Z",
+  "proof_request_timestamp": "2026-10-22T21:55:26.810255Z",
+  "log_request_to_jobdone_seconds": 448.231732,
+  "duration_limit": "Log interval is not the missing API response/Drop/complete elapsed report; above60-second diagnostic and not p95/end-to-end.",
+  "task_counts_from_log": {
+    "ProveSegmentDone": 390,
+    "LiftDone": 390,
+    "JoinDone": 389,
+    "JobDone": 1
+  },
+  "samples": 2974,
+  "sampled_matching_gpu_peak_mib": 5532,
+  "vram_guard_limit_mib": 7680,
+  "vram_guard_exceeded": false,
+  "completed_memory_qualification": false,
+  "cgroup_memory_peak_bytes": 1356480512,
+  "observed_swap_peak_bytes": 0,
+  "processes": [
+    {
+      "pid": 2387923,
+      "start_ticks": 39888970,
+      "same_identity_alive_independently": false
+    },
+    {
+      "pid": 2387924,
+      "start_ticks": 39888971,
+      "same_identity_alive_independently": false
+    },
+    {
+      "pid": 2387927,
+      "start_ticks": 39888971,
+      "same_identity_alive_independently": false
+    },
+    {
+      "pid": 2387956,
+      "start_ticks": 39888998,
+      "same_identity_alive_independently": false
+    },
+    {
+      "pid": 2387963,
+      "start_ticks": 39888998,
+      "same_identity_alive_independently": false
+    },
+    {
+      "pid": 2387964,
+      "start_ticks": 39888998,
+      "same_identity_alive_independently": false
+    }
+  ],
+  "unit_now": {
+    "LoadState": "not-found",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "MainPID": "0",
+    "ControlGroup": ""
+  },
+  "gpu_compute_apps_empty_now": true,
+  "old6656_gate_failure_unchanged": true
+}
