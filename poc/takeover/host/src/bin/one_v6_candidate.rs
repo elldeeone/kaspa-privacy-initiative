@@ -382,3 +382,178 @@ fn main() -> ExitCode {
     println!("{report}");
     code
 }
+
+#[cfg(test)]
+mod changed_input_control {
+    use super::*;
+
+    const CHANGED_X0: u128 = 272864832706577085329381808629324299781;
+
+    fn scalar_rows(values: &[u128; 2], fields: &[Fr; 2]) -> Result<Value> {
+        let mut rows = Vec::new();
+        for (index, (integer, field)) in values.iter().zip(fields).enumerate() {
+            let bytes = encode(field, "control scalar")?;
+            let mut expected = [0u8; 32];
+            expected[..16].copy_from_slice(&integer.to_le_bytes());
+            require(bytes == expected, "canonical_encoding", "control scalar bytes differ")?;
+            let decoded: Fr = decode_canonical(&bytes, "control scalar")?;
+            require(decoded == *field, "canonical_encoding", "control scalar round-trip differs")?;
+            rows.push(json!({
+                "index": index, "decimal": integer.to_string(),
+                "canonical_le_hex": hex::encode(bytes),
+                "complete_consumption_and_roundtrip": true
+            }));
+        }
+        Ok(json!(rows))
+    }
+
+    fn control(report: &mut Value) -> Result<()> {
+        stage(report, "fixed_public_fixture_preflight");
+        let root = repository_root()?;
+        let descriptor = read_pinned_json(&root, "rehearsal/descriptor.json",
+            "795eebdefb3eabea6446b3b1a9bd8c80e7f262fe32f7dfcf39efccbe7bbc07ac")?;
+        let vk_json = read_pinned_json(&root, "verification-key.json",
+            "4fd7dc563e4a1f843c99d5517485ba7664a7dcb69057784ca2fac066b20cddaf")?;
+        let chain = read_pinned_json(&root, "rehearsal/chain-confirmed.json",
+            "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8")?;
+        require(string(&descriptor, "format")? == "kpi-two-input-live-v1"
+            && string(&descriptor, "network")? == "testnet-10"
+            && string(&descriptor, "genesis")? == GENESIS
+            && string(&descriptor, "vk_sha256")? == VK_SHA,
+            "fixture_integrity", "fixed descriptor metadata differs")?;
+        let domain = decode_hex(DOMAIN, "compiled domain")?;
+        let descriptor_domain = descriptor.get("domain").and_then(Value::as_array)
+            .ok_or_else(|| failure("fixture_integrity", "missing descriptor domain"))?;
+        let descriptor_domain: Vec<u8> = descriptor_domain.iter().map(|v| {
+            let integer = v.as_u64().ok_or_else(|| failure("fixture_integrity", "noninteger domain byte"))?;
+            u8::try_from(integer).map_err(|_| failure("fixture_integrity", "out-of-range domain byte"))
+        }).collect::<Result<_>>()?;
+        require(descriptor_domain == domain, "fixture_integrity", "descriptor domain differs")?;
+        let transaction = chain.pointer("/transactions/6/transaction")
+            .ok_or_else(|| failure("fixture_integrity", "fixed transaction row unavailable"))?;
+        require(string(transaction, "id")? == TXID && metadata_qualifies(transaction, &domain)?,
+            "fixture_integrity", "fixed row/domain/profile differs")?;
+        let payload = decode_hex(string(transaction, "payload")?, "selected payload")?;
+        let signature_hex = transaction.pointer("/inputs/0/signatureScript").and_then(Value::as_str)
+            .ok_or_else(|| failure("fixture_integrity", "missing reserve signatureScript"))?;
+        let signature = decode_hex(signature_hex, "selected signatureScript")?;
+        require(payload.len() == 5228 && payload.starts_with(b"KPICR06\0"),
+            "fixture_integrity", "fixed payload framing differs")?;
+        require(signature.len() == 24709 && signature.starts_with(&[0x4c, 0x80]),
+            "fixture_integrity", "fixed proof framing differs")?;
+        let authorization = &payload[8..385];
+        let proof_bytes = &signature[2..130];
+        let cipher0 = &payload[385..570];
+        let cipher1 = &payload[570..755];
+        let vk_bytes = decode_hex(string(&vk_json, "hex")?, "verification key")?;
+        require(vk_bytes.len() == 328 && string(&vk_json, "sha256")? == VK_SHA,
+            "fixture_integrity", "fixed VK framing differs")?;
+        check_hash(&vk_bytes, VK_SHA, "verification key")?;
+        check_hash(authorization, AUTH_SHA, "authorization")?;
+        check_hash(proof_bytes, PROOF_SHA, "proof")?;
+        check_hash(cipher0, CIPHER0_SHA, "ciphertext slot 0")?;
+        check_hash(cipher1, CIPHER1_SHA, "ciphertext slot 1")?;
+        let ordered_ciphers = [cipher0, cipher1].concat();
+        check_hash(&ordered_ciphers, CIPHER_PAIR_SHA, "ordered ciphertext pair")?;
+        require(hash(&ordered_ciphers).as_slice() == &authorization[345..377],
+            "statement_binding", "ordered ciphertext binding differs")?;
+
+        stage(report, "checked_key_proof_and_scalars");
+        let vk: VerifyingKey<Bn254> = decode_canonical(&vk_bytes, "VK")?;
+        let proof: Proof<Bn254> = decode_canonical(proof_bytes, "proof")?;
+        require(vk.gamma_abc_g1.len() == 3, "statement_binding", "VK IC count is not 3")?;
+        require(!proof.a.infinity && !proof.b.infinity && !proof.c.infinity,
+            "canonical_decode_rejected", "identity proof point")?;
+        let digest = hash(authorization);
+        let mut original_integers = [0u128; 2];
+        for (index, value) in original_integers.iter_mut().enumerate() {
+            let limb: [u8; 16] = digest[index * 16..(index + 1) * 16].try_into()
+                .map_err(|_| failure("statement_binding", "authorization hash limb length"))?;
+            *value = u128::from_le_bytes(limb);
+            require(value.to_string() == DECIMAL_INPUTS[index],
+                "statement_binding", "original independently derived input differs")?;
+        }
+        let changed_x0 = original_integers[0].checked_add(1)
+            .ok_or_else(|| failure("statement_binding", "x0 increment overflow"))?;
+        require(changed_x0 == CHANGED_X0, "statement_binding", "changed x0 differs from frozen value")?;
+        let changed_integers = [changed_x0, original_integers[1]];
+        let original = [Fr::from(original_integers[0]), Fr::from(original_integers[1])];
+        let changed = [Fr::from(changed_integers[0]), original[1]];
+        require(original[0] != changed[0] && original[1] == changed[1],
+            "statement_binding", "control must change only the first field")?;
+        let original_rows = scalar_rows(&original_integers, &original)?;
+        let changed_rows = scalar_rows(&changed_integers, &changed)?;
+        report["fixture"] = json!({
+            "transaction_pointer": "/transactions/6/transaction", "source_supplied_txid": TXID,
+            "domain": DOMAIN, "vk_sha256": VK_SHA, "proof_sha256": PROOF_SHA,
+            "authorization_sha256": AUTH_SHA, "ciphertext0_sha256": CIPHER0_SHA,
+            "ciphertext1_sha256": CIPHER1_SHA, "ordered_ciphertexts_sha256": CIPHER_PAIR_SHA,
+            "checked_canonical_vk_and_proof_roundtrips": true, "vk_ic_count": 3,
+            "proof_nonidentity": true, "ordered_ciphertext_binding": true,
+            "content_inputs": ["rehearsal/descriptor.json", "verification-key.json", "rehearsal/chain-confirmed.json"]
+        });
+        report["original"] = json!({"inputs": original_rows, "attempted": false});
+        report["changed"] = json!({"inputs": changed_rows, "attempted": false, "only_change": "x0 + 1"});
+        let key_id = hash(&vk_bytes);
+        require(hex::encode(key_id) == VK_SHA, "statement_binding", "checked VK identity differs")?;
+        let verifier = Verifier::from_validated_program_key(&vk, key_id);
+
+        stage(report, "original_positive_control");
+        report["original"]["attempted"] = json!(true);
+        let original_result: std::result::Result<(), &'static str> = verifier.verify_inputs(proof_bytes, &original);
+        match original_result {
+            Ok(()) => report["original"]["result"] = json!({"variant": "Ok", "accepted": true, "value": "()"}),
+            Err(error) => {
+                report["original"]["result"] = json!({"variant": "Err", "accepted": false, "error": error, "error_type": "&'static str"});
+                return Err(failure("positive_control_failed", error));
+            }
+        }
+        stage(report, "changed_input_rejection_control");
+        report["changed"]["attempted"] = json!(true);
+        let changed_result: std::result::Result<(), &'static str> = verifier.verify_inputs(proof_bytes, &changed);
+        match changed_result {
+            Err("invalid proof") => {
+                // This exact helper error is returned only after a false Groth16 pairing equation.
+                report["changed"]["result"] = json!({
+                    "variant": "Err", "accepted": false, "error": "invalid proof",
+                    "error_type": "&'static str", "classification": "cryptographic_rejection"
+                });
+            }
+            Err(error) => {
+                report["changed"]["result"] = json!({"variant": "Err", "accepted": false, "error": error, "error_type": "&'static str"});
+                return Err(failure("unexpected_verifier_error", error));
+            }
+            Ok(()) => {
+                report["changed"]["result"] = json!({"variant": "Ok", "accepted": true, "value": "()"});
+                return Err(failure("changed_input_accepted", "changed-input proof unexpectedly accepted"));
+            }
+        }
+        stage(report, "complete");
+        Ok(())
+    }
+
+    #[test]
+    fn changed_first_public_input_is_cryptographically_rejected() {
+        let started = Instant::now();
+        let mut report = json!({
+            "schema": "kpi-one-v6-input-binding-control-v1", "status": "incomplete",
+            "scope": "one retained public proof; original inputs then x0 + 1 only",
+            "expected_source_base": "acba8b04237e62a5bbc3eb93eb10faa1722a59ea",
+            "protocol_sha256": PROTOCOL_SHA256,
+            "verification_path": "checked explicit VK; from_validated_program_key + verify_inputs",
+            "native_execution": false, "guest_execution": false, "proof_generation": false,
+            "chain_acceptance_checked": false
+        });
+        let outcome = control(&mut report);
+        let success = outcome.is_ok();
+        if let Err(error) = outcome {
+            report["failure_class"] = json!(error.class);
+            report["failure"] = json!(error.message);
+        }
+        report["status"] = json!(if success { "pass" } else { "failed" });
+        report["elapsed_seconds"] = json!(started.elapsed().as_secs_f64());
+        println!("KPI_ONE_V6_INPUT_BINDING_CONTROL={report}");
+        // Panics, fixture/decoder failures and every non-pairing verifier error fail the test.
+        assert!(success, "changed-input control failed; see structured report");
+    }
+}
