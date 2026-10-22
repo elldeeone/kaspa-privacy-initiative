@@ -1,0 +1,299 @@
+--- v3/runtime_identity.py
++++ v4/runtime_identity.py
+@@ -9,6 +9,7 @@
+ from pathlib import Path
+ import re
+ import sys
++import stat
+ 
+ ROOT = Path(__file__).absolute().parent
+ ENV = ROOT/".venv"
+@@ -34,8 +35,121 @@
+     return {"path":str(path),"resolved":str(resolved),"sha256":sha(resolved).hexdigest(),
+             "size":resolved.stat().st_size}
+ 
+-def tree(path, allow_python_link=False):
++
++STDLIB_ROOT = Path("/usr/lib/python3.14")
++EXTERNAL_STDLIB_PATHS = {
++    "/usr/lib/python3.14/sitecustomize.py",
++    "/usr/lib/python3.14/config-3.14-x86_64-linux-gnu/libpython3.14.so",
++}
++
++def object_metadata(path):
++    plain(Path(path).parent)  # No symlinked directory ancestor is admitted.
++    info = Path(path).lstat()
++    kind = ("symlink" if stat.S_ISLNK(info.st_mode) else
++            "regular" if stat.S_ISREG(info.st_mode) else "other")
++    return {"uid":info.st_uid, "gid":info.st_gid,
++            "mode":stat.S_IMODE(info.st_mode), "type":kind}
++
++def bounded_metadata_text(path, maximum):
++    plain(path)
++    metadata = object_metadata(path)
++    if metadata != {"uid":0, "gid":0, "mode":0o644, "type":"regular"}:
++        raise RuntimeError("unexpected package metadata ownership/mode: "+str(path))
++    with Path(path).open("rb") as stream:
++        raw = stream.read(maximum+1)
++    if len(raw) > maximum:
++        raise RuntimeError("package metadata size bound: "+str(path))
++    return raw.decode("utf-8")
++
++def external_stdlib_policy():
++    policy = json.loads(plain(ROOT/"stdlib-external-links.json").read_text())
++    if (policy.get("schema") != "kpi-v4-machine-bound-stdlib-links"
++            or policy.get("stdlib_root") != str(STDLIB_ROOT)
++            or set(policy.get("entries",{})) != EXTERNAL_STDLIB_PATHS):
++        raise RuntimeError("unsupported external stdlib policy")
++    return policy["entries"]
++
++def verify_external_stdlib_link(candidate, entry):
++    """Exactly two machine-bound distro relations; never imports their contents."""
++    candidate = Path(candidate)
++    if str(candidate) not in EXTERNAL_STDLIB_PATHS:
++        raise RuntimeError("external stdlib path is not explicitly approved")
++    expected_target = Path(entry["resolved_path"])
++    observed = []
++    current = candidate
++    for hop in entry["chain"]:
++        if str(current) != hop["path"]:
++            raise RuntimeError("external stdlib link-chain path mismatch")
++        metadata = object_metadata(current)
++        if metadata != hop["metadata"] or metadata["type"] != "symlink":
++            raise RuntimeError("external stdlib symlink ownership/mode/type mismatch")
++        text = os.readlink(current)
++        actual = {"path":str(current), "link_text":text, "metadata":metadata}
++        if actual != hop:
++            raise RuntimeError("external stdlib link text mismatch")
++        observed.append(actual)
++        current = Path(os.path.normpath(os.path.join(str(current.parent),text)))
++    if current != expected_target or candidate.resolve(strict=True) != expected_target:
++        raise RuntimeError("external stdlib resolved target mismatch")
++    target_metadata = object_metadata(expected_target)
++    if (target_metadata != entry["target_metadata"]
++            or target_metadata["type"] != "regular"
++            or expected_target.stat().st_size != entry["target_size"]):
++        raise RuntimeError("external stdlib target metadata/size mismatch")
++    target_hash = sha(expected_target).hexdigest()
++    if target_hash != entry["target_sha256"]:
++        raise RuntimeError("external stdlib target content mismatch")
++
++    package = entry["package"]
++    status_text = bounded_metadata_text(Path("/var/lib/dpkg/status"),8*1024*1024)
++    matches = []
++    for block in status_text.split("\n\n"):
++        row = {}
++        for line in block.splitlines():
++            if line and not line[0].isspace() and ": " in line:
++                key,value = line.split(": ",1)
++                row[key] = value
++        if (row.get("Package") == package["name"]
++                and row.get("Architecture") == package["architecture"]):
++            matches.append((row,block))
++    if len(matches) != 1:
++        raise RuntimeError("external stdlib package identity missing/ambiguous")
++    row,block = matches[0]
++    actual_package = {"name":row.get("Package"), "architecture":row.get("Architecture"),
++                      "version":row.get("Version"), "status":row.get("Status")}
++    if actual_package != {key:package[key] for key in actual_package}:
++        raise RuntimeError("external stdlib installed package/version mismatch")
++    expected_list = Path("/var/lib/dpkg/info")/(package["name"]+":"+package["architecture"]+".list")
++    if str(expected_list) != package["file_list_path"]:
++        raise RuntimeError("external stdlib package list path mismatch")
++    file_list = bounded_metadata_text(expected_list,1024*1024)
++    owned = sorted({hop["path"] for hop in observed}|{str(expected_target)})
++    if owned != package["owned_paths"] or not set(owned).issubset(file_list.splitlines()):
++        raise RuntimeError("external stdlib path is not owned by pinned package")
++    # Recheck the named filesystem objects after content/package reads.
++    for hop in observed:
++        path = Path(hop["path"])
++        if object_metadata(path) != hop["metadata"] or os.readlink(path) != hop["link_text"]:
++            raise RuntimeError("external stdlib symlink changed during attestation")
++    if (candidate.resolve(strict=True) != expected_target
++            or object_metadata(expected_target) != target_metadata
++            or expected_target.stat().st_size != entry["target_size"]):
++        raise RuntimeError("external stdlib target changed during attestation")
++    return {"chain":observed, "resolved_path":str(expected_target),
++            "target_metadata":target_metadata, "target_size":entry["target_size"],
++            "target_sha256":target_hash, "installed_package":actual_package,
++            "package_record_sha256":hashlib.sha256(block.encode()).hexdigest(),
++            "package_file_list_sha256":hashlib.sha256(file_list.encode()).hexdigest(),
++            "owned_paths":owned}
++
++def tree(path, allow_python_link=False, external_links=None):
+     result = {}
++    if external_links is not None:
++        if Path(path) != STDLIB_ROOT or set(external_links) != EXTERNAL_STDLIB_PATHS:
++            raise RuntimeError("external policy is restricted to the exact stdlib tree")
++        # Also rejects a missing link or a replacement regular file before traversal.
++        for name,entry in external_links.items():
++            verify_external_stdlib_link(Path(name),entry)
+     for folder, dirs, names in os.walk(path, followlinks=False):
+         for name in dirs+names:
+             candidate = Path(folder)/name
+@@ -43,12 +157,18 @@
+                 resolved = candidate.resolve(strict=True)
+                 permitted = resolved.is_relative_to(path)
+                 permitted |= allow_python_link and resolved == Path("/usr/bin/python3.14")
++                external_approval = None
++                if not permitted and external_links is not None and str(candidate) in external_links:
++                    external_approval = verify_external_stdlib_link(candidate,external_links[str(candidate)])
++                    permitted = True
+                 if not permitted:
+                     raise RuntimeError("unapproved runtime link: "+str(candidate))
+                 result[str(candidate.relative_to(path))] = {
+                     "link":os.readlink(candidate),"resolved":str(resolved),
+                     "target_is_directory":candidate.is_dir(),
+                     "target":None if candidate.is_dir() else identity(candidate)}
++                if external_approval is not None:
++                    result[str(candidate.relative_to(path))]["external_approval"] = external_approval
+             elif candidate.is_file():
+                 result[str(candidate.relative_to(path))] = {
+                     "sha256":sha(candidate).hexdigest(),"size":candidate.stat().st_size}
+@@ -123,12 +243,13 @@
+         Path("/proc/driver/nvidia/gpus").glob("*/information"))}
+     if len(devices) != 1 or "RTX 3070" not in next(iter(devices.values())):
+         raise RuntimeError("expected one RTX 3070 device")
+-    return {"schema":"kpi-gpu-runtime-v2","resolution_lock_raw_sha256":sha(ROOT/"requirements.lock").hexdigest(),
++    return {"schema":"kpi-gpu-runtime-v4","resolution_lock_raw_sha256":sha(ROOT/"requirements.lock").hexdigest(),
+         "resolved_requirements":locked,"installed_versions":installed,
+         "environment_root":str(ENV),"python_version":sys.version,"python_base_prefix":sys.base_prefix,
+         "python_executable":identity(sys.executable),"environment_files":tree(ENV,True),
+         "system_tools_and_driver_libraries":[identity(p) for p in tool_paths],
+-        "stdlib_files":tree(Path("/usr/lib/python3.14")),
++        "stdlib_files":tree(STDLIB_ROOT,external_links=external_stdlib_policy()),
++        "external_stdlib_policy_sha256":sha(ROOT/"stdlib-external-links.json").hexdigest(),
+         "driver_version_text":driver,"devices":devices,"os_release":Path("/etc/os-release").read_text(),
+         "kernel_release":os.uname().release,
+         "installation_policy":{"index":"https://pypi.org/simple","config_discovery":False,
+--- v3/guards.py
++++ v4/guards.py
+@@ -11,7 +11,7 @@
+ 
+ ROOT = Path(__file__).absolute().parent
+ LANE = ROOT.parent.parent
+-CGROUP = Path("/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/kpi-gpu-benchmark-v3")
++CGROUP = Path("/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/kpi-gpu-benchmark-v4")
+ MAX_MEMORY = 4 * 1024**3
+ 
+ def save(path, value):
+--- v3/launch.py
++++ v4/launch.py
+@@ -3,7 +3,7 @@
+ from pathlib import Path
+ import sys
+ 
+-CG = Path("/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/kpi-gpu-benchmark-v3")
++CG = Path("/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/kpi-gpu-benchmark-v4")
+ for part in (*reversed(CG.parents), CG):
+     if part.is_symlink():
+         raise RuntimeError("cgroup path contains symlink")
+--- v3/PROVISION-CGROUP.sh
++++ v4/PROVISION-CGROUP.sh
+@@ -3,7 +3,7 @@
+ set -euo pipefail
+ test "${KPI_BENCH_CAPACITY_RELEASED:-}" = 1
+ test "${KPI_BENCH_CGROUP_PROVISION_AUTHORIZED:-}" = 1
+-KPI_GPU_GROUP=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/kpi-gpu-benchmark-v3
++KPI_GPU_GROUP=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/kpi-gpu-benchmark-v4
+ test ! -e "$KPI_GPU_GROUP"
+ test ! -L "$KPI_GPU_GROUP"
+ # Existing delegated parent controllers must already be enabled. Never enable/change them here.
+--- v3/SETUP.sh
++++ v4/SETUP.sh
+@@ -1,3 +1,5 @@
+ #!/usr/bin/env bash
+ set -euo pipefail
+-exec /usr/bin/python3.14 -I -S -B /home/luke/projects/kpi-orchestration/2026-10-22/compute-plan/revisions/v3/setup.py "$@"
++# Execute the adjacent reviewed package, including when staged in a fresh lane.
++KPI_SETUP_ROOT="$(cd -- "$(dirname -- "$0")" && pwd)"
++exec /usr/bin/python3.14 -I -S -B "$KPI_SETUP_ROOT/setup.py" "$@"
+--- /dev/null
++++ v4/stdlib-external-links.json
+@@ -0,0 +1,86 @@
++{
++  "schema": "kpi-v4-machine-bound-stdlib-links",
++  "stdlib_root": "/usr/lib/python3.14",
++  "entries": {
++    "/usr/lib/python3.14/sitecustomize.py": {
++      "chain": [
++        {
++          "path": "/usr/lib/python3.14/sitecustomize.py",
++          "link_text": "/etc/python3.14/sitecustomize.py",
++          "metadata": {
++            "uid": 0,
++            "gid": 0,
++            "mode": 511,
++            "type": "symlink"
++          }
++        }
++      ],
++      "resolved_path": "/etc/python3.14/sitecustomize.py",
++      "target_metadata": {
++        "uid": 0,
++        "gid": 0,
++        "mode": 420,
++        "type": "regular"
++      },
++      "target_size": 155,
++      "target_sha256": "43d81125d92376b1a69d53a71126a041cc9a18d8080e92dea0a2ae23be138b1e",
++      "package": {
++        "name": "libpython3.14-minimal",
++        "architecture": "amd64",
++        "version": "3.14.4-1ubuntu0.2",
++        "status": "install ok installed",
++        "file_list_path": "/var/lib/dpkg/info/libpython3.14-minimal:amd64.list",
++        "owned_paths": [
++          "/etc/python3.14/sitecustomize.py",
++          "/usr/lib/python3.14/sitecustomize.py"
++        ]
++      }
++    },
++    "/usr/lib/python3.14/config-3.14-x86_64-linux-gnu/libpython3.14.so": {
++      "chain": [
++        {
++          "path": "/usr/lib/python3.14/config-3.14-x86_64-linux-gnu/libpython3.14.so",
++          "link_text": "../../x86_64-linux-gnu/libpython3.14.so.1",
++          "metadata": {
++            "uid": 0,
++            "gid": 0,
++            "mode": 511,
++            "type": "symlink"
++          }
++        },
++        {
++          "path": "/usr/lib/x86_64-linux-gnu/libpython3.14.so.1",
++          "link_text": "libpython3.14.so.1.0",
++          "metadata": {
++            "uid": 0,
++            "gid": 0,
++            "mode": 511,
++            "type": "symlink"
++          }
++        }
++      ],
++      "resolved_path": "/usr/lib/x86_64-linux-gnu/libpython3.14.so.1.0",
++      "target_metadata": {
++        "uid": 0,
++        "gid": 0,
++        "mode": 420,
++        "type": "regular"
++      },
++      "target_size": 8247200,
++      "target_sha256": "982cb3768d1d8b00126255ee2785bccf8360c68b197fb3dec95858ab56195f87",
++      "package": {
++        "name": "libpython3.14",
++        "architecture": "amd64",
++        "version": "3.14.4-1ubuntu0.2",
++        "status": "install ok installed",
++        "file_list_path": "/var/lib/dpkg/info/libpython3.14:amd64.list",
++        "owned_paths": [
++          "/usr/lib/python3.14/config-3.14-x86_64-linux-gnu/libpython3.14.so",
++          "/usr/lib/x86_64-linux-gnu/libpython3.14.so.1",
++          "/usr/lib/x86_64-linux-gnu/libpython3.14.so.1.0"
++        ]
++      }
++    }
++  },
++  "provenance": "Observed on Forge 2026-10-22; local dpkg metadata plus root ownership/modes and SHA256; no hook import."
++}
