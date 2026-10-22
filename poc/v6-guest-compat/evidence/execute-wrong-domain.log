@@ -1,0 +1,11 @@
+Running as unit: kpi-v6-execute-wrong-domain-20261022.service; invocation ID: bc01eb9222d748f887345af51d19736f
+
+thread '<unnamed>' (1) panicked at src/main.rs:13:33:
+v6 compatibility rejection: authorization magic/domain
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+{"case":"wrong-domain","cycle_limit":160000000,"error":"Guest panicked: v6 compatibility rejection: authorization magic/domain","expected_image":"1f3b9b1785a11268432ffdd484b83ce5025315e23fc3aa9cf74e3c06e56026de","expected_rejection":"authorization magic/domain","input_sha256":"172f5901f7e2fc8ef901e00ff3917305a4cede3211687539f5e27ec3e3945bab","native_chain_acceptance":false,"passed":true,"proof_generation":false,"schema":"kpi-one-public-v6-guest-execution-v1","scope":"EXECUTION_ONLY_NOT_RECEIPT_OR_SETTLEMENT","seconds":0.084286957,"segment_po2":19}
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 173ms
+             CPU time consumed: 166ms
+                   Memory peak: 19.8M (swap: 0B)

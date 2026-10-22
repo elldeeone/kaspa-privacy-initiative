@@ -1,0 +1,33 @@
+{
+  "unit": "kpi-public-proof-extract-build-20261022",
+  "start": "2026-10-22T14:29:13.721259+00:00",
+  "deadline": "2026-10-22T14:39:13.721259+00:00",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--unit=kpi-public-proof-extract-build-20261022",
+    "--collect",
+    "--property=CPUQuota=100%",
+    "--property=MemoryMax=2G",
+    "--property=MemorySwapMax=0",
+    "--property=RuntimeMaxSec=600",
+    "--property=TasksMax=64",
+    "--property=RestrictAddressFamilies=AF_UNIX",
+    "--property=WorkingDirectory=/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract",
+    "--property=StandardOutput=append:/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract/evidence/build.log",
+    "--property=StandardError=append:/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract/evidence/build.log",
+    "--setenv=PATH=/home/luke/.cargo/bin:/usr/local/bin:/usr/bin:/bin",
+    "--setenv=CARGO_TARGET_DIR=/home/luke/projects/kpi-intensive-2026-10-22/research-target/public-receipt-proof-extract",
+    "--setenv=CARGO_BUILD_JOBS=1",
+    "--setenv=CARGO_INCREMENTAL=0",
+    "--setenv=CARGO_PROFILE_DEV_DEBUG=0",
+    "--setenv=CARGO_NET_OFFLINE=true",
+    "/usr/bin/bash",
+    "/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract/evidence/build.sh"
+  ],
+  "launch_returncode": 0,
+  "launch_stderr": "Running as unit: kpi-public-proof-extract-build-20261022.service; invocation ID: 548ad0e011ae484680b3e7f676a63f55\n",
+  "immediate_properties": "ActiveState=active\nMainPID=1931107\nExecMainStartTimestamp=Thu 2026-10-22 14:29:13 UTC\nCPUQuotaPerSecUSec=1s\nMemoryMax=2147483648\nMemorySwapMax=0\n",
+  "source_freeze_sha256": "d332e2d54d5ab6693843f789242cc1e125f1e192202d4e5a8de53c82c9f081e1",
+  "no_actual_receipt_decode": true
+}

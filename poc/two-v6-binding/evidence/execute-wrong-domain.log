@@ -1,0 +1,12 @@
+Running as unit: kpi-two-v6-execute-wrong-domain-20261022.service; invocation ID: 3759438ba952415b8988ab5f7bb2ec14
+PROFILE fixed_parameters 6129417
+
+thread '<unnamed>' (1) panicked at src/main.rs:19:33:
+two-v6 binding rejection: Profile("public projection")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+{"case":"wrong-domain","cycle_limit":240000000,"error":"Guest panicked: two-v6 binding rejection: Profile(\"public projection\")","expected_rejection":"Profile(\"public projection\")","image":"50ceec8ebb91edd01028c4aec9b495e7d77eb9e3b39e065910c0600f7693d832","input_sha256":"4cc4cdd82a90aac5bf9f91c5425092b5b2de262b2f2fb2eb101b0c3f35062562","instance":"public-development-v6-2026-10-22","native_settlement":false,"passed":true,"proof_generation":false,"schema":"kpi-two-v6-guest-execution-v1","scope":"NONSETTLING_EXECUTION_ONLY_NO_RECEIPT","seconds":0.193363095,"segment_po2":19}
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 297ms
+             CPU time consumed: 299ms
+                   Memory peak: 54.4M (swap: 0B)

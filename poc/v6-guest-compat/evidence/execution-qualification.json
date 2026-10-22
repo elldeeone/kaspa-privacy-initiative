@@ -1,0 +1,67 @@
+{
+  "schema": "kpi-one-public-v6-execution-qualification-v1",
+  "recorded_at": "2026-10-22T12:39:55.280807+00:00",
+  "expected_image": "1f3b9b1785a11268432ffdd484b83ce5025315e23fc3aa9cf74e3c06e56026de",
+  "build_freeze_sha256": "0e6ebdaf6340fc136312bc0e4ad4c1ddab14baab5b4650f394525063e28d7966",
+  "cases": 6,
+  "passed": 6,
+  "valid_cycles": 84842708,
+  "valid_executor_seconds": 1.863095948,
+  "valid_segments": 183,
+  "valid_segment_po2_counts": {
+    "18": 1,
+    "19": 182
+  },
+  "valid_profile_cycle_positions": {
+    "checked_fixed_key": 49369732,
+    "checked_proof_decode": 58915817,
+    "converted_public_inputs": 60432042,
+    "pairing_complete": 84836157
+  },
+  "valid_systemd_captured_display": {
+    "service_runtime": "1.963s",
+    "cpu_time": "2.260s",
+    "memory_peak": "61.4M",
+    "swap": "0B"
+  },
+  "scope": "execution-only one already-public retained proof; no receipt, chain acceptance, native settlement or privacy qualification",
+  "known_cost": "full fixed-key validation is deliberately repeated inside the baseline guest;49.37M cycles are spent before submitted proof decoding",
+  "cases_summary": [
+    {
+      "case": "valid",
+      "passed": true,
+      "expected_rejection": null,
+      "executor_seconds": 1.863095948
+    },
+    {
+      "case": "trailing",
+      "passed": true,
+      "expected_rejection": "bundle length",
+      "executor_seconds": 0.08035524
+    },
+    {
+      "case": "truncated",
+      "passed": true,
+      "expected_rejection": "bundle length",
+      "executor_seconds": 0.080392923
+    },
+    {
+      "case": "wrong-domain",
+      "passed": true,
+      "expected_rejection": "authorization magic/domain",
+      "executor_seconds": 0.084286957
+    },
+    {
+      "case": "wrong-ciphertext",
+      "passed": true,
+      "expected_rejection": "ordered ciphertext digest",
+      "executor_seconds": 0.08049146
+    },
+    {
+      "case": "changed-count",
+      "passed": true,
+      "expected_rejection": "invalid proof",
+      "executor_seconds": 1.7525730899999998
+    }
+  ]
+}

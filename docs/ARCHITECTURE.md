@@ -2,6 +2,66 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[ADR-0034](adr/0034-public-proof-composition-experiment.md) scopes a local,
+nonsettling [two-v6 composition package](../poc/two-v6-binding/README.md).
+Its shared checked host/guest relation binds two genuine private authorizations
+to exact public P[1,088]/J[42] bytes. A real Succinct receipt passes independent
+software verification and the [bare Kaspa native predicate](../poc/public-receipt-native-check/README.md),
+including rejection controls; the [results register](../research/intensive-2026-10-22/RESULTS.md)
+retains each source, image and artifact identity. This uses a separately named,
+unreviewed single-party development setup; no compatible original-rehearsal
+pair is established. The receipt authenticates neither a separately supplied
+anchor nor accepted state, current spentness, native backing or reserve release.
+The collector sees the complete source bundles and grouping. No architecture,
+exit mechanism or privacy benefit is adopted.
+
+The additive [public-native observation adapter](../poc/shared-pool/PUBLIC-NATIVE-OBSERVATION.md)
+independently reconstructs public prefixes, roots and witnesses, cross-checked
+against native replay under supplied UTXOs. Descriptor trust, missing funding
+ancestry and accepted-chain/current-head authentication remain separate.
+The [budget-1,600 screen](../poc/shared-pool/PUBLIC-NATIVE-BUDGET.md) qualifies
+13 genuine fixed public cases. [ADR-0036](adr/0036-v6-native-budget-1600.md)
+subsequently adopts the 1,600 v6 factory default after 13 actual factory-built
+cases, compatible historical/current replay and 48 synthetic boundary cases.
+The emitted covenant and actual fee remain unchanged; broader exits and fee
+qualification remain open. Historical 3,000-budget artifacts are preserved.
+[RFC-0018](rfc/0018-paired-native-settlement-experiment.md) leaves a complete
+atomic native transition with independent owner exits open for design review.
+The J42 receipt alone cannot supply that transition. Accepted-chain settlement
+and a continuing owner-exitable pool remain unqualified; a funded trial remains
+outside this local experiment.
+[ADR-0035](adr/0035-synthetic-state-aware-assertion.md) now confines a follow-on
+to a **NONFUNDABLE synthetic state assertion**. Its
+[public oracle](../poc/two-v6-state/public_state_oracle.py) and
+[frozen current/historical-anchor vectors](../poc/two-v6-state/public-fixtures/manifest.json)
+and [state core](../poc/two-v6-state/common/README.md) now exist. Host/corpus
+checks preserve one original typed-label discrepancy. The
+[new guest and receipts](../poc/two-v6-state/README.md) pass their fixed
+execution/software checks, and the compressed historical-context receipt passes
+a [23-case native input-script diagnostic](../poc/public-state-native-check/evidence/historical-state-native-01/report.json).
+Its J336 binds the supplied predecessor, complete state updates and exact R-F.
+The native policy is one-shot: its fixed outpoint guard deliberately prevents
+the successor continuing as a pool. A separate
+[official Full-validator check](../poc/public-state-consensus-check/evidence/historical-state-consensus-01/report.json)
+now accepts the same body under supplied UTXO/DAA context, with ten typed
+negative cases. Its four policy cases use source-adapted predicates, not actual
+Mempool admission. Synthetic context, absent owner exits and unqualified
+relay/chain/backing remain explicit; neither
+lower measured mass nor the unchanged 80m fee qualifies the payment-fee target.
+
+[ADR-0037](adr/0037-offline-continuing-s7-owner-lifecycle.md) permits a separate
+offline continuing experiment, with a [fresh instance's state core](../../lifecycle/poc/s7-owner-lifecycle/state/src/lib.rs).
+Its [first four genuine proofs](../../lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json)
+cover bootstrap, ADMIT and a pair at common count 5. This remains partial: new
+native context, guest/receipt and native branch gates are not closed by that
+proof packet. Its public replay/owner CLI job is permanently parked following
+automatic safety rejection, so independent owner exits cannot complete this
+run. It does not select a fundable privacy architecture.
+Separate official Full checks now cover the supplied-seed founding/funding,
+bootstrap/ADMIT prefix and two alternative ordinary SPEND forks. Those forks
+consume the same predecessor and cannot be combined; the new guest/receipt and paired native Full checks now also pass. Accepted
+chain/backing/owner qualification remains separate; no DRAIN was executed.
+
 [RFC-0017](rfc/0017-price-priors-and-transaction-leakage.md) and
 [ADR-0033](adr/0033-price-baseline-evaluation.md) record the
 [completed price-baseline test](../poc/shared-pool/PRICE-LEAKAGE.md): 512 ledgers,

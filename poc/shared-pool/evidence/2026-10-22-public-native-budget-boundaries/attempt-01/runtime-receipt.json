@@ -1,0 +1,77 @@
+{
+  "cleanup": [
+    {
+      "ActiveState": "inactive",
+      "ControlGroup": "",
+      "MainPID": "0",
+      "SubState": "dead",
+      "unit": "kpi-native-budget-boundaries-run-20261022.service"
+    },
+    {
+      "ActiveState": "inactive",
+      "ControlGroup": "",
+      "MainPID": "0",
+      "SubState": "dead",
+      "unit": "kpi-native-budget-boundaries-run2-20261022.service"
+    }
+  ],
+  "resource_samples": [
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5640959000",
+      "ControlGroup": "",
+      "ExecMainExitTimestamp": "Thu 2026-10-22 13:25:03 UTC",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:24:57 UTC",
+      "ExecMainStatus": "0",
+      "MainPID": "0",
+      "MemoryCurrent": "[not set]",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "138407936",
+      "MemorySwapCurrent": "[not set]",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "exited",
+      "observed_utc": "2026-10-22T13:25:06.356983+00:00"
+    }
+  ],
+  "schema": "kpi-native-boundaries-resource-receipt-v1",
+  "selection": {
+    "binary": "/home/luke/projects/kpi-intensive-2026-10-22/native-target/x86_64-unknown-linux-gnu/release/kpi-public-native-budget-boundaries",
+    "binary_sha256": "f62d7bb37ff8f1f7f0e0adcbdcf68f627512fc84909fe526d57567f57e12a73d",
+    "caps": {
+      "cpu_quota_percent": 200,
+      "memory_max_bytes": 2147483648,
+      "memory_swap_max_bytes": 0,
+      "runtime_max_seconds": 1200
+    },
+    "cargo_lock_sha256": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+    "case_count": 48,
+    "default_changed": false,
+    "input_sha256": "7fd8bd70774872a1748fb52d32754556e578f8abf89c76100e28e1fd315b02a1",
+    "schema": "kpi-boundaries-root-release-selection-v1",
+    "source": "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/src/bin/kpi-public-native-budget-boundaries.rs",
+    "source_sha256": "d61aead6c9f3502119f7687e3e1868047eead25b029c8c177c7f672edf2db667",
+    "timestamp_utc": "2026-10-22T13:24:57.597241+00:00",
+    "wrapper_sha256": "ebb41b979f3a92a1c7279c344a6e7e67812785264097d2c433723a96ae3e5ea2"
+  },
+  "terminal_systemd": {
+    "CPUUsageNSec": "5640959000",
+    "ControlGroup": "",
+    "ExecMainCode": "1",
+    "ExecMainExitTimestampMonotonic": "368266333814",
+    "ExecMainPID": "1610102",
+    "ExecMainStartTimestampMonotonic": "368260847853",
+    "ExecMainStatus": "0",
+    "InvocationID": "3d5c73b9a77a48a5ba55ca7dd6e8831a",
+    "MemoryPeak": "138407936",
+    "MemorySwapPeak": "0",
+    "Result": "success",
+    "live_proc_start_ticks_captured": false,
+    "original_pid_exists_now": false,
+    "recorded_utc": "2026-10-22T13:26:21.520451+00:00",
+    "sample_started_after_job_completion": true
+  }
+}

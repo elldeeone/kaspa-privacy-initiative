@@ -1,0 +1,23 @@
+{
+  "build_or_execution_performed": false,
+  "independent_source_crosscheck": "ark06_wallet_callers agent; shared-pool, private-note-wallet, self-funded, A0, A1",
+  "key_or_wallet_artifacts_read": false,
+  "local_setup_paths_without_explicit_ic_guard_retained": true,
+  "note_sha256": "b276d8d94782f3e61bdf0de0c435cba0ed1e178552753c41df52a582a18dee60",
+  "ordinary_public_unguarded_raw_06_path_found": false,
+  "runtime_code_edited": false,
+  "scope": "bounded Arkworks compatibility/correctness source followup",
+  "search_command": [
+    "rg",
+    "-n",
+    "verify_proof\\(|verify_proof_with_prepared_inputs\\(|prepare_inputs\\(|prepare_verifying_key\\(|Groth16.*::verify\\(|VerifyingKey.*deserialize|deserialize.*VerifyingKey",
+    "--glob",
+    "*.rs",
+    "--glob",
+    "!**/evidence/**",
+    "--glob",
+    "!**/target/**",
+    "."
+  ],
+  "source_files": 68
+}

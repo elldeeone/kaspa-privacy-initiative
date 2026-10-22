@@ -1,0 +1,66 @@
+{
+  "observed_utc": "2026-10-22T13:18:51.822020+00:00",
+  "unit": "kpi-two-v6-gpu-compression-2-20261022.service",
+  "properties": {
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "MainPID": "0",
+    "Result": "success",
+    "ExecMainStatus": "0",
+    "ControlGroup": ""
+  },
+  "identities": [
+    {
+      "pid": 1531949,
+      "expected_start_ticks": 36753851,
+      "actual_start_ticks": null,
+      "same_identity_alive": false
+    },
+    {
+      "pid": 1531951,
+      "expected_start_ticks": 36753853,
+      "actual_start_ticks": null,
+      "same_identity_alive": false
+    },
+    {
+      "pid": 1531952,
+      "expected_start_ticks": 36753853,
+      "actual_start_ticks": null,
+      "same_identity_alive": false
+    },
+    {
+      "pid": 1531958,
+      "expected_start_ticks": 36753856,
+      "actual_start_ticks": null,
+      "same_identity_alive": false
+    }
+  ],
+  "gpu_compute_apps": "",
+  "gpu_snapshot_memory_utilization": "1 MiB, 0 %",
+  "producer_terminal_result": {
+    "unit": "kpi-two-v6-gpu-compression-2-20261022.service",
+    "completed_utc": "2026-10-22T13:13:00.393476+00:00",
+    "seconds": 5.061845038959291,
+    "properties_before_stop": {
+      "ActiveState": "active",
+      "SubState": "exited",
+      "MainPID": "0",
+      "Result": "success",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:12:55 UTC",
+      "ExecMainExitTimestamp": "Thu 2026-10-22 13:12:59 UTC",
+      "ExecMainStatus": "0",
+      "ControlGroup": "",
+      "MemoryPeak": "1783631872",
+      "MemorySwapPeak": "0",
+      "CPUUsageNSec": "4724575000",
+      "CPUQuotaPerSecUSec": "8s",
+      "MemoryMax": "15032385536",
+      "MemorySwapMax": "0"
+    },
+    "sampled_matching_gpu_peak_mib": 5332,
+    "cgroup_memory_peak_bytes": 1783631872,
+    "sampling_interval_seconds": 0.5,
+    "measurement_limits": "GPU samples can miss brief peaks; only matching unit process IDs counted. Global GPU power/utilization are not process-specific."
+  },
+  "processes_killed_by_reviewer": false
+}

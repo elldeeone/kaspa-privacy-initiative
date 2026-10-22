@@ -1,5 +1,63 @@
 # Threat Model
 
+[ADR-0034](docs/adr/0034-public-proof-composition-experiment.md)'s
+[two-v6 package](poc/two-v6-binding/README.md) is a nonsettling proof-composition
+experiment. Its genuine development receipt passes independent software and
+[bare native predicate verification](poc/public-receipt-native-check/README.md).
+The collector receives both public bundles and their grouping; a short journal
+does not establish privacy. A separate single-party test setup remains an
+unreviewed soundness assumption and cannot qualify the retained original key.
+Immutable compiled parameters require checked host preparation and independent
+source/key/program/image pins; a prover-selected key, image or adjacent metadata
+file is not a trust anchor. Submitted proof points retain checked decoding.
+
+P/J binds an existential partition into two valid authorizations, but does not
+publish their common count/anchor. A host-supplied anchor/history path beside
+the old receipt is therefore unauthenticated by that receipt. Neither native
+opcode success nor the collector's declarations establish accepted history,
+current nullifier nonmembership, successor state, reserve backing or an
+authorized payout. [RFC-0018](docs/rfc/0018-paired-native-settlement-experiment.md)
+keeps those obligations and independent owner exits open; it grants no weaker
+settlement or privileged rescue path.
+[ADR-0035](docs/adr/0035-synthetic-state-aware-assertion.md)'s separate
+[public vectors](poc/two-v6-state/public-fixtures/manifest.json) declare synthetic
+predecessor roots and reserve amounts. The generated state-aware receipt and
+[one-shot native script](poc/public-state-native-check/evidence/historical-state-native-01/report.json)
+now establish the tested assertion from that supplied context; they cannot establish the
+context's accepted genesis, backing or owner-exit capability. The experiment
+remains NONFUNDABLE, and its new image/J336 cannot replace or reinterpret J42.
+The fixed predecessor guard intentionally makes its successor noncontinuing;
+there is no DRAIN branch. A separate
+[official Full-validator check](poc/public-state-consensus-check/evidence/historical-state-consensus-01/report.json)
+now accepts the same saved body with declared UTXO/DAA context, without skipped
+script/mass checks. Source-adapted policy cases remain distinct from actual
+Mempool/relay/chain acceptance. The 80m actual
+fee is unchanged and does not cover the measured rate-500 scenario.
+
+The separate [ADR-0037](docs/adr/0037-offline-continuing-s7-owner-lifecycle.md)
+instance uses a fresh single-party **UNTRUSTED TEST** setup, fixed new
+domain/pool/key and intentionally public wallet seeds. Its retained public PK
+has a stream-integrity check, not full-key restoration or owner-exit evidence.
+Four initial proofs, the new guest receipt and paired native Full checks
+cannot replace accepted lineage,
+accepted backing or independent exits. No secure-erasure or privacy claim
+follows; the public replay/owner CLI job remains parked for this run.
+
+The [public-native reconstruction](poc/shared-pool/PUBLIC-NATIVE-OBSERVATION.md)
+uses a caller-trusted descriptor and checks a selected prefix under supplied
+funding UTXOs. Separate flags retain missing funding-parent input ancestry and
+chain acceptance as false even after native proof/VM checks pass. Reconstructed
+bodies, matching transaction IDs and a valid prefix cannot establish acceptance
+or currentness. The [budget screen](poc/shared-pool/PUBLIC-NATIVE-BUDGET.md)
+retains v1's distinction: budget-only changes preserve IDs and SIG_HASH_ALL,
+but change full hashes. Its fixed-case execution evidence changes no default,
+authorized fee, privacy target or general exit-liveness assumption.
+[ADR-0036](docs/adr/0036-v6-native-budget-1600.md) subsequently adopts the v6-only
+factory budget of 1,600 with compatible replay of supplied typed budgets.
+Exact body reconstruction, native metering/validation, protocol mass caps and
+authorized fee/accounting remain mandatory. The actual 40m fee, emitted
+covenant, privacy targets and known high-fee minimum-note failure are unchanged.
+
 The [price-baseline test](poc/shared-pool/PRICE-LEAKAGE-SPEC.md) separates public
 arithmetic observations plus the declared directory from additional pooled
 colluder records. It compares a preselected heuristic with marginal price-only

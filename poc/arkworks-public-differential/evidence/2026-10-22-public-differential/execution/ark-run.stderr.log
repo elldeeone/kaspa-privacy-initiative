@@ -1,0 +1,18 @@
+Running as unit: kpi-intensive-native-ark-run-20261022t1328z.service
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/arkworks-public-differential/run_public_differential.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/arkworks-public-differential/run_public_differential.py", line 232, in main
+    ark=execute(a.ark_binary,output/"input.json",output,"arkworks")
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/arkworks-public-differential/run_public_differential.py", line 171, in execute
+    public.require(result.returncode == 0 and not result.stderr, label+" process failed")
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/public_native_observation.py", line 38, in require
+    raise ObservationError(reason)
+public_native_observation.ObservationError: arkworks process failed
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=1/FAILURE
+               Service runtime: 196ms
+             CPU time consumed: 217ms
+                   Memory peak: 23.6M (swap: 0B)

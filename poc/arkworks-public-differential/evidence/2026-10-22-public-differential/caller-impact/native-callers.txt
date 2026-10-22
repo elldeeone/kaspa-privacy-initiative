@@ -1,0 +1,12 @@
+./crypto/txscript/benches/zk_precompiles.rs:72:fn benchmark_groth16_prepare_inputs(c: &mut Criterion) {
+./crypto/txscript/benches/zk_precompiles.rs:108:        let pvk = ark_groth16::prepare_verifying_key(&vk);
+./crypto/txscript/benches/zk_precompiles.rs:113:                let _ = Groth16::<Bn254>::prepare_inputs(&pvk, black_box(&public_inputs)).unwrap();
+./crypto/txscript/benches/pricing.rs:1231:    let mut vk = VerifyingKey::<Bn254>::deserialize_compressed(vk_bytes)
+./crypto/txscript/src/zk_precompiles/tests/mod.rs:111:        let mut vk = VerifyingKey::<Bn254>::deserialize_compressed(&*fields.vk).expect("fixture VK must deserialize");
+./crypto/txscript/src/zk_precompiles/tests/mod.rs:117:        let mut vk = VerifyingKey::<Bn254>::deserialize_compressed(&*fields.vk).expect("fixture VK must deserialize");
+./crypto/txscript/src/zk_precompiles/tests/mod.rs:147:        let mut vk = VerifyingKey::<ark_bn254::Bn254>::deserialize_compressed(&*vk_bytes).unwrap();
+./crypto/txscript/src/zk_precompiles/groth16/mod.rs:102:        let pvk = ark_groth16::prepare_verifying_key(&vk);
+./crypto/txscript/src/zk_precompiles/groth16/mod.rs:112:        let prepared_inputs = Groth16::<Bn254>::prepare_inputs(&pvk, &unprepared_public_inputs)?;
+./crypto/txscript/src/zk_precompiles/groth16/mod.rs:115:        if Groth16::<Bn254>::verify_proof_with_prepared_inputs(&pvk, &proof, &prepared_inputs)? {
+./crypto/txscript/src/zk_precompiles/groth16/mod.rs:186:            let ark_vk = VerifyingKey::<Bn254>::deserialize_compressed(&*vk_bytes).expect("Ark should deserialize VK");
+./crypto/txscript/zk-sdk/src/zk_to_script/fragments/groth16.rs:251:        let deserialized = ark_groth16::VerifyingKey::<Bn254>::deserialize_compressed(R0_SERIALIZED_COMPRESSED_VK.as_slice()).unwrap();

@@ -1,0 +1,15 @@
+[package]
+name = "kpi-two-v6-binding-guest"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+kpi-two-v6-binding = { path = "../common", features = ["compiled-research-instance"] }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["std", "disable-dev-mode"] }
+risc0-binfmt = { version = "=3.0.4", default-features = false }
+risc0-zkp = { version = "=3.0.4", default-features = false }
+risc0-circuit-recursion = { version = "=4.0.4", default-features = false }
+

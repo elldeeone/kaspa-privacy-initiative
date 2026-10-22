@@ -2,7 +2,10 @@
 use super::*;
 use kaspa_txscript::{opcodes::codes::*, script_builder::ScriptBuilder};
 pub const REDEEM_LEN: usize = 24576;
-pub const BUDGET: u16 = 3000;
+// Fixed v6 reserve-input bound: 15_857_502 <= 16_009_999 allowed units.
+// Corroborated by genuine public replay and capacity/comparison boundary cases;
+// see ADR-0036 and PUBLIC-NATIVE-BUDGET-BOUNDARIES.md. This is not a fee guarantee.
+pub const BUDGET: u16 = 1600;
 pub const WITNESS_LEN: usize = 133 + REDEEM_LEN;
 const R: i64 = 133;
 const S: i64 = R + 36;

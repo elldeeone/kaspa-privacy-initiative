@@ -1,0 +1,17 @@
+[package]
+name = "kpi-v6-guest-compat-guest"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+kpi-v6-guest-compat = { path = "../common" }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["std", "disable-dev-mode"] }
+# Keep the eventual native receipt control family aligned with the preserved
+# native-compatible SDK3.0.3 host, rather than silently selecting newer crates.
+risc0-binfmt = { version = "=3.0.4", default-features = false }
+risc0-zkp = { version = "=3.0.4", default-features = false }
+risc0-circuit-recursion = { version = "=4.0.4", default-features = false }
+

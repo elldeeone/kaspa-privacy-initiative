@@ -1,0 +1,26 @@
+[package]
+name = "kpi-arkworks-public-differential"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+ark-bn254-05 = { package = "ark-bn254", version = "=0.5.0" }
+ark-ec-05 = { package = "ark-ec", version = "=0.5.0" }
+ark-ff-05 = { package = "ark-ff", version = "=0.5.0" }
+ark-groth16-05 = { package = "ark-groth16", version = "=0.5.0" }
+ark-serialize-05 = { package = "ark-serialize", version = "=0.5.0" }
+ark-bn254-06 = { package = "ark-bn254", version = "=0.6.0" }
+ark-ec-06 = { package = "ark-ec", version = "=0.6.0" }
+ark-ff-06 = { package = "ark-ff", version = "=0.6.0" }
+ark-groth16-06 = { package = "ark-groth16", version = "=0.6.0" }
+ark-serialize-06 = { package = "ark-serialize", version = "=0.6.0" }
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.145"
+hex = "=0.4.3"
+sha2 = "=0.10.9"
+
+[profile.release]
+debug = 0

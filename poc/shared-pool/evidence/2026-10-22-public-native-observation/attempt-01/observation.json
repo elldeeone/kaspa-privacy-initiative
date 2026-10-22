@@ -1,0 +1,1420 @@
+{
+  "schema": "kpi-public-native-observation-v1",
+  "prefix_operations": 13,
+  "provenance": {
+    "selected_public_input_sha256": "7fd8bd70774872a1748fb52d32754556e578f8abf89c76100e28e1fd315b02a1",
+    "selected_public_input_bytes": 790950,
+    "descriptor_sha256": "d02c36cd87db7bfd43f6f85a425539a90f8f39224a20ac5ef860ae0f54be3a8b",
+    "expected_descriptor_sha256": "d02c36cd87db7bfd43f6f85a425539a90f8f39224a20ac5ef860ae0f54be3a8b",
+    "descriptor_matches_caller_expectation": true,
+    "expected_identity_source": "caller must authenticate this digest independently",
+    "vk_sha256": "9e6ab30d2442fb6ab6fbb5c8aa9f11d8f161fe47ada094d7810fd9240ee119ef",
+    "transaction_source_pointers": [
+      "/lineage/0",
+      "/lineage/1",
+      "/lineage/2",
+      "/lineage/3",
+      "/lineage/4",
+      "/lineage/5",
+      "/lineage/6",
+      "/lineage/7",
+      "/lineage/8",
+      "/lineage/9",
+      "/lineage/10",
+      "/lineage/11",
+      "/lineage/12",
+      "/lineage/13"
+    ],
+    "source_scope": "selected prefix and exact consumed public funding parents; later bytes excluded"
+  },
+  "validation": {
+    "public_settlement_witness_recomputed": true,
+    "public_state_roots_recomputed": true,
+    "public_settlement_witnesses_checked": 13,
+    "public_native_accounting_checked": true,
+    "covenant_script_continuity_checked": true,
+    "transaction_id_recomputed": false,
+    "native_vm_verified": false,
+    "groth16_verified": false,
+    "funding_parent_spends_verified": false,
+    "chain_acceptance_verified": false,
+    "canonical_covenant_code_verified": false
+  },
+  "initial": {
+    "transaction_id": "1f165d970fe9a154a6ab70fb8ec1fbaf3e8972df1b2f589497756cc80cdc7b3d",
+    "commitment": "2c39f1763af2563e8ca4b433ec6a9b394653f4424e0700c9bba754398e63d5cd",
+    "commitment_count": 1,
+    "reserve_sompi": "2000000000",
+    "funding_input_sompi": "2100000000",
+    "founding_change_sompi": "98987400",
+    "founding_fee_sompi": "1012600"
+  },
+  "accounting": {
+    "admitted_sompi": "3600000000",
+    "paid_sompi": "5080000000",
+    "pool_fees_sompi": "520000000",
+    "remaining_reserve_sompi": "0",
+    "cumulative_amount_type": "unbounded integer sompi; individual amounts range checked"
+  },
+  "final_public_state_hex": "060f0000001400000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff186cd267f321c26db9567f49ee96ab8d6047c1316efd321eb4301c78c5a239e17aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+  "records": [
+    {
+      "ordinal": 0,
+      "transaction_id": "43692c7f040eac66d3dd036316f218e66612b124bb27a97c6cdc38f16168752c",
+      "mode": 1,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "2000000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "0",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "1960000000",
+      "bootstrap_sompi": "2000000000",
+      "funding_source_pointer": null,
+      "payout_script": null,
+      "anchor_count": 1,
+      "anchor_root": "86f99a3cbbc4eb72362c88b304efa91a501ae2aba139fb54752a932c53410a9c",
+      "commitment_count_before": 1,
+      "appended_commitment_positions": [
+        1,
+        2
+      ],
+      "commitment_slots": [
+        "a0b9cfa863e509de6bb1946d10eab382a861611a3e593a00fa0694f2bc57f51c",
+        "0dfabb515d88b144b43232b2f432fef1951f0118e966ce71a0ed32f30c97f699"
+      ],
+      "nullifier_slots": [
+        "6f201be6e18e822fdbb5478b5aa99d4a272360b9eb653208f9a3cd3e966cbb7e",
+        "da44bc04ec746fff829b7d097e5926b4a76537ae3bcf8da9a11973b35215ebee"
+      ],
+      "authorization_sha256": "a9ab053763fb2be383017894fb295cc22275143f6a62716e5dc765507d59c543",
+      "proof_sha256": "81cc600a692697c69ec2f420a880fcdc05af027af2b8a80de7083e78f84bc1ee",
+      "ciphertext_sha256": "0a43d77178bfddd678f03aa66f41be782f21c7cc036a64be607ec9ff401be52b",
+      "ciphertexts": [
+        "820bf260f493923529ebed7041e5cec9b5492a667019be38b1c65dd2f792cc6e9c26a94d530676b1e9c7302e83f51a7a58dd5f421e47d7b1a58fd30d25e5edcf08d6520d5723e7472bf911007994df076ee1b6417d8d1eed7538e306671d4dd70b7c9f276ee431ec035482d98b7b994b4f2ce5d4aabc94ba4824483a2b5b994a2f9f0dd40039c37648dc5e3d11e0e766e97ab89f78b7ebc5a22d4f7114cc4e444f0d0027467680373b0040c9e80116931b0faa265110fdb165",
+        "149c0e805f852e46477956afb7144082d9f4405f362a664c4eb135652fca1409c200dbfe1c205c6c3cab8977d5a2b7ae1d361ae46366589631a46e3e622862b25105c8125bbef862e1a3ed8105cb6918128a8f50de7c36dd5dc45289b166d675b65d8746a8c800ae67349d8c6cd63234960661d289e3abf1f74f49da4cb2e2a3315fe84875661d19c12ab93f5f5925a1a83fbb0eaf9ed9def80d45f3232f284f768e0bb89bef992d56aaec98849df6c01c641dbce837525ec0"
+      ],
+      "groth16_public_input_decimal": [
+        "258348774004270283991171729045489822633",
+        "90082973261577607577009734498016064802"
+      ],
+      "old_public_state_hex": "06010000000000000086f99a3cbbc4eb72362c88b304efa91a501ae2aba139fb54752a932c53410a9cb08e69625dee04e3378b9a0de8eb7c9fa97714ff80b5f66a8e7d08ade0de174772c1c3dc356f3a463c70b09e822fc2ed477fb6c3f7ff344214c0111d99dbbfaa",
+      "next_public_state_hex": "0603000000020000006fdf3e00c6f2b0a7b745bceef9a99bbee03ce0210cf9d5b051725c56cf5d893ff42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b37fcf4e0015930b165e9ad7c3dec89a5eba53b5940ac75459c06430e3b6a0585d",
+      "settlement_witness": {
+        "supplied_sha256": "459370dd3312da56c0b762dd2d50cacf39968fd5d3c6491e1c43704693cacc91",
+        "independently_regenerated_sha256": "459370dd3312da56c0b762dd2d50cacf39968fd5d3c6491e1c43704693cacc91",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/1/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/1/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "a9ab053763fb2be383017894fb295cc22275143f6a62716e5dc765507d59c543"
+        },
+        {
+          "pointer": "/lineage/1/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "0a43d77178bfddd678f03aa66f41be782f21c7cc036a64be607ec9ff401be52b"
+        },
+        {
+          "pointer": "/lineage/1/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "9921dc1b13550cf6e4ae3fb6e439761c8a3574559c62136b77078647a65c497a"
+        },
+        {
+          "pointer": "/lineage/1/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "459370dd3312da56c0b762dd2d50cacf39968fd5d3c6491e1c43704693cacc91"
+        },
+        {
+          "pointer": "/lineage/1/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "81cc600a692697c69ec2f420a880fcdc05af027af2b8a80de7083e78f84bc1ee"
+        },
+        {
+          "pointer": "/lineage/1/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "f220cf701352adaec888f8816c3770742fa34bec541b1cad76b6dc512a7ce7d8"
+        }
+      ]
+    },
+    {
+      "ordinal": 1,
+      "transaction_id": "b10254ff4cbc33538c2e20b9584021540fefa3f46b20197d3e653b4b8c7b69c1",
+      "mode": 0,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "1960000000",
+      "deposit_sompi": "1100000000",
+      "payout_sompi": "0",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "3020000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": "/parents/0/outputs/1",
+      "payout_script": null,
+      "anchor_count": 0,
+      "anchor_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "commitment_count_before": 3,
+      "appended_commitment_positions": [
+        3,
+        4
+      ],
+      "commitment_slots": [
+        "08b26a0cbdbdb53cb4e032247aa51a476cbcfeb08100be64f909e8b943434ed7",
+        "f73164066983269d88deb42d4d7fdad9b6625ccb6f47f6491de2f2fd78819564"
+      ],
+      "nullifier_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "authorization_sha256": "0002120b45741c3c10e04d787e68324c95daa26f4962a683c8ea86871aa6bf10",
+      "proof_sha256": "974b122deff6d43890a64f9a5d156e264c99bb68f437782d3c6b077a24b5645a",
+      "ciphertext_sha256": "596cbeae27ce93db8a68116d6dafbe59fad99eb064d57e08a4a85339f96d7a87",
+      "ciphertexts": [
+        "8db88565ce51e1f27451ceb58cd373e908f264507b6f580ccfc1791c3ebe0940345502c8c17b78523c4a052e88a852abb18957c8c141afe13a344c64968f835fb2898d50720a7f1b7e3fcf08fcbf7c16aa853c07f0effc8821c41a7847cd1409e4fe5d568b7980ccd7c86547effe84c1d7f8e839e0ba2182040c8a392b76171f166700a37b648f399d0cb3181e1a2e19280e248a1439da6656cd5adf390c1f461cf4199c6b0ca2edd723cbfede5723543eda84b6bac3a16812",
+        "d24d1786b95d616c1992529ae532d6a1796f8af515d3ddfe21268c8cc9070630d64506f3f52cde947e798668c4aa9a9f941c3a8e469a4a5c7c386a370459c292d67c99a7674b654292bfd166a3975d7277317921286c4ba2911f6f9bd8ad6bcbebde7ea836c7ebb01a0e922dabd88d70ffab8fb0e2c2f9f10a48bdabcb8559bd547a4efed05d921e69a845150fb05dab3c6723ef977668481d4beb4cfdb510c939c3e4f5a264da9fdbb072937904e81f97a03f3132ee6f63c8"
+      ],
+      "groth16_public_input_decimal": [
+        "101283061913159950869389756153256346112",
+        "22262745614408818709975518998016744085"
+      ],
+      "old_public_state_hex": "0603000000020000006fdf3e00c6f2b0a7b745bceef9a99bbee03ce0210cf9d5b051725c56cf5d893ff42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b37fcf4e0015930b165e9ad7c3dec89a5eba53b5940ac75459c06430e3b6a0585d",
+      "next_public_state_hex": "0605000000020000003b1fe46433cd15761e5e4f989286c08b7d00fb684e26583e87a8344f6fe89f8cf42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b342464aeffe5b935aaa87886e4693f6972cb87176eea38263df5be8a1914dab62",
+      "settlement_witness": {
+        "supplied_sha256": "f5111e5e46063d2a2c19f51019a8c6e373a0cc61d874b184ea481715f87e7692",
+        "independently_regenerated_sha256": "f5111e5e46063d2a2c19f51019a8c6e373a0cc61d874b184ea481715f87e7692",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/2/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/2/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "0002120b45741c3c10e04d787e68324c95daa26f4962a683c8ea86871aa6bf10"
+        },
+        {
+          "pointer": "/lineage/2/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "596cbeae27ce93db8a68116d6dafbe59fad99eb064d57e08a4a85339f96d7a87"
+        },
+        {
+          "pointer": "/lineage/2/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "127b0bc2c4a3c393b6c62b095468dd75721c3a9cb5b6038966661bb9819aef7d"
+        },
+        {
+          "pointer": "/lineage/2/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "f5111e5e46063d2a2c19f51019a8c6e373a0cc61d874b184ea481715f87e7692"
+        },
+        {
+          "pointer": "/lineage/2/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "974b122deff6d43890a64f9a5d156e264c99bb68f437782d3c6b077a24b5645a"
+        },
+        {
+          "pointer": "/lineage/2/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "fc83d735bb4078082008e4f4c278481a2688114e0956f32fcbac5a8ddeece7cc"
+        }
+      ]
+    },
+    {
+      "ordinal": 2,
+      "transaction_id": "9e561a41ae3c4f567309771e0cb58662207a23a32460a972044df52b3930e30c",
+      "mode": 0,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "3020000000",
+      "deposit_sompi": "1200000000",
+      "payout_sompi": "0",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "4180000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": "/parents/0/outputs/2",
+      "payout_script": null,
+      "anchor_count": 0,
+      "anchor_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "commitment_count_before": 5,
+      "appended_commitment_positions": [
+        5,
+        6
+      ],
+      "commitment_slots": [
+        "bd4e9082e3ade7e59dcd13dffa8dfa6a738e9be0e6293ef140429879a021ae28",
+        "7f93873748db97b2f11db2a55331523348396517fce85d95db432c56e2d06f5f"
+      ],
+      "nullifier_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "authorization_sha256": "d622a021b06509f13f2022fd2fca4fa570d3b0b7d5dd2c81c1a960e3e083bc4b",
+      "proof_sha256": "45ddf7577edcbed3ae2faee3f0e3e5dc2a12447b6b18095338b15754e8104cda",
+      "ciphertext_sha256": "bc8f9e2f1929cb9aa9d282e195562ca0ccf4336927a8168bb2703369fb205a9a",
+      "ciphertexts": [
+        "9aceb5cbb847e1420d05ee353d95c74eeec90d49c586a3a6bb661e4fc7299f61e3fca4513a04129dc4c683fb2fde14b38999c66543c5a62e85d2a7a41780511d1ab4df028519718b3dd0b75e12e80763f013c3e47369973d0b22c5e903e54c7153f92aee40f94211544cd1389913575f52e51b0710a5aaa2278aab332ea8fd0ed44c581f8849ba346e9174d57550dab96710248ed0a49bf046952caf84a808af28dd2bd9a7dc46883a3d8a93322bb2c64b07a597876dde3f67",
+        "2d2b774d597560ca88f3e8cb2e39c4e6346d8736b3b9d93cea472ed2de6b5b5f1275f695323acc60694f8b3fd52d3a04fcfa797eeb9263c4206fc59854e4e63b01b2ab06f4675a3420306b72ac99e8a5c2eac179d8fc268f9d8989c1a588af4cb7fa46db0b5086013b2039946f403f192fb83fad22a84e1a578babe14092abeaa2146f468bb2651d863470d4ba40cf730d43dca4bb4f504f876270fdc3ac68f33ceea2e2c00e7bcef0bf7e89986319a58154ae83bccd748a6c"
+      ],
+      "groth16_public_input_decimal": [
+        "219736911605139909477539631894332711638",
+        "100670926306409675383580025511811797872"
+      ],
+      "old_public_state_hex": "0605000000020000003b1fe46433cd15761e5e4f989286c08b7d00fb684e26583e87a8344f6fe89f8cf42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b342464aeffe5b935aaa87886e4693f6972cb87176eea38263df5be8a1914dab62",
+      "next_public_state_hex": "0607000000020000003f9fbce38f7c265ebebc20c30febb3e520bd80c1b255400966ffcefe96ae76ebf42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b38e8655333fbde723a16be694685d05a46ff37a8d9ec93657b7f5ff2fbe48a6f2",
+      "settlement_witness": {
+        "supplied_sha256": "a39f1f1e96c604ff5faa1141ad5d82cdd10b36bc43bd66e4c1eaccedfe59eb43",
+        "independently_regenerated_sha256": "a39f1f1e96c604ff5faa1141ad5d82cdd10b36bc43bd66e4c1eaccedfe59eb43",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/3/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/3/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "d622a021b06509f13f2022fd2fca4fa570d3b0b7d5dd2c81c1a960e3e083bc4b"
+        },
+        {
+          "pointer": "/lineage/3/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "bc8f9e2f1929cb9aa9d282e195562ca0ccf4336927a8168bb2703369fb205a9a"
+        },
+        {
+          "pointer": "/lineage/3/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "ac931d92383e416c1327537a15e2a2a3ce43b9d54daf4a22fdef03bfb30342c0"
+        },
+        {
+          "pointer": "/lineage/3/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "a39f1f1e96c604ff5faa1141ad5d82cdd10b36bc43bd66e4c1eaccedfe59eb43"
+        },
+        {
+          "pointer": "/lineage/3/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "45ddf7577edcbed3ae2faee3f0e3e5dc2a12447b6b18095338b15754e8104cda"
+        },
+        {
+          "pointer": "/lineage/3/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "373e09f55c20f00b2e3705c56ed2299d8dd6fa340e817df702d7b75d1cdf9ef2"
+        }
+      ]
+    },
+    {
+      "ordinal": 3,
+      "transaction_id": "a8e252d86d6d73ee5972463ed5f87cf30b2a67d8f6c872ad59b128cd07519a15",
+      "mode": 0,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "4180000000",
+      "deposit_sompi": "1300000000",
+      "payout_sompi": "0",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "5440000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": "/parents/0/outputs/3",
+      "payout_script": null,
+      "anchor_count": 0,
+      "anchor_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "commitment_count_before": 7,
+      "appended_commitment_positions": [
+        7,
+        8
+      ],
+      "commitment_slots": [
+        "29ec8c8f77eeadbdd5b8d17997f5db90591a78af37e1f5f6aa7f7727b9e80e9e",
+        "91ae9fb1d183c81ad023f7e003dc551fa1cb63cde7909bf0aa04a208c85150bb"
+      ],
+      "nullifier_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "authorization_sha256": "86c454d0b6b7c706ca0dc95e248e9b23349a3b15e27be2fe7b0847a5e2adfc61",
+      "proof_sha256": "0eba658ee6e3d60822ffa20e875ea49d4c1141bc783c40bd066b1356a0b6a0e6",
+      "ciphertext_sha256": "e8662767157dae46593389dbafe8e187cbff674115409ac5126b72aaf43ae36c",
+      "ciphertexts": [
+        "821e062762b588b00ca2cb3223138c619ae9d4f9486f5d9a0ab40ad8ef936f13fae584241d922128fc5312bcf2adae74f322867b733753d96daf7afe072a72b68325763c38a75f94c97dd711af782e5287b6862cf5db4c655f089a51c7e02e80c77bd58997e9b957e3be49739295b691803a68687c75f8dbb6670ee884323c98aba99c0dbb1031e189cac21357da88e4f9645850b21f01fd003e0a8ae1d46bc13ab3f9ab26f590db76cbb6db13b0121a5f868606ec402b724c",
+        "30e6457f214f330e95be3d0c1c4b472b3c3d9ffd84093dfaeb74181dcc1c3c532d3234294516f6fecfc83d06f38e45b288d903f324469577dccaf9f0622f0de584763afaa29e5d95930c3fb380a811cdb541b7f70010667bcc244a20d570db40d614832c712606f6fd48bf468a75dc28b663fb093176227dceaa06f9a80c769bfabf4f86f0d6413273ea20c8389440c1928509f2afcbef231520a8089456c8ce907ca491b96254958330a80067d6e196f40e1d1e885ccefeae"
+      ],
+      "groth16_public_input_decimal": [
+        "47330668849257173015215946117468701830",
+        "130247101213064676616744946413311072820"
+      ],
+      "old_public_state_hex": "0607000000020000003f9fbce38f7c265ebebc20c30febb3e520bd80c1b255400966ffcefe96ae76ebf42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b38e8655333fbde723a16be694685d05a46ff37a8d9ec93657b7f5ff2fbe48a6f2",
+      "next_public_state_hex": "0609000000020000004c6661670094ebad2f8de5dd1ba1187eea213cf5bd0ff9b0cd96671a5d35fc7af42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b3c6f19661e36bfa52b64da1174d5ae25471b84af18d8994692b2f8fe204a0394a",
+      "settlement_witness": {
+        "supplied_sha256": "2bbd5aa5b756231deb02609e05858e9fcad2f47dac79eb93f9585f21245afa52",
+        "independently_regenerated_sha256": "2bbd5aa5b756231deb02609e05858e9fcad2f47dac79eb93f9585f21245afa52",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/4/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/4/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "86c454d0b6b7c706ca0dc95e248e9b23349a3b15e27be2fe7b0847a5e2adfc61"
+        },
+        {
+          "pointer": "/lineage/4/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "e8662767157dae46593389dbafe8e187cbff674115409ac5126b72aaf43ae36c"
+        },
+        {
+          "pointer": "/lineage/4/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "e0eba37e872a4ec677a8d7fc8ce7b680065195988b8da27c01f32180cc39de0c"
+        },
+        {
+          "pointer": "/lineage/4/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "2bbd5aa5b756231deb02609e05858e9fcad2f47dac79eb93f9585f21245afa52"
+        },
+        {
+          "pointer": "/lineage/4/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "0eba658ee6e3d60822ffa20e875ea49d4c1141bc783c40bd066b1356a0b6a0e6"
+        },
+        {
+          "pointer": "/lineage/4/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "2a3abebb3ad38a322bce4b1f1b67fb025a6b3853019ff2865aa3ac14bc3b1eb9"
+        }
+      ]
+    },
+    {
+      "ordinal": 4,
+      "transaction_id": "aa87d613bf36c6da5dfda60dd371360f5b4cfdf455f5ce74ce9795ec996db0e7",
+      "mode": 1,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "5440000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "0",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "5400000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": null,
+      "anchor_count": 9,
+      "anchor_root": "4c6661670094ebad2f8de5dd1ba1187eea213cf5bd0ff9b0cd96671a5d35fc7a",
+      "commitment_count_before": 9,
+      "appended_commitment_positions": [
+        9,
+        10
+      ],
+      "commitment_slots": [
+        "7dbe2984f15972b37c66d007826ed63ac70f3f4199889be93fa3dc88f94edb68",
+        "17a66fa8245da1acd44591d41588acfb4be7a140ef359b2b0ada98e1ad08aafd"
+      ],
+      "nullifier_slots": [
+        "842db4cd7a7bc76bb7345bb877788ef7ad1ee94bc39083501f204db9e40d09db",
+        "328cfd89081822a2025936c8fe83e1d58243093eb0a52e90edc5a7770581aa97"
+      ],
+      "authorization_sha256": "04beb1a621fc1c2a96da05e9eeda47cdc0b44c1b088ccdc677b908b93987a2af",
+      "proof_sha256": "01b2cdc52131f4a612fb354fb5f86e0ad7c5c5f4a2e4146d18484514180a6b9b",
+      "ciphertext_sha256": "0b5b7654a35d68d12ab002c375a75b89cbea67ed20db3907ad3650f6728930c3",
+      "ciphertexts": [
+        "5872d1d52d502f2e23470bcfc14575bcc49334352de8a14dbcd8d87f211a1c104d023e9f8129a13dcd7ea7d524dc3ea0c00f3a3a4090afc36a737da7424789b4f1fc5762b81bec1acdebe825cae9a55273af28907021faf63b74136f1a1ef30a1a315f0a05bda50f0f738f24e9d98d62c3a491c776c9243adaa24524cf48abdcec1675d96dfe225e82ef61e0a203c6f58978e7038693af2a98399c5c6b83dfe62153677c381ede7e8692a8989178cfb343e5c5ce6a11008601",
+        "6e42dbcc9faf6040350c3a243bc5898509b0ff0bcd42e820071eb64e4cd4645459e52a80c3774e4fb26fbef051b387d8b67ba4322f20b7aa347c2b88298fb546ef3a1265e0008ae594a87e781b93af97c65d6570462274c57601c33054fd6a2d864c24e614372e27706849306f023f174467d7499597868f969937fff11bf4a09c7f18ef62cfbd120fe85fd2b1c32bbe03591cc0646325207b4c3eb3141166d41995fef005cd444d3fc43b40a92cd9cc710b01f225d7fb34dc"
+      ],
+      "groth16_public_input_decimal": [
+        "272864832706577085329381808629324299780",
+        "233458794052009950193355542024787113152"
+      ],
+      "old_public_state_hex": "0609000000020000004c6661670094ebad2f8de5dd1ba1187eea213cf5bd0ff9b0cd96671a5d35fc7af42ceff9e3934d4cb3f38eeb9d754a77b94f0314a7c4e7c7efb914d62793b2b3c6f19661e36bfa52b64da1174d5ae25471b84af18d8994692b2f8fe204a0394a",
+      "next_public_state_hex": "060b000000040000009ee3d8aa2efdf0710c3377c6a9e3cb77e170aa8a738e8c73ee7b61a30705f2c7c91ad84d88e6d3c2a4d2a0d013f411c76ef100b03268baff0110c621ff53360be3cc7075536a5b14890f369a1302283c75b5a9e1723c22c3a49e8f79d178791c",
+      "settlement_witness": {
+        "supplied_sha256": "baa1a959d30c094e91ba868e8c8021cae45ae60b864d9e8fbb6f05abe18f7230",
+        "independently_regenerated_sha256": "baa1a959d30c094e91ba868e8c8021cae45ae60b864d9e8fbb6f05abe18f7230",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/5/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/5/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "04beb1a621fc1c2a96da05e9eeda47cdc0b44c1b088ccdc677b908b93987a2af"
+        },
+        {
+          "pointer": "/lineage/5/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "0b5b7654a35d68d12ab002c375a75b89cbea67ed20db3907ad3650f6728930c3"
+        },
+        {
+          "pointer": "/lineage/5/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "9f13035bda60b342d6515252ddd099f2cb5bb5fa8ba0dfa34981bd79a38e59cc"
+        },
+        {
+          "pointer": "/lineage/5/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "baa1a959d30c094e91ba868e8c8021cae45ae60b864d9e8fbb6f05abe18f7230"
+        },
+        {
+          "pointer": "/lineage/5/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "01b2cdc52131f4a612fb354fb5f86e0ad7c5c5f4a2e4146d18484514180a6b9b"
+        },
+        {
+          "pointer": "/lineage/5/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "1f64a97d3d21de7bf509300276c0929b743cf93b336254556c9a2673d72be1c6"
+        }
+      ]
+    },
+    {
+      "ordinal": 5,
+      "transaction_id": "d6286da0c6b8773a34ff2b8a84b08b6e0ae3df447e869e8aeab999f325e57731",
+      "mode": 1,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "5400000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "211000000",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "5149000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": "0000203063f09f23880c8053d9370ab18cbbd31bdf48ebdb4a454fa3f7e7cd597e8fffac",
+      "anchor_count": 11,
+      "anchor_root": "9ee3d8aa2efdf0710c3377c6a9e3cb77e170aa8a738e8c73ee7b61a30705f2c7",
+      "commitment_count_before": 11,
+      "appended_commitment_positions": [
+        11,
+        12
+      ],
+      "commitment_slots": [
+        "bffc9c99aebef9f29724e70a61b25d796a4177c01f9fee37c392285f5b4c98e8",
+        "fec3491adfdb8e53a0c637e7e162dd27d6ecabd1bdc0c50ec42f9f4829b0297f"
+      ],
+      "nullifier_slots": [
+        "85d617b8003f1393ce33eabc33b6126e96034f97f66283fb28a23a696edc5854",
+        "e14e5b870f7bbee5d674b25ee9631332c85e0cd6599dd7e2b7f0e2e38871cf66"
+      ],
+      "authorization_sha256": "7d8637f6797fa022053ffbe9f6b774cac1658d0a41de4bb7fe25ad9e63492016",
+      "proof_sha256": "ec263c8233b9eb7b26b9cb57ffb23193bdf1d9eb8e9aa9170c14470a1108af5a",
+      "ciphertext_sha256": "424d6b4229122494fa7c938c8d781cef33fb3f584f3736d106f19af23cb91bef",
+      "ciphertexts": [
+        "7bec3f532d113482dc538c58a7db9016f75f3fe26cf82b50dbbcf9b846d91b6e687f94c174879971cb316f91ea08cc55a5263fc1b907318f7c9809b8a4f54eb380b97cec809ef7656e38556d5baa61db7c2430423c785af67bcaf8171bcdf17a13a30186a37b45efa9f7d96a310314383aa32e233b50147053b3789c0b92d061b01f376d93b92980f538c0be11110de6f5d4a59c305fa4da17da8e618be981cdbb4b0321c7adc9ab192fdf0586f848b3630a69232cf8cc5d0d",
+        "c42d1853c9335f42ea10a7777ebe807b5269b23f29c52d9843208098ed0b56511ce63a93bac97ebf63ee73ae5606e98198063f842df87f6a8302e55a0d4d3208006fd1353bced715516f39425f4c92e7ccffad9ca33770185afe13aa1f4e718e91d4997e5ff4068709505fe5aad7d400d8bb0e0697460853e43ea46172d7ee9c4769e8d9c3abaa50b4f8cff8b0eb9a34189415e30fbc2e35ef22e820d27fd1333bedb5614894eed93671c46e8fe5914c7f3e67f8b2506a3f95"
+      ],
+      "groth16_public_input_decimal": [
+        "269110092827642238369107142556899575421",
+        "29410657915338374316913708426861569473"
+      ],
+      "old_public_state_hex": "060b000000040000009ee3d8aa2efdf0710c3377c6a9e3cb77e170aa8a738e8c73ee7b61a30705f2c7c91ad84d88e6d3c2a4d2a0d013f411c76ef100b03268baff0110c621ff53360be3cc7075536a5b14890f369a1302283c75b5a9e1723c22c3a49e8f79d178791c",
+      "next_public_state_hex": "060d00000006000000afa086b963df9db5ebb8d98fcbb49f52cb957227dfa5e159eadc33e96248f85e3ce9c020e4d1f60006ae852a211c75b99fc556adc82aa39d7a08701e6f11e72f9618769c0dc7b32ab54b1308f049143a19f16983f733266d97cba642fdf9a517",
+      "settlement_witness": {
+        "supplied_sha256": "e67e8beb390b6ba41b5cb39d34c8dd742e90e0159e254eadbddfb1a0a1c8de42",
+        "independently_regenerated_sha256": "e67e8beb390b6ba41b5cb39d34c8dd742e90e0159e254eadbddfb1a0a1c8de42",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/6/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/6/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "7d8637f6797fa022053ffbe9f6b774cac1658d0a41de4bb7fe25ad9e63492016"
+        },
+        {
+          "pointer": "/lineage/6/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "424d6b4229122494fa7c938c8d781cef33fb3f584f3736d106f19af23cb91bef"
+        },
+        {
+          "pointer": "/lineage/6/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "cc5fae9c62c85e29f3067a418cd8b263f28e982ab58fa21184904c0462b73048"
+        },
+        {
+          "pointer": "/lineage/6/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "e67e8beb390b6ba41b5cb39d34c8dd742e90e0159e254eadbddfb1a0a1c8de42"
+        },
+        {
+          "pointer": "/lineage/6/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "ec263c8233b9eb7b26b9cb57ffb23193bdf1d9eb8e9aa9170c14470a1108af5a"
+        },
+        {
+          "pointer": "/lineage/6/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "8bd2affef45d7ef09d6f3d1ae5404db7274e6f8b558832402deb2a1fce869ebc"
+        }
+      ]
+    },
+    {
+      "ordinal": 6,
+      "transaction_id": "ab1f5426f5b03c29a931ade155c996ae7b33d8a3a4009dbc1130bace9b1e8083",
+      "mode": 1,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "5149000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "0",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "5109000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": null,
+      "anchor_count": 13,
+      "anchor_root": "afa086b963df9db5ebb8d98fcbb49f52cb957227dfa5e159eadc33e96248f85e",
+      "commitment_count_before": 13,
+      "appended_commitment_positions": [
+        13,
+        14
+      ],
+      "commitment_slots": [
+        "0a6554ea182404e2c91dab9c124a488bcebdf1561850991bf737462803997425",
+        "eb422012a1b561cc162db250c797575705d1c13e000bf8c517bcea8d90f42720"
+      ],
+      "nullifier_slots": [
+        "5b86460e08664577e15aaba712be41bbe9018b5b499e1bf1bf47c7beec061765",
+        "779ab4cb9caa55cfcf8c5e0e039c943fb2572a5db0071b44bedfe6858268d998"
+      ],
+      "authorization_sha256": "0711636fb0b948ef67e075e155f301251b1b5593917126ad6189dd410e913b52",
+      "proof_sha256": "1860dc119c944d07c5d1aa58e538ea79964ee56ada72b4223d499f477f1c64d8",
+      "ciphertext_sha256": "b5c67cb8dfe52977280f570911ca52555e8273bca4fb9582a5bfb9ee7a55027b",
+      "ciphertexts": [
+        "422d7686fa95ae3e09fbaffc3aba6c68d72313089d8f13b633b1ad838e51104a75aed053a91d92c035b7f94c89884b60623ceb939b92f929cde10c3ce753893f80a2b17c60fbbdfb0393a69ee5f32e2329b4a3e1c6c1a575f3757e48f532c9dda5bef4e40e547b9bdd2f2fd82f935e5d3e60950502eb87fbfc2051c0fe5122765cb1427c14cdc7ceba51bcae00922376c31defad61b2e6761a191135d1d2fa4110e0637279eadd12e014987f27f76cae215951b0ab3b005ee6",
+        "67607dcc67a9a88642241b2a976dbce24e760aa738f7f88280e1db5c71e20b510eec7c7c105c89ef1addf08d076e3a3c761fce9acc9fe50cb8d45bd291bdc03ea19d071719292d35149aa79a56e46df2a46b857cef526dd8fe83414e3d75310cf570cf45752813832f661b3d596ff3cf5686b8c8b2efecdf444891b15d7193dbf1a9630873ca0cec70a6b08855aa4bc4ab3e73d7b4fac671846aa7d5783e91946c7ff9737237a39156d597f76a3d1968dad2ca3153b9ba8b3a"
+      ],
+      "groth16_public_input_decimal": [
+        "49191563570604554451497696169950384391",
+        "109305983247987808110649052381138197275"
+      ],
+      "old_public_state_hex": "060d00000006000000afa086b963df9db5ebb8d98fcbb49f52cb957227dfa5e159eadc33e96248f85e3ce9c020e4d1f60006ae852a211c75b99fc556adc82aa39d7a08701e6f11e72f9618769c0dc7b32ab54b1308f049143a19f16983f733266d97cba642fdf9a517",
+      "next_public_state_hex": "060f0000000800000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff1bd23abead784362dda48b225af005cb56af8df8021085037e050afcc9bd27302aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "settlement_witness": {
+        "supplied_sha256": "330d2b61625a45ada23af84f1623f0e31e4fb53c5854059620392952cc90d1cf",
+        "independently_regenerated_sha256": "330d2b61625a45ada23af84f1623f0e31e4fb53c5854059620392952cc90d1cf",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/7/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/7/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "0711636fb0b948ef67e075e155f301251b1b5593917126ad6189dd410e913b52"
+        },
+        {
+          "pointer": "/lineage/7/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "b5c67cb8dfe52977280f570911ca52555e8273bca4fb9582a5bfb9ee7a55027b"
+        },
+        {
+          "pointer": "/lineage/7/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "27c24f40e700b0ad13cabbcc2c9da152ad9597a157f76cb6ed3822eceef0163c"
+        },
+        {
+          "pointer": "/lineage/7/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "330d2b61625a45ada23af84f1623f0e31e4fb53c5854059620392952cc90d1cf"
+        },
+        {
+          "pointer": "/lineage/7/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "1860dc119c944d07c5d1aa58e538ea79964ee56ada72b4223d499f477f1c64d8"
+        },
+        {
+          "pointer": "/lineage/7/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "55f469536a744199a77cf3cc2892768ec32a991f52fb4f16d1938fc452678a27"
+        }
+      ]
+    },
+    {
+      "ordinal": 7,
+      "transaction_id": "42c43321ea90f15920bc4241eb3d22b4472e0fc7e0d08f3974bc347248e5f86e",
+      "mode": 2,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "5109000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "1020000000",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "4049000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": "000020fd27420d56e51ccf1592288105f40943126c7331d2f7c10fd88bce3c20b71c02ac",
+      "anchor_count": 5,
+      "anchor_root": "3b1fe46433cd15761e5e4f989286c08b7d00fb684e26583e87a8344f6fe89f8c",
+      "commitment_count_before": 15,
+      "appended_commitment_positions": [],
+      "commitment_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "nullifier_slots": [
+        "4d92c92837e44a44fafed768d39c6a8ef8e735f446ddf557cd101ff11d725c5b",
+        "ff9382cd0e217fd455856d7533320bab780e7a59c2864d96830cc3b38b25ebee"
+      ],
+      "authorization_sha256": "a490b676c48d70260a27efdc200ddb50c60ecb8e31c23616e582022463647098",
+      "proof_sha256": "2442ccbf40e078210a5b5999ce6cd383ed996825f99cee8415710079a7d15553",
+      "ciphertext_sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215",
+      "ciphertexts": [
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "groth16_public_input_decimal": [
+        "107475618949814264802241011617442992292",
+        "202626228703156063793741403138952990406"
+      ],
+      "old_public_state_hex": "060f0000000800000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff1bd23abead784362dda48b225af005cb56af8df8021085037e050afcc9bd27302aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "next_public_state_hex": "060f0000000a00000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff156db29d79a9a7e3fe6039c6173633bc5395c75277c148eed8e514114bd7b2e6aaafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "settlement_witness": {
+        "supplied_sha256": "a15bd10b29236f416eb7c806f29d892ac7b4efa4840db5ac4a83364d6d52df10",
+        "independently_regenerated_sha256": "a15bd10b29236f416eb7c806f29d892ac7b4efa4840db5ac4a83364d6d52df10",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/8/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/8/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "a490b676c48d70260a27efdc200ddb50c60ecb8e31c23616e582022463647098"
+        },
+        {
+          "pointer": "/lineage/8/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215"
+        },
+        {
+          "pointer": "/lineage/8/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "24f9ff63ccc498abcedd8143b22b030d81fc8027d36f9882cdac8c92c7b187a1"
+        },
+        {
+          "pointer": "/lineage/8/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "a15bd10b29236f416eb7c806f29d892ac7b4efa4840db5ac4a83364d6d52df10"
+        },
+        {
+          "pointer": "/lineage/8/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "2442ccbf40e078210a5b5999ce6cd383ed996825f99cee8415710079a7d15553"
+        },
+        {
+          "pointer": "/lineage/8/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "80ce3ed66255f53e0f41ee51de40ea28f168c605382e68384e3f8bcf3b1939fb"
+        }
+      ]
+    },
+    {
+      "ordinal": 8,
+      "transaction_id": "28a2f161b764a3a8265a7712d6bab88a3a6ba9b4c61494e22ed6ae3230a4a8e4",
+      "mode": 2,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "4049000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "230000000",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "3779000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": "000020bca2814cc344370e28f690673940b471494251603babb8b468ca7ad42648030fac",
+      "anchor_count": 15,
+      "anchor_root": "54929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff1",
+      "commitment_count_before": 15,
+      "appended_commitment_positions": [],
+      "commitment_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "nullifier_slots": [
+        "432b682dbf0a81d0180c7b132b8669746a6f41f11afb4c85973fd844b77168fd",
+        "fadce9a4036280dc7ec0d6b25b13212d082420a5808cbb2b7a86bb4348bf65c3"
+      ],
+      "authorization_sha256": "0307317d2ce7f516de84c74b8decc245ecb8a701172a6e5334a14cd898162006",
+      "proof_sha256": "e50665bc3e99c850a77fcaa90184c1506eb113077e45e563a0d6664e1fd79794",
+      "ciphertext_sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215",
+      "ciphertexts": [
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "groth16_public_input_decimal": [
+        "92728835143004907519700852821420214019",
+        "8141979796815993976411928640918894828"
+      ],
+      "old_public_state_hex": "060f0000000a00000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff156db29d79a9a7e3fe6039c6173633bc5395c75277c148eed8e514114bd7b2e6aaafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "next_public_state_hex": "060f0000000c00000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff19ac88b7d26faeaa15604a3217e07d3c1c47bfeff096ae3549fdea9cbca779a58aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "settlement_witness": {
+        "supplied_sha256": "3aa6df8c7153436dcef44a128eb40d65ab02b27e4caf15e80836a2536f2f17d2",
+        "independently_regenerated_sha256": "3aa6df8c7153436dcef44a128eb40d65ab02b27e4caf15e80836a2536f2f17d2",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/9/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/9/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "0307317d2ce7f516de84c74b8decc245ecb8a701172a6e5334a14cd898162006"
+        },
+        {
+          "pointer": "/lineage/9/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215"
+        },
+        {
+          "pointer": "/lineage/9/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "d9f29bdcba44f473100da34dcce6341964a881e269efc1cf0c7bb3f73915864c"
+        },
+        {
+          "pointer": "/lineage/9/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "3aa6df8c7153436dcef44a128eb40d65ab02b27e4caf15e80836a2536f2f17d2"
+        },
+        {
+          "pointer": "/lineage/9/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "e50665bc3e99c850a77fcaa90184c1506eb113077e45e563a0d6664e1fd79794"
+        },
+        {
+          "pointer": "/lineage/9/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "7a75dff0006d79be2d3c345d64a4e0d552ae609bc1c551f7c8f047f13781faca"
+        }
+      ]
+    },
+    {
+      "ordinal": 9,
+      "transaction_id": "3be57b6804c510ce256e7ed82b6c0a3b670f101d11e38ae729d12bea0faf88d9",
+      "mode": 2,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "3779000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "1120000000",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "2619000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": "000020c1e5138aba67a509b592fe46fcd34dd53d7996606dca03fd52af5aff60a52713ac",
+      "anchor_count": 7,
+      "anchor_root": "3f9fbce38f7c265ebebc20c30febb3e520bd80c1b255400966ffcefe96ae76eb",
+      "commitment_count_before": 15,
+      "appended_commitment_positions": [],
+      "commitment_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "nullifier_slots": [
+        "be18fc1052e6b3320539e7484ca0d137375f8271d297c4e12b6c1feeec6382d3",
+        "bd030323a5b7de8afc6fe48120522104575712b1b0172bca23de6504e27ccf0c"
+      ],
+      "authorization_sha256": "2419b599c22592c5ec9df41a3e6e914d0ec610fc0ee60a057ccc021b7a15766e",
+      "proof_sha256": "a647280636243b365c89f4fda4f77832435e5d1e7acc5efc22b401f9e14f11c8",
+      "ciphertext_sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215",
+      "ciphertexts": [
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "groth16_public_input_decimal": [
+        "103105674705470883722412466731719399716",
+        "146828206170444837872251136835840951822"
+      ],
+      "old_public_state_hex": "060f0000000c00000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff19ac88b7d26faeaa15604a3217e07d3c1c47bfeff096ae3549fdea9cbca779a58aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "next_public_state_hex": "060f0000000e00000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff197e2ec0df8d078f50629ba6c78badd291e084f0419f1c357367be7edeb727e2aaafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "settlement_witness": {
+        "supplied_sha256": "efb540f66d7a8d5cab84b4da23a46e6da6edf0eda6d168bce19c1ba0fddfacde",
+        "independently_regenerated_sha256": "efb540f66d7a8d5cab84b4da23a46e6da6edf0eda6d168bce19c1ba0fddfacde",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/10/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/10/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "2419b599c22592c5ec9df41a3e6e914d0ec610fc0ee60a057ccc021b7a15766e"
+        },
+        {
+          "pointer": "/lineage/10/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215"
+        },
+        {
+          "pointer": "/lineage/10/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "d6dd4a3641c8757c236483f21cd22d4e4c0f6fbed2a922b17d560dafc21a58b1"
+        },
+        {
+          "pointer": "/lineage/10/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "efb540f66d7a8d5cab84b4da23a46e6da6edf0eda6d168bce19c1ba0fddfacde"
+        },
+        {
+          "pointer": "/lineage/10/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "a647280636243b365c89f4fda4f77832435e5d1e7acc5efc22b401f9e14f11c8"
+        },
+        {
+          "pointer": "/lineage/10/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "c68fe3f0b8079519fc7f0921c04e0693798263d3d8b55359b46c656fa7364e1f"
+        }
+      ]
+    },
+    {
+      "ordinal": 10,
+      "transaction_id": "2dfbced76e107d10f0bf5f87011b98a648ac94556a6e290c02f20d198bba4cf3",
+      "mode": 2,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "2619000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "130000000",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "2449000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": "000020e1434be42f98ebc86cb9a1bc0c1a71bf7b1045b3151dbabbe906453d79f68899ac",
+      "anchor_count": 15,
+      "anchor_root": "54929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff1",
+      "commitment_count_before": 15,
+      "appended_commitment_positions": [],
+      "commitment_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "nullifier_slots": [
+        "46cf384d962c1ed65439e7e3529a2f8500ee2998baea06faf240b410bb204bb2",
+        "1e0c6898336e198ad6bb1fb1b2930fbbcda3fed1d892af979becafacd7ea0522"
+      ],
+      "authorization_sha256": "5582dfa014ea904fae8384fb401eb3a55dfcc7be94d896401532a1e946ef0185",
+      "proof_sha256": "ee905859f85c5b9d83e7bcdd1a73b0eef52d2e8c0de86241c6f0312a9d2dc512",
+      "ciphertext_sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215",
+      "ciphertexts": [
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "groth16_public_input_decimal": [
+        "220252654062920301156488255943466779221",
+        "176797368850423875527261095193213402205"
+      ],
+      "old_public_state_hex": "060f0000000e00000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff197e2ec0df8d078f50629ba6c78badd291e084f0419f1c357367be7edeb727e2aaafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "next_public_state_hex": "060f0000001000000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff16f16de030e205ae442796e6db2e6eb8660c14ba0b8ef621999549dbd8bab7597aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "settlement_witness": {
+        "supplied_sha256": "94b4cdbf0cb6306f8fe8dbbb0a25945f031b66b4b54bba8231dad45a72052ea5",
+        "independently_regenerated_sha256": "94b4cdbf0cb6306f8fe8dbbb0a25945f031b66b4b54bba8231dad45a72052ea5",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/11/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/11/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "5582dfa014ea904fae8384fb401eb3a55dfcc7be94d896401532a1e946ef0185"
+        },
+        {
+          "pointer": "/lineage/11/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215"
+        },
+        {
+          "pointer": "/lineage/11/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "dc463b9120def124766545f18f1a312e659adf231d6bf8858d8b6575b23c4197"
+        },
+        {
+          "pointer": "/lineage/11/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "94b4cdbf0cb6306f8fe8dbbb0a25945f031b66b4b54bba8231dad45a72052ea5"
+        },
+        {
+          "pointer": "/lineage/11/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "ee905859f85c5b9d83e7bcdd1a73b0eef52d2e8c0de86241c6f0312a9d2dc512"
+        },
+        {
+          "pointer": "/lineage/11/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "ee72380e6023416490ddcf1e514ea778ffa9e74f7bb90c96c4723aa0174b78b2"
+        }
+      ]
+    },
+    {
+      "ordinal": 11,
+      "transaction_id": "76f973d494dc8415a06ce7908b5ffe6ce478f3db1940efad51fa4072b44af910",
+      "mode": 2,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "2449000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "1220000000",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "1189000000",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": "0000202ce271f62b0a0c497acab63774cbd086d732bb71f96569a1be3039e90d8d3b7eac",
+      "anchor_count": 9,
+      "anchor_root": "4c6661670094ebad2f8de5dd1ba1187eea213cf5bd0ff9b0cd96671a5d35fc7a",
+      "commitment_count_before": 15,
+      "appended_commitment_positions": [],
+      "commitment_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "nullifier_slots": [
+        "3bb7e56af0fd56a44cad2364ff27783f7e564da0560711a59dea659e172a3a3c",
+        "6c4970f978e944930884814d54867b6e3732f9a84442af91516292a7ef89c503"
+      ],
+      "authorization_sha256": "92bd3c00bba77c8d50d9cc3d01d97e065ed0c46fad95d44694bf77fb5494af1f",
+      "proof_sha256": "3c310569ef83553881e4206ce2e381abe66641b23539fe7d7fad2fdbf4a07881",
+      "ciphertext_sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215",
+      "ciphertexts": [
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "groth16_public_input_decimal": [
+        "8633998760123271151128969277928684946",
+        "42117728349188482885349930760000557150"
+      ],
+      "old_public_state_hex": "060f0000001000000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff16f16de030e205ae442796e6db2e6eb8660c14ba0b8ef621999549dbd8bab7597aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "next_public_state_hex": "060f0000001200000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff10692b5d5701f54ec9f06e769f0e45636d98801307ddc069f75780e7078c10b49aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "settlement_witness": {
+        "supplied_sha256": "8ec302f3a21a14b0f3f378621ee194418e9302b6bb510af48df0951fa0e7ca11",
+        "independently_regenerated_sha256": "8ec302f3a21a14b0f3f378621ee194418e9302b6bb510af48df0951fa0e7ca11",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/12/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/12/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "92bd3c00bba77c8d50d9cc3d01d97e065ed0c46fad95d44694bf77fb5494af1f"
+        },
+        {
+          "pointer": "/lineage/12/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215"
+        },
+        {
+          "pointer": "/lineage/12/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "7392d29d1710cf576e7ee32924df690ef547e5284840849f8c10ee3161e32e65"
+        },
+        {
+          "pointer": "/lineage/12/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "8ec302f3a21a14b0f3f378621ee194418e9302b6bb510af48df0951fa0e7ca11"
+        },
+        {
+          "pointer": "/lineage/12/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "3c310569ef83553881e4206ce2e381abe66641b23539fe7d7fad2fdbf4a07881"
+        },
+        {
+          "pointer": "/lineage/12/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "9f2f8b65be1f8f978b12740a08ff8087fa09ad25b527cafa005c3557c5f8cee3"
+        }
+      ]
+    },
+    {
+      "ordinal": 12,
+      "transaction_id": "1aee4e05427ab9f54c842aa9717f96759951013a4bd3da9a13b66d622dcf0269",
+      "mode": 2,
+      "order_source": "reserve dependency ordinal",
+      "timestamp": null,
+      "request_minute": null,
+      "owner": null,
+      "reserve_before_sompi": "1189000000",
+      "deposit_sompi": "0",
+      "payout_sompi": "1149000000",
+      "fee_sompi": "40000000",
+      "reserve_after_sompi": "0",
+      "bootstrap_sompi": "0",
+      "funding_source_pointer": null,
+      "payout_script": "0000205f327de84f0fb49ea963cbfb2c4b727a8159b528a4baf8871616e4c37d2bb086ac",
+      "anchor_count": 11,
+      "anchor_root": "9ee3d8aa2efdf0710c3377c6a9e3cb77e170aa8a738e8c73ee7b61a30705f2c7",
+      "commitment_count_before": 15,
+      "appended_commitment_positions": [],
+      "commitment_slots": [
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "nullifier_slots": [
+        "13b84f24c95ff520cfae87cc0509aee2c4d600bc3d321f8bc82c3e1d5d792ccb",
+        "50f9757d30edd8b873db24e49081564dffea9a10ac4a4e43fb75fff8d1ad5548"
+      ],
+      "authorization_sha256": "e3051c5ed1659f4aa9c9a9586742a2dd767edbceea0851f2a5c2ab54f0509133",
+      "proof_sha256": "6d15699a1cba859b0c357b761750fa8ae41833c69249bcffcbdde64c3ed7c45f",
+      "ciphertext_sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215",
+      "ciphertexts": [
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "groth16_public_input_decimal": [
+        "294601885986523571613371225444814947811",
+        "68545152463249941421724303542567272054"
+      ],
+      "old_public_state_hex": "060f0000001200000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff10692b5d5701f54ec9f06e769f0e45636d98801307ddc069f75780e7078c10b49aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "next_public_state_hex": "060f0000001400000054929ab3b76cf84307769707261f7ab980caf8755e805b9630c0bc817553aff186cd267f321c26db9567f49ee96ab8d6047c1316efd321eb4301c78c5a239e17aafc22e255bf9d43d230ff4449ef59253c32b4e6242ec7072971fd9abec9a208",
+      "settlement_witness": {
+        "supplied_sha256": "d229ea4d4f192a02a27bd56cb1aa30be9a7a12d4ce67d659552759e236f3251b",
+        "independently_regenerated_sha256": "d229ea4d4f192a02a27bd56cb1aa30be9a7a12d4ce67d659552759e236f3251b",
+        "exact_match": true,
+        "source": "earlier selected public commitments, indexed nullifiers and root history only"
+      },
+      "source_regions": [
+        {
+          "pointer": "/lineage/13/payload",
+          "byte_start": 0,
+          "byte_end_exclusive": 8,
+          "bytes": 8,
+          "sha256": "0fbaa7b901766b66d6e4d9d66f5b4cb0eb2d13cc2bf9b732265189f5050a158c"
+        },
+        {
+          "pointer": "/lineage/13/payload",
+          "byte_start": 8,
+          "byte_end_exclusive": 385,
+          "bytes": 377,
+          "sha256": "e3051c5ed1659f4aa9c9a9586742a2dd767edbceea0851f2a5c2ab54f0509133"
+        },
+        {
+          "pointer": "/lineage/13/payload",
+          "byte_start": 385,
+          "byte_end_exclusive": 755,
+          "bytes": 370,
+          "sha256": "7926adda9813a0d94925909d7cb96c1a7527805f3aac545fc8d69438fab0d215"
+        },
+        {
+          "pointer": "/lineage/13/payload",
+          "byte_start": 755,
+          "byte_end_exclusive": 860,
+          "bytes": 105,
+          "sha256": "523c41464ee47d61350e15bc091bc970d73ae2d00bfe7a88bc7fe00ae6202c75"
+        },
+        {
+          "pointer": "/lineage/13/payload",
+          "byte_start": 860,
+          "byte_end_exclusive": 5228,
+          "bytes": 4368,
+          "sha256": "d229ea4d4f192a02a27bd56cb1aa30be9a7a12d4ce67d659552759e236f3251b"
+        },
+        {
+          "pointer": "/lineage/13/inputs/0/signatureScript",
+          "byte_start": 2,
+          "byte_end_exclusive": 130,
+          "bytes": 128,
+          "sha256": "6d15699a1cba859b0c357b761750fa8ae41833c69249bcffcbdde64c3ed7c45f"
+        },
+        {
+          "pointer": "/lineage/13/inputs/0/signatureScript",
+          "byte_start": 133,
+          "byte_end_exclusive": 24709,
+          "bytes": 24576,
+          "sha256": "f96b23a52c26864e8739d34c4853dbaed4bd1643513e0416d1f294c7196748ea"
+        }
+      ]
+    }
+  ],
+  "funding_outputs": [
+    {
+      "transaction_id": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596",
+      "output_index": 0,
+      "value_sompi": "2100000000",
+      "script_public_key": "000020e09984c54059dd222955d0aafe4e7aa2fb2ebb6465c53bd35c2722680d6ac176ac",
+      "consumer": "/lineage/0/inputs/0",
+      "source_pointer": "/parents/0/outputs/0"
+    },
+    {
+      "transaction_id": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596",
+      "output_index": 1,
+      "value_sompi": "1100000000",
+      "script_public_key": "000020acf26aad70f8cce8aba7c5eb1389cb103c619abb88387342a2322ec7fcb64288ac",
+      "consumer": "/lineage/2/inputs/1",
+      "source_pointer": "/parents/0/outputs/1"
+    },
+    {
+      "transaction_id": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596",
+      "output_index": 2,
+      "value_sompi": "1200000000",
+      "script_public_key": "0000200798ee41e662eff8650693bf305dd7f4d20cf07909cbf52975566febd859c1efac",
+      "consumer": "/lineage/3/inputs/1",
+      "source_pointer": "/parents/0/outputs/2"
+    },
+    {
+      "transaction_id": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596",
+      "output_index": 3,
+      "value_sompi": "1300000000",
+      "script_public_key": "00002046f66af0b005d9099e9ac5207777cdb6e0b3b855507026aa4ee2ebaee1edf418ac",
+      "consumer": "/lineage/4/inputs/1",
+      "source_pointer": "/parents/0/outputs/3"
+    }
+  ],
+  "known_funding_parent_inputs": [],
+  "omissions": {
+    "funding_parent_input_ancestry": [
+      {
+        "transaction_id": "93138d89e9beee7ffa30e17195f90bb2fef1352c3a1daae04c7ee1731b588f99",
+        "output_index": 0,
+        "source_pointer": "/parents/0/inputs/0/previousOutpoint",
+        "status": "input UTXO body/value/script absent"
+      }
+    ],
+    "timing": "no request/first-seen time; historical header times intentionally not relabeled",
+    "identities": "no ownership directory or participant channel",
+    "private_data": "no note openings, private membership paths, keys or delivery/decryption result",
+    "native_validation": "proof/VM/transaction identity and canonical covenant code require the pinned Rust replay",
+    "chain_view": "descriptor authentication, acceptance, current spendability and complete prefix are external"
+  }
+}

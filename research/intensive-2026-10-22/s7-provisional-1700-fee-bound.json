@@ -1,0 +1,44 @@
+{
+  "schema": "kpi-provisional-s7-fee-arithmetic-v1",
+  "scope": "Source-only conditional lower bound; no emitter, native execution, proof or owner/replay implementation.",
+  "native_revision": "01b532e8b553523216471682649693af92f0fd16",
+  "source_files_sha256": {
+    "consensus/core/src/mass/mod.rs": "7e17c80810046525e7bf1a7147e6e8c6918dfe4c76ef64b6ca4078502d2a9fae",
+    "consensus/core/src/mass/units.rs": "0a47b4dda868da1df5064a9745c4f1278d9b3fd388db7416f5fb05068fef12ab",
+    "consensus/core/src/config/params.rs": "13296eef360764b637e70b2e8892941d97e3e88d8a5c58830e80332d0ff80ea2",
+    "crypto/txscript/src/standard.rs": "4b7f6132bc927c8daffdfd9d704cd55c338f9e15498c3a9ec39f79f0074ae765"
+  },
+  "new_profile_targets_unchanged": true,
+  "conditional_inputs": {
+    "redeem_bytes": 24576,
+    "signature_script_bytes": 24709,
+    "ordinary_payload_bytes": 5231,
+    "pool_input_budget": 1700,
+    "payout_spk_bytes": 34,
+    "inputs": 1,
+    "outputs": 1,
+    "native_covenant_output": false,
+    "transaction_version": 1
+  },
+  "estimated_size_terms": {
+    "fixed_transaction": 94,
+    "fixed_input": 54,
+    "signature_script": 24709,
+    "one_output": 52,
+    "payload": 5231
+  },
+  "estimated_bytes": 30140,
+  "compute_terms": {
+    "size": 30140,
+    "output_spk_mass": 360,
+    "committed_budget_mass": 170000
+  },
+  "compute_mass": 200500,
+  "minimum_mining_mass": 200500,
+  "rate200_necessary_fee_sompi": 40100000,
+  "unchanged_authorized_fee_sompi": 40000000,
+  "rate200_fee_shortfall_sompi": 100000,
+  "conclusion": "Conditional 24KiB/1700 ordinary layout cannot fit unchanged40M fee at rate200 even with storage below compute.",
+  "unselected_future_seam": "Branch-specific budgets require a fresh emitted-source bound and actual native VM/mass checks; not selected or qualified.",
+  "old_v6_or_one_shot_results_changed": false
+}

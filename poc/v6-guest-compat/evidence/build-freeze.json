@@ -1,0 +1,76 @@
+{
+  "schema": "kpi-one-public-v6-build-freeze-v1",
+  "frozen_at": "2026-10-22T12:35:36.379104+00:00",
+  "status": "built-not-executed",
+  "expected_image": "1f3b9b1785a11268432ffdd484b83ce5025315e23fc3aa9cf74e3c06e56026de",
+  "source_base": "6fdc5fc61ddd9b33c254acbc47316348d7d84503",
+  "scope": "one already public retained v6 proof; no receipt or native settlement",
+  "files": {
+    "poc/v6-guest-compat/Cargo.lock": "65eb2cf188c5dd51193795db3e76c16e065f90c5ffb5275fb00e8dc16d4b69de",
+    "poc/v6-guest-compat/Cargo.toml": "29228a2727cde02f0e0a51eb167fb880610f6c5c8059b3ad856f2ee330d282cb",
+    "poc/v6-guest-compat/common/Cargo.toml": "5522727d80e0bef73e773ea1b7a6d2661690d465acdec61d3d24f570bd185149",
+    "poc/v6-guest-compat/common/pins/vk.bin": "9e6ab30d2442fb6ab6fbb5c8aa9f11d8f161fe47ada094d7810fd9240ee119ef",
+    "poc/v6-guest-compat/common/src/lib.rs": "cf6d2b06d22680a1501f0be5886a1d704e8b801c570d29d7d90d0de4eb74df90",
+    "poc/v6-guest-compat/guest/Cargo.lock": "4e190ad633bb98f14dd39c25688611c56d2223fa4b1d3d294aa84f0e8e369610",
+    "poc/v6-guest-compat/guest/Cargo.toml": "94d179cfeb018b1ba49d744500868356cf47087967aa1e4990a1c8095cfd21c7",
+    "poc/v6-guest-compat/guest/src/main.rs": "f420acc5d670c696a777f0ca8dd814752a73d87b92a103c46489b68b95d8c2f3",
+    "poc/v6-guest-compat/host/Cargo.toml": "64d0649ad5f17939c849994fdea4146d4ca1d8b2c299cf5191afeab05f9cdac2",
+    "poc/v6-guest-compat/host/src/main.rs": "be7162bf458ec5671039cb1bc04bddbfca6842eb3a37cb1392edbb6ea2bf7760",
+    "poc/accelerated-bn254/common/src/lib.rs": "ff8ef9d2ea1ef93440cadcfaac086ebafad33b2ae505ba3880b596b34660041e",
+    "poc/accelerated-bn254/common/Cargo.toml": "fe44804b55e4432784f60507b079986eb2f9c71f7bdfd99744b953340cef8833",
+    "poc/groth16-comparison/common/src/lib.rs": "d41e58eb2a2ec9efcd0e750055689beea07e45162843f47a8b2c341d02f97ce3",
+    "poc/groth16-comparison/common/Cargo.toml": "e3e95c0a50361d2b6379e3f76cfd37996a3db05512e42231815c7363017c8e40",
+    "poc/proof-classification/protocol.rs": "2e6ccf9442315a342dff72cf63bff0f3c4d8ce7de85af6ff57a8327d6d303d81"
+  },
+  "outputs": {
+    "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/programs/guest.raw.elf": {
+      "sha256": "7c148b1b6e5ce909e7ec83b26303338a02f0179c8204738717a5387bf42aa874",
+      "bytes": 1002332
+    },
+    "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/programs/guest.program.bin": {
+      "sha256": "9ef74996ad23b47e2b59d6b7f66963f54df2c1ff1a369e78cf7116609a1b1379",
+      "bytes": 1034756
+    },
+    "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/release/kpi-v6-guest-compat-host": {
+      "sha256": "8ec4d9455f5dbaba3d745072f956114c5f3fa2fe77407ad81dd205f5d6dcd7c6",
+      "bytes": 5136992
+    },
+    "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/public-fixture/bundle.bin": {
+      "sha256": "10d201fc946f983e263277413e87c1e1bc6b7342642e13f82ec2a5814e81319e",
+      "bytes": 875
+    },
+    "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/public-fixture/expected-journal.bin": {
+      "sha256": "640bfafaa5d6f3037e7d1db25797162e13e358d53d6e613aeb0a0f8ff21fe70a",
+      "bytes": 40
+    }
+  },
+  "official_artifacts": [
+    {
+      "file": "cargo-risczero.tgz",
+      "url": "https://github.com/risc0/risc0/releases/download/v3.0.3/cargo-risczero-x86_64-unknown-linux-gnu.tgz",
+      "sha256": "71a0adaa64235be13e9b8471bea5c4ded64bf97c6bd1eb9c2285b966c0b62fee",
+      "bytes": 72795381,
+      "verified_at": "2026-10-22T12:29:21.447631+00:00"
+    },
+    {
+      "file": "risc0-rust.tgz",
+      "url": "https://github.com/risc0/rust/releases/download/r0.1.97.0/rust-toolchain-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "100b597d605b706bec94e1d32bfaaf5851df8d75173f986d4b56a3e90916be53",
+      "bytes": 528796425,
+      "verified_at": "2026-10-22T12:30:06.008063+00:00"
+    }
+  ],
+  "host_rust": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "guest_rust": "rustc 1.97.0-dev (e638c6cfe 2026-07-15)",
+  "r0vm": "risc0-r0vm 3.0.3",
+  "guest_env": {
+    "RISC0_FEATURE_bigint2": "1",
+    "RUSTFLAGS": "-C passes=lower-atomic -C link-arg=-Ttext=0x00200800 -C link-arg=--fatal-warnings -C panic=abort --cfg getrandom_backend=\"custom\""
+  },
+  "resource_limits": {
+    "cpu_quota_percent": 600,
+    "memory_max_bytes": 8589934592,
+    "swap_max_bytes": 0,
+    "build_wall_limit_seconds": 3600
+  }
+}

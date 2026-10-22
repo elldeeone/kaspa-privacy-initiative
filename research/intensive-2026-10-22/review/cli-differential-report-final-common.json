@@ -1,0 +1,188 @@
+{
+  "scope": "ordinary-host differential assembly and rejection controls",
+  "genuine_positive_proof_claim": false,
+  "binary": "/home/luke/projects/kpi-intensive-2026-10-22/binding-target/x86_64-unknown-linux-gnu/release/two_v6_binding",
+  "binary_sha256": "42f446478c9e9a7a879ba88d70c31dd89f29549d71916d49afb4aaf02dfcf47b",
+  "cases": [
+    {
+      "case": "unique",
+      "status": "exact_assembly_match",
+      "input_sha256": "7d5e19aaf3fb1c9eed2293475d01010d3ca12fb8fa030e167ee2e6b85f570385"
+    },
+    {
+      "case": "equal-complete-records",
+      "status": "exact_assembly_match",
+      "input_sha256": "235c123c6d3be0c38c00312d76d1bd0d238841aaab7f8a0aa781461e411b248c"
+    },
+    {
+      "case": "equal-cms-distinct-ciphers",
+      "status": "exact_assembly_match",
+      "input_sha256": "b1b217efd61c587baa67256360d2d5583fdca6e7cbb2fd00e60412c9049bd3a1"
+    },
+    {
+      "case": "maximum-fees",
+      "status": "exact_assembly_match",
+      "input_sha256": "42d653f2349122b478ce10bd042b63c301cbfd79b65c72de72392361e4be2cab"
+    },
+    {
+      "case": "magic",
+      "status": "rejected",
+      "reason": "authorization magic"
+    },
+    {
+      "case": "domain",
+      "status": "rejected",
+      "reason": "domain"
+    },
+    {
+      "case": "mode",
+      "status": "rejected",
+      "reason": "SPEND mode"
+    },
+    {
+      "case": "payout",
+      "status": "rejected",
+      "reason": "zero payout"
+    },
+    {
+      "case": "destination",
+      "status": "rejected",
+      "reason": "native effects"
+    },
+    {
+      "case": "deposit",
+      "status": "rejected",
+      "reason": "native effects"
+    },
+    {
+      "case": "funding-point",
+      "status": "rejected",
+      "reason": "native effects"
+    },
+    {
+      "case": "funding-script",
+      "status": "rejected",
+      "reason": "native effects"
+    },
+    {
+      "case": "bootstrap",
+      "status": "rejected",
+      "reason": "native effects"
+    },
+    {
+      "case": "ciphertext",
+      "status": "rejected",
+      "reason": "CiphertextDigest"
+    },
+    {
+      "case": "count",
+      "status": "rejected",
+      "reason": "CountMismatch"
+    },
+    {
+      "case": "anchor",
+      "status": "rejected",
+      "reason": "AnchorMismatch"
+    },
+    {
+      "case": "zero-fee",
+      "status": "rejected",
+      "reason": "Fee"
+    },
+    {
+      "case": "excess-fee",
+      "status": "rejected",
+      "reason": "Fee"
+    },
+    {
+      "case": "zero-nf",
+      "status": "rejected",
+      "reason": "Nullifiers"
+    },
+    {
+      "case": "duplicate-nf",
+      "status": "rejected",
+      "reason": "Nullifiers"
+    },
+    {
+      "case": "zero-cm",
+      "status": "rejected",
+      "reason": "Commitments"
+    },
+    {
+      "case": "duplicate-cm-in-bundle",
+      "status": "rejected",
+      "reason": "Commitments"
+    },
+    {
+      "case": "retained-real-pair-different-count",
+      "status": "rejected",
+      "reason": "CountMismatch"
+    },
+    {
+      "case": "retained-real-proof-repeated",
+      "status": "rejected",
+      "reason": "Nullifiers"
+    },
+    {
+      "case": "synthetic-proof-cannot-verify",
+      "status": "rejected",
+      "reason": "two-v6 host gate rejected: CanonicalEncoding(\"proof\")"
+    },
+    {
+      "case": "truncated-input",
+      "status": "rejected",
+      "reason": "expected exactly 2846"
+    },
+    {
+      "case": "trailing-input",
+      "status": "rejected",
+      "reason": "expected exactly 2846"
+    },
+    {
+      "case": "public-magic",
+      "status": "rejected",
+      "reason": "public projection"
+    },
+    {
+      "case": "aggregate-mismatch",
+      "status": "rejected",
+      "reason": "aggregate fee"
+    },
+    {
+      "case": "nf-index-reuse",
+      "status": "rejected",
+      "reason": "Permutation(\"nullifiers\")"
+    },
+    {
+      "case": "nf-index-out-of-range",
+      "status": "rejected",
+      "reason": "Permutation(\"nullifiers\")"
+    },
+    {
+      "case": "record-index-reuse",
+      "status": "rejected",
+      "reason": "Permutation(\"outputs\")"
+    },
+    {
+      "case": "record-index-out-of-range",
+      "status": "rejected",
+      "reason": "Permutation(\"outputs\")"
+    },
+    {
+      "case": "unsorted-public-nfs",
+      "status": "rejected",
+      "reason": "Nullifiers"
+    },
+    {
+      "case": "unsorted-public-records",
+      "status": "rejected",
+      "reason": "ProjectionOrder"
+    },
+    {
+      "case": "public-ciphertext-cross-wiring",
+      "status": "rejected",
+      "reason": "commitment/ciphertext record"
+    }
+  ]
+}

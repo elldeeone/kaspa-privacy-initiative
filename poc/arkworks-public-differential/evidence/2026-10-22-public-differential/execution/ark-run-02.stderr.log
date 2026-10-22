@@ -1,0 +1,18 @@
+Running as unit: kpi-intensive-native-ark-run-02-20261022t1331z.service; invocation ID: f970758a3d934b45ab1f8b3a2c7cf4eb
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/arkworks-public-differential/run_public_differential.py", line 245, in <module>
+    main()
+    ~~~~^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/arkworks-public-differential/run_public_differential.py", line 236, in main
+    validation=verify(inp,expected,ark,native)
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/arkworks-public-differential/run_public_differential.py", line 193, in verify
+    public.require(all(accepted) and all(r[b]["strict_profile_accepted"] is True for b in ("ark05","ark06")) and n["native"]["status"] == "verified", "positive did not verify: "+r["id"])
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/public_native_observation.py", line 38, in require
+    raise ObservationError(reason)
+public_native_observation.ObservationError: positive did not verify: historical-ordinary-spend
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=1/FAILURE
+               Service runtime: 272ms
+             CPU time consumed: 322ms
+                   Memory peak: 23.6M (swap: 0B)

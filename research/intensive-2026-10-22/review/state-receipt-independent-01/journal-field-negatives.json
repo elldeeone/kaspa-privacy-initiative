@@ -1,0 +1,83 @@
+{
+  "serialization_journal_start": 223530,
+  "full_journal_occurrences": [
+    222857,
+    223530
+  ],
+  "target": "Only outer Journal; inner proved claim unchanged",
+  "initial_harness_assumption_correction": "An early assertion assumed JournalDigestMismatch. Pinned SDK verify_with_context checks successful claim digest and correctly returns ClaimDigestMismatch; actual first control/log unchanged, now checked against exact independently computed claim digests.",
+  "cases": [
+    {
+      "case": "outpoint-txid",
+      "journal_offset": 74,
+      "serialized_offset": 223604,
+      "input_sha256": "9d66b303f668bd9ef186d313517c9a0263e46f565bd293f350036b0837a280ed",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "received_proved_claim": "2450e2c7e083e367887ec53f3449cd4d5d62b1575b94119479997cec8ff5aaf4",
+      "expected_changed_context_claim": "7001ef6393ce0aaabecb9c4dedec96364c5283612d4e27b65f4860411d153611",
+      "exact_sdk_display_matches_independent_claim_hashes": true,
+      "output_not_created": true
+    },
+    {
+      "case": "outpoint-index",
+      "journal_offset": 106,
+      "serialized_offset": 223636,
+      "input_sha256": "afbca1a46a244316f12767c3e10474377901f7a779ef44efb2f6afd14f3b7146",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "received_proved_claim": "2450e2c7e083e367887ec53f3449cd4d5d62b1575b94119479997cec8ff5aaf4",
+      "expected_changed_context_claim": "e2d85bd395a7fe76277f49b96946dd17541f5c6b970e6bd12fc45617f8029b1c",
+      "exact_sdk_display_matches_independent_claim_hashes": true,
+      "output_not_created": true
+    },
+    {
+      "case": "prior-state",
+      "journal_offset": 110,
+      "serialized_offset": 223640,
+      "input_sha256": "2ac3bc85143bf9656d85030a9492434a8f80595805037cac7d573a87ee974d14",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "received_proved_claim": "2450e2c7e083e367887ec53f3449cd4d5d62b1575b94119479997cec8ff5aaf4",
+      "expected_changed_context_claim": "c624427d9a523ab6b3cea076bafdae5d8f911552ba6dd4e34dcfc4e552f025b1",
+      "exact_sdk_display_matches_independent_claim_hashes": true,
+      "output_not_created": true
+    },
+    {
+      "case": "next-state",
+      "journal_offset": 215,
+      "serialized_offset": 223745,
+      "input_sha256": "10392be82762c50ac13e997cc6583094f570890b116ab936db763d946e82ebea",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "received_proved_claim": "2450e2c7e083e367887ec53f3449cd4d5d62b1575b94119479997cec8ff5aaf4",
+      "expected_changed_context_claim": "4a0f76e26f31feaa6e596a0c1ffde4712b605654104b02516a0688b60ce8e921",
+      "exact_sdk_display_matches_independent_claim_hashes": true,
+      "output_not_created": true
+    },
+    {
+      "case": "successor-amount",
+      "journal_offset": 328,
+      "serialized_offset": 223858,
+      "input_sha256": "d2b071e4629e245b61148a59a6c4b674e4167485a9b3e12144b5df3ccc8079d5",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "received_proved_claim": "2450e2c7e083e367887ec53f3449cd4d5d62b1575b94119479997cec8ff5aaf4",
+      "expected_changed_context_claim": "b8e46e0ac1fcff778ad48da424f3b847aca17d553c135a16961ede6ac65b9244",
+      "exact_sdk_display_matches_independent_claim_hashes": true,
+      "output_not_created": true
+    },
+    {
+      "case": "successor-amount-high-byte",
+      "journal_offset": 335,
+      "serialized_offset": 223865,
+      "input_sha256": "9ea657581a546557206977526b836960348bb8633a86f49534e5f7b4c6d27b4c",
+      "exit_code": 1,
+      "sdk_error": "ClaimDigestMismatch",
+      "received_proved_claim": "2450e2c7e083e367887ec53f3449cd4d5d62b1575b94119479997cec8ff5aaf4",
+      "expected_changed_context_claim": "d2dfaf125d8b31af69588fd0942868f8730f9597e374f20e2637edaafa461194",
+      "exact_sdk_display_matches_independent_claim_hashes": true,
+      "output_not_created": true
+    }
+  ]
+}

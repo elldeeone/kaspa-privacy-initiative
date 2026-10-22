@@ -205,6 +205,25 @@ pub(super) fn bundle(tx: &Transaction) -> Result<Bundle> {
     })
 }
 
+/// Bound declared operational budgets by native transaction mass capacity.
+/// Relay fee/standardness rules remain separate from this replay contract.
+fn check_native_mass_limits(tx: &Transaction, entries: &[UtxoEntry]) -> Result<()> {
+    let masses = native::metrics(tx, entries)?;
+    let compute = masses["compute_mass"]
+        .as_u64()
+        .ok_or("native compute mass")?;
+    let storage = masses["storage_mass"]
+        .as_u64()
+        .ok_or("native storage mass")?;
+    let transient = masses["transient_mass"]
+        .as_u64()
+        .ok_or("native transient mass")?;
+    if compute > 500_000 || storage > 500_000 || transient > 1_000_000 {
+        return Err("native block mass limit".into());
+    }
+    Ok(())
+}
+
 fn record(tx: &Transaction, authorization: Option<&Bundle>) -> Result<PublicRecord> {
     Ok(PublicRecord {
         transaction: native::tx_json(tx),
@@ -288,15 +307,27 @@ pub fn replay(
         };
         let (mut expected, entries, next) =
             settle(&descriptor.domain, &state, prior, vk, &b, external.as_ref())?;
+        // The factory budget is operational policy, not authorization data.
+        // Preserve the explicitly supplied v1 budget so historical transactions
+        // remain replayable after a default change. Exact reconstruction still
+        // binds every other field; native metering and mass limits remain mandatory.
+        expected.inputs[0].compute_commit = match tx.inputs[0].compute_commit {
+            kaspa_consensus_core::tx::ComputeCommit::ComputeBudget(budget) => {
+                kaspa_consensus_core::tx::ComputeCommit::ComputeBudget(budget)
+            }
+            _ => return Err("v6 reserve input requires a v1 compute budget".into()),
+        };
         if external.is_some() {
             expected.inputs[1].signature_script = tx.inputs[1].signature_script.clone();
-            expected.finalize();
         }
+        expected.finalize();
+        native::set_mass(&expected, &entries)?;
         if native::tx_json(&expected) != *body {
             return Err("public state/transaction reconstruction mismatch".into());
         }
         let fee =
             native::validate(&tx, &entries).map_err(|e| format!("pool native validation: {e}"))?;
+        check_native_mass_limits(&tx, &entries).map_err(|e| format!("pool native mass: {e}"))?;
         if fee != a.fee {
             return Err("native fee/authorization mismatch".into());
         }

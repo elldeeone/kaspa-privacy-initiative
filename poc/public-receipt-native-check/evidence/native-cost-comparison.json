@@ -1,0 +1,245 @@
+{
+  "scope": "PUBLIC_NATIVE_PREDICATE_RESOURCE_COMPARISON_AND_NECESSARY_BOUNDS_ONLY",
+  "native_revision": "01b532e8b553523216471682649693af92f0fd16",
+  "expected_image": "50ceec8ebb91edd01028c4aec9b495e7d77eb9e3b39e065910c0600f7693d832",
+  "expected_journal_sha256": "5d667b709f35191c6fc98e6aa0b79bd934e39a40ef4edfea582fcef3b06d4ac7",
+  "checker_binary_sha256": "c506ff6d3ebdd045db7f8121ad5cd5f6233882c3b54b10756d5ed99f5ac85682",
+  "direct_matrix_sha256": "5e9a33282ae88b21f43310c91eebf55040398a9601c2be2e35ae70b86a3a48a6",
+  "predicates": {
+    "0x21": {
+      "report_sha256": "c1e96cc78f5624152da43d0319a92b2ee913d82a27932dbecc99b50be2a60c08",
+      "receipt_file_bytes": 223310,
+      "native_script_bytes": 223075,
+      "used_script_units": 25000001,
+      "bare_min_covering_compute_budget": 2500,
+      "bare_committed_budget_grams": 250000,
+      "flat_script_embedding_compute_lower_bound_grams": 473075,
+      "positive_case_observed_seconds": 0.238342833,
+      "native_cases": 9,
+      "remaining_compute_grams_before_empty_block_limit": 26925,
+      "remaining_estimated_bytes_before_empty_block_transient_limit": 26925
+    },
+    "0x20": {
+      "report_sha256": "56f42f88e8f1037f32ab51294229df691a3d68b7fa95f9649b841df1faa1c94f",
+      "receipt_file_bytes": 581,
+      "native_script_bytes": 728,
+      "used_script_units": 15500001,
+      "bare_min_covering_compute_budget": 1550,
+      "bare_committed_budget_grams": 155000,
+      "flat_script_embedding_compute_lower_bound_grams": 155728,
+      "positive_case_observed_seconds": 0.038962972,
+      "native_cases": 8,
+      "remaining_compute_grams_before_empty_block_limit": 344272,
+      "remaining_estimated_bytes_before_empty_block_transient_limit": 249272
+    }
+  },
+  "measured_predicate_reduction": {
+    "native_script_bytes": 222347,
+    "sdk_receipt_file_bytes": 222729,
+    "script_units": 9500000,
+    "bare_committed_budget_grams": 95000,
+    "flat_script_embedding_compute_lower_bound_grams": 317347
+  },
+  "direct_measured_layouts": {
+    "all_observed_modes": {
+      "observed_layouts": 13,
+      "compute_mass_range": [
+        190497,
+        191628
+      ],
+      "estimated_bytes_range": [
+        30137,
+        30258
+      ]
+    },
+    "observed_spend_mode1": {
+      "observed_layouts": 4,
+      "compute_mass_range": [
+        190508,
+        190920
+      ],
+      "estimated_bytes_range": [
+        30138,
+        30190
+      ]
+    }
+  },
+  "necessary_bounds": [
+    {
+      "operations": 2,
+      "repeated_measured_layout_sensitivity": {
+        "all_observed_modes": {
+          "separate_direct_compute_mass_range": [
+            380994,
+            383256
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              -92081,
+              -89819
+            ],
+            "0x20": [
+              225266,
+              227528
+            ]
+          }
+        },
+        "observed_spend_mode1": {
+          "separate_direct_compute_mass_range": [
+            381016,
+            381840
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              -92059,
+              -91235
+            ],
+            "0x20": [
+              225288,
+              226112
+            ]
+          }
+        }
+      },
+      "per_operation_publication_byte_upper_bound_if_all_other_bytes_were_zero": {
+        "0x21": 13462,
+        "0x20": 124636
+      }
+    },
+    {
+      "operations": 4,
+      "repeated_measured_layout_sensitivity": {
+        "all_observed_modes": {
+          "separate_direct_compute_mass_range": [
+            761988,
+            766512
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              288913,
+              293437
+            ],
+            "0x20": [
+              606260,
+              610784
+            ]
+          }
+        },
+        "observed_spend_mode1": {
+          "separate_direct_compute_mass_range": [
+            762032,
+            763680
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              288957,
+              290605
+            ],
+            "0x20": [
+              606304,
+              607952
+            ]
+          }
+        }
+      },
+      "per_operation_publication_byte_upper_bound_if_all_other_bytes_were_zero": {
+        "0x21": 6731,
+        "0x20": 62318
+      }
+    },
+    {
+      "operations": 8,
+      "repeated_measured_layout_sensitivity": {
+        "all_observed_modes": {
+          "separate_direct_compute_mass_range": [
+            1523976,
+            1533024
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              1050901,
+              1059949
+            ],
+            "0x20": [
+              1368248,
+              1377296
+            ]
+          }
+        },
+        "observed_spend_mode1": {
+          "separate_direct_compute_mass_range": [
+            1524064,
+            1527360
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              1050989,
+              1054285
+            ],
+            "0x20": [
+              1368336,
+              1371632
+            ]
+          }
+        }
+      },
+      "per_operation_publication_byte_upper_bound_if_all_other_bytes_were_zero": {
+        "0x21": 3365,
+        "0x20": 31159
+      }
+    },
+    {
+      "operations": 16,
+      "repeated_measured_layout_sensitivity": {
+        "all_observed_modes": {
+          "separate_direct_compute_mass_range": [
+            3047952,
+            3066048
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              2574877,
+              2592973
+            ],
+            "0x20": [
+              2892224,
+              2910320
+            ]
+          }
+        },
+        "observed_spend_mode1": {
+          "separate_direct_compute_mass_range": [
+            3048128,
+            3054720
+          ],
+          "extra_outer_compute_grams_available_before_exceeding_separate_direct_sum": {
+            "0x21": [
+              2575053,
+              2581645
+            ],
+            "0x20": [
+              2892400,
+              2898992
+            ]
+          }
+        }
+      },
+      "per_operation_publication_byte_upper_bound_if_all_other_bytes_were_zero": {
+        "0x21": 1682,
+        "0x20": 15579
+      }
+    }
+  ],
+  "aggregate_transaction_mass": null,
+  "settlement_fee_saving": null,
+  "limitations": [
+    "Native times are single observed positive cases from the same checker build, not stable benchmarks or throughput rates.",
+    "A bare predicate is compared with complete direct transaction layouts only to bound the remaining aggregate overhead; it cannot establish a fee win.",
+    "The compute lower bound assumes this exact flat script is embedded once and includes its bytes at one compute gram per estimated byte; actual transaction framing, other inputs/outputs and execution add cost.",
+    "Repeated layout ranges are arithmetic sensitivities, not measured 4/8/16-operation aggregates or a qualified worst case.",
+    "Publication bounds assume every other transaction byte is zero; covenant framing, inputs, outputs, metadata and other execution must reduce them.",
+    "Aggregate storage mass, exact data publication/recovery, state binding, transaction body and fee authorization remain unspecified.",
+    "The fixed official Groth16 setup trust is an additional assumption; native acceptance does not validate its ceremony.",
+    "No private inputs, funding, broadcast, privacy claim or production architecture selection."
+  ]
+}

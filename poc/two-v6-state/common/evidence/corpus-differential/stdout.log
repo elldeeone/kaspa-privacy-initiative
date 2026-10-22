@@ -1,0 +1,25 @@
+{
+  "format": "kpi-state-corpus-differential-v1",
+  "manifest_sha256": "19fc246c682a9545da41bec205535a6c76b6207dd05fdbf98ccf2fe1c9a74e6f",
+  "positive_count": 128,
+  "positive_exact_matches": 128,
+  "negative_count": 35,
+  "negative_semantic_or_framing_rejections": 35,
+  "negative_expected_family_matches": 34,
+  "total_frozen_expectation_matches": 162,
+  "mismatches": [
+    {
+      "id": "nf-equality-wire",
+      "category": "negatives",
+      "input_sha256": "69c8e1ca8e2e381d9d8f1cd31cac6b951e1886bf3c39e3a66d14d74914245484",
+      "actual_status": "ERR",
+      "expected_error": "NullifierOrder(0)",
+      "actual_error": "NullifierLink(0)",
+      "exact_match": false,
+      "class": "semantic"
+    }
+  ],
+  "adapter_seconds": 0.6680979109951295,
+  "total_seconds": 0.9389925719588064,
+  "scope": "NONFUNDABLE supplied synthetic context/local assertion; no backing/genesis/exit/chain qualification. Original expectations unchanged; all mismatches retained."
+}

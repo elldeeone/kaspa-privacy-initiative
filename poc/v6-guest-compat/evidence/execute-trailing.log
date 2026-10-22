@@ -1,0 +1,11 @@
+Running as unit: kpi-v6-execute-trailing-20261022.service; invocation ID: 3331d1bdb92848f4afc1303735642d37
+
+thread '<unnamed>' (1) panicked at src/main.rs:13:33:
+v6 compatibility rejection: bundle length
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+{"case":"trailing","cycle_limit":160000000,"error":"Guest panicked: v6 compatibility rejection: bundle length","expected_image":"1f3b9b1785a11268432ffdd484b83ce5025315e23fc3aa9cf74e3c06e56026de","expected_rejection":"bundle length","input_sha256":"93b8a4ffeba608636d33610375c89140194b53c649093866e9b0df0c63685750","native_chain_acceptance":false,"passed":true,"proof_generation":false,"schema":"kpi-one-public-v6-guest-execution-v1","scope":"EXECUTION_ONLY_NOT_RECEIPT_OR_SETTLEMENT","seconds":0.08035524,"segment_po2":19}
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 177ms
+             CPU time consumed: 165ms
+                   Memory peak: 20.8M (swap: 0B)

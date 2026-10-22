@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+cd /home/luke/projects/kpi-intensive-2026-10-22/integration/poc/shared-pool
+/usr/bin/python3 -B verify_public_native_observation.py --native-binary /home/luke/projects/kpi-intensive-2026-10-22/native-target/x86_64-unknown-linux-gnu/release/kpi-public-native-observation-check --expected-native-sha256 39e3343487938afb2e7450cf653ced8cc87b52245e384633b32d01ca87a84999 --output-dir /home/luke/projects/kpi-intensive-2026-10-22/integration/research/intensive-2026-10-22/evidence/integrated-native-observation-02
+exec /usr/bin/python3 -B verify_native_budget_screen.py --native-binary /home/luke/projects/kpi-intensive-2026-10-22/native-target/x86_64-unknown-linux-gnu/release/kpi-native-budget-screen --expected-native-sha256 e8badaf1ba28c74b8f529a49868e6af7bbd7b1cdeae2b8740dec88b987a8fdf2 --observation-binary /home/luke/projects/kpi-intensive-2026-10-22/native-target/x86_64-unknown-linux-gnu/release/kpi-public-native-observation-check --output-dir /home/luke/projects/kpi-intensive-2026-10-22/integration/research/intensive-2026-10-22/evidence/integrated-native-budget-02

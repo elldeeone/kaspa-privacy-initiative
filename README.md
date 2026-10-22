@@ -6,6 +6,10 @@
 
 **Status:** early public research. No production protocol exists here yet. Do not use experimental code with real funds.
 
+The [22 October public checkpoint](PUBLICATION.md) indexes the retained native
+proof-composition results, their limits and the separate fresh-profile branch.
+See [REPRODUCE.md](REPRODUCE.md) for the published source/data view and rechecks.
+
 ## Start here and help shape the research
 
 The [shared-pool branch plan](docs/SHARED-POOL-PLAN.md) gives the direct-L1 work's

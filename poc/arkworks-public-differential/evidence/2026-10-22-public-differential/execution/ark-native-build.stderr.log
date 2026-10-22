@@ -1,0 +1,40 @@
+Running as unit: kpi-intensive-native-ark-native-build-20261022t1322z.service; invocation ID: 06074076425e432383710b07bd91d79e
+   Compiling kpi-shared-pool v0.1.0 (/src)
+error[E0603]: module `data_stack` is private
+ --> src/bin/kpi-native-arkworks-differential.rs:5:5
+  |
+5 |     data_stack::Stack,
+  |     ^^^^^^^^^^ private module
+  |
+note: the module `data_stack` is defined here
+ --> /cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/crypto/txscript/src/lib.rs:6:1
+  |
+6 | mod data_stack;
+  | ^^^^^^^^^^^^^^
+
+error[E0603]: trait `ZkPrecompile` is private
+  --> src/bin/kpi-native-arkworks-differential.rs:7:22
+   |
+ 7 |     zk_precompiles::{ZkPrecompile, groth16::Groth16Precompile},
+   |                      ^^^^^^^^^^^^ private trait
+   |
+note: the trait `ZkPrecompile` is defined here
+  --> /cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/crypto/txscript/src/zk_precompiles/mod.rs:15:1
+   |
+15 | trait ZkPrecompile {
+   | ^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no function or associated item named `verify_zk` found for struct `Groth16Precompile` in the current scope
+  --> src/bin/kpi-native-arkworks-differential.rs:67:42
+   |
+67 |         let verdict = Groth16Precompile::verify_zk(&mut stack, &mut meter);
+   |                                          ^^^^^^^^^ function or associated item not found in `Groth16Precompile`
+
+Some errors have detailed explanations: E0599, E0603.
+For more information about an error, try `rustc --explain E0599`.
+error: could not compile `kpi-shared-pool` (bin "kpi-native-arkworks-differential") due to 3 previous errors
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=101/n/a
+               Service runtime: 681ms
+             CPU time consumed: 413ms
+                   Memory peak: 189.1M (swap: 0B)

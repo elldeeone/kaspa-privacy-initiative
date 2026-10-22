@@ -1,0 +1,62 @@
+{
+  "scope": "ROOT_SELECTED_HISTORICAL_SOURCE_BUILD_ONLY_NO_NATIVE_RECEIPT_RUNTIME",
+  "created_utc": "2026-10-22T13:39:56.990330+00:00",
+  "selected_image": "e9d7bd51e12b253c5cb7839d6854cf30d387dea95aff4e853feb47eb6d0edcf9",
+  "selected_journal_sha256": "457a9c09edd5840a978f8b785e165af3656c77f579b43ff322a9b3548a88c3f3",
+  "selected_program_sha256": "d1336290bd4b8555edea9c5d7dd56aa4883f1d185b0a4aca9b08105b0537097a",
+  "source_only_archive_manifest_sha256": "7e4844ed2b16fae6e3ccec1a722330188e05c3833585183db89b089d05dfee6b",
+  "files": {
+    "poc/public-state-native-check/Cargo.toml": {
+      "sha256": "fe846dfb92c78057d04c4e55aa338459be81963e4ca2485c61bb46e879bcab79",
+      "bytes": 1063
+    },
+    "poc/public-state-native-check/Cargo.lock": {
+      "sha256": "03f34e8d1f8a1bc7cb029ce71902e5318c4196a74980232f75637a3d112d1861",
+      "bytes": 102662
+    },
+    "poc/public-state-native-check/src/main.rs": {
+      "sha256": "5c4e75c4c655bc7443d6482a237ced3480e7ee76385eb4fafbc432f6f8a7df38",
+      "bytes": 21495
+    },
+    "poc/public-state-native-check/src/script.rs": {
+      "sha256": "9d7710e2efdc5d542746a5288f1de7f2c5bcc33af5a678e67429b0dbc8157df2",
+      "bytes": 8232
+    },
+    "poc/public-state-native-check/src/receipt.rs": {
+      "sha256": "34461fa8293d5801e55fd303c1577508a0478114356baf47b00d63eea191e47d",
+      "bytes": 3884
+    },
+    "poc/public-state-native-check/pins/expected-public.bin": {
+      "sha256": "9ac720aa55e7bd6eaec674788d418aa3314bc7af1010b7c9f09a493d9aa76ce9",
+      "bytes": 1088
+    },
+    "poc/public-state-native-check/pins/expected-journal.bin": {
+      "sha256": "457a9c09edd5840a978f8b785e165af3656c77f579b43ff322a9b3548a88c3f3",
+      "bytes": 336
+    },
+    "poc/public-state-native-check/NOTICE": {
+      "sha256": "330e989a8031c116357ea3f50a6c21857c1688bb32cc6692119fb1e41e8dcaf1",
+      "bytes": 1004
+    }
+  },
+  "native_vm_invoked": false,
+  "state_receipt_selected": false,
+  "structural_tests_passed": 3,
+  "changes_since_unselected_source": [
+    "poc/public-state-native-check/src/main.rs",
+    "poc/public-state-native-check/pins/expected-journal.bin"
+  ],
+  "binary": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/research-target/public-state-selected-stage/kpi-public-state-native-check",
+    "sha256": "3de6727d554b0b5747ee9396c49550a4ddd4a7cb94ba8ddf0b213665063db0a4"
+  },
+  "resource_events": [
+    {
+      "MESSAGE": "kpi-state-native-selected-build-20261022.service: Consumed 1.432s CPU time over 1.295s wall clock time, 330.4M memory peak.",
+      "CPU_USAGE_NSEC": "1432668000",
+      "MEMORY_PEAK": "346492928",
+      "MEMORY_SWAP_PEAK": "0",
+      "__REALTIME_TIMESTAMP": "1792676318653168"
+    }
+  ]
+}

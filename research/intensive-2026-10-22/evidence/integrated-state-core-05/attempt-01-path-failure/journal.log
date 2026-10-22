@@ -1,0 +1,22 @@
+Oct 22 14:10:32 forge systemd[1538]: Started kpi-integrated-state-core-05.service - [systemd-run] /usr/bin/python3 /home/luke/projects/kpi-intensive-2026-10-22/integration/research/intensive-2026-10-22/evidence/integrated-state-core-05/run.py.
+Oct 22 14:10:33 forge python3[1823902]: Traceback (most recent call last):
+Oct 22 14:10:33 forge python3[1823902]:   File "/home/luke/projects/kpi-intensive-2026-10-22/integration/research/intensive-2026-10-22/evidence/integrated-state-core-05/run.py", line 33, in <module>
+Oct 22 14:10:33 forge python3[1823902]:     result = subprocess.run(command, cwd=ROOT, env=env, stdout=stdout, stderr=stderr, timeout=180)
+Oct 22 14:10:33 forge python3[1823902]:   File "/usr/lib/python3.14/subprocess.py", line 555, in run
+Oct 22 14:10:33 forge python3[1823902]:     with Popen(*popenargs, **kwargs) as process:
+Oct 22 14:10:33 forge python3[1823902]:          ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+Oct 22 14:10:33 forge python3[1823902]:   File "/usr/lib/python3.14/subprocess.py", line 1039, in __init__
+Oct 22 14:10:33 forge python3[1823902]:     self._execute_child(args, executable, preexec_fn, close_fds,
+Oct 22 14:10:33 forge python3[1823902]:     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 22 14:10:33 forge python3[1823902]:                         pass_fds, cwd, env,
+Oct 22 14:10:33 forge python3[1823902]:                         ^^^^^^^^^^^^^^^^^^^
+Oct 22 14:10:33 forge python3[1823902]:     ...<5 lines>...
+Oct 22 14:10:33 forge python3[1823902]:                         gid, gids, uid, umask,
+Oct 22 14:10:33 forge python3[1823902]:                         ^^^^^^^^^^^^^^^^^^^^^^
+Oct 22 14:10:33 forge python3[1823902]:                         start_new_session, process_group)
+Oct 22 14:10:33 forge python3[1823902]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 22 14:10:33 forge python3[1823902]:   File "/usr/lib/python3.14/subprocess.py", line 1990, in _execute_child
+Oct 22 14:10:33 forge python3[1823902]:     raise child_exception_type(errno_num, err_msg, err_filename)
+Oct 22 14:10:33 forge python3[1823902]: FileNotFoundError: [Errno 2] No such file or directory: 'cargo'
+Oct 22 14:10:33 forge systemd[1538]: kpi-integrated-state-core-05.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 14:10:33 forge systemd[1538]: kpi-integrated-state-core-05.service: Failed with result 'exit-code'.

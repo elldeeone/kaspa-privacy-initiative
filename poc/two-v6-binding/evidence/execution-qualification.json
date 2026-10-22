@@ -1,0 +1,95 @@
+{
+  "schema": "kpi-two-public-v6-guest-qualification-v1",
+  "recorded_at": "2026-10-22T12:57:07.422320+00:00",
+  "expected_image": "50ceec8ebb91edd01028c4aec9b495e7d77eb9e3b39e065910c0600f7693d832",
+  "build_freeze_sha256": "6f29772c10dbe480c988fb6cba4d14ddd4782ce319f621a11908cfda40350fce",
+  "cases": 10,
+  "passed": 10,
+  "valid_cycles": 77129798,
+  "valid_executor_seconds": 1.542529419,
+  "valid_segments": 169,
+  "valid_segment_po2_counts": {
+    "17": 1,
+    "19": 168
+  },
+  "valid_exit_code": "Halted(0)",
+  "valid_journal_sha256": "5d667b709f35191c6fc98e6aa0b79bd934e39a40ef4edfea582fcef3b06d4ac7",
+  "valid_profile_cycle_positions": [
+    6129417,
+    15705550,
+    17214982,
+    41619058,
+    51168965,
+    52709623,
+    77113699
+  ],
+  "valid_systemd_captured_display": {
+    "service_runtime": "1.645s",
+    "cpu_time": "1.884s",
+    "memory_peak": "61.3M",
+    "swap": "0B"
+  },
+  "scope": "same full two-proof binding relation; separate fresh public test-only setup; execution-only, no receipt, native acceptance or settlement yet",
+  "cases_summary": [
+    {
+      "case": "valid",
+      "passed": true,
+      "expected_rejection": null,
+      "seconds": 1.542529419
+    },
+    {
+      "case": "trailing",
+      "passed": true,
+      "expected_rejection": "Length(\"complete input\")",
+      "seconds": 0.189401802
+    },
+    {
+      "case": "truncated",
+      "passed": true,
+      "expected_rejection": "Length(\"complete input\")",
+      "seconds": 0.198483856
+    },
+    {
+      "case": "wrong-domain",
+      "passed": true,
+      "expected_rejection": "Profile(\"public projection\")",
+      "seconds": 0.193363095
+    },
+    {
+      "case": "wrong-fee",
+      "passed": true,
+      "expected_rejection": "PublicBinding(\"aggregate fee\")",
+      "seconds": 0.189011006
+    },
+    {
+      "case": "duplicate-output-index",
+      "passed": true,
+      "expected_rejection": "Permutation(\"outputs\")",
+      "seconds": 0.183804682
+    },
+    {
+      "case": "wrong-ciphertext",
+      "passed": true,
+      "expected_rejection": "CiphertextDigest",
+      "seconds": 0.18559921
+    },
+    {
+      "case": "changed-count-both",
+      "passed": true,
+      "expected_rejection": "InnerProof(\"invalid proof\")",
+      "seconds": 0.830386023
+    },
+    {
+      "case": "malformed-proof",
+      "passed": true,
+      "expected_rejection": "InnerProof(\"malformed proof\")",
+      "seconds": 0.18558842
+    },
+    {
+      "case": "identity-proof",
+      "passed": true,
+      "expected_rejection": "InnerProof(\"proof encoding/identity\")",
+      "seconds": 0.33042422
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "checked_utc": "2026-10-22T12:51:55.208725+00:00",
+  "manifest_url": "https://risc0-artifacts.s3.us-west-2.amazonaws.com/rzup/components/risc0-groth16/distribution_manifest.json",
+  "manifest_sha256": "92398d7623b5fbd3732d8b5fcaf614e8e407a27d79bb61af495e4f8b2e927235",
+  "signable_sha256": "478ba3f07a5d721d6c610e390ccd05afbe014c86f3097e51688f0d41ea25d1f2",
+  "public_key_url": "https://raw.githubusercontent.com/risc0/risc0/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/rzup/src/distribution/public_key.pem",
+  "public_key_sha256": "ef3cafeb1e540719b0187b5879359128d289ac2bcfa64f010f7998422960f491",
+  "algorithm": "RSA-PSS SHA256 saltlen32",
+  "command": [
+    "openssl",
+    "dgst",
+    "-sha256",
+    "-verify",
+    "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-rzup-v3.0.3-public_key.pem",
+    "-signature",
+    "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-manifest-signature.bin",
+    "-sigopt",
+    "rsa_padding_mode:pss",
+    "-sigopt",
+    "rsa_pss_saltlen:32",
+    "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-manifest-signable.json"
+  ],
+  "exit_code": 0,
+  "stdout": "Verified OK\n",
+  "stderr": ""
+}

@@ -1,0 +1,15 @@
+Running as unit: kpi-v6-execute-changed-count-20261022.service; invocation ID: 106c82db6c094f0fbe24bc93b95290f4
+PROFILE checked_fixed_key 49369732
+PROFILE after_checked_proof_decode 58915817
+PROFILE after_conversion_and_public_inputs 60392242
+PROFILE after_pairing 84793559
+
+thread '<unnamed>' (1) panicked at src/main.rs:13:33:
+v6 compatibility rejection: invalid proof
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+{"case":"changed-count","cycle_limit":160000000,"error":"Guest panicked: v6 compatibility rejection: invalid proof","expected_image":"1f3b9b1785a11268432ffdd484b83ce5025315e23fc3aa9cf74e3c06e56026de","expected_rejection":"invalid proof","input_sha256":"886da2872e9aa164b77abd0573af28693bb1f3e4f78f6a85da6f4d8dcbe81270","native_chain_acceptance":false,"passed":true,"proof_generation":false,"schema":"kpi-one-public-v6-guest-execution-v1","scope":"EXECUTION_ONLY_NOT_RECEIPT_OR_SETTLEMENT","seconds":1.7525730899999998,"segment_po2":19}
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.846s
+             CPU time consumed: 2.106s
+                   Memory peak: 53.3M (swap: 0B)

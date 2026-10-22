@@ -1,0 +1,15 @@
+Running as unit: kpi-two-v6-execute-changed-count-both-20261022.service; invocation ID: 46ee696899fd46418384408d9440238d
+PROFILE fixed_parameters 6129417
+PROFILE after_checked_proof_decode 15705550
+PROFILE after_conversion_and_public_inputs 17195213
+PROFILE after_pairing 41596491
+
+thread '<unnamed>' (1) panicked at src/main.rs:19:33:
+two-v6 binding rejection: InnerProof("invalid proof")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+{"case":"changed-count-both","cycle_limit":240000000,"error":"Guest panicked: two-v6 binding rejection: InnerProof(\"invalid proof\")","expected_rejection":"InnerProof(\"invalid proof\")","image":"50ceec8ebb91edd01028c4aec9b495e7d77eb9e3b39e065910c0600f7693d832","input_sha256":"713804c86ad340a6c10308148c5c7677c23c7d270adf9175d4ff46dd51853fb5","instance":"public-development-v6-2026-10-22","native_settlement":false,"passed":true,"proof_generation":false,"schema":"kpi-two-v6-guest-execution-v1","scope":"NONSETTLING_EXECUTION_ONLY_NO_RECEIPT","seconds":0.830386023,"segment_po2":19}
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 927ms
+             CPU time consumed: 1.056s
+                   Memory peak: 55.3M (swap: 0B)

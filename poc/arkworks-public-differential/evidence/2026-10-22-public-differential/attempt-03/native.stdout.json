@@ -1,0 +1,225 @@
+{
+  "input_sha256": "f1fba5f4561a503b5a582957f3c16dec495af3ef994f066556baa92d0cb0d17a",
+  "native_dependency": "01b532e8b553523216471682649693af92f0fd16",
+  "schema": "kpi-native-arkworks-differential-v1",
+  "scope": "actual standalone TxScriptEngine OpZkPrecompile 0x20; no covenant/transaction/chain validation",
+  "statements": [
+    {
+      "id": "historical-ordinary-spend",
+      "native": {
+        "script_units": 14750001,
+        "status": "verified"
+      }
+    },
+    {
+      "id": "fresh-pair-0",
+      "native": {
+        "script_units": 14750001,
+        "status": "verified"
+      }
+    },
+    {
+      "id": "fresh-pair-1",
+      "native": {
+        "script_units": 14750001,
+        "status": "verified"
+      }
+    },
+    {
+      "id": "historical-ordinary-spend/changed-input",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "fresh-pair-0/changed-input",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "fresh-pair-1/changed-input",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "proof-identity-a",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "proof-identity-b",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "proof-identity-c",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "proof-a-sign-flip",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "proof-noncanonical-infinity-a",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "proof-off-subgroup-b",
+      "native": {
+        "error": "ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+        "error_debug": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "vk-identity-alpha",
+      "native": {
+        "error": "ZK Integrity: Groth16 verification failed",
+        "error_debug": "ZkIntegrity(\"Groth16 verification failed\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "vk-off-subgroup-beta",
+      "native": {
+        "error": "ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+        "error_debug": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+        "script_units": 14000000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "vk-count-zero",
+      "native": {
+        "error": "ZK Integrity: Groth16 verifying key has empty gamma_abc_g1",
+        "error_debug": "ZkIntegrity(\"Groth16 verifying key has empty gamma_abc_g1\")",
+        "script_units": 14000000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "vk-count-four",
+      "native": {
+        "error": "ZK Integrity: ARK R1CS error: predicate arity doesn't match input",
+        "error_debug": "ZkIntegrity(\"ARK R1CS error: predicate arity doesn't match input\")",
+        "script_units": 14000000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "vk-count-u64max",
+      "native": {
+        "error": "VK vector count bound before decode/allocation",
+        "status": "guard_rejected"
+      }
+    },
+    {
+      "id": "proof-trailing",
+      "native": {
+        "error": "ZK Integrity: Groth16 proof has trailing bytes",
+        "error_debug": "ZkIntegrity(\"Groth16 proof has trailing bytes\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "vk-trailing",
+      "native": {
+        "error": "ZK Integrity: Groth16 verifying key has trailing bytes",
+        "error_debug": "ZkIntegrity(\"Groth16 verifying key has trailing bytes\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "proof-truncated",
+      "native": {
+        "error": "ZK Integrity: ARK serialization error: I/O error: Error { kind: UnexpectedEof, message: \"failed to fill whole buffer\" }",
+        "error_debug": "ZkIntegrity(\"ARK serialization error: I/O error: Error { kind: UnexpectedEof, message: \\\"failed to fill whole buffer\\\" }\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "vk-truncated",
+      "native": {
+        "error": "ZK Integrity: ARK serialization error: I/O error: Error { kind: UnexpectedEof, message: \"failed to fill whole buffer\" }",
+        "error_debug": "ZkIntegrity(\"ARK serialization error: I/O error: Error { kind: UnexpectedEof, message: \\\"failed to fill whole buffer\\\" }\")",
+        "script_units": 14750000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "input-trailing",
+      "native": {
+        "error": "ZK Integrity: Kaspa txscript error: ZK Integrity: Invalid Fr length: expected 32 bytes, got 33",
+        "error_debug": "ZkIntegrity(\"Kaspa txscript error: ZK Integrity: Invalid Fr length: expected 32 bytes, got 33\")",
+        "script_units": 14000000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "input-modulus",
+      "native": {
+        "error": "ZK Integrity: Kaspa txscript error: ZK Integrity: ARK serialization error: the input buffer contained invalid data",
+        "error_debug": "ZkIntegrity(\"Kaspa txscript error: ZK Integrity: ARK serialization error: the input buffer contained invalid data\")",
+        "script_units": 14000000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "input-missing",
+      "native": {
+        "error": "ZK Integrity: ARK R1CS error: predicate arity doesn't match input",
+        "error_debug": "ZkIntegrity(\"ARK R1CS error: predicate arity doesn't match input\")",
+        "script_units": 14000000,
+        "status": "native_rejected"
+      }
+    },
+    {
+      "id": "input-extra",
+      "native": {
+        "error": "ZK Integrity: ARK R1CS error: predicate arity doesn't match input",
+        "error_debug": "ZkIntegrity(\"ARK R1CS error: predicate arity doesn't match input\")",
+        "script_units": 14000000,
+        "status": "native_rejected"
+      }
+    }
+  ]
+}

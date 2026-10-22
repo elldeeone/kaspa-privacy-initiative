@@ -1,0 +1,28 @@
+{
+  "unit": "kpi-native-paired-groth16-20261022.service",
+  "terminal_systemctl_properties_available": false,
+  "terminal_systemctl_note": "Transient unit garbage-collected before post-exit query; systemctl defaults are not actual runtime/exit properties.",
+  "launch_caps": {
+    "CPUQuota": "200%",
+    "MemoryMax": 2147483648,
+    "MemorySwapMax": 0,
+    "RuntimeMaxSec": 600
+  },
+  "launch_caps_observed_by_immediate_systemctl_tool_output": true,
+  "actual_native_stdout": {
+    "all_expectations_met": true,
+    "cases": 8,
+    "native_opcode_tag": "0x20",
+    "output": "/output/paired-groth16"
+  },
+  "journal_started_realtime_us": 1792674855710764,
+  "journal_result_realtime_us": 1792674856385405,
+  "journal_start_to_result_seconds": 0.674641,
+  "journal_resource_events": [],
+  "peak_memory_measured_bytes": null,
+  "memory_swap_peak_measured_bytes": null,
+  "network_isolation": "bwrap --unshare-all",
+  "mounted_inputs": "read-only checker executable, exact public receipt, /usr system libraries; fresh /tmp/proc/dev; writable evidence output only",
+  "source_freeze_sha256": "044a807d9aa19e4c871a7dbabd77737adb216f989c51af8a219b634502e68ebb",
+  "receipt_report_sha256": "56f42f88e8f1037f32ab51294229df691a3d68b7fa95f9649b841df1faa1c94f"
+}

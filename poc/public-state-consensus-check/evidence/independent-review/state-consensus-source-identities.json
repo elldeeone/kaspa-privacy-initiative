@@ -1,0 +1,66 @@
+{
+  "reviewed_utc": "2026-10-22T14:03:09.134790+00:00",
+  "scope": "Source/stdlib-only independent review; no native invocation or build/proving",
+  "input_source_freeze_sha256": "1f309df95d4f2672f0e337d69a08bb9c9d8be2393ef2d4ec19cb8ffa829b213e",
+  "identities": {
+    "/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-state-consensus-check/Cargo.toml": {
+      "sha256": "6b69883a457c9ff5f94db3da5fdf7034b9c592390d05b951a41b51dab37eb3a4",
+      "bytes": 880
+    },
+    "/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-state-consensus-check/Cargo.lock": {
+      "sha256": "7e9ea615a2e391b7642929862f181f9093eb11887804fa77e31d13c5f214dfd1",
+      "bytes": 109286
+    },
+    "/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-state-consensus-check/src/main.rs": {
+      "sha256": "6c33f1b270770b2b8e925be6c4e236bf10cc199c9e301210277f3a5d19ab6414",
+      "bytes": 17227
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/src/processes/transaction_validator/mod.rs": {
+      "sha256": "b4b4288d66ca7cf5c074a64e8532c2d21dc24b48fdd4399aca55a2e255446f29",
+      "bytes": 2349
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/src/processes/transaction_validator/tx_validation_in_isolation.rs": {
+      "sha256": "820cc3ae6e3f7343154b21c455f21f22fecc3e0ab3324ab00e05abc741b8c847",
+      "bytes": 20396
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs": {
+      "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+      "bytes": 50222
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/src/processes/transaction_validator/tx_validation_in_header_context.rs": {
+      "sha256": "3790dbc361c1adc6acf4e74ea503361910e7f09658caac097edd3f1e6b393abb",
+      "bytes": 2834
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/mining/src/mempool/check_transaction_standard.rs": {
+      "sha256": "9de15e3df1d932520c3051712c0a0cbcd66fd734b4727e82f7722d996656e571",
+      "bytes": 20329
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/mining/src/mempool/config.rs": {
+      "sha256": "862f3161f6561c300de83a6d97f2b1ede25e7c2a30117f78737fb44502a23bf7",
+      "bytes": 7495
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/tx.rs": {
+      "sha256": "bec0ba712a976e227a184ee3130bc0fd1222a452dade5820af92173ca5961656",
+      "bytes": 49654
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/tx/script_public_key.rs": {
+      "sha256": "40c232195b69c90a8307aa9778dfaed31140fabe9ccae0df97994a0393431cde",
+      "bytes": 18401
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/mass/mod.rs": {
+      "sha256": "7e17c80810046525e7bf1a7147e6e8c6918dfe4c76ef64b6ca4078502d2a9fae",
+      "bytes": 38856
+    },
+    "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/config/params.rs": {
+      "sha256": "13296eef360764b637e70b2e8892941d97e3e88d8a5c58830e80332d0ff80ea2",
+      "bytes": 33023
+    }
+  },
+  "no_risc0_zkvm_or_prover_or_shared_pool_crate": true,
+  "source_error_stage_predictions": {
+    "isolation_negative_controls": 4,
+    "Full_negative_controls": 6,
+    "source_adapted_policy_cases": 4
+  },
+  "reviewer_executed_native": false
+}

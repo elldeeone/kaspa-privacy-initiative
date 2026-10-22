@@ -1,0 +1,37 @@
+{
+  "unit": "kpi-native-paired-succinct-20261022.service",
+  "terminal_systemctl_properties_available": false,
+  "terminal_systemctl_note": "Transient unit garbage-collected before post-exit query; systemctl defaults are not actual runtime/exit properties.",
+  "launch_caps": {
+    "CPUQuota": "200%",
+    "MemoryMax": 4294967296,
+    "MemorySwapMax": 0,
+    "RuntimeMaxSec": 600
+  },
+  "launch_caps_observed_by_immediate_systemctl_tool_output": true,
+  "actual_native_stdout": {
+    "all_expectations_met": true,
+    "cases": 9,
+    "native_opcode_tag": "0x21",
+    "output": "/output/paired-succinct"
+  },
+  "journal_started_realtime_us": 1792674358002988,
+  "journal_result_realtime_us": 1792674359291584,
+  "journal_start_to_result_seconds": 1.288596,
+  "journal_resource_events": [
+    {
+      "CPU_USAGE_NSEC": "1266339000",
+      "MEMORY_PEAK": "14508032",
+      "__MONOTONIC_TIMESTAMP": "367122472077",
+      "__REALTIME_TIMESTAMP": "1792674359292963",
+      "MEMORY_SWAP_PEAK": "0",
+      "MESSAGE": "kpi-native-paired-succinct-20261022.service: Consumed 1.266s CPU time over 1.289s wall clock time, 13.8M memory peak."
+    }
+  ],
+  "peak_memory_measured_bytes": 14508032,
+  "memory_swap_peak_measured_bytes": 0,
+  "network_isolation": "bwrap --unshare-all",
+  "mounted_inputs": "read-only checker executable, exact public receipt, /usr system libraries; fresh /tmp/proc/dev; writable evidence output only",
+  "source_freeze_sha256": "044a807d9aa19e4c871a7dbabd77737adb216f989c51af8a219b634502e68ebb",
+  "receipt_report_sha256": "c1e96cc78f5624152da43d0319a92b2ee913d82a27932dbecc99b50be2a60c08"
+}

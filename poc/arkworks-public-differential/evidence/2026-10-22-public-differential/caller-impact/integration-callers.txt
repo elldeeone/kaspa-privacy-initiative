@@ -1,0 +1,47 @@
+./poc/v6-guest-compat/common/src/lib.rs:38:    let vk = VerifyingKey::<Bn254>::deserialize_compressed(&mut rest)
+./poc/self-funded/src/main.rs:346:    if !Groth16::<Bn254>::verify_proof(&prepare_verifying_key(&pk.vk), &proof, &circuit.public)? {
+./poc/groth16-comparison/common/src/lib.rs:56:    match Groth16::<Bn254>::verify_proof(pvk, &proof, &public_inputs(&proxy::journal(intent))) {
+./poc/private-note-chain/common/src/lib.rs:34:        let vk = ark_groth16::VerifyingKey::<Bn254>::deserialize_compressed(&mut input)
+./poc/private-note-chain/common/src/lib.rs:48:        let vk = ark_groth16::VerifyingKey::<Bn254>::deserialize_uncompressed_unchecked(&bytes[..])
+./poc/groth16-comparison/classifier-guest/src/main.rs:46:    let pvk = PreparedVerifyingKey::<Bn254>::deserialize_uncompressed_unchecked(
+./poc/a0/src/main.rs:299:    assert!(Groth16::<Bn254>::verify(&vk, &inputs, &proof).unwrap());
+./poc/a0/src/main.rs:595:        assert!(Groth16::<Bn254>::verify(&other_vk, &wrong_inputs, &other_proof).unwrap());
+./poc/a0/src/live.rs:320:    if !Groth16::<Bn254>::verify(&pk.vk, &inputs, &proof)? {
+./poc/private-note-chain/common/tests/public_evidence.rs:63:    let vk = ark_groth16::VerifyingKey::<ark_bn254::Bn254>::deserialize_compressed(raw.as_slice())
+./poc/private-note-chain/common/tests/public_evidence.rs:65:    let reference = ark_groth16::prepare_verifying_key(&vk);
+./poc/private-note-chain/common/tests/public_evidence.rs:78:            !ark_groth16::Groth16::<ark_bn254::Bn254>::verify_proof(&reference, &proof, &f)
+./poc/groth16-comparison/host.rs:13:    let vk = VerifyingKey::<Bn254>::deserialize_compressed(&vk_bytes[..])?;
+./poc/groth16-comparison/host.rs:14:    let pvk = PreparedVerifyingKey::<Bn254>::deserialize_compressed(
+./poc/groth16-comparison/host.rs:17:    assert_eq!(g16::encode(&prepare_verifying_key(&vk)), g16::encode(&pvk));
+./poc/groth16-comparison/host.rs:53:    let pvk = g16::encode(&prepare_verifying_key(&pk.vk));
+./poc/groth16-comparison/host.rs:95:        assert!(Groth16::<Bn254>::verify_proof(&pvk, &proof, &statement)?);
+./poc/private-note-chain/host/src/main.rs:154:    let vk = ark_groth16::VerifyingKey::<ark_bn254::Bn254>::deserialize_compressed(
+./poc/private-note-chain/host/src/main.rs:278:    let pvk = ark_groth16::prepare_verifying_key(&vk);
+./poc/private-note-chain/host/src/main.rs:283:    assert!(ark_groth16::Groth16::<ark_bn254::Bn254>::verify_proof(
+./poc/private-note-chain/host/src/main.rs:290:        assert!(!ark_groth16::Groth16::<ark_bn254::Bn254>::verify_proof(
+./poc/private-note-wallet/src/wallet.rs:144:        let pvk = prepare_verifying_key(&pk.vk);
+./poc/private-note-wallet/src/wallet.rs:224:        let pvk = prepare_verifying_key(&pk.vk);
+./poc/private-note-wallet/src/wallet.rs:251:        let vk = ark_groth16::VerifyingKey::<Bn254>::deserialize_compressed(&mut input)
+./poc/private-note-wallet/src/wallet.rs:260:            pvk: prepare_verifying_key(&vk),
+./poc/private-note-wallet/src/wallet.rs:285:            || !Groth16::<Bn254>::verify_proof(&self.pvk, &proof, &s.inputs())
+./poc/two-v6-binding/common/src/compiled.rs:41:        let vk = VerifyingKey::<Bn254>::deserialize_compressed_unchecked(&mut rest)
+./poc/a1/src/bin/a1_foreign_setup.rs:245:        if !Groth16::<Bn254>::verify(&vk, &inputs, &proof)? {
+./poc/a1/src/bin/a1_foreign_setup.rs:248:        if Groth16::<Bn254>::verify(&original_vk, &inputs, &proof)? {
+./poc/a1/src/bin/a1_context_negatives.rs:194:            || !Groth16::<Bn254>::verify(
+./poc/a1/src/bin/a1_context_negatives.rs:232:            let original_proof_valid = Groth16::<Bn254>::verify(
+./poc/a1/src/main.rs:384:    if !Groth16::<Bn254>::verify(&a.pk.vk, &inputs, &proof)? {
+./poc/a1/src/main.rs:1102:    if !Groth16::<Bn254>::verify(&pk.vk, &inputs, &proof)? {
+./poc/a1/src/bin/a1_reference.rs:129:        let vk = VerifyingKey::<Bn254>::deserialize_compressed(&mut v)?;
+./poc/public-receipt-native-check/src/main.rs:173:    let vk = VerifyingKey::<Bn254>::deserialize_uncompressed(&mut reader)?;
+./poc/public-receipt-native-check/src/main.rs:498:        let vk = VerifyingKey::<Bn254>::deserialize_compressed(key.as_slice()).unwrap();
+./poc/takeover/vendor/covenant/build.rs:26:    let vk = VerifyingKey::<Bn254>::deserialize_uncompressed(&mut &vk_bytes_prefixed_with_len[8..])
+./poc/shared-pool/src/app.rs:568:    if !Groth16::<Bn254>::verify_proof(&prepare_verifying_key(&pk.vk), &proof, &circuit.public)? {
+./poc/shared-pool/src/compact/experiment.rs:182:    if !Groth16::<Bn254>::verify_proof(&prepare_verifying_key(&pk.vk), &proof, &inputs)? {
+./poc/takeover/vendor/covenant/src/script.rs:1255:            let vk = VerifyingKey::<Bn254>::deserialize_uncompressed(
+./poc/shared-pool/src/bin/public_two_v6_fixture.rs:225:    let prepared = prepare_verifying_key(&pk.vk);
+./poc/shared-pool/src/bin/public_two_v6_fixture.rs:234:        if !Groth16::<Bn254>::verify_proof(&prepared, &proof, &inputs)? {
+./poc/accelerated-bn254/common/src/lib.rs:71:            PreparedVerifyingKey::<Bn254>::deserialize_uncompressed_unchecked(&raw[..]).unwrap();
+./poc/lane-completeness/vendor/covenant/build.rs:26:    let vk = VerifyingKey::<Bn254>::deserialize_uncompressed(&mut &vk_bytes_prefixed_with_len[8..])
+./poc/shared-pool/src/two_input/harness.rs:138:    if !Groth16::<Bn254>::verify_proof(&prepare_verifying_key(&pk.vk), &p, &inputs)? {
+./poc/shared-pool/src/anchored/experiment.rs:232:    if !Groth16::<Bn254>::verify_proof(&prepare_verifying_key(&pk.vk), &proof, &inputs)? {
+./poc/lane-completeness/vendor/covenant/src/script.rs:1256:            let vk = VerifyingKey::<Bn254>::deserialize_uncompressed(

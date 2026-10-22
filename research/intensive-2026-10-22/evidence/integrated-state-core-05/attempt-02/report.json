@@ -1,0 +1,33 @@
+{
+  "scope": "integrated source-location core regression only; no proving/native/chain claim",
+  "cases": [
+    {
+      "label": "binding",
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/home/luke/projects/kpi-intensive-2026-10-22/integration/poc/two-v6-binding/common/Cargo.toml",
+        "--features",
+        "compiled-research-instance"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "state",
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--locked",
+        "--manifest-path",
+        "/home/luke/projects/kpi-intensive-2026-10-22/integration/poc/two-v6-state/common/Cargo.toml"
+      ],
+      "exit": 0
+    }
+  ],
+  "sources_unchanged": true,
+  "elapsed_seconds": 29.63896083831787
+}

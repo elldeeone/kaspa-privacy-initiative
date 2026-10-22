@@ -1,0 +1,33 @@
+{
+  "unit": "kpi-state-consensus-source-build3-20261022",
+  "start": "2026-10-22T14:02:06.935232+00:00",
+  "deadline": "2026-10-22T14:32:06.935232+00:00",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--unit=kpi-state-consensus-source-build3-20261022",
+    "--collect",
+    "--property=CPUQuota=600%",
+    "--property=MemoryMax=6G",
+    "--property=MemorySwapMax=0",
+    "--property=RuntimeMaxSec=1800",
+    "--property=TasksMax=256",
+    "--property=RestrictAddressFamilies=AF_UNIX",
+    "--property=WorkingDirectory=/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-state-consensus-check",
+    "--property=StandardOutput=append:/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-state-consensus-check/evidence/build-source3.log",
+    "--property=StandardError=append:/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-state-consensus-check/evidence/build-source3.log",
+    "--setenv=PATH=/home/luke/.cargo/bin:/usr/local/bin:/usr/bin:/bin",
+    "--setenv=CARGO_TARGET_DIR=/home/luke/projects/kpi-intensive-2026-10-22/research-target/public-state-consensus-check",
+    "--setenv=CARGO_BUILD_JOBS=6",
+    "--setenv=CARGO_INCREMENTAL=0",
+    "--setenv=CARGO_PROFILE_DEV_DEBUG=0",
+    "--setenv=CARGO_NET_OFFLINE=true",
+    "/usr/bin/bash",
+    "/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-state-consensus-check/evidence/build-source2.sh"
+  ],
+  "launch_returncode": 0,
+  "launch_stderr": "Running as unit: kpi-state-consensus-source-build3-20261022.service; invocation ID: e7f3f24123e647599e5d592b29e8a3dc\n",
+  "immediate_properties": "ActiveState=active\nSubState=running\nRuntimeMaxUSec=30min\nMainPID=1783112\nExecMainStartTimestamp=Thu 2026-10-22 14:02:06 UTC\nCPUQuotaPerSecUSec=6s\nMemoryMax=6442450944\nMemorySwapMax=0\nRestrictAddressFamilies=AF_UNIX\n",
+  "source_only_no_native_vm": true,
+  "network_restriction": "AF_UNIX-only sockets plus Cargo offline; normal OS/build environment"
+}

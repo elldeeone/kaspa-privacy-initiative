@@ -1,0 +1,11 @@
+Running as unit: kpi-v6-execute-wrong-ciphertext-20261022.service; invocation ID: 5d13b3639c904a18946ac1ec144b2ba1
+
+thread '<unnamed>' (1) panicked at src/main.rs:13:33:
+v6 compatibility rejection: ordered ciphertext digest
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+{"case":"wrong-ciphertext","cycle_limit":160000000,"error":"Guest panicked: v6 compatibility rejection: ordered ciphertext digest","expected_image":"1f3b9b1785a11268432ffdd484b83ce5025315e23fc3aa9cf74e3c06e56026de","expected_rejection":"ordered ciphertext digest","input_sha256":"516535658a03ca2f5e3ceee0ae0d4053022f7a04c7746d0140ad7c15bcccece2","native_chain_acceptance":false,"passed":true,"proof_generation":false,"schema":"kpi-one-public-v6-guest-execution-v1","scope":"EXECUTION_ONLY_NOT_RECEIPT_OR_SETTLEMENT","seconds":0.08049146,"segment_po2":19}
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 168ms
+             CPU time consumed: 162ms
+                   Memory peak: 20.1M (swap: 0B)

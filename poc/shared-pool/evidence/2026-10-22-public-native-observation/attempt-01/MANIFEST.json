@@ -1,0 +1,81 @@
+{
+  "schema": "kpi-public-native-observation-manifest-v1",
+  "source_sha256": {
+    "public_native_observation.py": "0ba861b4458b1fa4ca572b4d783c957ee7be39188c45982aced8565455d83c6e",
+    "public_native_observation_tests.py": "25b13a95a63b66898f289e58ca56fbc018f55484e80870f3e49dc2b5514db56b",
+    "verify_public_native_observation.py": "54ca4860c2c7ae09eb0bf4dd6a0e578e6d57818a2c16475ab15152903daf9266",
+    "src/bin/kpi-public-native-observation-check.rs": "0321b3a2d57093b51a58d85bd24fbfb798d4a8ef648900abe615b9449689b869",
+    "src/two_input/replay.rs": "9e2de9ae756e9af65fb3f7c75fff7170e3a06170a8eb85d0b0da05d758b1b66e",
+    "src/two_input/tree.rs": "9fc004721ae2a22c6faa26f2a046eefd7bb707e3c83077be01a7913b464891ed",
+    "src/two_input/mod.rs": "255f8e908fcb1c4a76dcc8ebe0ca5f4e9ddbadc8ba46f63036cb413298bc8150",
+    "src/two_input/covenant.rs": "3b6d73c1ebada11d156f3020b444c881160e2f4d8eb7ae629a23ac267bf0d96d",
+    "src/native.rs": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f",
+    "src/compact/tree.rs": "4ac46cb3e514e58181d0a4e2195e882f22d1df83d8dc6ea926fac47102ea0dc6",
+    "src/protocol.rs": "5243cab1b36e0d9cae8bf13e81b7fcdb033c8dc1bc7405daa401c69334cc4ec4",
+    "src/lib.rs": "19f16cabbe0614d83a1d72111499875a0a7638e17b2921cd780a83199905b411",
+    "Cargo.toml": "cfdc8e104c93e4575b1f2cf5d9b441566674b7b801856d18fc7aeb5ba50234f3",
+    "Cargo.lock": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64"
+  },
+  "source_base_commit": "ec6aa15d586bcc8a90f7232b433fd48d8c73d509",
+  "source_change_scope": "additive public observation adapter, controls and integration wrapper; no inherited protocol code changed",
+  "fixture_pins": {
+    "descriptor": [
+      "evidence/2026-10-20-two-input-tn10/rehearsal/descriptor.json",
+      "795eebdefb3eabea6446b3b1a9bd8c80e7f262fe32f7dfcf39efccbe7bbc07ac"
+    ],
+    "receipt": [
+      "evidence/2026-10-20-two-input-tn10/rehearsal/chain-confirmed.json",
+      "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8"
+    ],
+    "vk": [
+      "evidence/2026-10-20-two-input-tn10/verification-key.json",
+      "4fd7dc563e4a1f843c99d5517485ba7664a7dcb69057784ca2fac066b20cddaf"
+    ]
+  },
+  "expected_descriptor_sha256": "d02c36cd87db7bfd43f6f85a425539a90f8f39224a20ac5ef860ae0f54be3a8b",
+  "native_binary_path": "/home/luke/projects/kpi-intensive-2026-10-22/native-target/x86_64-unknown-linux-gnu/release/kpi-public-native-observation-check",
+  "native_binary_sha256": "39e3343487938afb2e7450cf653ced8cc87b52245e384633b32d01ca87a84999",
+  "python_version": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "artifacts": {
+    "native.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "native.stdout.json": {
+      "bytes": 13415,
+      "sha256": "8c43439bd40d7892593f58c0c4fd675bbead5d7c8453a9521b8be0f0908bc56e"
+    },
+    "observation.json": {
+      "bytes": 69975,
+      "sha256": "014ab63a9cb84fac297c8b6e4d5745650755b886938b2fc88f6522a461c1343d"
+    },
+    "python-controls.json": {
+      "bytes": 155,
+      "sha256": "b66930f5c447a29bcbdb9228990f0f6526dead27c0974788af722f688d57c760"
+    },
+    "python-controls.txt": {
+      "bytes": 3617,
+      "sha256": "d18672384e441dcf3ce19a1805de10bcb830ac7dcd172c56580bf4f0fa0765ae"
+    },
+    "selected-public-input.json": {
+      "bytes": 790950,
+      "sha256": "7fd8bd70774872a1748fb52d32754556e578f8abf89c76100e28e1fd315b02a1"
+    },
+    "validation.json": {
+      "bytes": 2309,
+      "sha256": "66ebaed479171726dbfb1748993d70d3a9f7ffb34051c3e45e44911b8aef245e"
+    }
+  },
+  "input_boundary": "three named hash-pinned public rehearsal files only; legacy roster and receipt headers excluded",
+  "network": "native execution unshare-all; only input JSON and executable exposed beyond OS runtime",
+  "absent_inputs": [
+    "wallets",
+    "spending keys",
+    "proving parameters",
+    "setup",
+    "seeds",
+    "truth",
+    "evaluation archives",
+    "predictions"
+  ]
+}

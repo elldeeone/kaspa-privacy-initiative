@@ -1,0 +1,130 @@
+{
+  "scope": "ROOT_SELECTED_FRESH_RECEIPT_SOFTWARE_VERIFICATION_AND_CHECKED_CANONICAL_NATIVE_CONVERSION_ONLY",
+  "launch": {
+    "unit": "kpi-fresh-proof-extract-20261022-01",
+    "start": "2026-10-22T14:47:55.409501+00:00",
+    "deadline": "2026-10-22T14:52:55.409501+00:00",
+    "argv": [
+      "systemd-run",
+      "--user",
+      "--unit=kpi-fresh-proof-extract-20261022-01",
+      "--collect",
+      "--property=CPUQuota=100%",
+      "--property=MemoryMax=2G",
+      "--property=MemorySwapMax=0",
+      "--property=RuntimeMaxSec=300",
+      "--property=TasksMax=64",
+      "--property=StandardOutput=append:/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract/evidence/fresh-extract-01-service.log",
+      "--property=StandardError=append:/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract/evidence/fresh-extract-01-service.log",
+      "/usr/bin/bwrap",
+      "--unshare-all",
+      "--die-with-parent",
+      "--new-session",
+      "--clearenv",
+      "--setenv",
+      "RAYON_NUM_THREADS",
+      "1",
+      "--ro-bind",
+      "/usr",
+      "/usr",
+      "--symlink",
+      "usr/bin",
+      "/bin",
+      "--symlink",
+      "usr/lib",
+      "/lib",
+      "--symlink",
+      "usr/lib64",
+      "/lib64",
+      "--proc",
+      "/proc",
+      "--dev",
+      "/dev",
+      "--tmpfs",
+      "/tmp",
+      "--ro-bind",
+      "/home/luke/projects/kpi-intensive-2026-10-22/research-target/public-receipt-proof-extract-stage/kpi-public-receipt-proof-extract",
+      "/checker",
+      "--ro-bind",
+      "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/fresh-pair-compression/groth16-receipt.bin",
+      "/receipt.bin",
+      "--ro-bind",
+      "/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract/evidence/fresh-selected-journal.bin",
+      "/journal.bin",
+      "--bind",
+      "/home/luke/projects/kpi-intensive-2026-10-22/research/poc/public-receipt-proof-extract/evidence",
+      "/output",
+      "--chdir",
+      "/tmp",
+      "/checker",
+      "extract",
+      "/receipt.bin",
+      "e21ab79e3aebdaba0355680d6a17bf0142bf0b3b5bbb687a6f2726499282a0d3",
+      "/journal.bin",
+      "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+      "e13eaa36d1149bfe873938acf829a9e47d93a6a8014eb61fdad9cb09c6e273f2",
+      "/output/fresh-profile-01"
+    ],
+    "root_selection_sha256": "1f8639eed67ba401d66375b694f957591114226c7f06f0c1a83530c884c13b71",
+    "binary_sha256": "b3778d8db2ceebeae111c3318bce597636d3d028a7f03fbf4775146d470bb2d8",
+    "receipt_sha256": "e13eaa36d1149bfe873938acf829a9e47d93a6a8014eb61fdad9cb09c6e273f2",
+    "journal_sha256": "699697f07565d28faad6e45b9e6daa0a09dbcea3f475d51880a75289f7e49b57",
+    "statement_selection_sha256": "3c6d8de56346a37de868b374f68e25ea09283e9260fd213f4171d18ecd548406",
+    "expected_image": "e21ab79e3aebdaba0355680d6a17bf0142bf0b3b5bbb687a6f2726499282a0d3",
+    "expected_claim": "88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa",
+    "launch_caps": {
+      "cpu": 1,
+      "ram_bytes": 2147483648,
+      "swap_bytes": 0,
+      "max_seconds": 300,
+      "network": "unshared-none"
+    },
+    "native_vm_or_proof_generation": false,
+    "launch_returncode": 0,
+    "launch_stderr": "Running as unit: kpi-fresh-proof-extract-20261022-01.service; invocation ID: fb337f1644014358bfe466528f663181\n",
+    "immediate_properties": "ActiveState=active\nMainPID=1990440\nExecMainStartTimestamp=Thu 2026-10-22 14:47:55 UTC\nCPUQuotaPerSecUSec=1s\nMemoryMax=2147483648\nMemorySwapMax=0\n"
+  },
+  "resource_events": [],
+  "if_no_resource_event": "runtime peak memory/CPU usage unknown; immediate launch caps retained, no post-GC defaults interpreted",
+  "sdk_verification_passed": true,
+  "native_vm_executed": false,
+  "proof_generation": false,
+  "source_unchanged": true,
+  "output_files": {
+    "journal.bin": {
+      "bytes": 336,
+      "sha256": "699697f07565d28faad6e45b9e6daa0a09dbcea3f475d51880a75289f7e49b57"
+    },
+    "proof.compressed.bin": {
+      "bytes": 128,
+      "sha256": "ef70b661190742b88a6030ca5b102bd680d9eb8996bab57f9f4493df44fed811"
+    },
+    "public-inputs.le.bin": {
+      "bytes": 160,
+      "sha256": "20ddf5fa43f84a33411e4a23d4cc5d4e9975ba5869a28c0d7f9dbebd33c75129"
+    },
+    "report.json": {
+      "bytes": 2421,
+      "sha256": "7204fac4f4923427d178eac45b17344ffff4b5df3aba406a9c08a649348deb6d"
+    },
+    "sdk-seal.bin": {
+      "bytes": 256,
+      "sha256": "b311d29f81ea5663ed7285db315b40e87ea3606c2f72c25b679850257c686f4d"
+    },
+    "service-journal.jsonl": {
+      "bytes": 2468,
+      "sha256": "e091cd9955199f3d612373ccfc40ab62fc996cb2e45ff8e2c43dbb508910c968"
+    },
+    "service.log": {
+      "bytes": 185,
+      "sha256": "5c3c25c5213c298a9aca1cfa7ecd33dd560e0511e0abac080c1316e57b7741e4"
+    },
+    "vk.compressed.bin": {
+      "bytes": 424,
+      "sha256": "78886245c5d55b850f2ac26af823802cd128eb4a43d6c52c8a62af46d54306a4"
+    }
+  },
+  "consumer_copy": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/fresh-pair-native-proof",
+  "consumer_proof_sha256": "ef70b661190742b88a6030ca5b102bd680d9eb8996bab57f9f4493df44fed811",
+  "recorded_utc": "2026-10-22T14:49:35.621781+00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "unit": "kpi-intensive-state-corpus-differential-20261022.service",
+  "start": "2026-10-22T13:32:05.644176+00:00",
+  "deadline": "2026-10-22T13:37:05.644176+00:00",
+  "launch": [
+    "systemd-run",
+    "--user",
+    "--unit=kpi-intensive-state-corpus-differential-20261022.service",
+    "--property=Type=exec",
+    "--property=RemainAfterExit=yes",
+    "--property=CPUQuota=200%",
+    "--property=MemoryMax=3G",
+    "--property=MemorySwapMax=0",
+    "--property=TasksMax=256",
+    "--property=OOMPolicy=stop",
+    "--property=KillMode=control-group",
+    "--property=RuntimeMaxSec=300",
+    "--property=TimeoutStopSec=10",
+    "--property=WorkingDirectory=/home/luke/projects/kpi-intensive-2026-10-22/integration/poc/two-v6-state/common",
+    "--property=StandardOutput=file:/home/luke/projects/kpi-intensive-2026-10-22/integration/poc/two-v6-state/common/evidence/corpus-differential/stdout.log",
+    "--property=StandardError=file:/home/luke/projects/kpi-intensive-2026-10-22/integration/poc/two-v6-state/common/evidence/corpus-differential/stderr.log",
+    "--setenv=CARGO_HOME=/home/luke/projects/kpi-intensive-2026-10-22/binding-cargo-home",
+    "--setenv=CARGO_TARGET_DIR=/home/luke/projects/kpi-intensive-2026-10-22/binding-target",
+    "--setenv=CARGO_NET_OFFLINE=true",
+    "--setenv=RUSTC=/home/luke/.rustup/toolchains/1.97.1-x86_64-unknown-linux-gnu/bin/rustc",
+    "--setenv=PATH=/home/luke/.rustup/toolchains/1.97.1-x86_64-unknown-linux-gnu/bin:/usr/bin:/bin",
+    "python3",
+    "/home/luke/projects/kpi-intensive-2026-10-22/integration/poc/two-v6-state/common/evidence/corpus-differential/run.py"
+  ]
+}

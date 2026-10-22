@@ -1,0 +1,4237 @@
+{
+  "cleanup": [
+    {
+      "ActiveState": "inactive",
+      "ControlGroup": "",
+      "MainPID": "0",
+      "SubState": "dead",
+      "unit": "kpi-native-budget-boundaries-run-20261022.service"
+    },
+    {
+      "ActiveState": "inactive",
+      "ControlGroup": "",
+      "MainPID": "0",
+      "SubState": "dead",
+      "unit": "kpi-native-budget-boundaries-run2-20261022.service"
+    }
+  ],
+  "observed_process_cleanup": [
+    {
+      "matching_process_alive": false,
+      "pid": 1614739,
+      "start_ticks": 36831418
+    },
+    {
+      "matching_process_alive": false,
+      "pid": 1614741,
+      "start_ticks": 36831424
+    },
+    {
+      "matching_process_alive": false,
+      "pid": 1614743,
+      "start_ticks": 36831424
+    },
+    {
+      "matching_process_alive": false,
+      "pid": 1614744,
+      "start_ticks": 36831425
+    }
+  ],
+  "reproduction": {
+    "all_matching_processes_gone": true,
+    "byte_identical": true,
+    "first_native_sha256": "c1c9632b6d3e1e9cfadccaf1c87bb1d1ca4bc82f517bc031ba78b559506876be",
+    "observed_pid_start_identity_count": 4,
+    "second_native_sha256": "c1c9632b6d3e1e9cfadccaf1c87bb1d1ca4bc82f517bc031ba78b559506876be"
+  },
+  "resource_samples": [
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2537000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "1835008",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "1835008",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.017630+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "56650000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "14376960",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "23650304",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.074533+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "124937000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "20631552",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "23650304",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.131254+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "193968000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "20893696",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "23650304",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.187835+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "263711000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "20893696",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "23650304",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.244925+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "325806000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "23777280",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "23777280",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.301113+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "382798000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "36544512",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "45727744",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.358244+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "438792000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "36012032",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "45727744",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.415161+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "496782000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "36798464",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "45727744",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.472813+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "553780000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "41517056",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "45727744",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.529901+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "610779000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "41779200",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "45727744",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.587142+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "671183000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "41779200",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "45727744",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.644508+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "729181000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "65896448",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "65896448",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.701782+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "786178000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "33284096",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "65896448",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.758659+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "843177000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "33284096",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "65896448",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.815716+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "900167000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "59232256",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.873219+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "958166000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "59232256",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.930747+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1015163000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "59232256",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:51.987857+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1072155000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "59232256",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.044663+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1129144000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "59232256",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.101766+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1187143000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68145152",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.159761+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1244141000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68145152",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.216765+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1301139000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68145152",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.274012+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1359138000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68145152",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.331159+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1419482000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68145152",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "68935680",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.388994+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1476522000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "77058048",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "77058048",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.446133+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1534519000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "112709632",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "112709632",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.503247+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1594842000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "24973312",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.560201+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1663985000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "24911872",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.616963+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1733233000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "24911872",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.673647+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1792020000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "25698304",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.730306+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1848007000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "46407680",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.787416+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1906005000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "47980544",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.844540+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "1961996000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "47980544",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.901008+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2018988000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "47980544",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:52.957724+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2076853000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "47980544",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.014513+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2135864000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "60563456",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.071791+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2192854000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "63193088",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.128717+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2249852000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "63193088",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.185633+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2306850000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68329472",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.242786+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2364849000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "70688768",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.300117+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2421847000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "70688768",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.357234+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2478833000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "70688768",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.414577+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2535831000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "70688768",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.471733+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2592830000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "70688768",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.528786+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2649821000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "70688768",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.585670+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2706813000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73310208",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.642686+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2763800000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73310208",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.699932+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2820799000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73310208",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.756724+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2881003000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73310208",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.813779+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2938996000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "113942528",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "119787520",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.871545+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "2995995000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "44421120",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.928758+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3063087000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "41066496",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:53.985270+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3131038000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "41066496",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.041554+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3192357000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "41066496",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.098303+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3249349000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "50241536",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.156378+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3307347000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "50241536",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.213308+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3364346000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "50241536",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.270373+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3421344000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "50241536",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.327433+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3481405000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "50057216",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.384148+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3538433000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "84135936",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.441732+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3595430000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "66732032",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.498599+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3652429000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "66732032",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.555220+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3709428000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "71188480",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.612596+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3766408000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73285632",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.669695+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3823388000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73285632",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.726785+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3880378000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73285632",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.783848+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3937377000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73285632",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.841058+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "3994375000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73175040",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.898037+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4051373000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73175040",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:54.955057+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4108372000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73175040",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.012097+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4166370000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73175040",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.069281+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4226182000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "73175040",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.126328+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4283181000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "112758784",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "132292608",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.183436+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4340172000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "133988352",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.240611+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4409028000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "42471424",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.297214+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4477872000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "42471424",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.353793+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4539319000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "42471424",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.409975+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4596312000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "51646464",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.467131+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4653310000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "51646464",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.524012+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4710309000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "51646464",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.581279+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4768301000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "51646464",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.638383+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4827382000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "59686912",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.695034+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4884380000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68329472",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.751664+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4941372000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68329472",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.808498+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "4997372000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "68329472",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.865207+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5055363000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.922549+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5112361000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:55.979926+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5169360000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.037050+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5227360000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.094428+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5284357000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.151523+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5341355000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.208583+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5398353000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.265831+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5458145000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "74002432",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.323170+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5516143000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "112275456",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "133988352",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.380302+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5573141000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "138489856",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "138489856",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.437810+00:00",
+      "processes": [
+        {
+          "pid": 1614739,
+          "start_ticks": 36831418
+        },
+        {
+          "pid": 1614741,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614743,
+          "start_ticks": 36831424
+        },
+        {
+          "pid": 1614744,
+          "start_ticks": 36831425
+        }
+      ]
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5633122000",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-native-budget-boundaries-run2-20261022.service",
+      "ExecMainExitTimestamp": "",
+      "ExecMainExitTimestampMonotonic": "0",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "1614739",
+      "MemoryCurrent": "37081088",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "138489856",
+      "MemorySwapCurrent": "0",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "running",
+      "cgroup_memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "observed_utc": "2026-10-22T13:25:56.495718+00:00",
+      "processes": []
+    },
+    {
+      "ActiveState": "active",
+      "CPUQuotaPerSecUSec": "2s",
+      "CPUUsageNSec": "5636702000",
+      "ControlGroup": "",
+      "ExecMainExitTimestamp": "Thu 2026-10-22 13:25:56 UTC",
+      "ExecMainExitTimestampMonotonic": "368319676662",
+      "ExecMainPID": "1614739",
+      "ExecMainStartTimestamp": "Thu 2026-10-22 13:25:51 UTC",
+      "ExecMainStartTimestampMonotonic": "368314189894",
+      "ExecMainStatus": "0",
+      "InvocationID": "cb35cceacdd74aa49a4b959b05f8e08c",
+      "MainPID": "0",
+      "MemoryCurrent": "[not set]",
+      "MemoryMax": "2147483648",
+      "MemoryPeak": "138489856",
+      "MemorySwapCurrent": "[not set]",
+      "MemorySwapMax": "0",
+      "MemorySwapPeak": "0",
+      "Result": "success",
+      "RuntimeMaxUSec": "20min",
+      "SubState": "exited",
+      "observed_utc": "2026-10-22T13:25:56.552379+00:00",
+      "processes": []
+    }
+  ],
+  "schema": "kpi-native-boundaries-resource-receipt-v1",
+  "selection": {
+    "binary": "/home/luke/projects/kpi-intensive-2026-10-22/native-target/x86_64-unknown-linux-gnu/release/kpi-public-native-budget-boundaries",
+    "binary_sha256": "f62d7bb37ff8f1f7f0e0adcbdcf68f627512fc84909fe526d57567f57e12a73d",
+    "caps": {
+      "cpu_quota_percent": 200,
+      "memory_max_bytes": 2147483648,
+      "memory_swap_max_bytes": 0,
+      "runtime_max_seconds": 1200
+    },
+    "cargo_lock_sha256": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+    "case_count": 48,
+    "default_changed": false,
+    "input_sha256": "7fd8bd70774872a1748fb52d32754556e578f8abf89c76100e28e1fd315b02a1",
+    "repeat_reason": "byte-identical deterministic reproduction and live PID/start audit after first monitor started too late",
+    "schema": "kpi-boundaries-root-release-selection-v1",
+    "source": "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/src/bin/kpi-public-native-budget-boundaries.rs",
+    "source_sha256": "d61aead6c9f3502119f7687e3e1868047eead25b029c8c177c7f672edf2db667",
+    "timestamp_utc": "2026-10-22T13:25:51.006176+00:00",
+    "wrapper_sha256": "ebb41b979f3a92a1c7279c344a6e7e67812785264097d2c433723a96ae3e5ea2"
+  }
+}

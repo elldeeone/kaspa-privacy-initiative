@@ -2,6 +2,50 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[ADR-0034](docs/adr/0034-public-proof-composition-experiment.md)'s
+[two-v6 experiment](poc/two-v6-binding/README.md) now has genuine compatible
+development proofs, a pinned paired guest, an independently verified Succinct
+receipt and a passing [bare native opcode check](poc/public-receipt-native-check/README.md).
+These close the scoped proof-composition predicate gate, using a separate test
+setup; they do not close transaction acceptance or the original-instance gap.
+[RFC-0018](docs/rfc/0018-paired-native-settlement-experiment.md) asks what a new
+native transition must additionally bind: authenticated accepted history,
+current nullifiers, complete successor state, exact reserve/fee accounting and
+owner exits independent of another user or outer prover. The existing J42 does
+not expose/bind an externally supplied count/anchor. Which minimal reviewed
+extension can meet those obligations without weakening an invariant?
+[ADR-0035](docs/adr/0035-synthetic-state-aware-assertion.md) scopes the next
+NONFUNDABLE assertion experiment; its
+[two independent synthetic contexts](poc/two-v6-state/public-fixtures/manifest.json)
+are frozen. The [state core](poc/two-v6-state/common/README.md) reproduces both
+exact J336 results and passes 14 host groups. The independent corpus agrees on
+128 positive/35 negative decisions, retaining one expected-label discrepancy.
+The [new guest/receipts](poc/two-v6-state/README.md) and one-shot native
+input-script diagnostic now pass their fixed cases. A separate
+[official Full-validator check](poc/public-state-consensus-check/evidence/historical-state-consensus-01/report.json)
+accepts that same body under supplied UTXO/DAA context; actual Mempool/chain
+admission remains untested. What additional design can provide accepted
+lineage/backing and genuine independent owner exits
+without reusing this deliberately noncontinuing successor as a live pool?
+The separate [ADR-0037](docs/adr/0037-offline-continuing-s7-owner-lifecycle.md)
+experiment now has four genuine initialization/SPEND proofs, a new guest
+receipt/compression and actual paired native Full checks. Those do not
+establish accepted lineage or independent exits; the
+owner/replay job is parked for this run after automatic safety rejection.
+
+The [public-native adapter](poc/shared-pool/PUBLIC-NATIVE-OBSERVATION.md) now
+reconstructs all retained public witnesses and agrees with supplied-context
+native validation. How should a client authenticate descriptor, parent ancestry
+and the current accepted endpoint independently? The separate
+[budget screen](poc/shared-pool/PUBLIC-NATIVE-BUDGET.md) fits 13 genuine cases at
+1,600 while retaining their 40m fee. [ADR-0036](docs/adr/0036-v6-native-budget-1600.md)
+now adopts that v6 factory default after genuine factory/historical-replay and
+boundary qualification. What complete transaction/exit envelope,
+including high fees and minimum notes, can satisfy the unchanged requirements?
+Keep those questions distinct from source-only bounds, receipt compression and
+the [completed price-baseline result](poc/shared-pool/PRICE-LEAKAGE.md).
+Existing privacy qualification limits and rejected withdrawal policies remain.
+
 [Milestone 1's accepted requirements](docs/rfc/0012-useful-privacy-requirements.md)
 now fix the repeated-payment use case and quantitative privacy/operating targets.
 Which current-L1 architecture can meet them, especially the small-payment fee

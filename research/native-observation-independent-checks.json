@@ -1,0 +1,28 @@
+{
+  "schema": "kpi-independent-public-native-path-review-v1",
+  "started_utc": "2026-10-22T12:44:11.249980+00:00",
+  "source_sha256": {
+    "/home/luke/projects/kpi-intensive-2026-10-22/integration/research/native_observation_independent_checks.py": "8a7afc77fc7ec102cf7201eee21a1a617a00d76e45dd649de0b489ef43ceb5ba",
+    "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/public_native_observation.py": "0ba861b4458b1fa4ca572b4d783c957ee7be39188c45982aced8565455d83c6e",
+    "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/public_native_observation_tests.py": "25b13a95a63b66898f289e58ca56fbc018f55484e80870f3e49dc2b5514db56b",
+    "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/verify_public_native_observation.py": "ab437181eaadc06c14d1119b96a28141bdd95fe64e5a624deedb74a653857aeb",
+    "/home/luke/projects/kpi-intensive-2026-10-22/native/poc/shared-pool/src/bin/kpi-public-native-observation-check.rs": "0321b3a2d57093b51a58d85bd24fbfb798d4a8ef648900abe615b9449689b869"
+  },
+  "command": [
+    "python3",
+    "-B",
+    "/home/luke/projects/kpi-intensive-2026-10-22/integration/research/native_observation_independent_checks.py"
+  ],
+  "result": {
+    "passed": true,
+    "operations": 13,
+    "independently_folded_paths": 132,
+    "root_equalities": 98,
+    "typed_output_rejections": 3,
+    "scope": "public path closure and typed projection only; no native/proof verification"
+  },
+  "input_boundary": "only the adapter three hash-pinned public TN10 rehearsal artifacts",
+  "native_execution": false,
+  "private_inputs": false,
+  "external_attestation": false
+}

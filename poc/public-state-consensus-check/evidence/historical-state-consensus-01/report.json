@@ -1,0 +1,294 @@
+{
+  "actual_mempool_admission": false,
+  "all_expectations_met": true,
+  "block_dimensions": {
+    "compute": 500000,
+    "storage": 500000,
+    "transient": 1000000
+  },
+  "body_bytes": 2910,
+  "body_changed": false,
+  "body_sha256": "8cb44d28e488eab9e59f540b47016394dd8cf440313332e0cac48e827ac18c97",
+  "chain_acceptance": false,
+  "checker_binary_sha256": "424d8f7b93864611ef2ada293fb69a8d810f1ea6f52cacbd4f109d9e0bf65b9a",
+  "journal_sha256": "457a9c09edd5840a978f8b785e165af3656c77f579b43ff322a9b3548a88c3f3",
+  "limitations": [
+    "Full validator trusts supplied UTXO/DAA context and does not prove this predecessor exists or is unspent in an accepted chain.",
+    "No header/block contextual HF activation, selected-chain, mempool conflict/RBF or P2P relay execution.",
+    "Policy checks are source-adapted public script/scanner/fee predicates because actual Mempool methods are crate-private.",
+    "Block dimension policy is separate from the Full validator storage commitment check.",
+    "Same immutable literal predecessor makes successor deliberately noncontinuing; NONFUNDABLE, no owner exit or backing claim.",
+    "No proof generation or SDK verification; exact retained proof/body/80M fee unchanged."
+  ],
+  "native_cases": [
+    {
+      "accepted": true,
+      "actual_error": null,
+      "actual_fee_sompi": "80000000",
+      "case": "frozen-unchanged-positive",
+      "expected_error": null,
+      "full_validation_executed": true,
+      "matched_expectation": true,
+      "native_isolation_passed": true,
+      "seconds": 0.040538066
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "transaction has no inputs",
+        "stage": "Isolation",
+        "variant": "NoTxInputs"
+      },
+      "actual_fee_sompi": null,
+      "case": "no-inputs",
+      "expected_error": {
+        "display": "transaction has no inputs",
+        "stage": "Isolation",
+        "variant": "NoTxInputs"
+      },
+      "full_validation_executed": false,
+      "matched_expectation": true,
+      "native_isolation_passed": false,
+      "seconds": 0.000011642
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "transaction has duplicate inputs",
+        "stage": "Isolation",
+        "variant": "TxDuplicateInputs"
+      },
+      "actual_fee_sompi": null,
+      "case": "duplicate-input",
+      "expected_error": {
+        "display": "transaction has duplicate inputs",
+        "stage": "Isolation",
+        "variant": "TxDuplicateInputs"
+      },
+      "full_validation_executed": false,
+      "matched_expectation": true,
+      "native_isolation_passed": false,
+      "seconds": 0.000011692
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "transaction output 0 has zero value",
+        "stage": "Isolation",
+        "variant": "TxOutZero(0)"
+      },
+      "actual_fee_sompi": null,
+      "case": "zero-output",
+      "expected_error": {
+        "display": "transaction output 0 has zero value",
+        "stage": "Isolation",
+        "variant": "TxOutZero(0)"
+      },
+      "full_validation_executed": false,
+      "matched_expectation": true,
+      "native_isolation_passed": false,
+      "seconds": 8.107e-6
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "transaction output 0 value is higher than the max allowed of 2900000000000000000",
+        "stage": "Isolation",
+        "variant": "TxOutTooHigh(0)"
+      },
+      "actual_fee_sompi": null,
+      "case": "over-max-output",
+      "expected_error": {
+        "display": "transaction output 0 value is higher than the max allowed of 2900000000000000000",
+        "stage": "Isolation",
+        "variant": "TxOutTooHigh(0)"
+      },
+      "full_validation_executed": false,
+      "matched_expectation": true,
+      "native_isolation_passed": false,
+      "seconds": 6.693e-6
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "transaction tries to spend 1700000001 while its total inputs amount is 1700000000",
+        "stage": "Full",
+        "variant": "SpendTooHigh(1700000001, 1700000000)"
+      },
+      "actual_fee_sompi": null,
+      "case": "outputs-exceed-input",
+      "expected_error": {
+        "display": "transaction tries to spend 1700000001 while its total inputs amount is 1700000000",
+        "stage": "Full",
+        "variant": "SpendTooHigh(1700000001, 1700000000)"
+      },
+      "full_validation_executed": true,
+      "matched_expectation": true,
+      "native_isolation_passed": true,
+      "seconds": 0.000011572
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "transaction total inputs spending amount is higher than the max allowed of 2900000000000000000",
+        "stage": "Full",
+        "variant": "InputAmountTooHigh"
+      },
+      "actual_fee_sompi": null,
+      "case": "over-max-input",
+      "expected_error": {
+        "display": "transaction total inputs spending amount is higher than the max allowed of 2900000000000000000",
+        "stage": "Full",
+        "variant": "InputAmountTooHigh"
+      },
+      "full_validation_executed": true,
+      "matched_expectation": true,
+      "native_isolation_passed": true,
+      "seconds": 0.000011642
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "calculated contextual mass (including storage mass) 29 is not equal to the committed mass field 30",
+        "stage": "Full",
+        "variant": "WrongMass(29, 30)"
+      },
+      "actual_fee_sompi": null,
+      "case": "wrong-storage-mass",
+      "expected_error": {
+        "display": "calculated contextual mass (including storage mass) 29 is not equal to the committed mass field 30",
+        "stage": "Full",
+        "variant": "WrongMass(29, 30)"
+      },
+      "full_validation_executed": true,
+      "matched_expectation": true,
+      "native_isolation_passed": true,
+      "seconds": 9.999e-6
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "failed to verify the signature script: ZK Integrity: Groth16 verification failed",
+        "stage": "Full",
+        "variant": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "actual_fee_sompi": null,
+      "case": "changed-P",
+      "expected_error": {
+        "display": "failed to verify the signature script: ZK Integrity: Groth16 verification failed",
+        "stage": "Full",
+        "variant": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "full_validation_executed": true,
+      "matched_expectation": true,
+      "native_isolation_passed": true,
+      "seconds": 0.038629089
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "transaction input #0 tried to spend coinbase outpoint (5555555555555555555555555555555555555555555555555555555555555555, 2) with daa score of 1000000000\n    while the merging block daa score is 1000000000 and the coinbase maturity period of 1000 hasn't passed yet",
+        "stage": "Full",
+        "variant": "ImmatureCoinbaseSpend(0, TransactionOutpoint { transaction_id: 5555555555555555555555555555555555555555555555555555555555555555, index: 2 }, 1000000000, 1000000000, 1000)"
+      },
+      "actual_fee_sompi": null,
+      "case": "immature-coinbase-context",
+      "expected_error": {
+        "display": "transaction input #0 tried to spend coinbase outpoint (5555555555555555555555555555555555555555555555555555555555555555, 2) with daa score of 1000000000\n    while the merging block daa score is 1000000000 and the coinbase maturity period of 1000 hasn't passed yet",
+        "stage": "Full",
+        "variant": "ImmatureCoinbaseSpend(0, TransactionOutpoint { transaction_id: 5555555555555555555555555555555555555555555555555555555555555555, index: 2 }, 1000000000, 1000000000, 1000)"
+      },
+      "full_validation_executed": true,
+      "matched_expectation": true,
+      "native_isolation_passed": true,
+      "seconds": 0.000019517
+    },
+    {
+      "accepted": false,
+      "actual_error": {
+        "display": "one of the transaction sequence locks conditions was not met",
+        "stage": "Full",
+        "variant": "SequenceLockConditionsAreNotMet"
+      },
+      "actual_fee_sompi": null,
+      "case": "unmet-sequence-lock",
+      "expected_error": {
+        "display": "one of the transaction sequence locks conditions was not met",
+        "stage": "Full",
+        "variant": "SequenceLockConditionsAreNotMet"
+      },
+      "full_validation_executed": true,
+      "matched_expectation": true,
+      "native_isolation_passed": true,
+      "seconds": 9.818e-6
+    }
+  ],
+  "native_mass": {
+    "committed_storage": 29,
+    "compute": 163290,
+    "estimated_bytes": 2920,
+    "mining": 163290,
+    "relay": 163290,
+    "storage": 29,
+    "transient": 11680
+  },
+  "native_revision": "01b532e8b553523216471682649693af92f0fd16",
+  "native_validation_flags": "Full",
+  "network_or_funding_used": false,
+  "owner_exit_tested": false,
+  "predecessor_lineage_or_backing_proven": false,
+  "previous_redeem_sha256": "4692b76504462ca985630499fa87394e53946023592ef41a7a48e1d58d973f83",
+  "rbf_threshold": null,
+  "scope": "OFFLINE_OFFICIAL_FULL_TRANSACTION_VALIDATION_OF_SAME_NONFUNDABLE_ONE_SHOT_BODY",
+  "seq_commit_accessor": null,
+  "skip_script_or_mass_checks": false,
+  "source_adapted_policy_cases": [
+    {
+      "actual": "Ok(())",
+      "case": "default-source-adapted-policy",
+      "expected": "Ok(())",
+      "matched_expectation": true,
+      "sompi_per_kg": 100000,
+      "source_adapted_not_mempool": true
+    },
+    {
+      "actual": "Err(Dimensions)",
+      "case": "maximum-budget-over-block-mass",
+      "expected": "Err(Dimensions)",
+      "matched_expectation": true,
+      "sompi_per_kg": 100000,
+      "source_adapted_not_mempool": true
+    },
+    {
+      "actual": "Err(OutputClass(0))",
+      "case": "nonstandard-output",
+      "expected": "Err(OutputClass(0))",
+      "matched_expectation": true,
+      "sompi_per_kg": 100000,
+      "source_adapted_not_mempool": true
+    },
+    {
+      "actual": "Err(Fee(80000000, 81645000))",
+      "case": "scenario500-fee-insufficient",
+      "expected": "Err(Fee(80000000, 81645000))",
+      "matched_expectation": true,
+      "sompi_per_kg": 500000,
+      "source_adapted_not_mempool": true
+    }
+  ],
+  "supplied_context": {
+    "actual_fee_sompi": "80000000",
+    "block_daa_score": 2000000000000,
+    "covenant_id": null,
+    "input_amount_sompi": "1700000000",
+    "is_coinbase": false,
+    "output_amount_sompi": "1620000000",
+    "pov_daa_score": 1000000000,
+    "source": "declared synthetic UTXO, no database/selected-chain lookup",
+    "utxo_block_daa_score": 0,
+    "utxo_spk_hex": "aa2064a15d535058290282b68d19c87d3048b655b72305f95fa9f179955b9ed7a33687",
+    "utxo_spk_version": 0
+  },
+  "transaction_full_hash": "056636101fadbf4eb400104e59031fec9499615028713a85c5f3ae078d6af2ed",
+  "transaction_id": "b79c32deebb2d8800672ec07d4b9996688569750050ebb0de18d94798a6f6b97"
+}

@@ -1,0 +1,43 @@
+{
+  "extraction": "A=payload[8:385]; Q=signatureScript[2:130] with canonical 4c80 prefix; C=payload[385:755]; file=A||Q||C",
+  "format": "kpi-public-v6-source-extract-v1",
+  "purpose": "Existing public proofs with individually admissible zero-payout SPEND profiles; pair has different anchor/count and must be rejected by common-anchor contract. No proof or wallet material generated.",
+  "records": [
+    {
+      "anchor": "4c6661670094ebad2f8de5dd1ba1187eea213cf5bd0ff9b0cd96671a5d35fc7a",
+      "authorization_sha256": "04beb1a621fc1c2a96da05e9eeda47cdc0b44c1b088ccdc677b908b93987a2af",
+      "bytes": 875,
+      "count": 9,
+      "domain": "d36fda2e668fa858ae852484e63ea6dabb259403901fd9c88a16e9c5b17e5baa",
+      "file": "rehearsal-row-6.bundle.bin",
+      "nullifiers": [
+        "842db4cd7a7bc76bb7345bb877788ef7ad1ee94bc39083501f204db9e40d09db",
+        "328cfd89081822a2025936c8fe83e1d58243093eb0a52e90edc5a7770581aa97"
+      ],
+      "proof_sha256": "01b2cdc52131f4a612fb354fb5f86e0ad7c5c5f4a2e4146d18484514180a6b9b",
+      "sha256": "10d201fc946f983e263277413e87c1e1bc6b7342642e13f82ec2a5814e81319e",
+      "transaction_id": "aa87d613bf36c6da5dfda60dd371360f5b4cfdf455f5ce74ce9795ec996db0e7",
+      "transaction_pointer": "/transactions/6/transaction"
+    },
+    {
+      "anchor": "afa086b963df9db5ebb8d98fcbb49f52cb957227dfa5e159eadc33e96248f85e",
+      "authorization_sha256": "0711636fb0b948ef67e075e155f301251b1b5593917126ad6189dd410e913b52",
+      "bytes": 875,
+      "count": 13,
+      "domain": "d36fda2e668fa858ae852484e63ea6dabb259403901fd9c88a16e9c5b17e5baa",
+      "file": "rehearsal-row-8.bundle.bin",
+      "nullifiers": [
+        "5b86460e08664577e15aaba712be41bbe9018b5b499e1bf1bf47c7beec061765",
+        "779ab4cb9caa55cfcf8c5e0e039c943fb2572a5db0071b44bedfe6858268d998"
+      ],
+      "proof_sha256": "1860dc119c944d07c5d1aa58e538ea79964ee56ada72b4223d499f477f1c64d8",
+      "sha256": "d7096ebf3468a28a5c9860c1dca07fe65acfc6c5b15bd1908e0acd639fad770c",
+      "transaction_id": "ab1f5426f5b03c29a931ade155c996ae7b33d8a3a4009dbc1130bace9b1e8083",
+      "transaction_pointer": "/transactions/8/transaction"
+    }
+  ],
+  "source_commit": "ec6aa15d586bcc8a90f7232b433fd48d8c73d509",
+  "source_file_sha256": "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8",
+  "source_git_blob": "1d3af74733bd743a393d8c81cea230b3aa8f3b1d",
+  "source_path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/rehearsal/chain-confirmed.json"
+}

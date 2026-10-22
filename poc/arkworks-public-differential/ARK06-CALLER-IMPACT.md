@@ -1,0 +1,38 @@
+# Arkworks 0.6 arity difference: caller impact
+
+**No ordinary public acceptance path was found that reaches raw Arkworks 0.6 verification with unchecked caller-selected key/input arity. No runtime fix was made.** The pinned native precompile already rejects the malformed shapes. Some local proving/setup tools rely on authentic setup artifacts instead of explicitly checking IC count; those assumptions remain visible below.
+
+This is a bounded compatibility/correctness source followup to `PUBLIC-ENCODING-DIFFERENTIAL.md`, not a security audit or a vulnerability claim. No proof/setup generation, wallet/key artifact reads, execution, builds or tests were performed for this followup.
+
+## Scope and source identity
+
+Inspected integration `/home/luke/projects/kpi-intensive-2026-10-22/integration`, HEAD `ec6aa15d586bcc8a90f7232b433fd48d8c73d509`, including its current uncommitted source. Because HEAD does not identify those additions/changes, exact reviewed files and search results are frozen under `evidence/2026-10-22-public-differential/caller-impact/`. Native source is rusty-kaspa `01b532e8b553523216471682649693af92f0fd16`. The Arkworks 0.6 crate checksum in the lock is `a293328aa422e65527e285614ce5d1dceb0bd7b8b18d18b1b63191ee1f74cb41`.
+
+The source inventory includes direct `verify_proof`, prepared-input and `SNARK::verify` callers, VK/PK loading, manifest versions, and the native implementation/benchmark. Excluded archived evidence source copies, build outputs and dependency internals other than the exact relevant Arkworks verifier. Source lines below refer to the captured integration tree unless prefixed `native:`.
+
+## Public input paths
+
+| Path | Key/input source and checks | Impact of raw 0.6 behavior |
+|---|---|---|
+| Shared-pool v6 `ExitRequest` | External public VK and bundle at `two_input/harness.rs:188–205`; forwards to `settle`, then `native::validate` | No raw Arkworks verification. Actual native parser checks nonempty IC and exact arity |
+| Shared-pool public replay / wallet context | Descriptor requires VK328 and its hash (`two_input/replay.rs:37–44`); exact transaction reconstruction followed by native Full at `:325–330`. `Context::new` invokes this replay (`two_input/wallet.rs:258–270`) | Parser does not independently decode the VK. Proof acceptance is delegated to guarded native verification. Founding-only replay stays explicitly unbootstrapped |
+| Private-note-wallet public VK/proof verifier | **Arkworks 0.5**, not 0.6 (`Cargo.toml:16–20`). Hash, checked decode, full consumption, canonical roundtrip and IC15 (`wallet.rs:246–260`); proof128, nonidentity and full/canonical decode (`:267–286`) | Regression does not apply |
+| One-/two-v6 and state assertion guests | **Arkworks 0.5**. Key328/hash, checked canonical decode, IC3/nonidentity (`two-v6-binding/common/src/lib.rs:68–109`); proof has two inputs derived from fixed authorization. Immutable guest key retains hash/roundtrip/IC3 checks (`compiled.rs:25–60`) | No raw 0.6 path. Accelerated backend separately requires `IC == inputs+1` before IC0 access (`accelerated-bn254/common/src/lib.rs:100–103`) |
+| Private-note-chain / comparison guests | Arkworks 0.5; private-note-chain checks trusted key hash, full consumption and IC15 (`common/src/lib.rs:29–40`); accelerated verifier has the same independent arity guard | Regression does not apply; unchecked static-key decoding remains a compiled-key trust assumption, not submitted-key decoding |
+| Public native receipt checker | Uses official fixed SDK Groth16 key, checked uncompressed decode, full consumption, canonical roundtrip, IC6 and compressed424 (`public-receipt-native-check/src/main.rs:167–190`); constructs exactly five public inputs (`:154–165`) | No raw Arkworks verification. Receipt proof enters native opcode; key is not receipt-selected |
+
+Native `crypto/txscript/src/zk_precompiles/groth16/mod.rs:34–59` reads the IC length, rejects zero, requires `IC == input_count+1`, charges before reading the vector, rejects trailing VK and checks points. Scalar32 is required by `fields/mod.rs:26–32`; proof trailing bytes reject at `groth16/mod.rs:104–108`. Only after those checks does `prepare_inputs` run at `:112`. Thus the empty-index/ignored-tail behavior is unreachable through this precompile's ordinary input path. Existing source tests cover arity-before-charge, oversized scalar and trailing VK/proof; the earlier finite differential additionally executed the concrete malformed-arity controls.
+
+Native SDK fragments embed a fixed official RISC0 VK and count5 (`zk-sdk/src/zk_to_script/fragments/groth16.rs:52–56,191–201`). Integration's two vendored covenant `build.rs:22–30` similarly loads an official SDK key at build time. These are fixed-key script construction, not raw verification of external keys. Native's direct `prepare_inputs` benchmark constructs its matching key/input count in memory (`benches/zk_precompiles.rs:104–113`); it is not a consensus entry point.
+
+## Raw 0.6 calls that remain
+
+- **Generated proof self-checks:** shared-pool `app.rs:568`, `compact/experiment.rs:182`, `anchored/experiment.rs:232`, `two_input/harness.rs:138`, fixture producer `public_two_v6_fixture.rs:234`, self-funded `main.rs:346`, and A0/A1 setup/self-checks. Proofs are created immediately before checking against their associated setup key; they are not arbitrary public proof parsers. Current shared-pool/self-funded reloads also require VK328 and equality with the fully decoded PK's freshly serialized embedded VK, indirectly enforcing IC3. Two-input `Prover::load` hashes and fully consumes the PK and matches its embedded VK (`wallet.rs:667–705`); ordinary `prove` additionally binds the private-field replayed Context (`:726–748`).
+- **Local setup reloads without an explicit IC-count check:** A0 `live.rs:106–137` checks EOF and local manifest key/script/address equality, then proves and raw-verifies at `:318–320`. A1 `main.rs:1064–1068` hashes/fully decodes its local PK but does not explicitly require IC6 before proving/raw verification at `:1102` (native validation follows at `:1125`). A1 foreign-setup diagnostic loads an original VK at `a1_foreign_setup.rs:154–155` and raw-verifies at `:248` without an IC6/roundtrip gate. Shared-pool historical `demo`/`study` PK loaders (`two_input/harness.rs:301–304`, `harness/study.rs:122–127`) lack explicit EOF/IC3 gates. These rely on authentic local setup artifacts. Source reasoning indicates a malformed setup could cause a local panic or permissive raw arity behavior; those cases were not executed and do not establish an acceptance bypass.
+- **Existing explicit A1 tooling guards:** `a1_context_negatives.rs:188–198` checks IC6; `a1_reference.rs:123–136` checks full consumption, PK/VK equality, IC6 and canonical VK. These already express the intended caller contract.
+
+If local setup tooling is later generalized to accept untrusted configurations, its guard should require the relation's exact IC count immediately after decode and before proof generation/raw verification, plus complete consumption/canonical reserialization. The ordinary public native parser already enforces this. No new malformed proof, attack construction, hardening subsystem or runtime edit is proposed by this note.
+
+## Result limits
+
+The finding is a raw-library caller-contract difference, measured earlier on finite public fixtures. This static followup found guarded public acceptance paths and weaker local setup assumptions. It does not prove every possible caller safe, authenticate setup provenance, validate arbitrary chain state, or establish a native vulnerability. Independent source-only cross-check of the wallet/A0/A1/shared-pool classification agreed; no runtime recheck was performed.
