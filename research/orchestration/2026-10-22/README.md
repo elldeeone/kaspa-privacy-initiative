@@ -19,6 +19,7 @@ Start with the [field guide](FIELD-GUIDE.md), [decision register](evidence-linea
 | Native public observation | Historical bytes support a partial field mapping. No complete model parity, proof/native VM/chain verification, or privacy result. | [Mapping specification](native/PUBLIC-FIELD-RECONSTRUCTION-SPEC.md), [public observation record](native/public-observation/README.md), [independent review](statistical/NATIVE-OBSERVATION-STATIC-REVIEW.md) |
 | Flat batching | Tiny model gates passed conditionally; transparent authorizations, one colluder and missing sound validity/delivery remain adverse findings. Heavy genuine batching is deferred. | [Model spec](architecture/flat-batching/SPEC.md), [completed model report](architecture/flat-batching/REPORT.md), [native feasibility review](architecture/BATCHING-NATIVE-FEASIBILITY-REVIEW.md) |
 | Prover GPU alternatives | Current v6 prover differs from the historical outer-proof GPU workload. No drop-in compatibility or performance claim. | [Compatibility review](workload/GPU-PROVER-COMPATIBILITY.md) |
+| Ordinary unit coverage | Source inspection found no worthwhile unrun existing target. Its unchanged-source comparison covers exactly `poc/shared-pool/src/`, `Cargo.toml` and `Cargo.lock`; the lead’s added Python files are outside that diff. The original no-rerun proposal is preserved. New final-capacity tree tests were separately authorized later; no result is recorded here yet. | [Existing-target coverage proposal](workload/UNIT-COVERAGE-PROPOSAL.md) |
 
 ## Historical and superseded records
 
