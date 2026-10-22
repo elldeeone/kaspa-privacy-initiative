@@ -1,5 +1,12 @@
 # Four-wallet shared native-KAS pool — TN10
 
+Latest completed work: the [price-baseline result](PRICE-LEAKAGE.md) has 512
+ledgers and both recounts passing. The selected attack's public/pooled accuracy
+was 13.53%/14.47% against the price prior's 20.88%; all three contrasts support
+below-five-point advantage and none establishes positive advantage. Improve
+calibration/native observation mapping next. Privacy remains unqualified and
+the prior policy rejection is unchanged.
+
 Latest offline follow-up: [H18 scheduled common payouts](SCHEDULED-PAYOUT.md)
 fails its frozen privacy gate on 24 new paired ledgers. The strongest fixed
 attack guesses equally well with full and scheduled partial exits in both

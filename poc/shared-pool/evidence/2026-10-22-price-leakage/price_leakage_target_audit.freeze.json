@@ -1,0 +1,32 @@
+{
+  "schema": "kpi-price-target-audit-design-v1",
+  "designed_utc": "2026-10-22T07:43:09.925503+00:00",
+  "purpose": "Separate additive post-completion semantic verification; no changed attacks, thresholds, verdict or privacy criterion.",
+  "fresh_evaluation_artifacts_accessed": false,
+  "seeds_accessed": false,
+  "sources": {
+    "price_leakage_target_audit.py": "4c93defecb1e2f1b8046a62badeac820239db44c4c2848aba47732d69f2b66ae",
+    "price_leakage_target_audit_tests.py": "2c5822fa34584bd218e027296823912b74d020542a14b45d988a97bd3a7562c5"
+  },
+  "reference_sources": {
+    "working_balance_model.py": "a1a8c3989d85f2309dcd726cd2d076c77c4ea77e407a7dfbd8c05f975dafbe00",
+    "working_balance_observer.py": "b492d5a2e63836751f51f5151c002c3ec6492c224b518846c45eca23f3ea7495",
+    "working_balance_validate.py": "407c1abeebc913b8112754d70705eae41a36f86cf954aa946dfa565abef3eb14",
+    "price_leakage_score.py": "cd41545f846e1324e98e057c505991ee66f3e18fb218b947f4ca45e01f8af475"
+  },
+  "modes": {
+    "default": {
+      "ledgers": 512,
+      "public_rehearsal": false
+    },
+    "explicit_public_rehearsal": {
+      "ledgers": 4,
+      "public_rehearsal": true
+    }
+  },
+  "public_controls": {
+    "tests": 7,
+    "passed": true,
+    "kind": "handmade schema controls; no generated ledger or observer execution"
+  }
+}

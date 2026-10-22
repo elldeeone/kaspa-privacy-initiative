@@ -16,6 +16,28 @@ hypothesis does not by itself close a programme milestone.
 
 ## Current position
 
+On 2026-10-22 the owner authorized committing/pushing the sparse diagnosis and
+then freezing/running a test that separates price guessing from transaction
+information. The diagnosis is pushed as `9e0dca5851f80a3c9fd9e09db1cc7f340aaf8e02`.
+[RFC-0017](rfc/0017-price-priors-and-transaction-leakage.md),
+[ADR-0033](adr/0033-price-baseline-evaluation.md) and the
+[prospective contract](../poc/shared-pool/PRICE-LEAKAGE-SPEC.md) fix 512 fresh
+sparse partial-policy ledgers, final public/pooled views and `split_tail`
+inference against the optimal marginal price action. The nine exact tests and
+complete prediction barrier are fixed before fresh seeds. This is arithmetic
+evidence only; no new native proof, funds, broadcast or privacy qualification.
+
+The [completed result](../poc/shared-pool/PRICE-LEAKAGE.md), attempt
+`price-leakage-20261022-01`, finished at 08:50:21 UTC. All 512 ledgers and 1,024
+isolated observer jobs completed; 18,192 honest-to-honest payments were eligible.
+Both independent aggregate/inference and seed-free target-level recounts pass.
+Equal-ledger approximate accuracy is 20.88% for price guessing, 13.53% for public
+plus directory `split_tail`, and 14.47% with pooled colluder records. All three
+below-five tests cross; no positive-advantage test crosses. This does not prove
+zero transaction information, qualify privacy or revive the rejected policy.
+The next direction is calibration and native observation mapping, with selective
+exposure explicitly retained; no further experiment is authorized by this entry.
+
 The owner approved a broader research programme on 2026-10-20 (Australia/Sydney):
 retain the direct-L1 candidate and work toward an independently usable testnet
 payment system. Focus the normal privacy hypothesis on persistent shielded balances;

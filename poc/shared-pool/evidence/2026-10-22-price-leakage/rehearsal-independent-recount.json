@@ -1,0 +1,98 @@
+{
+  "schema": "kpi-price-leakage-independent-public-recount-v1",
+  "passed": true,
+  "rehearsal": true,
+  "ledger_rows": 4,
+  "distinct_public_digests": 4,
+  "eligible_targets": 144,
+  "strategies_recounted": 39,
+  "metric_summaries_recounted": 195,
+  "paired_comparison_metrics": 6,
+  "exact_rational_e_tests": 9,
+  "threshold": 180,
+  "additive_identities_checked": true,
+  "contrasts": {
+    "public_minus_price": {
+      "equal_ledger_difference": {
+        "numerator": -3233,
+        "denominator": 31080
+      },
+      "decision": "five-point-bound-unresolved",
+      "tests": {
+        "positive_advantage": {
+          "e_value_approx": 0.8301130626949893,
+          "exact_e_value_sha256": "c34e742d5378d43c61460e7fbf48b069c6f91f866e25cf909040387741f91fbb",
+          "crossed": false
+        },
+        "above_five_points": {
+          "e_value_approx": 0.7614937878486759,
+          "exact_e_value_sha256": "7fb8a51300eaa5a2008871157162611780e45a1345b5f62310a748c8c41cfe56",
+          "crossed": false
+        },
+        "below_five_points": {
+          "e_value_approx": 1.3127409403263688,
+          "exact_e_value_sha256": "91a7eff5ee961d28a1b435fff72004ce98dd5a7608bf0192eb8ab8687ba4815e",
+          "crossed": false
+        }
+      }
+    },
+    "pooled_minus_price": {
+      "equal_ledger_difference": {
+        "numerator": -73,
+        "denominator": 840
+      },
+      "decision": "five-point-bound-unresolved",
+      "tests": {
+        "positive_advantage": {
+          "e_value_approx": 0.8563513977465986,
+          "exact_e_value_sha256": "ae553363459121b80dab671f8fd253ab8a0b880cb809fafe10a17520e50865c2",
+          "crossed": false
+        },
+        "above_five_points": {
+          "e_value_approx": 0.7852321771081723,
+          "exact_e_value_sha256": "996f318c158d58bbaf6848bf8c85245b1adda0731ca1f187f28acd010378df78",
+          "crossed": false
+        },
+        "below_five_points": {
+          "e_value_approx": 1.2748610816796362,
+          "exact_e_value_sha256": "31873c267ede8c45455dd83481365a5c85b8fa178830d4681f14a10126945bbb",
+          "crossed": false
+        }
+      }
+    },
+    "pooled_minus_public": {
+      "equal_ledger_difference": {
+        "numerator": 19,
+        "denominator": 1110
+      },
+      "decision": "five-point-bound-unresolved",
+      "tests": {
+        "positive_advantage": {
+          "e_value_approx": 1.026110822876448,
+          "exact_e_value_sha256": "2a3c124910174ffb833fe0098deca31ee0eef15adc79dcd3d1deb770f18a2521",
+          "crossed": false
+        },
+        "above_five_points": {
+          "e_value_approx": 0.9390241058913156,
+          "exact_e_value_sha256": "353f271b61d0b5e75c0d46fac8668c5be23b5b2e7abe697450537cca8dd8966b",
+          "crossed": false
+        },
+        "below_five_points": {
+          "e_value_approx": 1.0554431762576801,
+          "exact_e_value_sha256": "16a73853afb4c20075057828376f7e5747434e8b49b6d008a8ed37806582cd65",
+          "crossed": false
+        }
+      }
+    }
+  },
+  "limits": [
+    "Aggregate-only recount: target truth, eligibility, actual guesses and paired intersections are not independently verified.",
+    "Ledger count and distinct public digests do not prove seed independence, named ledger roster or prediction-barrier chronology.",
+    "Accounting arithmetic is checked from receipts; native transactions, cryptography and public-history completeness are not validated.",
+    "No privacy qualification or change to the earlier rejected policy follows from this recount."
+  ],
+  "checked_utc": "2026-10-22T07:08:43.696772+00:00",
+  "cases_sha256": "9270fd54b2b03bdd7b667e4c47764259110a999d88a9c81ce2adc1ffe8d2a9fc",
+  "result_sha256": "3aae532cf0a3b62971e849cba41a6a0ba1007af536881b4bdcb62f7d4dd1131e",
+  "recount_source_sha256": "f8d332acabcc8b4812c75a1e19b78782306f1aa045347786a9c2faa40116aaa4"
+}

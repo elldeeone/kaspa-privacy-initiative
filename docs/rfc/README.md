@@ -17,3 +17,4 @@ When a durable architecture or design decision is reached, record its rationale 
 - [RFC-0014: Owner-aware evaluation of the 32-user privacy claim](0014-owner-aware-privacy-evaluation.md) — Open; first-stage falsification design, with statistical qualification still separate.
 - [RFC-0015: Native transaction privacy under varied usage](0015-native-usage-privacy-screen.md) — Completed with finite-case amount-privacy warnings; no privacy qualification.
 - [RFC-0016: Requested withdrawals with a working private balance](0016-working-balance-withdrawals.md) — Evaluated; arithmetic gate failed despite benefit in one scenario. Wallet policy not adopted; native continuation stopped.
+- [RFC-0017: Separate price priors from transaction information](0017-price-priors-and-transaction-leakage.md) — Evaluated; frozen attack did not outperform the price prior across 512 ledgers. Broader information/privacy questions remain open.

@@ -2,6 +2,16 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[RFC-0017](rfc/0017-price-priors-and-transaction-leakage.md) and
+[ADR-0033](adr/0033-price-baseline-evaluation.md) record the
+[completed price-baseline test](../poc/shared-pool/PRICE-LEAKAGE.md): 512 ledgers,
+all 1,024 predictions sealed before truth, and both recounts passed. Observed
+public/pooled `split_tail` accuracy was 13.53%/14.47% against the price prior's
+20.88%. All three comparisons support below-five-point mean advantage; none
+establishes positive advantage. Improve attack calibration/native observation
+mapping before selecting another mitigation. No proof, note, reserve, exit or
+runtime changes; the common-price workload remains unqualified.
+
 The [sparse-case diagnosis](../poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS.md)
 explains the failed partial-policy score without selecting a new architecture.
 Eight of eleven successful partial-pooled guesses use unrelated payout supports;

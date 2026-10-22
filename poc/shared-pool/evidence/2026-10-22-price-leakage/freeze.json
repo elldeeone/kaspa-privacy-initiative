@@ -1,0 +1,48 @@
+{
+  "schema": "kpi-price-leakage-freeze-v1",
+  "frozen_utc": "2026-10-22T07:08:43.912041+00:00",
+  "base_commit": "9e0dca5851f80a3c9fd9e09db1cc7f340aaf8e02",
+  "sources": {
+    "working_balance_trial.py": "d8c73c52929743641c7180565f6e3af4abcfc8f55e53ce0902de8235eec0aa65",
+    "working_balance_trial_tests.py": "ea56a131495832d1e0aa7f4bad221a971ba8204d5f2f627165dd78e195ab0130",
+    "working_balance_model.py": "a1a8c3989d85f2309dcd726cd2d076c77c4ea77e407a7dfbd8c05f975dafbe00",
+    "working_balance_model_tests.py": "d4c6a36f18909d46f6bdd8a0ab4efcc32c951460f4815ba4d4dd02b58caa9ab5",
+    "working_balance_observer.py": "b492d5a2e63836751f51f5151c002c3ec6492c224b518846c45eca23f3ea7495",
+    "working_balance_observer_tests.py": "0f2ac35622e23dfafa960e8877b743118500c3530015eaa9b59b49c208d38147",
+    "working_balance_validate.py": "407c1abeebc913b8112754d70705eae41a36f86cf954aa946dfa565abef3eb14",
+    "working_balance_validator_tests.py": "833b7082a67a0ce0f9e98e94f896d64cb5eb6b0bfddc7882485a8f7320c13218",
+    "price_leakage_trial.py": "e1901ff96e13af0dc2bb2f556cf356c9df800a88d2a48d423caea61f084b97d7",
+    "price_leakage_trial_tests.py": "db739e82d91c81ea08a93debee492765aa3fc4bede7605aef432b7ea9b61f66a",
+    "price_leakage_score.py": "cd41545f846e1324e98e057c505991ee66f3e18fb218b947f4ca45e01f8af475",
+    "price_leakage_score_tests.py": "e9a877eb0a6ddb1a6361ce8d281fb09b43342247c3c2dab895dd8ae128c1f030",
+    "PRICE-LEAKAGE-SPEC.md": "104bea66d0798c523de6c5d283861d4d4867632c0e30189f8179c1763bcfa885"
+  },
+  "runtime": {
+    "python": "/usr/bin/python3.14",
+    "python_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+    "stdlib": "/usr/lib/python3.14",
+    "stdlib_sha256": "4acab4800e3f6c30569ee5919af564d3abece93bcf56ffc5ff9c2cbcc6884372",
+    "bwrap_sha256": "523da3e7399044be5163aee6f57a77a6bef7454376e28f0a0627920bae1b76b6"
+  },
+  "rehearsal": false,
+  "ledgers": 512,
+  "profiles": [
+    "C+D",
+    "pooled"
+  ],
+  "cell": "sparse-independent",
+  "arm": "partial",
+  "horizon": "final",
+  "qualification_pass": false,
+  "rehearsal_receipt": {
+    "completed_utc": "2026-10-22T07:07:56.846258+00:00",
+    "freeze_sha256": "b6999f636d85069ecb4a832033d556cfd1346c9280569167b2f41341cab6b8b3",
+    "completion_sha256": "da22e6bacbf34dbac64b2cdcf9c26aebc107df0a70333ae19edc3b90dadf874e",
+    "score_sha256": "3aae532cf0a3b62971e849cba41a6a0ba1007af536881b4bdcb62f7d4dd1131e",
+    "export_manifest_sha256": "17d52b023f984cecbac5d106184e8c64a43c689b812ae9b73f878c30a7e748ff",
+    "export_receipt_sha256": "65726607ca463bf17c0d302f7d7bba23a3dcda14bba155d7e2786a8aa5b28b9e",
+    "ledgers": 4,
+    "public_seed": true
+  },
+  "barrier": "All ledger/profile predictions sealed and verified before any truth mount"
+}

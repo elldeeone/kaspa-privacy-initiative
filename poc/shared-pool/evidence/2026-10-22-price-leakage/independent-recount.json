@@ -1,0 +1,98 @@
+{
+  "schema": "kpi-price-leakage-independent-public-recount-v1",
+  "passed": true,
+  "rehearsal": false,
+  "ledger_rows": 512,
+  "distinct_public_digests": 512,
+  "eligible_targets": 18192,
+  "strategies_recounted": 39,
+  "metric_summaries_recounted": 195,
+  "paired_comparison_metrics": 6,
+  "exact_rational_e_tests": 9,
+  "threshold": 180,
+  "additive_identities_checked": true,
+  "contrasts": {
+    "public_minus_price": {
+      "equal_ledger_difference": {
+        "numerator": -58987980461143229,
+        "denominator": 802814149395148800
+      },
+      "decision": "advantage-below-five-points-demonstrated",
+      "tests": {
+        "positive_advantage": {
+          "e_value_approx": 0.002137137371692982,
+          "exact_e_value_sha256": "62c32bfce7b4e5c950d386951c68239f4584941ad796de9f87a63ae1e3e1c246",
+          "crossed": false
+        },
+        "above_five_points": {
+          "e_value_approx": 8.306749834858585e-05,
+          "exact_e_value_sha256": "2a65216fe9610664ab7fba3b3afe935c6f15b46e6114bf2159bb15a00f52a204",
+          "crossed": false
+        },
+        "below_five_points": {
+          "e_value_approx": 1.0134565862952575e+22,
+          "exact_e_value_sha256": "bd6813eccebd644449e24ed30264c483f7c4bb445ccdae20ff2d23582b554f4e",
+          "crossed": true
+        }
+      }
+    },
+    "pooled_minus_price": {
+      "equal_ledger_difference": {
+        "numerator": -322670220242416714543,
+        "denominator": 5037177098964921630720
+      },
+      "decision": "advantage-below-five-points-demonstrated",
+      "tests": {
+        "positive_advantage": {
+          "e_value_approx": 0.0039689302323788625,
+          "exact_e_value_sha256": "c24ba7bff574480185eb37f436f6e60f95f09269d5974fe157781b7c74fc6e36",
+          "crossed": false
+        },
+        "above_five_points": {
+          "e_value_approx": 0.0001539118749681261,
+          "exact_e_value_sha256": "e4d51173a9caad3812b00d33daa33ec2b5cd1ff460eb2b1a15de178923319215",
+          "crossed": false
+        },
+        "below_five_points": {
+          "e_value_approx": 2.447485369624441e+20,
+          "exact_e_value_sha256": "f40866ae0e78329e0cbcbc8f693b1a994213d7f1f6ffbb6e2ef17d9d75b873d7",
+          "crossed": true
+        }
+      }
+    },
+    "pooled_minus_public": {
+      "equal_ledger_difference": {
+        "numerator": 79073273938300602491,
+        "denominator": 8395295164941536051200
+      },
+      "decision": "advantage-below-five-points-demonstrated",
+      "tests": {
+        "positive_advantage": {
+          "e_value_approx": 5.718184317873106,
+          "exact_e_value_sha256": "d4f6c6101ca384f9cc6454da72240119cb5280d4fda187b03dcbc8b5c203b8aa",
+          "crossed": false
+        },
+        "above_five_points": {
+          "e_value_approx": 0.01901707741600393,
+          "exact_e_value_sha256": "f2687e4e218356151dcc289232f97535fa68ba8dce4bdc6cf84a8a814837530f",
+          "crossed": false
+        },
+        "below_five_points": {
+          "e_value_approx": 4225262.325171593,
+          "exact_e_value_sha256": "4dea0c5792b712e1c339d7e831f97f4abeeb03a11b72b72d9186967b3a2497e6",
+          "crossed": true
+        }
+      }
+    }
+  },
+  "limits": [
+    "Aggregate-only recount: target truth, eligibility, actual guesses and paired intersections are not independently verified.",
+    "Ledger count and distinct public digests do not prove seed independence, named ledger roster or prediction-barrier chronology.",
+    "Accounting arithmetic is checked from receipts; native transactions, cryptography and public-history completeness are not validated.",
+    "No privacy qualification or change to the earlier rejected policy follows from this recount."
+  ],
+  "checked_utc": "2026-10-22T08:50:50.187703+00:00",
+  "cases_sha256": "f10344314a578e24c28d79548f815585f7cf198c1c276a42d709d793a2ba52bb",
+  "result_sha256": "80022f7b21018d9695863cafe31bdba8eb61e72bd22ad5016ec624bab7921556",
+  "recount_source_sha256": "f8d332acabcc8b4812c75a1e19b78782306f1aa045347786a9c2faa40116aaa4"
+}

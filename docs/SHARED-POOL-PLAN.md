@@ -29,8 +29,14 @@ share one current-version interface. Qualification against the accepted
 integrated delivery spans milestones 2, 4 and 7, with early review in milestone 3.
 Requirements acceptance does not mean that any implementation meets them.
 
-**Next action:** audit the public information and evaluation assumptions before
-selecting another mitigation. [ADR-0032](adr/0032-sparse-diagnosis-and-privacy-evaluation.md)
+**Next direction:** improve attack calibration and verify the native observation
+mapping, including selective exposure, before another privacy experiment. The
+[completed price-baseline test](../poc/shared-pool/PRICE-LEAKAGE.md) found the
+selected heuristic below the price prior on 512 independent ledgers; all three
+contrasts support below-five-point mean advantage and none establishes positive
+advantage. [ADR-0033](adr/0033-price-baseline-evaluation.md) records this bounded
+outcome. No new experiment, mitigation or runtime change is released here.
+[ADR-0032](adr/0032-sparse-diagnosis-and-privacy-evaluation.md)
 retains the direct-L1 research platform and closes general cashout-policy tuning
 as the immediate work item. Use the existing genuine-native usage history as
 development evidence to separate public-price predictability from additional

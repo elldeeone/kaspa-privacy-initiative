@@ -1,5 +1,21 @@
 # Threat Model
 
+The [price-baseline test](poc/shared-pool/PRICE-LEAKAGE-SPEC.md) separates public
+arithmetic observations plus the declared directory from additional pooled
+colluder records. It compares a preselected heuristic with marginal price-only
+actions, not an optimal full-transcript posterior. Independent seeded ledgers
+are the inference units; honest truth enters only after all predictions seal.
+Ideal hiding, modeled demand and finite attacks remain limitations. No new
+settlement trust, privileged exit path or privacy qualification is introduced.
+
+Its [completed result](poc/shared-pool/PRICE-LEAKAGE.md) does not establish
+incremental prediction benefit for the selected heuristic: observed public and
+pooled accuracy were below the optimal marginal price action. All three frozen
+comparisons support mean advantage below five points, but this is no bound on
+stronger, selective, earlier-prefix or native-byte attacks. Public/new-hit
+turnover and legitimate participant knowledge remain distinct from a causal
+account of each success. No threat or absolute requirement is removed.
+
 The [sparse diagnosis](poc/shared-pool/WORKING-BALANCE-SPARSE-DIAGNOSIS.md)
 separates correct numeric guesses from matching actual paths. In the partial
 pooled final view, eight successful guesses use unrelated selected payouts and

@@ -1,0 +1,39 @@
+{
+  "schema": "kpi-price-target-audit-receipt-v1",
+  "complete": true,
+  "additive_verification_only": true,
+  "public_rehearsal": false,
+  "ledgers_checked": 512,
+  "sealed_observer_jobs": 1024,
+  "eligible_targets_checked": 18192,
+  "target_derivation": "economic payment obligations and actual PAY outputs; declared targets cross-checked afterward",
+  "checked_attack": "split_tail",
+  "checked_metrics": [
+    "sender",
+    "recipient",
+    "relationship",
+    "amount_within_10pct",
+    "amount_exact"
+  ],
+  "checked_baselines": "45-tKAS approximate; 10-tKAS exact",
+  "every_case_selected_metrics_match": true,
+  "aggregate_counts_and_paired_rates_match": true,
+  "input_sha256": {
+    "audit_design": "55440a2280db7125185225b1cfaaeca36e33f0fee958f2be1255759be13aa150",
+    "freeze": "b21754e4e5991ec866cfcb121f5c2597f1baa6c395c1a5e442ef9d68733ad4f8",
+    "prediction_batch": "268dde87994d75db5c19aa58da17392df0c5638b4a166b760dd088906ea3c08b",
+    "completion": "c2bb37f4debe8f285dabc4019a9ad52ded7b9acc0598b009520aa1cef1962b48",
+    "export_manifest": "e45baff86ba4da4e15db856e716c0e8875e8b887f98fc02e8a36f8150c3c47ae",
+    "score_cases": "f10344314a578e24c28d79548f815585f7cf198c1c276a42d709d793a2ba52bb",
+    "score_result": "80022f7b21018d9695863cafe31bdba8eb61e72bd22ad5016ec624bab7921556"
+  },
+  "seed_opened": false,
+  "histories_regenerated": false,
+  "attacks_executed": false,
+  "original_verdict_changed": false,
+  "limits": [
+    "Semantic recount of existing frozen outcomes, not a new experiment or privacy criterion.",
+    "Does not establish independent sampling, source correctness, native acceptance or privacy qualification.",
+    "Exact e-values and descriptive other attacks are covered by the separate aggregate recount."
+  ]
+}

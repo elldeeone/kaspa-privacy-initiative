@@ -1,0 +1,2750 @@
+{
+  "schema": "kpi-price-leakage-summary-v1",
+  "complete": true,
+  "scope": "held-out arithmetic incremental-information test; no native privacy qualification",
+  "development_only": false,
+  "independent_ledgers": 512,
+  "eligible_targets": 18192,
+  "observable_targets": 32768,
+  "inference_unit": "independently seeded whole ledger; equal ledger weights",
+  "inferential_attack": "split_tail",
+  "qualification_pass": false,
+  "price_priors": {
+    "within_10pct_guess_sompi": 4500000000,
+    "exact_guess_sompi": 1000000000,
+    "expected_within_10pct": {
+      "numerator": 21103,
+      "denominator": 100025
+    },
+    "expected_exact": {
+      "numerator": 12013,
+      "denominator": 100025
+    },
+    "absolute_amount_cap": {
+      "numerator": 1,
+      "denominator": 5
+    },
+    "expected_price_prior_exceeds_absolute_cap": true
+  },
+  "price_baseline": {
+    "amount_within_10pct": {
+      "correct": 3810,
+      "eligible": 18192,
+      "pooled_rate": {
+        "numerator": 635,
+        "denominator": 3032
+      },
+      "equal_ledger_rate": {
+        "numerator": 2783690672207353142161,
+        "denominator": 13333704085495380787200
+      }
+    },
+    "amount_exact": {
+      "correct": 2207,
+      "eligible": 18192,
+      "pooled_rate": {
+        "numerator": 2207,
+        "denominator": 18192
+      },
+      "equal_ledger_rate": {
+        "numerator": 27447915765970427815589,
+        "denominator": 226672969453421473382400
+      }
+    }
+  },
+  "profiles": {
+    "C+D": {
+      "variants": {
+        "prior": {
+          "sender": {
+            "correct": 543,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 181,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 401105729179564643467,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3810,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 635,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 2783690672207353142161,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "amount_exact": {
+            "correct": 1,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1,
+              "denominator": 19456
+            }
+          }
+        },
+        "residual": {
+          "sender": {
+            "correct": 513,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 171,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 495504615704598445703,
+              "denominator": 17436382265647805644800
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2676,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 223,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 219522109214445469967,
+              "denominator": 1491269535877772851200
+            }
+          },
+          "amount_exact": {
+            "correct": 1639,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1639,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 2916587855655535574287,
+              "denominator": 32381852779060210483200
+            }
+          }
+        },
+        "coinput": {
+          "sender": {
+            "correct": 458,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 229,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 823006146644680572407,
+              "denominator": 32381852779060210483200
+            }
+          },
+          "recipient": {
+            "correct": 150,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 25,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 1772516216505000389,
+              "denominator": 209688223361166950400
+            }
+          },
+          "relationship": {
+            "correct": 2,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 11,
+              "denominator": 92160
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2004,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 167,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 530363120708243521441,
+              "denominator": 4822829137306839859200
+            }
+          },
+          "amount_exact": {
+            "correct": 464,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 29,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 119534418669327454283,
+              "denominator": 4822829137306839859200
+            }
+          }
+        },
+        "split": {
+          "sender": {
+            "correct": 347,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 347,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 30692529557728944419,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "recipient": {
+            "correct": 528,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 379
+            },
+            "equal_ledger_rate": {
+              "numerator": 3805270002212155667,
+              "denominator": 130346733440725401600
+            }
+          },
+          "relationship": {
+            "correct": 15,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 5,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 24331806041,
+              "denominator": 29899386316800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3540,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 295,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 517309239394513769939,
+              "denominator": 2666740817099076157440
+            }
+          },
+          "amount_exact": {
+            "correct": 940,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 235,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 11621136228800568163387,
+              "denominator": 226672969453421473382400
+            }
+          }
+        },
+        "subset_nearest": {
+          "sender": {
+            "correct": 530,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 265,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 3328755908162056839517,
+              "denominator": 113336484726710736691200
+            }
+          },
+          "recipient": {
+            "correct": 542,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 271,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 48110630467956208331,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 20,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 5,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 222787703539,
+              "denominator": 201141326131200
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2353,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2353,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 2667696731434040880727,
+              "denominator": 20606633586674679398400
+            }
+          },
+          "amount_exact": {
+            "correct": 51,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 17,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 56558929556501,
+              "denominator": 20497382537748480
+            }
+          }
+        },
+        "subset_supported": {
+          "sender": {
+            "correct": 514,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 257,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 6464735112357155629609,
+              "denominator": 226672969453421473382400
+            }
+          },
+          "recipient": {
+            "correct": 319,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 319,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 6085567312402477813,
+              "denominator": 344487795521917132800
+            }
+          },
+          "relationship": {
+            "correct": 11,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 115223189,
+              "denominator": 192899266560
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2508,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 209,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 866935178443806205171,
+              "denominator": 6296471373706152038400
+            }
+          },
+          "amount_exact": {
+            "correct": 426,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 71,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 5355923732610152461061,
+              "denominator": 226672969453421473382400
+            }
+          }
+        },
+        "partial_tail": {
+          "sender": {
+            "correct": 493,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 493,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1551162003123077608121,
+              "denominator": 56668242363355368345600
+            }
+          },
+          "recipient": {
+            "correct": 266,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 133,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 3226778284644133897,
+              "denominator": 219219506241219993600
+            }
+          },
+          "relationship": {
+            "correct": 7,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 7,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1920463,
+              "denominator": 4791121920
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2154,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 359,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 2242610489431162836137,
+              "denominator": 18889414121118456115200
+            }
+          },
+          "amount_exact": {
+            "correct": 424,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 53,
+              "denominator": 2274
+            },
+            "equal_ledger_rate": {
+              "numerator": 413540795148005115407,
+              "denominator": 17436382265647805644800
+            }
+          }
+        },
+        "split_tail": {
+          "sender": {
+            "correct": 49,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 49,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 5938730386146973,
+              "denominator": 2207244456433336320
+            }
+          },
+          "recipient": {
+            "correct": 120,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 5,
+              "denominator": 758
+            },
+            "equal_ledger_rate": {
+              "numerator": 20603022057887173,
+              "denominator": 3115522698518630400
+            }
+          },
+          "relationship": {
+            "correct": 1,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1,
+              "denominator": 20992
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2461,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2461,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 6133520624056426999009,
+              "denominator": 45334593890684294676480
+            }
+          },
+          "amount_exact": {
+            "correct": 1059,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 353,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 15799266796527267671,
+              "denominator": 272443472900746963200
+            }
+          }
+        },
+        "receipt_timing": {
+          "sender": {
+            "correct": 543,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 181,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 401105729179564643467,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2861,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2861,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 2740743926108500462979,
+              "denominator": 17436382265647805644800
+            }
+          },
+          "amount_exact": {
+            "correct": 2226,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 371,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 158366057152506023749,
+              "denominator": 1295274111162408419328
+            }
+          }
+        },
+        "cash_inverse": {
+          "sender": {
+            "correct": 543,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 181,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 401105729179564643467,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3233,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 3233,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 936096645583079329267,
+              "denominator": 5271464405893522636800
+            }
+          },
+          "amount_exact": {
+            "correct": 2216,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 277,
+              "denominator": 2274
+            },
+            "equal_ledger_rate": {
+              "numerator": 1123350266367711137,
+              "denominator": 9202004199789772800
+            }
+          }
+        },
+        "colluder_tags": {
+          "sender": {
+            "correct": 154,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 77,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 966828875010632927,
+              "denominator": 112158817146670694400
+            }
+          },
+          "recipient": {
+            "correct": 580,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 145,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 17107289948614294061,
+              "denominator": 535869904145204428800
+            }
+          },
+          "relationship": {
+            "correct": 11,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 4041919979,
+              "denominator": 6488429875200
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3233,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 3233,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 40229498607192989092367,
+              "denominator": 226672969453421473382400
+            }
+          },
+          "amount_exact": {
+            "correct": 0,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 0,
+              "denominator": 1
+            },
+            "equal_ledger_rate": {
+              "numerator": 0,
+              "denominator": 1
+            }
+          }
+        },
+        "bridge_ancestry": {
+          "sender": {
+            "correct": 535,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 535,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 395063146921481674297,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 544,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 34,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 8028170506480163231,
+              "denominator": 267934952072602214400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3720,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 155,
+              "denominator": 758
+            },
+            "equal_ledger_rate": {
+              "numerator": 46194770334071130902297,
+              "denominator": 226672969453421473382400
+            }
+          },
+          "amount_exact": {
+            "correct": 32,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 3108230759,
+              "denominator": 1836245139456
+            }
+          }
+        },
+        "combined": {
+          "sender": {
+            "correct": 371,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 371,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 22404982460086492421,
+              "denominator": 1079395092635340349440
+            }
+          },
+          "recipient": {
+            "correct": 185,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 185,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 100537353865557410401,
+              "denominator": 9855346497974846668800
+            }
+          },
+          "relationship": {
+            "correct": 6,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 1398299,
+              "denominator": 4239544320
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2485,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2485,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 9391765678905092419,
+              "denominator": 68460576699915878400
+            }
+          },
+          "amount_exact": {
+            "correct": 992,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 62,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 101389598318014365209,
+              "denominator": 1842869670353020108800
+            }
+          }
+        }
+      }
+    },
+    "pooled": {
+      "variants": {
+        "prior": {
+          "sender": {
+            "correct": 717,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 239,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 2986656644710093665599,
+              "denominator": 75557656484473824460800
+            }
+          },
+          "recipient": {
+            "correct": 746,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 373,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 5100891170973480613,
+              "denominator": 123662285571970252800
+            }
+          },
+          "relationship": {
+            "correct": 38,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 19,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 14948438068720187,
+              "denominator": 7230628391764377600
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3810,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 635,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 2783690672207353142161,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "amount_exact": {
+            "correct": 1,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1,
+              "denominator": 19456
+            }
+          }
+        },
+        "residual": {
+          "sender": {
+            "correct": 625,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 625,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 2932401954520434443,
+              "denominator": 84611037496611225600
+            }
+          },
+          "recipient": {
+            "correct": 103,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 103,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 814381245494081,
+              "denominator": 160680630928097280
+            }
+          },
+          "relationship": {
+            "correct": 6,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 39829,
+              "denominator": 139806720
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2478,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 413,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 3829566562687618964747,
+              "denominator": 28334121181677684172800
+            }
+          },
+          "amount_exact": {
+            "correct": 840,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 35,
+              "denominator": 758
+            },
+            "equal_ledger_rate": {
+              "numerator": 217294897486528846487,
+              "denominator": 4822829137306839859200
+            }
+          }
+        },
+        "coinput": {
+          "sender": {
+            "correct": 702,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 117,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 69625404606451108907,
+              "denominator": 1798991821058900582400
+            }
+          },
+          "recipient": {
+            "correct": 400,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 25,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 600379271618905663,
+              "denominator": 29229267498829332480
+            }
+          },
+          "relationship": {
+            "correct": 13,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 13,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 6623148581993,
+              "denominator": 9687605606891520
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2458,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1229,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 38957284495503558641,
+              "denominator": 283695831606284697600
+            }
+          },
+          "amount_exact": {
+            "correct": 1592,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 199,
+              "denominator": 2274
+            },
+            "equal_ledger_rate": {
+              "numerator": 433491519445353869191,
+              "denominator": 4822829137306839859200
+            }
+          }
+        },
+        "split": {
+          "sender": {
+            "correct": 577,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 577,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 11814485559806045563,
+              "denominator": 372817383969443212800
+            }
+          },
+          "recipient": {
+            "correct": 356,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 89,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 1143720984259632223,
+              "denominator": 61595915612342791680
+            }
+          },
+          "relationship": {
+            "correct": 12,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 13983750589,
+              "denominator": 21739385733120
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3036,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 253,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 5383922940096264429473,
+              "denominator": 32381852779060210483200
+            }
+          },
+          "amount_exact": {
+            "correct": 1752,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 73,
+              "denominator": 758
+            },
+            "equal_ledger_rate": {
+              "numerator": 3689634954506465295871,
+              "denominator": 37778828242236912230400
+            }
+          }
+        },
+        "subset_nearest": {
+          "sender": {
+            "correct": 716,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 179,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 2983242403281674567179,
+              "denominator": 75557656484473824460800
+            }
+          },
+          "recipient": {
+            "correct": 402,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 67,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 480367883728666133,
+              "denominator": 21724455573454233600
+            }
+          },
+          "relationship": {
+            "correct": 23,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 23,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 45195390905173,
+              "denominator": 34596308094566400
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2431,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2431,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 5045845759363836910657,
+              "denominator": 37778828242236912230400
+            }
+          },
+          "amount_exact": {
+            "correct": 61,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 61,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1483309576677109,
+              "denominator": 450942415830466560
+            }
+          }
+        },
+        "subset_supported": {
+          "sender": {
+            "correct": 719,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 719,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 375558308460054612493,
+              "denominator": 9444707060559228057600
+            }
+          },
+          "recipient": {
+            "correct": 270,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 45,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 59553909345421652363,
+              "denominator": 4121326717334935879680
+            }
+          },
+          "relationship": {
+            "correct": 11,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 8769167,
+              "denominator": 15817052160
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2720,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 170,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 22007584069371936983,
+              "denominator": 146524220719729459200
+            }
+          },
+          "amount_exact": {
+            "correct": 163,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 163,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 42486868837682798119,
+              "denominator": 4822829137306839859200
+            }
+          }
+        },
+        "partial_tail": {
+          "sender": {
+            "correct": 713,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 713,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 33118312376826790677,
+              "denominator": 839529516494153605120
+            }
+          },
+          "recipient": {
+            "correct": 287,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 287,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 5984401570301262127,
+              "denominator": 394213859918993866752
+            }
+          },
+          "relationship": {
+            "correct": 7,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 7,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 204173,
+              "denominator": 556707840
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2779,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2779,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 5202230109163689581,
+              "denominator": 33836836759728537600
+            }
+          },
+          "amount_exact": {
+            "correct": 129,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 43,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 143643431047320419,
+              "denominator": 20968822336116695040
+            }
+          }
+        },
+        "split_tail": {
+          "sender": {
+            "correct": 686,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 343,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 2879063961887623328111,
+              "denominator": 75557656484473824460800
+            }
+          },
+          "recipient": {
+            "correct": 310,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 155,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 2625990841463682281,
+              "denominator": 158512566051343687680
+            }
+          },
+          "relationship": {
+            "correct": 23,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 23,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 4756489620781,
+              "denominator": 4050772208271360
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2627,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2627,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 16401290758308125631151,
+              "denominator": 113336484726710736691200
+            }
+          },
+          "amount_exact": {
+            "correct": 940,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 235,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 5886504478772608741847,
+              "denominator": 113336484726710736691200
+            }
+          }
+        },
+        "receipt_timing": {
+          "sender": {
+            "correct": 717,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 239,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 2986656644710093665599,
+              "denominator": 75557656484473824460800
+            }
+          },
+          "recipient": {
+            "correct": 569,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 569,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 152016108766831655719,
+              "denominator": 4822829137306839859200
+            }
+          },
+          "relationship": {
+            "correct": 34,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 17,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 13580432878099547,
+              "denominator": 7230628391764377600
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2860,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 715,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 2739770913705283509539,
+              "denominator": 17436382265647805644800
+            }
+          },
+          "amount_exact": {
+            "correct": 2225,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2225,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 5540282168089346752271,
+              "denominator": 45334593890684294676480
+            }
+          }
+        },
+        "cash_inverse": {
+          "sender": {
+            "correct": 717,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 239,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 2986656644710093665599,
+              "denominator": 75557656484473824460800
+            }
+          },
+          "recipient": {
+            "correct": 569,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 569,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 152016108766831655719,
+              "denominator": 4822829137306839859200
+            }
+          },
+          "relationship": {
+            "correct": 34,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 17,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 13580432878099547,
+              "denominator": 7230628391764377600
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3234,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 539,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 936440603382667852387,
+              "denominator": 5271464405893522636800
+            }
+          },
+          "amount_exact": {
+            "correct": 2216,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 277,
+              "denominator": 2274
+            },
+            "equal_ledger_rate": {
+              "numerator": 1123350266367711137,
+              "denominator": 9202004199789772800
+            }
+          }
+        },
+        "colluder_tags": {
+          "sender": {
+            "correct": 662,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 331,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 154647939519769559553,
+              "denominator": 4197647582470768025600
+            }
+          },
+          "recipient": {
+            "correct": 265,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 265,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 6999836397045945223,
+              "denominator": 521087286099819479040
+            }
+          },
+          "relationship": {
+            "correct": 8,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 2274
+            },
+            "equal_ledger_rate": {
+              "numerator": 431358821,
+              "denominator": 1093444982784
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2508,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 209,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 15801123970627293463327,
+              "denominator": 113336484726710736691200
+            }
+          },
+          "amount_exact": {
+            "correct": 1615,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1615,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 220078509593454128333,
+              "denominator": 2411414568653419929600
+            }
+          }
+        },
+        "bridge_ancestry": {
+          "sender": {
+            "correct": 709,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 709,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 197303868541911059,
+              "denominator": 5045249498161980800
+            }
+          },
+          "recipient": {
+            "correct": 725,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 725,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 706782224352060919,
+              "denominator": 17666040795995750400
+            }
+          },
+          "relationship": {
+            "correct": 38,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 19,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 14992160424997787,
+              "denominator": 7230628391764377600
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3686,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1843,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 45783761395636879897757,
+              "denominator": 226672969453421473382400
+            }
+          },
+          "amount_exact": {
+            "correct": 47,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 47,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 124838129721,
+              "denominator": 46911691300864
+            }
+          }
+        },
+        "combined": {
+          "sender": {
+            "correct": 654,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 109,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 1646713043990366789519,
+              "denominator": 45334593890684294676480
+            }
+          },
+          "recipient": {
+            "correct": 388,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 97,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 95212405702099659769,
+              "denominator": 4533459389068429467648
+            }
+          },
+          "relationship": {
+            "correct": 15,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 5,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 640232713663,
+              "denominator": 768806846545920
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2621,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2621,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 55142112229778591341,
+              "denominator": 381604325679160729600
+            }
+          },
+          "amount_exact": {
+            "correct": 876,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 73,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 142205457781495451327,
+              "denominator": 2943804798096382771200
+            }
+          }
+        },
+        "C_prior": {
+          "sender": {
+            "correct": 543,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 181,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 401105729179564643467,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3810,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 635,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 2783690672207353142161,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "amount_exact": {
+            "correct": 1,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1,
+              "denominator": 19456
+            }
+          }
+        },
+        "C_residual": {
+          "sender": {
+            "correct": 513,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 171,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 495504615704598445703,
+              "denominator": 17436382265647805644800
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2676,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 223,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 219522109214445469967,
+              "denominator": 1491269535877772851200
+            }
+          },
+          "amount_exact": {
+            "correct": 1639,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1639,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 2916587855655535574287,
+              "denominator": 32381852779060210483200
+            }
+          }
+        },
+        "C_coinput": {
+          "sender": {
+            "correct": 458,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 229,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 823006146644680572407,
+              "denominator": 32381852779060210483200
+            }
+          },
+          "recipient": {
+            "correct": 150,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 25,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 1772516216505000389,
+              "denominator": 209688223361166950400
+            }
+          },
+          "relationship": {
+            "correct": 2,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 11,
+              "denominator": 92160
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2004,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 167,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 530363120708243521441,
+              "denominator": 4822829137306839859200
+            }
+          },
+          "amount_exact": {
+            "correct": 464,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 29,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 119534418669327454283,
+              "denominator": 4822829137306839859200
+            }
+          }
+        },
+        "C_split": {
+          "sender": {
+            "correct": 347,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 347,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 30692529557728944419,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "recipient": {
+            "correct": 528,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 379
+            },
+            "equal_ledger_rate": {
+              "numerator": 3805270002212155667,
+              "denominator": 130346733440725401600
+            }
+          },
+          "relationship": {
+            "correct": 15,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 5,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 24331806041,
+              "denominator": 29899386316800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3540,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 295,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 517309239394513769939,
+              "denominator": 2666740817099076157440
+            }
+          },
+          "amount_exact": {
+            "correct": 940,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 235,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 11621136228800568163387,
+              "denominator": 226672969453421473382400
+            }
+          }
+        },
+        "C_subset_nearest": {
+          "sender": {
+            "correct": 530,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 265,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 3328755908162056839517,
+              "denominator": 113336484726710736691200
+            }
+          },
+          "recipient": {
+            "correct": 542,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 271,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 48110630467956208331,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 20,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 5,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 222787703539,
+              "denominator": 201141326131200
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2353,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2353,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 2667696731434040880727,
+              "denominator": 20606633586674679398400
+            }
+          },
+          "amount_exact": {
+            "correct": 51,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 17,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 56558929556501,
+              "denominator": 20497382537748480
+            }
+          }
+        },
+        "C_subset_supported": {
+          "sender": {
+            "correct": 514,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 257,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 6464735112357155629609,
+              "denominator": 226672969453421473382400
+            }
+          },
+          "recipient": {
+            "correct": 319,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 319,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 6085567312402477813,
+              "denominator": 344487795521917132800
+            }
+          },
+          "relationship": {
+            "correct": 11,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 115223189,
+              "denominator": 192899266560
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2508,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 209,
+              "denominator": 1516
+            },
+            "equal_ledger_rate": {
+              "numerator": 866935178443806205171,
+              "denominator": 6296471373706152038400
+            }
+          },
+          "amount_exact": {
+            "correct": 426,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 71,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 5355923732610152461061,
+              "denominator": 226672969453421473382400
+            }
+          }
+        },
+        "C_partial_tail": {
+          "sender": {
+            "correct": 493,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 493,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1551162003123077608121,
+              "denominator": 56668242363355368345600
+            }
+          },
+          "recipient": {
+            "correct": 266,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 133,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 3226778284644133897,
+              "denominator": 219219506241219993600
+            }
+          },
+          "relationship": {
+            "correct": 7,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 7,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1920463,
+              "denominator": 4791121920
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2154,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 359,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 2242610489431162836137,
+              "denominator": 18889414121118456115200
+            }
+          },
+          "amount_exact": {
+            "correct": 424,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 53,
+              "denominator": 2274
+            },
+            "equal_ledger_rate": {
+              "numerator": 413540795148005115407,
+              "denominator": 17436382265647805644800
+            }
+          }
+        },
+        "C_split_tail": {
+          "sender": {
+            "correct": 49,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 49,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 5938730386146973,
+              "denominator": 2207244456433336320
+            }
+          },
+          "recipient": {
+            "correct": 120,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 5,
+              "denominator": 758
+            },
+            "equal_ledger_rate": {
+              "numerator": 20603022057887173,
+              "denominator": 3115522698518630400
+            }
+          },
+          "relationship": {
+            "correct": 1,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 1,
+              "denominator": 20992
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2461,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2461,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 6133520624056426999009,
+              "denominator": 45334593890684294676480
+            }
+          },
+          "amount_exact": {
+            "correct": 1059,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 353,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 15799266796527267671,
+              "denominator": 272443472900746963200
+            }
+          }
+        },
+        "C_receipt_timing": {
+          "sender": {
+            "correct": 543,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 181,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 401105729179564643467,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2861,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2861,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 2740743926108500462979,
+              "denominator": 17436382265647805644800
+            }
+          },
+          "amount_exact": {
+            "correct": 2226,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 371,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 158366057152506023749,
+              "denominator": 1295274111162408419328
+            }
+          }
+        },
+        "C_cash_inverse": {
+          "sender": {
+            "correct": 543,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 181,
+              "denominator": 6064
+            },
+            "equal_ledger_rate": {
+              "numerator": 401105729179564643467,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 563,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 563,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 49856457752625134311,
+              "denominator": 1607609712435613286400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3233,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 3233,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 936096645583079329267,
+              "denominator": 5271464405893522636800
+            }
+          },
+          "amount_exact": {
+            "correct": 2216,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 277,
+              "denominator": 2274
+            },
+            "equal_ledger_rate": {
+              "numerator": 1123350266367711137,
+              "denominator": 9202004199789772800
+            }
+          }
+        },
+        "C_colluder_tags": {
+          "sender": {
+            "correct": 154,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 77,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 966828875010632927,
+              "denominator": 112158817146670694400
+            }
+          },
+          "recipient": {
+            "correct": 580,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 145,
+              "denominator": 4548
+            },
+            "equal_ledger_rate": {
+              "numerator": 17107289948614294061,
+              "denominator": 535869904145204428800
+            }
+          },
+          "relationship": {
+            "correct": 11,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 4041919979,
+              "denominator": 6488429875200
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3233,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 3233,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 40229498607192989092367,
+              "denominator": 226672969453421473382400
+            }
+          },
+          "amount_exact": {
+            "correct": 0,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 0,
+              "denominator": 1
+            },
+            "equal_ledger_rate": {
+              "numerator": 0,
+              "denominator": 1
+            }
+          }
+        },
+        "C_bridge_ancestry": {
+          "sender": {
+            "correct": 535,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 535,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 395063146921481674297,
+              "denominator": 13333704085495380787200
+            }
+          },
+          "recipient": {
+            "correct": 544,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 34,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 8028170506480163231,
+              "denominator": 267934952072602214400
+            }
+          },
+          "relationship": {
+            "correct": 22,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 11,
+              "denominator": 9096
+            },
+            "equal_ledger_rate": {
+              "numerator": 192297181171,
+              "denominator": 158039613388800
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 3720,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 155,
+              "denominator": 758
+            },
+            "equal_ledger_rate": {
+              "numerator": 46194770334071130902297,
+              "denominator": 226672969453421473382400
+            }
+          },
+          "amount_exact": {
+            "correct": 32,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 3108230759,
+              "denominator": 1836245139456
+            }
+          }
+        },
+        "C_combined": {
+          "sender": {
+            "correct": 371,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 371,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 22404982460086492421,
+              "denominator": 1079395092635340349440
+            }
+          },
+          "recipient": {
+            "correct": 185,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 185,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 100537353865557410401,
+              "denominator": 9855346497974846668800
+            }
+          },
+          "relationship": {
+            "correct": 6,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 1,
+              "denominator": 3032
+            },
+            "equal_ledger_rate": {
+              "numerator": 1398299,
+              "denominator": 4239544320
+            }
+          },
+          "amount_within_10pct": {
+            "correct": 2485,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 2485,
+              "denominator": 18192
+            },
+            "equal_ledger_rate": {
+              "numerator": 9391765678905092419,
+              "denominator": 68460576699915878400
+            }
+          },
+          "amount_exact": {
+            "correct": 992,
+            "eligible": 18192,
+            "pooled_rate": {
+              "numerator": 62,
+              "denominator": 1137
+            },
+            "equal_ledger_rate": {
+              "numerator": 101389598318014365209,
+              "denominator": 1842869670353020108800
+            }
+          }
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "public_minus_price": {
+      "metrics": {
+        "amount_within_10pct": {
+          "gains": 1990,
+          "losses": 3339,
+          "eligible": 18192,
+          "pooled_difference": {
+            "numerator": -1349,
+            "denominator": 18192
+          },
+          "equal_ledger_difference": {
+            "numerator": -58987980461143229,
+            "denominator": 802814149395148800
+          },
+          "tests": {
+            "positive_advantage": {
+              "theta": {
+                "numerator": 0,
+                "denominator": 1
+              },
+              "direction": "plus",
+              "e_value": {
+                "numerator": 40071054146949348017998052505082952854662357616440762639660429793703593062681164098833485971030227111042361525604648545455359867449918345833322997958388194716453083889619602087634745131160645333370550105236962783482618103416124341010031597607731604521909475610612090610873063845536765247259808328987249893588170884291954589680263627133144747933272158595733736813459934696023762037747629260885893777147862821921940925287244278508684592170363687489580177293384652576159462809636729735916151118214987381660890502603642763472202615701549364225375790801889295340390909272751182585750268937806355932953416508751816442348526159589048823147367810080562211019968412985377633072228063752783047490981529974174406392402058334971139927071796109012250274548778365783280761810792143158902741292106604867527508128663020420801007479521277506669859349310163625450276548788386445289759229152118627698525091240717093685324268700442812168987465858576507037619100946605333342463899815745808877434092503960491338810611226421494513,
+                "denominator": 18749872927076351205739067386921987279648231163259856025058961941174136814614439773493199755830943018054296885399936462151503309612880511128727679451213601916165410004237144983418350005545229097673554796879587143347696279537854144815911734689069038178606066308440082623332340486925921353166305521252357657491871198412591159141769698287687624506163879292918070769555986391809639115391672067617663699543867198462682735586706723903808280666318359460040998514884046673905812819263336705017566036180547217573499500407942021120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 0.002137137371692982,
+              "threshold": 180,
+              "crossed": false
+            },
+            "above_five_points": {
+              "theta": {
+                "numerator": 1,
+                "denominator": 20
+              },
+              "direction": "plus",
+              "e_value": {
+                "numerator": 3253452764551599841731410254009756111107284491218118484185521479534786080481969039690692267953458240157668299764675653596015668401371643415817728081695860855207145177894405303275276522163582225272879564266796552568068484629710056286193077628228323265713640577645134081219261549683092280854454434412856604410754439321256434012505362196444214994483157657660276481681432870794410343609017171439038490093380961428804039199899366318882126100849455103889284692205626317582715181417174586222619995870875000701939114270693016896102273897243870440532182662703445842641753054348408615199659667673564425992524442253024145327347347917361275927628674222031417259409162814439255122752168770972506361315406040471622289886238249068639462144465192666293040138366675399742148687441662052068296213475886148596465025968326472964795434542330116888366638331913257684089974740202916568424943913350446390458553895415764677228392879986981942762578939717351954595466803384221876469492886955434644295640205276368274991634166565754024303832333548285644054965604784464444484876622661678464941622280514714743162177748956388198781308698074531535056329010183253550016720904556022059096867522852911752559407411203884413540395851067834815365579752245126575681663387582988982903271675360382781597505523384381585916460444142808627053325613322123289861738470895936773430970587102878253324589359045877065832239954546009201792143768492754913920575898458688062975191622054562354457760749257954871626414785917129188538239487270439460100973504848347924986425087312994515395999063849247975292561701747928464171266228799732265667207556904485341542683116313670535820039,
+                "denominator": 39166374686026487158316058856314650209487499690763644857540942129213060151131134441821207653878664092403488107165174844516344607562690025400859253078921846112168018818194619194552026619824186524379843598718282778600398342393015965773450965412637800593007122340000738246186471922450663386722725445017915947424120628096230629631719917277855210742643349668198493973008830172426134830062159870747062253795430258633754835304425065489672952656080359799527178415607151459065537488873172091368334013480034986565107099792812026161590965638659352031134629070511070706617437927049737730742629495520227845016869749906464151961600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 8.306749834858585e-05,
+              "threshold": 180,
+              "crossed": false
+            },
+            "below_five_points": {
+              "theta": {
+                "numerator": 1,
+                "denominator": 20
+              },
+              "direction": "minus",
+              "e_value": {
+                "numerator": 5604532040106122546661907130246284010756836563101555864586912839250993294039072576919069220476500437543850644635733260226995955650282872131081148190763694661567942674657461473552816400107470725271622236858776914959374487577414772827822078984441399756772152927231028311814880971626009213605113703142676626885483377300637603491472351425508663509926233327493520119111393296220070109892738430430238873466241485043377950541574433185335793921971134352561754408612123963599114934113041322051752580989333587166382253882518963749362000902819372737325597539000559156571758184607580750673228393525368396520242512435782373258299480810157768756156404310937788700693831300549005124190078110197616755131198860055002903225591054182796795219473593150465642029704402699743034377737828247717782920595313756582750897517404210486031943306966459832856522811198079343703182173124923311602510008766313369621467326969090086986040307872703626621967677822266584962961408442580323989970327184803894784075256317847659520491762875842920956695789800961394842724782086021704966153567508140425560719679038760692235659852428578981987557592131004245736228655819634140151900494627937158056674799320650066800666364743050970255721237968610431342115559139223426406924745157213518762469337116979756834370522135081831911278441632611141453948492998435917427631615572601553047240624009496019915940668212440491474223539917518273714863766099417408478770587041170729029883169558568060312564028348367242698643188090519762169449036926227107697790322527374574492079127038595502264197541252876289484163212107713135717058170947684379082697722597886259791778957477126801010815837034976200189722897,
+                "denominator": 553011556281239085792612443075202565165825118210889975888808583676198061697015320780042763007222372127879448583097396114817925750277477474463012321736081756693741346516594473465597083943651641498437389073443521050802225219804333819710077234299915923135832443448254034943467972833011533712581688384819225276016281358820453823519287898473485131663295086996553893033812598012609136908779120675582949450693843899512765454701160110279505494991258153152840455855907370602340515578872191293458362372263629783989206534346969198620562832500207871823249585630801763159138970116083464021570973771084926011488331853358694400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 1.0134565862952575e+22,
+              "threshold": 180,
+              "crossed": true
+            }
+          }
+        },
+        "amount_exact": {
+          "gains": 780,
+          "losses": 1928,
+          "eligible": 18192,
+          "pooled_difference": {
+            "numerator": -287,
+            "denominator": 4548
+          },
+          "equal_ledger_difference": {
+            "numerator": -14491312858419190591,
+            "denominator": 229658530347944755200
+          }
+        }
+      },
+      "decision": "advantage-below-five-points-demonstrated"
+    },
+    "pooled_minus_price": {
+      "metrics": {
+        "amount_within_10pct": {
+          "gains": 1897,
+          "losses": 3080,
+          "eligible": 18192,
+          "pooled_difference": {
+            "numerator": -1183,
+            "denominator": 18192
+          },
+          "equal_ledger_difference": {
+            "numerator": -322670220242416714543,
+            "denominator": 5037177098964921630720
+          },
+          "tests": {
+            "positive_advantage": {
+              "theta": {
+                "numerator": 0,
+                "denominator": 1
+              },
+              "direction": "plus",
+              "e_value": {
+                "numerator": 3226169812998093672796917446578155558403738465997544046698650263599666742655773142605768207813101702945812639674797021253482175310320212658492449916748764236506504064185366305042329160073218186653780246245124294331227312217892104201465812530272812604637355302574947026050124258405196291218439876928790792784216668720842200087292960199246112794321471736268054966537970592129172083633497918030301458577621146740462190453685476100157599096570860428252229790156189972747642596637001561051421353956115903826315269721258705524076203349046373534682025488259876999207462892810547924983682778997328990191181733518242247767583776713750788340355354630273154376805596313190443777143694481009441692620799287800373816260539459907055950349438758387007858658150957381959851565617686508339656334893594012534847343387504670546048339534908716288586927421182140487614754607322503818110666058355603433119515640776048223406491936722306050334914787649300034255261697513038608635683527692514353611159178013533209235559,
+                "denominator": 812856267081424675427168179193642662745203851219440958037942742851233451693926040932986565868517998798836979807644483185081507062336590803867588116342986348530580987440727020380125980685115996681129924644767532950431332860082595369798810011078017064174578156617426389362074187951908770099151823259727353947665007508916005254285415735825595752440003486669415844999600111525509423139174295557592375998250508324246394986442803004330328725396441428647823208239703529144833102016840736485654177384706867200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 0.0039689302323788625,
+              "threshold": 180,
+              "crossed": false
+            },
+            "above_five_points": {
+              "theta": {
+                "numerator": 1,
+                "denominator": 20
+              },
+              "direction": "plus",
+              "e_value": {
+                "numerator": 53651866096342530151741251757477925735841471472420140686696709646567754625570735212363997499058445468173804235784938089959814318194289079561513536311618987957890576677237712954530568083579170259124194029047868334596565808496590531711574713392118621575271788889284011249755386739308400975987962376649886407755200319336709701270542750429989273601403638162325005424226920987864419831713832995791464442340660082350209047004849550209258853936568839439406588318272074684791792479772513308107534267274346643068554973223528713213695732639571359485903002115322004758945367075339329997380559514025311187223682651306129843957131499654738945906552142598831303397812550513307431087319492421321714634160099887589943635806610909303724436804624570424299199737560267103808118325605996391802706756612982430086312573685295325689471094759922156662739306186075055008223376044519041602943385706851874687594447754480742468918435838764642809290099568726096897112164387292943735839073277034191646450078973781781076848749205194573324148918429195712374211041273248045129286460839261355624053362504667220584277024593654831134278686659321419347865760931057147566489200767788475092855057851484314334005002024299704571966809220980434936392398682662677711314681659150613967581256367110351563729576437682130204149485437113080110909118016206684319379639806859117252472393325460000568300325271502104258352986953838812606817389286538797227352923616720093827899083764824229874544435773773202376664566953252037531007211696616302681190915675460900033713400283579737404747910961595333399796341736849607771279335294929328211811402701883827454482236778106559037,
+                "denominator": 348588217169425023992158649772874549999494043577182319598064904314775128049866522821992769578257766021050088724541224243169883820193992554525157731330981486180738346122180201071451268611584315250300984841186739922215540012803952556874076677363575815821172116018401118031117782307671906732635087408410893462718197605619753287299016811813196539286847812213935655978240384489943717233377275521013183075024735052023467574348219157279438907974609419394408377068442879585906653046618203915068807858570961163712644317885963901709165635624039968117351504662276535653720341503623954351245442526403102193409570180178083053568000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 0.0001539118749681261,
+              "threshold": 180,
+              "crossed": false
+            },
+            "below_five_points": {
+              "theta": {
+                "numerator": 1,
+                "denominator": 20
+              },
+              "direction": "minus",
+              "e_value": {
+                "numerator": 23079142662843135296340112525594431317369370197467972123376151830418518810120517818176024455774975315237307677601019635799413248462517828939647731437416793475772766257421163220179766646650064816554206254420364682292866315024216412813307076406320650586591463041790448323166161160244012024958645759035164963226272559956406427269756253931288262006197497310909908538202634868958562660293791605814704673785439535131687103107302383914447334975320054631952912011639207264318237278305497244067552132031649392386773378656298512265139213717949909715345681810565777791632378928620709891866163926846969016129467524265276192121523951843963016342053374595985056058378971430633395171800530904039856685652359508239759802998867800194747011590572687346195283367490069954592812926064926343544041258723001273479670121989321975469432372682291707277294531878779049827681903214934152667409372968169153066677111353679142138588403338750027839867950302490878038958636624458533090583719630009482183162679083537382004787538824893450919975110893760755574053252253380213261567257095640885262042147109301322528813150108870514820521841866732787564623278066115069005001458348403420696482246180340861276207900457609932320297912381145517183093456794375745347962723668789622704498655495907244674830367982452175528276244733162155518004269776346155865811288084294155662505579250958967648397827352612084664499091456666261588311310083531747709832379347428762516953461135214606826045801014215817521680995903429331243836932193191305040619283673030816685690874584473573989995484214353578605708363066714578391489499988769796541411787542371650721194455462434119627052859388887838396322455439537,
+                "denominator": 94297367205036891740463103949358447177010606561429591920833224287959127839215516743633188847741822781679752065488962811223554372081679406426771668603667653709934587793965152228380668593432290432212187734105954487128406888577456437853606715842244989269535403311513581373994600337601912689616502663464901195475454740409447901684833189752364472017848946394648624425184537574043144408555236632721913353096900045686390505114176911713084198580786901304181276578168238608599720499146402345719971544421192418888601261807624201944656289752654575984495848751784551231215843877418546526183614551855481549065599735893167701529460736000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 2.447485369624441e+20,
+              "threshold": 180,
+              "crossed": true
+            }
+          }
+        },
+        "amount_exact": {
+          "gains": 769,
+          "losses": 2036,
+          "eligible": 18192,
+          "pooled_difference": {
+            "numerator": -1267,
+            "denominator": 18192
+          },
+          "equal_ledger_difference": {
+            "numerator": -1187942918410398661,
+            "denominator": 17178701739554488320
+          }
+        }
+      },
+      "decision": "advantage-below-five-points-demonstrated"
+    },
+    "pooled_minus_public": {
+      "metrics": {
+        "amount_within_10pct": {
+          "gains": 2094,
+          "losses": 1928,
+          "eligible": 18192,
+          "pooled_difference": {
+            "numerator": 83,
+            "denominator": 9096
+          },
+          "equal_ledger_difference": {
+            "numerator": 79073273938300602491,
+            "denominator": 8395295164941536051200
+          },
+          "tests": {
+            "positive_advantage": {
+              "theta": {
+                "numerator": 0,
+                "denominator": 1
+              },
+              "direction": "plus",
+              "e_value": {
+                "numerator": 9587967545046547554834900813019892633492033015629033153486621065217540311231125568227895015550396222432884060828990556722858360966034846459840117509670520866269752053616598257624422926026226061434317475721546010950224011511135990621250505347261391450308656247685995900956816819919962068722782870511952057167888887278255133245312671607217603697080140313224752654666518321052585078726406501424292102236834215198980737559306948040322518988706285160715884711077778104908185369443837885434509571559373742706414111069679920692808371750160500245015224052643231734793054117523220690666134340884574073300675721546114445317282903201362900949205574484332491078707545602921626731188058133835096115624784056307343413980911719964628531957473139479202746084526787747113009157788300313197707149742892917890360672711420641880067892637224708015106312252787374988674795086162407357959997466187259295979814989821406869623101412873643037190908149999565089,
+                "denominator": 1676750348021803021492441828179355917449632668417376590822816925997646422829285973573438887279244404011779467204047854480768741868533238635904639382734903461389346736340305729931812575838947773005604916938581147108524781826208438038416324948783006144993825802867923512637222716226921423930249851739600964655549634564346887523292141239372362979915624400867095949161629572284634360284493915161481501720407062250952420603396893366744627938797628866768876968090586316800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 5.718184317873106,
+              "threshold": 180,
+              "crossed": false
+            },
+            "above_five_points": {
+              "theta": {
+                "numerator": 1,
+                "denominator": 20
+              },
+              "direction": "plus",
+              "e_value": {
+                "numerator": 19444661408674167907130344310318308553582752345762412664268332684006727740092101250081045186262251251379797441734945955300962665987554689246544899703013593620915714771539917696265144589810282870190197460424596145174924737522393518826896520495860801902450751536100128012774143618709272551615362627327518317733625047000584697330226375804243213304014494148509827641046807056742464640309236712980441203148359518238952463970410328206719180901900706060829328733006716325913409772167299391362488903243065403674561249951610212158041354376037317362308278625797532229219890651645810822064958376837915722419467478143116347790118797838246075672961327453006885163960668400446284946020038675238329483346070442859329651405691171296882587302092248840365376892820819430890048493711694592587514361594350418307581743021193710331382845865743028845829137377851401592331737032325607216581498937924646745553434601715721916462610405021305187123856730032210635378790488740278035747518314999763565103033954952633996070711308297599852148492919240238068901002033006730298609431555605012746201335039485596399048166046365216803393206221489959128543935138574457952147492302241308262426680760803589385472954860605004527104607835920903937390975856880479074311526986551085125456571277822702173057697966218793916918456375086091204256002567160102879214286964185554789650972239205850779163753266041587567016744644706747903057428933256080113367897149849321301024461839964264742609957418520615860346154465432462111839946046700371358463661406987085639091678366925774814220892047534233529355697324445765398008024438434930342885442275366476846052659642759330435671014961719,
+                "denominator": 1022484211601852291596017091208376731146324928091978054406830836127645795619227392322731290244116405573095808342238390889767300007839023620637318101259384407179316800881392796982379702434730790877687040798986989545891064245262010326417343654576864601402124215291715258608349118533591886832973574119833768113828767099498306781437096991774994476417477436361346201326749740399215900476771877363316135909144554358243348888516727425538666009833498263344595325602020161841083219420263515954000298609409544632893819874152921408282808871134481081128315639255776721781744036602646102312464989915118984045260985738336782512873087561000550400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 0.01901707741600393,
+              "threshold": 180,
+              "crossed": false
+            },
+            "below_five_points": {
+              "theta": {
+                "numerator": 1,
+                "denominator": 20
+              },
+              "direction": "minus",
+              "e_value": {
+                "numerator": 181295666902995032918651665084357449297643367892349439865670802549787859947755914426173632801240135560888581186862087532378607873199659613599410872038899133608273883281992521520390179534676020515387080606399104634631714218159848125689880710416368596414159145734578990686568151173304650725766997838719261261450932950474551327633215075066614181028327746441443986385418857720361026043432764841950009034133003764380927038928639200482909410917063002882111577182922259710082967123548902318831228925046008216669670955560647495476333156391333829306403110407059556319889689868210374237128906508015656892074398204220568732097592366564765588783613464189054179917759413760082919140723582785582046779207091244838304698252575772192801759230218744984295260600408011882538637726530089194328860028339940406671855817234680798282507831901932641081449229395878064267291474111323054661512866824531709946792676475758015498274940207245374057700600802745733591098515041045178086092613939871840513283666755431656829892281318417438313378470595423078809763529556936611437883154891011795392615559215670840202267492066863397166309719081921565586893940814650717120904053755384440740297407452794018720155212800544502527803326229373257985318148003762634431987452966598742009935657749304056647610040094435004631396494850744543077141212519976942306029101586794967446027588574574757929106964324443062478313255126111978308063401278899439222193463550156520678261309760687883148186853225937148753809226002931341252007893706131861227968446727986532464629517215046220865844189533583406335623901521771974731671838665750667398151585068398568845365610757497869057425884537,
+                "denominator": 42907552940072759827458190805215755783947034366046540690938785393295538762670751565052023675772736546876951383030869181663407383705078728119153066183488050271706393544958753945529893446066772459881281112876469449534584515550074752917455589345019711993329622939503761087447246353196893158957633487898210898737320328282860699942729015721629567123525034043173779464832951094027899235419168406992886245029880946116953642553794558462116601790226639621502407326193956714891738357804414369808415680289010759676028364973937850255462706501675678724826234106288775669303733837099869951835992603788275356005117157396456345383731200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+              },
+              "e_value_approx": 4225262.325171593,
+              "threshold": 180,
+              "crossed": true
+            }
+          }
+        },
+        "amount_exact": {
+          "gains": 770,
+          "losses": 889,
+          "eligible": 18192,
+          "pooled_difference": {
+            "numerator": -119,
+            "denominator": 18192
+          },
+          "equal_ledger_difference": {
+            "numerator": -97998644083247801327,
+            "denominator": 16190926389530105241600
+          }
+        }
+      },
+      "decision": "advantage-below-five-points-demonstrated"
+    }
+  },
+  "inference": {
+    "tests": 9,
+    "family_error_bound": {
+      "numerator": 1,
+      "denominator": 20
+    },
+    "per_test_error_bound": {
+      "numerator": 1,
+      "denominator": 180
+    },
+    "e_threshold": 180,
+    "bets": [
+      {
+        "numerator": 1,
+        "denominator": 8
+      },
+      {
+        "numerator": 1,
+        "denominator": 4
+      },
+      {
+        "numerator": 1,
+        "denominator": 2
+      },
+      {
+        "numerator": 9,
+        "denominator": 10
+      }
+    ],
+    "exact_comparisons": true,
+    "no_interim_selection": true
+  },
+  "limits": [
+    "Known-price workload remains above the unchanged absolute privacy cap.",
+    "Public-plus-colluder evidence is combined information; the added-record contrast measures this frozen heuristic only.",
+    "Negative or unresolved results do not establish absence of transaction information or privacy.",
+    "Cash demand and activity are declared synthetic assumptions, not measured user behavior.",
+    "No native bytes/proofs, chain acceptance, cryptographic assurance, or real-user anonymity is tested."
+  ],
+  "rehearsal": false
+}
