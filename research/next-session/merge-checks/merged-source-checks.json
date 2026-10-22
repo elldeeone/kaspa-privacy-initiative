@@ -1,0 +1,32 @@
+[
+  {
+    "name": "merged-state",
+    "command": [
+      "cargo",
+      "+1.95.0",
+      "test",
+      "--locked",
+      "--offline",
+      "--manifest-path",
+      "poc/two-v6-state/common/Cargo.toml"
+    ],
+    "exit": 0,
+    "seconds": 2.543207498965785
+  },
+  {
+    "name": "merged-fresh-binding",
+    "command": [
+      "cargo",
+      "+1.95.0",
+      "test",
+      "--locked",
+      "--offline",
+      "--manifest-path",
+      "poc/s7-owner-lifecycle/binding/Cargo.toml",
+      "--features",
+      "compiled-research-instance"
+    ],
+    "exit": 101,
+    "seconds": 0.06311072199605405
+  }
+]

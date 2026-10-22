@@ -1,0 +1,25 @@
+[package]
+name = "kpi-s7-lifecycle-proof-host"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+kpi-two-v6-state = { package = "kpi-s7-lifecycle-state", path = "../../state" }
+kpi-two-v6-binding = { package = "kpi-s7-lifecycle-binding", path = "../../binding", features = ["compiled-research-instance"] }
+kpi-private-note-proof = { path = "../../../private-note-proof" }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["client", "disable-dev-mode"] }
+risc0-binfmt = "=3.0.4"
+risc0-zkos-v1compat = "=2.2.2"
+risc0-zkp = { version = "=3.0.4", default-features = false }
+risc0-circuit-recursion = { version = "=4.0.4", default-features = false }
+bincode = "=1.3.3"
+serde_json = "=1.0.145"
+hex = "=0.4.3"
+
+ark-bn254 = { version = "=0.5.0", default-features = false, features = ["curve", "std"] }
+ark-groth16 = { version = "=0.5.0", default-features = false, features = ["std"] }
+ark-serialize = { version = "=0.5.0", default-features = false, features = ["std"] }
+risc0-groth16 = { version = "=3.0.4", default-features = false, features = ["std"] }

@@ -1,0 +1,2280 @@
+{
+  "format": "kpi-initial-four-and-native-prefix-closure-index-v1",
+  "closed_utc": "2026-10-22T14:37:02.102116+00:00",
+  "repository": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle",
+    "base_commit": "ec6aa15d586bcc8a90f7232b433fd48d8c73d509",
+    "branch": "work/s7-owner-lifecycle-20261022"
+  },
+  "scope": {
+    "fresh_initial_inner_proofs": 4,
+    "recipient_delivery_checks": 8,
+    "native_pool_prefix_transactions": 3,
+    "separate_bob_funding_transaction": true,
+    "supplied_seed_utxos": true,
+    "accepted_chain": false,
+    "owner_cli_replay_parked": true,
+    "owner_drain_proofs": 0,
+    "full_lifecycle_qualified": false,
+    "complete_serialized_pk_reload_or_restored_proof": false,
+    "paired_proof_or_native_completion_owned_elsewhere": true
+  },
+  "identity_checks": {
+    "method": "bounded-memory SHA256 over retained files; no proof/test/native replay rerun",
+    "recorded_references_checked": 154,
+    "recorded_reference_failures": 0,
+    "before_after_identity_maps_equal": true,
+    "selected_native_input_files": 17,
+    "public_pk_bytes": 962197520,
+    "public_pk_sha256": "9a10b69c6354d72ed39b2f4f65375701dda52508eeb21bafcbc3b1f9ae032102",
+    "pk_serialized_vk_prefix_matches": true,
+    "pk_copied": false,
+    "build_caches_indexed_or_copied": false
+  },
+  "historic_path_resolutions": [
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.toml",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.lock",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/lib.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-producer-target/x86_64-unknown-linux-gnu/release/kpi_s7_lifecycle_fixture",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/lib.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.toml",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.lock",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-producer-target/x86_64-unknown-linux-gnu/release/kpi_s7_lifecycle_fixture",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer",
+      "reason": "historic source/target path intentionally superseded after stage closure"
+    }
+  ],
+  "recorded_reference_checks": [
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.toml",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.lock",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/lib.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.toml",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.lock",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/lib.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.toml",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.lock",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/lib.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-producer-target/x86_64-unknown-linux-gnu/release/kpi_s7_lifecycle_fixture",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-producer-target/x86_64-unknown-linux-gnu/release/kpi_s7_lifecycle_fixture",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "initial_stage_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/lib.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.toml",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.lock",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/lib.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.toml",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.lock",
+      "kind": "finalizer_source_identity",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/policy.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/policy.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/policy.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/policy.json",
+      "kind": "native_runtime_input",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/alice-public-test-wallet.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/alice-public-test-wallet.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/bob-public-test-wallet.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/bob-public-test-wallet.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/constants.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/constants.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "kind": "prepared_fixture",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/constants.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/constants.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/proving-key.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/proving-key.bin",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-profile.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-profile.json",
+      "kind": "closed_initial_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-outpoint-provenance.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-outpoint-provenance.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-spent-utxos.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-spent-utxos.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-txid-raw.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-txid-raw.bin",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-v1-rest-preimage.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-v1-rest-preimage.bin",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-validation.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-validation.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding-spent-utxos.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding-spent-utxos.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding-validation.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding-validation.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap-spent-utxos.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap-spent-utxos.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap-validation.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap-validation.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding-spent-utxos.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding-spent-utxos.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding-validation.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding-validation.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/initial-native-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/initial-native-manifest.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/oracle-pair-context.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/oracle-pair-context.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pair-context.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pair-context.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/policy.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/policy.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-state.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-state.bin",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-state.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-state.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-utxo.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-utxo.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/profile.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/profile.json",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/verification-key.bin",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/verification-key.bin",
+      "kind": "closed_native_public_output",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "initial_source_snapshot",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "initial_source_snapshot",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "kind": "initial_source_snapshot",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "kind": "initial_source_snapshot",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/lib.rs",
+      "kind": "initial_source_snapshot",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.toml",
+      "kind": "initial_source_snapshot",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.lock",
+      "kind": "initial_source_snapshot",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/src/lib.rs",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/lib.rs",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.toml",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.toml",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/shared-pool/Cargo.lock",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.lock",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-producer-target/x86_64-unknown-linux-gnu/release/kpi_s7_lifecycle_fixture",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/review/research/intensive-2026-10-22/review/S7-INITIAL-PRODUCER-SOURCE-REVIEW.md",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/review/research/intensive-2026-10-22/review/S7-INITIAL-PRODUCER-SOURCE-REVIEW.md",
+      "kind": "root_setup_selection",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-producer-target/x86_64-unknown-linux-gnu/release/kpi_s7_lifecycle_fixture",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "kind": "selected_binary",
+      "passed": true
+    },
+    {
+      "recorded_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-producer-target/x86_64-unknown-linux-gnu/release/kpi_s7_lifecycle_fixture",
+      "retained_path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer",
+      "kind": "selected_binary",
+      "passed": true
+    }
+  ],
+  "unit_state_at_closure": {
+    "kpi-lifecycle-initial-producer-source-20261022.service": {
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "MainPID": "0",
+      "ControlGroup": ""
+    },
+    "kpi-lifecycle-initial-producer-source-warm-20261022.service": {
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "MainPID": "0",
+      "ControlGroup": ""
+    },
+    "kpi-lifecycle-fresh-initial-four-20261022.service": {
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "MainPID": "0",
+      "ControlGroup": ""
+    },
+    "kpi-lifecycle-finalize-initial-source-20261022.service": {
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "MainPID": "0",
+      "ControlGroup": ""
+    },
+    "kpi-lifecycle-finalize-initial-native-20261022.service": {
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "MainPID": "0",
+      "ControlGroup": ""
+    }
+  },
+  "files": [
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/command.json",
+      "bytes": 3819,
+      "sha256": "fd6534938c8285a5ea35da9f5b8c0e2bed5a2831e0eea21d9a234dc77b833bb2",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/inputs-after.json",
+      "bytes": 4105,
+      "sha256": "59f1f88fe28a22647d2616cd54f6beb73762a014c8c09db32ad1148d4f295bec",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/inputs-before.json",
+      "bytes": 4105,
+      "sha256": "59f1f88fe28a22647d2616cd54f6beb73762a014c8c09db32ad1148d4f295bec",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/launch.json",
+      "bytes": 1052,
+      "sha256": "d9786498a4b6b273ff91e3d59b08d09e144f489fb1619cbf4dd224e4d6d2f764",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public-identities.json",
+      "bytes": 3190,
+      "sha256": "c1ac78f70a2f80bf38dcb5378fb3aa4bbc3f2a3234860cb9d63ddcd1958b2e23",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-outpoint-provenance.json",
+      "bytes": 648,
+      "sha256": "c7afd4656372488a1b58932e6c14ee2d6be663bf91fb7c23003b455345aa01e5",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-spent-utxos.json",
+      "bytes": 524,
+      "sha256": "24992b13c60d862c8b2a1603c1cba15918ff071d42ecc9f5c48574b6372842e0",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-txid-raw.bin",
+      "bytes": 32,
+      "sha256": "deed84f6cb87e60453ae13f5b38a4368d23309c524e8f28c9276cb7b0dc92308",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-v1-rest-preimage.bin",
+      "bytes": 220,
+      "sha256": "ef9235ef67e4bc2e866c3a5bca4867579dc5659d1599e94520675bedcb855b64",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit-validation.json",
+      "bytes": 878,
+      "sha256": "a965a41ef5af6ff9639dde380acefcb84d39f562782ca85d5639cedd677e23e0",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/admit.json",
+      "bytes": 61011,
+      "sha256": "41e155971863ef0475d6f2360efdaa545217a0318b14105c668cc5c632e012d1",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding-spent-utxos.json",
+      "bytes": 263,
+      "sha256": "a0bb91d22617b6653da39a739af2ad77bac1021c455374056271f1d87416206b",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding-validation.json",
+      "bytes": 866,
+      "sha256": "c5a68832c8052e94f60b15d225eb05b25dd18b89138721c93d3861f1278e9ef5",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bob-funding.json",
+      "bytes": 1012,
+      "sha256": "071fc19b37894f11c3c0674eb5561fe30094f9eae96478bea6f25c1b4b13bdbe",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap-spent-utxos.json",
+      "bytes": 264,
+      "sha256": "2d1b7f71829108cb3d5ff6e3a23e42efda224f6a7e37d7025bd7470715d681d1",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap-validation.json",
+      "bytes": 883,
+      "sha256": "8bf4c31d3e1ac2ee86c1d552a7305912d2ce958081413acf4d2d1ac7e674343c",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/bootstrap.json",
+      "bytes": 60597,
+      "sha256": "75e5312199eb94b1bc6bd6cb54e7d358b48906613247f20d88eef5b32497d149",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding-spent-utxos.json",
+      "bytes": 263,
+      "sha256": "3275723f4e34a7a1929f02d0212f709d9fe91c40d2467e366b01e46461016465",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding-validation.json",
+      "bytes": 855,
+      "sha256": "9ff513257eb331320272f0db17cd59c9bb6c7e5aaf4a8f3494e03ec51bf0387a",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/founding.json",
+      "bytes": 1014,
+      "sha256": "9997eed3cea13cc4c8fc8f1b13f81f26929c84686604e8a5c0c15fac2d8ede82",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/initial-native-manifest.json",
+      "bytes": 4797,
+      "sha256": "ba312b9040f8b546ebf63ad4b67cdb2761d6224b86da3deb7c8a09256cd7e544",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/oracle-pair-context.json",
+      "bytes": 135,
+      "sha256": "4b81afb12204312b0f6069a14c67f0c05ba65a9fa8b211080d0a4c4d125367b9",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pair-context.json",
+      "bytes": 759,
+      "sha256": "a5d3833b3449d1693c6187a475c04a5242448ff9266521795150efc365c7d50c",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/policy.json",
+      "bytes": 2297,
+      "sha256": "a48d6c6412240b95a355a62c3044d04e09e6a84007636e738d79f987dc58d050",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-state.bin",
+      "bytes": 105,
+      "sha256": "c282d73547faa9e31d92e8f40fb7537898e81cf1146b9fc1eddbc30545d6e2b0",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-state.json",
+      "bytes": 5458,
+      "sha256": "c66f4b8ac0d46c32ced8b5e23a8fe221d702d869bcb7bed0b84609681e164623",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/pre-pair-utxo.json",
+      "bytes": 245,
+      "sha256": "fe4a858c955daf8cf6e26e0c004d0e9d62fc1fa8e57225bd012936513f2044c4",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/profile.json",
+      "bytes": 595,
+      "sha256": "67eb2efc663f1c7bc37fd8df8b479aff5bc31508b4de14bcdc88d7efe8fbbc6c",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/public/verification-key.bin",
+      "bytes": 328,
+      "sha256": "28ae722b8a01773a8abdef4825b32af1b03c1ee9498b75b9516419a947010e28",
+      "groups": [
+        "native_prefix",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/result.json",
+      "bytes": 123,
+      "sha256": "096e308792bf0b7146b133d3852e018dd0cd6a2800a65d9620b979d87cfe086f",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/run.py",
+      "bytes": 444,
+      "sha256": "5fc33c2c5c2c3339729b59a305dc64a69516928e200454ce4cfb82b50bf9679b",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/terminal-after-stop.txt",
+      "bytes": 59,
+      "sha256": "c3537216300a99b3053822de70a28712be4a3b5b030aebe01e68cbf132495575",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-native-20261022T1431/terminal-before-stop.txt",
+      "bytes": 115,
+      "sha256": "73d3dba62b605070ebaae82a9af62930817726aacb6f031d5a911e86e802dc1d",
+      "groups": [
+        "native_prefix"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/binary-identity.json",
+      "bytes": 405,
+      "sha256": "117deda0e7e3c4319102df07b277bf88f07e389c5e91b83f6df604b1fc123fac",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/build-warm.sh",
+      "bytes": 1271,
+      "sha256": "d2a00f2008224950d90523fbac3d26808fcf8713f82ce84e341d8e51b7a20052",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/identities-after.json",
+      "bytes": 1643,
+      "sha256": "fb96092248b98f97a3d2c3a84630a5962aadd353077aa9331762c141bd75e456",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/identities-before.json",
+      "bytes": 1643,
+      "sha256": "fb96092248b98f97a3d2c3a84630a5962aadd353077aa9331762c141bd75e456",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/launch.json",
+      "bytes": 984,
+      "sha256": "e398918a6cbfc347714968a2aecc600f1bdf0b9d9741c7583ddc943777096e8e",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/policy.json",
+      "bytes": 2297,
+      "sha256": "bbf61fef59c3837bd81f10d28ff6100b512a1f8b30d45c184502c5c8ff19c401",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/result.json",
+      "bytes": 62,
+      "sha256": "d71dd7061d3e6412b6bd0039dd526bc5c6108f3e3dbc24e1995f176e932d6063",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/run.py",
+      "bytes": 959,
+      "sha256": "9f329a358b2886bed31b3c7dcd80b75ff0586b54192c28fefcc008f2c2666a53",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/selected-finalizer",
+      "bytes": 16335744,
+      "sha256": "0a829a28aa082c9f6fafa959fe0b3dd0d043cec858e3ee2a5011b3bf7176d961",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.lock",
+      "bytes": 112808,
+      "sha256": "cd397124f05269fb4763b190a57ed294b215331bc3db93250c2e3f33cd8cc528",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/Cargo.toml",
+      "bytes": 1446,
+      "sha256": "2064a14e0435be265fd7a65292b7413d8a2fd31a8a258ea348b173fe95333ec5",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "bytes": 180,
+      "sha256": "a5067bd41674817582152a318c412512ab4192613aea26b8394c2be12f708731",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/lib.rs",
+      "bytes": 218,
+      "sha256": "41a3e9b1f762ed23eb2e4e077f64361fc5904ca2e2b8144309670b9a831eda9d",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "bytes": 27505,
+      "sha256": "3ee0ec70777ba940cceea71578742b57d445b54876bf1706949be60b374759c1",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "bytes": 168,
+      "sha256": "60d2e539e8fa6b83fdc8c13d7549ef49fc0934425dfae140744735affab5124a",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "bytes": 39475,
+      "sha256": "7df243d9b94224e464cd2b49f60cbcce24b0ae2db649c89d7241fd3cdde689cb",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "bytes": 2489,
+      "sha256": "4f11ec7c3624105daff52d762082962a1c25650fce9540dd1b99671e1ef874c5",
+      "groups": [
+        "finalizer_build",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/stderr.log",
+      "bytes": 106,
+      "sha256": "d1fa0219981fba0cc34c31bbe42c6bdcbc0898f83137c45e2afd228eadd7217a",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/terminal-after-stop.txt",
+      "bytes": 59,
+      "sha256": "c3537216300a99b3053822de70a28712be4a3b5b030aebe01e68cbf132495575",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/finalize-initial-source-build-20261022T1430/terminal-before-stop.txt",
+      "bytes": 121,
+      "sha256": "a93f0157543e3036299d6218793af4354c0e9759824bd8cab83ed7b49f2ed051",
+      "groups": [
+        "finalizer_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/alice-public-test-wallet.json",
+      "bytes": 884,
+      "sha256": "7c718f5fa8fcaa7fc923be4bb5a65d85080ff6ba61a7d66ce57d0268cd451717",
+      "groups": [
+        "producer_inputs_hashes_only",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/bob-public-test-wallet.json",
+      "bytes": 883,
+      "sha256": "67888c017da04bd5cf9ded48727c9a14501066a43a001992b32a01c92bed634d",
+      "groups": [
+        "producer_inputs_hashes_only",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/producer/plan.json",
+      "bytes": 137418,
+      "sha256": "c8633b10dd1a923f40b6bed84cbdc77b5a7d5c30e667161017a30ff445f476cc",
+      "groups": [
+        "producer_inputs_hashes_only",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.bin",
+      "bytes": 875,
+      "sha256": "21bac5736fd14c9ee2608f85f597fabf0b23ca7f7551a32f37555681119c32a1",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/admit.json",
+      "bytes": 1829,
+      "sha256": "ef9367c5ee78aa1d3ffb830c96300d0e35a00c04074cee8d6e173996296c70c2",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bob-funding.json",
+      "bytes": 1012,
+      "sha256": "071fc19b37894f11c3c0674eb5561fe30094f9eae96478bea6f25c1b4b13bdbe",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.bin",
+      "bytes": 875,
+      "sha256": "259b72e806f9ae939e3e61f307ea2aeec1d8e355983bab20d1827642672c5fea",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bootstrap.json",
+      "bytes": 1829,
+      "sha256": "bd7de2889327b38d8d4ed249954752750f62e7f3663bdfa1d6d102ed867b68af",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.bin",
+      "bytes": 875,
+      "sha256": "9c355c107ac0db04b1e2708b6bd3dc3b00d8f0cafa2408bd19a172e8d0bcb98b",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-0.json",
+      "bytes": 1829,
+      "sha256": "d190646361a790407353d629de0bf32b0a1de118e486e6ec726642e6fb9e3ac6",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.bin",
+      "bytes": 875,
+      "sha256": "1eb3bc985e27e8ca24da6fb45c1a60d46ca39b16ad9e6dca82097c1f4621d994",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/bundle-1.json",
+      "bytes": 1829,
+      "sha256": "7fd05f6292491f698a41346cd46de111cb61bdc4bd38d11bd2af762701a1e8cc",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/constants.json",
+      "bytes": 792,
+      "sha256": "d7151020840addb6c618ebc658cdb37efbee3c3a8d558545ae93d308e25a7d5e",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-proofs-manifest.json",
+      "bytes": 2558,
+      "sha256": "c1b6f41fe0d8fc554cb19d89ba58a0c035bb37a2e90bfb0fabeeea618d62df33",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/initial-state.json",
+      "bytes": 1556,
+      "sha256": "b76013cd3c403f590d62b3c09bc833e1c1b9f213cf7547bac55cf9b9dbf38801",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/pre-pair-state.json",
+      "bytes": 5458,
+      "sha256": "c66f4b8ac0d46c32ced8b5e23a8fe221d702d869bcb7bed0b84609681e164623",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/prepare-manifest.json",
+      "bytes": 1414,
+      "sha256": "435c18b8bff2bb5e587188b955ac77cfc6dc7c71d4851f64161f4745f0f61d66",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/profile.json",
+      "bytes": 595,
+      "sha256": "67eb2efc663f1c7bc37fd8df8b479aff5bc31508b4de14bcdc88d7efe8fbbc6c",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/proving-key.bin",
+      "bytes": 962197520,
+      "sha256": "9a10b69c6354d72ed39b2f4f65375701dda52508eeb21bafcbc3b1f9ae032102",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference",
+        "public_pk_in_place"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/supplied-seeds.json",
+      "bytes": 524,
+      "sha256": "5cc24830de89943a20c05dd4261da80c5f75a84bad4f81b32405aefe05c85265",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-key.bin",
+      "bytes": 328,
+      "sha256": "28ae722b8a01773a8abdef4825b32af1b03c1ee9498b75b9516419a947010e28",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-public-fixture-20261022T1415/public/verification-profile.json",
+      "bytes": 521,
+      "sha256": "ab625462e0f63e70408a333270e1196518f90ef45a0769731e1e845b86ecdc7a",
+      "groups": [
+        "all_initial_public_fixture_files",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/identities-after.json",
+      "bytes": 1390,
+      "sha256": "372987205ce1857c529dbe1c65e178147a3b939e9957769ecae100128011be06",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/identities-before.json",
+      "bytes": 1391,
+      "sha256": "66aad594adca7120acb2f0b3d636efe1fccf4f0d3a848b8a25ad180710c2634e",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/launch.json",
+      "bytes": 2467,
+      "sha256": "f7c023e9f9beed375edb9db34209557a12f7d39cee35c70918d0159c49dc4a68",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/public-artifact-identities.json",
+      "bytes": 2448,
+      "sha256": "534220679667f342ee80994d3a7001b1215633737a550b377776d4e9d2af69e7",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/result.json",
+      "bytes": 120,
+      "sha256": "5f4482720bd6b73be29d7c6a6b404c2dbf92c78b6b3c1a277cbf30abad2335f4",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/run.py",
+      "bytes": 1231,
+      "sha256": "c18532925c11599cf66319a938f6909b39b2ed26cdf3ec8c3af846d0e72284b5",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/selected-producer",
+      "bytes": 15330128,
+      "sha256": "469234cbd26ae0ffb1411e61dce9420a243a990c95d6af478b5f5bc96be2ca7c",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/manifest.json",
+      "bytes": 1047,
+      "sha256": "87712fc4755ae71e6c63bf780ac13cb44b1984d97415f83226fa635b5e16273d",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.lock",
+      "bytes": 112782,
+      "sha256": "13007a446f0d9561d50b18897b52a98c951584b2e6c7c721c95580287f5edc64",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/Cargo.toml",
+      "bytes": 1320,
+      "sha256": "1c016fa2f04856d2e3b1f394869d37ea7a8b43fc73759e38a2899231a3fea667",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/bin/kpi_s7_lifecycle_fixture.rs",
+      "bytes": 180,
+      "sha256": "a5067bd41674817582152a318c412512ab4192613aea26b8394c2be12f708731",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/lib.rs",
+      "bytes": 218,
+      "sha256": "41a3e9b1f762ed23eb2e4e077f64361fc5904ca2e2b8144309670b9a831eda9d",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/fixture.rs",
+      "bytes": 18311,
+      "sha256": "32f2044f22a3df0ddc315dbdcefd480779f6907c038faf2aa61bef6a0df061f7",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/mod.rs",
+      "bytes": 168,
+      "sha256": "60d2e539e8fa6b83fdc8c13d7549ef49fc0934425dfae140744735affab5124a",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/source-snapshot/poc/shared-pool/src/s7_lifecycle/profile.rs",
+      "bytes": 2489,
+      "sha256": "4f11ec7c3624105daff52d762082962a1c25650fce9540dd1b99671e1ef874c5",
+      "groups": [
+        "fresh_setup_four_proofs",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/stderr.log",
+      "bytes": 288,
+      "sha256": "27b313c30766976b3d454e0e37614b52550e03f7bb12970a3cad58dead7ad103",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/terminal-after-stop.txt",
+      "bytes": 59,
+      "sha256": "c3537216300a99b3053822de70a28712be4a3b5b030aebe01e68cbf132495575",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/initial-four-setup-20261022T1421/terminal-before-stop.txt",
+      "bytes": 123,
+      "sha256": "f59290a6467d4ea22556dbb1342b30fa99600344cc29685ba2b93afe1ec91818",
+      "groups": [
+        "fresh_setup_four_proofs"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-20261022T1415/identities-before.json",
+      "bytes": 1433,
+      "sha256": "1e1d04a6e1aa3f91a1611b61ae3164fcf47af02e9f94690406ca590c8ad3d7b5",
+      "groups": [
+        "stopped_wrong_cache_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-20261022T1415/launch.json",
+      "bytes": 1953,
+      "sha256": "ab419fc2a377c180fac5b939248972d26037a03dde543d421adeb0e9ab67eea8",
+      "groups": [
+        "stopped_wrong_cache_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-20261022T1415/run.py",
+      "bytes": 1287,
+      "sha256": "b483ed2843beefa1583e95f9e9fcb00f26dd600082aac46d351264bc9d8feb97",
+      "groups": [
+        "stopped_wrong_cache_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-20261022T1415/stderr.log",
+      "bytes": 11009,
+      "sha256": "6fdf1eab16f48cb2ec4e9e4a04978d899816b77aee8090acd51f56b9d33ddbff",
+      "groups": [
+        "stopped_wrong_cache_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-20261022T1415/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "groups": [
+        "stopped_wrong_cache_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-20261022T1415/stopped-for-correct-warm-cache.json",
+      "bytes": 412,
+      "sha256": "90a585cf618a5c9672f4bd1448747ca6eb27d13d3cd45f078e3cb029973b57e6",
+      "groups": [
+        "stopped_wrong_cache_build"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/binary-identity.json",
+      "bytes": 246,
+      "sha256": "9d5b01532ef98fed667f0fa1fcc7503b93e49ad7b73b4fb012137161e5701b6f",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/build-warm.sh",
+      "bytes": 1243,
+      "sha256": "c7c2f8b8fab2688f3ea4be1787dfe28b2b7d7e0fea87d60a0027fc88d12b32ec",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/identities-after.json",
+      "bytes": 1433,
+      "sha256": "1e1d04a6e1aa3f91a1611b61ae3164fcf47af02e9f94690406ca590c8ad3d7b5",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/identities-before.json",
+      "bytes": 1433,
+      "sha256": "1e1d04a6e1aa3f91a1611b61ae3164fcf47af02e9f94690406ca590c8ad3d7b5",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/launch.json",
+      "bytes": 1943,
+      "sha256": "b4fd2d7979d3563896076b3e01c9dcdd6b72988e8c496d5c8f1615f4571ac5fe",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/prepared-identities.json",
+      "bytes": 1259,
+      "sha256": "a9e98185cc403459dc963f0aa44d8ebf13b2072b886dc1e59296be00b55ed2cf",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/result.json",
+      "bytes": 192,
+      "sha256": "760bd7c7219b72c77f308fbd513df716b3df1b08723d38967231f0c1e11dd928",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/run.py",
+      "bytes": 1633,
+      "sha256": "b700ab9be5757586d1ffa3904e54b44feb12e715612b6ddff1f22b31ef9297e5",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/stderr.log",
+      "bytes": 106,
+      "sha256": "b77b9c77280b53e5f649da750747cb9352c8a11e191aef489f928be2a0e0fe99",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/terminal-after-stop.txt",
+      "bytes": 59,
+      "sha256": "c3537216300a99b3053822de70a28712be4a3b5b030aebe01e68cbf132495575",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/artifacts/producer-source-build-warm-20261022T1419/terminal-before-stop.txt",
+      "bytes": 137,
+      "sha256": "ad0bbd55e53559c3aa0d0f2261677954f40eb344762aef63cf3a8c74e2be4a73",
+      "groups": [
+        "warm_build_and_prepare"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/s7-owner-lifecycle/proof/evidence/selected-profile.json",
+      "bytes": 741,
+      "sha256": "97c37c037b9b8566798fa5c024cef1c3a0b7ccc1940c60e98bed6d6d45d07a85",
+      "groups": [
+        "selected_guest_identity"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/INITIAL-FOUR-AND-NATIVE-PREFIX.md",
+      "bytes": 10919,
+      "sha256": "9b0ce14690221caa296b7943096f80005e3b495cf273bdafdef44ac67475965e",
+      "groups": [
+        "closure_report"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/check_public_preparation.py",
+      "bytes": 4544,
+      "sha256": "a3c4ab2cdcf7ddae374380282efa2e76edb5649299c80ec6c55fe1c66d2ff0fb",
+      "groups": [
+        "independent_public_oracle_source_or_frozen_plan"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/freeze_plan.py",
+      "bytes": 7850,
+      "sha256": "2d2fd25be928b13425e1b5f2c311b42b48e8b392e0dffd4d5a0bb89666542c3f",
+      "groups": [
+        "independent_public_oracle_source_or_frozen_plan"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/frozen/parameter-independent-plan.json",
+      "bytes": 3980,
+      "sha256": "2b2fa60ad7211e9233f0a85cb514bcc59f53935944f112aa8c6be143a66e2c9f",
+      "groups": [
+        "independent_public_oracle_source_or_frozen_plan"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/frozen/parameter-independent-vectors.json",
+      "bytes": 2761,
+      "sha256": "8c337963cf38c180d2b77d1be807a96f744fcb57ba3e9012a57cf48212366620",
+      "groups": [
+        "independent_public_oracle_source_or_frozen_plan"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/initial_four_public_oracle.py",
+      "bytes": 19699,
+      "sha256": "62a8343ae57e3aca17ea4e70a1e29ebae68a664e8c35021f50c2d926f27102af",
+      "groups": [
+        "independent_public_oracle_source_or_frozen_plan"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-initial-four-check/expected-genesis-state.bin",
+      "bytes": 105,
+      "sha256": "917f70f10b6af9f762be91673923ad1bd410fd5940148efe1368c0bf3943e236",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-initial-four-check/expected-next-state.bin",
+      "bytes": 105,
+      "sha256": "be1ee2536445d5b5548fe032de533aa653db8cb7243879c3c289fbbccca6f6b5",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-initial-four-check/expected-pair-input.bin",
+      "bytes": 2846,
+      "sha256": "2822ce58c2527f48183fad3593b4147c4821f903da6752d57fb293cb1f5648e4",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-initial-four-check/expected-post-bootstrap-state.bin",
+      "bytes": 105,
+      "sha256": "4b992c669ba2618fac2258814e04234829d40a82876a7207ee6426aaed444f56",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-initial-four-check/expected-prior-state.bin",
+      "bytes": 105,
+      "sha256": "c282d73547faa9e31d92e8f40fb7537898e81cf1146b9fc1eddbc30545d6e2b0",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-initial-four-check/expected-public.bin",
+      "bytes": 1088,
+      "sha256": "70d89b257a6ec611db4775b4c8b0c0db2372cf8f75d084325be89d7d455c6cca",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-initial-four-check/oracle-result.json",
+      "bytes": 6801,
+      "sha256": "773f81a5a21c1b051aeeba832c38f091e5a78a6c20658d0901528d08cc258fc2",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-preparation-check/expected-genesis-state.bin",
+      "bytes": 105,
+      "sha256": "917f70f10b6af9f762be91673923ad1bd410fd5940148efe1368c0bf3943e236",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-preparation-check/expected-prior-state.bin",
+      "bytes": 105,
+      "sha256": "c282d73547faa9e31d92e8f40fb7537898e81cf1146b9fc1eddbc30545d6e2b0",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-preparation-check/report.json",
+      "bytes": 2132,
+      "sha256": "e23e9fcd3d868893f7fbe0cb0a441c179e87c14b5622d383363e01ce4abc33b3",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/lifecycle-oracle/public-profile-check/oracle-result.json",
+      "bytes": 1069,
+      "sha256": "e2dcc8d4f9f09dec06194aebf760d0971952b672ccd09353b9d4d80149a18658",
+      "groups": [
+        "closed_independent_public_oracle"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/root-core-correspondence-before-parameters.json",
+      "bytes": 1462,
+      "sha256": "fecfee935adcdb66da544ed6a196aa6e886700459ec96145c12c854442aead42",
+      "groups": [
+        "root_selection_or_integrity"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/root-fresh-image-selection.json",
+      "bytes": 10625,
+      "sha256": "ef5ae131ee54e621bfb8503901cd60a508c60c43d342cb98ee788b963ef3f21b",
+      "groups": [
+        "root_selection_or_integrity"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/root-fresh-static-parameter-selection.json",
+      "bytes": 1598,
+      "sha256": "1522a816b9b19a80736649d9cf0a2884af94e3a4eecb5c1e9112dba93196d8fd",
+      "groups": [
+        "root_selection_or_integrity"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/root-initial-four-setup-selection.json",
+      "bytes": 2841,
+      "sha256": "eb4ab22f55c2c41a447e5d24cb817c0cd0ffd7f4fe08112b6112e4b4e2c987e4",
+      "groups": [
+        "root_selection_or_integrity"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/root-initial-native-prefix-selection.json",
+      "bytes": 767,
+      "sha256": "faea97212d0e8da3c6971fa3230f210827e2cba7d2df6d59507906de4dd58d64",
+      "groups": [
+        "root_selection_or_integrity"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/root-stored-public-pk-integrity.json",
+      "bytes": 336,
+      "sha256": "a725f6e90f9fca23c45d1ff06c09d23e0764a7f0bd12af6d1b012e36d3336dac",
+      "groups": [
+        "root_selection_or_integrity"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/review/research/intensive-2026-10-22/review/S7-INITIAL-PRODUCER-SOURCE-REVIEW.md",
+      "bytes": 3359,
+      "sha256": "312fbe7822b5778e18783bc7d8ebbd8e0d4911b71cd8ab6fff901fe95b0930b4",
+      "groups": [
+        "independent_source_review",
+        "verified_recorded_reference"
+      ]
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/review/research/intensive-2026-10-22/review/S7-NATIVE-AND-GUEST-SOURCE-REVIEW.md",
+      "bytes": 5907,
+      "sha256": "6dfb296e7f4e5c17e4427cf0a62df5c4b0a86d46771784de143aa2c08c0befa1",
+      "groups": [
+        "independent_source_review"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "source correspondence before fresh VK selection, no new proof/native claim",
+  "rows": [
+    {
+      "old": "/home/luke/projects/kpi-intensive-2026-10-22/proof/poc/two-v6-binding/common/src/lib.rs",
+      "old_sha256": "452448ba2bf69fbcae7ced74e89c79a06306050761d90eec5d9ef395282f782c",
+      "new": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/s7-owner-lifecycle/binding/src/lib.rs",
+      "new_sha256": "06aedcf0d81feb516ea81c7c3b4da7826ee6aa9332510955570bdb23fdce7857",
+      "allowed_difference": "only test fixture include path relocation",
+      "exact_after_stated_normalization": true
+    },
+    {
+      "old": "/home/luke/projects/kpi-intensive-2026-10-22/proof/poc/two-v6-state/common/src/lib.rs",
+      "old_sha256": "562c6c80cd92b622f3421a1f9798d5ba3e6bddb91c0d8f7d25544eeabc73222f",
+      "new": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/poc/s7-owner-lifecycle/state/src/lib.rs",
+      "new_sha256": "d0aa212a1652642d0b2475fac903e0ab18c8276317cc0107305b8d51fadd200f",
+      "allowed_difference": "only fixed POOL_ID constant replaced by selected profile constant",
+      "exact_after_stated_normalization": true
+    }
+  ],
+  "tests_boundary": "Original integrated state suite has fourteen tests and passes. Fresh-instance package currently has one parameter-independent range test; new-identity positive/negative guest/context qualification remains pending and cannot inherit old-instance test results."
+}

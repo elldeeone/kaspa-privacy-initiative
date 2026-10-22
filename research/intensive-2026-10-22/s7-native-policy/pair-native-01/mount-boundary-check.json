@@ -1,0 +1,23 @@
+{
+  "scope": "Actual live checker namespace per-mount flags",
+  "checker_mount": {
+    "device": "252:0",
+    "source_root": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/native-checkers-final-source/kpi_s7_pair_native_check",
+    "mountpoint": "/checker",
+    "mount_flags": "ro,nosuid,nodev,relatime"
+  },
+  "input_mount": {
+    "device": "252:0",
+    "source_root": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/pair-native-01/inputs",
+    "mountpoint": "/input",
+    "mount_flags": "ro,nosuid,nodev,relatime"
+  },
+  "output_mount": {
+    "device": "252:0",
+    "source_root": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle/research/intensive-2026-10-22/s7-native-policy/pair-native-01/execution",
+    "mountpoint": "/output",
+    "mount_flags": "rw,nosuid,nodev,relatime"
+  },
+  "writable_mount_with_input_source_ancestor_or_alias": [],
+  "passed": true
+}

@@ -1,0 +1,162 @@
+{
+  "before_setup": "Freeze this plan and parameter-independent vectors. VK/image/native outpoint-dependent bytes cannot yet be frozen.",
+  "cases": [
+    {
+      "expected": "1740000000=1500000000+240000000",
+      "id": "exact-pool-equation"
+    },
+    {
+      "expected": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "id": "initial-four-proof-counts"
+    },
+    {
+      "expected": [
+        [
+          9,
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "id": "planned-exit-counts-arithmetic-only",
+      "workflow": "parked"
+    },
+    {
+      "expected": [
+        [
+          760000000,
+          720000000,
+          40000000
+        ],
+        [
+          900000000,
+          860000000,
+          40000000
+        ]
+      ],
+      "id": "pair-two-real-note-value-sums"
+    },
+    {
+      "assignment": "stable complete-record raw-byte order, never hidden group order",
+      "expected": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "id": "pair-record-global-positions"
+    },
+    {
+      "expected": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "id": "history-prefix-counts",
+      "indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "expected": "history_leaf(7, root_after_two) at index3 under final history; no standalone UTXO",
+      "id": "count7-is-prefix-only"
+    },
+    {
+      "expected_numeric": [
+        "0100000000000000000000000000000000000000000000000000000000000000",
+        "0001000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "expected_raw": [
+        "0001000000000000000000000000000000000000000000000000000000000000",
+        "0100000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "id": "rawlex-versus-LE-numeric"
+    },
+    {
+      "cryptographic_fixture": false,
+      "expected_positions_and_occurrences": [
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "id": "duplicate-complete-records"
+    },
+    {
+      "expected": "reject scalar reserve/accounting mismatch; actual aggregate target is80M",
+      "id": "wrong-pair-fee-40M"
+    },
+    {
+      "expected": "reject scalar reserve/accounting mismatch; target is1660M",
+      "id": "wrong-admit-fee-39M"
+    },
+    {
+      "expected": "reject implicit odd-prefix length/count relation",
+      "id": "missing-count7-history-leaf"
+    },
+    {
+      "expected": "reject four-record multiplicity/count equation",
+      "id": "deduplicated-record-list"
+    },
+    {
+      "expected": "reject four-distinct-nonzero active NF relation",
+      "id": "repeated-pair-NF"
+    }
+  ],
+  "do_not_fund": true,
+  "excluded": [
+    "public ledger parser or replayer",
+    "owner CLI",
+    "DRAIN proving or withdrawal workflow",
+    "wallet/opening/trapdoor/private input files",
+    "Gate/Rust import",
+    "native execution",
+    "new proofs or setup"
+  ],
+  "format": "s7-initial-four-public-math-plan-v1",
+  "full_lifecycle_claim": false,
+  "later_stage": "Independently derive exact public roots/P/J/input after fresh public VK/profile and explicit native pair-context tuple exist, before the corresponding paired proof.",
+  "owner_workflow_parked": true,
+  "public_case_label": "KPI/S7/INITIAL4/MATH-ORACLE/2026-10-22/v1",
+  "scope": "Independent finite arithmetic and named public initial-four-proof fixture/root/P/J checks only.",
+  "source_baseline": "ec6aa15d586bcc8a90f7232b433fd48d8c73d509",
+  "source_sha256": "2d2fd25be928b13425e1b5f2c311b42b48e8b392e0dffd4d5a0bb89666542c3f",
+  "stop_rule": "Keep every mismatch, collision and unavailable artifact explicit; do not retune seeds/cases or manufacture completion."
+}

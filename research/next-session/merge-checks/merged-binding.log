@@ -1,0 +1,30 @@
+   Compiling kpi-groth16-comparison v0.1.0 (/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/groth16-comparison/common)
+   Compiling kpi-accelerated-bn254 v0.1.0 (/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/accelerated-bn254/common)
+   Compiling kpi-two-v6-binding v0.1.0 (/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/two-v6-binding/common)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.13s
+     Running unittests src/lib.rs (/home/luke/projects/kpi-intensive-2026-10-22/integration-target/debug/deps/kpi_two_v6_binding-c700d59e3a991261)
+
+running 14 tests
+test tests::all_active_nullifiers_nonzero_and_pairwise_distinct ... ok
+test tests::independent_public_encoding_golden_and_exact_wire_boundaries ... ok
+test tests::commitment_multiplicity_and_complete_record_pairing_are_preserved ... ok
+test tests::exact_fee_ranges_boundaries_and_public_sum_are_checked ... ok
+test tests::original_ciphertext_order_and_unsigned_public_order_are_required ... ok
+test tests::publication_requires_complete_projection_and_exact_journal_not_its_hash ... ok
+test tests::common_anchor_and_count_are_independently_required ... ok
+test tests::all_forced_zero_bytes_magic_domain_and_modes_are_checked ... ok
+test tests::all_index_vectors_are_bijections_and_mapping_is_not_an_independent_set ... ok
+test compiled::tests::immutable_parameters_are_fully_checked_on_the_host ... ok
+test tests::configured_instance_is_trusted_outside_witness_and_default_remains_exact ... ok
+test tests::malformed_identity_noncanonical_keys_and_proofs_never_accept ... ok
+test tests::altered_real_statement_reaches_typed_cryptographic_rejection ... ok
+test tests::checked_real_inner_proofs_accept_but_original_pair_prerequisite_is_absent ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+
+   Doc-tests kpi_two_v6_binding
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

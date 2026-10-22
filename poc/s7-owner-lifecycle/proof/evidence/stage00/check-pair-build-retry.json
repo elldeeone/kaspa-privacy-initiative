@@ -1,0 +1,10 @@
+{
+  "first_attempt": "kpi-s7-fresh-pair-host-check-20261022.service",
+  "first_result": "linker could not create a temporary file in a read-only working directory",
+  "first_attempt_did_not_run_proof_or_guest": true,
+  "retained_first_log": "/home/luke/projects/kpi-intensive-2026-10-22/lifecycle-outer-target/fresh-pair-host-check.log",
+  "fix": "task-local writable current directory and TMPDIR; cryptographic source unchanged",
+  "second_attempt": "kpi-s7-fresh-pair-host-check-retry-20261022.service",
+  "second_result": "success; checked/compiled fresh pair and three expected rejection controls passed",
+  "both_units_stopped": true
+}

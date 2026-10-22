@@ -1,0 +1,10 @@
+[package]
+name = "kpi-s7-lifecycle-state"
+version = "0.1.0"
+edition = "2021"
+publish = false
+[lib]
+name = "kpi_two_v6_state"
+[workspace]
+[dependencies]
+kpi-two-v6-binding = { package = "kpi-s7-lifecycle-binding", path = "../binding", features = ["compiled-research-instance"] }

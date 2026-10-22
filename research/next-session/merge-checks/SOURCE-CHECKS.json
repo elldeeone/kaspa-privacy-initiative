@@ -1,0 +1,104 @@
+{
+  "format": "kpi-merged-source-checks-v1",
+  "parents": [
+    "85e39398fd97ff0299e07fad8899cd3f4cc454ac",
+    "68d7b039f606bd42b39d8d1317c0bfd76c277ae0"
+  ],
+  "checks": {
+    "integration_binding": 14,
+    "integration_state": 14,
+    "fresh_binding": 14,
+    "fresh_state": 1,
+    "public_observation": 20
+  },
+  "result": "63 source checks passed",
+  "retained_failure": "Initial fresh standalone binding test could not start with --locked because binding/state Cargo.lock files were absent. Original locks were adapted only for renamed root/path package identities; external package versions unchanged. Retry passed. Prior logs retained.",
+  "limits": "Source regressions only; not native Full, cryptographic proof, privacy or complete lifecycle qualification.",
+  "source": [
+    {
+      "path": "poc/two-v6-binding/common/Cargo.lock",
+      "bytes": 39399,
+      "sha256": "3fdf9c1dc13f4338ef75b70462911e981e4482e41f3c10099e6a2bfc650ac71a"
+    },
+    {
+      "path": "poc/two-v6-binding/common/Cargo.toml",
+      "bytes": 571,
+      "sha256": "5c266c04be35ed71fb0cf15bac5b9c8dd9866aaf1f6f68eb8f5902a5641b2799"
+    },
+    {
+      "path": "poc/two-v6-binding/common/src/compiled.rs",
+      "bytes": 5726,
+      "sha256": "58f2bd2786c6deff8915459ba334ffde5382dd15e04a9101f835b98858970c26"
+    },
+    {
+      "path": "poc/two-v6-binding/common/src/lib.rs",
+      "bytes": 38676,
+      "sha256": "452448ba2bf69fbcae7ced74e89c79a06306050761d90eec5d9ef395282f782c"
+    },
+    {
+      "path": "poc/two-v6-state/common/Cargo.lock",
+      "bytes": 39497,
+      "sha256": "ca54e0ed931555e35e35fb26181f49fe3f4172781d9184478dcc861c639c15d2"
+    },
+    {
+      "path": "poc/two-v6-state/common/Cargo.toml",
+      "bytes": 221,
+      "sha256": "91f5e7cfc6feb4026d627739fdd70b48bc2091004dbce9838efa8f3bd62a9beb"
+    },
+    {
+      "path": "poc/two-v6-state/common/src/lib.rs",
+      "bytes": 13403,
+      "sha256": "562c6c80cd92b622f3421a1f9798d5ba3e6bddb91c0d8f7d25544eeabc73222f"
+    },
+    {
+      "path": "poc/two-v6-state/common/src/tests.rs",
+      "bytes": 13349,
+      "sha256": "b6319af4bbe9874397e7e58ca9dc7778289ac01a51fe35ca7057f05e15b430ab"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/binding/Cargo.lock",
+      "bytes": 39405,
+      "sha256": "028ff1a7ff6e2fbada8f4a20a30f49b91b076310e86087182f5f7632b90ee692"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/binding/Cargo.toml",
+      "bytes": 612,
+      "sha256": "d903dda44a58cfced4d67219527b8eda54814e8937fdeec7f6de5581940d9669"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/binding/src/compiled.rs",
+      "bytes": 5199,
+      "sha256": "b806f91f47f8f9f74dfaedd822e8b39c57f77dc5be0d130369b8eedf766fc0d8"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/binding/src/lib.rs",
+      "bytes": 38614,
+      "sha256": "06aedcf0d81feb516ea81c7c3b4da7826ee6aa9332510955570bdb23fdce7857"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/binding/src/profile.rs",
+      "bytes": 954,
+      "sha256": "2365285c51243570de30d0ce72a3ae16fdd8b3f493e107fd7209d75be2531b68"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/state/Cargo.lock",
+      "bytes": 39515,
+      "sha256": "841487e5c3f0beaa2a90ef9b5343fd3c1c2501e010d4e579b931accffdd4423f"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/state/Cargo.toml",
+      "bytes": 278,
+      "sha256": "4955609647ce19b37d31745aa0a6f02f22dfe30ce90f633d2f8e7e8e404bd1a1"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/state/src/lib.rs",
+      "bytes": 13246,
+      "sha256": "d0aa212a1652642d0b2475fac903e0ab18c8276317cc0107305b8d51fadd200f"
+    },
+    {
+      "path": "poc/s7-owner-lifecycle/state/src/tests.rs",
+      "bytes": 927,
+      "sha256": "b6dfb2751d4916efac6f3914bd59ba5ecde106eb588971d19cdc20a005911aad"
+    }
+  ]
+}

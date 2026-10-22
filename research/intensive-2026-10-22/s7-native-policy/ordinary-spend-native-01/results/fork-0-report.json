@@ -1,0 +1,62 @@
+{
+  "budget": 1700,
+  "case": "independent-SPEND-fork-0",
+  "controls": [
+    {
+      "case": "wrong_fixed_domain",
+      "official_stage": "Full",
+      "typed_Full": "SignatureInvalid(VerifyError)",
+      "typed_reserve": "VerifyError"
+    },
+    {
+      "case": "canonical_negated_proof_A",
+      "official_stage": "Full",
+      "typed_Full": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+      "typed_reserve": "ZkIntegrity(\"Groth16 verification failed\")"
+    }
+  ],
+  "fee_quotes": [
+    {
+      "actual_fee_sompi": "40000000",
+      "passes": true,
+      "rate_sompi_per_gram": 100,
+      "required_fee_sompi": "20051100"
+    },
+    {
+      "actual_fee_sompi": "40000000",
+      "passes": false,
+      "rate_sompi_per_gram": 200,
+      "required_fee_sompi": "40102200"
+    },
+    {
+      "actual_fee_sompi": "40000000",
+      "passes": false,
+      "rate_sompi_per_gram": 500,
+      "required_fee_sompi": "100255500"
+    }
+  ],
+  "metrics": {
+    "compute_mass": 200511,
+    "estimated_bytes": 30141,
+    "fee_sompi": 40000000,
+    "mining_mass": 200511,
+    "relay_floor_sompi": 20051100,
+    "relay_mass": 200511,
+    "storage_mass": 15,
+    "transient_mass": 120564
+  },
+  "native_reserve_script_units": 14969743,
+  "next_state_sha256": "f0b2b144755fa5e7e8aa218356c4aca0cb1b46150626b31505c7528f7da11580",
+  "official_isolation_and_Full": "pass",
+  "same_prior_outpoint": "c2fb1044efc0afd7c5d5c820813f67234b2734e497196424f9995876ecf6f0d7:0",
+  "source_adapted_mass_standardness_relay_policy": {
+    "compute_mass": 200511,
+    "estimated_bytes": 30141,
+    "fee_sompi": 40000000,
+    "mining_mass": 200511,
+    "relay_floor_sompi": 20051100,
+    "relay_mass": 200511,
+    "storage_mass": 15,
+    "transient_mass": 120564
+  }
+}

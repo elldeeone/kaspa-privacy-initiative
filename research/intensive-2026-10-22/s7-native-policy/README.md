@@ -1,0 +1,13 @@
+# S7 native policy local qualification
+
+DO_NOT_FUND. ADR-0037 supplies a new domain, poolID and guest image. This lane owns only the immutable native ordinary/paired union, factories, source-shape measurement and finite native qualification helpers. These artifacts do not establish accepted ancestry, financial privacy or production safety.
+
+The sole emitter produces17,810 bytes before NOP padding,24,576 bytes after padding, and24,709-byte canonical scriptSig framing. Ordinary5231-byte and paired1204-byte payloads share the11-byte branch envelope and the complete immutable successor suffix. Official SDK outer verifier parameters are pinned by identity; fresh domain/poolID/innerVK/image selection is separate and mandatory. The initial source-shape packet deliberately uses synthetic identities with an old genuine public VK and contains no VM acceptance claim.
+
+The native helpers call pinned official isolation and Full directly, then execute the reserve script with actual declared budget and measure mass. The extra local mass/standardness/default-relay screen is source-adapted; it is not an actual mempool submission. Quotes retain the fixed1700 budget and40M/80M authorized fees. No funded, broadcast, RPC or chain-accepted result is implied.
+
+Ordinary SPEND helper cases are TWO alternative context forks using the same supplied native predecessor and public state. They are never combined into a ledger or used to claim two accepted spends of one outpoint. Current prepair state is n5/m2, not m4. Initial wrong-count source was corrected by independent review before compilation of the final source or any execution. The pair checker additionally changes only the real txid byte order, keeping the index unchanged, to test exact actual-context binding with a nonpalindromic ID.
+
+Source-build01 and02 snapshots remain historical. The initial broad rejection classifier was strengthened before any runtime: semantic controls require exact Full SignatureInvalid and the same typed reserve cause; canonical proof-A negation replaces arbitrary compressed-byte mutation. The final helpers hash the exact bytes read once. Earlier build sources/binaries remain evidence, not qualified runtime results.
+
+Owner CLI, public ledger replay, owner DRAIN workflows and fresh DRAIN proving remain parked. The ordinary DRAIN guards are retained in the immutable union but DRAIN execution is UNQUALIFIED/UNEXECUTED in this fresh profile. An inherited ordinary ADMIT limitation also remains: the current four-byte ScriptNum outpoint-index encoding rejects indices>=2^31. This selected offline fixture uses index0. Paired context serialization uses eight-byte ScriptNum then exact low four-byte extraction and does not inherit that limitation.

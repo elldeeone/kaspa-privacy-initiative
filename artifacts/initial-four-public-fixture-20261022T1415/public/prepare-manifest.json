@@ -1,0 +1,75 @@
+{
+  "amounts_are_integer_sompi": true,
+  "native_pool_transactions": 0,
+  "owner_proofs": 0,
+  "ownership": [
+    {
+      "fee": "40000000",
+      "inputs": [
+        "Alice800000000"
+      ],
+      "label": "bootstrap",
+      "outputs": [
+        "Alice400000000",
+        "Alice360000000"
+      ]
+    },
+    {
+      "deposit": "940000000",
+      "fee": "40000000",
+      "label": "admit",
+      "outputs": [
+        "Bob450000000",
+        "Bob450000000"
+      ]
+    },
+    {
+      "fee": "40000000",
+      "inputs": [
+        "Alice400000000",
+        "Alice360000000"
+      ],
+      "label": "bundle-0",
+      "outputs": [
+        "Bob400000000",
+        "Alice320000000"
+      ]
+    },
+    {
+      "fee": "40000000",
+      "inputs": [
+        "Bob450000000",
+        "Bob450000000"
+      ],
+      "label": "bundle-1",
+      "outputs": [
+        "Alice500000000",
+        "Bob360000000"
+      ]
+    }
+  ],
+  "plan_sha256": "c8633b10dd1a923f40b6bed84cbdc77b5a7d5c30e667161017a30ff445f476cc",
+  "recipient_delivery_checked": true,
+  "recipient_matrix": [
+    [
+      "Alice",
+      "Alice"
+    ],
+    [
+      "Bob",
+      "Bob"
+    ],
+    [
+      "Bob",
+      "Alice"
+    ],
+    [
+      "Alice",
+      "Bob"
+    ]
+  ],
+  "scope": "partial initial fixture, not a completed owner lifecycle",
+  "setup_rng": "OsRng not serialized",
+  "statements": 4,
+  "wallet_seeds": "PUBLIC deterministic labels; no real funds"
+}

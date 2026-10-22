@@ -1,61 +1,40 @@
-# Public research checkpoint — 22 October 2026
+# Native-KAS research checkpoint
 
-This branch publishes source, public test data and retained observations from the
-local native-KAS research push. Native proof composition was demonstrated without
-vProgs in these bounded experiments. A complete fundable private payment system
-has **not** been demonstrated. DO_NOT_FUND.
+This branch combines two separately published research snapshots. It contains
+source and public test data; a complete fundable private payment system has not
+been demonstrated. DO_NOT_FUND.
 
-Two snapshots preserve separate experiment identities:
-
-| Snapshot | What the retained evidence establishes | Start here |
+| Snapshot | Retained result | Evidence |
 | --- | --- | --- |
-| This branch: `work/intensive-research-20261022` | Binding-only J42, synthetic one-shot state-aware J336, native opcode and supplied-context Full checks; public observation and v6 budget qualification | [Final checkpoint](research/intensive-2026-10-22/FINAL-CHECKPOINT.md), [results](research/intensive-2026-10-22/RESULTS.md) |
-| [Fresh-profile branch](https://github.com/elldeeone/kaspa-privacy-initiative/blob/work/s7-owner-lifecycle-20261022/PUBLICATION.md) | Fresh four-proof setup, initial native prefix, two alternative ordinary SPEND checks and genuine paired J336 proof plus native Full check | Separate domain, key, pool and image; partial lifecycle only |
+| [85e3939](https://github.com/elldeeone/kaspa-privacy-initiative/commit/85e39398fd97ff0299e07fad8899cd3f4cc454ac) | Development-instance J42 binding and synthetic J336 state proofs, supplied-context native checks, observation and v6 budget1600 | [Checkpoint](research/intensive-2026-10-22/FINAL-CHECKPOINT.md), [results](research/intensive-2026-10-22/RESULTS.md) |
+| [68d7b03](https://github.com/elldeeone/kaspa-privacy-initiative/commit/68d7b039f606bd42b39d8d1317c0bfd76c277ae0) | Separate fresh key/domain/image; four inner proofs, initial native prefix, alternative ordinary spends and genuine paired J336/native Full check | [Fresh-prefix result](research/intensive-2026-10-22/INITIAL-FOUR-AND-NATIVE-PREFIX.md), [public oracle](research/intensive-2026-10-22/lifecycle-oracle/PUBLIC-ORACLE-MANIFEST.json) |
 
-Useful entry points on this branch:
+The profiles have different keys, domains and images. Do not mix their proofs or
+context. Fresh S7 budget1700 is separate from historical v6 budget1600.
+The original publication guides are preserved under publication/snapshots.
+Their relative links describe their original branch roots; use the commit links
+above for those exact views. [REPRODUCE.md](REPRODUCE.md) gives merged-tree checks.
 
-- [Binding-only experiment](poc/two-v6-binding/README.md) and [synthetic state experiment](poc/two-v6-state/README.md).
-- [Saved one-shot body's official Full validation](poc/public-state-consensus-check/README.md); its supplied UTXO/DAA context is not an accepted chain view.
-- [Native observation](poc/shared-pool/PUBLIC-NATIVE-OBSERVATION.md) and [v6 budget 1600 adoption](poc/shared-pool/PUBLIC-V6-BUDGET-1600.md).
-- [Requirements consistency](research/privacy-target-consistency-2026-10-22.md), [architecture](docs/ARCHITECTURE.md), [open questions](QUESTIONS.md) and [threat model](THREAT-MODEL.md).
-- [Reproduction guide](REPRODUCE.md) and [public-view omission inventory](publication/OMITTED-ARTIFACTS.json).
+Proof/native checks concern the tested implementation and supplied UTXOs. They do
+not establish accepted ancestry, backing, cryptographic correctness, production
+safety, permissionless exits or financial privacy. The setups are untrusted
+single-party test setups. No mainnet use, real funding or live broadcast is part
+of this checkpoint. The previously rejected owner CLI/public replay/DRAIN workflow
+remains parked and was not completed by this merge.
 
-## Scope and limits
+Two feasibility limits remain under unchanged [RFC-0012](docs/rfc/0012-useful-privacy-requirements.md):
 
-Passing software, guest or native checks establishes the behavior of the tested
-implementation under its stated inputs. It does not establish cryptographic
-correctness, security, chain acceptance, reserve backing, permissionless exits
-or useful financial privacy. No mainnet deployment, funding, broadcast or live
-trial forms part of these checkpoints. Single-party development setups are
-untrusted test setups.
+- The declared price prior alone reaches21.0977%, exceeding the20% absolute
+  approximate-amount cap. The completed workload remains unqualified.
+- One native Groth16 verification costs at least147,500 mass: at500 sompi/mass,
+  its73,750,000-sompi fee exceeds the supported60,000,000-sompi minimum claim,
+  before transaction overhead. Aggregation cannot guarantee a lone user's exit.
 
-The original fixed rehearsal instance, the later development instance and the
-fresh-profile branch are distinct. Their proofs, images, journals and context
-must not be mixed. The old J42 statement remains binding-only. The old J336
-native diagnostic deliberately cannot continue. The fresh owner CLI, public
-ledger replay and DRAIN workflow were blocked by automatic tool-safety review
-and remain unimplemented/unexecuted in this run. Existing privacy requirements
-and the completed frozen price-leakage failure are unchanged.
-
-Cost failures remain results: the old one-shot 80M fee fails the 500-sompi scenario;
-the fresh ordinary 40M fee fails 200 and 500, and fresh paired 80M fails 500. A
-passing proof-verification check does not close those cost gates.
-
-## Public view and historical provenance
-
-Git contains a **source/public-data view**, rather than the full local packet.
-Generated host/guest software binaries, caches, the large public proving key,
-producer-only plans and test-wallet files are excluded. Public verification keys,
-proof bundles, receipts, P/J bytes, native-body data, reports, source and locks
-are retained where listed by the publication inventories. See the
-[omission inventory](publication/OMITTED-ARTIFACTS.json) for exact paths, sizes,
-hashes, local-retention status and rebuild references.
-
-Frozen manifests and historical reports are unchanged. Some therefore name
-omitted files or original absolute/sibling-worktree paths; a full local manifest
-cannot be completely rehashed from Git alone. These locators describe the
-original run. For portable navigation, use this page and the fresh branch's
-publication page. Do not rewrite old manifests to make an incomplete public view
-look complete. [Copy04](research/intensive-2026-10-22/evidence/integration-copy-04.json)
-records earlier source/evidence overlays and the explicit historical-source
-exceptions.
+Git intentionally omits generated software, producer-only test-wallet/plan files
+and the962MB public proving key. [The combined omission map](publication/OMITTED-ARTIFACTS.json)
+preserves hashes and original local locations. Frozen manifests and branch
+inventories remain unchanged; some name omitted files or historical paths.
+They cannot all close against this merged public view. Retained receipts, VKs,
+proof bundles, native bodies, source and negative results remain available.
+[Third-party notices](publication/THIRD-PARTY-NOTICES.txt) and
+[build guidance](research/publication-notes/PROOF-BUILD-GUIDANCE.md) accompany them.
