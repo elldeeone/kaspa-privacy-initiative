@@ -1,0 +1,367 @@
+--- v1/execute-gated.py
++++ v2/execute-gated.py
+@@ -13,11 +13,13 @@
+ import sys
+ import uuid
+ 
+-LANE = Path(__file__).resolve().parent
+-WORKTREE = LANE / "worktree"
+-MANIFEST = LANE / "prepared-manifest.json"
++PACKAGE = Path(__file__).resolve().parent
++LANE = Path("/home/luke/projects/kpi-orchestration/2026-10-22/exit-recovery-review/implementation-v2")
++BASE_LANE = LANE.with_name("implementation-v1")
++WORKTREE = BASE_LANE / "worktree"
++MANIFEST = PACKAGE / "prepared-manifest.json"
+ RELEASE = LANE / "release.json"
+-ENVELOPE = "12GiB-2h-cgroup-v1"
++ENVELOPE = "12GiB-2h-cgroup-v2"
+ MEMORY_BYTES = 12 * 1024**3
+ RUNTIME_SECONDS = 7200
+ STOP_SECONDS = 30
+@@ -48,23 +50,32 @@
+     return result.hexdigest()
+ 
+ 
+-def check_preconditions(expected_manifest):
++def check_preconditions(expected_manifest, threads):
++    need(type(threads) is int and 1 <= threads <= 12, "proof thread allocation must be 1 through 12")
+     need(digest(MANIFEST) == expected_manifest, "reviewed manifest hash mismatch")
+     manifest = load(MANIFEST)
+     need(manifest["base_commit"] == BASE_COMMIT, "base identity mismatch")
++    need(digest(BASE_LANE / "prepared-manifest.json") == manifest["v1_manifest_sha256"], "v1 manifest changed")
+     head = subprocess.check_output(["git", "-C", str(WORKTREE), "rev-parse", "HEAD"], text=True, timeout=15).strip()
+     need(head == BASE_COMMIT, "worktree HEAD changed")
+-    for root, entries in ((WORKTREE, manifest["source_sha256"]), (LANE, manifest["artifact_sha256"])):
++    for root, entries in ((WORKTREE, manifest["source_sha256"]), (BASE_LANE, manifest["v1_artifact_sha256"]),
++                          (PACKAGE, manifest["artifact_sha256"])):
+         for relative, expected in entries.items():
+             path = root / relative
+             need(not path.is_symlink() and path.resolve().is_relative_to(root), "source path escape")
+             need(digest(path) == expected, f"source changed: {relative}")
++    for name, expected in manifest["binaries"].items():
++        binary = BASE_LANE / "build-target/release" / name
++        need(str(binary) == expected["path"] and binary.is_file() and not binary.is_symlink(), "binary path/type mismatch")
++        need(binary.stat().st_size == expected["bytes"] and digest(binary) == expected["sha256"], "built binary changed")
+     receipt = load(RELEASE)
+     for key, expected in {
+-        "lane": "exit-recovery-review-v1", "approved_by": "parent-orchestrator",
++        "lane": "exit-recovery-review-v2", "approved_by": "parent-orchestrator",
++        "authorized_phase": "proof", "proof_phase_authorized": True,
+         "run_authorized": True, "frozen_evaluation_completed": True,
+         "fresh_capacity_verified": True, "max_parallel_provers": 1,
+-        "rayon_threads": 4, "resource_envelope": ENVELOPE,
++        "rayon_threads": threads, "cpu_quota_percent": threads * 100, "cpu_affinity": "2-13",
++        "resource_envelope": ENVELOPE, "manifest_sha256": expected_manifest,
+     }.items():
+         need(type(receipt.get(key)) is type(expected) and receipt[key] == expected, f"release missing/mismatched: {key}")
+     need(isinstance(receipt.get("approved_at_utc"), str), "release timestamp missing")
+@@ -77,22 +88,19 @@
+     return {"manifest_sha256": expected_manifest, "release": receipt, "service": state}
+ 
+ 
+-def command(phase):
+-    if phase == "build":
+-        return ["/home/luke/.cargo/bin/cargo", "+1.95.0", "build", "--release", "--locked", "--offline", "--jobs", "2",
+-                "--manifest-path", "poc/shared-pool/Cargo.toml", "--bin", "kpi-two-input-wallet",
+-                "--bin", "kpi-two-input-lifecycle", "--bin", "kpi-two-input-recovery-race"]
+-    binaries = LANE / "build-target" / "release"
+-    return ["/usr/bin/python3", "-B", str(WORKTREE / "poc/shared-pool/recovery-race.py"),
++def command(threads):
++    binaries = BASE_LANE / "build-target" / "release"
++    return ["/usr/bin/python3", "-B", str(PACKAGE / "recovery-race.py"),
+             "--manifest", str(MANIFEST), "--release-receipt", str(RELEASE),
++            "--prover-threads", str(threads),
+             "--public-parameters", str(LANE / "inputs/public-parameters"),
+             "--wallet-binary", str(binaries / "kpi-two-input-wallet"),
+             "--helper-binary", str(binaries / "kpi-two-input-lifecycle"),
+             "--race-binary", str(binaries / "kpi-two-input-recovery-race")]
+ 
+ 
+-def cgroup_gate(unit, phase, output):
+-    # Fail closed before cargo, imports of experiment support, parameters or proofs.
++def cgroup_gate(unit, phase, output, threads):
++    # Fail closed before imports of experiment support, parameters or proofs.
+     cgroups = Path("/proc/self/cgroup").read_text().splitlines()
+     unified = [line[3:] for line in cgroups if line.startswith("0::")]
+     need(len(unified) == 1 and Path(unified[0]).name == unit, "not inside the exact launched user-service cgroup")
+@@ -100,13 +108,16 @@
+     values = {name: (directory / name).read_text().strip()
+               for name in ("cpu.max", "memory.max", "memory.swap.max", "pids.max")}
+     quota, period = values["cpu.max"].split()
+-    cores = 2 if phase == "build" else 4
+-    need(quota != "max" and int(quota) == cores * int(period), "actual CPU quota differs from prepared envelope")
++    need(os.environ.get("RAYON_NUM_THREADS") == str(threads), "service Rayon environment mismatch")
++    need(os.sched_getaffinity(0) == set(range(2, 14)), "actual proof CPU affinity differs from 2-13")
++    need(quota != "max" and int(quota) == threads * int(period), "actual CPU quota differs from prepared envelope")
+     need(values["memory.max"] == str(MEMORY_BYTES), "actual memory budget differs")
+     need(values["memory.swap.max"] == "0", "swap budget not enforced")
+     need(values["pids.max"] == "256", "task budget not enforced")
+     save(output / "actual-cgroup.json", {"cgroup": unified[0], "observed": values,
+-        "pid": os.getpid(), "phase": phase, "memory_limit_is_not_an_RSS_result": True})
++        "pid": os.getpid(), "phase": phase, "rayon_threads": threads,
++        "cpu_affinity": sorted(os.sched_getaffinity(0)),
++        "memory_limit_is_not_an_RSS_result": True})
+ 
+ 
+ def audit_owned(unit, output):
+@@ -157,40 +168,43 @@
+ 
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+-    parser.add_argument("phase", choices=("build", "run"))
++    parser.add_argument("phase", choices=("run",))
++    parser.add_argument("--prover-threads", type=int, choices=range(1, 13), required=True)
+     parser.add_argument("--manifest-sha256", required=True)
+     parser.add_argument("--inside-unit")
+     args = parser.parse_args()
+     os.umask(0o077)
+     need(re.fullmatch(r"[0-9a-f]{64}", args.manifest_sha256) is not None, "supply the independently reviewed manifest SHA-256")
+-    preconditions = check_preconditions(args.manifest_sha256)
++    preconditions = check_preconditions(args.manifest_sha256, args.prover_threads)
+     if args.inside_unit:
+         unit = args.inside_unit
+-        match = re.fullmatch(r"kpi-exit-recovery-v1-(build|run)-([0-9a-f]{32})\.service", unit)
++        match = re.fullmatch(r"kpi-exit-recovery-v2-(run)-([0-9a-f]{32})\.service", unit)
+         need(match is not None and match[1] == args.phase, "unexpected owned unit")
+         output = LANE / "launches" / match[2]
+         need(output.is_dir() and not output.is_symlink(), "missing owned launch directory")
+-        cgroup_gate(unit, args.phase, output)
++        cgroup_gate(unit, args.phase, output, args.prover_threads)
+         os.chdir(WORKTREE)
+-        os.execv(command(args.phase)[0], command(args.phase))
++        os.execv(command(args.prover_threads)[0], command(args.prover_threads))
+     need(shutil.disk_usage(LANE).free >= 20 * 1024**3, "less than 20 GiB disk headroom")
+     # A fresh aggregate scheduling decision remains the parent's responsibility.
+     launch_id = uuid.uuid4().hex
+-    unit = f"kpi-exit-recovery-v1-{args.phase}-{launch_id}.service"
++    unit = f"kpi-exit-recovery-v2-{args.phase}-{launch_id}.service"
+     output = LANE / "launches" / launch_id
+     output.mkdir(mode=0o700, parents=True)
+-    cpu = 200 if args.phase == "build" else 400
++    cpu = args.prover_threads * 100
+     invocation = ["/usr/bin/systemd-run", "--user", f"--unit={unit}", "--service-type=exec", "--wait", "--pipe",
+-        f"--working-directory={WORKTREE}", f"--setenv=CARGO_TARGET_DIR={LANE / 'build-target'}",
+-        "--setenv=RAYON_NUM_THREADS=4", f"--setenv=KPI_RECOVERY_UNIT={unit}", f"--property=CPUQuota={cpu}%",
+-        f"--property=MemoryMax={MEMORY_BYTES}", "--property=MemorySwapMax=0",
++        f"--working-directory={WORKTREE}",
++        f"--setenv=RAYON_NUM_THREADS={args.prover_threads}", f"--setenv=KPI_RECOVERY_UNIT={unit}", f"--property=CPUQuota={cpu}%",
++        "--property=CPUAffinity=2-13", f"--property=MemoryMax={MEMORY_BYTES}", "--property=MemorySwapMax=0",
+         "--property=TasksMax=256", f"--property=RuntimeMaxSec={RUNTIME_SECONDS}",
+         "--property=KillMode=control-group", f"--property=TimeoutStopSec={STOP_SECONDS}",
+         "--property=SendSIGKILL=yes", "/usr/bin/python3", "-B", str(Path(__file__).resolve()),
+-        args.phase, "--manifest-sha256", args.manifest_sha256, "--inside-unit", unit]
++        args.phase, "--manifest-sha256", args.manifest_sha256,
++        "--prover-threads", str(args.prover_threads), "--inside-unit", unit]
+     save(output / "launch.json", {**preconditions, "phase": args.phase, "unit": unit,
+         "launcher_pid": os.getpid(), "started_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+         "invocation": invocation, "resource_envelope": ENVELOPE,
++        "rayon_threads": args.prover_threads, "cpu_quota_percent": cpu, "cpu_affinity": "2-13",
+         "budget_termination_is_incomplete_not_semantic_failure": True})
+     print(json.dumps({"unit": unit, "private_launch": str(output)}), flush=True)
+     previous_term = signal.signal(signal.SIGTERM, terminate)
+--- v1/recovery-race.py
++++ v2/recovery-race.py
+@@ -20,8 +20,9 @@
+ import uuid
+ 
+ HERE = Path(__file__).resolve().parent
+-WORKTREE = HERE.parents[1]
+-LANE = WORKTREE.parent
++LANE = Path("/home/luke/projects/kpi-orchestration/2026-10-22/exit-recovery-review/implementation-v2")
++BASE_LANE = LANE.with_name("implementation-v1")
++WORKTREE = BASE_LANE / "worktree"
+ BASE_HEAD = "9e0dca5851f80a3c9fd9e09db1cc7f340aaf8e02"
+ SERVICE = "kpi-price-leakage-20261022-01.service"
+ NOTE_FLOOR = 60_000_000
+@@ -54,11 +55,12 @@
+     return result.hexdigest()
+ 
+ 
+-def load_support():
++def load_support(threads):
+     global base
+     spec = importlib.util.spec_from_file_location("existing_lifecycle", HERE / "two-input-lifecycle.py")
+     base = importlib.util.module_from_spec(spec)
+     spec.loader.exec_module(base)
++    base.configure_runtime_threads(threads)
+ 
+ 
+ def need(condition, message):
+@@ -67,31 +69,42 @@
+ 
+ 
+ def source_identity(manifest_path):
++    need(manifest_path.resolve() == HERE / "prepared-manifest.json", "use the reviewed v2 package manifest")
+     manifest = load(manifest_path)
++    need(digest(BASE_LANE / "prepared-manifest.json") == manifest["v1_manifest_sha256"], "v1 manifest changed")
+     need(manifest["base_commit"] == BASE_HEAD, "manifest base commit mismatch")
+     actual_head = subprocess.check_output(
+         ["git", "-C", str(WORKTREE), "rev-parse", "HEAD"], text=True,
+     ).strip()
+     need(actual_head == BASE_HEAD, "exclusive worktree HEAD changed")
+     observed = {}
+-    for relative, expected in manifest["source_sha256"].items():
+-        path = WORKTREE / relative
+-        need(not path.is_symlink() and path.resolve().is_relative_to(WORKTREE), "source path escape")
+-        observed[relative] = digest(path)
+-        need(observed[relative] == expected, f"prepared source changed: {relative}")
++    for label, root, entries in (("source", WORKTREE, manifest["source_sha256"]),
++                                 ("v1_artifact", BASE_LANE, manifest["v1_artifact_sha256"]),
++                                 ("v2_artifact", HERE, manifest["artifact_sha256"])):
++        for relative, expected in entries.items():
++            path = root / relative
++            need(not path.is_symlink() and path.resolve().is_relative_to(root), "source path escape")
++            observed[f"{label}/{relative}"] = digest(path)
++            need(observed[f"{label}/{relative}"] == expected, f"prepared source changed: {relative}")
+     return observed
+ 
+ 
+-def check_release(path):
++def check_release(path, threads, manifest_path):
++    need(path.resolve() == LANE / "release.json", "use the explicit v2 lane release")
+     receipt = load(path)
+-    need(receipt.get("lane") == "exit-recovery-review-v1", "wrong lane release")
++    need(receipt.get("lane") == "exit-recovery-review-v2", "wrong lane release")
+     need(receipt.get("approved_by") == "parent-orchestrator", "parent release required")
+     need(receipt.get("run_authorized") is True, "run not authorized")
++    need(receipt.get("authorized_phase") == "proof" and receipt.get("proof_phase_authorized") is True, "proof phase not authorized")
++    need(receipt.get("manifest_sha256") == digest(manifest_path), "release manifest mismatch")
+     need(receipt.get("frozen_evaluation_completed") is True, "frozen completion not verified")
+     need(receipt.get("fresh_capacity_verified") is True, "fresh capacity not verified")
+     need(receipt.get("max_parallel_provers") == 1, "release prover count mismatch")
+-    need(receipt.get("rayon_threads") == 4, "release Rayon count mismatch")
+-    need(receipt.get("resource_envelope") == "12GiB-2h-cgroup-v1", "release resource envelope mismatch")
++    need(type(threads) is int and 1 <= threads <= 12, "proof thread allocation must be 1 through 12")
++    need(type(receipt.get("rayon_threads")) is int and receipt["rayon_threads"] == threads, "release Rayon count mismatch")
++    need(type(receipt.get("cpu_quota_percent")) is int and receipt["cpu_quota_percent"] == threads * 100, "release CPU quota mismatch")
++    need(receipt.get("resource_envelope") == "12GiB-2h-cgroup-v2", "release resource envelope mismatch")
++    need(receipt.get("cpu_affinity") == "2-13", "release CPU affinity mismatch")
+     need(isinstance(receipt.get("approved_at_utc"), str), "release timestamp missing")
+     result = subprocess.run(
+         ["systemctl", "--user", "show", SERVICE, "-p", "ActiveState", "-p", "Result", "-p", "ExecMainStatus"],
+@@ -103,17 +116,19 @@
+     return {"receipt": receipt, "observed_service": state}
+ 
+ 
+-def check_resource_envelope():
++def check_resource_envelope(threads):
+     unit = os.environ.get("KPI_RECOVERY_UNIT", "")
+-    need(re.fullmatch(r"kpi-exit-recovery-v1-run-[0-9a-f]{32}\.service", unit) is not None, "use the gated run launcher")
++    need(re.fullmatch(r"kpi-exit-recovery-v2-run-[0-9a-f]{32}\.service", unit) is not None, "use the gated run launcher")
+     groups = [line[3:] for line in Path("/proc/self/cgroup").read_text().splitlines() if line.startswith("0::")]
+     need(len(groups) == 1 and Path(groups[0]).name == unit, "runner not in released service cgroup")
+     directory = Path("/sys/fs/cgroup") / groups[0].lstrip("/")
+     values = {name: (directory / name).read_text().strip() for name in ("cpu.max", "memory.max", "memory.swap.max", "pids.max")}
+     quota, period = values["cpu.max"].split()
+-    need(quota != "max" and int(quota) == 4 * int(period), "proof CPU quota not enforced")
++    need(os.environ.get("RAYON_NUM_THREADS") == str(threads), "service Rayon environment mismatch")
++    need(os.sched_getaffinity(0) == set(range(2, 14)), "proof CPU affinity differs from 2-13")
++    need(quota != "max" and int(quota) == threads * int(period), "proof CPU quota not enforced")
+     need(values["memory.max"] == str(12 * 1024**3) and values["memory.swap.max"] == "0" and values["pids.max"] == "256", "proof resource budget not enforced")
+-    return {"unit": unit, "cgroup": groups[0], "actual_limits": values}
++    return {"unit": unit, "cgroup": groups[0], "actual_limits": values, "rayon_threads": threads, "cpu_affinity": sorted(os.sched_getaffinity(0))}
+ 
+ 
+ def validate_public_parameters(path):
+@@ -178,6 +193,7 @@
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--manifest", type=Path, required=True)
++    parser.add_argument("--prover-threads", type=int, choices=range(1, 13), required=True)
+     parser.add_argument("--release-receipt", type=Path, required=True)
+     parser.add_argument("--public-parameters", type=Path, required=True)
+     parser.add_argument("--wallet-binary", type=Path, required=True)
+@@ -187,16 +203,20 @@
+     need(sys.flags.optimize == 0, "do not disable assertions in the reused experiment support")
+     os.umask(0o077)
+     # Refuse before expensive hashing, key creation, process launch or run files.
+-    release = check_release(args.release_receipt)
+-    resource_envelope = check_resource_envelope()
++    release = check_release(args.release_receipt, args.prover_threads, args.manifest)
++    resource_envelope = check_resource_envelope(args.prover_threads)
+     identity = source_identity(args.manifest)
+-    load_support()
++    load_support(args.prover_threads)
+     parameters = validate_public_parameters(args.public_parameters)
+     binaries = [args.wallet_binary, args.helper_binary, args.race_binary]
++    binary_pins = load(args.manifest)["binaries"]
+     for binary, expected_name in zip(binaries, ("kpi-two-input-wallet", "kpi-two-input-lifecycle", "kpi-two-input-recovery-race")):
+         need(binary.name == expected_name, "binary role/name mismatch")
+         need(binary.is_file() and not binary.is_symlink(), "binary must be an ordinary file")
+-        need(binary.resolve().is_relative_to(LANE / "build-target"), "use only lane-owned build artifacts")
++        expected = binary_pins[expected_name]
++        need(binary.resolve() == BASE_LANE / "build-target/release" / expected_name, "use the already-built v1 artifact")
++        need(str(binary.resolve()) == expected["path"] and binary.stat().st_size == expected["bytes"], "binary identity mismatch")
++        need(digest(binary) == expected["sha256"], "built binary hash mismatch")
+     wallet_binary, helper_binary, race_binary = [p.resolve() for p in binaries]
+     run_parent = LANE / "runs"
+     run_parent.mkdir(mode=0o700, exist_ok=True)
+@@ -210,7 +230,7 @@
+         "binary_sha256": {p.name: digest(p) for p in (wallet_binary, helper_binary, race_binary)},
+         "release": release, "public_parameters": base.PIN,
+         "scope": "offline synthetic current-v2/v6 composition; four proofs only",
+-        "max_parallel_provers": 1, "rayon_threads": 4,
++        "max_parallel_provers": 1, "rayon_threads": args.prover_threads,
+     })
+     experiment = base.Experiment(root, parameters, wallet_binary, helper_binary)
+     proofs = []
+@@ -377,7 +397,7 @@
+         report = {
+             "passed": True, "offline_only": True, "chain_acceptance_verified": False,
+             "genuine_proofs_generated": len(proofs), "restoration_parameter_loads": 2,
+-            "total_parameter_loads": 3, "max_parallel_provers": 1, "rayon_threads": 4,
++            "total_parameter_loads": 3, "max_parallel_provers": 1, "rayon_threads": args.prover_threads,
+             "minimum_claim_sompi": NOTE_FLOOR, "baseline_fee_sompi": FEE,
+             "payout_floor_sompi": PAYOUT_FLOOR, "both_winner_orders_tested": True,
+             "private_unchanged_capabilities_created_after_restore": True,
+--- v1/two-input-lifecycle.py
++++ v2/two-input-lifecycle.py
+@@ -16,6 +16,15 @@
+ import uuid
+ 
+ HERE = Path(__file__).resolve().parent
++RAYON_THREADS = None
++
++
++def configure_runtime_threads(value):
++    global RAYON_THREADS
++    if type(value) is not int or not 1 <= value <= 12 or RAYON_THREADS is not None:
++        raise RuntimeError("configure exactly one explicit proof thread allocation from 1 through 12")
++    RAYON_THREADS = value
++
+ PIN = {
+     "sha256": "6f95db952f84420717b3b677e1368bc85776791eb1ccf409cb390a4e4fb39593",
+     "bytes": 962197520,
+@@ -27,9 +36,13 @@
+ assert not os.path.exists('/home/luke'), 'host home visible'
+ assert interfaces == ['lo'], 'external network visible'
+ assert not os.path.exists('/controller'), 'controller visible'
++threads = os.environ.get('RAYON_NUM_THREADS', '')
++assert threads == os.environ.get('KPI_ALLOCATED_PROVER_THREADS') and threads.isdecimal() and 1 <= int(threads) <= 12, 'sandbox thread allocation mismatch'
++assert os.sched_getaffinity(0) == set(range(2, 14)), 'sandbox CPU affinity mismatch'
+ print(json.dumps({'isolation': {
+     'host_home_visible': False, 'network_interfaces': interfaces,
+-    'controller_directory_visible': False,
++    'controller_directory_visible': False, 'rayon_threads': int(threads),
++    'cpu_affinity': sorted(os.sched_getaffinity(0)),
+     'scope': 'fresh process and user/mount/PID/network namespaces; same physical host'
+ }}), flush=True)
+ os.execv('/program', ['/program'] + sys.argv[1:])
+@@ -57,13 +70,16 @@
+ 
+ 
+ def sandbox(binary, out, mounts, arguments):
++    if RAYON_THREADS is None:
++        raise RuntimeError("explicit thread allocation is required before sandbox launch")
+     command = [
+         "bwrap", "--unshare-all", "--die-with-parent", "--new-session",
+         "--clearenv", "--ro-bind", "/usr", "/usr",
+         "--symlink", "usr/bin", "/bin", "--symlink", "usr/lib", "/lib",
+         "--symlink", "usr/lib64", "/lib64", "--proc", "/proc",
+         "--dev", "/dev", "--tmpfs", "/tmp", "--setenv", "PATH", "/usr/bin:/bin",
+-        "--setenv", "RAYON_NUM_THREADS", "4",
++        "--setenv", "RAYON_NUM_THREADS", str(RAYON_THREADS),
++        "--setenv", "KPI_ALLOCATED_PROVER_THREADS", str(RAYON_THREADS),
+         "--ro-bind", str(binary), "/program", "--bind", str(out), "/out",
+     ]
+     for mount in mounts:
