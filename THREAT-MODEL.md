@@ -1,5 +1,23 @@
 # Threat Model
 
+[ADR-0055](docs/adr/0055-recoverable-private-change-and-repeated-spending.md)
+keeps actual private conservation separate from public diagnostic sizing. A
+sizing quote has zero proof and no private witness; only an actual legal
+candidate with its own exact quoteID may reach proving and native release.
+Fee changes require new change Note/CM/cipher/state/Auth construction and
+revalidation. Current NF order follows the privately selected input slots.
+Original-backup recovery decrypts the embedded V2 index; fresh random-u64
+indices reject recognized historical reuse but cannot prove absence of unseen
+pending/orphan disclosures or concurrent issuance. Duplicate accepted positions
+remain backed and owner-actionable. Reorg rebuilding cannot erase disclosures.
+No fixed change slot or mandatory retained working balance is selected.
+Two published alternative preparations for the same positioned claim can expose
+its real NF by intersecting independently padded NF pairs. Private slot shuffling
+does not prevent that intersection. Unbroadcast diagnostic/rehearsal alternatives
+must remain private; separate public synthetic controls use disjoint notes/NFs.
+This experimental client does not claim retry/mempool anonymity. Rebinding a
+founding outpoint alone does not change an existing note's positioned NF.
+
 [ADR-0053](docs/adr/0053-private-network-recovery-and-local-owner-proving.md)
 adds a separate Auth528 owner-local proving experiment. Each owner authenticates
 the complete public parameter blob and checked VK before reading their seed;

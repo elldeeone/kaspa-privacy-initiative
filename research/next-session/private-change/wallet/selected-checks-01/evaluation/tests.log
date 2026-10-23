@@ -1,0 +1,24 @@
+setUpClass (test_change_wallet.ChangeControls) ... ERROR
+test_unselected_release_stops_before_any_request_file_read (test_change_wallet.BoundaryControls.test_unselected_release_stops_before_any_request_file_read) ... ok
+
+======================================================================
+ERROR: setUpClass (test_change_wallet.ChangeControls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/poc/private-change-wallet/test_change_wallet.py", line 131, in setUpClass
+    cls.crypto, cls.v2, cls.decoder = Crypto(cls.executable), recipient(), decoder()
+                                                              ~~~~~~~~~^^
+  File "/app/poc/private-change-wallet/receiver_tools.py", line 16, in recipient
+    raw = path.read_bytes()
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 778, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 772, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/app/poc/future-recipient/v2/recipient.py'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+FAILED (errors=1)

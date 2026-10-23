@@ -1,0 +1,50 @@
+{
+  "schema": "kpx3-known-public-funding-observation/v1",
+  "observed_at": "2026-10-23T11:33:42.674Z",
+  "input_file_sha256": "65ebecef46de481d9084c99866890a0f0990c93720ad3ff8d63f726c6e550f90",
+  "source": "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh",
+  "network": "testnet-10",
+  "expected_genesis": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "server": {
+    "rpcApiVersion": 1,
+    "rpcApiRevision": 0,
+    "serverVersion": "2.1.0",
+    "networkId": "testnet-10",
+    "hasUtxoIndex": true,
+    "isSynced": true,
+    "virtualDaaScore": "604210782"
+  },
+  "observed_sink": "647024df1da4c06fe8add86a4580f86d65cdc9cf49569881585127134117b6fc",
+  "sdk_pins": {
+    "kaspa.js": "6d92cb305d0cc2eb26de9e305b7f7a8c17daa130ad478f0b340b50490557dbcf",
+    "kaspa_bg.wasm": "c9657568610ae1d305bc2e1cf85208ceba0d1a7893c4057b38caa8add2ffb0f5",
+    "package.json": "8b61fefaba842c41b805291d95b2f9e81778ec590813a6c34eddcd316659b8d0"
+  },
+  "queried_known_script_count": 5,
+  "entries": [
+    {
+      "outpoint": {
+        "transactionId": "006d46b0fabbf551a50186d9e9edf2f873f39ba0d871342c3dd254c1b4a4fbbf",
+        "index": 1
+      },
+      "amount_sompi": "88630000",
+      "script_public_key": "0000205f9c87ec955e6354bf4733ea75b96baf6dcd90f8daebe2f0ef1f241ee438a933ac",
+      "block_daa_score": "604180733",
+      "is_coinbase": false,
+      "covenant_id": null
+    }
+  ],
+  "total_on_queried_known_scripts_sompi": "88630000",
+  "target_sompi": "1100000000",
+  "single_coin_at_least_target": [],
+  "observed_total_meets_target": false,
+  "selected_validating_node_assumption": true,
+  "confirmations_and_private_control_not_verified": true,
+  "no_empty_wallet_or_broad_discovery_claim": true,
+  "private_material_or_faucet_or_submission_used": false,
+  "rpc_methods": [
+    "getServerInfo",
+    "getBlockDagInfo",
+    "getUtxosByAddresses"
+  ]
+}

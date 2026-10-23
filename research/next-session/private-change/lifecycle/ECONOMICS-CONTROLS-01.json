@@ -1,0 +1,46 @@
+{
+  "actual_wallet_recognition_or_fee_quote_or_privacy_qualification": false,
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "poc/private-change-trial",
+    "-p",
+    "test_economics.py",
+    "-v"
+  ],
+  "elapsed_seconds": 0.03786370798479766,
+  "files": [
+    {
+      "bytes": 4919,
+      "path": "poc/private-change-trial/economics.py",
+      "sha256": "4ea534e7e2f5556f0fd2e32f57003fbd223294d23a8e7658455b523dd979c870"
+    },
+    {
+      "bytes": 3407,
+      "path": "poc/private-change-trial/test_economics.py",
+      "sha256": "6291c2dd4eea1e6c9891714fa469d395e684f3253a02edfa3416bdb086ab1d93"
+    },
+    {
+      "bytes": 8324,
+      "path": "research/next-session/private-change/lifecycle/WORKLOAD-PROPOSAL.md",
+      "sha256": "e4461c5475b1be3dc7f40e8f2be37c815cd94c58f7c87de5199b6b40d8a9813c"
+    }
+  ],
+  "generated_fee_partitions": 250,
+  "identity_entropy_crypto_SDK_setup_proof_native_VM_RPC_funding_broadcast": false,
+  "result_log_sha256": "4479c3b883e1c47557b5547ccecaa6af97c53d4100cc6045df6dc057b85bdd32",
+  "schema": "kpx3-private-change-public-source-controls/v1",
+  "scope": "PURE_PUBLIC_SYNTHETIC_INTEGER_MODEL",
+  "test_cases": [
+    "exact_note_and_payout_floors_then_one_sompi_below",
+    "three_payouts_and_both_ordinary_change_tails",
+    "non_integer_nonpositive_unknown_fee_fields",
+    "one_sompi_tail_accounting_error",
+    "generated_fee_partition_liability_and_terminal_bounds"
+  ],
+  "tests_passed": 5
+}

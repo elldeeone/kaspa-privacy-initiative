@@ -1,0 +1,128 @@
+{
+  "cases": [
+    {
+      "case": "repeated_P0_open",
+      "inner_complete": false,
+      "operations": 3,
+      "passed": true,
+      "public_payouts": 0,
+      "reserve_sompi": 960000000,
+      "states": [
+        {
+          "cm_count": 3,
+          "nf_count": 3,
+          "reserve_sompi": 980000000
+        },
+        {
+          "cm_count": 5,
+          "nf_count": 5,
+          "reserve_sompi": 960000000
+        }
+      ]
+    },
+    {
+      "case": "continuing_payout_and_opaque_change",
+      "inner_complete": false,
+      "operations": 4,
+      "passed": true,
+      "public_payouts": 1,
+      "reserve_sompi": 840000000,
+      "states": [
+        {
+          "cm_count": 3,
+          "nf_count": 3,
+          "reserve_sompi": 980000000
+        },
+        {
+          "cm_count": 5,
+          "nf_count": 5,
+          "reserve_sompi": 960000000
+        },
+        {
+          "cm_count": 7,
+          "nf_count": 7,
+          "reserve_sompi": 840000000
+        }
+      ]
+    },
+    {
+      "case": "longer_terminal_trace",
+      "inner_complete": false,
+      "operations": 7,
+      "passed": true,
+      "public_payouts": 3,
+      "reserve_sompi": 0,
+      "states": [
+        {
+          "cm_count": 3,
+          "nf_count": 3,
+          "reserve_sompi": 980000000
+        },
+        {
+          "cm_count": 5,
+          "nf_count": 5,
+          "reserve_sompi": 960000000
+        },
+        {
+          "cm_count": 7,
+          "nf_count": 7,
+          "reserve_sompi": 840000000
+        },
+        {
+          "cm_count": 9,
+          "nf_count": 9,
+          "reserve_sompi": 820000000
+        },
+        {
+          "cm_count": 11,
+          "nf_count": 11,
+          "reserve_sompi": 600000000
+        },
+        {
+          "cm_count": 11,
+          "nf_count": 13,
+          "reserve_sompi": 0
+        }
+      ]
+    },
+    {
+      "case": "unordered_longer_graph",
+      "passed": true
+    },
+    {
+      "case": "terminal_preserves_CM_and_adds_both_NFs",
+      "passed": true
+    },
+    {
+      "case": "duplicate_spend",
+      "passed": true,
+      "rejected_with": "duplicate-accepted-transaction"
+    },
+    {
+      "case": "missing_payout_query",
+      "passed": true,
+      "rejected_with": "missing-or-extra-exact-current-query"
+    },
+    {
+      "case": "missing_live_point_watch",
+      "passed": true,
+      "rejected_with": "post-query-live-point-coverage"
+    },
+    {
+      "case": "terminal_CM_nonzero",
+      "passed": true,
+      "rejected_with": "terminal-inactive-fields"
+    },
+    {
+      "case": "stale_or_wrong_NF_path",
+      "passed": true,
+      "rejected_with": "nf-predecessor-record"
+    }
+  ],
+  "classification": "UNPROVED_PUBLIC_PREDICATES_ONLY_DO_NOT_FUND",
+  "hidden_positive_change_or_private_conservation_or_ownership_proved": false,
+  "invented_IDs_and_incomplete_headers_would_fail_production_SDK_checks": true,
+  "passed": 10,
+  "production_complete_network_replay_called": false,
+  "rpc_sdk_native_prover_PK_seed_execution": false
+}

@@ -1,0 +1,678 @@
+{
+  "expected_genesis": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "network_id": "testnet-10",
+  "private_control_not_checked": true,
+  "root_authorization": "One additional batch, at most20 NEW provenance-backed ordinary funding SPKs. No unrelated payout graph, private stores/keys/backups, public DO_NOT_FUND/sample addresses, faucet requests, signing or broadcast.",
+  "schema": "kpx3-known-public-funding-query/v1",
+  "scripts": [
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/rehearsal/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "866f92bd4ad53760eb562cb039df8bd9bb3e04edbd05f5d3d98bdf8ca9dd1272"
+        },
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/rehearsal/public/manifest.json",
+          "role": "public manifest funding_scripts; recipient records not selected",
+          "sha256": "fbe83190e1a1fb3d6271603ce165306e6c8e700c0b8a2ea5af500f8562385330"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 0,
+            "transactionId": "99e83829e8d85a83cecbcdf7fee745ec53df758883e68195879a111f1f37052d"
+          },
+          "role": "ordinary trial funding allocation output"
+        },
+        {
+          "amount_sompi": "199482100",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "4f86d57d27537e1cf8f51dd5c30b0c0005fe902d1f489b7b5fc1b866dfccab9e"
+          },
+          "role": "exact same documented funding-script ordinary change"
+        }
+      ],
+      "script_public_key": "000020fc04b9908f9a8d175da54b82ada20bba193220032a47970fe6672030706cce10ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/rehearsal/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "866f92bd4ad53760eb562cb039df8bd9bb3e04edbd05f5d3d98bdf8ca9dd1272"
+        },
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/rehearsal/public/manifest.json",
+          "role": "public manifest funding_scripts; recipient records not selected",
+          "sha256": "fbe83190e1a1fb3d6271603ce165306e6c8e700c0b8a2ea5af500f8562385330"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "99e83829e8d85a83cecbcdf7fee745ec53df758883e68195879a111f1f37052d"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020b35b9c6f3205e456f7b983c876fc415c188ab87350f9679a4e341a25c8f573dbac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/trial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "512dc59bdcf873913293998324e9fc7cdd35b0ccf97a13fb0683ce720804a659"
+        },
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/trial/public/manifest.json",
+          "role": "public manifest funding_scripts; recipient records not selected",
+          "sha256": "e5a295a5ec05c957bfdfcd5ecff079f77b3db49f08e505073086e07a7b1cf246"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 0,
+            "transactionId": "e3d764c1694a1903852f01b0c9c23b6172502a605a4144039b539654fd809cb6"
+          },
+          "role": "ordinary trial funding allocation output"
+        },
+        {
+          "amount_sompi": "199482100",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "76f8e3b53b0bbf2a7372f28425b4554d4d38eb1b01dd07e8f881538d3da6edfe"
+          },
+          "role": "exact same documented funding-script ordinary change"
+        }
+      ],
+      "script_public_key": "000020ca66a8b486fa13d2385fb28823e84c0a90e56c97e593282e8b6775e6ed705b4dac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/trial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "512dc59bdcf873913293998324e9fc7cdd35b0ccf97a13fb0683ce720804a659"
+        },
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-contention/trial/public/manifest.json",
+          "role": "public manifest funding_scripts; recipient records not selected",
+          "sha256": "e5a295a5ec05c957bfdfcd5ecff079f77b3db49f08e505073086e07a7b1cf246"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "e3d764c1694a1903852f01b0c9c23b6172502a605a4144039b539654fd809cb6"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020efb987bdf53a62e90c0c198b9612fad0d01f33e0713d371573ad1a9347aa4b60ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/full/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "393ac0eea723c76338400a798121f73d2c4448c990e3a4427523795e5d0c6306"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 0,
+            "transactionId": "9e315ec6cb550f35b21b1aea1dd5593d9a8ec87a8f9b5e79499d8ade1e7b7653"
+          },
+          "role": "ordinary trial funding allocation output"
+        },
+        {
+          "amount_sompi": "199482100",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "8bdaee2da4dcf5d3b4d4c7a33c6cd4f263231870d076b0c497f753d66f334950"
+          },
+          "role": "exact same documented funding-script ordinary change"
+        }
+      ],
+      "script_public_key": "0000205c8302524a2a8f8a421ae6eb98a5b0942d20d1b1a8d2db700379894b68a7dedcac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/full/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "393ac0eea723c76338400a798121f73d2c4448c990e3a4427523795e5d0c6306"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "9e315ec6cb550f35b21b1aea1dd5593d9a8ec87a8f9b5e79499d8ade1e7b7653"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020986bac50d39d8dedf6caabc574239023a6a5c531f488f76e5d21173dfeeee63eac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/full/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "393ac0eea723c76338400a798121f73d2c4448c990e3a4427523795e5d0c6306"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 2,
+            "transactionId": "9e315ec6cb550f35b21b1aea1dd5593d9a8ec87a8f9b5e79499d8ade1e7b7653"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020793b7da94e181e82db926ac97efb6e3b119edcfd584e179e9c465e166cf18401ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/full/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "393ac0eea723c76338400a798121f73d2c4448c990e3a4427523795e5d0c6306"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 3,
+            "transactionId": "9e315ec6cb550f35b21b1aea1dd5593d9a8ec87a8f9b5e79499d8ade1e7b7653"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020c7d6772c3bd1be336647e4a95189eab6f521fa20907079b53945a3796987e520ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/partial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "0946c4af6abdfb4e242b5f4cce4e84a71def2023952ea935920763eaac070b94"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 0,
+            "transactionId": "20018220edbcc2555f5047b0f83dce16b9072dc0469364ff8062582524ad3e56"
+          },
+          "role": "ordinary trial funding allocation output"
+        },
+        {
+          "amount_sompi": "199482100",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "2947bea61616d7a78ed0093666741a8cbda11f57ddb697d866a6aa4be30c5fbe"
+          },
+          "role": "exact same documented funding-script ordinary change"
+        }
+      ],
+      "script_public_key": "0000206f08501cd6f90fdc7cc01b2bb71992775b08e09a82830f0326cf40f79c931347ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/partial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "0946c4af6abdfb4e242b5f4cce4e84a71def2023952ea935920763eaac070b94"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "20018220edbcc2555f5047b0f83dce16b9072dc0469364ff8062582524ad3e56"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "00002050ee1a89f68456e2abe23dcb3b730130499f6c2965c70674d3ed5fe3b49808c0ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/partial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "0946c4af6abdfb4e242b5f4cce4e84a71def2023952ea935920763eaac070b94"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 2,
+            "transactionId": "20018220edbcc2555f5047b0f83dce16b9072dc0469364ff8062582524ad3e56"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020c7bf54a6d82edbe5d9ca106f0d3b03b6f2ff980a2a88b8c04b32f963a7d9a589ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-19-tn10/partial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "0946c4af6abdfb4e242b5f4cce4e84a71def2023952ea935920763eaac070b94"
+        },
+        {
+          "path": "poc/shared-pool/src/app.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "bbfa10adeea153c4f1fc6f20eeb6c9ba70f945f931e6879eecbf8e8390a33663"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 3,
+            "transactionId": "20018220edbcc2555f5047b0f83dce16b9072dc0469364ff8062582524ad3e56"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020540eee07af3e366368f9cf29575497695a4a7255aeb438f8a135d365556b6faeac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/rehearsal/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "2100000000",
+          "outpoint": {
+            "index": 0,
+            "transactionId": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596"
+          },
+          "role": "ordinary trial funding allocation output"
+        },
+        {
+          "amount_sompi": "98987400",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "1f165d970fe9a154a6ab70fb8ec1fbaf3e8972df1b2f589497756cc80cdc7b3d"
+          },
+          "role": "exact same documented funding-script ordinary change"
+        }
+      ],
+      "script_public_key": "000020e09984c54059dd222955d0aafe4e7aa2fb2ebb6465c53bd35c2722680d6ac176ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/rehearsal/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1100000000",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020acf26aad70f8cce8aba7c5eb1389cb103c619abb88387342a2322ec7fcb64288ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/rehearsal/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 2,
+            "transactionId": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "0000200798ee41e662eff8650693bf305dd7f4d20cf07909cbf52975566febd859c1efac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/rehearsal/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1300000000",
+          "outpoint": {
+            "index": 3,
+            "transactionId": "054e014c4fbf63d9e61d3276defb0b4a27c5facca7fbd7730baa082710c20596"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "00002046f66af0b005d9099e9ac5207777cdb6e0b3b855507026aa4ee2ebaee1edf418ac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/trial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "25e26e1b094873336910e8814e68aebe902799e9e576efcf5e98b1ea598c3248"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "2100000000",
+          "outpoint": {
+            "index": 0,
+            "transactionId": "a7508a118db8f392faf2671280c5434188c8b6ba5de3baf8645cf9d32adf731d"
+          },
+          "role": "ordinary trial funding allocation output"
+        },
+        {
+          "amount_sompi": "98987400",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "5b6863fb5a3e36bdbd7e5640e584c3612da68a711d9430ebe05925707580c178"
+          },
+          "role": "exact same documented funding-script ordinary change"
+        }
+      ],
+      "script_public_key": "0000207df3e031fcfa06c4499d65fa2abea96e34170237a59b35ce90567fddc538038cac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/trial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "25e26e1b094873336910e8814e68aebe902799e9e576efcf5e98b1ea598c3248"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1100000000",
+          "outpoint": {
+            "index": 1,
+            "transactionId": "a7508a118db8f392faf2671280c5434188c8b6ba5de3baf8645cf9d32adf731d"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "0000200ca3fdde9b0f3538db321eafd4a62c6464b32012e580d9e4a8821378f36639baac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/trial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "25e26e1b094873336910e8814e68aebe902799e9e576efcf5e98b1ea598c3248"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1200000000",
+          "outpoint": {
+            "index": 2,
+            "transactionId": "a7508a118db8f392faf2671280c5434188c8b6ba5de3baf8645cf9d32adf731d"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "000020278567d9b9cd30effcd2cea1a985091d48afffe05e588f513bc7c372b26defffac"
+    },
+    {
+      "public_provenance": [
+        {
+          "path": "poc/shared-pool/evidence/2026-10-20-two-input-tn10/trial/chain-confirmed.json",
+          "role": "published accepted ordinary allocation; only first transaction funding outputs selected",
+          "sha256": "25e26e1b094873336910e8814e68aebe902799e9e576efcf5e98b1ea598c3248"
+        },
+        {
+          "path": "poc/shared-pool/src/two_input/live.rs",
+          "role": "source ordinary funding allocator; native funding outputs, not recipient payout traversal",
+          "sha256": "09c672cb171e4204a30f44c6009bb59ca8a0ed8588ecdcf5f4e8945639730023"
+        },
+        {
+          "path": "poc/shared-pool/src/native.rs",
+          "role": "ordinary() appends exact input-owner-script change",
+          "sha256": "626f96dfcd66ef8dfa2ef1023e985390d25b4573eac01bb5623796799a93435f"
+        }
+      ],
+      "published_points": [
+        {
+          "amount_sompi": "1300000000",
+          "outpoint": {
+            "index": 3,
+            "transactionId": "a7508a118db8f392faf2671280c5434188c8b6ba5de3baf8645cf9d32adf731d"
+          },
+          "role": "ordinary trial funding allocation output"
+        }
+      ],
+      "script_public_key": "0000200b9f8148b689b5897b71cce3c5ae56095ef327f686059420227a5d226bb71e7dac"
+    }
+  ],
+  "target_sompi": "1100000000"
+}

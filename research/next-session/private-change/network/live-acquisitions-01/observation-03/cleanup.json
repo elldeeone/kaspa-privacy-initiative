@@ -1,0 +1,24 @@
+{
+  "MainPID_zero_or_explicitly_unloaded": true,
+  "at": "2026-10-23T13:08:09.975290+00:00",
+  "cgroup_procs_observed": false,
+  "missing_manager_or_process_observation_is_not_zero": true,
+  "owned_cgroup_path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-kpx3-network-87fa48371fa6.service",
+  "owned_cgroup_processes_empty": null,
+  "state": {
+    "ActiveState": "inactive",
+    "CPUQuotaPerSecUSec": "infinity",
+    "ControlGroup": "",
+    "LoadState": "not-found",
+    "MainPID": "0",
+    "MemoryMax": "infinity",
+    "MemorySwapMax": "infinity",
+    "SubState": "dead",
+    "systemctl_returncode": 0,
+    "systemctl_stderr": ""
+  },
+  "stop_command": {
+    "returncode": 5,
+    "stderr": "Failed to stop kpi-kpx3-network-87fa48371fa6.service: Unit kpi-kpx3-network-87fa48371fa6.service not loaded.\n"
+  }
+}

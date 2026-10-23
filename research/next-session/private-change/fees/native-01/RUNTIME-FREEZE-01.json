@@ -1,0 +1,143 @@
+{
+  "DO_NOT_FUND": true,
+  "cases": 56,
+  "command": [
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--die-with-parent",
+    "--new-session",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source",
+    "/app",
+    "--ro-bind",
+    "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/node",
+    "/node",
+    "--ro-bind",
+    "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/kpi-private-exit-native",
+    "/native",
+    "--ro-bind",
+    "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa",
+    "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa",
+    "--bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/client-output",
+    "/out",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--chdir",
+    "/app",
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/out/resources.log",
+    "/usr/bin/python3",
+    "-B",
+    "/app/harness.py",
+    "/out/result",
+    "--native",
+    "/native",
+    "--node",
+    "/node",
+    "--runtime-source",
+    "/app/trusted_runtime.py"
+  ],
+  "controller_output": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01",
+  "no_PK_seed_Groth16_setup_proof_funding_RPC": true,
+  "pins": [
+    {
+      "bytes": 8145,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/kernel.py",
+      "sha256": "c53142006e0832b6429562d66faa02fa755dd0a994aa4b1740a4ce7fc1285b2d",
+      "source": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/compact-cm-append/kernel.py"
+    },
+    {
+      "bytes": 6891,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/harness.py",
+      "sha256": "ed702bbe3bc647803ebf212a70c511be2cb48ae19d8055aa5863b875d493eee0",
+      "source": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/compact-cm-append/harness.py"
+    },
+    {
+      "bytes": 1319,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/sdk.mjs",
+      "sha256": "3742440668670818f274ce3a86c1c0d74be86f6a9889d5955d4913a9a29bcbcf",
+      "source": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/compact-cm-append/sdk.mjs"
+    },
+    {
+      "bytes": 2031,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/test_kernel.py",
+      "sha256": "5d28add6d5bb4c68944992e55ca4aa319184450b7d099feab237c011d37bdc1b",
+      "source": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/compact-cm-append/test_kernel.py"
+    },
+    {
+      "bytes": 1673,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/entry.py",
+      "sha256": "3a2453f166a0a173c244b13701d1f667b04b7c997c730aa821d38e26a6efbfd6",
+      "source": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/compact-cm-append/entry.py"
+    },
+    {
+      "bytes": 1544,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/README.md",
+      "sha256": "0890cffb0ca961778999ee2114d84c817697ce7beff6755eee24e8beff937d55",
+      "source": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/compact-cm-append/README.md"
+    },
+    {
+      "bytes": 2566,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/trusted_runtime.py",
+      "sha256": "3ce31ae0eb8f942009a4108f9a5dbb6a08df6c7f0925f06a952315091e1bbd1c",
+      "source": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/private-network-recovery/trusted_runtime.py"
+    },
+    {
+      "bytes": 122889056,
+      "path": "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/node",
+      "sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c"
+    },
+    {
+      "bytes": 13440808,
+      "path": "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/kpi-private-exit-native",
+      "sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061"
+    },
+    {
+      "bytes": 560116,
+      "path": "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa/kaspa.js",
+      "sha256": "6d92cb305d0cc2eb26de9e305b7f7a8c17daa130ad478f0b340b50490557dbcf"
+    },
+    {
+      "bytes": 11463668,
+      "path": "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa/kaspa_bg.wasm",
+      "sha256": "c9657568610ae1d305bc2e1cf85208ceba0d1a7893c4057b38caa8add2ffb0f5"
+    },
+    {
+      "bytes": 372,
+      "path": "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa/package.json",
+      "sha256": "8b61fefaba842c41b805291d95b2f9e81778ec590813a6c34eddcd316659b8d0"
+    }
+  ],
+  "requested_limits": {
+    "cpu_percent": 400,
+    "memory_bytes": 4294967296,
+    "swap_bytes": 0
+  },
+  "root_approved": true,
+  "schema": "kpx-compact-native-kernel-runtime/v1",
+  "scope": "Synthetic public native Merkle kernel only; no financial authorization; no whole-policy fee qualification",
+  "writable_namespace_output": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/client-output"
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "kpx3-known-public-funding-observation/v1",
+  "observed_at": "2026-10-23T12:27:51.907Z",
+  "input_file_sha256": "127326aa0a2b60615e436e8da3dc797eeddfbccc8abd2a433935d8534cab5b1a",
+  "source": "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh",
+  "network": "testnet-10",
+  "expected_genesis": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "server": {
+    "rpcApiVersion": 1,
+    "rpcApiRevision": 0,
+    "serverVersion": "2.1.0",
+    "networkId": "testnet-10",
+    "hasUtxoIndex": true,
+    "isSynced": true,
+    "virtualDaaScore": "604245949"
+  },
+  "observed_sink": "8e8a476e7675b8a6402c3b3b710c1ede18a23ee1ab19916664cb4f9bdb71d086",
+  "sdk_pins": {
+    "kaspa.js": "6d92cb305d0cc2eb26de9e305b7f7a8c17daa130ad478f0b340b50490557dbcf",
+    "kaspa_bg.wasm": "c9657568610ae1d305bc2e1cf85208ceba0d1a7893c4057b38caa8add2ffb0f5",
+    "package.json": "8b61fefaba842c41b805291d95b2f9e81778ec590813a6c34eddcd316659b8d0"
+  },
+  "queried_known_script_count": 20,
+  "entries": [
+    {
+      "outpoint": {
+        "transactionId": "1f165d970fe9a154a6ab70fb8ec1fbaf3e8972df1b2f589497756cc80cdc7b3d",
+        "index": 1
+      },
+      "amount_sompi": "98987400",
+      "script_public_key": "000020e09984c54059dd222955d0aafe4e7aa2fb2ebb6465c53bd35c2722680d6ac176ac",
+      "block_daa_score": "601211832",
+      "is_coinbase": false,
+      "covenant_id": null
+    },
+    {
+      "outpoint": {
+        "transactionId": "5b6863fb5a3e36bdbd7e5640e584c3612da68a711d9430ebe05925707580c178",
+        "index": 1
+      },
+      "amount_sompi": "98987400",
+      "script_public_key": "0000207df3e031fcfa06c4499d65fa2abea96e34170237a59b35ce90567fddc538038cac",
+      "block_daa_score": "601217758",
+      "is_coinbase": false,
+      "covenant_id": null
+    }
+  ],
+  "total_on_queried_known_scripts_sompi": "197974800",
+  "target_sompi": "1100000000",
+  "single_coin_at_least_target": [],
+  "observed_total_meets_target": false,
+  "selected_validating_node_assumption": true,
+  "confirmations_and_private_control_not_verified": true,
+  "no_empty_wallet_or_broad_discovery_claim": true,
+  "private_material_or_faucet_or_submission_used": false,
+  "rpc_methods": [
+    "getServerInfo",
+    "getBlockDagInfo",
+    "getUtxosByAddresses"
+  ]
+}

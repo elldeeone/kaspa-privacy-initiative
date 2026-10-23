@@ -1,0 +1,7 @@
+{
+  "scope": "source conformance only; no SDK/native VM",
+  "error": "complete-common-framing-byte-conformance",
+  "cause": "normalizer omitted explicitly changed Auth magic and canonical redeem-length push header",
+  "fix": "normalize only those two exact literals alongside domain/state/length; emitter unchanged",
+  "native_calls": 0
+}

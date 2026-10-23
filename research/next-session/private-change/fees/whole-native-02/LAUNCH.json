@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--collect",
+    "--wait",
+    "--pipe",
+    "--unit=kpi-compact-whole-native-02",
+    "-p",
+    "CPUQuota=400%",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "/usr/bin/python3",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/whole-native-02/source/entry.py",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/whole-native-02/RUNTIME-FREEZE.json"
+  ],
+  "freeze_sha256": "35b48d0f6ac706868a53a8a0a257fe55573cfde64fd2d15c7e51963c78a0dd15",
+  "single_native_batch": true
+}

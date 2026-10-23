@@ -1,0 +1,141 @@
+Running as unit: kpi-compact-whole-build-01.service; invocation ID: 2481e9d88bb8479483fd23511c184dd3
+   Compiling value-bag v1.14.1
+   Compiling num-traits v0.2.19
+   Compiling cc v1.8.0
+   Compiling rand v0.8.8
+   Compiling rustix v1.1.5
+   Compiling constant_time_eq v0.4.2
+   Compiling hex v0.4.3
+   Compiling blake2b_simd v1.0.5
+   Compiling log v0.4.34
+   Compiling workflow-log v0.18.0
+   Compiling kaspa-utils v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kv-log-macro v1.0.7
+   Compiling tracing v0.1.44
+   Compiling tracing-log v0.2.0
+   Compiling num-integer v0.1.47
+   Compiling ark-std v0.6.0
+   Compiling chrono v0.4.45
+   Compiling tracing-subscriber v0.3.23
+   Compiling ordered-float v2.10.1
+   Compiling num-bigint v0.4.8
+   Compiling serde-value v0.7.0
+   Compiling risc0-zkp v3.0.4
+   Compiling blake3 v1.8.7
+   Compiling kaspa-hashes v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling secp256k1-sys v0.10.1
+   Compiling ark-serialize v0.6.0
+   Compiling kaspa-smt v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling ark-ff v0.6.0
+   Compiling log4rs v1.4.0
+   Compiling polling v3.11.0
+   Compiling kaspa-merkle v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling risc0-binfmt v3.0.4
+   Compiling async-io v2.6.0
+   Compiling kaspa-core v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling async-global-executor v2.4.1
+   Compiling async-std v1.13.2
+   Compiling risc0-circuit-recursion v4.0.4
+   Compiling secp256k1 v0.29.1
+   Compiling kaspa-txscript-errors v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling workflow-core v0.18.0
+   Compiling workflow-wasm v0.18.0
+   Compiling kaspa-math v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-addresses v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-muhash v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-consensus-core v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling ark-poly v0.6.0
+   Compiling ark-ec v0.6.0
+   Compiling ark-relations v0.6.0
+   Compiling ark-snark v0.6.0
+   Compiling ark-crypto-primitives v0.6.0
+   Compiling ark-bn254 v0.6.0
+   Compiling ark-groth16 v0.6.0
+   Compiling kaspa-txscript v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kpi-compact-private-policy-screen v0.1.0 (/workspace)
+warning: constant `PRIVATE_PAYLOAD` is never used
+  --> src/policy.rs:13:11
+   |
+13 | pub const PRIVATE_PAYLOAD: usize = 3920;
+   |           ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `WIDE_PAYLOAD` is never used
+  --> src/policy.rs:14:11
+   |
+14 | pub const WIDE_PAYLOAD: usize = 12672;
+   |           ^^^^^^^^^^^^
+
+warning: constant `PRIVATE_BUDGET` is never used
+  --> src/policy.rs:17:11
+   |
+17 | pub const PRIVATE_BUDGET: u16 = 1600;
+   |           ^^^^^^^^^^^^^^
+
+warning: constant `REVEAL_BUDGET` is never used
+  --> src/policy.rs:18:11
+   |
+18 | pub const REVEAL_BUDGET: u16 = 200;
+   |           ^^^^^^^^^^^^^
+
+warning: constant `OWNER_TAG` is never used
+  --> src/policy.rs:19:7
+   |
+19 | const OWNER_TAG: &[u8; 8] = b"KPX1OWN\0";
+   |       ^^^^^^^^^
+
+warning: constant `ADMIT_BUDGET` is never used
+   --> src/policy.rs:563:11
+    |
+563 | pub const ADMIT_BUDGET: u16 = 200;
+    |           ^^^^^^^^^^^^
+
+warning: function `note_cm` is never used
+   --> src/policy.rs:564:8
+    |
+564 | pub fn note_cm(note: &[u8; 168]) -> [u8; 32] {
+    |        ^^^^^^^
+
+warning: function `singleton_state` is never used
+   --> src/policy.rs:599:8
+    |
+599 | pub fn singleton_state(note: &[u8; 168]) -> [u8; 112] {
+    |        ^^^^^^^^^^^^^^^
+
+warning: function `owner_tag` is never used
+   --> src/policy.rs:902:8
+    |
+902 | pub fn owner_tag() -> &'static [u8; 8] {
+    |        ^^^^^^^^^
+
+warning: `kpi-compact-private-policy-screen` (bin "kpi-compact-private-policy-screen") generated 9 warnings
+    Finished `release` profile [optimized] target(s) in 21.70s
+	Command being timed: "/usr/bin/bwrap --unshare-all --die-with-parent --new-session --clearenv --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --ro-bind /etc/alternatives /etc/alternatives --proc /proc --dev /dev --tmpfs /tmp --tmpfs /cargo --ro-bind /home/luke/.cargo/registry /cargo/registry --ro-bind /home/luke/.cargo/git /cargo/git --ro-bind /home/luke/.rustup/toolchains/1.95.0-x86_64-unknown-linux-gnu /toolchain --ro-bind /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/whole-build-01/source /workspace --bind /home/luke/projects/kpi-intensive-2026-10-22/future-union-target /target --setenv PATH /toolchain/bin:/usr/bin:/bin --setenv RUSTC /toolchain/bin/rustc --setenv CARGO_HOME /cargo --setenv CARGO_TARGET_DIR /target --setenv TMPDIR /tmp --chdir /workspace /toolchain/bin/cargo build --frozen --offline --release --target x86_64-unknown-linux-gnu -j8 --manifest-path /workspace/Cargo.toml"
+	User time (seconds): 0.00
+	System time (seconds): 0.00
+	Percent of CPU this job got: 0%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.73
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2336
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 125
+	Voluntary context switches: 2
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 21.747s
+             CPU time consumed: 1min 19.317s
+                   Memory peak: 1.1G (swap: 0B)

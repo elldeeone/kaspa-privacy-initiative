@@ -1,0 +1,1645 @@
+{
+  "fixed_analytic_ledgers": 8,
+  "hidden_truth_old_population_or_qualification_evaluation": false,
+  "interpretation": "Exact arithmetic controls only. SAT alternatives are not owner anonymity or cryptographic witnesses.",
+  "invalid_certificate_checks": 4,
+  "max_parallel_observer_children": 4,
+  "negative_public_requests": 19,
+  "passed": true,
+  "predictions": {
+    "ALL_BUT_ONE": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_arithmetic_certificate": {
+        "selected_positions": [
+          {
+            "event": 1,
+            "position": 0
+          }
+        ],
+        "values": [
+          1000000000,
+          400000000,
+          580000000
+        ]
+      },
+      "baseline_status": "SAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 1000000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000fa1",
+          "position": 0
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 400000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000fa3",
+          "position": 1
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 580000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000fa4",
+          "position": 2
+        }
+      ],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [
+        {
+          "event": 1,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 1000000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 980000000
+          },
+          "selection": {
+            "alternative_check": "UNSAT",
+            "cm": "0000000000000000000000000000000000000000000000000000000000000fa1",
+            "position": 0,
+            "status": "FORCED_POSITIONED_CM_TO_EVENT"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000000fa7"
+        }
+      ],
+      "public_sha256": "c6a4fee4bac55e675b2995fac357c23e91cebb2da194f88e815851790d6642f5",
+      "queries": 7,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "COMPLETE",
+      "value_priors_sha256": "9bac10b840924c836679bf254855c92c81406a588970f51c9016defef128fe3d",
+      "wallet_policy": "change_capable"
+    },
+    "BAD_AMOUNTS/bool": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "noncanonical-integer",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_AMOUNTS/float": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "noncanonical-integer",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_AMOUNTS/negative": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "noncanonical-integer",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_AMOUNTS/overflow": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "noncanonical-integer",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_TOPOLOGY/cm_count": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "next-counts",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_TOPOLOGY/coverage": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "coverage-incomplete",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_TOPOLOGY/nf_count": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "next-counts",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_TOPOLOGY/reserve_sompi": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "private-effects",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "BAD_TOPOLOGY/terminal": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "terminal-topology",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "LARGE_INTEGER": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_arithmetic_certificate": {
+        "selected_positions": [
+          {
+            "event": 1,
+            "position": 0
+          }
+        ],
+        "values": [
+          9007199254740993,
+          9007198835740993,
+          0
+        ]
+      },
+      "baseline_status": "SAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 9007199254740993
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001b59",
+          "position": 0
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 1,
+                  "position": 0
+                }
+              ],
+              "values": [
+                9007199254740993,
+                0,
+                9007198835740993
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 0,
+            "baseline_value_sompi": 9007198835740993,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001b5b",
+          "position": 1
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 1,
+                  "position": 0
+                }
+              ],
+              "values": [
+                9007199254740993,
+                0,
+                9007198835740993
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 9007198835740993,
+            "baseline_value_sompi": 0,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001b5c",
+          "position": 2
+        }
+      ],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [
+        {
+          "event": 1,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 9007199254740993
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 9007198835740993
+          },
+          "selection": {
+            "alternative_check": "UNSAT",
+            "cm": "0000000000000000000000000000000000000000000000000000000000001b59",
+            "position": 0,
+            "status": "FORCED_POSITIONED_CM_TO_PAYOUT"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000001b5f"
+        }
+      ],
+      "public_sha256": "4178edac4aea186c56c86e17dda146f5aa7faa4c2ba17daea2a808f6f2daef22",
+      "queries": 7,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "COMPLETE",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "change_capable"
+    },
+    "MULTI_INGRESS_CHANGE": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_arithmetic_certificate": {
+        "selected_positions": [
+          {
+            "event": 2,
+            "position": 1
+          },
+          {
+            "event": 3,
+            "position": 2
+          }
+        ],
+        "values": [
+          1000000000,
+          800000000,
+          279000000,
+          501000000,
+          60000000,
+          0
+        ]
+      },
+      "baseline_status": "SAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 1000000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000bb9",
+          "position": 0
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 800000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000bbb",
+          "position": 1
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 1
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                219000000,
+                561000000,
+                0,
+                0
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 219000000,
+            "baseline_value_sompi": 279000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000bbd",
+          "position": 2
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 1
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                279000001,
+                500999999,
+                0,
+                60000001
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 500999999,
+            "baseline_value_sompi": 501000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000bbe",
+          "position": 3
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 1
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                339000001,
+                440999999,
+                120000001,
+                0
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 120000001,
+            "baseline_value_sompi": 60000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000bc2",
+          "position": 4
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 1
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                279000000,
+                501000000,
+                0,
+                60000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 60000000,
+            "baseline_value_sompi": 0,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000000bc3",
+          "position": 5
+        }
+      ],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [
+        {
+          "event": 2,
+          "input_sum": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 0
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                920000000,
+                60000000,
+                0,
+                701000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 1000000000,
+            "baseline_value_sompi": 800000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "new_output_sum": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 0
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                279000000,
+                701000000,
+                0,
+                60000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 980000000,
+            "baseline_value_sompi": 780000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "selection": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 0
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                920000000,
+                60000000,
+                0,
+                701000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_position": 0,
+            "baseline_position": 1,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000000bc1"
+        },
+        {
+          "event": 3,
+          "input_sum": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 0
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                279000001,
+                700999999,
+                0,
+                60000001
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 279000001,
+            "baseline_value_sompi": 279000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "new_output_sum": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 0
+                },
+                {
+                  "event": 3,
+                  "position": 2
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                920000000,
+                60000000,
+                0,
+                701000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 701000000,
+            "baseline_value_sompi": 60000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "selection": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 0
+                },
+                {
+                  "event": 3,
+                  "position": 3
+                }
+              ],
+              "values": [
+                1000000000,
+                800000000,
+                701000000,
+                279000000,
+                0,
+                60000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_position": 3,
+            "baseline_position": 2,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000000bc6"
+        }
+      ],
+      "public_sha256": "c7a70a2b05a9dab0ac8f67739cfba82392926060a98f0f87496f6a1352b09a50",
+      "queries": 13,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "COMPLETE",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "change_capable"
+    },
+    "NF_REPLAY": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "duplicate-or-zero-nf",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/event/change_slot": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "event-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/event/operation_intent": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "event-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/event/owner_map": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "event-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/event/selected_inputs": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "event-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/public/change_slot": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "public-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/public/operation_intent": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "public-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/public/owner_map": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "public-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "PRIVATE_FIELDS/public/selected_inputs": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "public-fields",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "REJECTED_INPUT"
+    },
+    "REPEATED_CM": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_arithmetic_certificate": {
+        "selected_positions": [
+          {
+            "event": 2,
+            "position": 0
+          },
+          {
+            "event": 3,
+            "position": 1
+          }
+        ],
+        "values": [
+          600000000,
+          600000000,
+          0,
+          0
+        ]
+      },
+      "baseline_status": "SAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 600000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001f41",
+          "position": 0
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 600000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001f41",
+          "position": 1
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001f44",
+          "position": 2
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001f45",
+          "position": 3
+        }
+      ],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [
+        {
+          "event": 2,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 600000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "selection": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 1
+                },
+                {
+                  "event": 3,
+                  "position": 0
+                }
+              ],
+              "values": [
+                600000000,
+                600000000,
+                0,
+                0
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_position": 1,
+            "baseline_position": 0,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000001f48"
+        },
+        {
+          "event": 3,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 600000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "selection": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 2,
+                  "position": 1
+                },
+                {
+                  "event": 3,
+                  "position": 0
+                }
+              ],
+              "values": [
+                600000000,
+                600000000,
+                0,
+                0
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_position": 0,
+            "baseline_position": 1,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000001f4c"
+        }
+      ],
+      "public_sha256": "1b131641f145ef74652fbd97c34935869c7100b95cbe26aeadd7e4d58bb63644",
+      "queries": 11,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "COMPLETE",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "whole_claim"
+    },
+    "RESOURCE_SCOPE": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "owner_link": "NOT_MODELLED",
+      "queries": 0,
+      "reason": "note-bound",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "INCOMPLETE_SCOPE"
+    },
+    "SINGLETON_PARTIAL": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_arithmetic_certificate": {
+        "selected_positions": [
+          {
+            "event": 1,
+            "position": 0
+          }
+        ],
+        "values": [
+          1000000000,
+          581000000,
+          0
+        ]
+      },
+      "baseline_status": "SAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 1000000000
+          },
+          "cm": "00000000000000000000000000000000000000000000000000000000000007d1",
+          "position": 0
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 1,
+                  "position": 0
+                }
+              ],
+              "values": [
+                1000000000,
+                0,
+                581000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 0,
+            "baseline_value_sompi": 581000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "00000000000000000000000000000000000000000000000000000000000007d3",
+          "position": 1
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 1,
+                  "position": 0
+                }
+              ],
+              "values": [
+                1000000000,
+                0,
+                581000000
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 581000000,
+            "baseline_value_sompi": 0,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "00000000000000000000000000000000000000000000000000000000000007d4",
+          "position": 2
+        }
+      ],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [
+        {
+          "event": 1,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 1000000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 581000000
+          },
+          "selection": {
+            "alternative_check": "UNSAT",
+            "cm": "00000000000000000000000000000000000000000000000000000000000007d1",
+            "position": 0,
+            "status": "FORCED_POSITIONED_CM_TO_PAYOUT"
+          },
+          "tx_id": "00000000000000000000000000000000000000000000000000000000000007d7"
+        }
+      ],
+      "public_sha256": "6bf237edac83ae42fa6cb4e5de10509c8465612807b93c9ca1b0588de8fc7097",
+      "queries": 7,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "COMPLETE",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "change_capable"
+    },
+    "TERMINAL_LEFTOVER": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_status": "UNSAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [],
+      "public_sha256": "b995f45cc0dbfe22edccc796a25b1170daf4e532facf141518bb1c0527aa2201",
+      "queries": 1,
+      "reason": null,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "INCONSISTENT",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "change_capable"
+    },
+    "TERMINAL_VALID": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_arithmetic_certificate": {
+        "selected_positions": [
+          {
+            "event": 2,
+            "position": 0
+          },
+          {
+            "event": 3,
+            "position": 1
+          }
+        ],
+        "values": [
+          600000000,
+          400000000,
+          0,
+          0
+        ]
+      },
+      "baseline_status": "SAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 600000000
+          },
+          "cm": "0000000000000000000000000000000000000000000000000000000000001389",
+          "position": 0
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 400000000
+          },
+          "cm": "000000000000000000000000000000000000000000000000000000000000138b",
+          "position": 1
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "cm": "000000000000000000000000000000000000000000000000000000000000138d",
+          "position": 2
+        },
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "cm": "000000000000000000000000000000000000000000000000000000000000138e",
+          "position": 3
+        }
+      ],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [
+        {
+          "event": 2,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 600000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "selection": {
+            "alternative_check": "UNSAT",
+            "cm": "0000000000000000000000000000000000000000000000000000000000001389",
+            "position": 0,
+            "status": "FORCED_POSITIONED_CM_TO_PAYOUT"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000001391"
+        },
+        {
+          "event": 3,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 400000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "selection": {
+            "alternative_check": "UNSAT",
+            "cm": "000000000000000000000000000000000000000000000000000000000000138b",
+            "position": 1,
+            "status": "FORCED_POSITIONED_CM_TO_PAYOUT"
+          },
+          "tx_id": "0000000000000000000000000000000000000000000000000000000000001395"
+        }
+      ],
+      "public_sha256": "aedeb405d52ed2b0e1c8a1ee6ea10a562474e0a3e2a23d14af65343007812cae",
+      "queries": 11,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "COMPLETE",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "whole_claim"
+    },
+    "UNKNOWN_BACKEND": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_status": "UNKNOWN",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [],
+      "public_sha256": "6bf237edac83ae42fa6cb4e5de10509c8465612807b93c9ca1b0588de8fc7097",
+      "queries": 0,
+      "reason": "TEST_ONLY_UNKNOWN",
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "INCOMPLETE",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "change_capable"
+    },
+    "WHOLE_CLAIM": {
+      "assumptions": [
+        "complete synthetic public chronology and integer value priors",
+        "one real earlier positive input per private action",
+        "positioned single-spend and all-prefix reserve conservation",
+        "declared whole-claim or change-capable wallet policy; no fixed change slot"
+      ],
+      "baseline_arithmetic_certificate": {
+        "selected_positions": [
+          {
+            "event": 1,
+            "position": 0
+          },
+          {
+            "event": 2,
+            "position": 2
+          }
+        ],
+        "values": [
+          1000000000,
+          0,
+          980000000
+        ]
+      },
+      "baseline_status": "SAT",
+      "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+      "financial_privacy_or_crypto_qualification": false,
+      "missing_constraints": [
+        "hash-preimage existence and commitment-binding constraints",
+        "actual note ownership or sender/receiver identity",
+        "correct ciphertext delivery and undisclosed invoice history",
+        "proof/setup soundness, accepted-chain membership and data availability",
+        "network privacy, malicious-host protection and equal model probabilities"
+      ],
+      "note_amounts": [
+        {
+          "amount": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 1000000000
+          },
+          "cm": "00000000000000000000000000000000000000000000000000000000000003e9",
+          "position": 0
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 1,
+                  "position": 0
+                },
+                {
+                  "event": 2,
+                  "position": 1
+                }
+              ],
+              "values": [
+                1000000000,
+                980000000,
+                0
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 980000000,
+            "baseline_value_sompi": 0,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "00000000000000000000000000000000000000000000000000000000000003eb",
+          "position": 1
+        },
+        {
+          "amount": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 1,
+                  "position": 0
+                },
+                {
+                  "event": 2,
+                  "position": 1
+                }
+              ],
+              "values": [
+                1000000000,
+                980000000,
+                0
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_value_sompi": 0,
+            "baseline_value_sompi": 980000000,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "cm": "00000000000000000000000000000000000000000000000000000000000003ec",
+          "position": 2
+        }
+      ],
+      "owner_link": "NOT_MODELLED",
+      "private_events": [
+        {
+          "event": 1,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 1000000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 980000000
+          },
+          "selection": {
+            "alternative_check": "UNSAT",
+            "cm": "00000000000000000000000000000000000000000000000000000000000003e9",
+            "position": 0,
+            "status": "FORCED_POSITIONED_CM_TO_EVENT"
+          },
+          "tx_id": "00000000000000000000000000000000000000000000000000000000000003ef"
+        },
+        {
+          "event": 2,
+          "input_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 980000000
+          },
+          "new_output_sum": {
+            "alternative_check": "UNSAT",
+            "status": "FORCED_VALUE",
+            "value_sompi": 0
+          },
+          "selection": {
+            "alternative_arithmetic_certificate": {
+              "selected_positions": [
+                {
+                  "event": 1,
+                  "position": 0
+                },
+                {
+                  "event": 2,
+                  "position": 1
+                }
+              ],
+              "values": [
+                1000000000,
+                980000000,
+                0
+              ]
+            },
+            "alternative_check": "SAT",
+            "alternative_position": 1,
+            "baseline_position": 2,
+            "status": "ARITHMETIC_ALTERNATIVE_ONLY"
+          },
+          "tx_id": "00000000000000000000000000000000000000000000000000000000000003f2"
+        }
+      ],
+      "public_sha256": "7fe921196e9f6a517b7f7c467d0b29ae58a0f68711ba35e9f3d899875fdce35a",
+      "queries": 10,
+      "schema": "kpx3-change-public-integer-analysis/v1",
+      "solver_version": "4.15.4.0",
+      "status": "COMPLETE",
+      "value_priors_sha256": "8ae9783b65a053bb3435dadc51ac13f5868d379dccf27bca22832edc93411821",
+      "wallet_policy": "whole_claim"
+    }
+  },
+  "schema": "kpx3-change-public-analytical-controls/v1",
+  "source_sha256": {
+    "certificate.py": "864ad8ad69169c7ef5579cf315f3b2f331d6e821e18492eab250d41eebd31e53",
+    "change_model.py": "373be20ffc335a3573ede634eea329db0475f732faa8fc634bebdf6a5949b89e",
+    "observe.py": "d6683d4f5bc6de56acaab221db44dc711e2598791dca7316d9083f7a17b27897",
+    "public_cases.py": "17bdeebf72a3108e6e3e355a7ccff696dff30d223243b350e761bf0b18d5e32f",
+    "public_ledger.py": "70017eb119fb933722ba647efa9b1e543aa7ee090928ce1e19aca7857daea97a",
+    "run_controls.py": "9ee0dd2056c785d0386e2e9f3265e10389057a3acbe7da6101766322a4abed34"
+  },
+  "unknown_backend_checks": 1
+}

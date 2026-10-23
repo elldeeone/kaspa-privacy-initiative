@@ -1,0 +1,17 @@
+Running as unit: kpi-private-change-build01.service
+   Compiling kpi-private-cashout-prover v0.1.0 (/workspace/poc/private-cashout-prover)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-private-cashout-prover` (lib) generated 1 warning (run `cargo fix --lib -p kpi-private-cashout-prover` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 9.38s
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 9.414s
+             CPU time consumed: 54.579s
+                   Memory peak: 788.7M (swap: 0B)

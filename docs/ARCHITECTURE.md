@@ -3,6 +3,30 @@
 **Status:** experimental native-KAS lifecycle validated on TN10; production
 architecture remains unselected.
 
+[ADR-0055](adr/0055-recoverable-private-change-and-repeated-spending.md) extends
+the owner wallet to requested partial cashout, seed-recoverable private change,
+private payment from that change and complete exit. It preserves Auth528 and
+the existing cryptographic/native relation. Exact-spend private payments use a
+separate zero-proof public sizing quote followed by a legal actual candidate
+and exact re-quote before witness submission. Random-u64 receive indices and
+private input/output shuffling add no saved issuance-map requirement; unknown
+pending/orphan reuse remains an explicit freshness boundary. This new
+[workload](../research/next-session/private-change/RESULTS.md) now completes a
+smaller confirmed TN10 route with two original-backup change recoveries and
+three native payouts, ending with zero reserve. It does not replace the earlier
+completed trial evidence or qualify financial privacy/fees.
+
+[ADR-0056](adr/0056-compact-native-batch-fee-screen.md) separately selects a
+native-only whole-program fee screen: authenticated subtree appends, a shared
+NF path layout, compact/wide verification-key dispatch and canonical omission
+of inactive terminal bytes. It must retain all financial/state checks and price
+every branch and independent exit. The complete23575-byte emitter passed
+55 expected native outcomes and its all-valid-path source bound fits the1600
+budget. Complete32-recipient fee projection is1.9491%; separate-time payments
+remain above target. These are native binding/cost results without matched
+circuits or financial positives; no new funded/circuit profile is selected. Capacity-full private exit behavior remains an explicit open question
+in [RFC-0023](rfc/0023-compact-native-private-payment-fees.md).
+
 [RFC-0022](rfc/0022-private-cashout-and-independent-recovery.md) now targets the
 remaining privacy and recovery blockers. [ADR-0049](adr/0049-receiver-driven-network-recovery.md)
 selects independently fetched accepted records, an authenticated public pool

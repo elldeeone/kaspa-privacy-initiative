@@ -1,0 +1,8 @@
+{
+  "error": "native-source-mass-formula-conformance",
+  "scope": "postprocessing only; native unchanged/no rerun",
+  "cause": "estimator correctly used raw script length, but compute SPK tariff initially omitted the serialized2-byte script version charged by native source",
+  "fix": "include full version+script bytes in10-per-byte SPK mass for all projected routes",
+  "failed_source_sha256": "b118f3f7d4f54b611b8700708abfe28e43ae38e3824e07e08748178b954eba96",
+  "native_calls": 0
+}

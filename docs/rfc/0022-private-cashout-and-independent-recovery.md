@@ -3,6 +3,18 @@
 **Status:** Research implementation and falsifiable experiments in progress.
 **Date:** 2026-10-23 UTC. Baseline `63f494053b743ac9bfbd2d1842f69e0f806ef8e3`.
 
+## Active extension: recoverable private change
+
+ADR-0055 and the [new common contract](../../research/next-session/private-change/CONTRACT.md)
+select owner-local partial cashout, original-backup change recovery, another
+private payment from that change and final drainage. The relation/wire remain
+unchanged. Exact-zero-change payment requires a public sizing diagnostic that
+cannot become a witness, followed by strict actual conservation and exact
+actual-body quotation. All extra fees count. This is an implementation and
+testnet-rehearsal task; the single-owner intermediate reserve remains an amount
+inference control, not privacy qualification. A separate compact native append
+screen and exact arithmetic observer retain the original fee/privacy targets.
+
 ## Remaining product problem
 
 RFC-0021 completes native test-KAS payment mechanics through both confirmed

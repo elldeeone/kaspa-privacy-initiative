@@ -1,0 +1,25 @@
+{
+  "actual_PK_seed_Groth16_setup_funding_RPC": 0,
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=kpi-compact-cm-b5324b6c6c",
+    "--property=CPUQuota=400%",
+    "--property=MemoryMax=4G",
+    "--property=MemorySwapMax=0",
+    "--property=KillMode=control-group",
+    "/usr/bin/python3",
+    "-B",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-01/source/entry.py",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-change/fees/native-02/RUNTIME-FREEZE-02.json"
+  ],
+  "earlier_launch_failed_before_native_or_SDK": true,
+  "frozen_runtime_sha256": "8b2d66b86d504cb297f4d825e6e0cda79ee66369fe6cd1cf591d4ed22be44ffc",
+  "launch_returncode": 0,
+  "source_peer_ACK_received": true,
+  "unit": "kpi-compact-cm-b5324b6c6c",
+  "wall_seconds": 1.1264269919483922
+}

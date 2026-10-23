@@ -1,0 +1,80 @@
+{
+  "additional_genuine_proofs": 0,
+  "cases": [
+    {
+      "case": "partial-output-destination-mismatch",
+      "expected_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "expected_engine_typed_failure": "VerifyError",
+      "observed_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "observed_engine_typed_failure": "VerifyError",
+      "original_genuine_proof_preserved": true,
+      "passed": true,
+      "rejection_scope": "public-check-before-G16",
+      "supplied_context_only_not_chain_freshness": false
+    },
+    {
+      "case": "partial-auth-and-destination-rebinding",
+      "expected_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "expected_engine_typed_failure": "VerifyError",
+      "observed_Full_typed_failure": "UNEXPECTED_TYPED_FAILURE_RETAINED_PRIVATELY",
+      "observed_engine_typed_failure": "UNEXPECTED_TYPED_FAILURE_RETAINED_PRIVATELY",
+      "original_genuine_proof_preserved": true,
+      "passed": false,
+      "rejection_scope": "original-proof-Auth-binding-at-G16",
+      "supplied_context_only_not_chain_freshness": false
+    },
+    {
+      "case": "partial-payout-reserve-rebinding",
+      "expected_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "expected_engine_typed_failure": "VerifyError",
+      "observed_Full_typed_failure": "UNEXPECTED_TYPED_FAILURE_RETAINED_PRIVATELY",
+      "observed_engine_typed_failure": "UNEXPECTED_TYPED_FAILURE_RETAINED_PRIVATELY",
+      "original_genuine_proof_preserved": true,
+      "passed": false,
+      "rejection_scope": "original-proof-Auth-binding-at-G16",
+      "supplied_context_only_not_chain_freshness": false
+    },
+    {
+      "case": "payment-extra-native-output",
+      "expected_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "expected_engine_typed_failure": "VerifyError",
+      "observed_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "observed_engine_typed_failure": "VerifyError",
+      "original_genuine_proof_preserved": true,
+      "passed": true,
+      "rejection_scope": "public-check-before-G16",
+      "supplied_context_only_not_chain_freshness": false
+    },
+    {
+      "case": "payment-NF-update-order",
+      "expected_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "expected_engine_typed_failure": "VerifyError",
+      "observed_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "observed_engine_typed_failure": "VerifyError",
+      "original_genuine_proof_preserved": true,
+      "passed": true,
+      "rejection_scope": "public-check-before-G16",
+      "supplied_context_only_not_chain_freshness": false
+    },
+    {
+      "case": "stale-payment-current-context",
+      "expected_Full_typed_failure": "SignatureInvalid(EvalFalse)",
+      "expected_engine_typed_failure": "EvalFalse",
+      "observed_Full_typed_failure": "SignatureInvalid(EvalFalse)",
+      "observed_engine_typed_failure": "EvalFalse",
+      "original_genuine_proof_preserved": true,
+      "passed": true,
+      "rejection_scope": "public-check-before-G16",
+      "supplied_context_only_not_chain_freshness": true
+    }
+  ],
+  "classification": "UNBROADCAST_SUPPLIED_CONTEXT_NEGATIVES",
+  "genuine_current_rebased_occupied_NF_proof_claimed": false,
+  "original_current_recovery_spent_classifications": 2,
+  "passed": 4,
+  "proof_correctness_privacy_fee_or_production_qualified": false,
+  "raw_main_variants_Auth_NFs_bodies_proofs_or_candidate_digests_exported": false,
+  "schema": "kpx3-private-change-six-native-negatives/v1",
+  "setup_RPC_funding_broadcast_or_actual_chain_freshness_test": false,
+  "total": 6
+}

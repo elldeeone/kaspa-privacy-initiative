@@ -1,0 +1,27 @@
+{
+  "actual_seeds_pk_setup_proofs_rpc_or_funds_used": false,
+  "classification": "PUBLIC_UNFUNDED_FIXTURE_CONTROLS_NO_NATIVE_PROOF_OR_CHAIN_CLAIM",
+  "failed": 2,
+  "failures": [
+    {
+      "cause": "Singleton reserve equals own residual, so the public reserve floor correctly rejects first.",
+      "control": "test_exact_private_and_payout_floors",
+      "observed": "private-reserve-floor before requested private-change-note-floor"
+    },
+    {
+      "cause": "Singleton reserve drops below60M at the fee shift, so public guard correctly rejects first.",
+      "control": "test_subfloor_negative_or_fee_shift_cannot_serialize_private_witness",
+      "observed": "private-reserve-floor before requested-value-exceeds"
+    }
+  ],
+  "fix": "Add a separate foreign60M liability to isolate private-note floor and negative-change categories. Do not change any runtime guard.",
+  "passed": 20,
+  "schema": "kpx3-private-change-development-result/v1",
+  "source_sha256": {
+    "change_action.py": "df07070ed919d90a503b8d584449ca6bfead9885cb7218a8c04e019a6425ea64",
+    "change_wallet.py": "a6d27af3e971e36ec526002a74ce4e41fd85b401a45740f5130ab911cc633daa",
+    "test_change_wallet.py": "74ff49cc09d6b6f5c8a09d323ddd1a1cf10c8931c47aefcb4413e1a06ca38752"
+  },
+  "test_wall_seconds": 4.341,
+  "tests": 22
+}

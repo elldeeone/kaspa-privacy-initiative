@@ -1,0 +1,12 @@
+{
+  "actual_seeds_pk_setup_proofs_rpc_or_funds_used": false,
+  "classification": "PUBLIC_FIXTURE_INSTRUMENTATION_FAILURE",
+  "failed": 1,
+  "failure": "Global os.write mock intercepted the established crypto subprocess stdin pipe, rather than only the empty prover witness pipe.",
+  "fix": "Identify the witness pipe by st_dev/st_ino and reject/count only writes to that pipe; permit ordinary established-crypto IPC. Runtime source unchanged.",
+  "passed": 26,
+  "schema": "kpx3-private-change-development-result/v1",
+  "test_source_sha256": "cea2a483a3c42cc8d35074b5046f237bfc4bc39a118e54854eb49f01ebeedf48",
+  "tests": 27,
+  "wall_seconds": 7.629
+}

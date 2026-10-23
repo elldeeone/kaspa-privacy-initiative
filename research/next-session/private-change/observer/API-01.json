@@ -1,0 +1,86 @@
+{
+  "schema": "kpx3-private-change-observer-api/v1",
+  "selected_utc": "2026-10-23",
+  "request_keys": [
+    "public",
+    "value_priors"
+  ],
+  "public_keys": [
+    "schema",
+    "classification",
+    "wallet_policy",
+    "coverage_complete",
+    "note_floor_sompi",
+    "payout_floor_sompi",
+    "max_sompi",
+    "events"
+  ],
+  "public_schema": "kpx3-change-public-integer-ledger/v1",
+  "classification": "SYNTHETIC_PUBLIC_INTEGER_MODEL",
+  "wallet_policy_values": [
+    "whole_claim",
+    "change_capable"
+  ],
+  "event_keys": [
+    "ordinal",
+    "tx_id",
+    "kind",
+    "fee_sompi",
+    "payout_sompi",
+    "payout_destination",
+    "prior_reserve_sompi",
+    "reserve_sompi",
+    "prior_cm_count",
+    "cm_count",
+    "prior_nf_count",
+    "nf_count",
+    "cms",
+    "nfs",
+    "terminal",
+    "ingress_value_sompi"
+  ],
+  "event_kind_values": [
+    "ingress",
+    "private"
+  ],
+  "value_priors_keys": [
+    "schema",
+    "facts"
+  ],
+  "value_priors_schema": "kpx3-change-value-priors/v1",
+  "prior_fact_keys": [
+    "position",
+    "cm",
+    "minimum_sompi",
+    "maximum_sompi",
+    "source"
+  ],
+  "prior_source_values": [
+    "public_opening",
+    "declared_legitimate_value_prior"
+  ],
+  "identity": "position plus CM bytes; repeated cross-history CM bytes allowed",
+  "owner_link": "NOT_MODELLED",
+  "query_plan": "all note amounts and every private input sum/output sum/positioned selection; no hidden target selection",
+  "output_statuses": [
+    "COMPLETE",
+    "INCOMPLETE",
+    "INCOMPLETE_SCOPE",
+    "INCONSISTENT",
+    "REJECTED_INPUT"
+  ],
+  "amount_query_statuses": [
+    "FORCED_VALUE",
+    "ARITHMETIC_ALTERNATIVE_ONLY",
+    "INCOMPLETE",
+    "NOT_EVALUATED"
+  ],
+  "selection_query_statuses": [
+    "FORCED_POSITIONED_CM_TO_EVENT",
+    "FORCED_POSITIONED_CM_TO_PAYOUT",
+    "ARITHMETIC_ALTERNATIVE_ONLY",
+    "INCOMPLETE",
+    "NOT_EVALUATED"
+  ],
+  "no_input_owner_selection_change_slot_or_operation_intent": true
+}

@@ -1,0 +1,83 @@
+{
+  "Native_VM_or_proof_or_setup_or_RPC_or_funding_or_broadcast_executed_here": false,
+  "actual_native_rejections": 6,
+  "cases": [
+    {
+      "case": "partial-output-destination-mismatch",
+      "observed_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "observed_engine_typed_failure": "VerifyError",
+      "original_error_name_prediction_matched": true,
+      "rejected": true,
+      "scope": "public-check-before-G16"
+    },
+    {
+      "case": "partial-auth-and-destination-rebinding",
+      "observed_Full_typed_failure": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+      "observed_engine_typed_failure": "ZkIntegrity(\"Groth16 verification failed\")",
+      "original_error_name_prediction_matched": false,
+      "rejected": true,
+      "scope": "original-proof-rebinding-rejected-at-G16"
+    },
+    {
+      "case": "partial-payout-reserve-rebinding",
+      "observed_Full_typed_failure": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+      "observed_engine_typed_failure": "ZkIntegrity(\"Groth16 verification failed\")",
+      "original_error_name_prediction_matched": false,
+      "rejected": true,
+      "scope": "original-proof-rebinding-rejected-at-G16"
+    },
+    {
+      "case": "payment-extra-native-output",
+      "observed_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "observed_engine_typed_failure": "VerifyError",
+      "original_error_name_prediction_matched": true,
+      "rejected": true,
+      "scope": "public-check-before-G16"
+    },
+    {
+      "case": "payment-NF-update-order",
+      "observed_Full_typed_failure": "SignatureInvalid(VerifyError)",
+      "observed_engine_typed_failure": "VerifyError",
+      "original_error_name_prediction_matched": true,
+      "rejected": true,
+      "scope": "public-check-before-G16"
+    },
+    {
+      "case": "stale-payment-current-context",
+      "observed_Full_typed_failure": "SignatureInvalid(EvalFalse)",
+      "observed_engine_typed_failure": "EvalFalse",
+      "original_error_name_prediction_matched": true,
+      "rejected": true,
+      "scope": "public-check-before-G16"
+    }
+  ],
+  "consensus_commit": "01b532e8b553523216471682649693af92f0fd16",
+  "consensus_repository": "kaspanet/rusty-kaspa",
+  "correction": "Two genuine-proof Auth rebindings return ZkIntegrity from failed Groth16 verification, rather than the predicted VerifyError.",
+  "genuine_current_rebased_occupied_NF_proof_or_chain_freshness_claimed": false,
+  "harness_prediction_mismatches": 2,
+  "original_error_name_predictions_total": 6,
+  "original_frozen_error_name_predictions_matched": 4,
+  "original_prediction_summary_and_execution_unchanged": true,
+  "original_runner_returncode": 1,
+  "raw_variants_Auth_NFs_bodies_proofs_candidate_digests_or_private_paths_exported": false,
+  "schema": "kpx3-private-change-native-negative-interpretation/v1",
+  "source_files": [
+    {
+      "bytes": 1016,
+      "repository_path": "crypto/txscript/src/zk_precompiles/groth16/error.rs",
+      "sha256": "c06ef0594a4e40ff0a4b63ac0919d8306607f9df2929d6b4d5247a3f20e1425b"
+    },
+    {
+      "bytes": 12801,
+      "repository_path": "crypto/txscript/src/zk_precompiles/groth16/mod.rs",
+      "sha256": "cb9fa14115d445c727cb8639ba384bde37d9a01f6c6f7fd1c92f77861f8a388d"
+    },
+    {
+      "bytes": 1846,
+      "repository_path": "crypto/txscript/src/zk_precompiles/mod.rs",
+      "sha256": "4382c35fd412fb4885a475f75dcc9b55af00698476fcef6afe666d42da50989c"
+    }
+  ],
+  "status": "POST_RUN_SOURCE_INTERPRETATION_NOT_RETEST"
+}

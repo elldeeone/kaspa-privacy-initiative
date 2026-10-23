@@ -1,0 +1,19 @@
+{
+  "cases": [
+    "Nested transaction field rejected",
+    "Nested native field rejected",
+    "Nested header or UTXO field rejected",
+    "Unconfirmed, changed context or changed body rejected",
+    "Unrelated page transaction and unknown diagnostic omitted",
+    "Missing old merge post-query marker remains false; pool stage requires true"
+  ],
+  "classification": "PURE_PUBLIC_PROJECTION_CONTROLS_NO_NATIVE_OR_NETWORK_ACCEPTANCE",
+  "command": "python3 -B -m unittest discover -s poc/private-change-trial -p test_live_packet.py -v",
+  "native_VM_RPC_proof_or_signing_operations": 0,
+  "reported_test_seconds": 0.001,
+  "schema": "kpx3-private-change-live-export-controls/v1",
+  "source_sha256": "c3022e92d4a095570f498e84f84268bd8c237376b28e5d92313f61f05dea101c",
+  "test_source_sha256": "9e817ef04b741fffc4ccd5c7f92c1f490f8a7baa3e27c0a985a3bf59f1417fc1",
+  "tests_failed": 0,
+  "tests_passed": 6
+}

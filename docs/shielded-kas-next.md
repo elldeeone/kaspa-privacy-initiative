@@ -2,6 +2,21 @@
 
 ## Current checkpoint — 2026-10-23
 
+The [private-change extension](../research/next-session/private-change/PLAN.md)
+is now confirmed under ADR-0055: partial cashout, restore change, spend it
+privately, restore again and finish both remaining native exits. All three
+payouts are confirmed, ending with zero reserve; the original backups recovered
+two successive change notes without saved index/maps. The earlier completed
+checkpoint below remains unchanged. Native fee compaction and stronger arithmetic inference are
+parallel experiments; neither is treated as financial privacy qualification.
+The complete compact-policy emitter under ADR-0056 now passes55 expected
+native outcomes. Its23575-byte program/source execution bound projects1.9491%
+complete fees for32 simultaneous10-KAS payments plus independent exits. The
+next fee gate is separately reviewed matched circuits/proofs, capacity and
+recovery; separate-time two-output payments still exceed target. A smaller
+200M live functional change/recovery pilot is confirmed; the10-KAS targets
+stay unchanged.
+
 The [fresh Auth528 rehearsal](../research/next-session/private-service-loss/RESULTS.md)
 now confirms both proof-private native payouts after operator-prover shutdown.
 Each cold owner reconstructed fresh public history, loaded authenticated public
