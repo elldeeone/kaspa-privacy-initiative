@@ -1,0 +1,32 @@
+{
+  "schema": "exact-sha-full-synthesis-plan-v1",
+  "status": "FROZEN_BEFORE_FIRST_FULL_SYNTHESIS",
+  "trial_count": 1,
+  "selected_test": "cross_language::measure_contract_synthesis",
+  "source_freeze_sha256": "be4d2e175e5bd5d505f2d43b004f9f71b8c30c6fd9b3f666042de60ab0c24dd6",
+  "binary_path_local_only": "/home/luke/projects/kpi-intensive-2026-10-22/exact-sha-cost-target/stage01/test-runner",
+  "binary_sha256": "0cbfd8df012076c03941b79c81eb89a9158095b2040732ec585fe39462893c46",
+  "static_source_review_sha256": "54955478a831766d2d2b3520a10be94e99ce172f66eda3c99f3bb0e97540125f",
+  "baseline_measurement_sha256": "f6a997b1e7b78fbe3c9b267fd910385c702fb28d06777e54c6b413be5bba404e",
+  "baseline_constraints": 4650533,
+  "baseline_witness_variables": 4612281,
+  "baseline_instance_variables": 3,
+  "same_sizing_fixture_and_wire_formats": true,
+  "prospective_pass": {
+    "satisfied": true,
+    "instance_variables": 3,
+    "constraints_plus_instances_max": 4194304
+  },
+  "static_estimate_constraint_interval": [
+    3462693,
+    3964453
+  ],
+  "resource_limits": {
+    "cpu_quota_equivalents": 2,
+    "memory_max_bytes": 3221225472,
+    "swap_max_bytes": 0,
+    "network": false
+  },
+  "no_setup_key_loading_proof_or_native": true,
+  "scope": "Exact SHA256 Ch/Maj only; no HMAC merge, canonical-byte substitution or relation changes. Memory here is synthesis process, not proof/wallet memory qualification."
+}

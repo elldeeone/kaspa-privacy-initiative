@@ -1,0 +1,149 @@
+{
+  "audit_or_production_safety_claimed": false,
+  "confirmed_native_operations": 6,
+  "domain_hex32": "42fab9c9042a1fbf0e0ef7755cb04df8a79ce32b6715bdd600a3deb100bfe827",
+  "fee_qualified": false,
+  "fresh_terminal_payouts": [
+    {
+      "accepting_blue_score": "592421337",
+      "amount_sompi": 95026200,
+      "confirmation_distance": 755,
+      "label": "bob",
+      "observed_at": "2026-10-23T06:03:53.350Z",
+      "outpoint": {
+        "index": 1,
+        "transactionId": "3f29dd0ff69656d73489b3f2dbb8b19606e44af7cbba74a05d88fdda39a4d809"
+      },
+      "queried_spent_predecessor": true,
+      "sink_blue_score": "592422092"
+    },
+    {
+      "accepting_blue_score": "592421824",
+      "amount_sompi": 95036800,
+      "confirmation_distance": 314,
+      "label": "charlie",
+      "observed_at": "2026-10-23T06:04:02.445Z",
+      "outpoint": {
+        "index": 0,
+        "transactionId": "bcef652b49c5bc04683623a18c772f97d86f455505f20128c5a18f380ee07a99"
+      },
+      "queried_spent_predecessor": true,
+      "sink_blue_score": "592422138"
+    }
+  ],
+  "genesis_hash_hex": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "independent_network_recovery_proved": false,
+  "network_id": "testnet-10",
+  "old_packet_manifest_sha256": "64226d0368262dbd604b38c66f2c9896d6976077b69b1ed59214283b8a10940d",
+  "old_packet_payloads_unchanged": 41,
+  "operation_observations": [
+    {
+      "confirmation_distance": 75,
+      "kind": "fundingprep",
+      "observed_at": "2026-10-23T05:58:59.091Z",
+      "txid": "62b5534d5131e1ea4f2ef3201a47d528ab93332a805031d89465748ac639b737"
+    },
+    {
+      "confirmation_distance": 82,
+      "kind": "founding",
+      "observed_at": "2026-10-23T05:59:34.000Z",
+      "txid": "c465b6786e7e0e5de53cd75017a2916cc306ce6762956bcc4500eded1b0de635"
+    },
+    {
+      "confirmation_distance": 77,
+      "kind": "admit",
+      "observed_at": "2026-10-23T06:00:11.171Z",
+      "txid": "3a60f18f6ae4aff91d36f2dfed67a61a44ee5e974cef5c910bf4b1004be13733"
+    },
+    {
+      "confirmation_distance": 95,
+      "kind": "private",
+      "observed_at": "2026-10-23T06:00:46.095Z",
+      "txid": "53332868b16c7969e8a8ba4ede79177773941df7c9108c132abddd298fba9190"
+    },
+    {
+      "confirmation_distance": 47,
+      "kind": "bob-reveal",
+      "observed_at": "2026-10-23T06:02:02.678Z",
+      "txid": "3f29dd0ff69656d73489b3f2dbb8b19606e44af7cbba74a05d88fdda39a4d809"
+    },
+    {
+      "confirmation_distance": 54,
+      "kind": "charlie-reveal",
+      "observed_at": "2026-10-23T06:03:18.798Z",
+      "txid": "bcef652b49c5bc04683623a18c772f97d86f455505f20128c5a18f380ee07a99"
+    }
+  ],
+  "passed": true,
+  "privacy_qualified": false,
+  "recipient_phase_verdicts": [
+    {
+      "phase": 3,
+      "reserve_sompi": 200000000,
+      "verdicts": [
+        {
+          "both_payout_utxos_reobserved": false,
+          "current_witnesses_constructible": 1,
+          "label": "bob",
+          "operations_checked": 4,
+          "owned_unspent_sompi": 100000000,
+          "terminal_zero": false
+        },
+        {
+          "both_payout_utxos_reobserved": false,
+          "current_witnesses_constructible": 1,
+          "label": "charlie",
+          "operations_checked": 4,
+          "owned_unspent_sompi": 100000000,
+          "terminal_zero": false
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "reserve_sompi": 100000000,
+      "verdicts": [
+        {
+          "both_payout_utxos_reobserved": false,
+          "current_witnesses_constructible": 1,
+          "label": "charlie",
+          "operations_checked": 5,
+          "owned_unspent_sompi": 100000000,
+          "terminal_zero": false
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "reserve_sompi": 0,
+      "verdicts": [
+        {
+          "both_payout_utxos_reobserved": true,
+          "current_witnesses_constructible": 0,
+          "label": "bob",
+          "operations_checked": 6,
+          "owned_unspent_sompi": 0,
+          "terminal_zero": true
+        },
+        {
+          "both_payout_utxos_reobserved": true,
+          "current_witnesses_constructible": 0,
+          "label": "charlie",
+          "operations_checked": 6,
+          "owned_unspent_sompi": 0,
+          "terminal_zero": true
+        }
+      ]
+    }
+  ],
+  "review_mode": "READ_ONLY_PUBLIC_ARTIFACT_CLOSURE_NO_RPC_NO_SEED_OR_PROOF_READ_NO_SEMANTIC_RERUN",
+  "root_chain_complete_sha256": "9fa6fdbb78bbf0baf17841c620baebc6753bfeb5ed8eeaa7335b3a2c676f7b42",
+  "schema": "kpx2-tn10-recipient-network-artifact-closure/v1",
+  "seed_only_network_verdicts": 5,
+  "terminal_body_output_count": 1,
+  "terminal_liability_sompi": 0,
+  "terminal_pool_outpoint": null,
+  "terminal_reserve_sompi": 0,
+  "trial_id": "e406aff3-442b-4493-a778-68af2dec4cc7",
+  "trust": "VALIDATING_NODE_AND_PUBLIC_ARCHIVE_ORACLE"
+}

@@ -1,0 +1,9 @@
+{
+  "observed_utc": "2026-10-23T05:36:56.947096+00:00",
+  "url": "https://kaspa.org/build",
+  "body_sha256": "48e9e6daee2553a8efddd3f728d6c121dc02542cb388165ff5ba89a21b852e9f",
+  "faucet_hrefs": [
+    "https://faucet-testnet.kaspanet.io"
+  ],
+  "correction": "Observation01 official_faucet_link_present checked a literal URL with a trailing slash. The actual href omits that trailing slash, so the false value is an overly strict string-match result, not absence of the official link."
+}

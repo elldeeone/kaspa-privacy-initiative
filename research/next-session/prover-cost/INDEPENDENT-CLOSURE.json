@@ -1,0 +1,74 @@
+{
+  "schema": "exact-sha-cost-independent-closure-v1",
+  "reviewer": "sha_source_cost",
+  "utc": "2026-10-23T05:52:46Z",
+  "status": "PASS_WITH_SCOPE_LIMITS",
+  "method": "Read-only source, byte, hash, arithmetic, log and live service-state inspection. No semantic rerun.",
+  "original_packet": {
+    "manifest_sha256": "fc138496de2bb42611b7bcb6fc7c9c25d51d3c8929fdc0ffd65aedf653c5bf2b",
+    "public_list_sha256": "c849c89da996fc8591aca02e7e1a23f129e48946e76e54844b4fe07ea6c092de",
+    "results_sha256": "46389887baadcf1d6ddedf10e4b0b66da2d0a3f62f0811ba772519d407dcd394",
+    "members_rehashed": 32,
+    "member_bytes": 208797,
+    "public_list_paths": 35,
+    "duplicate_paths": 0,
+    "missing_members": 0,
+    "unexpected_public_paths": 0,
+    "size_or_hash_mismatches": 0,
+    "closure_is_additive_outside_frozen_manifest": true
+  },
+  "pins": {
+    "static_source_review_unchanged": true,
+    "all_eight_source_members_and_snapshot_copies_match": true,
+    "all_six_runtime_freeze_members_match": true,
+    "selected_binary_rehashed_and_build_plan_pins_match": true,
+    "selected_binary_sha256": "0cbfd8df012076c03941b79c81eb89a9158095b2040732ec585fe39462893c46",
+    "original_private_lib_sha256": "fc38cee6232d35b5685f8e78c097dbe9f749acddb91111b22991146ec08cecf2",
+    "original_private_circuit_sha256": "e1e3e3e6201ef817516fda2c48fa6dbefb275fecf56632c10c4d7fe915798bd3",
+    "original_private_sources_unchanged": true
+  },
+  "recorded_execution": {
+    "cheap_tests_passed": 10,
+    "cheap_tests_failed": 0,
+    "boolean_value_allocation_cases": 64,
+    "sha_message_lengths": 15,
+    "full_synthesis_attempts_in_retained_log": 1,
+    "full_synthesis_satisfied": true,
+    "constraints": 3497893,
+    "instance_variables_including_one": 3,
+    "witness_variables": 3459641,
+    "constraints_removed": 1152640,
+    "required_fft_domain": 4194304,
+    "headroom_including_instances": 696408,
+    "all_reported_arithmetic_independently_checked": true,
+    "observed_result_inside_prerun_static_estimate": true,
+    "setup_key_loading_proof_or_native_in_this_experiment": false,
+    "run_scripts_mount_no_pk_cache_or_owner_secret_paths": true,
+    "run_scripts_unshare_network": true,
+    "reported_swap": 0
+  },
+  "cleanup": {
+    "cleanup_record_sha256": "61da76167d86ed2bb6b9fd8d557b4eec161ba3c41c823a0655191a00978e9f5b",
+    "live_service_state_independently_checked": true,
+    "kpi-exact-sha-cost-build-01.service": {
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "MainPID": 0,
+      "ExecMainStatus": 0
+    },
+    "kpi-exact-sha-cost-measurement-01.service": {
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "MainPID": 0,
+      "ExecMainStatus": 0
+    }
+  },
+  "limitations": [
+    "One complete private-relation SAT sizing witness uses placeholder public state roots; it is not a native or chain trace.",
+    "The existing 17 authority, padding, binding and integer negative controls were not executed against this candidate in this packet.",
+    "No setup, proving-key loading, proof, native validation or testnet execution was performed in this cost experiment.",
+    "Synthesis memory and timing do not qualify wallet RAM or proof latency.",
+    "Changed matrices require a fresh matching setup and verification key before proof or native use.",
+    "This closure is an evidence-integrity review, not a cryptographic audit or privacy result."
+  ]
+}

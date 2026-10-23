@@ -1,0 +1,24 @@
+{
+  "status": "DEVELOPMENT_CHECKS_PASS_NOT_BROADCAST_AUTHORIZATION",
+  "transport_checks_passed": 16,
+  "live_submissions": 0,
+  "consensus_test_executions": 0,
+  "source_files": {
+    "poc/future-native-chain/adapter.mjs": "61f52f24e656c88b77eb486faaa35ae2e00492266699768bd7e9554cc2fe1089",
+    "poc/future-native-chain/native_safe.py": "c4b7c3353ba4c83b758daa24f967c922acd1abe2aad2909010924fba9fb7f736",
+    "poc/future-native-chain/API.md": "36b93ee7a6a18dd9e60722eb9f4a7775717e711482558e7b7db1b4f5d11a611d",
+    "poc/future-native-chain/test_adapter.mjs": "33861d07bdfb41f02371f47677c02d879e27b5ea26b04997054593988f90edd1"
+  },
+  "earlier_development_failures": [
+    {
+      "location": "SDK Transaction constructor",
+      "cause": "legacy sigOpCount required even for v1",
+      "fix": "explicit zero; canonical output remains v1 native schema"
+    },
+    {
+      "location": "SDK safe transaction serialization",
+      "cause": "populated client input UTXO required",
+      "fix": "lossless actual supplied-context.json, never invented placeholders"
+    }
+  ]
+}

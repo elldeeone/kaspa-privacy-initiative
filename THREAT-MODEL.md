@@ -1,5 +1,19 @@
 # Threat Model
 
+[RFC-0021](docs/rfc/0021-confirmed-native-private-payment-rehearsal.md)'s fresh
+TN10 rehearsal now confirms both native payouts and zero terminal reserve/
+liabilities. Its exact accepted-body/current-UTXO evidence trusts a selected
+validating node and retained complete public archive. Greater-than-20 blue-score
+depth and removal checks are an observation policy, not immutable finality.
+The remote genesis is pruned; the fresh domain binds the source-pinned TN10
+genesis and random nonce while network identity remains a node assertion.
+Durable canonical-identity submission markers prohibit rebroadcast after an
+ambiguous result. Seed-only receiver checkers mount only one owner and public
+records, excluding payer/other-owner/prover/PK access. This advances the tested
+service-loss mechanics, not independent network recovery or privacy. Fresh
+development setup honesty remains unreviewed, and the available-wallet liveness
+pilot does not satisfy fees or wallet resource requirements.
+
 [RFC-0020](docs/rfc/0020-private-proof-and-native-exit-integration.md)'s new
 offline integration introduces a separately versioned experimental invoice,
 private relation and native union. Private input ownership requires both s and

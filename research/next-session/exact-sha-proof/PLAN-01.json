@@ -1,0 +1,116 @@
+{
+  "schema": "fresh-optimized-sha-setup-proof-plan/v1",
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "purpose": "Same semantic primaryfixture under equivalentSHAoptimizednewR1CS, onefreshsetup+onegenuineproof at4CPU; notnativepolicy/chainadoption",
+  "candidate_independent_closure_sha256": "3effc0bf7f9faf490bccd75dd7a76fc41fb63ca66756346a5e1c24df6ed02e60",
+  "source_files": [
+    {
+      "path": "poc/exact-sha-proof-experiment/Cargo.lock",
+      "bytes": 36911,
+      "sha256": "cfa6633b93f52f62aa978477f3f2263fbc0bed5a3912c808e4aa4b6cd8500cdc"
+    },
+    {
+      "path": "poc/exact-sha-proof-experiment/Cargo.toml",
+      "bytes": 420,
+      "sha256": "26f9cb80f93326184ca0834cfb950320dcbb170e06b5784c002d0b92b5bdf203"
+    },
+    {
+      "path": "poc/exact-sha-proof-experiment/README.md",
+      "bytes": 2177,
+      "sha256": "791706b5e129368750edcef5563b1fccd09cdf9d8db70561db17647b24007f84"
+    },
+    {
+      "path": "poc/exact-sha-proof-experiment/src/fixture.rs",
+      "bytes": 2297,
+      "sha256": "5841ab3d59218e547dd475c82ce61058cead168813261f6fea4f4d8aea81cca0"
+    },
+    {
+      "path": "poc/exact-sha-proof-experiment/src/main.rs",
+      "bytes": 9932,
+      "sha256": "d3275f64ac537a7f2b152c6d35c330eb220e0694f37078dded5c2a86826e4d50"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/Cargo.lock",
+      "bytes": 36138,
+      "sha256": "77d15ea4363faf6d6045a05dcd5c08566c95af9738cb8e57139f805808fca6a9"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/Cargo.toml",
+      "bytes": 521,
+      "sha256": "99937e4b2511feaa768a7dd6f7588a11742856de66adf11103f3c236d50c0b96"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/LICENSE-MIT",
+      "bytes": 1046,
+      "sha256": "8f71659370c5268d9a1dc962a46232540e8fca63462586d8efaa95aab492a208"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/README.md",
+      "bytes": 1240,
+      "sha256": "1150c0026a824f7aedbf23c5675e8100a9abfac8d42f6e4ef1e837d788c232b6"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/src/circuit.rs",
+      "bytes": 12810,
+      "sha256": "479146d51f3f20460d86867e45d9e14e1479f28e7bfcb584d0cab04117e83bf0"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/src/exact_sha256.rs",
+      "bytes": 11679,
+      "sha256": "0f156c8611b64814b2b84de369bc03ab134992b8cd22831267b0d4c0c3a42751"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/src/lib.rs",
+      "bytes": 24496,
+      "sha256": "0e9c0e025c06d99d12c2a2b50d0f38161dee8b68880a28af1174c6438aa3c353"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/tests/public/recipient-v1-core-hash-known-answer.json",
+      "bytes": 1885,
+      "sha256": "f2b5fdea19f26ac01f9b57c0eddbc589e821237184c381c984e6b00b7e743e47"
+    },
+    {
+      "path": "poc/exact-sha-cost-probe/tests/public/recipient-v2-known-answer.json",
+      "bytes": 2033,
+      "sha256": "5d262c459b6834b865a2ec758d5bcbcdc8f1fe172271cd3d379ddd9fb9a74ffd"
+    }
+  ],
+  "fixture": {
+    "path": "research/next-session/private-integration/lifecycle/materialized-01/private-fixture.json",
+    "sha256": "e59a1dd7f93c1bbe7c6176e589accc558efa97907411508a12f6cbdfbf704a06"
+  },
+  "expected_matrix_construction": {
+    "constraints": 3497893,
+    "instances_including_one": 3,
+    "witness_variables": 3459641,
+    "fft_domain": 4194304,
+    "a/b_g1/b_g2_query_lengths": 3459644,
+    "l_query": 3459641,
+    "h_query": 4194303,
+    "raw_matrix_digest": null,
+    "identity_boundary": "Pinnedsource/fixture+freshsetupconstruction+checkedquerydimensions; noreusedorloadedmatrices/PK"
+  },
+  "freshness": "Onlyrunmode; OsRngsetup; noexistingkey/matrixreadAPIormount; residentfreshPKproves; newVKmustdifferfromold; officialuncompressedPKsavedafterproof",
+  "runtime_resources": {
+    "CPU": 4,
+    "MemoryMax": "16GiB",
+    "MemorySwapMax": 0,
+    "network": false,
+    "generous_timeout_seconds": 3600
+  },
+  "measurement_thresholds_not_abort_limits": {
+    "whole_process_memory_bytes": 4294967296,
+    "warm_prove_seconds": 10,
+    "single_observation_not_p95": true
+  },
+  "independent_source_ack_before_heavy_setup": true,
+  "phases": [
+    "source/fixtureauthentication",
+    "freshsetup",
+    "residentproof+originalcheckedverification",
+    "additionalcheckedverification",
+    "officialuncompressedserialize/fsync/fullSHA"
+  ],
+  "no_active_trial_or_closed_source_modifications": true,
+  "PK/cache/software_excluded_from_Git": true
+}

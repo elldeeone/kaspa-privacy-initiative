@@ -1,0 +1,38 @@
+{
+  "command": [
+    "/usr/bin/bwrap",
+    "--die-with-parent",
+    "--unshare-net",
+    "--ro-bind",
+    "/",
+    "/",
+    "--bind",
+    "/tmp",
+    "/tmp",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "--chdir",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-testnet",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_trial.py"
+  ],
+  "exit_code": 0,
+  "network_off": true,
+  "private_samples_in_git": false,
+  "scope": "UNFUNDED_IDENTITY_AND_SOURCE_MATERIALIZATION_ONLY",
+  "setup_proving_native_execution_or_broadcast": false,
+  "source_sha256": {
+    "poc/future-testnet/README.md": "9ec90d4fe047b9ef6a0634f7becabbca6097f6568341e82019f5aac029ad2e0d",
+    "poc/future-testnet/addresses.cjs": "62d8a3ef6e6b8a64c0d308ac82ed4bf0b0b68b10094ab083adfc977c7b3a2666",
+    "poc/future-testnet/test_trial.py": "2ee5c38655f0c92c0d4f8f3b3358890e4c51426118f624afd21403416c23a56e",
+    "poc/future-testnet/trial.py": "9ca47dda0d6d9b95ccf7436022c149539dd5c3a58d6bc6e8a4c1d2f318b9f66e"
+  },
+  "source_unchanged": true,
+  "wall_seconds": 0.532
+}

@@ -2,6 +2,16 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[RFC-0021](docs/rfc/0021-confirmed-native-private-payment-rehearsal.md) now
+closes the bounded confirmed-TN10 lifecycle: six accepted native bodies, two
+seed-backup recipient payouts and zero remaining reserve/liabilities. How can
+clients replace its selected-node/archive trust with independent discovery,
+durable data and reorg recovery? How can the same asset/authority model meet
+strong financial privacy and general per-user fee targets? Separate exact-SHA
+optimization halves the FFT domain, but its first four-worker proof still misses
+10 seconds and 4 GiB at 11.17 seconds / 4.009258 GiB. Further equivalent circuit
+and allocation work must retain those failures and leave funded instances intact.
+
 [RFC-0020](docs/rfc/0020-private-proof-and-native-exit-integration.md) now
 records a [passing complete offline lifecycle](research/next-session/private-integration/RESULTS.md)
 joining the actual private circuit, native public admission and self-funded

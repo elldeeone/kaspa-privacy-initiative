@@ -1,0 +1,85 @@
+{
+  "schema": "kpi-testnet-confirmation-source-review/v1",
+  "scope": "source-only; no RPC calls, keys, signatures, funding or broadcast",
+  "upstream": "https://github.com/kaspanet/rusty-kaspa",
+  "commit": "01b532e8b553523216471682649693af92f0fd16",
+  "tag": "v2.1.0",
+  "checkout_clean": true,
+  "files": [
+    {
+      "path": "rpc/service/src/service.rs",
+      "sha256": "1bd23aedce198ce3f7d4731c37008e98ad7d7ef7119361a25572b94c157ac33d",
+      "bytes": 69349
+    },
+    {
+      "path": "rpc/service/src/converter/consensus.rs",
+      "sha256": "41a57123b5c616dc2cf724a6c2316a07ad5582a5351f675fb7f6bd6e39fcadbe",
+      "bytes": 32312
+    },
+    {
+      "path": "rpc/core/src/convert/verbosity.rs",
+      "sha256": "857fa8b698634f0661701b44868df3645b47360fb9a9a0f7451c08f305c3f055",
+      "bytes": 7052
+    },
+    {
+      "path": "rpc/core/src/model/verbosity.rs",
+      "sha256": "13fab0dd2752cca43633f6006922bd9c4413f19056b634323daa4b3925fb7d72",
+      "bytes": 24533
+    },
+    {
+      "path": "rpc/core/src/model/message.rs",
+      "sha256": "d62aa1fa911e30a153a7356fdd1c8f0a48635733f0fb491c58fc993ee2e9eb96",
+      "bytes": 120533
+    },
+    {
+      "path": "rpc/core/src/model/optional/tx.rs",
+      "sha256": "dce764e1a3651fa8899af2fdfbc6e3ff30865410b179f50e1319ccf16cea1f51",
+      "bytes": 27566
+    },
+    {
+      "path": "rpc/core/src/model/tx.rs",
+      "sha256": "4e31dc34d72e252dc690cb4d75a1921416e31f3ec05cdcf150f768f3953b0266",
+      "bytes": 24296
+    },
+    {
+      "path": "rpc/core/src/model/address.rs",
+      "sha256": "3eb59abd9d7f784ea63db1ca73cf18a870bbfe94278095236ca2216fe9dd5a05",
+      "bytes": 2225
+    },
+    {
+      "path": "rpc/core/src/wasm/message.rs",
+      "sha256": "3e5f55664c6bdc8b300f7d35e1c2d41c499c268f38ccf50506fd69afa8e2cadb",
+      "bytes": 40263
+    },
+    {
+      "path": "consensus/src/consensus/mod.rs",
+      "sha256": "872789901907ed220378bc2ef1a068a1c22734bce82515f24d33a8d8b0b34b5f",
+      "bytes": 78523
+    },
+    {
+      "path": "consensus/src/processes/traversal_manager.rs",
+      "sha256": "f7aa688f5e1dfe13200656849754dfbf05dd4c5fe5502b9f78acf84fe61f21ae",
+      "bytes": 6546
+    },
+    {
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_isolation.rs",
+      "sha256": "820cc3ae6e3f7343154b21c455f21f22fecc3e0ab3324ab00e05abc741b8c847",
+      "bytes": 20396
+    },
+    {
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+      "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+      "bytes": 50222
+    },
+    {
+      "path": "consensus/core/src/constants.rs",
+      "sha256": "e972b0582b2e40566cb0fc1140da7cd7de88d681104a0b6b63d7a5b2e06d3a2e",
+      "bytes": 2200
+    },
+    {
+      "path": "crypto/txscript/src/lib.rs",
+      "sha256": "f8011e2f992172f4ecfc0e5d30a89b78e07c1a3b1d0b981065bcfd0518593b53",
+      "bytes": 113326
+    }
+  ]
+}

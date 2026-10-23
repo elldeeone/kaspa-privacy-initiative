@@ -1,0 +1,30 @@
+{
+  "actual_trial_or_extraction_repeated": false,
+  "current_packet_passes_hardened_path_allowlist": true,
+  "executed_chain_sources_changed": false,
+  "existing_extraction_manifest_sha256": "404c713de878f26c066996ed1c25dd293ff64e989cfc50d2596213a66f836ef0",
+  "existing_public_packet_bytes": 1587176,
+  "existing_public_packet_files": 102,
+  "no_rpc_private_key_seed_or_witness_reads": true,
+  "published_payload_hashes_checked": 101,
+  "scope": "Post-execution exporter filename hardening and read-only existing public-packet validation",
+  "source_files": [
+    {
+      "path": "poc/future-testnet/publish_evidence.py",
+      "sha256": "fbecc7031a981e238fba39718cf04b7d797511a3041fa88cd15b9f1db170a1d5"
+    },
+    {
+      "path": "poc/future-testnet/test_publish_evidence.py",
+      "sha256": "73ac21549789d75339562833cc6bc6f9ee928538f2093c0e9dfb37e15949b8bd"
+    }
+  ],
+  "unit_controls": {
+    "command": "python3 -B -m unittest -v test_publish_evidence",
+    "cwd": "poc/future-testnet",
+    "errors": 0,
+    "execution_record": "functions.exec exec_command output chunk f43246; first and only run",
+    "failures": 0,
+    "reported_seconds": 0.001,
+    "tests": 4
+  }
+}

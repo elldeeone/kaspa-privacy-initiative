@@ -1,0 +1,34 @@
+{
+  "schema": "kpx2-tn10-native-adapter-source-freeze/v1",
+  "created_utc": "2026-10-23T05:51:45.895536+00:00",
+  "authorization": "SOURCE_AND_READ_ONLY_ONLY_NO_BROADCAST_RELEASE",
+  "files": [
+    {
+      "source": "poc/future-native-chain/adapter.mjs",
+      "snapshot": "research/next-session/testnet-rehearsal/chain/source-02/adapter.mjs",
+      "bytes": 20907,
+      "sha256": "b4f98db493f86fbb69c81e814b4516f8868a211cdf53b7180fa2d293ef05dabf"
+    },
+    {
+      "source": "poc/future-native-chain/native_safe.py",
+      "snapshot": "research/next-session/testnet-rehearsal/chain/source-02/native_safe.py",
+      "bytes": 3176,
+      "sha256": "c4b7c3353ba4c83b758daa24f967c922acd1abe2aad2909010924fba9fb7f736"
+    },
+    {
+      "source": "poc/future-native-chain/API.md",
+      "snapshot": "research/next-session/testnet-rehearsal/chain/source-02/API.md",
+      "bytes": 6463,
+      "sha256": "b19f61a03a2a4472bedcd9dc75205741ebd6021492272a94ed102172062dc277"
+    },
+    {
+      "source": "poc/future-native-chain/test_adapter.mjs",
+      "snapshot": "research/next-session/testnet-rehearsal/chain/source-02/test_adapter.mjs",
+      "bytes": 6467,
+      "sha256": "33861d07bdfb41f02371f47677c02d879e27b5ea26b04997054593988f90edd1"
+    }
+  ],
+  "review": "Independent integration adversary source ACK b4f98db4 including fixed once-only marker namespace; official FullV2/schema/depth source review ACK",
+  "development_checks": "check-01/tests.log:16 PASS on pre-namespace61f source; final namespace guard separately syntax checked and independently source reviewed; no consensus/broadcast tests claimed",
+  "runtime_plan": "PLAN.md"
+}

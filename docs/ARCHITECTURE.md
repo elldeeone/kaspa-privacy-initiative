@@ -1,6 +1,21 @@
 # Candidate Architecture
 
-**Status:** exploratory. No architecture has been selected.
+**Status:** experimental native-KAS lifecycle validated on TN10; production
+architecture remains unselected.
+
+[RFC-0021](rfc/0021-confirmed-native-private-payment-rehearsal.md) and
+[ADR-0046](adr/0046-fresh-private-testnet-rehearsal.md) now record a
+[complete fresh-domain TN10 rehearsal](../research/next-session/testnet-rehearsal/RESULTS.md):
+all six native transactions accepted, both seed-backup recipients paid
+95,026,200 / 95,036,800 sompi, terminal reserve and positive liabilities zero.
+The two 100M-sompi notes form a liveness pilot with 36,954,400 total native fees;
+it does not qualify fee or privacy targets. A selected validating node and
+retained complete public archive remain trusted. Separate one-owner exit
+sandboxes exclude payer/other-recipient secrets, PK and prover.
+[ADR-0045](adr/0045-authenticated-uncompressed-development-key-cache.md) reduces
+observed parameter-loading cost; [ADR-0047](adr/0047-sha-circuit-cost-experiment.md)
+and [ADR-0048](adr/0048-selected-real-dummy-hmac-circuit.md) separately measure
+equivalent SHA/HMAC circuit implementations without changing this funded trial.
 
 [RFC-0020](rfc/0020-private-proof-and-native-exit-integration.md) and
 [ADR-0041](adr/0041-new-format-private-native-integration.md) now select a

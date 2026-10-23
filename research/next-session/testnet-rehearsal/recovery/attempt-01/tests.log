@@ -1,0 +1,48 @@
+test_01_two_seed_only_terminal_receivers_and_true_zero (test_recovery_check.AcceptedRecoveryTests.test_01_two_seed_only_terminal_receivers_and_true_zero) ... ok
+test_02_current_seed_only_recovery_without_authorization (test_recovery_check.AcceptedRecoveryTests.test_02_current_seed_only_recovery_without_authorization) ... ok
+test_03_missing_public_receipt_data_rejects (test_recovery_check.AcceptedRecoveryTests.test_03_missing_public_receipt_data_rejects) ... ok
+test_04_missing_current_reserve_rejects_stale_head (test_recovery_check.AcceptedRecoveryTests.test_04_missing_current_reserve_rejects_stale_head) ... ok
+test_05_archive_head_cannot_name_old_reserve (test_recovery_check.AcceptedRecoveryTests.test_05_archive_head_cannot_name_old_reserve) ... ok
+test_06_competing_accepted_spend_is_rejected_before_updates (test_recovery_check.AcceptedRecoveryTests.test_06_competing_accepted_spend_is_rejected_before_updates) ... ok
+test_07_second_nf_cannot_duplicate_first_nf (test_recovery_check.AcceptedRecoveryTests.test_07_second_nf_cannot_duplicate_first_nf) ... ok
+test_08_body_substitution_rejects (test_recovery_check.AcceptedRecoveryTests.test_08_body_substitution_rejects) ... ok
+test_09_actual_payout_substitution_cannot_pass (test_recovery_check.AcceptedRecoveryTests.test_09_actual_payout_substitution_cannot_pass) ... ok
+test_10_both_current_payouts_required (test_recovery_check.AcceptedRecoveryTests.test_10_both_current_payouts_required) ... ok
+test_11_payout_amount_and_spent_reserve_view_checked (test_recovery_check.AcceptedRecoveryTests.test_11_payout_amount_and_spent_reserve_view_checked) ... ok
+test_12_wrong_backup_and_cross_trial_reject (test_recovery_check.AcceptedRecoveryTests.test_12_wrong_backup_and_cross_trial_reject) ... ok
+test_13_local_control_cannot_be_upgraded_to_network_confirmation (test_recovery_check.AcceptedRecoveryTests.test_13_local_control_cannot_be_upgraded_to_network_confirmation) ... ok
+test_14_refreshed_view_rejects_old_observation_but_allows_later_sink (test_recovery_check.AcceptedRecoveryTests.test_14_refreshed_view_rejects_old_observation_but_allows_later_sink) ... ok
+test_15_removed_acceptance_and_wrong_node_network_reject (test_recovery_check.AcceptedRecoveryTests.test_15_removed_acceptance_and_wrong_node_network_reject) ... ok
+test_16_pinned_artifact_refuses_changed_bytes (test_recovery_check.AcceptedRecoveryTests.test_16_pinned_artifact_refuses_changed_bytes) ... ERROR
+test_17_declared_payment_cannot_relabel_actual_receipt_amount (test_recovery_check.AcceptedRecoveryTests.test_17_declared_payment_cannot_relabel_actual_receipt_amount) ... ok
+
+======================================================================
+ERROR: test_16_pinned_artifact_refuses_changed_bytes (test_recovery_check.AcceptedRecoveryTests.test_16_pinned_artifact_refuses_changed_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-testnet/test_recovery_check.py", line 214, in test_16_pinned_artifact_refuses_changed_bytes
+    with tempfile.TemporaryDirectory() as directory:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/tempfile.py", line 907, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+                ~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/tempfile.py", line 370, in mkdtemp
+    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+                                       ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/tempfile.py", line 127, in _sanitize_params
+    dir = gettempdir()
+  File "/usr/lib/python3.14/tempfile.py", line 312, in gettempdir
+    return _os.fsdecode(_gettempdir())
+                        ~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/tempfile.py", line 305, in _gettempdir
+    tempdir = _get_default_tempdir()
+  File "/usr/lib/python3.14/tempfile.py", line 222, in _get_default_tempdir
+    raise FileNotFoundError(_errno.ENOENT,
+                            "No usable temporary directory found in %s" %
+                            dirlist)
+FileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/home/luke/projects/kpi-intensive-2026-10-22/continuation']
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.713s
+
+FAILED (errors=1)

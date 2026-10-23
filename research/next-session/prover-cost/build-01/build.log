@@ -1,0 +1,52 @@
+   Compiling kpi-exact-sha-cost-probe v0.1.0 (/src)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-exact-sha-cost-probe` (lib test) generated 1 warning (run `cargo fix --lib -p kpi-exact-sha-cost-probe --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 3.96s
+     Running unittests src/lib.rs (/target/x86_64-unknown-linux-gnu/release/deps/kpi_exact_sha_cost_probe-24ba2094b1f0cd8e)
+
+running 12 tests
+test cross_language::auth_exact_wire ... ok
+test cross_language::constraint_authority_and_boundaries ... ignored, complete relation controls require measured resources and review
+test cross_language::measure_contract_synthesis ... ignored, large complete relation synthesis requires reviewed resource release
+test cross_language::recipient_v1_core_hash_known_answer ... ok
+test cross_language::recipient_v2_known_answer ... ok
+test exact_sha256::tests::boolean_truth_tables_and_no_constant_regression ... ok
+test exact_sha256::tests::exact_sha_boundary_and_contract_lengths ... ok
+test tests::canonical_key_and_proof_framing ... ok
+test tests::note_wire_and_domains ... ok
+test tests::positioned_rfc2104 ... ok
+test tests::root_selected_domain ... ok
+test tests::state_has_no_nf_parity_rule ... ok
+
+test result: ok. 10 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 13.29s
+
+	Command being timed: "/toolchain/bin/cargo test --frozen --offline --release -j2 --target x86_64-unknown-linux-gnu --lib --manifest-path /src/Cargo.toml -- --nocapture --test-threads=1"
+	User time (seconds): 11.25
+	System time (seconds): 16.59
+	Percent of CPU this job got: 161%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:17.27
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 311176
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 24
+	Minor (reclaiming a frame) page faults: 226618
+	Voluntary context switches: 1170462
+	Involuntary context switches: 682896
+	Swaps: 0
+	File system inputs: 216
+	File system outputs: 8176
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
