@@ -1,0 +1,62 @@
+   Compiling kpi-selected-hmac-cost-probe v0.1.0 (/src)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-selected-hmac-cost-probe` (lib test) generated 1 warning (run `cargo fix --lib -p kpi-selected-hmac-cost-probe --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 4.35s
+     Running unittests src/lib.rs (/target/x86_64-unknown-linux-gnu/release/deps/kpi_selected_hmac_cost_probe-559d968e1746bfdb)
+
+running 16 tests
+test circuit::selected_hmac_tests::exact_inner_bytes_and_original_hmac_known_answers ... ok
+test circuit::selected_hmac_tests::malformed_padding_or_length_cannot_match_original_hmac ... Constraint trace requires `ConstraintLayer`
+Constraint trace requires `ConstraintLayer`
+Constraint trace requires `ConstraintLayer`
+Constraint trace requires `ConstraintLayer`
+ok
+test circuit::selected_hmac_tests::malformed_selector_field_assignment_is_rejected ... Constraint trace requires `ConstraintLayer`
+Constraint trace requires `ConstraintLayer`
+ok
+test circuit::selected_hmac_tests::padded_inner_requires_exact_three_blocks ... ok
+test cross_language::auth_exact_wire ... ok
+test cross_language::constraint_authority_and_boundaries ... ignored, complete relation controls require measured resources and review
+test cross_language::measure_contract_synthesis ... ignored, large complete relation synthesis requires reviewed resource release
+test cross_language::recipient_v1_core_hash_known_answer ... ok
+test cross_language::recipient_v2_known_answer ... ok
+test exact_sha256::tests::boolean_truth_tables_and_no_constant_regression ... ok
+test exact_sha256::tests::exact_sha_boundary_and_contract_lengths ... ok
+test tests::canonical_key_and_proof_framing ... ok
+test tests::note_wire_and_domains ... ok
+test tests::positioned_rfc2104 ... ok
+test tests::root_selected_domain ... ok
+test tests::state_has_no_nf_parity_rule ... ok
+
+test result: ok. 14 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 27.47s
+
+	Command being timed: "/toolchain/bin/cargo test --frozen --offline --release -j2 --target x86_64-unknown-linux-gnu --lib --manifest-path /src/Cargo.toml -- --nocapture --test-threads=1"
+	User time (seconds): 17.77
+	System time (seconds): 43.76
+	Percent of CPU this job got: 193%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:31.82
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 316812
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 23
+	Minor (reclaiming a frame) page faults: 282362
+	Voluntary context switches: 2970902
+	Involuntary context switches: 742
+	Swaps: 0
+	File system inputs: 120
+	File system outputs: 8632
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

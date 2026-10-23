@@ -16,6 +16,10 @@ sandboxes exclude payer/other-recipient secrets, PK and prover.
 observed parameter-loading cost; [ADR-0047](adr/0047-sha-circuit-cost-experiment.md)
 and [ADR-0048](adr/0048-selected-real-dummy-hmac-circuit.md) separately measure
 equivalent SHA/HMAC circuit implementations without changing this funded trial.
+The final isolated HMAC candidate has 3,199,529 constraints and one genuine
+four-worker proof at 10.495 seconds / 3.82531 GiB. It remains a separate fresh
+setup: only the proof-process memory screen is below target in that observation;
+warm latency, aggregate-wallet and p95 qualification remain open.
 
 [RFC-0020](rfc/0020-private-proof-and-native-exit-integration.md) and
 [ADR-0041](adr/0041-new-format-private-native-integration.md) now select a

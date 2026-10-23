@@ -41,8 +41,11 @@ ADR-0045's exact authenticated uncompressed cache reduces observed loading from
 still exceeding wallet memory and warm-proof limits. ADR-0047's equivalent SHA
 Ch/Maj circuit reduces constraints from 4,650,533 to 3,497,893, halving the FFT
 domain. Its first genuine four-worker result still fails at 11.17 seconds and
-4.009258 GiB. ADR-0048 separately investigates selecting real/dummy HMAC input
-before hashing; it cannot change the funded trial or erase failed measurements.
+4.009258 GiB. ADR-0048's separate selected-HMAC candidate further reduces the
+relation to 3,199,529 constraints. Its first genuine four-worker proof measures
+10.495 seconds and 3.82531 GiB whole-process peak: below the proof-process memory
+screen, still above the warm latency target. It changes neither the funded
+trial nor earlier failed measurements; p95 and aggregate wallet use remain open.
 
 Strong financial privacy, durable public data, independent current-head/reorg
 recovery, general recipient-plus-change fees, independent-owner aggregation,

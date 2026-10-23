@@ -1,0 +1,22 @@
+{
+  "schema": "selected-hmac-source-freeze-v1",
+  "files": {
+    "poc/selected-hmac-cost-probe/Cargo.lock": "3080b1f57581f4b8c2f9a11a34c206b0d888bf940f7bf2c68ef7ae15264cc8e4",
+    "poc/selected-hmac-cost-probe/Cargo.toml": "a2a7bb7e9161554441034023df6c5d9a6b9d7e6bd6726e70474abf8ac2c2d0ed",
+    "poc/selected-hmac-cost-probe/LICENSE-MIT": "8f71659370c5268d9a1dc962a46232540e8fca63462586d8efaa95aab492a208",
+    "poc/selected-hmac-cost-probe/README.md": "02999f676dfbcd9fe350263fee07be3305096de6f8f7d8931454b472b92713d6",
+    "poc/selected-hmac-cost-probe/src/circuit.rs": "4ac571ff98d422d76caf2f420a08b68b53fd62781a495735e0b7d0ecff656d40",
+    "poc/selected-hmac-cost-probe/src/exact_sha256.rs": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8",
+    "poc/selected-hmac-cost-probe/src/lib.rs": "82c920e55f676e0d4c37ca877e4ca128cac822eea61415b7cb2fbbe6b8a347a5",
+    "poc/selected-hmac-cost-probe/tests/public/recipient-v1-core-hash-known-answer.json": "f2b5fdea19f26ac01f9b57c0eddbc589e821237184c381c984e6b00b7e743e47",
+    "poc/selected-hmac-cost-probe/tests/public/recipient-v2-known-answer.json": "5d262c459b6834b865a2ec758d5bcbcdc8f1fe172271cd3d379ddd9fb9a74ffd"
+  },
+  "source_only_changes": "one selected HMAC per slot, exact constrained inner padding, fixed3block SHA interface; original relation/guards retained",
+  "resources": {
+    "cpu_quota_equivalents": 2,
+    "memory_max_bytes": 3221225472,
+    "swap_max_bytes": 0,
+    "network": false
+  },
+  "no_setup_key_proof_native": true
+}

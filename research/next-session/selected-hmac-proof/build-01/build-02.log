@@ -1,0 +1,84 @@
+Running as unit: kpi-selected-hmac-proof-build-02.service; invocation ID: 69a9580e35d5439b8748683d194d2f08
+   Compiling kpi-selected-hmac-cost-probe v0.1.0 (/workspace/poc/selected-hmac-cost-probe)
+warning: unused import: `ToBytesGadget`
+ --> /workspace/poc/selected-hmac-cost-probe/src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-selected-hmac-cost-probe` (lib) generated 1 warning (run `cargo fix --lib -p kpi-selected-hmac-cost-probe` to apply 1 suggestion)
+   Compiling kpi-selected-hmac-proof-experiment v0.1.0 (/workspace/poc/selected-hmac-proof-experiment)
+    Finished `release` profile [optimized] target(s) in 8.93s
+	Command being timed: "/toolchain/bin/cargo build --frozen --offline --release --jobs 4 --target x86_64-unknown-linux-gnu --manifest-path /workspace/poc/selected-hmac-proof-experiment/Cargo.toml"
+	User time (seconds): 28.76
+	System time (seconds): 0.85
+	Percent of CPU this job got: 331%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.94
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 476456
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 19
+	Minor (reclaiming a frame) page faults: 364520
+	Voluntary context switches: 1465
+	Involuntary context switches: 160
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 29600
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+warning: unused import: `ToBytesGadget`
+ --> /workspace/poc/selected-hmac-cost-probe/src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-selected-hmac-cost-probe` (lib) generated 1 warning (run `cargo fix --lib -p kpi-selected-hmac-cost-probe` to apply 1 suggestion)
+   Compiling kpi-selected-hmac-proof-experiment v0.1.0 (/workspace/poc/selected-hmac-proof-experiment)
+    Finished `release` profile [optimized] target(s) in 0.59s
+     Running unittests src/main.rs (/target/x86_64-unknown-linux-gnu/release/deps/kpi_selected_hmac_proof_experiment-37e30d691416272d)
+
+running 3 tests
+test tests::exact_candidate_sources_match ... ok
+test tests::selected_primary_both_real_fixture_has_expected_transcript ... ok
+test tests::wrong_fixture_rejects_before_json_parsing ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+	Command being timed: "/toolchain/bin/cargo test --frozen --offline --release --jobs 4 --target x86_64-unknown-linux-gnu --manifest-path /workspace/poc/selected-hmac-proof-experiment/Cargo.toml -- --nocapture --test-threads=1"
+	User time (seconds): 0.85
+	System time (seconds): 0.13
+	Percent of CPU this job got: 164%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 205092
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 16
+	Minor (reclaiming a frame) page faults: 45526
+	Voluntary context switches: 1041
+	Involuntary context switches: 10
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 3296
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 9.563s
+             CPU time consumed: 30.617s
+                   Memory peak: 422.2M (swap: 0B)

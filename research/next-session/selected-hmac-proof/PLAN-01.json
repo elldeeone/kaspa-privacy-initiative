@@ -1,0 +1,116 @@
+{
+  "schema": "selected-hmac-fresh-setup-proof-plan/v1",
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "purpose": "One fresh setup and genuine checked proof of exact selected-HMAC candidate at four CPU workers; no trial/native adoption",
+  "source_files": [
+    {
+      "path": "poc/selected-hmac-proof-experiment/Cargo.lock",
+      "bytes": 36923,
+      "sha256": "d8ebf56ce6f133fd151337374aef65847443b9bd2a9178e0e8b39c64d2ab7ce5"
+    },
+    {
+      "path": "poc/selected-hmac-proof-experiment/Cargo.toml",
+      "bytes": 432,
+      "sha256": "8be5ce1a81717a20de9385fad90caa3b27ef4afa6d95f664650a92884285f413"
+    },
+    {
+      "path": "poc/selected-hmac-proof-experiment/README.md",
+      "bytes": 952,
+      "sha256": "49147b479953b645d38e752916a641b7d80f0f8164d549496daa9d050006a62f"
+    },
+    {
+      "path": "poc/selected-hmac-proof-experiment/src/fixture.rs",
+      "bytes": 2297,
+      "sha256": "5841ab3d59218e547dd475c82ce61058cead168813261f6fea4f4d8aea81cca0"
+    },
+    {
+      "path": "poc/selected-hmac-proof-experiment/src/main.rs",
+      "bytes": 9960,
+      "sha256": "da77614d28994ad22aad9d63db7d0f2e1c122d84c98ccd80a36f83f0d6bd8cd7"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/Cargo.lock",
+      "bytes": 36142,
+      "sha256": "3080b1f57581f4b8c2f9a11a34c206b0d888bf940f7bf2c68ef7ae15264cc8e4"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/Cargo.toml",
+      "bytes": 525,
+      "sha256": "a2a7bb7e9161554441034023df6c5d9a6b9d7e6bd6726e70474abf8ac2c2d0ed"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/LICENSE-MIT",
+      "bytes": 1046,
+      "sha256": "8f71659370c5268d9a1dc962a46232540e8fca63462586d8efaa95aab492a208"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/README.md",
+      "bytes": 1092,
+      "sha256": "02999f676dfbcd9fe350263fee07be3305096de6f8f7d8931454b472b92713d6"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/src/circuit.rs",
+      "bytes": 21450,
+      "sha256": "4ac571ff98d422d76caf2f420a08b68b53fd62781a495735e0b7d0ecff656d40"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/src/exact_sha256.rs",
+      "bytes": 12532,
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/src/lib.rs",
+      "bytes": 24625,
+      "sha256": "82c920e55f676e0d4c37ca877e4ca128cac822eea61415b7cb2fbbe6b8a347a5"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/tests/public/recipient-v1-core-hash-known-answer.json",
+      "bytes": 1885,
+      "sha256": "f2b5fdea19f26ac01f9b57c0eddbc589e821237184c381c984e6b00b7e743e47"
+    },
+    {
+      "path": "poc/selected-hmac-cost-probe/tests/public/recipient-v2-known-answer.json",
+      "bytes": 2033,
+      "sha256": "5d262c459b6834b865a2ec758d5bcbcdc8f1fe172271cd3d379ddd9fb9a74ffd"
+    }
+  ],
+  "candidate_source_ack": {
+    "path": "research/next-session/selected-hmac-cost/INDEPENDENT-SOURCE-ACK.md",
+    "bytes": 5136,
+    "sha256": "f5bed49c9b244eefffc4894c1959e85b0d81829a992bc8d9f08b3587e896d905"
+  },
+  "candidate_measurement": {
+    "path": "research/next-session/selected-hmac-cost/measurement-01/run.log",
+    "bytes": 1103,
+    "sha256": "df2717498b736b3f23c76365df551a75c0b72dcb58282d6898e943860bec759e"
+  },
+  "fixture": {
+    "path": "research/next-session/private-integration/lifecycle/materialized-01/private-fixture.json",
+    "bytes": 5863,
+    "sha256": "e59a1dd7f93c1bbe7c6176e589accc558efa97907411508a12f6cbdfbf704a06"
+  },
+  "expected_matrix_construction": {
+    "constraints": 3199529,
+    "instances_including_one": 3,
+    "witness_variables": 3164457,
+    "fft_domain": 4194304,
+    "a/b_g1/b_g2_query_lengths": 3164460,
+    "l_query": 3164457,
+    "h_query": 4194303,
+    "raw_matrix_digest": null
+  },
+  "runtime_resources": {
+    "CPU": 4,
+    "MemoryMax": "16GiB",
+    "MemorySwapMax": 0,
+    "network": false,
+    "generous_timeout_seconds": 3600
+  },
+  "thresholds_not_abort_limits": {
+    "whole_process_peak_bytes": 4294967296,
+    "resident_proof_seconds": 10,
+    "single_observation_not_p95": true
+  },
+  "freshness": "OsRng only; no old key or matrix read interface/mount; proof from resident new PK; official uncompressed serialization after proof",
+  "funded_trial_and_closed_packets_unchanged": true
+}

@@ -24,3 +24,13 @@ Never load an old PK into new matrices. Keep all failures, distinguish a single
 observation from p95 and do not adopt the candidate in a funded instance. Fresh
 keys, caches and executables stay outside Git. This is circuit implementation
 research, not a cryptographic audit or proof of security.
+
+## First recorded result
+
+The frozen candidate is satisfied with 3,199,529 constraints, 31.20% fewer than
+the original. One fresh four-worker setup and genuine checked proof completes:
+setup 26.80 seconds, warm proving/verification 10.495 seconds and whole-process
+peak 3.82531 GiB. This single proof-process memory observation is below 4 GiB;
+the unchanged 10-second warm target still fails. No p95, aggregate-wallet or
+native adoption follows. The previous 11.17-second / 4.009258-GiB failure remains
+retained, and the funded testnet instance keeps its original matrices/key.
