@@ -16,7 +16,7 @@ For public discussion:
 - open a public issue only for non-sensitive design/security discussion;
 - clearly label suspected critical issues without posting weaponized details.
 
-Never include bearer tokens, private keys, or user wallet secrets in a report. Before any deployment with economic value, document a dedicated contact, response ownership, and incident process as well. This repository currently contains no deployed privacy protocol or real-fund experiment.
+Never include bearer tokens, private keys, or user wallet secrets in a report. Before any deployment with economic value, document a dedicated contact, response ownership, and incident process as well. This repository contains no mainnet privacy deployment or real-fund experiment. Documented TN10 research deployments use test KAS and remain unreviewed experiments.
 
 ## What counts as critical
 

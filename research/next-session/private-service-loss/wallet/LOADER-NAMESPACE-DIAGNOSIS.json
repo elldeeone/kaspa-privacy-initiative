@@ -1,0 +1,10 @@
+{
+  "classification": "PUBLIC_METADATA_ONLY_BEFORE_PRIVATE_INPUTS",
+  "actual_bwrap_unshare_all": true,
+  "host_root_loader_uid_in_namespace": 65534,
+  "owner_process_euid": 1000,
+  "loader_writable_in_namespace": false,
+  "cause": "A literal st_uid==0 check is invalid in the existing unprivileged namespace because host-root ownership is unmapped.",
+  "fix": "Require the fixed canonical loader's selected complete hash, regular file, no group/world write mode and no current-process write access. Retain the trusted host system-loader/shared-library installation premise.",
+  "policy_relaxed_or_seed_pk_prover_used": false
+}

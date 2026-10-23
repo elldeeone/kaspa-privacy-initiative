@@ -1,0 +1,38 @@
+{
+  "schema": "kpx3-adversarial-artifact-closure/v1",
+  "scope": "Fresh unfunded identity creation only",
+  "baseline_commit": "2ee3e0850a277f2d4a2f512da67683540be01958",
+  "public_readiness_sha256": "a9c4621bf614ead4bee576617bca132633c47d1dad7f48b35f6768e644384856",
+  "archived_constructor_sha256": "deeed0b246fe9299e75c2e650b7eb97a1ddc604e99a296e9d4a3b5d1762e1bc9",
+  "archived_guard_tests_sha256": "eb6e99753cf633a2ebb777d09ed05d0cbe3a0522546744700e7941d1e4033bbb",
+  "public_controls_sha256": "a39112d5d432b797f7e54de70e7f2db0b8ffcd12aaaefb2eaeffd728fd0ebf5a",
+  "trial_id": "6b2b461a-f34d-41b2-a288-fbadc37a0b9a",
+  "domain_hex32": "caf85e3b34cd9b426559f57bb1ab647835c5dfaf255d17bf3d1291c0f7408470",
+  "funding_script_public_key": "0000205f9c87ec955e6354bf4733ea75b96baf6dcd90f8daebe2f0ef1f241ee438a933ac",
+  "review": {
+    "verdict": "PUBLIC_SOURCE_AND_ARTIFACT_ACK",
+    "public_index_files_independently_rehashed": 6,
+    "archived_constructor_test_and_control_copies_match": true,
+    "source_authorities_match": true,
+    "exact_contract_domain_tag_and_program_label_match": true,
+    "filesystem_guards": "Lexical symlinks rejected before normalization; normalized outside-Git checks; exclusive 0600 files, 0700 directories and fsync",
+    "secrets_ordering": "Frozen authority, software and destination checks precede entropy; seed-only backups precede invoice derivation",
+    "crypto_runtime": "Owned authenticated Python bytes and the same sealed crypto ELF with fixed clean child environment",
+    "funding_binding": "Returned canonical P2PK script explicitly equals the bridge-derived x-only funding public key",
+    "materialization": "Disabled until a separately reviewed exact template-source map is selected"
+  },
+  "controller_reported_not_reinspected_privately": {
+    "one_command_elapsed_seconds": 0.146,
+    "identity_directory_mode": "0700",
+    "backup_count": 3,
+    "backup_modes": "0600"
+  },
+  "retained_public_controls": {
+    "guard_tests_reported_passed": 7,
+    "valid_public_scalar_and_zero_scalar_runtime_checks_reported_passed": true,
+    "reviewer_rerun": false
+  },
+  "reviewer_private_seed_pk_native_key_or_witness_reads": false,
+  "reviewer_rpc_vm_proof_sign_or_broadcast": false,
+  "setup_or_local_terminal_rehearsal_or_funding_approved": false
+}

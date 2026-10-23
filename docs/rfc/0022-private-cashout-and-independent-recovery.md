@@ -29,10 +29,20 @@ rehearsal is stronger evidence and remains required before claiming that path.
 Data availability, user-pinned instance identity, validating-node trust and
 independent consensus are separate obligations.
 
-The implemented network fetch, replay and approved policy template currently
-support the old Auth484/KPX2 program. The new Auth528 program has a separate
-unfunded native lifecycle; its network-recovery adapter is not integrated.
-Supporting its script in the generic signer alone does not close that gap.
+At the `2ee3e085` checkpoint, network recovery supported old Auth484/KPX2 while
+the Auth528 lifecycle was supplied-context only. Generic signer support alone
+did not close that gap; the earlier evidence retains that boundary.
+
+ADR-0053 selects a separate integration experiment: a fresh Auth528
+instance, authenticated public proving parameters and independently fetched
+public history, followed by owner-local private proofs and confirmed native
+private payouts. Both owner-local private withdrawals are now confirmed in the
+[fresh rehearsal](../../research/next-session/private-service-loss/RESULTS.md).
+The operator prover was stopped, and neither cold client received an operator
+archive or precomputed exit. Missing dependencies halt; revealing fallback is
+absent. Previous completed evidence remains unchanged. This demonstrates the
+tested process/data boundary, not durable parameter/history availability or
+independent consensus.
 
 ## Private cashout experiment
 

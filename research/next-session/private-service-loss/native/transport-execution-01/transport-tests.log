@@ -1,0 +1,32 @@
+PASS u64MAX SDK roundtrip
+PASS native JSON numeric u64MAX remains exact
+PASS unknown script public key version rejected
+PASS conflicting RPC mass aliases rejected
+PASS nonzero deprecated v1 sigops rejected
+PASS RPC v1 sigOpCount zero normalized
+PASS mock exact accepted body/current payout/spent input/depth21
+PASS mock changed accepted witness rejected
+PASS mock changed Full input value rejected
+PASS mock changed Full input DAA rejected
+PASS mock Full missing input context rejected
+PASS mock Full unknown input SPK version rejected
+PASS mock payout absent rejected
+PASS mock consumed input still unspent rejected
+PASS mock depth20 fails strict greater-than policy
+PASS mock removed accepting anchor rejected
+PASS mock non-chain accepting anchor rejected
+PASS mock queried payout spent after current query rejected
+PASS mock unrelated post-query activity allowed
+PASS Auth528 stage private-payment
+PASS self-consistent changed code rejected for private-payment
+PASS old magic rejected for private-payment
+PASS wrong payout mode rejected for private-payment
+PASS Auth528 stage bob-private-exit
+PASS self-consistent changed code rejected for bob-private-exit
+PASS old magic rejected for bob-private-exit
+PASS wrong payout mode rejected for bob-private-exit
+PASS Auth528 stage charlie-private-exit
+PASS self-consistent changed code rejected for charlie-private-exit
+PASS old magic rejected for charlie-private-exit
+PASS wrong payout mode rejected for charlie-private-exit
+{"passed":31,"consensus_engine_executed":false,"broadcasts":0}

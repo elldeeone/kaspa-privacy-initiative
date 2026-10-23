@@ -1,0 +1,29 @@
+{
+  "schema": "kpx3-adversarial-source-review/v1",
+  "scope": "Fresh source materialization mechanics only",
+  "constructor_sha256": "9741f75f61496340c8c3b62e731233ea3679080dfd14cd6f4f2996cec6719a31",
+  "selected_template_freeze_sha256": "b207222c4f7dda52a88e8682fed5af8eec521ac1ac678ab1077128ffee74d3ec",
+  "public_template_files_independently_rehashed": 17,
+  "independent_proof_reviewer_confirmed_this_template_selection": true,
+  "identity_source_location_addendum_sha256": "51946fdec3f635a80778018bfe701ec52c68c8f54fccdb81de99e779b03a8d9b",
+  "review": {
+    "verdict": "MATERIALIZATION_SOURCE_ACK",
+    "source_authority": "Compile-time selected exact public source freeze, frozen ADR0053 and common contract",
+    "allowed_clone_changes": [
+      "src/lib.rs authoritative DOMAIN array only",
+      "trial-selection.json selected fresh public identity only"
+    ],
+    "private_filesystem": "Existing outside-Git, lexical-symlink, exclusive write and 0600/0700 guards retained",
+    "source_revalidation": "Regenerate expected bytes from independently selected base and public trial identity; an editable snapshot's self hashes cannot authorize different source",
+    "old_keys_or_matrices_copied": false,
+    "historical_identity_source": "Original identity readiness and exact create source remain unchanged; additive locations map the historical source hashes to retained copies"
+  },
+  "reviewer_actions": {
+    "public_source_and_freeze_read_and_hash": true,
+    "private_profile_or_clone_read": false,
+    "seed_pk_native_key_or_witness_read": false,
+    "source_materialization_or_build_setup_or_proof_executed": false,
+    "rpc_or_broadcast": false
+  },
+  "full_setup_proof_or_funding_approved_by_this_receipt": false
+}

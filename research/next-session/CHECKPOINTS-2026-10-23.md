@@ -26,3 +26,20 @@ and a fresh service-loss testnet identity. The old funded instance and all prior
 closed lane packets remain unchanged. Root architecture/threat/question and
 security-statement documents advance explicitly with RFC-0022 and ADRs 0049–0052;
 their new bytes are not substituted into earlier frozen experiments.
+
+- `2ee3e0850a277f2d4a2f512da67683540be01958`: private cashout, independent
+  old-program service-loss recovery through confirmed payouts, and the72-case
+  arithmetic comparison. Combined public manifest SHA256
+  `fcce4bd359a9412618d2588100931d03ffb5fbc162639263225bb71104bb72a8`
+  describes that Git checkpoint, including its global documentation/attributes.
+  Verify those mutable global-file rows with `git show 2ee3e085:<path>`.
+  The subsequent ADR0053/0054 fresh private-owner integration uses a separate
+  domain/setup and evidence directory; earlier closed lane packets stay unchanged.
+
+- ADR0053/0054 fresh Auth528 private-owner integration: both independently
+  generated private exits confirmed, alternate-endpoint final history observes
+  zero reserve and both native payouts, and separate seed-only final restores
+  authenticate those payouts without PK/prover access. The separate
+  [results](private-service-loss/RESULTS.md) retain exact bodies, software/parameter
+  identities, fees and evidence boundaries. This advances private recovery
+  mechanics; the adopted financial privacy and complete-fee targets remain unmet.

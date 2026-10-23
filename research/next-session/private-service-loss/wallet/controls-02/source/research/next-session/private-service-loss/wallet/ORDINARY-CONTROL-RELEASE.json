@@ -1,0 +1,41 @@
+{
+  "schema": "kpx3-wallet-ordinary-public-control-release/v1",
+  "files": [
+    {
+      "name": "crypto",
+      "source_path": "/home/luke/projects/kpi-intensive-2026-10-22/recipient-target/debug/kpi-future-recipient-crypto",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/crypto",
+      "sha256": "6f65ec202a2d634d0cf8c5ba3034fd591790374da0ea9ea1a144470eec3143ff",
+      "bytes": 10170912,
+      "mode": "0500"
+    },
+    {
+      "name": "true",
+      "source_path": "/usr/bin/gnutrue",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/true",
+      "sha256": "913a39cd38f353497086bcf317b12f91f93c23b51869cea763b8340b4f84cfd3",
+      "bytes": 35288,
+      "mode": "0500"
+    },
+    {
+      "name": "env",
+      "source_path": "/usr/bin/gnuenv",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/env",
+      "sha256": "d04fe689b718e25d083f8a438d1a903b9384c1588dbd7e8b88fdb384ef46fc49",
+      "bytes": 48128,
+      "mode": "0500"
+    },
+    {
+      "name": "cat",
+      "source_path": "/usr/bin/gnucat",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/cat",
+      "sha256": "6814736b3f95342e4ffc8f83f5cd99a2e72fd1a70b240cbc9d40609e48d73482",
+      "bytes": 39472,
+      "mode": "0500"
+    }
+  ],
+  "parent_directory_mode": "0700",
+  "runtime": "ordinary direct executable paths, read-only bind in sandbox, SHA check before each launch",
+  "trusted_host_release_unchanged_during_operation": true,
+  "private_inputs_or_binaries_copied_to_git": false
+}

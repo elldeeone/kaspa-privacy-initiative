@@ -1,0 +1,56 @@
+✔ strict10 descriptor and full Auth528 policy template (1.789659ms)
+✔ public manifest requires exact canonical bytes and8source identities (0.847023ms)
+✔ preferred source failure uses a fresh secondary (55.731117ms)
+✔ both sources down is incomplete with unknown balance (11.962665ms)
+✔ wrong network and pruned history fail before acceptance (20.074814ms)
+✔ a partial source is never spliced into another source (11.917589ms)
+✖ Auth528 terminal is discovered through exact outpoint graph (26.964327ms)
+✖ postquery confirmed payout spend invalidates even terminal snapshot (21.142027ms)
+✔ missing current open head cannot become zero (15.690314ms)
+✔ empty, truncated or removed finite prefix fails incomplete (31.478283ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 220.226877
+
+✖ failing tests:
+
+test at test_fetch.mjs:118:1
+✖ Auth528 terminal is discovered through exact outpoint graph (26.964327ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 5
+  
+      at TestContext.<anonymous> (file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/private-network-recovery/test_fetch.mjs:122:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test_fetch.mjs:124:1
+✖ postquery confirmed payout spend invalidates even terminal snapshot (21.142027ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'INCOMPLETE'
+  
+      at TestContext.<anonymous> (file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/private-network-recovery/test_fetch.mjs:126:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'INCOMPLETE',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

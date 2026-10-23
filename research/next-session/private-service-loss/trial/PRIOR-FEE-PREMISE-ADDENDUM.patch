@@ -1,0 +1,39 @@
+diff --git a/research/next-session/privacy-recovery/fee-feasibility/FEE-FEASIBILITY-01.md b/research/next-session/privacy-recovery/fee-feasibility/FEE-FEASIBILITY-01.md
+index f5b278be..27d5dce6 100644
+--- a/research/next-session/privacy-recovery/fee-feasibility/FEE-FEASIBILITY-01.md
++++ b/research/next-session/privacy-recovery/fee-feasibility/FEE-FEASIBILITY-01.md
+@@ -89,7 +89,10 @@ below remains deliberately more generous.
+ 
+ ## Two outputs cannot be rescued by a larger sequence
+ 
+-One useful recipient requires a sender payment proof and its own exit proof.
++Under the selected sender-claim → private-transfer → receiver-exit lifecycle,
++one useful recipient requires a sender payment proof and its own exit proof.
++Direct founding to a recipient omits that private-transfer step and is outside
++this bound; no universal deposit-to-exit impossibility is asserted.
+ Even the two native base tags cost280,000 mass (2.8%) before entry. With two
+ useful recipients, one payment and two independent cashouts cost three base tags:
+ 210,000 mass per recipient (2.1%), or221,250 (2.2125%) with the current two public
+diff --git a/research/next-session/privacy-recovery/fee-feasibility/PUBLIC-ALLOWLIST.json b/research/next-session/privacy-recovery/fee-feasibility/PUBLIC-ALLOWLIST.json
+index 2ac79c0f..7161fb58 100644
+--- a/research/next-session/privacy-recovery/fee-feasibility/PUBLIC-ALLOWLIST.json
++++ b/research/next-session/privacy-recovery/fee-feasibility/PUBLIC-ALLOWLIST.json
+@@ -3,9 +3,9 @@
+   "classification": "PUBLIC_SOURCE_COST_MEMO_NO_VM",
+   "files": [
+     {
+-      "bytes": 12102,
++      "bytes": 12331,
+       "path": "research/next-session/privacy-recovery/fee-feasibility/FEE-FEASIBILITY-01.md",
+-      "sha256": "dd64636c75ff559df32684f9ea495ec6e0da8a0ddfb79fe9bf42a45fb90a5b5d"
++      "sha256": "7259902a1bca3439f84c1881784cb76f376ac5ec360ef9d30e9a02dad3399002"
+     },
+     {
+       "bytes": 36990,
+@@ -17,5 +17,5 @@
+   "native_or_proof_execution": false,
+   "scope": "New fee-feasibility folder only; all frozen lifecycle artifacts unchanged",
+   "self_excluded": true,
+-  "whole_memo_additional_second_pass": "requested; not required to preserve arithmetic scope"
++  "whole_memo_additional_second_pass": "ACK by /root/private_exit_review: all rational candidate rows/growth ceilings/capacity minima and direct-entry accounting matched; sender-private-transfer premise made explicit."
+ }

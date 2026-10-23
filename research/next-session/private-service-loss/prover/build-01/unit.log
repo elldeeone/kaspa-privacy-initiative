@@ -1,0 +1,57 @@
+Running as unit: kpi-private-cashout-build01.service
+   Compiling kpi-private-cashout-prover v0.1.0 (/workspace/poc/private-cashout-prover)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-private-cashout-prover` (lib test) generated 1 warning (run `cargo fix --lib -p kpi-private-cashout-prover --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 7.48s
+     Running unittests src/lib.rs (/target/release/deps/kpi_private_cashout_prover-1c8b0150adf1231a)
+
+running 22 tests
+test circuit::selected_hmac_tests::padded_inner_requires_exact_three_blocks ... ok
+test parameters::tests::template_is_unselected_before_pk_io ... ok
+test request::tests::duplicate_fields_reject_at_every_object_level ... ok
+test parameters::tests::canonical_manifest_bytes_reject_aliases ... ok
+test circuit::selected_hmac_tests::malformed_selector_field_assignment_is_rejected ... ok
+test request::tests::parser_and_io_errors_never_include_private_details ... ok
+test request::tests::exact_input_output_and_path_arities_are_required ... ok
+test request::tests::positions_are_u32_and_embedded_auth_encoding_is_checked ... ok
+test request::tests::syntax_accepts_without_claiming_relation_validity ... ok
+test request::tests::trailing_payload_rejects_but_whitespace_is_allowed ... ok
+test request::tests::every_hex_field_requires_lowercase_exact_width ... ok
+test request::tests::schema_missing_fields_and_unknown_fields_reject ... ok
+test request::tests::schema_objects_cannot_be_replaced_by_struct_field_arrays ... ok
+test request::tests::read_and_parse_enforce_the_cap_without_unbounded_reads ... ok
+test parameters::tests::bad_parameter_bytes_never_reach_decoder_or_witness_reader ... ok
+test parameters::tests::tiny_official_parameters_authenticate_decode_prove_and_verify ... ok
+test exact_sha256::tests::boolean_truth_tables_and_no_constant_regression ... ok
+test parameters::tests::manifest_policy_rejects_source_domain_format_vk_and_object_aliases ... ok
+test parameters::tests::authenticated_wrong_vk_dimensions_and_trailing_bytes_reject ... ok
+test circuit::selected_hmac_tests::malformed_padding_or_length_cannot_match_original_hmac ... ok
+test exact_sha256::tests::exact_sha_boundary_and_contract_lengths ... ok
+test circuit::selected_hmac_tests::exact_inner_bytes_and_original_hmac_known_answers ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.42s
+
+   Compiling kpi-private-cashout-prover v0.1.0 (/workspace/poc/private-cashout-prover)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-private-cashout-prover` (lib) generated 1 warning (run `cargo fix --lib -p kpi-private-cashout-prover` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 9.30s
+{"binary_sha256":"8511ab69fffd5bc56a29894a819f76a34b88a215b0c05a28ca2ae79b2730d122","checks_passed":8,"checks_total":8,"error_code":"parameters_unselected","expected_error_code":"parameters_unselected","schema":"kpx3-before-witness-cli-control/v1","status":"pass","witness_bytes_offered":294,"witness_bytes_retained":294}
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 32.303s
+             CPU time consumed: 3min 27.995s
+                   Memory peak: 790.3M (swap: 0B)

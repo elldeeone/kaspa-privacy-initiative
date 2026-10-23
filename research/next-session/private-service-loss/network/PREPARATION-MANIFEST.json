@@ -1,0 +1,555 @@
+{
+  "authority": "ADR0053 plus ADR0054 execution amendment",
+  "current_ordinary_source_freeze_sha256": "19dffcaa74e4f45ac681bbfbb26e8b42783467f4348cd1fd6e20ae9eab83e207",
+  "files": [
+    {
+      "bytes": 5430,
+      "path": "poc/private-network-recovery/README.md",
+      "sha256": "3012f3a94954c9175b17f880c4b1af1b07244172f865220175e3057162eee90a"
+    },
+    {
+      "bytes": 29953,
+      "path": "poc/private-network-recovery/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 17901,
+      "path": "poc/private-network-recovery/network_replay.py",
+      "sha256": "00e034780c059febd92166148829ac7c15f27a3395d06df055ccc9c82a2ce0df"
+    },
+    {
+      "bytes": 4653,
+      "path": "poc/private-network-recovery/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 1696,
+      "path": "poc/private-network-recovery/pinned_dependencies.py",
+      "sha256": "96218108bde3ede044a5f8a1d8b1f36913f56871b0ad53c2335f92d7eeaa4a1c"
+    },
+    {
+      "bytes": 1787,
+      "path": "poc/private-network-recovery/run_fetch.py",
+      "sha256": "944cb9f2d3ab0f0bcc18ce78e40515763593efcdab5e7669f59fadf54864238d"
+    },
+    {
+      "bytes": 9834,
+      "path": "poc/private-network-recovery/run_live.py",
+      "sha256": "da2f0d3b1c47bc884355ca654bdb0177ea55b84c54aca8a0ed325dd66845b313"
+    },
+    {
+      "bytes": 8805,
+      "path": "poc/private-network-recovery/test_fetch.mjs",
+      "sha256": "9a59306fff27306246e6aa74a2570b6bcf4ba74043d8260382ad3045f8d5c63b"
+    },
+    {
+      "bytes": 11331,
+      "path": "poc/private-network-recovery/test_public_network.py",
+      "sha256": "4f72ed0848e2f3d85378f21c5685b2437621e5c529a437594fa62787a7eb9e8c"
+    },
+    {
+      "bytes": 2769,
+      "path": "poc/private-network-recovery/test_trusted_runtime.py",
+      "sha256": "6d98fb5a2c92934fb8fd7b2a78fe48b3616e04380763c553221dd35e50ec2058"
+    },
+    {
+      "bytes": 2566,
+      "path": "poc/private-network-recovery/trusted_runtime.py",
+      "sha256": "3ce31ae0eb8f942009a4108f9a5dbb6a08df6c7f0925f06a952315091e1bbd1c"
+    },
+    {
+      "bytes": 2493,
+      "path": "poc/private-network-recovery/verify_bundle.mjs",
+      "sha256": "d3a9c2676cad15c0a46ce1f5fe0ff086383cd0781448e04a0697f43a87d49e9e"
+    },
+    {
+      "bytes": 178,
+      "path": "research/next-session/private-service-loss/network/.gitignore",
+      "sha256": "c54f3209534db9ec094812119983f1619c4a0b159de79a8c307a74b73bc41aee"
+    },
+    {
+      "bytes": 8049,
+      "path": "research/next-session/private-service-loss/network/CONTRACT-PROPOSED.md",
+      "sha256": "193945b9a9dadc510ad8c8089fee112407331482706227c422f13a47c4203b85"
+    },
+    {
+      "bytes": 3361,
+      "path": "research/next-session/private-service-loss/network/FETCH-CONTROLS-01.json",
+      "sha256": "731d612a0d230a7998882b70dc14930869bb4c3f50f0f8308cec7ded4f87172c"
+    },
+    {
+      "bytes": 422,
+      "path": "research/next-session/private-service-loss/network/FETCH-CONTROLS-01.log",
+      "sha256": "05dabdeb27faa70acfd9027c5d6c5fe8771475c72241d36847644e3e491f22dd"
+    },
+    {
+      "bytes": 3700,
+      "path": "research/next-session/private-service-loss/network/FETCH-CONTROLS-02.json",
+      "sha256": "e7eac24dc838506519cc59d5292adb38cbd7719427eb6591ae3fa90f1a4702d1"
+    },
+    {
+      "bytes": 2217,
+      "path": "research/next-session/private-service-loss/network/FETCH-CONTROLS-02.log",
+      "sha256": "f7374fc4b9b90e324710e9d92c1a14955a2408db998fcf199a207f3e283f316f"
+    },
+    {
+      "bytes": 4016,
+      "path": "research/next-session/private-service-loss/network/FETCH-CONTROLS-03.json",
+      "sha256": "39295034dd8ccb1d03c66710aa2c5b6177b5fab5a29cde7acb1204ebbdc856a6"
+    },
+    {
+      "bytes": 859,
+      "path": "research/next-session/private-service-loss/network/FETCH-CONTROLS-03.log",
+      "sha256": "a8316cf39a5eaf0ca41171dfaf2f4be4fd6708e706183176eca1bd821f48800b"
+    },
+    {
+      "bytes": 6879,
+      "path": "research/next-session/private-service-loss/network/NETWORK-SOURCE-FREEZE-01.json",
+      "sha256": "a4b71ec258c6a48813997ab9954e3eb401ac34a24803a73d59c64358e4c52bbb"
+    },
+    {
+      "bytes": 7306,
+      "path": "research/next-session/private-service-loss/network/NETWORK-SOURCE-FREEZE-02.json",
+      "sha256": "a69349546f952b2ff6cc46c124f53cf670a74dde73aa91bcb8650b7ae3def1a8"
+    },
+    {
+      "bytes": 7366,
+      "path": "research/next-session/private-service-loss/network/NETWORK-SOURCE-FREEZE-03.json",
+      "sha256": "416373eb595c46af9242b2b386a4cf545582a9def4ae22fa57dd68e21d3d84eb"
+    },
+    {
+      "bytes": 8198,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-FETCH-CONTROLS-01.json",
+      "sha256": "e81dfd2937a34575d0beee7bd6be445da000d65ee3860846094607aa2795be46"
+    },
+    {
+      "bytes": 859,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-FETCH-CONTROLS-01.log",
+      "sha256": "209496eaece370f524dc4222f99e15b35ea821ded62ce096555293df9f6af65d"
+    },
+    {
+      "bytes": 7346,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-NETWORK-SOURCE-FREEZE-01.json",
+      "sha256": "19dffcaa74e4f45ac681bbfbb26e8b42783467f4348cd1fd6e20ae9eab83e207"
+    },
+    {
+      "bytes": 7901,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-PUBLIC-CONTROLS-01.json",
+      "sha256": "1bfe8b25cded9ed5baec5e1a201f3a76d3e2a1a4fd38f5a98e67423f75f08086"
+    },
+    {
+      "bytes": 4116,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-PUBLIC-CONTROLS-01.log",
+      "sha256": "6a7dccbdcbc9c779da14add189c2c7f362f9082b39a71098e068c03372b6aff7"
+    },
+    {
+      "bytes": 8148,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-PUBLIC-CONTROLS-02.json",
+      "sha256": "18426e1dcbf05e1fd1ec0118a440a0550b86d7b8c25b1214e2a1fb70db6859eb"
+    },
+    {
+      "bytes": 3295,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-PUBLIC-CONTROLS-02.log",
+      "sha256": "c94b59abe68d5f7e83bfb290a07341af8c1bb1c4ba7151fff276ae5866ae62cf"
+    },
+    {
+      "bytes": 1131,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-RUNTIME-SELECTION-01.json",
+      "sha256": "aa0c7ae591e0b8b3c5677c161e9252cc10796af542ce26baaa46a9d0bc384487"
+    },
+    {
+      "bytes": 97,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-STDIN-DIAGNOSIS-01.log",
+      "sha256": "950bf71bb969088c83c558d67f0483c682bcfe8ec5cf92a3be59ff54f25b0218"
+    },
+    {
+      "bytes": 70,
+      "path": "research/next-session/private-service-loss/network/ORDINARY-STDIN-DIAGNOSIS-02.log",
+      "sha256": "a75b3e2f15a9d34618001459fa43fa21601a95e7cb596a17f8a1888aa9b51675"
+    },
+    {
+      "bytes": 7020,
+      "path": "research/next-session/private-service-loss/network/PUBLIC-CONTROLS-01.json",
+      "sha256": "566f5a649a548015e44734e3af6e692b4ed8982890a9096c588405a35782710d"
+    },
+    {
+      "bytes": 3045,
+      "path": "research/next-session/private-service-loss/network/PUBLIC-CONTROLS-01.log",
+      "sha256": "8279741dc06c5734d4dbd28c9fb2b0e7136960fb5601120aa996205bfe4abc29"
+    },
+    {
+      "bytes": 935,
+      "path": "research/next-session/private-service-loss/network/SEALED-RUNTIME-CONTROLS-01.json",
+      "sha256": "2d8e2020657d3241a01a826cf30cf31fe3ba6ab9271b60d88d64ceada3269aab"
+    },
+    {
+      "bytes": 2575,
+      "path": "research/next-session/private-service-loss/network/SEALED-RUNTIME-CONTROLS-01.log",
+      "sha256": "f8b22b4898fa2c0de464f3eacab2fd8a6b690c26613f1d8ef26b6aa78ca39305"
+    },
+    {
+      "bytes": 1028,
+      "path": "research/next-session/private-service-loss/network/SEALED-RUNTIME-CONTROLS-02.json",
+      "sha256": "2e05760deec2cb721017fc7db83283c5fe459d4df238bf3366bd85b10931b56f"
+    },
+    {
+      "bytes": 674,
+      "path": "research/next-session/private-service-loss/network/SEALED-RUNTIME-CONTROLS-02.log",
+      "sha256": "8de0843d88b09ed6a5974f6683913adf7dc42d19e97b6daf4eb794d335b455c2"
+    },
+    {
+      "bytes": 4195,
+      "path": "research/next-session/private-service-loss/network/SEALED-RUNTIME-DIAGNOSIS-01.log",
+      "sha256": "64f44c386b925d74012758c62451a96f85debf53fb346d1f26a05432c69f7e8c"
+    },
+    {
+      "bytes": 105,
+      "path": "research/next-session/private-service-loss/network/SEALED-RUNTIME-LOADER-PROBE-01.log",
+      "sha256": "32f74f30dabf88d096b6e4be44c5fb7812e6595ce7620cdcdd4db55716f12ab3"
+    },
+    {
+      "bytes": 319,
+      "path": "research/next-session/private-service-loss/network/controls-fixtures-01/CLASSIFICATION.json",
+      "sha256": "2808a11ed003663b9455e565cc2d4c305b943d69729f3bb252ad4275b0062a51"
+    },
+    {
+      "bytes": 50163,
+      "path": "research/next-session/private-service-loss/network/controls-fixtures-01/descriptor.json",
+      "sha256": "6907946b42cc027f43754415230d61fea81a31389dbf709afc0125808410263f"
+    },
+    {
+      "bytes": 506131,
+      "path": "research/next-session/private-service-loss/network/controls-fixtures-01/network-claims.json",
+      "sha256": "c7db232deffbf96c779cdc610049bfb54ac5958b972513883e2d92c2aaf7c0b0"
+    },
+    {
+      "bytes": 2443,
+      "path": "research/next-session/private-service-loss/network/controls-fixtures-01/public-manifest.json",
+      "sha256": "a733c7e4e7aa93e66c3e4d3c1b4514dd01654c495f5522ab2e93043a3d4243bb"
+    },
+    {
+      "bytes": 1582,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/SOURCE.json",
+      "sha256": "73473c79dfcb864bf35a4d11be4c01ec1767f8246a38e54df41540774b34ccd7"
+    },
+    {
+      "bytes": 29953,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 17359,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/network_replay.py",
+      "sha256": "d1f963b7efc9888d67077566500cb0ed6deee09877e9d8f6f9eec81f5d69fb59"
+    },
+    {
+      "bytes": 4653,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 1696,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/pinned_dependencies.py",
+      "sha256": "96218108bde3ede044a5f8a1d8b1f36913f56871b0ad53c2335f92d7eeaa4a1c"
+    },
+    {
+      "bytes": 4484,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/sealed_runtime.py",
+      "sha256": "994cfd5b2fe51574565a76754c8523e5a17e1ae4b00f9031bb6e2f791b192f16"
+    },
+    {
+      "bytes": 11328,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/test_public_network.py",
+      "sha256": "887345eed1fd555dfbca4112e578dbe0e2bd2650be8f8b976319d07f374e87f5"
+    },
+    {
+      "bytes": 2172,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/test_sealed_runtime.py",
+      "sha256": "2de27a5def499d16c3dd46a50285a7de2e371dc8b84c2e63afb2316099373a71"
+    },
+    {
+      "bytes": 2493,
+      "path": "research/next-session/private-service-loss/network/controls-source-01/verify_bundle.mjs",
+      "sha256": "d3a9c2676cad15c0a46ce1f5fe0ff086383cd0781448e04a0697f43a87d49e9e"
+    },
+    {
+      "bytes": 843,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-01/SOURCE.json",
+      "sha256": "75527364ca322a455e418bba456a3bec5d31371dfec7ca8b9bd4d4a971dbcb03"
+    },
+    {
+      "bytes": 29953,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-01/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 4653,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-01/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 4484,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-01/sealed_runtime.py",
+      "sha256": "994cfd5b2fe51574565a76754c8523e5a17e1ae4b00f9031bb6e2f791b192f16"
+    },
+    {
+      "bytes": 8717,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-01/test_fetch.mjs",
+      "sha256": "631b1f7f25493e16d0d9a15ee8140ca39dc43ce2f4e396c4c7cc53aeb567658e"
+    },
+    {
+      "bytes": 1000,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-02/SOURCE.json",
+      "sha256": "421101acbe663c0ca6f5c0b4c7ebaf5487075b835e4c135e8ae1212b51585147"
+    },
+    {
+      "bytes": 29953,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-02/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 4653,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-02/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 4484,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-02/sealed_runtime.py",
+      "sha256": "994cfd5b2fe51574565a76754c8523e5a17e1ae4b00f9031bb6e2f791b192f16"
+    },
+    {
+      "bytes": 8805,
+      "path": "research/next-session/private-service-loss/network/fetch-controls-source-02/test_fetch.mjs",
+      "sha256": "9a59306fff27306246e6aa74a2570b6bcf4ba74043d8260382ad3045f8d5c63b"
+    },
+    {
+      "bytes": 2200,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/SOURCE.json",
+      "sha256": "890b69d050c4523b6ff88873b95d5ec97060cd40c13a04e86784e4a2f88a8d0e"
+    },
+    {
+      "bytes": 29953,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 17901,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/network_replay.py",
+      "sha256": "00e034780c059febd92166148829ac7c15f27a3395d06df055ccc9c82a2ce0df"
+    },
+    {
+      "bytes": 4653,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 1696,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/pinned_dependencies.py",
+      "sha256": "96218108bde3ede044a5f8a1d8b1f36913f56871b0ad53c2335f92d7eeaa4a1c"
+    },
+    {
+      "bytes": 1787,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/run_fetch.py",
+      "sha256": "944cb9f2d3ab0f0bcc18ce78e40515763593efcdab5e7669f59fadf54864238d"
+    },
+    {
+      "bytes": 9834,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/run_live.py",
+      "sha256": "da2f0d3b1c47bc884355ca654bdb0177ea55b84c54aca8a0ed325dd66845b313"
+    },
+    {
+      "bytes": 8805,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/test_fetch.mjs",
+      "sha256": "9a59306fff27306246e6aa74a2570b6bcf4ba74043d8260382ad3045f8d5c63b"
+    },
+    {
+      "bytes": 11331,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/test_public_network.py",
+      "sha256": "4f72ed0848e2f3d85378f21c5685b2437621e5c529a437594fa62787a7eb9e8c"
+    },
+    {
+      "bytes": 2604,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/test_trusted_runtime.py",
+      "sha256": "9e7769ed7664fceb43f29cf93c488a5bbe195b92216bcd62535423ed983d900d"
+    },
+    {
+      "bytes": 2566,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/trusted_runtime.py",
+      "sha256": "3ce31ae0eb8f942009a4108f9a5dbb6a08df6c7f0925f06a952315091e1bbd1c"
+    },
+    {
+      "bytes": 2493,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-01/verify_bundle.mjs",
+      "sha256": "d3a9c2676cad15c0a46ce1f5fe0ff086383cd0781448e04a0697f43a87d49e9e"
+    },
+    {
+      "bytes": 2177,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/SOURCE.json",
+      "sha256": "6d140254d288f42bcdbafe3014f44b4a135b6a9b1099a1087877486ea6908308"
+    },
+    {
+      "bytes": 29953,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 17901,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/network_replay.py",
+      "sha256": "00e034780c059febd92166148829ac7c15f27a3395d06df055ccc9c82a2ce0df"
+    },
+    {
+      "bytes": 4653,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 1696,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/pinned_dependencies.py",
+      "sha256": "96218108bde3ede044a5f8a1d8b1f36913f56871b0ad53c2335f92d7eeaa4a1c"
+    },
+    {
+      "bytes": 1787,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/run_fetch.py",
+      "sha256": "944cb9f2d3ab0f0bcc18ce78e40515763593efcdab5e7669f59fadf54864238d"
+    },
+    {
+      "bytes": 9834,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/run_live.py",
+      "sha256": "da2f0d3b1c47bc884355ca654bdb0177ea55b84c54aca8a0ed325dd66845b313"
+    },
+    {
+      "bytes": 8805,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/test_fetch.mjs",
+      "sha256": "9a59306fff27306246e6aa74a2570b6bcf4ba74043d8260382ad3045f8d5c63b"
+    },
+    {
+      "bytes": 11331,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/test_public_network.py",
+      "sha256": "4f72ed0848e2f3d85378f21c5685b2437621e5c529a437594fa62787a7eb9e8c"
+    },
+    {
+      "bytes": 2769,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/test_trusted_runtime.py",
+      "sha256": "6d98fb5a2c92934fb8fd7b2a78fe48b3616e04380763c553221dd35e50ec2058"
+    },
+    {
+      "bytes": 2566,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/trusted_runtime.py",
+      "sha256": "3ce31ae0eb8f942009a4108f9a5dbb6a08df6c7f0925f06a952315091e1bbd1c"
+    },
+    {
+      "bytes": 2493,
+      "path": "research/next-session/private-service-loss/network/ordinary-controls-source-02/verify_bundle.mjs",
+      "sha256": "d3a9c2676cad15c0a46ce1f5fe0ff086383cd0781448e04a0697f43a87d49e9e"
+    },
+    {
+      "bytes": 2531,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/IDENTITY.json",
+      "sha256": "1b749497797d0c00e69a1053a4a9cb54cb29393dce62dae023736dd33d316928"
+    },
+    {
+      "bytes": 5205,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/README.md",
+      "sha256": "467b4159363c7b393fb30c29391e73f38acff69885f9d64de8a76472cc98d4fe"
+    },
+    {
+      "bytes": 29953,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 17873,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/network_replay.py",
+      "sha256": "97b6247f3a07eb8503102f106f31916455dc35ccc3ac04095aeccac0b590b4fa"
+    },
+    {
+      "bytes": 4653,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 1696,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/pinned_dependencies.py",
+      "sha256": "96218108bde3ede044a5f8a1d8b1f36913f56871b0ad53c2335f92d7eeaa4a1c"
+    },
+    {
+      "bytes": 1766,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/run_fetch.py",
+      "sha256": "8e14fbfd95a2f92a90f3a4a1a942a73393e8928bd3363d22d98518cc9be0b098"
+    },
+    {
+      "bytes": 9827,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/run_live.py",
+      "sha256": "0a25fad1fdf69db89ec36f6ef7637bfa41b23aa8197728a1a387400def67eefc"
+    },
+    {
+      "bytes": 4484,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/sealed_runtime.py",
+      "sha256": "994cfd5b2fe51574565a76754c8523e5a17e1ae4b00f9031bb6e2f791b192f16"
+    },
+    {
+      "bytes": 8805,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/test_fetch.mjs",
+      "sha256": "9a59306fff27306246e6aa74a2570b6bcf4ba74043d8260382ad3045f8d5c63b"
+    },
+    {
+      "bytes": 11328,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/test_public_network.py",
+      "sha256": "887345eed1fd555dfbca4112e578dbe0e2bd2650be8f8b976319d07f374e87f5"
+    },
+    {
+      "bytes": 2172,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/test_sealed_runtime.py",
+      "sha256": "2de27a5def499d16c3dd46a50285a7de2e371dc8b84c2e63afb2316099373a71"
+    },
+    {
+      "bytes": 2493,
+      "path": "research/next-session/private-service-loss/network/pre-adr0054-source-01/verify_bundle.mjs",
+      "sha256": "d3a9c2676cad15c0a46ce1f5fe0ff086383cd0781448e04a0697f43a87d49e9e"
+    },
+    {
+      "bytes": 714,
+      "path": "research/next-session/private-service-loss/network/runtime-control-02-source/IDENTITY.json",
+      "sha256": "a7a2bcd7a8b3a32158d8117458f2f3e029a94d3ffc7e8572c264d14b43314d70"
+    },
+    {
+      "bytes": 4317,
+      "path": "research/next-session/private-service-loss/network/runtime-control-02-source/sealed_runtime.py",
+      "sha256": "22f6aa8c84e9620435421819dc10fdffd79d1dbf3da4b8db29ffc3d78984ecf5"
+    },
+    {
+      "bytes": 2172,
+      "path": "research/next-session/private-service-loss/network/runtime-control-02-source/test_sealed_runtime.py",
+      "sha256": "2de27a5def499d16c3dd46a50285a7de2e371dc8b84c2e63afb2316099373a71"
+    },
+    {
+      "bytes": 654,
+      "path": "research/next-session/private-service-loss/network/runtime-controller-unexecuted-01/IDENTITY.json",
+      "sha256": "55030d15b0493d2eb3766f91967adeb73a2fff7274c0956c92122311125b693e"
+    },
+    {
+      "bytes": 4969,
+      "path": "research/next-session/private-service-loss/network/runtime-controller-unexecuted-01/README.md",
+      "sha256": "cb298437e272627576a356d061e1b233d2a8a550ff376123fd213e05f923df8f"
+    },
+    {
+      "bytes": 8464,
+      "path": "research/next-session/private-service-loss/network/runtime-controller-unexecuted-01/run_live.py",
+      "sha256": "d3b9cbbd35bf26314984be16f0c1e7c1925c5722cad8610208059e0e4c970064"
+    },
+    {
+      "bytes": 338,
+      "path": "research/next-session/private-service-loss/network/runtime-controller-unexecuted-02/IDENTITY.json",
+      "sha256": "16e6d4f6871be1f13d9ec0bec4ce0cce2a7071d44e46cb975e41020da33e2c84"
+    },
+    {
+      "bytes": 8677,
+      "path": "research/next-session/private-service-loss/network/runtime-controller-unexecuted-02/run_live.py",
+      "sha256": "f6d390722268a3e07112d9db091520fe9d203b1f4334559a2fb23913ad817184"
+    }
+  ],
+  "payload_bytes": 1261509,
+  "payload_files": 109,
+  "schema": "kpx3-private-network-preparation-publication/v1",
+  "scope": "Implementation, public synthetic controls, source/runtime review and retained failures only. No actualRPC, Native Full, proof generation, parameter blob or backup read. Earlier special-runtime sources/probes are historical and inactive."
+}

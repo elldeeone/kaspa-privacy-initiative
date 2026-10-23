@@ -1,0 +1,47 @@
+{
+  "comparisons": [
+    {
+      "common_rows": 2,
+      "common_rows_sha256": "5e1010e84f24e7cb72d1d24aa04c3fa54a100873322395d05bd80e65772236d6",
+      "earlier_observation": 1,
+      "exact_full_bodies_contexts_and_accepting_headers_equal": true,
+      "later_observation": 2
+    },
+    {
+      "common_rows": 3,
+      "common_rows_sha256": "0fda961f155c8f472fe330844eb8de1152e755dc8e5dbc7dd9707f0841f08d63",
+      "earlier_observation": 2,
+      "exact_full_bodies_contexts_and_accepting_headers_equal": true,
+      "later_observation": 3
+    }
+  ],
+  "distinct_contacted_endpoints": 2,
+  "independent_consensus": false,
+  "independently_operated_providers_verified": false,
+  "observations": [
+    {
+      "descriptor_sha256": "7d8f74edc7cffc813201af8c932fb4196adffa4a2ccb5593910bc5cd82bf1a57",
+      "manifest_sha256": "008689b84cd171187cc75d32402dbf13d6d4e3ed149d3349ecfbc418bfcaad54",
+      "number": 1,
+      "selected_rows": 2,
+      "source": "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh"
+    },
+    {
+      "descriptor_sha256": "7d8f74edc7cffc813201af8c932fb4196adffa4a2ccb5593910bc5cd82bf1a57",
+      "manifest_sha256": "008689b84cd171187cc75d32402dbf13d6d4e3ed149d3349ecfbc418bfcaad54",
+      "number": 2,
+      "selected_rows": 3,
+      "source": "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh"
+    },
+    {
+      "descriptor_sha256": "7d8f74edc7cffc813201af8c932fb4196adffa4a2ccb5593910bc5cd82bf1a57",
+      "manifest_sha256": "008689b84cd171187cc75d32402dbf13d6d4e3ed149d3349ecfbc418bfcaad54",
+      "number": 3,
+      "selected_rows": 4,
+      "source": "wss://electron-10.kaspa.blue/kaspa/testnet-10/wrpc/borsh"
+    }
+  ],
+  "parameter_blob_or_owner_data_read": false,
+  "schema": "kpx3-network-observation-corroboration/v1",
+  "scope": "Pure comparison of already fetched observations, no RPC/native/proof/backup work. Common accepted canonical bodies, full witnesses, contexts and accepting headers agree across time and contacted endpoints; changing frontiers/current spend status are expected."
+}

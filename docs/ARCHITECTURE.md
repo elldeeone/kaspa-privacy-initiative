@@ -9,9 +9,9 @@ selects independently fetched accepted records, an authenticated public pool
 descriptor, local replay and seed-only ownership/witness reconstruction.
 [ADR-0050](adr/0050-proof-private-native-cashout.md) selects a separate unified
 private action with exact public native payout, hidden input notes and private
-change. Its terminal form inserts NFs without appending CMs. The new Auth528
-program is an unfunded supplied-context prototype, separate from the confirmed
-older TN10 program. The current revealing-exit channel is measured; validating-node/data
+change. Its terminal form inserts NFs without appending CMs. A fresh Auth528
+instance now has both owner-local proof-private withdrawals confirmed on TN10,
+separate from the older revealing-exit program. The revealing-exit channel is measured; validating-node/data
 availability and receiver delivery remain assumptions, and direct verification
 fees prevent this unamortized route meeting the10-KAS2% lifecycle target.
 
@@ -23,16 +23,27 @@ exit, and a final fresh public replay verifies zero reserve and both payouts
 unspent. These explicitly consented revealing exits validate liveness under
 selected-node/retained-data assumptions; they do not validate financial privacy.
 
-Network recovery currently supports old Auth484/KPX2 only. The Auth528 network
-adapter remains unintegrated; its generic signer support does not extend the
-fetch/replay/template or establish a complete independently recovered new-program
-lifecycle.
-
 [ADR-0052](adr/0052-separate-public-replay-for-private-cashouts.md) now adds a
 separate public Auth528 replay adapter for supplied contexts. It verifies the
 whole approved program and terminal updates, reusing exact previously validated
-native bodies. This is offline compatibility evidence, with `complete:false`;
-new-program network discovery and independently owned private proving remain open.
+native bodies. Its original offline compatibility evidence retains `complete:false`.
+The new outer network client separately requires fresh acquisition, complete
+finite coverage, exact queries/post-query checks, SDK hashes and fresh native
+Full validation before an owner reads a seed.
+
+[ADR-0053](adr/0053-private-network-recovery-and-local-owner-proving.md) now selects
+a fresh research rehearsal integrating those two boundaries: authenticated
+public parameters, descriptor-based network reconstruction and one local prover
+per seed-only owner, followed by confirmed proof-private native payouts. The
+[fresh result](../research/next-session/private-service-loss/RESULTS.md) confirms
+41,000,100 and 41,042,400 sompi payouts with terminal reserve zero, after the
+operator prover stopped. Initial cold exits require the authenticated public PK
+and an owner-local prover; no operator archive, amount map or saved exit is used.
+This does not change previous privacy/fee failures or establish durable public
+parameter/history availability, independent consensus or setup honesty.
+[ADR-0054](adr/0054-trusted-read-only-executable-releases.md) chooses ordinary
+hash-checked, read-only executable releases under explicit host trust for this
+rehearsal; it changes no private proof or native state/authorization check.
 
 [RFC-0021](rfc/0021-confirmed-native-private-payment-rehearsal.md) and
 [ADR-0046](adr/0046-fresh-private-testnet-rehearsal.md) now record a

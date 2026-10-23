@@ -1,0 +1,36 @@
+{
+  "schema": "kpx3-wallet-public-wiring-control/v1",
+  "result": {
+    "passed": true,
+    "complete_public_dependency_mount_and_import_gate": true,
+    "expected_invalid_descriptor_rejected": true,
+    "owner_backup_or_pk_present": false,
+    "sdk_native_or_prover_executed": false,
+    "network_namespace": "isolated"
+  },
+  "source_files": [
+    {
+      "path": "research/next-session/private-service-loss/wallet/wiring-01/run.sh",
+      "sha256": "7b1d8f8308a36f8ee0000802c80f85b3cb01c875daaeaee2f47c5c5f05554f54"
+    },
+    {
+      "path": "research/next-session/private-service-loss/wallet/wiring-01/check.py",
+      "sha256": "fdae42cee28f153235d9afa1e691e33cdefe7cba44ceef0f3ffbb8ddb86f03e0"
+    }
+  ],
+  "result_sha256": "3e69567baccc87b95479a69af5ee83f75696ee156cb0aa055f9aa6f60929e6f1",
+  "owner_release_source_freeze_sha256": "3c6d2329df8641a23d64ae78d7b259c07f0f1a275beb7d3ecbadd9afeb6cc703",
+  "network_full_source_freeze_sha256": "19dffcaa74e4f45ac681bbfbb26e8b42783467f4348cd1fd6e20ae9eab83e207",
+  "requested_resources": {
+    "cpu_quota_percent": 200,
+    "memory_max_bytes": 4294967296,
+    "memory_swap_max_bytes": 0
+  },
+  "live_cgroup_caps_observed": false,
+  "cleanup": {
+    "LoadState": "not-found",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "MainPID": "0"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "cleanup": {
+    "MainPID_zero_or_explicitly_unloaded": true,
+    "at": "2026-10-23T10:45:24.544579+00:00",
+    "cgroup_procs_observed": false,
+    "missing_manager_or_process_observation_is_not_zero": true,
+    "owned_cgroup_path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-kpx3-network-05a75efe6ca8.service",
+    "owned_cgroup_processes_empty": null,
+    "state": {
+      "ActiveState": "inactive",
+      "CPUQuotaPerSecUSec": "infinity",
+      "ControlGroup": "",
+      "LoadState": "not-found",
+      "MainPID": "0",
+      "MemoryMax": "infinity",
+      "MemorySwapMax": "infinity",
+      "SubState": "dead",
+      "systemctl_returncode": 0,
+      "systemctl_stderr": ""
+    },
+    "stop_command": {
+      "returncode": 5,
+      "stderr": "Failed to stop kpi-kpx3-network-05a75efe6ca8.service: Unit kpi-kpx3-network-05a75efe6ca8.service not loaded.\n"
+    }
+  },
+  "coverage": {
+    "accepted_transactions_scanned": 31672,
+    "complete": true,
+    "end_cursor": "b07edb9464f2f32ef8b3d0bbd25d69c62100c3052b3a827de34e1cdb283a7868",
+    "frontier_seen": true,
+    "missing": [],
+    "pruned": false,
+    "removed_chain_block_hashes": [],
+    "start_hash": "c7c858424c243d5c8680ddb4d340b101d98dad109da9410cf3426cf7b244df9a"
+  },
+  "current_queries": [
+    {
+      "amount_sompi": "228999900",
+      "entry": null,
+      "outpoint": {
+        "index": 0,
+        "transactionId": "98580676726abeb9057de82f6a5e3c3077cd865aa8c8acad205b210d09fcdb7f"
+      },
+      "queried": true,
+      "script_public_key": "0000205f9c87ec955e6354bf4733ea75b96baf6dcd90f8daebe2f0ef1f241ee438a933ac"
+    },
+    {
+      "amount_sompi": "138958700",
+      "entry": null,
+      "outpoint": {
+        "index": 0,
+        "transactionId": "006d46b0fabbf551a50186d9e9edf2f873f39ba0d871342c3dd254c1b4a4fbbf"
+      },
+      "queried": true,
+      "script_public_key": "0000aa2073e35cf92320e7cc58cadb526eef3bcd902fe263b3fd09e58afa532c2c25f89087"
+    },
+    {
+      "amount_sompi": "88630000",
+      "entry": {
+        "amount_sompi": "88630000",
+        "block_daa_score": "604180733",
+        "covenant_id": null,
+        "is_coinbase": false,
+        "outpoint": {
+          "index": 1,
+          "transactionId": "006d46b0fabbf551a50186d9e9edf2f873f39ba0d871342c3dd254c1b4a4fbbf"
+        },
+        "script_public_key": "0000205f9c87ec955e6354bf4733ea75b96baf6dcd90f8daebe2f0ef1f241ee438a933ac"
+      },
+      "outpoint": {
+        "index": 1,
+        "transactionId": "006d46b0fabbf551a50186d9e9edf2f873f39ba0d871342c3dd254c1b4a4fbbf"
+      },
+      "queried": true,
+      "script_public_key": "0000205f9c87ec955e6354bf4733ea75b96baf6dcd90f8daebe2f0ef1f241ee438a933ac"
+    },
+    {
+      "amount_sompi": "120000000",
+      "entry": {
+        "amount_sompi": "120000000",
+        "block_daa_score": "604181796",
+        "covenant_id": null,
+        "is_coinbase": false,
+        "outpoint": {
+          "index": 0,
+          "transactionId": "16c8a7d82f10eeac0d3da4609c518ade73f7da3294ec26e91cb1ae1b47486fd5"
+        },
+        "script_public_key": "0000aa202f8bd1b387ff85a5094effc1a0f5a4d6bd0f298825f1ae000a143a74f29b6ac987"
+      },
+      "outpoint": {
+        "index": 0,
+        "transactionId": "16c8a7d82f10eeac0d3da4609c518ade73f7da3294ec26e91cb1ae1b47486fd5"
+      },
+      "queried": true,
+      "script_public_key": "0000aa202f8bd1b387ff85a5094effc1a0f5a4d6bd0f298825f1ae000a143a74f29b6ac987"
+    }
+  ],
+  "descriptor_sha256": "7d8f74edc7cffc813201af8c932fb4196adffa4a2ccb5593910bc5cd82bf1a57",
+  "fetch_json_sha256": "72174443cf578042340d279eccc31dd8049796f1f65216c2d64aae042c50edc3",
+  "fresh_native_replay_owner": "Root-authorized cold wallet own-client; no duplicate VM run here",
+  "frontier": {
+    "blueScore": "592590094",
+    "hash": "b07edb9464f2f32ef8b3d0bbd25d69c62100c3052b3a827de34e1cdb283a7868"
+  },
+  "no_balance_or_ownership_claim": true,
+  "post_query": {
+    "checked_at": "2026-10-23T10:45:23.633Z",
+    "completed": true,
+    "related_transactions": [],
+    "removed_chain_block_hashes": [],
+    "start_hash": "b07edb9464f2f32ef8b3d0bbd25d69c62100c3052b3a827de34e1cdb283a7868",
+    "watched_outpoints": [
+      {
+        "index": 1,
+        "transactionId": "006d46b0fabbf551a50186d9e9edf2f873f39ba0d871342c3dd254c1b4a4fbbf"
+      },
+      {
+        "index": 0,
+        "transactionId": "16c8a7d82f10eeac0d3da4609c518ade73f7da3294ec26e91cb1ae1b47486fd5"
+      }
+    ]
+  },
+  "postquery_frontier": {
+    "blueScore": "592590211",
+    "hash": "453dfdef514a8e626d0b10eaa76140ecaacebf3db5151e5aeb4a80e03299ebc0"
+  },
+  "public_manifest_sha256": "008689b84cd171187cc75d32402dbf13d6d4e3ed149d3349ecfbc418bfcaad54",
+  "public_parameter_blob_read": false,
+  "raw_pairs": [
+    {
+      "decoded_bytes": 41495766,
+      "decoded_sha256": "eb8fc61d3a0e8221f3ef593a5bed179d4c65f8d4d678fc928aaae673a6bd5c00",
+      "git_ignored": true,
+      "gzip_bytes": 5004992,
+      "gzip_sha256": "deb770b3019e2d2a60e72116f291bd083b060ed0ac7cbf85c0a12a7fecdc3a57",
+      "path": "research/next-session/private-service-loss/network/live-observation-01/client-output/network-data/attempt-001/pages/00000.json.gz"
+    },
+    {
+      "decoded_bytes": 47106587,
+      "decoded_sha256": "c8578ff527eabf726ffaf1ae4e1ee2ad842bf62c8ac4d20350c1a4291aa4e9a6",
+      "git_ignored": true,
+      "gzip_bytes": 5687365,
+      "gzip_sha256": "1c1ecb3add5792597771474664d2230af17730b63e53c44cc85d8805a9788c94",
+      "path": "research/next-session/private-service-loss/network/live-observation-01/client-output/network-data/attempt-001/pages/00001.json.gz"
+    },
+    {
+      "decoded_bytes": 18756837,
+      "decoded_sha256": "1379ff3e0e45bf63fe6f03e54afedc9a4aa3493c5c462494ede335414b82fa41",
+      "git_ignored": true,
+      "gzip_bytes": 2973877,
+      "gzip_sha256": "0a792f33a3b80f0e57db79b39b70d63cc095f0296b774c0796e872f15021d92e",
+      "path": "research/next-session/private-service-loss/network/live-observation-01/client-output/network-data/attempt-001/pages/00002.json.gz"
+    },
+    {
+      "decoded_bytes": 10195686,
+      "decoded_sha256": "a0efcf1b6db60bcb3034663e02ea210c068e658d6eab79e71e5246bd68fb8d75",
+      "git_ignored": true,
+      "gzip_bytes": 1640018,
+      "gzip_sha256": "f1cf933ae57afad022464cf00e30687062c6e167afc5c188430d7e1a59e610d6",
+      "path": "research/next-session/private-service-loss/network/live-observation-01/client-output/network-data/attempt-001/post-query/pages/00000.json.gz"
+    }
+  ],
+  "schema": "kpx3-public-network-observation-summary/v1",
+  "selected_rows": [
+    {
+      "accepting_header_hash": "813da8e62adf83fd93fe32c4b79c6a7ec0763746f75f2529fbfc034c644066ea",
+      "actual_blue_score_distance": "3120",
+      "sdk_transaction_id_recomputed": true,
+      "txid": "006d46b0fabbf551a50186d9e9edf2f873f39ba0d871342c3dd254c1b4a4fbbf"
+    },
+    {
+      "accepting_header_hash": "3d336080c6b29a3340b5d72e93b70f85a93e44d77408351477308f5952564f3e",
+      "actual_blue_score_distance": "2057",
+      "sdk_transaction_id_recomputed": true,
+      "txid": "16c8a7d82f10eeac0d3da4609c518ade73f7da3294ec26e91cb1ae1b47486fd5"
+    }
+  ],
+  "source": {
+    "assertion_scope": "Distinct endpoints do not prove independently operated providers or consensus",
+    "attempt": 1,
+    "rpc_url": "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh"
+  },
+  "terminal_candidate_not_yet_replay_verified": false
+}

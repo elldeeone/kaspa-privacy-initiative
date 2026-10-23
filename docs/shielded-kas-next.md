@@ -2,6 +2,23 @@
 
 ## Current checkpoint — 2026-10-23
 
+The [fresh Auth528 rehearsal](../research/next-session/private-service-loss/RESULTS.md)
+now confirms both proof-private native payouts after operator-prover shutdown.
+Each cold owner reconstructed fresh public history, loaded authenticated public
+parameters and generated a new proof locally from one seed-only backup. The
+payouts are 41,000,100 and 41,042,400 sompi; terminal reserve is zero.
+
+The next privacy blocker is the selected whole-claim wallet: public payout plus
+fee reveals its consumed claim's value. Extend the existing relation's private
+change capability into owner-controlled repeated spending and seed-only change
+recovery, then run a prospectively frozen stronger arithmetic-observer comparison.
+See the [source-grounded next step](../research/next-session/private-service-loss/privacy/NEXT-BLOCKER-01.md).
+The unchanged privacy and 2% complete-fee targets still fail. Setup honesty and
+retained public parameters/history remain assumptions; independent consensus
+has not been verified.
+
+## Earlier checkpoint — 2026-10-23
+
 The previous native-KAS pilot completed both confirmed TN10 payouts. The next
 [privacy and recovery results](../research/next-session/privacy-recovery/RESULTS.md)
 now add descriptor-only network discovery, backup-only historical recovery and

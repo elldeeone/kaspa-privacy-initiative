@@ -1,0 +1,35 @@
+{
+  "schema": "kpx3-adversarial-source-review/v1",
+  "scope": "New root-only Auth528 transport fork and proposed mock controls",
+  "component_pre_run_freeze_sha256": "a80ea22c36b4f56ff9e299dc3f85859b41383ea0c3420ad792c90e1660e4b49b",
+  "source_sha256": {
+    "poc/private-cashout-native/adapter.mjs": "6add354e4939dbb579889275e737ecb442973103db279d2dd45ac67a986ca2c5",
+    "poc/private-cashout-native/native_safe.py": "ed36b7bb8056c2a6fa6d49140a39dce3a7cb6a9159ecf47c3a1d174b0c993e0a",
+    "poc/private-cashout-native/test_adapter.mjs": "37105a27def973ba86ea939d4b594386c53e7c9a9cda541d9f0774015c0a8a21"
+  },
+  "review": {
+    "verdict": "TRANSPORT_SOURCE_ACK",
+    "identity": "New public trial schema, exact PRIVATE-RECOVERY domain recipe, program label, TN10 genesis and canonical identity location; reject AA/old domains and a top-level secret profile",
+    "program": "Reconstruct and compare the entire approved immutable24417-byte program using pinned template bytes; matching a domain alone cannot authorize other code",
+    "stages": "Only founding, private-payment, bob-private-exit and charlie-private-exit; exact Auth528 magic/width and P0/continuing/terminal public modes",
+    "contexts": "Lossless integer conversion, null covenant and actual accepted input DAA binding",
+    "release_and_replay": "Exact public identity/body/localcheck/helper/release/adapter pins, actual live input UTXO check and both exclusive durable fsynced once-only intents remain unchanged from the reviewed baseline"
+  },
+  "operational_boundary": "For every planned predecessor, replace only unknown blockDAA metadata with the actual accepted context, revalidate Full and update its localcheck/release pin before the one submit. Body/Auth/proof/outpoint/value/script/fee must remain unchanged.",
+  "inherited_observation_gap": "This reviewed version checks postquery removals but does not inspect newly accepted spends of requested outputs in after.rows. Its current-output observation is point-in-time; the independently fetched terminal view is the current payout authority. Submit still rechecks exact live inputs. Root was informed; any fix needs a separate source delta, not a repeated native proof run.",
+  "subsequent_gap_resolution": {
+    "component_pre_run_freeze_sha256": "832aff49b9d9c7fd591a517a9ed1baeb7ea5109bdd4553137f22b602e7e65dc1",
+    "adapter_sha256": "08b5870879c8e9ae83e54a5cf27f337c694a2fa87ad7f687a39d6aa70b7c1b23",
+    "transport_test_sha256": "ff146196df7ddd8a888726188a85abf7bde3d6910660200566344ab649d7b355",
+    "verdict": "NARROW_TRANSPORT_SOURCE_DELTA_ACK",
+    "fix": "Reject an after-query accepted input spend of any checked consumed point or requested asserted output point before reporting confirmation",
+    "controls_added": "Related payout spend rejects; unrelated accepted activity remains allowed",
+    "only_adapter_and_transport_test_pins_changed": true,
+    "rust_helper_and_durable_once_intent_unchanged": true,
+    "reviewer_runtime_executed": false,
+    "scope": "Closes the inherited postquery gap for claimed outputs; observations remain non-atomic and point-in-time. Initial freeze was unexecuted and superseded."
+  },
+  "control_classification": "Mock transport acceptance is explicitly not consensus or actual fresh-domain evidence; this source receipt precedes component result closure",
+  "reviewer_private_key_reads_rpc_native_vm_proof_sign_or_broadcast": false,
+  "funded_body_or_release_approved_by_this_receipt": false
+}

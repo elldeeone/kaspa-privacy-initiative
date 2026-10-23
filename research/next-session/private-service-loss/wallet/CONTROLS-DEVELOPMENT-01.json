@@ -1,0 +1,19 @@
+{
+  "classification": "PUBLIC_UNFUNDED_TEST_DEVELOPMENT",
+  "tests": 15,
+  "initial_passes": 13,
+  "initial_failures": 2,
+  "actual_backup_pk_setup_or_prover_used": false,
+  "causes_and_fixes": [
+    {
+      "location": "duplicate-invoice normal-credit expectation",
+      "cause": "The test expected zero normal credit, but unchanged V2 retains the first credit and quarantines the duplicate while preserving both owner actions.",
+      "fix": "Correct the test to expect 60M normal credit and 120M owner-actionable principal; no receive policy changed."
+    },
+    {
+      "location": "public env/cat runtime controls",
+      "cause": "Ubuntu env/cat names resolve to multicall Rust coreutils which explicitly reject the loader as /proc/self/exe. This is distinct from sealed-payload authentication or the single-purpose selected Rust helpers.",
+      "fix": "Use installed standalone GNU env/cat ELFs for environment and inherited-FD controls. Retain the native-loader/runtime compatibility premise; do not relax host policy."
+    }
+  ]
+}

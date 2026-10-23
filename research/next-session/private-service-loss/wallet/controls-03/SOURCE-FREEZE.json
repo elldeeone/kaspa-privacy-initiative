@@ -1,0 +1,115 @@
+{
+  "schema": "kpx3-private-wallet-public-controls-freeze/v3",
+  "source_files": [
+    {
+      "path": "poc/private-cashout-wallet/owner_rules.py",
+      "sha256": "0b47863075b386fa3c5a248e330cdd9e6d7bca2eb1e243b6f8d204b54784e1bf"
+    },
+    {
+      "path": "poc/private-cashout-wallet/owner_runtime.py",
+      "sha256": "5491ea51d1f7e254f7b468b5c20fb5be8ae01547156a0545c7dccb6f8be81209"
+    },
+    {
+      "path": "poc/private-cashout-wallet/owner_selection.py",
+      "sha256": "08dea284bf886b488759f39264b9763ce122b193606a5cf6dd36079890a95d57"
+    },
+    {
+      "path": "poc/private-cashout-wallet/private_action.py",
+      "sha256": "8d952270956fa9815a9c73bab4db540d81800afcce4c2b4d3e23a77e28343c8f"
+    },
+    {
+      "path": "poc/private-cashout-wallet/private_wallet.py",
+      "sha256": "f17f58d33a8452f27c8280bfd9c7d1068bf08d35c913a0fca9d344b79c229801"
+    },
+    {
+      "path": "poc/private-cashout-wallet/receiver_tools.py",
+      "sha256": "0f291b25b7d3a65887dcd04c4ef7392ab5a8c5f131fdadbace3436c568a0c4e7"
+    },
+    {
+      "path": "poc/private-cashout-wallet/test_private_wallet.py",
+      "sha256": "4018d439bf6991d3fc179bf3c78224a0897b5ef9d69d15064c0e86ec1f67862b"
+    },
+    {
+      "path": "poc/future-recipient/v2/recipient.py",
+      "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2"
+    },
+    {
+      "path": "poc/independent-recovery/replay.py",
+      "sha256": "f8be03c47008dd3b06ef601bd6da67ba42be47dec3f7c43a0d28dfe68e9b773d"
+    },
+    {
+      "path": "poc/independent-recovery/policy_template.py",
+      "sha256": "867c340348d25ecdec7c31e406d93b0f07d7b57005380216f575332f8bd2bd05"
+    },
+    {
+      "path": "research/next-session/private-service-loss/wallet/controls-03/run.sh",
+      "sha256": "e1c6a8e8798750d29281dc831ea4ce8669ea17c6d703806dd235e7668d8bf4af"
+    },
+    {
+      "path": "poc/private-cashout-wallet/README.md",
+      "sha256": "ead46ee063e410eda5a034db8c6658c8d327116beb09f43e6f52b4dcbbc3dab0"
+    },
+    {
+      "path": "research/next-session/private-service-loss/wallet/ORDINARY-CONTROL-RELEASE.json",
+      "sha256": "dd235dc59fc0c33e3592aa95ce7f7b13d49faf62c40b2ca54dd7a37750e0917e"
+    },
+    {
+      "path": "research/next-session/private-service-loss/PUBLIC-PARAMETER-SELECTION.json",
+      "sha256": "9b32b0b40f2c27a2555ee1b30ebe28fe36ada27ebeeac06efd452ff657ef6baf"
+    },
+    {
+      "path": "research/next-session/private-service-loss/PRIVATE-CLIENT-SELECTION.json",
+      "sha256": "63144b6d270da75e0ca86202fe714d50dbdbd96092c35a68ef9aacdd65fa8a1e"
+    },
+    {
+      "path": "research/next-session/private-service-loss/prover/parameters-01/public-parameters.json",
+      "sha256": "008689b84cd171187cc75d32402dbf13d6d4e3ed149d3349ecfbc418bfcaad54"
+    }
+  ],
+  "ordinary_public_release_files": [
+    {
+      "name": "crypto",
+      "source_path": "/home/luke/projects/kpi-intensive-2026-10-22/recipient-target/debug/kpi-future-recipient-crypto",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/crypto",
+      "sha256": "6f65ec202a2d634d0cf8c5ba3034fd591790374da0ea9ea1a144470eec3143ff",
+      "bytes": 10170912,
+      "mode": "0500"
+    },
+    {
+      "name": "true",
+      "source_path": "/usr/bin/gnutrue",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/true",
+      "sha256": "913a39cd38f353497086bcf317b12f91f93c23b51869cea763b8340b4f84cfd3",
+      "bytes": 35288,
+      "mode": "0500"
+    },
+    {
+      "name": "env",
+      "source_path": "/usr/bin/gnuenv",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/env",
+      "sha256": "d04fe689b718e25d083f8a438d1a903b9384c1588dbd7e8b88fdb384ef46fc49",
+      "bytes": 48128,
+      "mode": "0500"
+    },
+    {
+      "name": "cat",
+      "source_path": "/usr/bin/gnucat",
+      "release_path": "/home/luke/projects/kpi-intensive-2026-10-22/private-wallet-controls-release-01/cat",
+      "sha256": "6814736b3f95342e4ffc8f83f5cd99a2e72fd1a70b240cbc9d40609e48d73482",
+      "bytes": 39472,
+      "mode": "0500"
+    }
+  ],
+  "classification": "PUBLIC_UNFUNDED_FINAL_RELEASE_SELECTION_NO_ACTUAL_OWNER_BACKUP_PK_PROVER_NATIVE_VM_OR_NETWORK",
+  "controls": 19,
+  "runtime": "ADR0054 ordinary selected0500 direct ELF, read-onlybind, SHA before each launch, cleanenv, unshare-all",
+  "private_links_and_output_paths_excluded_from_public_result": true,
+  "selected_prover_elf_sha256": "870e61f60d002900bfc39dfad5fbdb8e54319ec083072618b027c297d94477aa",
+  "selected_manifest_sha256": "008689b84cd171187cc75d32402dbf13d6d4e3ed149d3349ecfbc418bfcaad54",
+  "trusted_host_release_inode_unchanged_during_operation": true,
+  "requested_resources": {
+    "cpu_quota_percent": 200,
+    "memory_max_bytes": 4294967296,
+    "memory_swap_max_bytes": 0
+  }
+}

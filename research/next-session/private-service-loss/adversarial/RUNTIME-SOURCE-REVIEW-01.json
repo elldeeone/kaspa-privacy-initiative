@@ -1,0 +1,35 @@
+{
+  "schema": "kpx3-adversarial-source-review/v1",
+  "scope": "Public sealed runtime source and retained four-control evidence only",
+  "baseline_commit": "2ee3e0850a277f2d4a2f512da67683540be01958",
+  "source_sha256": {
+    "research/next-session/private-service-loss/network/runtime-control-02-source/sealed_runtime.py": "22f6aa8c84e9620435421819dc10fdffd79d1dbf3da4b8db29ffc3d78984ecf5",
+    "research/next-session/private-service-loss/network/runtime-control-02-source/test_sealed_runtime.py": "2de27a5def499d16c3dd46a50285a7de2e371dc8b84c2e63afb2316099373a71"
+  },
+  "source_retention": "After the optional stdin addition, the old source was reconstructed by reversing only that delta; both archived hashes independently match the pre-change reviewed identities. No rerun is claimed.",
+  "optional_stdin_source_sha256": "994cfd5b2fe51574565a76754c8523e5a17e1ae4b00f9031bb6e2f791b192f16",
+  "optional_stdin_review": "Source-only ACK: str-or-None is passed directly to subprocess stdin without logging, hashing or file storage; payload sealing, loader and fixed clean environment are preserved. This addition was not part of controls02.",
+  "retained_control_log_sha256": "8de0843d88b09ed6a5974f6683913adf7dc42d19e97b6daf4eb794d335b455c2",
+  "system_loader_sha256": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14",
+  "review": {
+    "verdict": "SOURCE_AND_RETAINED_PUBLIC_CONTROL_EVIDENCE_ACK",
+    "sealed_payload": "Copy, apply WRITE/GROW/SHRINK/SEAL kernel seals, hash those sealed bytes, require ELF, execute that same inherited payload descriptor",
+    "execution": "Pinned system ld-linux loads the sealed payload descriptor under the unchanged namespace policy",
+    "environment": "Fixed PATH/LANG/TZ only; no caller LD_PRELOAD, LD_AUDIT or LD_LIBRARY_PATH inheritance",
+    "runtime_trust": "System loader and shared libraries remain separate trusted runtime dependencies; the payload hash does not authenticate them",
+    "prior_failure": "Original direct-memfd EACCES and its unsuccessful control result remain preserved; successful controls use a separately versioned 02 packet"
+  },
+  "reviewer_actions": {
+    "source_and_public_artifact_reads": true,
+    "source_log_loader_hashes_recomputed": true,
+    "controls_rerun": false,
+    "native_or_proof_execution": false,
+    "rpc_or_broadcast": false,
+    "private_seed_pk_or_native_key_reads": false
+  },
+  "limitations": [
+    "Four public runtime controls do not establish native transaction validity, cryptographic correctness or private recovery",
+    "The application, never descriptor or RPC data, must select the executable and expected digest",
+    "This review does not approve a funded body, signing request or network replay"
+  ]
+}

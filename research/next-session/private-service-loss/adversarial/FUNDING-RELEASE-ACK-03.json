@@ -1,0 +1,31 @@
+{
+  "schema": "kpx3-adversarial-exact-release-review/v1",
+  "scope": "Root-only ordinary test-KAS merge03 once; no pool operation in this release",
+  "release_sha256": "3a19782953d767562f68f328f9c93b14e56998691dbefda754c9fd1e855c21ef",
+  "transaction_id": "98580676726abeb9057de82f6a5e3c3077cd865aa8c8acad205b210d09fcdb7f",
+  "body_sha256": "342fe19d541f0f13a3179cf3f0a1c69a393e46c58d7b6f5e6aac80f85c9069b6",
+  "local_check_sha256": "d5df9b52e14cf2f342a65e076e3ad1ff7e49cc75d750f55b3e5c82c8494c6d79",
+  "public_profile_sha256": "41abea030e8a52e29612b7239c2c5353cdf3e8affcab775ae7504a691c23a36b",
+  "prerequisite_local_complete_sha256": "3639f08983f3c5d2656c56d727d6f4efe06316a8efd5b3529caeb4fae3066635",
+  "input_count": 4,
+  "input_sum_sompi": 229498500,
+  "fee_sompi": 498600,
+  "sole_funding_output_sompi": 228999900,
+  "destination_script_public_key": "0000205f9c87ec955e6354bf4733ea75b96baf6dcd90f8daebe2f0ef1f241ee438a933ac",
+  "review": {
+    "verdict": "EXACT_ORDINARY_FUNDING_RELEASE_ACK",
+    "allowed_stage_only": "fundingprep",
+    "network": "testnet-10",
+    "adapter_sha256": "b4f98db493f86fbb69c81e814b4516f8868a211cdf53b7180fa2d293ef05dabf",
+    "native_safe_sha256": "c4b7c3353ba4c83b758daa24f967c922acd1abe2aad2909010924fba9fb7f736",
+    "native_validator_sha256": "73fb41c66c374da91200f06ae442f5bd8beb3c7954c71fae954b12bec9b1c1cf",
+    "canonical_identity_body_localcheck_release_paths_and_endpoint_match": true,
+    "trial_directory_mode_observed": "0700",
+    "both_stage_and_transaction_intent_markers_absent_at_review": true,
+    "fresh_source_check": "Adapter must requery all four exact live inputs before saving its durable once-only intents",
+    "checkpoint_refresh": "Root may refresh only the read-only start checkpoint before intent while preserving this exact body and release"
+  },
+  "root_only_submission": true,
+  "reviewer_submission_or_rpc_or_signing_or_private_key_reads": false,
+  "pool_prefix_or_local_precomputed_exits_authorized_by_this_release": false
+}

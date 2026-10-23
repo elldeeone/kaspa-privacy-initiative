@@ -1,0 +1,180 @@
+{
+  "actual_RPC_or_native_or_proof_run": false,
+  "authority": "ADR0053 and common private-service-loss CONTRACT",
+  "changes": "Supervisor-only mount correction before actualRPC: bind dedicated empty client-output as /out, keep controller plan/release/source snapshots/telemetry outside. Actual result/resource paths updated. Fetch/replay/SDK/native/31control predicates unchanged; preserved exact prior unexecuted controller/docs.",
+  "controls": {
+    "mock_transport": 10,
+    "public_python_SDK_runtime": 21,
+    "scope": "Synthetic supplied bodies/unrelated headers; source/result receipts retain their exact snapshots. Production network_replay has subsequent source-only ACKed own-runtime-import and observation-provenance delta. Generic native validation awaits actual fresh-root-released records."
+  },
+  "files": [
+    {
+      "bytes": 5205,
+      "path": "poc/private-network-recovery/README.md",
+      "sha256": "467b4159363c7b393fb30c29391e73f38acff69885f9d64de8a76472cc98d4fe"
+    },
+    {
+      "bytes": 29953,
+      "path": "poc/private-network-recovery/fetch.mjs",
+      "sha256": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc"
+    },
+    {
+      "bytes": 17873,
+      "path": "poc/private-network-recovery/network_replay.py",
+      "sha256": "97b6247f3a07eb8503102f106f31916455dc35ccc3ac04095aeccac0b590b4fa"
+    },
+    {
+      "bytes": 4653,
+      "path": "poc/private-network-recovery/parameter_manifest.mjs",
+      "sha256": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834"
+    },
+    {
+      "bytes": 1696,
+      "path": "poc/private-network-recovery/pinned_dependencies.py",
+      "sha256": "96218108bde3ede044a5f8a1d8b1f36913f56871b0ad53c2335f92d7eeaa4a1c"
+    },
+    {
+      "bytes": 1766,
+      "path": "poc/private-network-recovery/run_fetch.py",
+      "sha256": "8e14fbfd95a2f92a90f3a4a1a942a73393e8928bd3363d22d98518cc9be0b098"
+    },
+    {
+      "bytes": 8677,
+      "path": "poc/private-network-recovery/run_live.py",
+      "sha256": "f6d390722268a3e07112d9db091520fe9d203b1f4334559a2fb23913ad817184"
+    },
+    {
+      "bytes": 4484,
+      "path": "poc/private-network-recovery/sealed_runtime.py",
+      "sha256": "994cfd5b2fe51574565a76754c8523e5a17e1ae4b00f9031bb6e2f791b192f16"
+    },
+    {
+      "bytes": 8805,
+      "path": "poc/private-network-recovery/test_fetch.mjs",
+      "sha256": "9a59306fff27306246e6aa74a2570b6bcf4ba74043d8260382ad3045f8d5c63b"
+    },
+    {
+      "bytes": 11328,
+      "path": "poc/private-network-recovery/test_public_network.py",
+      "sha256": "887345eed1fd555dfbca4112e578dbe0e2bd2650be8f8b976319d07f374e87f5"
+    },
+    {
+      "bytes": 2172,
+      "path": "poc/private-network-recovery/test_sealed_runtime.py",
+      "sha256": "2de27a5def499d16c3dd46a50285a7de2e371dc8b84c2e63afb2316099373a71"
+    },
+    {
+      "bytes": 2493,
+      "path": "poc/private-network-recovery/verify_bundle.mjs",
+      "sha256": "d3a9c2676cad15c0a46ce1f5fe0ff086383cd0781448e04a0697f43a87d49e9e"
+    },
+    {
+      "bytes": 15586,
+      "path": "poc/private-exit-recovery/public_adapter.py",
+      "sha256": "be415bef7eb98360a27b92f94343e3392766f950b43804aad2a89528058b35c0"
+    },
+    {
+      "bytes": 1268,
+      "path": "poc/private-exit-recovery/dependencies.py",
+      "sha256": "1708768c3123a2f766e80e970a8f31ce79dd787a60b0deff93eea120ffcb1197"
+    },
+    {
+      "bytes": 1954,
+      "path": "poc/private-exit-recovery/approved_template.py",
+      "sha256": "32e043eab5aef9b32495735a9d0c15f5b51ec47845204484c9a15c9d88c210a9"
+    },
+    {
+      "bytes": 329,
+      "path": "poc/private-exit-recovery/selected_identities.py",
+      "sha256": "6e03517749e56efb73fef2c43ff8daebbcd471628bbc8ed8bdd52492a3845c18"
+    },
+    {
+      "bytes": 1738,
+      "path": "poc/private-exit-recovery/kpx3-policy-template.json",
+      "sha256": "6f9b71043db6cbea271585b9c2853125b601b71ad2eccad9d65ddc35db7e49c7"
+    },
+    {
+      "bytes": 24303,
+      "path": "poc/private-exit-recovery/kpx3-policy-template.bin",
+      "sha256": "731eb10da7a96a3f1f67b3c3fb0da6d45294820c8c610dc9d7d0d0fd1dd10556"
+    },
+    {
+      "bytes": 30932,
+      "path": "poc/independent-recovery/replay.py",
+      "sha256": "f8be03c47008dd3b06ef601bd6da67ba42be47dec3f7c43a0d28dfe68e9b773d"
+    },
+    {
+      "bytes": 2131,
+      "path": "poc/independent-recovery/policy_template.py",
+      "sha256": "867c340348d25ecdec7c31e406d93b0f07d7b57005380216f575332f8bd2bd05"
+    },
+    {
+      "bytes": 4087,
+      "path": "poc/independent-recovery/native_validation.py",
+      "sha256": "a30a775a40cf53fd062f3d2325dbd5df079e78e8c42931a42fd26e34d6946876"
+    },
+    {
+      "bytes": 3390,
+      "path": "poc/independent-recovery/kpx2-policy-template.json",
+      "sha256": "5f8e5354565c0545cfd6e6455958cbf955daa14d7982ac5c338673cc5a5a19bf"
+    },
+    {
+      "bytes": 22274,
+      "path": "poc/independent-recovery/kpx2-policy-template.bin",
+      "sha256": "8b0e6dd802b58400fdfd9fcc11cff2ef6e4a27659c973ff3d0b1bf946fcfda46"
+    },
+    {
+      "bytes": 7731,
+      "path": "docs/adr/0053-private-network-recovery-and-local-owner-proving.md",
+      "sha256": "dd77b305df860011ae6608e312eb09396f2c6585fa17225646bdb8f181fa9b58"
+    },
+    {
+      "bytes": 5529,
+      "path": "research/next-session/private-service-loss/CONTRACT.md",
+      "sha256": "16679d12132ca437624e0878dc5fc5140889d56e5f376d4459b362bb86b9df94"
+    }
+  ],
+  "immutable_prior_modules": true,
+  "installed_public_software": [
+    {
+      "bytes": 122889056,
+      "copied_to_git": false,
+      "path": "/home/luke/.nvm/versions/node/v24.15.0/bin/node.forge-original",
+      "sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c"
+    },
+    {
+      "bytes": 13440808,
+      "copied_to_git": false,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/private-exit-native-target/selected-01/kpi-private-exit-native",
+      "sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061"
+    },
+    {
+      "bytes": 254864,
+      "copied_to_git": false,
+      "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14"
+    },
+    {
+      "bytes": 560116,
+      "copied_to_git": false,
+      "path": "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa/kaspa.js",
+      "sha256": "6d92cb305d0cc2eb26de9e305b7f7a8c17daa130ad478f0b340b50490557dbcf"
+    },
+    {
+      "bytes": 11463668,
+      "copied_to_git": false,
+      "path": "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa/kaspa_bg.wasm",
+      "sha256": "c9657568610ae1d305bc2e1cf85208ceba0d1a7893c4057b38caa8add2ffb0f5"
+    },
+    {
+      "bytes": 372,
+      "copied_to_git": false,
+      "path": "/home/luke/.cache/kpi-sdk/v2.1.0/kaspa-wasm32-sdk/nodejs/kaspa/package.json",
+      "sha256": "8b61fefaba842c41b805291d95b2f9e81778ec590813a6c34eddcd316659b8d0"
+    }
+  ],
+  "previous_unexecuted_freeze_sha256": "a4b71ec258c6a48813997ab9954e3eb401ac34a24803a73d59c64358e4c52bbb",
+  "runtime_premises": "Sealed Node/native payloads, separately pinned read-only system loader, trusted system libraries/base Python; clean child environment; explicit source-only mounts no bytecode caches.",
+  "schema": "kpx3-private-network-source-freeze/v1",
+  "source_review_and_public_controls_only": true
+}

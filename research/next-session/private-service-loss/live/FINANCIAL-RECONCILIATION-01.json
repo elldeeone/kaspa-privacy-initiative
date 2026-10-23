@@ -1,0 +1,74 @@
+{
+  "actual_body_links_and_amounts_checked": 4,
+  "actual_confirmed_cold_cashout_manifests": [
+    "0fb17204649537817d54c581f40099ebabbad9d32883c42e2a65d351b8a817b5",
+    "ebd72e58e37c442b86e0c16bf041fc8e530d0b9810e5a40e28656e18fd63ca30"
+  ],
+  "actual_confirmed_payout_observation_depths": [
+    104,
+    75
+  ],
+  "all_amounts_integer_sompi": true,
+  "exact_equality": "229498500 = 88630000 + 41000100 + 41042400 + 58826000 + 0",
+  "final_fresh_network_and_recover_only_closure_pending": true,
+  "financial_privacy_fee_target_or_mainnet_qualification_claimed": false,
+  "funding_publication_manifest_sha256": "67e3706c89e4c90f796baad2a4517152d22fc7a6e34fda3fe31673ff029859fa",
+  "input_source_sompi": 229498500,
+  "native_payout_sum_sompi": 82042500,
+  "native_payouts_sompi": [
+    41000100,
+    41042400
+  ],
+  "network_id": "testnet-10",
+  "no_precomputed_operator_exit_used_for_accounting": true,
+  "ordinary_change_sompi": 88630000,
+  "prefix_public_allowlist_sha256": "330d4859c2df65349c8a6089a8f6d1e964583a64fdf6706f112f75f64b97a46e",
+  "reviewer_rpc_native_proof_signing_or_private_input_reads": 0,
+  "rows": [
+    {
+      "body_sha256": "342fe19d541f0f13a3179cf3f0a1c69a393e46c58d7b6f5e6aac80f85c9069b6",
+      "fee_sompi": 498600,
+      "input_sum_sompi": 229498500,
+      "output_sum_sompi": 228999900,
+      "stage": "ordinary_funding",
+      "transaction_id": "98580676726abeb9057de82f6a5e3c3077cd865aa8c8acad205b210d09fcdb7f"
+    },
+    {
+      "body_sha256": "e10feaf59bb56d6e46ad4ac654b6126b73df2cb1b3f31d3a2443ed077264b634",
+      "fee_sompi": 1411200,
+      "input_sum_sompi": 228999900,
+      "output_sum_sompi": 227588700,
+      "stage": "founding",
+      "transaction_id": "006d46b0fabbf551a50186d9e9edf2f873f39ba0d871342c3dd254c1b4a4fbbf"
+    },
+    {
+      "body_sha256": "7004aed3e69e5ee17ff7240a18340627e23360fc7ae42d46e11d5822b7ef7221",
+      "fee_sompi": 18958700,
+      "input_sum_sompi": 138958700,
+      "output_sum_sompi": 120000000,
+      "stage": "private_payment",
+      "transaction_id": "16c8a7d82f10eeac0d3da4609c518ade73f7da3294ec26e91cb1ae1b47486fd5"
+    },
+    {
+      "body_sha256": "be7ed7fa0aab8ae5f73ec1b6b0d75777e3332b46ed63ea8369e3263a0cfa625c",
+      "fee_sompi": 18999900,
+      "input_sum_sompi": 120000000,
+      "output_sum_sompi": 101000100,
+      "stage": "private_exit_01",
+      "transaction_id": "71a1536f3a4824026c0d309d2a0f46e1a14103ba99a2e8db9b6013f7ac17a9b4"
+    },
+    {
+      "body_sha256": "0f82842768f2e7274d33610b0210ab397231dfee9a46d7d5222868419d721e1a",
+      "fee_sompi": 18957600,
+      "input_sum_sompi": 60000000,
+      "output_sum_sompi": 41042400,
+      "stage": "private_exit_02",
+      "transaction_id": "e7696fa34a50e759e630011bca08eec5a2283f22e59db200b7b2627a056e53ee"
+    }
+  ],
+  "schema": "kpx3-actual-private-lifecycle-integer-reconciliation/v1",
+  "terminal_pool_reserve_sompi": 0,
+  "terminal_public_cm_count": 5,
+  "terminal_public_nf_count": 7,
+  "total_actual_fee_sompi": 58826000
+}

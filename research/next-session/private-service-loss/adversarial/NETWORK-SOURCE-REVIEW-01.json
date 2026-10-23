@@ -1,0 +1,42 @@
+{
+  "schema": "kpx3-adversarial-source-review/v1",
+  "scope": "New Auth528 network acquisition/replay source and public controls; no actual network/native acceptance yet",
+  "source_sha256": {
+    "poc/private-network-recovery/fetch.mjs": "7584d3b15fd3e4f98db2f0ce07093729dbdfded1d03d50a51b62294fd7917ffc",
+    "poc/private-network-recovery/parameter_manifest.mjs": "949e6d5c49213535e5abc8adf01d0ac4b61c4ded15cd5c59c279d8f895960834",
+    "poc/private-network-recovery/verify_bundle.mjs": "d3a9c2676cad15c0a46ce1f5fe0ff086383cd0781448e04a0697f43a87d49e9e",
+    "poc/private-network-recovery/network_replay.py": "97b6247f3a07eb8503102f106f31916455dc35ccc3ac04095aeccac0b590b4fa",
+    "poc/private-network-recovery/pinned_dependencies.py": "96218108bde3ede044a5f8a1d8b1f36913f56871b0ad53c2335f92d7eeaa4a1c",
+    "poc/private-network-recovery/sealed_runtime.py": "994cfd5b2fe51574565a76754c8523e5a17e1ae4b00f9031bb6e2f791b192f16"
+  },
+  "controls": {
+    "public_state_sdk_and_runtime_passed": 21,
+    "public_control_source_snapshot_sha256": "73473c79dfcb864bf35a4d11be4c01ec1767f8246a38e54df41540774b34ccd7",
+    "public_control_log_sha256": "8279741dc06c5734d4dbd28c9fb2b0e7136960fb5601120aa996205bfe4abc29",
+    "mock_fetch_transport_passed": 10,
+    "fetch_control_source_snapshot_sha256": "421101acbe663c0ca6f5c0b4c7ebaf5487075b835e4c135e8ae1212b51585147",
+    "fetch_control_log_sha256": "a8316cf39a5eaf0ca41171dfaf2f4be4fd6708e706183176eca1bd821f48800b",
+    "source_capsules_and_logs_independently_rehashed": true,
+    "reviewer_semantic_rerun": false,
+    "classification": "SYNTHETIC_PUBLIC_PROVIDER_ASSIGNMENTS_AND_MOCK_TRANSPORT; NOT_ACCEPTED_CHAIN_OR_NATIVE_EVIDENCE",
+    "post_control_source_delta": "Tested Python replay d1f963b7 remains archived. Current97b6247f adds a hash-authenticated owned-byte runtime import and explicit observation-current-now-not-proved/fresh-caller premises only; independently source-reviewed without claiming these additions were in the original run.",
+    "failed_attempts": "Original direct-memfd denial, Node test-runner loader-path failure and irrelevant-ancestor-change fixture failure remain retained. Only harness/fixture targeting was corrected."
+  },
+  "review": {
+    "verdict": "SOURCE_AND_PUBLIC_CONTROL_ACK",
+    "descriptor": "Strict ten fields; separately authenticated canonical descriptor selects founding point and matching canonical small D/VK/network/genesis parameter manifest",
+    "native_program": "Whole approved 24417-byte program reconstructed from pinned template with only canonical D32/VK328 substitutions",
+    "history": "Exact finite fixed-sink frontier, confirmation/anchor constraints, missing/pruned/reorganized history rejection and conflicting-spend checks",
+    "current_view": "Every selected input/output has an exact amount/script/outpoint query; all consumed points must be absent; an open reserve must be present; payouts retain exact queried history/current status",
+    "post_query": "Every queried live point, including payouts, is watched; missing watches/removals/related confirmed spends invalidate the observation",
+    "composition": "Frozen offline semantic result remains complete:false and receives no ExistingNativeResults callback; only separate actual SDK rehashing and newly executed fixed public Native Full validation can produce outer completeness",
+    "runtime": "Fixed selected Node/native payloads execute from their same authenticated sealed memfds through the pinned system loader with fixed clean environment"
+  },
+  "limitations": [
+    "Public controls combine genuine public bodies and headers under explicitly invented acceptance assignments; SDK hashes do not prove inclusion",
+    "Validating-node membership, current-state honesty, surviving history, setup honesty and parameter availability remain assumptions",
+    "A retained observation does not prove it is current now; caller fresh acquisition and root fresh spend-point checks remain required",
+    "This receipt does not establish an actual new-profile restore, owner proof, funded body or payout"
+  ],
+  "reviewer_rpc_native_proof_sign_broadcast_or_private_key_material_reads": false
+}

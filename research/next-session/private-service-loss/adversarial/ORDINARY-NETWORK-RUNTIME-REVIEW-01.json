@@ -1,0 +1,35 @@
+{
+  "schema": "kpx3-adversarial-source-review/v1",
+  "scope": "Active ordinary network runtime under ADR0054; source/public controls only",
+  "authority_adr0054_sha256": "2319c8d3cbd59f2b59b1087f947f796e852a43c02d13a09573ce0695aaaffff4",
+  "network_source_freeze_sha256": "19dffcaa74e4f45ac681bbfbb26e8b42783467f4348cd1fd6e20ae9eab83e207",
+  "ordinary_runtime_sha256": "3ce31ae0eb8f942009a4108f9a5dbb6a08df6c7f0925f06a952315091e1bbd1c",
+  "network_replay_sha256": "00e034780c059febd92166148829ac7c15f27a3395d06df055ccc9c82a2ce0df",
+  "source_and_template_pins_independently_verified": 26,
+  "installed_public_software_pins_independently_verified": 5,
+  "trusted_release_directory_mode_observed": "0700",
+  "selected_node_and_native_file_modes_observed": "0500",
+  "controls": {
+    "ordinary_public_state_sdk_runtime_passed": 23,
+    "mock_transport_passed": 10,
+    "source_capsule_sha256": "6d140254d288f42bcdbafe3014f44b4a135b6a9b1099a1087877486ea6908308",
+    "source_capsule_files_and_current_copies_verified": 11,
+    "public_log_sha256": "c94b59abe68d5f7e83bfb290a07341af8c1bb1c4ba7151fff276ae5866ae62cf",
+    "mock_transport_log_sha256": "209496eaece370f524dc4222f99e15b35ea821ded62ce096555293df9f6af65d",
+    "scope": "Actual SDK identity checks under synthetic provider assignments, ordinary public ELF controls and mock transport. No actual RPC/native Full/prover/PK/backup input.",
+    "prior_failure": "The original22/23 ordinary control result and diagnostic receipts remain unchanged; the corrected cat basename matches this host's multicall coreutils dispatch. No application predicate was changed.",
+    "reviewer_rerun": false
+  },
+  "review": {
+    "verdict": "ORDINARY_SOURCE_RUNTIME_AND_PUBLIC_CONTROL_ACK",
+    "execution": "Ordinary selected regular0500 ELF; full trusted expected SHA checked before every launch; fixed clean environment; read-only release bind",
+    "host_trust": "Trusted host and release owner do not modify or replace the selected file during operations; no defense against malicious same-inode writers is claimed",
+    "no_special_execution": "Active runtime does not use executable FDs or direct system-loader invocation. Earlier special-runtime sources/results are historical only.",
+    "client_isolation": "Only a dedicated fresh client-output subtree is writable in the acquisition namespace; controller release-marker JSON, plan, runtime script and telemetry remain outside that bind",
+    "cleanup": "Launch and observation are inside finally cleanup; manager/process observations retain null/unknown instead of inventing zero or successful cleanup",
+    "protocol": "Descriptor/manifest, financial/state/history/current-query/SDK/native verification predicates are unchanged by this execution amendment"
+  },
+  "resource_values_are_unexecuted_requested_plan_only": {"cpu_quota_percent": 200, "memory_max_bytes": 4294967296, "swap_max_bytes": 0},
+  "actual_new_profile_network_restore_or_funding_approved_by_this_receipt": false,
+  "reviewer_private_seed_pk_native_key_witness_reads_or_rpc_vm_proof_sign_broadcast": false
+}

@@ -1,5 +1,22 @@
 # Threat Model
 
+[ADR-0053](docs/adr/0053-private-network-recovery-and-local-owner-proving.md)
+adds a separate Auth528 owner-local proving experiment. Each owner authenticates
+the complete public parameter blob and checked VK before reading their seed;
+the prover receives the selected action witness, never the root seed or payout
+secret. Public parameter identity does not establish setup honesty, trapdoor
+erasure or independent durable availability. Cold-client mounts exclude operator
+profiles, private receipt maps and precomputed exits. New public exports must
+exclude owned CM/position associations, private witnesses and their hashes.
+The selected one-real-input, no-positive-change wallet exposes the consumed
+claim's exact value as public payout plus fee; hiding openings alone does not
+remove this arithmetic channel. Partial exits with private change need a broader
+wallet/observer experiment.
+[ADR-0054](docs/adr/0054-trusted-read-only-executable-releases.md) explicitly
+trusts ordinary selected software, system libraries and an immutable host/release
+owner during use. Hash checks and read-only mounts do not defend against a
+malicious host writer. Neither new experiment changes SECURITY-INVARIANTS.
+
 [RFC-0022](docs/rfc/0022-private-cashout-and-independent-recovery.md) adds an
 independent network-fetch/replay path and a separate proof-private payout
 experiment. A user-selected canonical founding outpoint and approved policy/VK

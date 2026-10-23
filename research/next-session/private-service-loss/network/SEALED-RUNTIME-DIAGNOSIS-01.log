@@ -1,0 +1,45 @@
+uid 1000 1000 stat os.stat_result(st_mode=33088, st_ino=24467, st_dev=1, st_nlink=0, st_uid=1000, st_gid=1000, st_size=35288, st_atime=1792745493, st_mtime=1792745493, st_ctime=1792745493) attr bwrap//&unpriv_bwrap (enforce)
+
+293 227 0:53 /newroot / rw,nosuid,nodev,relatime - tmpfs tmpfs rw,uid=1000,gid=1000,inode64
+294 293 252:0 /usr /usr ro,nosuid,nodev,relatime master:1 - ext4 /dev/mapper/ubuntu--vg-ubuntu--lv rw
+295 293 0:25 / /proc rw,nosuid,nodev,noexec,relatime master:12 - proc proc rw
+296 295 0:34 / /proc/sys/fs/binfmt_misc rw,relatime master:14 - autofs systemd-1 rw,fd=35,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=8447
+297 296 0:45 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime master:94 - binfmt_misc binfmt_misc rw
+298 293 0:54 / /dev rw,nosuid,nodev,relatime - tmpfs tmpfs rw,mode=755,uid=1000,gid=1000,inode64
+299 298 0:7 /null /dev/null rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+300 298 0:7 /zero /dev/zero rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+301 298 0:7 /full /dev/full rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+302 298 0:7 /random /dev/random rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+303 298 0:7 /urandom /dev/urandom rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+304 298 0:7 /tty /dev/tty rw,nosuid master:2 - devtmpfs devtmpfs rw,size=12997744k,nr_inodes=3249436,mode=755,inode64
+305 298 0:59 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,mode=620,ptmxmode=666
+306 293 0:60 / /tmp rw,nosuid,nodev,relatime - tmpfs tmpfs rw,mode=755,uid=1000,gid=1000,inode64
+307 293 252:0 /home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/private-network-recovery /work ro,nosuid,nodev,relatime master:1 - ext4 /dev/mapper/ubuntu--vg-ubuntu--lv rw
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import os,pathlib,hashlib,sys,fcntl;sys.path.insert(0,'/work');from sealed_runtime import SealedExecutable;raw=pathlib.Path('/usr/bin/true').read_bytes();s=SealedExecutable('/usr/bin/true',hashlib.sha256(raw).hexdigest());print('uid',os.getuid(),os.geteuid(),'stat',os.fstat(s.fd),'attr',pathlib.Path('/proc/self/attr/current').read_text());print(pathlib.Path('/proc/self/mountinfo').read_text());print(s.run([]).returncode)
+                                                                                                                                                                                                                                                                                                                                                                                                                       ~~~~~^^^^
+  File "/work/sealed_runtime.py", line 61, in run
+    return subprocess.run([f"/proc/self/fd/{self.fd}", *map(str, arguments)],
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          pass_fds=(self.fd,), capture_output=True, text=True,
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          cwd=cwd, env=env)
+                          ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/proc/self/fd/3'

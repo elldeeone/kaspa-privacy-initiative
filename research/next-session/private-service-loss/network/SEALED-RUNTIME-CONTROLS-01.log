@@ -1,0 +1,40 @@
+test_changed_digest_rejects_before_execution (test_sealed_runtime.SealedRuntimeTests.test_changed_digest_rejects_before_execution) ... ok
+test_closed_copy_cannot_be_reused (test_sealed_runtime.SealedRuntimeTests.test_closed_copy_cannot_be_reused) ... ok
+test_exact_copied_elf_is_sealed_and_runs_after_source_replacement (test_sealed_runtime.SealedRuntimeTests.test_exact_copied_elf_is_sealed_and_runs_after_source_replacement) ... ERROR
+test_script_with_matching_digest_is_not_an_elf (test_sealed_runtime.SealedRuntimeTests.test_script_with_matching_digest_is_not_an_elf) ... ok
+
+======================================================================
+ERROR: test_exact_copied_elf_is_sealed_and_runs_after_source_replacement (test_sealed_runtime.SealedRuntimeTests.test_exact_copied_elf_is_sealed_and_runs_after_source_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/test_sealed_runtime.py", line 25, in test_exact_copied_elf_is_sealed_and_runs_after_source_replacement
+    self.assertEqual(selected.run([]).returncode, 0)
+                     ~~~~~~~~~~~~^^^^
+  File "/work/sealed_runtime.py", line 61, in run
+    return subprocess.run([f"/proc/self/fd/{self.fd}", *map(str, arguments)],
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          pass_fds=(self.fd,), capture_output=True, text=True,
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          cwd=cwd, env=env)
+                          ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/proc/self/fd/3'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+FAILED (errors=1)
