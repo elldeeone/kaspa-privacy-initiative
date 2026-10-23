@@ -1,0 +1,49 @@
+{
+  "actual_fresh_network_positive_sha256": "bdaa9777b42cbd206215daaecd05e288457030cb670210888d8f2d5676318f93",
+  "input_fixture": "Generated once inside network-isolated synthetic context; full JSONoutsideGit",
+  "plan_sha256": "8f0b7ec53b3d4681be844d4519fa3029afde444176a2db2c19f01b559e6c8258",
+  "resources": {
+    "cpu_quota_percent": 200,
+    "memory_max_bytes": 6442450944,
+    "network_unshared": true,
+    "owner_seeds_pk_prover_native_binary_mounted": false,
+    "swap_max_bytes": 0
+  },
+  "runtime_file": "research/next-session/privacy-recovery/replay/scaling-01/runtime.sh",
+  "runtime_sha256": "ff76fa258a6017767c889cfd1081d077644aeb9d8b2e1fab75867e0b420b08af",
+  "semantic_runs": 1,
+  "source_ack": "independent adversary ACK benchmark4e336d53745cc0574b93597b674b81064701b1e8a52be07d3703fa05961b92cb; typedseparation replayf8be...",
+  "source_pins": [
+    {
+      "bytes": 11550,
+      "path": "poc/independent-recovery/benchmark.py",
+      "sha256": "4e336d53745cc0574b93597b674b81064701b1e8a52be07d3703fa05961b92cb"
+    },
+    {
+      "bytes": 30932,
+      "path": "poc/independent-recovery/replay.py",
+      "sha256": "f8be03c47008dd3b06ef601bd6da67ba42be47dec3f7c43a0d28dfe68e9b773d"
+    },
+    {
+      "bytes": 2131,
+      "path": "poc/independent-recovery/policy_template.py",
+      "sha256": "867c340348d25ecdec7c31e406d93b0f07d7b57005380216f575332f8bd2bd05"
+    },
+    {
+      "bytes": 22274,
+      "path": "poc/independent-recovery/kpx2-policy-template.bin",
+      "sha256": "8b0e6dd802b58400fdfd9fcc11cff2ef6e4a27659c973ff3d0b1bf946fcfda46"
+    },
+    {
+      "bytes": 3390,
+      "path": "poc/independent-recovery/kpx2-policy-template.json",
+      "sha256": "5f8e5354565c0545cfd6e6455958cbf955daa14d7982ac5c338673cc5a5a19bf"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/verification-key.bin",
+      "sha256": "5f551fa7b0cbeb9ec89ccf0e198575b1803db4c8012919166436af625e0136bc"
+    }
+  ],
+  "stage_local_only": "/home/luke/projects/kpi-intensive-2026-10-22/recovery-replay-target/scaling-01"
+}

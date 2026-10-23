@@ -1,5 +1,24 @@
 # Threat Model
 
+[RFC-0022](docs/rfc/0022-private-cashout-and-independent-recovery.md) adds an
+independent network-fetch/replay path and a separate proof-private payout
+experiment. A user-selected canonical founding outpoint and approved policy/VK
+are trust anchors; an arbitrary descriptor hash or multiple RPC assertions do
+not establish independent consensus. Gaps, pruned data, conflicting successors
+or spent current heads must be incomplete, never fabricated zero balance.
+Failed receipt decryption cannot distinguish foreign from intentionally
+undeliverable owned notes; preserve recognized prior claims and every global
+liability. New fetches retain full header parents and recompute header hashes.
+
+The proof-private action must bind the entire native destination SPK, amount,
+fee and current reserve/state/outpoint. Terminal inactive note/CM/cipher/append
+fields are zero before append checks are skipped; both NF updates remain
+required. A per-real-input inequality prevents exact reuse of the spent note's
+emergency key as payout key; global freshness/control remain wallet duties.
+Public payouts, complete drainage, priors and explicit revealing fallback remain
+in privacy observation horizons. No unavailable prover may silently cause note
+disclosure. All new matrices/keys/policy stay separate from funded instances.
+
 [RFC-0021](docs/rfc/0021-confirmed-native-private-payment-rehearsal.md)'s fresh
 TN10 rehearsal now confirms both native payouts and zero terminal reserve/
 liabilities. Its exact accepted-body/current-UTXO evidence trusts a selected

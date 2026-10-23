@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--collect",
+    "--wait",
+    "--pipe",
+    "--unit=kpi-private-exit-controls-02",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "MemoryMax=2G",
+    "-p",
+    "MemorySwapMax=0",
+    "/bin/bash",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/privacy-recovery/native/private-controls-preparation-01/runtime-02.sh",
+    "092cfa8a07a49738dfbac15efb6df7d51fbe5ee4bae8c9ae7e4bee06b19e6688"
+  ],
+  "root_resource_release": "exact76 negative freeze092cfa8a;2CPU2GiB/swap0; no budget/matrix/proof changes"
+}

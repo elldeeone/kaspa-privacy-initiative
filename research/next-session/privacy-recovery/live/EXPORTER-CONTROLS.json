@@ -1,0 +1,25 @@
+{
+  "all_seven_actual_public_observations_revalidated": true,
+  "classification": "PUBLIC_SYNTHETIC_AND_RETAINED_PUBLIC_RECORD_CONTROLS",
+  "closed_packet_bytes_changed": false,
+  "closed_packet_manifest_sha256": "e88303be9354414afdf0d8dff584afcfc7012ca418bef66eb54220011a8ccdba",
+  "controls": [
+    "selected acceptance records only; unrelated payload excluded",
+    "missing selected record and removed prefix rejected",
+    "insufficient depth rejected",
+    "private key fields and unexpected observation fields rejected",
+    "path escape, symlink and private output rejected",
+    "established native conversion matches retained public SDK roundtrip",
+    "same-ID wrong-body selected record rejected",
+    "paired added-chain/header mismatch rejected"
+  ],
+  "independent_review": "ACK_AFTER_TWO_BINDING_FIXES",
+  "passed": 8,
+  "private_inputs_or_network_or_native_execution": false,
+  "schema": "kpx2-service-loss-exporter-controls/v1",
+  "source_sha256": {
+    "poc/recovery-trial/export_public.py": "229bfc2ee3dd3725afd8152977d2790acbaebd31a9e0b9a5e68e157df73402af",
+    "poc/recovery-trial/test_export_public.py": "efd15cbbaea0f0f34843d90371d873f925df2658d69863d2645e8cf6d2aa9737"
+  },
+  "wall_seconds": 0.002
+}

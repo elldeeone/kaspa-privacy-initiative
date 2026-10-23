@@ -1,0 +1,19 @@
+{
+  "schema": "kpx2-privacy-canary-independent-source-ack/v1",
+  "baseline_commit": "63f494053b743ac9bfbd2d1842f69e0f806ef8e3",
+  "selected_freeze_sha256": "2f9e7d477494d17923b04fb2656827a1a98786b4c6e90407b61d78d5722f58e9",
+  "selected_freeze_members_rehashed": 7,
+  "sanitized_rows_compared_exactly_to_original_accepted_sources": 6,
+  "prior_freeze_source_issue": "Founding parser and synthetic fixture incorrectly used obsolete 440-byte framing; actual accepted GN536 contains standalone domain, Note168, CM, ciphertext and ciphertext hash.",
+  "prior_actual_runs": 0,
+  "fix_reviewed": "GN536 framing/domain/CM/ciphertext hash corrected before actual evaluation; original unexecuted freeze preserved.",
+  "source_input_ack": true,
+  "runtime_wrapper_ack": true,
+  "actual_cgroup_enforcement_and_cleanup_not_observed_yet": true,
+  "reviewer_semantic_scoring_or_runtime": false,
+  "reviewer_rpc_or_key_access": false,
+  "allowed_scope": "One known-pilot chain-only descriptive disclosure canary. No human identity, representative population, C+P, C+P+A, infrastructure or statistical privacy qualification.",
+  "arithmetic_scope": "Necessary outer relaxation only; no alternate hash/PRF witness-existence or posterior-probability claim.",
+  "observer_boundary": "Only ordinal canonical chain bodies, populated public input contexts and accepting headers. Filename source map, identities, invoices, private witnesses, seeds and expected-payment maps are absent from attacker mounts.",
+  "prior_21103_of_100025_amount_failure_preserved": true
+}

@@ -1,0 +1,117 @@
+{
+  "actual_cold_owners": [
+    {
+      "backup_read_count_for_signing": 1,
+      "controlled_role": "bob",
+      "fee_sompi": 4973800,
+      "final_fresh_query_unspent": true,
+      "owned_claim_sompi": 60000000,
+      "payout_outpoint": {
+        "index": 1,
+        "transactionId": "043b8919e6c582232479e09f3fd3f553259754c031fe9c204eeacecbe176f060"
+      },
+      "payout_sompi": 55026200,
+      "position_derived_from_recognized_claim": 2,
+      "signed_wallet_result_sha256": "66a87eb7a598570d6a08c62bf22c395b3f71f8cfbf45d330ffeae8f2fc1a1824",
+      "transaction_id": "043b8919e6c582232479e09f3fd3f553259754c031fe9c204eeacecbe176f060"
+    },
+    {
+      "backup_read_count_for_signing": 1,
+      "controlled_role": "charlie",
+      "fee_sompi": 4963200,
+      "final_fresh_query_unspent": true,
+      "owned_claim_sompi": 60000000,
+      "payout_outpoint": {
+        "index": 0,
+        "transactionId": "c39d0ca13d326ee3da7f2199b6702e566c429cb827f06bdc42ac306f802b6ca1"
+      },
+      "payout_sompi": 55036800,
+      "position_derived_from_recognized_claim": 3,
+      "signed_wallet_result_sha256": "2f4c549ff3751d0020a3b6da8db7119686d5c00696d010ab7cde3dfe002b8d17",
+      "transaction_id": "c39d0ca13d326ee3da7f2199b6702e566c429cb827f06bdc42ac306f802b6ca1"
+    }
+  ],
+  "canonical_descriptor_sha256": "c9ecb633fff4337d841670a5ab8e25cc2b61c3852cc50415ce97d7913cd8d36e",
+  "classification": "ACTUAL_FRESH_TESTNET_UNSPENT_RECOVERY_AND_CONFIRMED_NATIVE_PAYOUT_ARTIFACT_REVIEW",
+  "domain_hex32": "7b2e385d172c8d1a7b509174ede883faa228d553dec94f1ae6a5560435bde956",
+  "exporter_findings_fixed": [
+    "Selected raw acceptance body must canonically equal accepted_body, not only share its claimed ID.",
+    "Every acceptance group header must match its paired addedChainBlockHashes entry."
+  ],
+  "fresh_acquisitions": [
+    {
+      "fetch_sha256": "babcbb8c9e4937634c12fe5ccbe070b030974b22d0297bdee12ba161b7f97d81",
+      "pool_operations": 3,
+      "raw_page_pairs_rehashed": 3,
+      "reserve_sompi": 120000000,
+      "stage": "before_bob"
+    },
+    {
+      "fetch_sha256": "d4729cc645e76a6d7faed396d3aa8fdc9d9817212523643fbe24585c459fd5ca",
+      "pool_operations": 4,
+      "raw_page_pairs_rehashed": 5,
+      "reserve_sompi": 60000000,
+      "stage": "after_bob_before_charlie"
+    },
+    {
+      "fetch_sha256": "d96702bf1ce58edf502532dbf521d94d4ae99970854268d797a51944da8ad140",
+      "pool_operations": 5,
+      "raw_page_pairs_rehashed": 6,
+      "reserve_sompi": 0,
+      "stage": "after_charlie"
+    }
+  ],
+  "limitations": [
+    "Selected validating nodes, retained public history, user-pinned instance identity and approved installed software remain premises; this is not independent consensus or durable data availability.",
+    "Only recognized correctly encrypted receipts are covered. The current circuit does not prove recipient ciphertext correctness.",
+    "Both recovery exits explicitly reveal their note, nullifier key and native payout key; this is recovery/liveness evidence, not financial privacy qualification.",
+    "Two exit fees are not complete lifecycle costs; fee and reference-wallet resource requirements are not qualified.",
+    "This trace uses old Auth484/KPX2. The separate Auth528 private-payout profile still needs its own approved public replay/template and recovery integration."
+  ],
+  "new_native_payouts_sompi": 110063000,
+  "public_packet_pins": {
+    "research/next-session/privacy-recovery/fetch/unspent-01/MANIFEST.json": "aaa881330527504264c36db2be0f9169e0bfcc7c25a3c8f31a2b2ece22843316",
+    "research/next-session/privacy-recovery/fetch/unspent-terminal-01/MANIFEST.json": "cb4268af36ca7a4e5429f9ed8c03bb0833f04191d7bff8c1afb7f6104ecc3e17",
+    "research/next-session/privacy-recovery/live/service-loss-02/SHA256SUMS.json": "e88303be9354414afdf0d8dff584afcfc7012ca418bef66eb54220011a8ccdba",
+    "research/next-session/privacy-recovery/wallet/unspent-01/MANIFEST.json": "54cdd437d401a1d29e5972b67970aef7ca56866caee7710ac931501acc2450fd",
+    "research/next-session/privacy-recovery/wallet/unspent-terminal-01/MANIFEST.json": "225b626a00b1819b1362abb5a8230fbe8b8cf7e3ab628d0b4f8dae2b47bf6b40",
+    "research/next-session/privacy-recovery/wallet/unspent-terminal-01/RESULTS.json": "f613d53f6335f1f7cc239b53d0151e45da83360960f06d991674c8beda56d421",
+    "research/next-session/privacy-recovery/wallet/unspent-terminal-01/evaluation/RESULT.json": "7dd1d8fe8a625864fce82474fbc9865223f8c6b395580ca9140be177fc7e332f",
+    "research/next-session/privacy-recovery/wallet/unspent-terminal-01/evaluation/replayed.json": "62ed55c7a35aaaf9bc036dd99995ba2278a8ddb1207e95c8800a38f7065a2cc7"
+  },
+  "recognized_private_principal_sompi": 120000000,
+  "reviewed_gates": [
+    "Each owner process mounts one authorized seed-only backup, fresh public descriptor/network fetch and pinned software; no operator map/archive/profile, other owner, PK, prover or precomputed exit.",
+    "Consent and canonical descriptor pin precede seed bytes; one replay/backup/recognition selects the first actual recognized actionable public position.",
+    "Exact cold body copies match reviewed hashes; public note CM/key commitment/positioned HMAC NF match the fresh payment outputs and native destination.",
+    "Bob conserves 120M as 60M successor reserve plus 55026200 payout plus 4973800 fee. Charlie conserves 60M as sole 55036800 payout plus 4963200 fee.",
+    "ALL framing, native Full and every input engine are retained; public-only SDK safe roundtrips independently preserved both exact body IDs.",
+    "Once-only releases bind exact bodies, local checks, approved helpers, source pins, endpoint and identity; intent markers were absent at prospective review. Root alone submitted/confirmed.",
+    "All three finite fresh scans reached their frozen frontiers without gaps/removals/related post-query spends; all fourteen local decoded/gzip page pairs were rehashed.",
+    "Final public native replay validates all five selected pool bodies and retains a same-proof changed-transcript rejection at Groth16 verification.",
+    "Both cold process caps and all acquisition/public-native caps are observed, with inactive PID0 cleanup.",
+    "Service-loss export has exact 95-path/94-payload identity; wallet publications have exact 102/30 path identities. Selected acceptance bodies match staged bodies. Prefix local DAA0 placeholders remain distinct from actual observed context DAA scores."
+  ],
+  "reviewer_secret_or_operational_access": {
+    "backup_bytes_or_hash_reads": 0,
+    "native_or_proof_reruns": 0,
+    "native_signing_key_reads": 0,
+    "precomputed_operator_exit_reads": 0,
+    "private_profile_reads": 0,
+    "proving_key_or_prover_reads": 0,
+    "public_only_SDK_roundtrips": 4,
+    "rpc_calls": 0,
+    "signing_or_broadcasts": 0
+  },
+  "schema": "kpx2-fresh-unspent-recovery-adversarial-closure/v1",
+  "terminal": {
+    "cm_records": 4,
+    "current_head": null,
+    "current_queried_points": 8,
+    "physical_nf_records": 5,
+    "pool_operations": 5,
+    "reserve_sompi": 0,
+    "unspent_queried_points": 2
+  },
+  "two_exit_fees_sompi": 9937000
+}

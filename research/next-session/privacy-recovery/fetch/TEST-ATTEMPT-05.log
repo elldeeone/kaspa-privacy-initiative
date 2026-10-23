@@ -1,0 +1,28 @@
+✔ descriptor is exact public bootstrap, canonical across key order (1.708876ms)
+✔ descriptor rejects archive, owner and stage fields (0.347412ms)
+✔ descriptor rejects wrong network, genesis and founding index (0.203458ms)
+✔ descriptor rejects arbitrary policy even with matching self-selected hash (0.585475ms)
+✔ descriptor binds full domain and VK substitutions (0.842796ms)
+✔ integer and SPK encoding reject lossy u64 and unknown script versions (0.227293ms)
+✔ actual public accepted body and ID roundtrip use pinned SDK (53.070733ms)
+✔ historical lossy parent serialization fails closed (10.821642ms)
+✔ fresh expanded network header recomputes after JSON roundtrip (12.753802ms)
+✔ Full context absence and coinbase substitution reject (0.339818ms)
+✔ finite scan follows pagination to the exact fixed frontier and stops (7.825736ms)
+✔ empty page before fixed frontier is incomplete, never complete zero (2.11556ms)
+✔ truncated hash/group response rejects (2.106892ms)
+✔ removal invalidates the finite scan (3.981284ms)
+✔ cursor cycle rejects without silently advancing to current sink (3.460241ms)
+✔ missing founding after a complete frontier is incomplete (2.46764ms)
+✔ unrelated coinbase-like IDs do not impose a new global uniqueness rule (1.713062ms)
+✔ duplicate selected founding identity still rejects (1.749181ms)
+✔ header hash recomputation rejects a substituted accepting header (1.568106ms)
+✔ fixed-sink confirmation depth rejects shallow accepted rows (1.563668ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.060044

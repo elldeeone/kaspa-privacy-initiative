@@ -1,0 +1,2521 @@
+{
+  "accepted_chain_backing": false,
+  "case_count": 76,
+  "cases": [
+    {
+      "base_stage": "bob-partial",
+      "case_id": "actual-outpoint-index",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "actual input outpoint must equal Auth prior outpoint",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49397
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49397
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "actual-reserve-plus1",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "actual supplied reserve must equal Auth R",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49416
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49416
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "auth-domain",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "authorization uses exact current profile domain",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49092
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49092
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "auth-prior-state",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "authorization prior State112 equals actual policy",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49316
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49316
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "auth-old-magic",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "old private authorization cannot select new private branch",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49072
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49072
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "auth-old-width",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "old Auth484 framing cannot enter Auth528 branch",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49059
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49059
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "common-version",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "common exact native context: version",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "isolation:Some(UnknownTxVersion(2))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48872
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "UnknownTxVersion(2)",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48872
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "common-locktime",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "common exact native context: locktime",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48873
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48873
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "common-gas",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "common exact native context: gas",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "isolation:Some(TxHasGas(\"native / system subnetworks must use zero gas\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48873
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "TxHasGas(\"native / system subnetworks must use zero gas\")",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48873
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "common-subnetwork",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "common exact native context: subnetwork",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "isolation:Some(CoinbaseHasInputs(1))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48892
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "CoinbaseHasInputs(1)",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48892
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "common-sequence",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "no relative-lock sequence",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48900
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48900
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "common-coinbase",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "pool input is noncoinbase",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48901
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48901
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "common-input-covenant",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "pool input has no covenant identity",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48932
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48932
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "inactive-signature-first",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "all inactive signature65 bytes must be zero",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49057
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49057
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "inactive-signature-last",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "all inactive signature65 bytes must be zero",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49057
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49057
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-inactive-signature-last",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal still checks the complete inactive signature65",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49057
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49057
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "spend",
+      "case_id": "spend-covenant-output0",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "every output requires absent authorizing-input metadata",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "CovenantsError(WrongGenesisCovenantId(0, 0100000000000000000000000000000000000000000000000000000000000000))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48932
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48932
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "bob-partial-covenant-output0",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "every output requires absent authorizing-input metadata",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "CovenantsError(WrongGenesisCovenantId(0, 0100000000000000000000000000000000000000000000000000000000000000))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48932
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48932
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "bob-partial-covenant-output1",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "every output requires absent authorizing-input metadata",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "CovenantsError(WrongGenesisCovenantId(0, 0100000000000000000000000000000000000000000000000000000000000000))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165967
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165967
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "charlie-terminal-covenant-output0",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "every output requires absent authorizing-input metadata",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "CovenantsError(WrongGenesisCovenantId(0, 0100000000000000000000000000000000000000000000000000000000000000))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48932
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48932
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "output-extra",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "exact two-output topology forbids extra payout",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165967
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165967
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "output-missing-payout",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "exact native payout output required",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165967
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165967
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "output-missing-reserve",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "continuing reserve successor required",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 68030
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 68030
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "output-payout-value",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "actual native payout equals Auth P",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 209971
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 209971
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "output-reserve-value",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "actual native reserve equals Auth Rprime",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 68030
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 68030
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "successor-code",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "successor preserves immutable complete code suffix",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165954
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165954
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "successor-vk",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "successor preserves actual profile VK",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165954
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165954
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "successor-domain",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "successor preserves actual profile domain",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165954
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165954
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "payout-spk-version",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "Auth completeSPK36 must be version0 exact P2PK",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49657
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49657
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "payout-spk-push",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "Auth completeSPK36 must be version0 exact P2PK",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49657
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49657
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "payout-spk-suffix",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "Auth completeSPK36 must be version0 exact P2PK",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49658
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49658
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "payout-spk-unbound-output",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "actual native destination equals Auth fullSPK36",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 210055
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 210055
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "spend",
+      "case_id": "p0-nonzero-destination",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "P0 requires complete zero destination",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49649
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49649
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf0-pred-path",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated nf0-pred-path",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 171431
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 171431
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf0-append-path",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated nf0-append-path",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 182265
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 182265
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf1-pred-path",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated nf1-pred-path",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 192749
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 192749
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf1-append-path",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated nf1-append-path",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 203599
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 203599
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "cm0-append-path",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated cm0-append-path",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 54332
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 54332
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "cm1-append-path",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated cm1-append-path",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 63413
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 63413
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "next-nf-root",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated next-nf-root",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165954
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165954
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "next-cm-root",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "specific authenticated next-cm-root",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 68010
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 68010
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf-duplicate",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "two action nullifiers must be distinct",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 166079
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 166079
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf-order",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "slot1 authenticates against slot0 updated NF state",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 182267
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 182267
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf1-stale-slot0-witness",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "second NF insert cannot reuse prior-root slot0 witness",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 192749
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 192749
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf0-predecessor-equality",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "predecessor must be strictly less than new NF; genuine occupied-current witness is tested separately",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 171431
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 171431
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "nf1-predecessor-equality",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "second predecessor must be strictly less than new NF",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 192749
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 192749
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "count-n-zero",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "explicit current/successor capacity bound",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 48990
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 48990
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "count-n-over",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "explicit current/successor capacity bound",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49006
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49006
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "count-m-zero",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "explicit current/successor capacity bound",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49012
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49012
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "count-m-over",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "explicit current/successor capacity bound",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49032
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49032
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "count-m-profile",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "explicit current/successor capacity bound",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49047
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49047
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "count-cm-capacity",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "explicit current/successor capacity bound",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49724
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49724
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "next-n-count",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "exact two continuing CM appends",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49718
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49718
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "next-m-count",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "exact two NF inserts",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 165954
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 165954
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-nonzero-cm0",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal complete inactive cm0 must be zero before CM skip",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49741
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49741
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-nonzero-cm1",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal complete inactive cm1 must be zero before CM skip",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49741
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49741
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-nonzero-cipher-first",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal complete inactive cipher-first must be zero before CM skip",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 50269
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 50269
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-nonzero-cipher-last",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal complete inactive cipher-last must be zero before CM skip",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 50269
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 50269
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-nonzero-cm0-path-first",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal complete inactive cm0-path-first must be zero before CM skip",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51293
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51293
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-nonzero-cm1-path-last",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal complete inactive cm1-path-last must be zero before CM skip",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51293
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51293
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-zero-hash",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal cipher digest is SHA256(zero528), not zero digest",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 95362
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 95362
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-changed-cmroot",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal CMroot carries prior root without append",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51357
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51357
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-next-n",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal n carries prior n without append",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51377
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51377
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "terminal-extra-reserve",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "terminal has one payout and no reserve successor",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51378
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51378
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "amount-fee-zero",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "bounded native amount: fee-zero",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49450
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49450
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "amount-fee-over",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "bounded native amount: fee-over",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49475
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49475
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "amount-payout-over",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "bounded native amount: payout-over",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49527
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49527
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "amount-reserveprime-over",
+      "expectation_matched": true,
+      "expected": "REJECT_BEFORE_G16",
+      "expected_exact_error": null,
+      "intended_cause": "bounded native amount: reserveprime-over",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 49501
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 49501
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "proof-binds-destination",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "intended_cause": "original proof cannot authorize another native payout destination",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14961271
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14961271
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "proof-binds-payout",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "intended_cause": "original proof cannot increase P while decreasing reserve equally",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14961271
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14961271
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "proof-binds-fee",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "intended_cause": "original proof cannot authorize changed exact native fee",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14961271
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14961271
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "proof-binds-outpoint",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "intended_cause": "original proof cannot authorize a different otherwise identical supplied input",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14961272
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14961272
+          }
+        ]
+      },
+      "supplied_context_counterfactual": true
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "proof-binds-ciphertext",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "intended_cause": "original proof cannot authorize a different cipher transcript with matching native SHA",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14961271
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14961271
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "spend",
+      "case_id": "proof-binds-u64-p-negative-zero",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "intended_cause": "native sign-magnitude negative-zero decodes zero; unsigned Auth-bound proof must reject",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14960509
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14960509
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "charlie-terminal",
+      "case_id": "proof-binds-u64-rprime-negative-zero",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "intended_cause": "terminal native negative-zero decodes zero; unsigned Auth-bound proof must reject",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14846697
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14846697
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    },
+    {
+      "base_stage": "bob-partial",
+      "case_id": "proof-malformed-zero128",
+      "expectation_matched": true,
+      "expected": "REJECT_AT_G16",
+      "expected_exact_error": null,
+      "intended_cause": "zero bytes are not a valid G16 proof",
+      "native_validation": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+          "units": 14961271
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+            "units": 14961271
+          }
+        ]
+      },
+      "supplied_context_counterfactual": false
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "matched": 76,
+  "mismatches": 0,
+  "network_or_broadcast": false,
+  "reviewed_freeze_sha256": "092cfa8a07a49738dfbac15efb6df7d51fbe5ee4bae8c9ae7e4bee06b19e6688",
+  "scope": "PRIVATE_EXIT_NATIVE_ORDINARY_CONTROLS",
+  "scope_note": "Frozen supplied-context official Full and input engine; no accepted history/privacy/audit claim"
+}

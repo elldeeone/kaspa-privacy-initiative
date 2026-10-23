@@ -1,0 +1,284 @@
+{
+  "actual_contextual_storage_and_fixed_point_fee_still_required": true,
+  "all_outputs_absent_covenant_metadata": true,
+  "classification": "SOURCE_ARITHMETIC_ONLY_NOT_NATIVE_CASE_EXECUTION",
+  "common_signature_script_bytes": 24616,
+  "formula": "estimated_bytes=94+sum(54+signature_script_length)+sum(18+raw_output_script_length)+payload_length; compute=estimated_bytes+10*sum(2+raw_output_script_length)+100*sum(input_budgets)",
+  "native_revision": "01b532e8b553523216471682649693af92f0fd16",
+  "normal_private_action_G16_mass_floor": 147500,
+  "redeem_bytes": 24417,
+  "reference_10KAS_2percent_lifecycle_target_sompi": 20000000,
+  "rows": [
+    {
+      "compute_mass": 189587,
+      "estimated_bytes": 29217,
+      "input_compute_budgets": [
+        1600
+      ],
+      "input_signature_script_lengths": [
+        24616
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 189587,
+      "output_raw_script_lengths": [
+        35
+      ],
+      "payload_bytes": 4400,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 18958700,
+        "200": 37917400,
+        "500": 94793500
+      },
+      "shape": "private-P0-continuing",
+      "transient_mass": 116868
+    },
+    {
+      "compute_mass": 189999,
+      "estimated_bytes": 29269,
+      "input_compute_budgets": [
+        1600
+      ],
+      "input_signature_script_lengths": [
+        24616
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 189999,
+      "output_raw_script_lengths": [
+        35,
+        34
+      ],
+      "payload_bytes": 4400,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 18999900,
+        "200": 37999800,
+        "500": 94999500
+      },
+      "shape": "private-P-positive-continuing",
+      "transient_mass": 117076
+    },
+    {
+      "compute_mass": 189576,
+      "estimated_bytes": 29216,
+      "input_compute_budgets": [
+        1600
+      ],
+      "input_signature_script_lengths": [
+        24616
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 189576,
+      "output_raw_script_lengths": [
+        34
+      ],
+      "payload_bytes": 4400,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 18957600,
+        "200": 37915200,
+        "500": 94788000
+      },
+      "shape": "private-P-positive-terminal",
+      "transient_mass": 116864
+    },
+    {
+      "compute_mass": 47628,
+      "estimated_bytes": 26898,
+      "input_compute_budgets": [
+        200
+      ],
+      "input_signature_script_lengths": [
+        24616
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 53796,
+      "output_raw_script_lengths": [
+        35,
+        34
+      ],
+      "payload_bytes": 2029,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 5379600,
+        "200": 10759200,
+        "500": 26898000
+      },
+      "shape": "reveal-continuing",
+      "transient_mass": 107592
+    },
+    {
+      "compute_mass": 47205,
+      "estimated_bytes": 26845,
+      "input_compute_budgets": [
+        200
+      ],
+      "input_signature_script_lengths": [
+        24616
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 53690,
+      "output_raw_script_lengths": [
+        34
+      ],
+      "payload_bytes": 2029,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 5369000,
+        "200": 10738000,
+        "500": 26845000
+      },
+      "shape": "reveal-terminal",
+      "transient_mass": 107380
+    },
+    {
+      "compute_mass": 47651,
+      "estimated_bytes": 26281,
+      "input_compute_budgets": [
+        200,
+        10
+      ],
+      "input_signature_script_lengths": [
+        24616,
+        66
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 52562,
+      "output_raw_script_lengths": [
+        35
+      ],
+      "payload_bytes": 1344,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 5256200,
+        "200": 10512400,
+        "500": 26281000
+      },
+      "shape": "admit-no-native-change",
+      "transient_mass": 105124
+    },
+    {
+      "compute_mass": 48063,
+      "estimated_bytes": 26333,
+      "input_compute_budgets": [
+        200,
+        10
+      ],
+      "input_signature_script_lengths": [
+        24616,
+        66
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 52666,
+      "output_raw_script_lengths": [
+        35,
+        34
+      ],
+      "payload_bytes": 1344,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 5266600,
+        "200": 10533200,
+        "500": 26333000
+      },
+      "shape": "admit-positive-native-change",
+      "transient_mass": 105332
+    },
+    {
+      "compute_mass": 2038,
+      "estimated_bytes": 318,
+      "input_compute_budgets": [
+        10
+      ],
+      "input_signature_script_lengths": [
+        66
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 2038,
+      "output_raw_script_lengths": [
+        34,
+        34
+      ],
+      "payload_bytes": 0,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 203800,
+        "200": 407600,
+        "500": 1019000
+      },
+      "shape": "ordinary-two-output-funding",
+      "transient_mass": 1272
+    },
+    {
+      "compute_mass": 2450,
+      "estimated_bytes": 370,
+      "input_compute_budgets": [
+        10
+      ],
+      "input_signature_script_lengths": [
+        66
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 2450,
+      "output_raw_script_lengths": [
+        34,
+        34,
+        34
+      ],
+      "payload_bytes": 0,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 245000,
+        "200": 490000,
+        "500": 1225000
+      },
+      "shape": "three-output-funding-prep",
+      "transient_mass": 1480
+    },
+    {
+      "compute_mass": 2585,
+      "estimated_bytes": 855,
+      "input_compute_budgets": [
+        10
+      ],
+      "input_signature_script_lengths": [
+        66
+      ],
+      "normalized_mining_mass": "max(normalized_relay_mass, exact_KIP9_storage_mass(actual_amounts))",
+      "normalized_relay_mass": 2585,
+      "output_raw_script_lengths": [
+        35,
+        34
+      ],
+      "payload_bytes": 536,
+      "rate_quotes_before_contextual_storage_sompi": {
+        "100": 258500,
+        "200": 517000,
+        "500": 1292500
+      },
+      "shape": "founding-pool-and-native-change",
+      "transient_mass": 3420
+    }
+  ],
+  "sources": [
+    {
+      "bytes": 25202,
+      "path": "poc/private-exit-native/src/policy.rs",
+      "sha256": "78a7bff9fc1038cd20cd5424e7cd7ea04bd81469692066e10f0274777d0c3ebf"
+    },
+    {
+      "bytes": 21893,
+      "path": "poc/private-exit-native/src/native.rs",
+      "sha256": "0a5a535b6baaa86e719d0becacf611129da7a825e3190f632baa9b0cf58f7857"
+    },
+    {
+      "bytes": 516,
+      "path": "research/next-session/privacy-recovery/native/private-native-inspection-01/inspection.json",
+      "sha256": "7747a3a78640108c47161de5ba351fd00bf4e2302424b9af4ee24a0b82137134"
+    },
+    {
+      "bytes": 14647,
+      "path": "research/next-session/exit-fee/cost_envelope.py",
+      "sha256": "ea382803c79c07272c8485fb51505aabe27c90180e9f8e325de29f21f807a6df"
+    },
+    {
+      "bytes": 32685,
+      "path": "research/next-session/private-integration/fees/model.py",
+      "sha256": "ad6c25f8edc11662326033882d2e0f02d012bd26e3bcba2b3f18ca358911dc9e"
+    }
+  ],
+  "supersedes_with_retained_errata": "FEE-SHAPES-01.json; see FEE-SHAPES-01-ERRATA.md",
+  "two_recipient_transfer_plus_two_independent_private_exits_reference_floor_per_recipient_sompi": 22125000,
+  "unchanged_2percent_target_already_excluded_by_G16_floor": true
+}

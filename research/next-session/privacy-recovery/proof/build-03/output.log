@@ -1,0 +1,37 @@
+Running as unit: kpi-private-exit-proof-build-03.service; invocation ID: ab00c500ad8d4a90baf6961e32f180a0
+   Compiling kpi-private-exit-proof v0.1.0 (/workspace/poc/private-exit-proof)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-private-exit-proof` (lib test) generated 1 warning (run `cargo fix --lib -p kpi-private-exit-proof --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 2.22s
+     Running unittests src/lib.rs (/target/release/deps/kpi_private_exit_proof-91651a3f5559e49f)
+
+running 3 tests
+test fixture::tests::full_spk_and_terminal_encoding ... ok
+test fixture::tests::strict_parser_frames ... ok
+test fixture::tests::root_domain_and_wire_roundtrip ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+
+   Compiling kpi-private-exit-proof v0.1.0 (/workspace/poc/private-exit-proof)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-private-exit-proof` (lib) generated 1 warning (run `cargo fix --lib -p kpi-private-exit-proof` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 9.53s
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 11.800s
+             CPU time consumed: 36.831s
+                   Memory peak: 524.9M (swap: 0B)

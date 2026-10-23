@@ -1,0 +1,40 @@
+{
+  "VK_sha256": "5efe60cc6dc2079bd33cae4dd1b241b260afded57bb5beb7fe204e8a90456ba8",
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "fixtures": [
+    {
+      "case": "spend",
+      "expected_native_mainline": "ACCEPT",
+      "fixture_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/privacy-recovery/lifecycle/materialized-01/spend-fixture.json",
+      "sha256": "fa7c2260d0519f32ec91796c4a06c1bf3e86d32514b56c207eb92eb4b38487ad"
+    },
+    {
+      "case": "bob-partial",
+      "expected_native_mainline": "ACCEPT",
+      "fixture_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/privacy-recovery/lifecycle/materialized-01/bob-partial-fixture.json",
+      "sha256": "ae4464e5a5759fced7801877c792117a8ecec301ff5c170aef4430bbbfc40c6a"
+    },
+    {
+      "case": "bob-full",
+      "expected_native_mainline": "ACCEPT",
+      "fixture_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/privacy-recovery/lifecycle/materialized-01/bob-full-fixture.json",
+      "sha256": "464e6d9670e9d55b596599c34066e99716dc9a2bde5261765b1f688a08a62052"
+    },
+    {
+      "case": "charlie-terminal",
+      "expected_native_mainline": "ACCEPT",
+      "fixture_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/privacy-recovery/lifecycle/materialized-01/charlie-terminal-fixture.json",
+      "sha256": "b5c9acd80ac0312b5abdd52cf57aa2655399685f4f2976691589dfb21efcddd3"
+    },
+    {
+      "case": "race-after-reveal",
+      "expected_native_mainline": "REJECTED_ALTERNATIVE_CURRENT_OCCUPIED_ORIGINAL_NF",
+      "expected_ownership_R1CS": "SAT",
+      "fixture_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/privacy-recovery/lifecycle/controls-prepared-01/race-after-reveal-fixture.json",
+      "sha256": "0c27c49278b30cec2c3620a4d7254e4324a43429f6658d4936edfaefed3761fb"
+    }
+  ],
+  "genuine_proofs_generated_here": false,
+  "native_VM_executed": false,
+  "packet_freeze_sha256": "938accdfe18506e572a7bfd72f9b2b8091f56bef1673ee2fef0e54c8dc32909e"
+}

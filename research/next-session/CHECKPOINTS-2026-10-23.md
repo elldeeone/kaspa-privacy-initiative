@@ -19,3 +19,10 @@ architecture documentation as the original checkpoint bytes. Original closed
 lane source, fixtures, runtime freezes, results and manifests remain byte-identical.
 This note does not reconstruct missing provenance or reinterpret any failed
 expectation. The missing intermediate capacity-helper identity remains missing.
+
+The later `privacy-recovery` packet adds a separate unfunded Auth528 program and
+new development setup, independent public-record recovery for old Auth484/KPX2,
+and a fresh service-loss testnet identity. The old funded instance and all prior
+closed lane packets remain unchanged. Root architecture/threat/question and
+security-statement documents advance explicitly with RFC-0022 and ADRs 0049–0052;
+their new bytes are not substituted into earlier frozen experiments.

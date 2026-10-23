@@ -1,0 +1,31 @@
+{
+  "cpu_quota_percent": 200,
+  "endpoint": "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh",
+  "memory_max_bytes": 4294967296,
+  "memory_swap_max_bytes": 0,
+  "mounted_inputs": [
+    "fetch.mjs",
+    "approved stateless policy template JSON/bin",
+    "public descriptor",
+    "pinned SDK",
+    "selected Node/system libraries/DNS/TLS"
+  ],
+  "network_read_only": true,
+  "node_options": "--use-openssl-ca",
+  "node_path": "/home/luke/.nvm/versions/node/v24.15.0/bin/node.forge-original",
+  "node_sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c",
+  "not_mounted": [
+    "operator archive",
+    "private profile",
+    "seed backup",
+    "payer/recipient key",
+    "PK",
+    "prover executable",
+    "test fixture tree"
+  ],
+  "runtime_changes": "Only descriptor/output/unit identities; exact reviewed fetch source/SDK/template/ELF/CA/public mount strategy.",
+  "runtime_correction": "Exact underlying ELF; preserve existing wrapper system-CA mitigation instead of mounting an unusable host-path wrapper",
+  "runtime_max_seconds": 3600,
+  "stage": "terminal",
+  "unit": "kpi-kpx2-unspent-terminal-vector-01.service"
+}

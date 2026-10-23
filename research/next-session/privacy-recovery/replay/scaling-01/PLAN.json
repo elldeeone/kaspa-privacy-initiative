@@ -1,0 +1,80 @@
+{
+  "classification": "UNPROVED_SYNTHETIC_COMPONENT_SCALING_ONLY",
+  "composition": {
+    "founding": 1,
+    "private_one_real_dummy_splits": 9999
+  },
+  "expected": {
+    "cm_records": 19999,
+    "end_reserve_sompi": 600000000000,
+    "end_spine_value_sompi": 60000000,
+    "physical_nf_records": 19999,
+    "unspent_positive_notes": 10000
+  },
+  "fixture_storage": "OutsideGit; onlycompleteSHA/bytes/counts/sourceandresultsarepublished",
+  "measurement_boundaries": {
+    "actual_network_download": false,
+    "full_wallet_or_actual_10000_accepted_history_qualification": false,
+    "generation": true,
+    "groth16_or_native_signatures_or_kaspa_txid_verification": false,
+    "ideal_transfer_arithmetic": true,
+    "json_decoding": true,
+    "json_encoding_and_file_sha": true,
+    "public_state_replay": true,
+    "real_ciphertexts_or_owner_recognition": false,
+    "whole_process_peak_rss_and_cpu": true
+  },
+  "operations_total": 10000,
+  "preconditions": [
+    "Actual fresh independently fetched network replay positive has closed",
+    "Independent source ACK for benchmark and typed synthetic separation",
+    "26 local controls and small5operation serialization/decode/replay already pass"
+  ],
+  "resources": {
+    "cpu_quota_percent": 200,
+    "memory_max_bytes": 6442450944,
+    "network_unshared": true,
+    "owner_seeds_pk_prover_native_binary_mounted": false,
+    "swap_max_bytes": 0
+  },
+  "schema": "kpx2-public-replay-scaling-plan/v1",
+  "scores_not_operational_abort_limits": {
+    "declared_fresh_recovery_seconds": 900,
+    "ideal_json_payload_bits_per_second": 20000000,
+    "reference_aggregate_wallet_memory_bytes": 4294967296
+  },
+  "semantic_runs_authorized": 1,
+  "source_pins": [
+    {
+      "bytes": 11550,
+      "path": "poc/independent-recovery/benchmark.py",
+      "sha256": "4e336d53745cc0574b93597b674b81064701b1e8a52be07d3703fa05961b92cb"
+    },
+    {
+      "bytes": 30932,
+      "path": "poc/independent-recovery/replay.py",
+      "sha256": "f8be03c47008dd3b06ef601bd6da67ba42be47dec3f7c43a0d28dfe68e9b773d"
+    },
+    {
+      "bytes": 2131,
+      "path": "poc/independent-recovery/policy_template.py",
+      "sha256": "867c340348d25ecdec7c31e406d93b0f07d7b57005380216f575332f8bd2bd05"
+    },
+    {
+      "bytes": 22274,
+      "path": "poc/independent-recovery/kpx2-policy-template.bin",
+      "sha256": "8b0e6dd802b58400fdfd9fcc11cff2ef6e4a27659c973ff3d0b1bf946fcfda46"
+    },
+    {
+      "bytes": 3390,
+      "path": "poc/independent-recovery/kpx2-policy-template.json",
+      "sha256": "5f8e5354565c0545cfd6e6455958cbf955daa14d7982ac5c338673cc5a5a19bf"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/verification-key.bin",
+      "sha256": "5f551fa7b0cbeb9ec89ccf0e198575b1803db4c8012919166436af625e0136bc"
+    }
+  ],
+  "stop": "Retainfailedresult; no identicalsemanticrerun or targetretuning"
+}

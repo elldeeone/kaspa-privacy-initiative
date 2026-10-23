@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "public_mocked_ordering_controls": 7,
+  "actual_seed_reads": 0,
+  "actual_signatures": 0,
+  "cryptographic_or_network_evidence": false,
+  "controls": [
+    "Recover discovers sorted actionable positions after exactly one backup read",
+    "Prepare selects first recognized actionable claim and passes that exact position to unchanged wallet",
+    "Invalid disclosure consent stops before public or private lookup",
+    "Incomplete public replay stops before backup read",
+    "Wrong user-selected descriptor pin stops before backup read",
+    "No actionable claim stops before payload or helper invocation",
+    "Caller-supplied position map field is rejected before lookup"
+  ]
+}

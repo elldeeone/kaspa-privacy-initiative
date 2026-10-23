@@ -2,6 +2,17 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[RFC-0022](docs/rfc/0022-private-cashout-and-independent-recovery.md) asks whether
+normal proof-private withdrawals with change can remove the measured direct
+CM/note-opening channel while resisting amount/prior/collusion attacks through
+complete cashout. Direct verifier fees already rule out the unchanged10-KAS2%
+lifecycle target for this unamortized route. What established composition can
+amortize independent owners without sharing private witnesses or hidden subsidy?
+Can a seed-only client discover and replay a canonical pool without operator
+archives, retain enough public data across pruning/reorgs, and exit after service
+loss? Multiple RPCs and correctly encrypted recognized receipts are explicit
+premises, not general independence or universal liability discovery proofs.
+
 [RFC-0021](docs/rfc/0021-confirmed-native-private-payment-rehearsal.md) now
 closes the bounded confirmed-TN10 lifecycle: six accepted native bodies, two
 seed-backup recipient payouts and zero remaining reserve/liabilities. How can

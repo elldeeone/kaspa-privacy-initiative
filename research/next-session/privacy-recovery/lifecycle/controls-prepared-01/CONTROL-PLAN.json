@@ -1,0 +1,31 @@
+{
+  "accepted_chain_backing": false,
+  "cases": [
+    {
+      "expected": "ACCEPT",
+      "genuine_private_proof": false,
+      "id": "reveal-first"
+    },
+    {
+      "expected": "SignatureInvalid(VerifyError)",
+      "id": "reveal-after-private",
+      "original_signer_and_current_cm_nf_paths": true
+    },
+    {
+      "current_occupied_original_nf": true,
+      "expected": "SignatureInvalid(VerifyError)",
+      "expected_private_relation_satisfied": true,
+      "fixture_sha256": "0c27c49278b30cec2c3620a4d7254e4324a43429f6658d4936edfaefed3761fb",
+      "id": "private-after-reveal",
+      "needs_additional_genuine_rebound_private_proof": true
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "native_VM_or_Full_executed_here": false,
+  "notes": [
+    "Strict predecessor<NF fails on the authentic equal current leaf.",
+    "Bad successor roots are rejected-only fixtures, never accepted snapshots."
+  ],
+  "partial_private_positive_is_mainline": true,
+  "separate_alternatives_not_extra_mainline_payouts": true
+}

@@ -1,0 +1,26 @@
+{
+  "conclusion": "Nested namespaces fail; single namespace works; AF_UNIX+AF_NETLINK permits sandbox construction while INET/INET6 are denied.",
+  "probes": [
+    {
+      "data": "NONE",
+      "purpose": "Namespace/socket-policy operational compatibility only; no model input, key generation, classification or scoring",
+      "unit": "kpi-observer-namespace-probe-01.service"
+    },
+    {
+      "data": "NONE",
+      "purpose": "Namespace/socket-policy operational compatibility only; no model input, key generation, classification or scoring",
+      "unit": "kpi-observer-namespace-probe-02.service"
+    },
+    {
+      "data": "NONE",
+      "purpose": "Namespace/socket-policy operational compatibility only; no model input, key generation, classification or scoring",
+      "unit": "kpi-observer-socket-probe-01.service"
+    },
+    {
+      "data": "NONE",
+      "purpose": "Namespace/socket-policy operational compatibility only; no model input, key generation, classification or scoring",
+      "unit": "kpi-observer-socket-probe-02.service"
+    }
+  ],
+  "scope": "OPERATIONAL_NO_DATA_PROBES"
+}

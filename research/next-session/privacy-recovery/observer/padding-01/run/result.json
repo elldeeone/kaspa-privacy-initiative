@@ -1,0 +1,43 @@
+{
+  "accepted_native_history": false,
+  "classification": "SYNTHETIC_C_ONLY_FORMAT_CANARY",
+  "crypto_correctness_proof": false,
+  "fixed_attack": "ciphertext[31]&0x80 !=0 => not an honest crypto_box0.9.1 seal",
+  "limitations": [
+    "Shared real control correlates comparisons; no independent CI claimed.",
+    "Only the fixed highbit classifier is tested, not all format/curve-membership attacks.",
+    "Terminal all-zero ciphertext is intentionally public and excluded.",
+    "No target identities, amounts, balances or chain acceptance are scored."
+  ],
+  "negative_flag_means": "unresolved, never evidence of a positive note",
+  "new_vs_real_forced_choice": {
+    "correct": 256,
+    "total": 512
+  },
+  "old_vs_real_forced_choice": {
+    "correct": 385,
+    "total": 512
+  },
+  "per_class": {
+    "new_throwaway_sealed_dummy": {
+      "flagged": 0,
+      "total": 256
+    },
+    "old_raw_random_dummy": {
+      "flagged": 129,
+      "total": 256
+    },
+    "real_receipt_seal": {
+      "flagged": 0,
+      "total": 256
+    }
+  },
+  "population_evaluation": false,
+  "positive_flag_means": "not honest real seal; within this declared3-class fixture a dummy",
+  "prediction_sha256": "d2fd4703d00f54978205d6af3d2bd82fa885870f34b7a3d32c9e05dd6e727203",
+  "privacy_qualification": false,
+  "public_sha256": "d7755bdee513d9fe67b311d00f28866ea80e3605bc68485af5cc163a93051233",
+  "schema": "kpi-padding-result/v1",
+  "stop_if_real_or_new_flagged": false,
+  "truth_sha256": "f80a83ff7c8ef3b22deab7459af0920957a85845e1173c6b434c084f127f256c"
+}

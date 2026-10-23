@@ -1,0 +1,112 @@
+{
+  "accepted_chain_backing": false,
+  "actual_prior_output_links_checked": 7,
+  "all_remaining_positive_liability_sompi": 0,
+  "all_remaining_reserve_sompi": 0,
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "complete_supplied_context_native_sequence_passed": true,
+  "fee_qualified": false,
+  "fees_sompi": {
+    "admit": 5256200,
+    "bob-full": 18999900,
+    "bob-partial": 18999900,
+    "charlie-terminal": 18957600,
+    "founding": 2574600,
+    "funding-prep": 911400,
+    "spend": 18958700
+  },
+  "final_cm_count": 8,
+  "final_nf_count": 9,
+  "genuine_private_proofs": 4,
+  "independent_recovery_demonstrated_here": false,
+  "limits": [
+    "Public synthetic secrets",
+    "Supplied funding/current-lineage/archive oracle",
+    "No independent network discovery or durable data proof",
+    "Direct verifier lifecycle fee gate fails"
+  ],
+  "native_Full_operations": 7,
+  "ordinary_founding_change_sompi": 57425400,
+  "ordinary_source_change_sompi": 1914873700,
+  "p95_qualified": false,
+  "payouts": {
+    "bob-full": {
+      "index": 1,
+      "script_public_key": "0000209293462f1932b6a2c53759e3b178f1e6ebcfa5d50ccd672b4e74a1aaf473e81aac",
+      "transaction_id": "9c4168df3ec5c91277f7d65458e95de47030a5a3eb2cf730f271bde36f92bf19",
+      "value_sompi": 762000200
+    },
+    "bob-partial": {
+      "index": 1,
+      "script_public_key": "000020f1eeffa189a7a61819588befee00f98048dbd6e03e46206ec920ab47ac931a46ac",
+      "transaction_id": "0742127ee095f4f73dc29a3c9f9f50fcaf3d372702371c76e076c28e5a3d24c8",
+      "value_sompi": 200000000
+    },
+    "charlie-terminal": {
+      "index": 0,
+      "script_public_key": "000020b4fa824e515c9975072f04e38f4950d79045c2af30e7dbc99c4ac6c8191273e9ac",
+      "transaction_id": "3e9f67886ef5770b8661ae4294a88517afdc891b770ea492b7bfbb48f2034347",
+      "value_sompi": 981042400
+    }
+  },
+  "per_recipient_attributable_native_fee_sompi": {
+    "Bob": 51850250,
+    "Charlie": 32808050
+  },
+  "privacy_qualified": false,
+  "recognized_owner_unspent_pool_sompi": {
+    "Alice": 0,
+    "Bob": 0,
+    "Charlie": 0
+  },
+  "source_input_freeze_sha256": "e69bdb239db40f81088d1cbfcb232e0fbdbc5319c4302f46a2fa771cd9003513",
+  "source_sompi": 4000000000,
+  "stages": [
+    {
+      "genuine_Groth16_verified": true,
+      "native_Full": {
+        "accepted": true,
+        "fee_sompi": 18958700
+      },
+      "payout_sompi": 0,
+      "reserve_after_sompi": 2000000000,
+      "stage": "spend",
+      "transaction_id": "4f0bb2f60e5dda605587d28249bdbbfbe84e5a4f5b40c37171be11284ec6209b"
+    },
+    {
+      "genuine_Groth16_verified": true,
+      "native_Full": {
+        "accepted": true,
+        "fee_sompi": 18999900
+      },
+      "payout_sompi": 200000000,
+      "reserve_after_sompi": 1781000100,
+      "stage": "bob-partial",
+      "transaction_id": "0742127ee095f4f73dc29a3c9f9f50fcaf3d372702371c76e076c28e5a3d24c8"
+    },
+    {
+      "genuine_Groth16_verified": true,
+      "native_Full": {
+        "accepted": true,
+        "fee_sompi": 18999900
+      },
+      "payout_sompi": 762000200,
+      "reserve_after_sompi": 1000000000,
+      "stage": "bob-full",
+      "transaction_id": "9c4168df3ec5c91277f7d65458e95de47030a5a3eb2cf730f271bde36f92bf19"
+    },
+    {
+      "genuine_Groth16_verified": true,
+      "native_Full": {
+        "accepted": true,
+        "fee_sompi": 18957600
+      },
+      "payout_sompi": 981042400,
+      "reserve_after_sompi": 0,
+      "stage": "charlie-terminal",
+      "transaction_id": "3e9f67886ef5770b8661ae4294a88517afdc891b770ea492b7bfbb48f2034347"
+    }
+  ],
+  "testnet_broadcast_or_payout": false,
+  "total_fees_sompi": 84658300
+}

@@ -1,0 +1,91 @@
+{
+  "after_complete_cashout": {
+    "exact_private_output_note_values": 2,
+    "forced_note_to_payout_links": 2,
+    "targets": [
+      {
+        "commitment": "1f4220ed58ca2c7810099ea8c42445208317a44a634d9480aeda64f63cbedadc",
+        "creation_txid": "53332868b16c7969e8a8ba4ede79177773941df7c9108c132abddd298fba9190",
+        "exact_historical_note_value_sompi": 100000000,
+        "forced_relation": "PRIVATE_OUTPUT_CM_EQUALS_PUBLIC_REVEAL_CM_AND_POSITION",
+        "native_fee_sompi": 4973800,
+        "native_payout_sompi": 95026200,
+        "payout_output_index": 1,
+        "payout_script_public_key": "000020301cfcae3813dbd71aebc13efefbfdb95c118046f8a967859ebb7d2e664f22d3ac",
+        "position": 2,
+        "reveal_txid": "3f29dd0ff69656d73489b3f2dbb8b19606e44af7cbba74a05d88fdda39a4d809",
+        "slot": 0
+      },
+      {
+        "commitment": "0d2b8d19aac8aa1546e977ce811fca54ab6bb1ec14c66c3a0d07d0bd0c789530",
+        "creation_txid": "53332868b16c7969e8a8ba4ede79177773941df7c9108c132abddd298fba9190",
+        "exact_historical_note_value_sompi": 100000000,
+        "forced_relation": "PRIVATE_OUTPUT_CM_EQUALS_PUBLIC_REVEAL_CM_AND_POSITION",
+        "native_fee_sompi": 4963200,
+        "native_payout_sompi": 95036800,
+        "payout_output_index": 0,
+        "payout_script_public_key": "000020179729b8e1bef8ce0356e97a26e1bc4daf1e5d50ce15410bd0332923f52dd10bac",
+        "position": 3,
+        "reveal_txid": "bcef652b49c5bc04683623a18c772f97d86f455505f20128c5a18f380ee07a99",
+        "slot": 1
+      }
+    ]
+  },
+  "classification": "ACTUAL_CHAIN_DESCRIPTIVE_CANARY_NOT_32_ROLE_QUALIFICATION",
+  "human_identities_inferred": false,
+  "invoice_directory_supplied": false,
+  "limitations": [
+    "Accepted-chain premise is source-pinned trusted-node evidence.",
+    "Arithmetic bounds omit hidden hash/PRF witness relations and are only an outer relaxation.",
+    "A note value is a payment amount only under the separately declared direct-note pilot semantics.",
+    "Output-to-payout script linkage is not a human-identity inference.",
+    "No C+P/C+P+A/I or representative population qualification."
+  ],
+  "note_native_pk_equality_matches_to_ingress": [],
+  "observer": "C",
+  "payment_horizon": {
+    "classification": "ARITHMETIC_OUTER_RELAXATION_NOT_PROOF_WITNESS_ALTERNATIVES",
+    "necessary_slot_value_intervals_sompi": [
+      [
+        0,
+        0
+      ],
+      [
+        60000000,
+        140000000
+      ],
+      [
+        200000000,
+        200000000
+      ]
+    ],
+    "possible_input_subset_output_totals_sompi": [
+      140000000,
+      200000000
+    ],
+    "probabilities_assigned": false
+  },
+  "preserved_prior_amount_floor": {
+    "adopted_gate_percent": 20,
+    "denominator": 100025,
+    "status": "FAIL_UNCHANGED",
+    "successes": 21103
+  },
+  "private_output_targets": [
+    {
+      "commitment": "1f4220ed58ca2c7810099ea8c42445208317a44a634d9480aeda64f63cbedadc",
+      "creation_txid": "53332868b16c7969e8a8ba4ede79177773941df7c9108c132abddd298fba9190",
+      "position": 2,
+      "slot": 0
+    },
+    {
+      "commitment": "0d2b8d19aac8aa1546e977ce811fca54ab6bb1ec14c66c3a0d07d0bd0c789530",
+      "creation_txid": "53332868b16c7969e8a8ba4ede79177773941df7c9108c132abddd298fba9190",
+      "position": 3,
+      "slot": 1
+    }
+  ],
+  "proof_or_signature_reverified_here": false,
+  "statistical_qualification": false,
+  "transactions_read": 6
+}

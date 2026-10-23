@@ -1,6 +1,26 @@
 # Next focus: shielded native KAS and financial privacy
 
-## Current checkpoint — 2026-10-18
+## Current checkpoint — 2026-10-23
+
+The previous native-KAS pilot completed both confirmed TN10 payouts. The next
+[privacy and recovery results](../research/next-session/privacy-recovery/RESULTS.md)
+now add descriptor-only network discovery, backup-only historical recovery and
+an unfunded proof-private cashout prototype with private change, terminal payout
+and both competing-spend controls. The new program has five genuine proofs and
+seven mainline native Full operations; these are supplied-context results.
+The separate fresh service-loss trial now confirms both independently
+reconstructed revealing exits. A final fresh descriptor-only public replay
+checks both payouts unspent and zero reserve; each cold client used only its
+own backup and fresh public chain data, with no operator archive or prover.
+
+The remaining product gates are financial privacy through complete cashout,
+the unchanged 2% complete-fee target, and integrated network recovery/private
+proving for the new program. The current direct-verifier fee floor already
+fails the 10-KAS target. Neither additional CPU nor successful local tests closes
+that architecture constraint. Follow RFC-0022 and ADRs 0049–0052; preserve prior
+failed privacy measurements and all funded instances.
+
+## Historical checkpoint — 2026-10-18
 
 PR42 and PR43 are merged. The [complete classifier receipt](../poc/remote-cuda/FULL-RESULTS.md)
 closes the outer-receipt blocker for the existing compact-wallet test model:

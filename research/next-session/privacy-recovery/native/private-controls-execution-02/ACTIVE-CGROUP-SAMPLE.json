@@ -1,0 +1,24 @@
+{
+  "samples": [
+    {
+      "systemd": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "MainPID": "3536373",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-private-exit-controls-02.service",
+        "CPUQuotaPerSecUSec": "2s",
+        "MemoryMax": "2147483648",
+        "MemorySwapMax": "0"
+      },
+      "cgroup": {
+        "cpu.max": "200000 100000",
+        "memory.max": "2147483648",
+        "memory.swap.max": "0",
+        "memory.current": "12234752",
+        "memory.peak": "12234752"
+      },
+      "captured_while_process_active": true
+    }
+  ],
+  "active_cgroup_sampled": true
+}

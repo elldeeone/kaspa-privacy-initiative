@@ -1,0 +1,83 @@
+{
+  "schema": "kpx2-fresh-cold-recovery-terminal-closure/v1",
+  "passed": true,
+  "classification": "ACTUAL_FRESH_UNSPENT_ONE_BACKUP_RECOVERY_NEW_EXITS_CONFIRMED_AND_INDEPENDENTLY_REFETCHED",
+  "canonical_descriptor_sha256": "c9ecb633fff4337d841670a5ab8e25cc2b61c3852cc50415ce97d7913cd8d36e",
+  "fresh_terminal_fetch_sha256": "d96702bf1ce58edf502532dbf521d94d4ae99970854268d797a51944da8ad140",
+  "terminal_public_native_report_sha256": "7dd1d8fe8a625864fce82474fbc9865223f8c6b395580ca9140be177fc7e332f",
+  "terminal_public_replay_sha256": "62ed55c7a35aaaf9bc036dd99995ba2278a8ddb1207e95c8800a38f7065a2cc7",
+  "owners": [
+    {
+      "controlled_role": "bob",
+      "owned_claim_sompi": 60000000,
+      "position_derived_from_recognized_claim": 2,
+      "backup_read_count_for_signing": 1,
+      "signed_wallet_result_sha256": "66a87eb7a598570d6a08c62bf22c395b3f71f8cfbf45d330ffeae8f2fc1a1824",
+      "transaction_id": "043b8919e6c582232479e09f3fd3f553259754c031fe9c204eeacecbe176f060",
+      "fee_sompi": 4973800,
+      "payout_sompi": 55026200,
+      "payout_outpoint": {
+        "index": 1,
+        "transactionId": "043b8919e6c582232479e09f3fd3f553259754c031fe9c204eeacecbe176f060"
+      },
+      "final_fresh_query_unspent": true
+    },
+    {
+      "controlled_role": "charlie",
+      "owned_claim_sompi": 60000000,
+      "position_derived_from_recognized_claim": 3,
+      "backup_read_count_for_signing": 1,
+      "signed_wallet_result_sha256": "2f4c549ff3751d0020a3b6da8db7119686d5c00696d010ab7cde3dfe002b8d17",
+      "transaction_id": "c39d0ca13d326ee3da7f2199b6702e566c429cb827f06bdc42ac306f802b6ca1",
+      "fee_sompi": 4963200,
+      "payout_sompi": 55036800,
+      "payout_outpoint": {
+        "index": 0,
+        "transactionId": "c39d0ca13d326ee3da7f2199b6702e566c429cb827f06bdc42ac306f802b6ca1"
+      },
+      "final_fresh_query_unspent": true
+    }
+  ],
+  "recognized_principal_before_exits_sompi": 120000000,
+  "two_cold_reveal_fees_sompi": 9937000,
+  "two_native_payouts_sompi": 110063000,
+  "fee_scope": "Only the two independently constructed REVEAL transactions; not complete lifecycle fees",
+  "terminal_reserve_sompi": 0,
+  "current_pool_head": null,
+  "cm_records": 4,
+  "physical_nf_records": 5,
+  "native_full_validated_pool_operations": 5,
+  "wrong_transcript_same_proof_reached_g16_and_rejected": true,
+  "terminal_public_replay_wall_seconds": 0.07019932597177103,
+  "observed_resources": {
+    "telemetry_only": true,
+    "pid": 3607710,
+    "observation_stage": "before_bwrap",
+    "cgroup_path": "/user.slice/user-1000.slice/user@1000.service/app.slice/kpi-cold-terminal-public-replay-01.service",
+    "observed": {
+      "cpu.max": "200000 100000",
+      "memory.max": "6442450944",
+      "memory.swap.max": "0",
+      "pids.current": "2"
+    }
+  },
+  "cleanup": {
+    "LoadState": "not-found",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "MainPID": "0"
+  },
+  "cold_clients_broadcast": false,
+  "root_submitted_and_confirmed_each_once": true,
+  "no_operator_archive_profile_expected_payment_map_pk_prover_precomputed_exit_or_other_seed_in_cold_inputs": true,
+  "root_seed_native_signing_key_and_backup_bytes_or_hash_published": false,
+  "further_seed_reads_in_terminal_closure": false,
+  "explicit_revealing_fallback_consent_before_seed": true,
+  "financial_privacy_or_fee_target_qualified": false,
+  "fresh_machine_or_reference_device_or_10000_operation_qualified": false,
+  "independent_consensus_or_durable_da_proved": false,
+  "selected_node_and_retained_public_data_premise": true,
+  "user_authenticated_descriptor_and_preinstalled_approved_software_premise": true,
+  "recognized_correctly_encrypted_receipt_delivery_assumption": true,
+  "current_query_view_atomic": false
+}

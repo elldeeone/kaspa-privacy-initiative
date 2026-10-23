@@ -1,0 +1,44 @@
+✔ descriptor is exact public bootstrap, canonical across key order (1.717792ms)
+✔ descriptor rejects archive, owner and stage fields (0.381096ms)
+✔ descriptor rejects wrong network, genesis and founding index (0.187848ms)
+✔ descriptor rejects arbitrary policy even with matching self-selected hash (0.617325ms)
+✔ descriptor binds full domain and VK substitutions (0.864617ms)
+✔ integer and SPK encoding reject lossy u64 and unknown script versions (0.4147ms)
+✖ actual public accepted body and ID roundtrip use pinned SDK (53.722821ms)
+✔ historical lossy parent serialization fails closed (11.07838ms)
+✔ fresh expanded network header recomputes after JSON roundtrip (12.868489ms)
+✔ Full context absence and coinbase substitution reject (0.331661ms)
+✔ finite scan follows pagination to the exact fixed frontier and stops (7.410475ms)
+✔ empty page before fixed frontier is incomplete, never complete zero (2.061957ms)
+✔ truncated hash/group response rejects (2.004227ms)
+✔ removal invalidates the finite scan (2.098948ms)
+✔ cursor cycle rejects without silently advancing to current sink (3.728682ms)
+✔ missing founding after a complete frontier is incomplete (1.947479ms)
+✔ header hash recomputation rejects a substituted accepting header (1.721057ms)
+✔ fixed-sink confirmation depth rejects shallow accepted rows (1.741637ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.167325
+
+✖ failing tests:
+
+test at poc/independent-recovery/test_fetch.mjs:56:1
+✖ actual public accepted body and ID roundtrip use pinned SDK (53.722821ms)
+  Error: outpoint fields
+      at need (file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/independent-recovery/fetch.mjs:33:55)
+      at point (file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/independent-recovery/fetch.mjs:59:3)
+      at file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/independent-recovery/fetch.mjs:143:33
+      at Array.map (<anonymous>)
+      at canonicalTransaction (file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/independent-recovery/fetch.mjs:139:22)
+      at verifyTransactionId (file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/independent-recovery/fetch.mjs:172:41)
+      at TestContext.<anonymous> (file:///home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/independent-recovery/test_fetch.mjs:60:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18) {
+    category: 'MALFORMED'
+  }

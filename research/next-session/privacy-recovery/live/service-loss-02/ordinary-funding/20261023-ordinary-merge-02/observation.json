@@ -1,0 +1,301 @@
+{
+  "accepted_body": {
+    "gas": "0",
+    "id": "033edf4c81a8edbea99f572ed4f883558f51bab19d3b2c4ef7aa34321d673a5b",
+    "inputs": [
+      {
+        "computeBudget": 10,
+        "previousOutpoint": {
+          "index": 2,
+          "transactionId": "62b5534d5131e1ea4f2ef3201a47d528ab93332a805031d89465748ac639b737"
+        },
+        "sequence": "18446744073709551615",
+        "signatureScript": "419891eddcc4cd819824c5a486fa6baaffbe1002eaf1d3f908702c81d1369cdd03fcf07018b8a54ca08b386d04000e585304869669eabbc7ba7314de51b25c0c8301"
+      },
+      {
+        "computeBudget": 10,
+        "previousOutpoint": {
+          "index": 1,
+          "transactionId": "3f29dd0ff69656d73489b3f2dbb8b19606e44af7cbba74a05d88fdda39a4d809"
+        },
+        "sequence": "18446744073709551615",
+        "signatureScript": "419b5a3648bc2b3cb1536c9785cb34484a0af6cea52c38fa6555605aa3e2092bb600c894e7e498cc771175fe117d2464c1df84de717fa078321df6babf92bf27da01"
+      }
+    ],
+    "lockTime": "0",
+    "outputs": [
+      {
+        "covenant": null,
+        "scriptPublicKey": "000020db4734e52a35eace4fbe54f85d7867cd2bbf9a6902d63180d93d05c868ea5b00ac",
+        "value": "174600300"
+      }
+    ],
+    "payload": "",
+    "storageMass": "0",
+    "subnetworkId": "0000000000000000000000000000000000000000",
+    "version": 1
+  },
+  "accepted_body_sha256": "faab6fda2b9cef21ed3b49959efe8d5d246482d6baf5455fde3fb7a5150b1fd7",
+  "accepted_input_contexts": [
+    {
+      "amount_sompi": "79848700",
+      "block_daa_score": "604012589",
+      "covenant_id": null,
+      "is_coinbase": false,
+      "outpoint": {
+        "index": 2,
+        "transactionId": "62b5534d5131e1ea4f2ef3201a47d528ab93332a805031d89465748ac639b737"
+      },
+      "script_public_key": "000020226cded99b9ca0477c637b439b6371f98022e1d17b8f3106b9d040a35ce6ea1cac"
+    },
+    {
+      "amount_sompi": "95026200",
+      "block_daa_score": "604014623",
+      "covenant_id": null,
+      "is_coinbase": false,
+      "outpoint": {
+        "index": 1,
+        "transactionId": "3f29dd0ff69656d73489b3f2dbb8b19606e44af7cbba74a05d88fdda39a4d809"
+      },
+      "script_public_key": "000020301cfcae3813dbd71aebc13efefbfdb95c118046f8a967859ebb7d2e664f22d3ac"
+    }
+  ],
+  "accepting_block_header": {
+    "acceptedIdMerkleRoot": "6ed124be3e1da743c27d8387b8ac23be51133b15133aa21dbc105a1bc3820ac9",
+    "bits": 503664857,
+    "blueScore": "592487459",
+    "blueWork": "2177451052807377",
+    "daaScore": "604080746",
+    "hash": "e9e56e2d29a69227e35edf2fb73fc6df802a9582f65b1f5ac123ee69af02be9f",
+    "hashMerkleRoot": "c3ff9dc66889dcb61434ac446c6e50bca096e8d80ab3c668783dd8bf27f3aaa2",
+    "nonce": "8649493130737870025",
+    "parentsByLevel": {},
+    "pruningPoint": "20403bdcca719b84f0de788633010b05edf99dbe46ba3cdbf5615d50051fca6a",
+    "timestamp": "1792741896751",
+    "utxoCommitment": "96e254ed7e3b7350035655ce1f80216040e5cafd72fecf6c09f7119b62c25330",
+    "version": 2
+  },
+  "chain_delta_removed": [],
+  "confirmation_policy": {
+    "accepting_blue_score": "592487459",
+    "actual_blue_score_distance": "404",
+    "comparison": "sinkBlueScore-acceptingBlueScore > min",
+    "immutable_finality": false,
+    "min_confirmation_count": 20,
+    "passes": true,
+    "sink_blue_score": "592487863"
+  },
+  "current_outputs": [
+    {
+      "amount_sompi": "174600300",
+      "index": 0,
+      "outpoint": {
+        "index": 0,
+        "transactionId": "033edf4c81a8edbea99f572ed4f883558f51bab19d3b2c4ef7aa34321d673a5b"
+      },
+      "script_public_key": "000020db4734e52a35eace4fbe54f85d7867cd2bbf9a6902d63180d93d05c868ea5b00ac",
+      "utxo": {
+        "amount_sompi": "174600300",
+        "block_daa_score": "604080746",
+        "covenant_id": null,
+        "is_coinbase": false,
+        "outpoint": {
+          "index": 0,
+          "transactionId": "033edf4c81a8edbea99f572ed4f883558f51bab19d3b2c4ef7aa34321d673a5b"
+        },
+        "script_public_key": "000020db4734e52a35eace4fbe54f85d7867cd2bbf9a6902d63180d93d05c868ea5b00ac"
+      }
+    }
+  ],
+  "expected_genesis": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "final_cursor": "4a0103227196ac3a5d122a7103171f67b2f1e4a5a85d19ec42fec045b2b02386",
+  "network": "testnet-10",
+  "observed_at": "2026-10-23T07:52:16.066Z",
+  "observed_sink": "2c16ca546e009a397c013b809accd5ae588fc71c263c33bbae89f46ecc2f0679",
+  "public_extraction": {
+    "adapter_headers_are_selected_node_assertions": true,
+    "full_unrelated_pages_excluded": true,
+    "headers_independently_rehashed_by_this_extractor": false,
+    "independent_fresh_fetch_header_checks_are_separate_evidence": true,
+    "original_file_bytes": 49454014,
+    "original_file_sha256": "6754aa403430ced38db3566d9cc7ffb3eb119968a84246efe191c2b175e30f47",
+    "original_page_summaries": [
+      {
+        "accepted_transaction_records": 13180,
+        "added_blocks": 920,
+        "original_page_canonical_sha256": "63ccd39f52223ac7c95b8ffab480cee0c18763ee82e513fbe1dad1705f7db293",
+        "removed_blocks": 0,
+        "start_hash": "57e74ba348c00b7d204a6069f31ab21e4ab0e8bc95969192c4eac4ccc978d220"
+      },
+      {
+        "accepted_transaction_records": 11056,
+        "added_blocks": 727,
+        "original_page_canonical_sha256": "9fbc4c233eac1f90139bb08059f0ffeb745ca2ec1efa3fd795f7375470151de9",
+        "removed_blocks": 0,
+        "start_hash": "f7d6e287aa5e81ac34771c2696de664a984fca2cb2dd7d3e3ac4866b9937d298"
+      },
+      {
+        "accepted_transaction_records": 265,
+        "added_blocks": 17,
+        "original_page_canonical_sha256": "9ffa787ff6c497d59cb839b6b9ea4cfccbbf61bb93de5be73193f01926f9aec0",
+        "removed_blocks": 0,
+        "start_hash": "ab1c9fa2795e2109fad003cf5e20535497251b9ac8d2188b29838ef5a1e06cac"
+      },
+      {
+        "accepted_transaction_records": 4,
+        "added_blocks": 2,
+        "original_page_canonical_sha256": "5c53ac5a16d166bafd1f0e702f98e4debd601606ac74ea38bfe17ff427599563",
+        "removed_blocks": 0,
+        "start_hash": "9f1d885553cc5cdc7518126961aca1c1fd4c9dea29abaa2bc89cf379d3f57895"
+      },
+      {
+        "accepted_transaction_records": 0,
+        "added_blocks": 0,
+        "original_page_canonical_sha256": "2c2210217bcbcb987e641ec0d3326bd9ba277af22da9fb6880749dd66cbfd41e",
+        "removed_blocks": 0,
+        "start_hash": "2afe001c79f3cd0e2b6c707e687afe4841bc50733bc3a69ad9df7c059777ddd5"
+      },
+      {
+        "accepted_transaction_records": 13,
+        "added_blocks": 3,
+        "original_page_canonical_sha256": "dfbc5b46a7bbc0315c2754285cb0a4d427e1d3b0a01c365f85417b8fab4afc60",
+        "removed_blocks": 0,
+        "start_hash": "2afe001c79f3cd0e2b6c707e687afe4841bc50733bc3a69ad9df7c059777ddd5"
+      },
+      {
+        "accepted_transaction_records": 0,
+        "added_blocks": 0,
+        "original_page_canonical_sha256": "bac702ec41e108cd41809bb0685a0ab6f788ac4310918e6f22b5c9ee0bab4c50",
+        "removed_blocks": 0,
+        "start_hash": "4a0103227196ac3a5d122a7103171f67b2f1e4a5a85d19ec42fec045b2b02386"
+      }
+    ],
+    "selected_acceptance_records": [
+      {
+        "acceptedTransactions": [
+          {
+            "gas": "0",
+            "inputs": [
+              {
+                "computeBudget": 10,
+                "previousOutpoint": {
+                  "index": 2,
+                  "transactionId": "62b5534d5131e1ea4f2ef3201a47d528ab93332a805031d89465748ac639b737"
+                },
+                "sequence": "18446744073709551615",
+                "sigOpCount": 0,
+                "signatureScript": "419891eddcc4cd819824c5a486fa6baaffbe1002eaf1d3f908702c81d1369cdd03fcf07018b8a54ca08b386d04000e585304869669eabbc7ba7314de51b25c0c8301",
+                "verboseData": {
+                  "utxoEntry": {
+                    "amount": "79848700",
+                    "blockDaaScore": "604012589",
+                    "isCoinbase": false,
+                    "scriptPublicKey": "000020226cded99b9ca0477c637b439b6371f98022e1d17b8f3106b9d040a35ce6ea1cac",
+                    "verboseData": {
+                      "scriptPublicKeyAddress": "kaspatest:qq3xehkenww2q3muvda58xmrw8ucqghp69ac7vgxh8gypg6uum4pclvfektpe",
+                      "scriptPublicKeyType": "PubKey"
+                    }
+                  }
+                }
+              },
+              {
+                "computeBudget": 10,
+                "previousOutpoint": {
+                  "index": 1,
+                  "transactionId": "3f29dd0ff69656d73489b3f2dbb8b19606e44af7cbba74a05d88fdda39a4d809"
+                },
+                "sequence": "18446744073709551615",
+                "sigOpCount": 0,
+                "signatureScript": "419b5a3648bc2b3cb1536c9785cb34484a0af6cea52c38fa6555605aa3e2092bb600c894e7e498cc771175fe117d2464c1df84de717fa078321df6babf92bf27da01",
+                "verboseData": {
+                  "utxoEntry": {
+                    "amount": "95026200",
+                    "blockDaaScore": "604014623",
+                    "isCoinbase": false,
+                    "scriptPublicKey": "000020301cfcae3813dbd71aebc13efefbfdb95c118046f8a967859ebb7d2e664f22d3ac",
+                    "verboseData": {
+                      "scriptPublicKeyAddress": "kaspatest:qqcpel9w8qfah4c6a0qnalhmlku4cyvqgmu2jeu9n6ah6tnxfu3dx94arw5vw",
+                      "scriptPublicKeyType": "PubKey"
+                    }
+                  }
+                }
+              }
+            ],
+            "lockTime": "0",
+            "mass": "0",
+            "outputs": [
+              {
+                "scriptPublicKey": "000020db4734e52a35eace4fbe54f85d7867cd2bbf9a6902d63180d93d05c868ea5b00ac",
+                "value": "174600300",
+                "verboseData": {
+                  "scriptPublicKeyAddress": "kaspatest:qrd5wd899g674nj0he20shtcvlxjh0u6dypdvvvqmy7stjrgafdsqetjwc2t3",
+                  "scriptPublicKeyType": "PubKey"
+                }
+              }
+            ],
+            "payload": "",
+            "storageMass": "0",
+            "subnetworkId": "0000000000000000000000000000000000000000",
+            "verboseData": {
+              "blockHash": "234269f31686f755db02e02ec7b83dbc7f2d7219fe35aa1bf3495facf3031502",
+              "blockTime": "1792741896019",
+              "computeMass": "2746",
+              "hash": "485be22c1814eddd703a589f26f6313a0a5ee23cf4ab2c622f380d01b95d18f8",
+              "transactionId": "033edf4c81a8edbea99f572ed4f883558f51bab19d3b2c4ef7aa34321d673a5b"
+            },
+            "version": 1
+          }
+        ],
+        "chainBlockHeader": {
+          "acceptedIdMerkleRoot": "6ed124be3e1da743c27d8387b8ac23be51133b15133aa21dbc105a1bc3820ac9",
+          "bits": 503664857,
+          "blueScore": "592487459",
+          "blueWork": "2177451052807377",
+          "daaScore": "604080746",
+          "hash": "e9e56e2d29a69227e35edf2fb73fc6df802a9582f65b1f5ac123ee69af02be9f",
+          "hashMerkleRoot": "c3ff9dc66889dcb61434ac446c6e50bca096e8d80ab3c668783dd8bf27f3aaa2",
+          "nonce": "8649493130737870025",
+          "parentsByLevel": {},
+          "pruningPoint": "20403bdcca719b84f0de788633010b05edf99dbe46ba3cdbf5615d50051fca6a",
+          "timestamp": "1792741896751",
+          "utxoCommitment": "96e254ed7e3b7350035655ce1f80216040e5cafd72fecf6c09f7119b62c25330",
+          "version": 2
+        }
+      }
+    ]
+  },
+  "server": {
+    "hasUtxoIndex": true,
+    "isSynced": true,
+    "networkId": "testnet-10",
+    "rpcApiRevision": 0,
+    "rpcApiVersion": 1,
+    "serverVersion": "2.1.0",
+    "virtualDaaScore": "604081148"
+  },
+  "spent_inputs": [
+    {
+      "outpoint": {
+        "index": 2,
+        "transactionId": "62b5534d5131e1ea4f2ef3201a47d528ab93332a805031d89465748ac639b737"
+      },
+      "queried": true,
+      "script_public_key": "000020226cded99b9ca0477c637b439b6371f98022e1d17b8f3106b9d040a35ce6ea1cac",
+      "unspent": false
+    },
+    {
+      "outpoint": {
+        "index": 1,
+        "transactionId": "3f29dd0ff69656d73489b3f2dbb8b19606e44af7cbba74a05d88fdda39a4d809"
+      },
+      "queried": true,
+      "script_public_key": "000020301cfcae3813dbd71aebc13efefbfdb95c118046f8a967859ebb7d2e664f22d3ac",
+      "unspent": false
+    }
+  ],
+  "start_hash": "57e74ba348c00b7d204a6069f31ab21e4ab0e8bc95969192c4eac4ccc978d220",
+  "transaction_id": "033edf4c81a8edbea99f572ed4f883558f51bab19d3b2c4ef7aa34321d673a5b",
+  "trust": "VALIDATING_NODE_AND_PUBLIC_ARCHIVE_ORACLE",
+  "utxo_query_started_at": "2026-10-23T07:52:13.743Z",
+  "virtual_daa_score": "604081148"
+}

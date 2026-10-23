@@ -1,0 +1,72 @@
+{
+  "artifacts": [
+    {
+      "bytes": 431,
+      "path": "research/next-session/privacy-recovery/funding/merge-tests-02.log",
+      "sha256": "5fa697c3828f9730275c240fd3e14bc635de7f62bac8c2d610964d642bde0ea4"
+    },
+    {
+      "bytes": 351,
+      "path": "research/next-session/privacy-recovery/funding/merge-attempt-01/RESULT.json",
+      "sha256": "a1e993c145d06a61ac84d181a1b043ed79755d5397b80fdd3ac599794755134b"
+    },
+    {
+      "bytes": 1049,
+      "path": "research/next-session/privacy-recovery/funding/merge-native-01/RESULTS.json",
+      "sha256": "67b0456a1959e0b7c86a5c863125a37ecdaf8d26b66bd244b50bb1f75055eee5"
+    },
+    {
+      "bytes": 1743,
+      "path": "research/next-session/privacy-recovery/funding/merge-native-01/case.json",
+      "sha256": "f71703fe8dfbdce4c14ec96c424446166d62ae1f785a164c662eab9c08959dc5"
+    },
+    {
+      "bytes": 743,
+      "path": "research/next-session/privacy-recovery/funding/merge-native-01/evaluation/metrics.json",
+      "sha256": "239b03f56e69924c3988a2a47f66819de8d64d303040808b28bda2ef23ff5ac5"
+    },
+    {
+      "bytes": 527,
+      "path": "research/next-session/privacy-recovery/funding/merge-native-01/evaluation/native-validation.json",
+      "sha256": "2d53431989ad77653b2ac1b01f7aab1bff286f3fb75efb226916a76d6bccba35"
+    },
+    {
+      "bytes": 2213,
+      "path": "research/next-session/privacy-recovery/funding/merge-native-01/public-merge.json",
+      "sha256": "b2a2cf9daf987b18d56574cf1faa7428b7b9f6c86522103f851ee8ceac3c0808"
+    }
+  ],
+  "classification": "SOURCE_AND_RETAINED_PUBLIC_SYNTHETIC_NATIVE_RESULT_REVIEW",
+  "fixed_finding": "Canonical destination framing alone did not ensure a valid x-only curve point. Pinned SDK XOnlyPublicKey parsing and explicit canonical output-SPK equality now reject malformed destinations.",
+  "retained_checks": {
+    "both_input_engines_and_Full_accepted": true,
+    "fee_rate_100_passes": true,
+    "fee_rates_200_and_500_fail": true,
+    "fee_sompi": 500000,
+    "input_count": 2,
+    "input_sum_sompi": 1100000000,
+    "mining_mass": 2746,
+    "native_case": "PUBLIC_SYNTHETIC_DO_NOT_FUND_OFFLINE",
+    "node_controls_passed": 4,
+    "original_failed_key_order_check_retained": true,
+    "output_sompi": 1099500000,
+    "storage_mass": 0
+  },
+  "reviewer_live_key_reads_rpc_native_execution_or_broadcasts": 0,
+  "runtime_boundary": "Actual test-KAS funding must use a fresh one-use identity and root-selected actual UTXOs/destination, with fresh supplied-context/native/fee preflight before its sole submission. This review does not attest an actual submission or confirmation.",
+  "schema": "kpi-ordinary-tn10-merge-adversarial-review/v1",
+  "source_checks": [
+    "Exact TN10 request and genesis tag, pinned SDK and no RPC or broadcast API.",
+    "Exact ordinary P2PK source shapes, each source script matches its supplied key, duplicate inputs rejected.",
+    "Canonical integer sompi, bounded positive inputs and sum, fee below total, one exact output conserving total minus fee.",
+    "Official SDK signing with verification enabled and explicit ALL signature-script framing.",
+    "Private keys arrive through stdin and are omitted from returned contexts and static error output.",
+    "Public fixed-key fixture is explicitly SYNTHETIC_DO_NOT_FUND."
+  ],
+  "source_pins": {
+    "poc/future-native-chain/adapter.mjs": "b4f98db493f86fbb69c81e814b4516f8868a211cdf53b7180fa2d293ef05dabf",
+    "poc/recovery-trial/merge.mjs": "fe598f5958c2b3f6aee3ad1e92d2085a82e73862f45c268ef706dce0e1f3194e",
+    "poc/recovery-trial/public_fixture.mjs": "d8f89c9035c923737d777f92ae6d3bdaee58f96a02b2a9b3ff17bd803b9f199f",
+    "poc/recovery-trial/test_merge.mjs": "b1f247c2ce63ed3905cb915098344bdf3f44344934e2fe0099542aa43bb75ccc"
+  }
+}

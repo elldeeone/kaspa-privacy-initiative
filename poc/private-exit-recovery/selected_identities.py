@@ -1,0 +1,4 @@
+# Generated from selected public source/artifact preparation; no secrets.
+TEMPLATE_SHA = '731eb10da7a96a3f1f67b3c3fb0da6d45294820c8c610dc9d7d0d0fd1dd10556'
+TEMPLATE_MANIFEST_SHA = '6f9b71043db6cbea271585b9c2853125b601b71ad2eccad9d65ddc35db7e49c7'
+EVIDENCE_SHA = '4ae9437bebaf86c0e8dbcad65727b3d0b65f4a3d99130ead71bea05aeda53966'

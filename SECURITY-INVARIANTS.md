@@ -26,10 +26,19 @@ Development treasury funds must not be counted as user backing.
 For every valid private state transition:
 
 ```text
-sum(private inputs) = sum(private outputs) + explicit allowed fees
+sum(private inputs) = sum(private outputs) + authorized native payouts + explicit allowed fees
 ```
 
 No hidden inflation, rounding creation, or negative-value behavior is permitted.
+
+For a private transfer, authorized native payouts are zero. A proof-backed
+withdrawal must prove its nonnegative, bounded native payout and bind it to the
+exact actual native output amount and destination. Payout principal is not a
+fee. The corresponding reserve decrease must equal authorized payouts plus
+allowed pool-paid fees, with every remaining liability still backed under I-1.
+ADR-0050 records this explicit extension to the private-action statement; it
+does not reinterpret existing private-transfer proofs or permit arbitrary value
+to leave the reserve.
 
 ## I-3: Authorization
 

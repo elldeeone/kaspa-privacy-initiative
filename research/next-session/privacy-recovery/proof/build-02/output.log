@@ -1,0 +1,43 @@
+Running as unit: kpi-private-exit-proof-build-02.service
+   Compiling kpi-private-exit-proof v0.1.0 (/workspace/poc/private-exit-proof)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-private-exit-proof` (lib test) generated 1 warning (run `cargo fix --lib -p kpi-private-exit-proof --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 2.10s
+     Running unittests src/lib.rs (/target/release/deps/kpi_private_exit_proof-91651a3f5559e49f)
+
+running 9 tests
+test circuit::selected_hmac_tests::padded_inner_requires_exact_three_blocks ... ok
+test fixture::tests::full_spk_and_terminal_encoding ... ok
+test fixture::tests::strict_parser_frames ... ok
+test circuit::selected_hmac_tests::malformed_selector_field_assignment_is_rejected ... ok
+test fixture::tests::root_domain_and_wire_roundtrip ... ok
+test exact_sha256::tests::boolean_truth_tables_and_no_constant_regression ... ok
+test circuit::selected_hmac_tests::malformed_padding_or_length_cannot_match_original_hmac ... ok
+test exact_sha256::tests::exact_sha_boundary_and_contract_lengths ... ok
+test circuit::selected_hmac_tests::exact_inner_bytes_and_original_hmac_known_answers ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 12.94s
+
+   Compiling kpi-private-exit-proof v0.1.0 (/workspace/poc/private-exit-proof)
+warning: unused import: `ToBytesGadget`
+ --> src/exact_sha256.rs:9:29
+  |
+9 |     convert::{ToBitsGadget, ToBytesGadget},
+  |                             ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `kpi-private-exit-proof` (lib) generated 1 warning (run `cargo fix --lib -p kpi-private-exit-proof` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 9.21s
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 24.316s
+             CPU time consumed: 1min 27.755s
+                   Memory peak: 440.2M (swap: 0B)

@@ -1,0 +1,67 @@
+{
+  "actual_fee_materializations": 0,
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "dummy_padding": "existing cryptobox seal random216 to fresh one-shot X25519 pk; secret discarded; no erasure claim",
+  "files": [
+    {
+      "bytes": 38729,
+      "path": "poc/private-exit-lifecycle/assemble.py",
+      "sha256": "b69e03450dbb063c33486e26ffebd412fabed7d42e242ca6e9d2d575db498c49"
+    },
+    {
+      "bytes": 15337,
+      "path": "poc/private-exit-lifecycle/execute.py",
+      "sha256": "3c33a9f8ac1016cf1cb5281b1c6943ecd96e871d52c7cb8455f7344a5098ff63"
+    },
+    {
+      "bytes": 6776,
+      "path": "poc/private-exit-lifecycle/execute_races.py",
+      "sha256": "8b781aac481a007f89a16e0a15f116c46cdd405949aadff1216496235e4f8ac5"
+    },
+    {
+      "bytes": 3970,
+      "path": "poc/private-exit-lifecycle/freeze.py",
+      "sha256": "fc35478145d28b5c3050450e6f738c2978d758d5566b04e250e9f888c0e642af"
+    },
+    {
+      "bytes": 6921,
+      "path": "poc/private-exit-lifecycle/test_assemble.py",
+      "sha256": "d6b9e19874d9806de5f6e8d00fd88cffc24b924ec8e0e8d48dcd2c5ea0e147cd"
+    },
+    {
+      "bytes": 3290,
+      "path": "poc/private-exit-lifecycle/README.md",
+      "sha256": "93020867fa7d52ee056e831038d94ffe98a3ba7068d532ce6f04227ed119c6b9"
+    }
+  ],
+  "freeze_original_path_manual_controls": {
+    "directory_symlink_rejected": true,
+    "leaf_symlink_rejected": true,
+    "pk_suffix_rejected": true,
+    "positive_public_file_pinned": true
+  },
+  "genuine_proofs_generated_here": 0,
+  "independent_source_review_agent": "/root/private_exit_review",
+  "limits": [
+    "No native runtime or genuine proof evidence in this record",
+    "No privacy qualification",
+    "No accepted-chain or testnet claim",
+    "Actual VK and exact materialized fixture packet still pending"
+  ],
+  "native_VM_operations": 0,
+  "phase": "post-client-padding-fix/source-only",
+  "reviewed_runtime_sources": [
+    "assemble.py",
+    "execute.py",
+    "execute_races.py",
+    "freeze.py"
+  ],
+  "semantic_boundary_tests": {
+    "command": "python3 -B -m unittest discover -s poc/private-exit-lifecycle -p test_assemble.py -v",
+    "observed_seconds": 0.341,
+    "passed": 8,
+    "total": 8
+  },
+  "setup_runs_here": 0,
+  "shape_fixture_sha256": "1416475c1f2eefa5ace07a8b0ea76cbb877b5dc614236418684ab03d4651b376"
+}

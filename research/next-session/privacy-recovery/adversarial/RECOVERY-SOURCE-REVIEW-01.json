@@ -1,0 +1,61 @@
+{
+  "schema": "kpx2-independent-adversarial-source-review/v1",
+  "baseline_commit": "63f494053b743ac9bfbd2d1842f69e0f806ef8e3",
+  "classification": "SOURCE_AND_PUBLIC_ARTIFACT_REVIEW_ONLY",
+  "reviewer": "/root/privacy_recovery_adversary",
+  "scope": ["fetch", "public replay", "one-owner wallet", "typed synthetic benchmark"],
+  "source_pins": {
+    "poc/independent-recovery/fetch.mjs": "356d832583fc47b0fa9d7bc3efb68a05f908cec22e300791a3f603d95cce8453",
+    "poc/independent-recovery/replay.py": "f8be03c47008dd3b06ef601bd6da67ba42be47dec3f7c43a0d28dfe68e9b773d",
+    "poc/independent-recovery/policy_template.py": "867c340348d25ecdec7c31e406d93b0f07d7b57005380216f575332f8bd2bd05",
+    "poc/independent-recovery/native_validation.py": "a30a775a40cf53fd062f3d2325dbd5df079e78e8c42931a42fd26e34d6946876",
+    "poc/independent-recovery/wallet.py": "f9d3e8c1937038c67d9d10711217d5ac006efd781c92484a4fea53515b5de82d",
+    "poc/independent-recovery/test_wallet.py": "e632004eb9674a7497615d6ba0656dbc71405e64483be84cce90e9be8cb384f8",
+    "poc/independent-recovery/benchmark.py": "4e336d53745cc0574b93597b674b81064701b1e8a52be07d3703fa05961b92cb"
+  },
+  "fetch_runtime_freeze_sha256": "708ded882af7de5bc967f79065741a5f40e014ea8b170e3b9919f1fdbc1dfc3a",
+  "fetch_freeze_all_13_pins_rehashed": true,
+  "selected_node_elf_sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c",
+  "selected_native_helper_elf_sha256": "a4c5da2c94691ba39ca9f5be1279b3243a0328481f9ba795e812483c770e1186",
+  "selected_native_helper_reviewed_source_freeze_sha256": "a32b17b10a71d0e85f1810d54e21e7670f9a390d55d3bf896b0d0b15457a7111",
+  "fixed_findings": [
+    "Wallet Git exclusion now probes an existing file's parent directory and normalizes lexical traversal only after rejecting symlink components.",
+    "Replay binds absent terminal and consumed-input queries to the exact outpoint, amount and script; every selected consumed input must currently be absent.",
+    "Replay ties each accepted row's confirmation policy to the initial sink and requires birth anchor < acceptance score <= frozen frontier.",
+    "SDK headers now serialize expanded parents and restore BlueWork losslessly; cached reported hashes are cleared before recomputation.",
+    "Fetch runtime uses the actual Node ELF while preserving the system CA mitigation; original pre-JavaScript exit127 attempts are retained.",
+    "Benchmark now measures actual JSON decoding from the written fixture separately from generation, encoding/hash and public replay."
+  ],
+  "reviewed_boundaries": [
+    "The user pins the founding descriptor; domain, code and VK coherence alone cannot establish the canonical funded instance.",
+    "The installed state-free policy template is pinned and compared in full after replacing only approved canonical domain and VK operands.",
+    "Network acquisition freezes a finite confirmed frontier; gaps, removals, contradictory spentness and a newly related spend produce incomplete status rather than zero balance.",
+    "Network accepted-node trust is explicit; optional local Full execution checks public transactions without a proving key but does not establish consensus or data availability.",
+    "The wallet replays fetched public records itself before reading one seed-only backup; a caller-supplied snapshot or descriptor digest is not authority.",
+    "Owned amounts cover recognized valid receipts only; failed decryption cannot distinguish foreign from owned but undeliverable ciphertexts.",
+    "The revealing fallback requires literal disclosure consent before payload or helper use and binds the quote ID, fee, ALL witness, actual input, owner payout and immutable successor.",
+    "The wallet writes signed preparation outside Git with private permissions and has no broadcast interface; fresh node reconciliation remains required before submission.",
+    "Synthetic replay requires the explicit UNPROVED mode, returns complete false, has no accepted headers or SDK transaction attestations, and is rejected by the network and wallet entry points."
+  ],
+  "runtime_conditions": {
+    "fetch": "Two root-requested read-only endpoint runs in separate fresh outputs; 2 CPU, 4 GiB, swap 0, restricted mounts, raw journal, finally stop/reap. Endpoint agreement is not independent consensus.",
+    "benchmark": "One root-authorized 10000-total-operation run only after an actual fresh network positive; 2 CPU, 6 GiB, swap 0, network off. No chain, cryptographic, encrypted-scanning or complete-wallet qualification.",
+    "owner_wallet": "Fresh complete network input and separately selected owner-only runtime/identity are required. Source review does not assert an actual successful owner restore or exit."
+  },
+  "reviewer_access": {
+    "rpc_calls": 0,
+    "private_backup_reads": 0,
+    "proving_key_reads": 0,
+    "native_executions": 0,
+    "proof_runs": 0,
+    "benchmark_runs": 0,
+    "funding_or_broadcasts": 0
+  },
+  "limitations": [
+    "This record is an adversarial implementation review, not a cryptographic audit or production-safety claim.",
+    "The old completed terminal trace cannot demonstrate recovery of a currently unspent claim; a fresh service-loss trial is required for that evidence.",
+    "Withheld or pruned history and undeliverable ciphertexts remain availability and recovery limitations.",
+    "Sustained active-pool catch-up and provider independence are not qualified by a bounded terminal-history refetch.",
+    "New private-exit proof/native/helper source is reviewed separately by the private_exit_review lane."
+  ]
+}

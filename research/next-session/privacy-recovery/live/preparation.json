@@ -1,0 +1,54 @@
+{
+  "build": {
+    "cpu_limit": 4,
+    "cpu_seconds": 40.625,
+    "memory_limit_gib": 6,
+    "peak_memory_mib": 536.9,
+    "result": "SUCCESS",
+    "swap_bytes": 0,
+    "wall_seconds": 14.396
+  },
+  "cold_owner_exits_built": false,
+  "controls": {
+    "inputs": "PUBLIC_RETAINED_ACTUAL_RECORDS_AND_NEGATIVE_GUARDS",
+    "new_network_evidence": false,
+    "passed": 11,
+    "wall_seconds": 0.013
+  },
+  "domain_hex32": "c0d00370218c899d0bc45ae7f61394ef044d7e386c7974c7a5849b373cb22648",
+  "domain_source_manifest_sha256": "e54de3a7f261451afc7893298953448e3b570c1db84a88b7f543f0e863e46b56",
+  "funding_address": "kaspatest:qq08ucaepw758cttw8amczmsdjgrnnfvfx74x8hdfqex4emufrw5q7e3yfk65",
+  "funding_broadcast": false,
+  "funding_script_public_key": "0000201e7e63b90bbd43e16b71fbbc0b706c9039cd2c49bd531eed48326ae77c48dd40ac",
+  "genesis_hash_hex": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "independent_wrapper_review": {
+    "controls_passed": 11,
+    "findings_fixed": [
+      "used identity rejected before private Context creation",
+      "descriptor genesis payload state and reserve binding"
+    ],
+    "result": "ACK"
+  },
+  "matching_suite": {
+    "native": "ae330b1ba32fba5036f8d1508bb91915e3c947ef3f294c7f0bd4ab65854f534c",
+    "prover": "386cdb5daa0fcee498d1fec4eff56590a266ecb9679723602d3d1001cbaaeb9e"
+  },
+  "network_id": "testnet-10",
+  "notes": 2,
+  "operator_prefix_broadcast": false,
+  "payment_value_sompi": 60000000,
+  "schema": "kpx2-unspent-recovery-preparation/v1",
+  "scope": "TN10_R1_SELECTED_NODE_RETAINED_DATA_LIVENESS_ONLY_NOT_PRIVACY_OR_FEE_QUALIFICATION",
+  "setup_started": false,
+  "source_sha256": {
+    "poc/future-testnet/core.py": "d824b98f626bac82975bdfbf5a0c68cc7382d544308e52f63da2d413f52b591f",
+    "poc/future-testnet/orchestrate.py": "a88e6ac2dd31811815d4530f5f528be24e104e31ec38f600f6a894a44c17f6e2",
+    "poc/future-testnet/trial.py": "9ca47dda0d6d9b95ccf7436022c149539dd5c3a58d6bc6e8a4c1d2f318b9f66e",
+    "poc/independent-recovery/policy_template.py": "867c340348d25ecdec7c31e406d93b0f07d7b57005380216f575332f8bd2bd05",
+    "poc/independent-recovery/replay.py": "f8be03c47008dd3b06ef601bd6da67ba42be47dec3f7c43a0d28dfe68e9b773d",
+    "poc/recovery-trial/live.py": "fd338582a31f714276d1fbc296141a16ea794d96061f8f9bf077ac9a8631c844",
+    "poc/recovery-trial/test_live.py": "429a4ae5770d65e6fe811f89b98960a6783e6eaf096f1cc195d222634c800caf"
+  },
+  "testnet_payout_confirmed": false,
+  "trial_id": "7f73db97-f266-4ffe-aa34-535f8d62fe97"
+}

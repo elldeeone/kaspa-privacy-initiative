@@ -1,0 +1,22 @@
+{
+  "classification": "PUBLIC_SYNTHETIC_NATIVE_HELPER_V2_CONTROLS",
+  "test_methods": 12,
+  "passed": 12,
+  "failed": 0,
+  "full_authorized_new_program_fallback_positive": true,
+  "new_private_Groth16_executed": false,
+  "fresh_live_trial_keys_read": false,
+  "network_broadcast": false,
+  "PK_or_prover_available_in_sandbox": false,
+  "unit_network_isolated": true,
+  "runtime_command": "systemd-run user/collect/wait/pipe -> time-v -> bwrap unshare-all/readonly repository+selected02binary -> python3 -B test_native_helper.py -v",
+  "runtime_command_record_scope": "Actual executed tool command/resource records; no separate pre-frozen runtime-script hash is claimed.",
+  "pre_run_freeze_sha256": "d5f1bdbe780c3cb58c90e188f1579f826177b713ac7da1bef12fea5992bc5f3d",
+  "tests_log_sha256": "dcb90778bdfe462400c9ce568773f40a51b272132cf0ca757271e49dcb640796",
+  "resources_sha256": "0f5f00d99ed67214e744d150e5fc102b827c3edd74aa60662e3e742746d31c51",
+  "requested_unit_cpu_quota": 2,
+  "requested_unit_memory_bytes": 2147483648,
+  "requested_unit_swap_bytes": 0,
+  "active_cgroup_limits_sampled": false,
+  "short_test_transient_unit_collected": true
+}

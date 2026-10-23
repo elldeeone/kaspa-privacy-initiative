@@ -3,6 +3,37 @@
 **Status:** experimental native-KAS lifecycle validated on TN10; production
 architecture remains unselected.
 
+[RFC-0022](rfc/0022-private-cashout-and-independent-recovery.md) now targets the
+remaining privacy and recovery blockers. [ADR-0049](adr/0049-receiver-driven-network-recovery.md)
+selects independently fetched accepted records, an authenticated public pool
+descriptor, local replay and seed-only ownership/witness reconstruction.
+[ADR-0050](adr/0050-proof-private-native-cashout.md) selects a separate unified
+private action with exact public native payout, hidden input notes and private
+change. Its terminal form inserts NFs without appending CMs. The new Auth528
+program is an unfunded supplied-context prototype, separate from the confirmed
+older TN10 program. The current revealing-exit channel is measured; validating-node/data
+availability and receiver delivery remain assumptions, and direct verification
+fees prevent this unamortized route meeting the10-KAS2% lifecycle target.
+
+The [fresh service-loss result](../research/next-session/privacy-recovery/RESULTS.md)
+now confirms old-program fallback recovery from independently fetched public
+data and one backup per owner: Bob receives 55,026,200 and Charlie 55,036,800 sompi.
+The prover is stopped, neither client receives an operator archive or saved
+exit, and a final fresh public replay verifies zero reserve and both payouts
+unspent. These explicitly consented revealing exits validate liveness under
+selected-node/retained-data assumptions; they do not validate financial privacy.
+
+Network recovery currently supports old Auth484/KPX2 only. The Auth528 network
+adapter remains unintegrated; its generic signer support does not extend the
+fetch/replay/template or establish a complete independently recovered new-program
+lifecycle.
+
+[ADR-0052](adr/0052-separate-public-replay-for-private-cashouts.md) now adds a
+separate public Auth528 replay adapter for supplied contexts. It verifies the
+whole approved program and terminal updates, reusing exact previously validated
+native bodies. This is offline compatibility evidence, with `complete:false`;
+new-program network discovery and independently owned private proving remain open.
+
 [RFC-0021](rfc/0021-confirmed-native-private-payment-rehearsal.md) and
 [ADR-0046](adr/0046-fresh-private-testnet-rehearsal.md) now record a
 [complete fresh-domain TN10 rehearsal](../research/next-session/testnet-rehearsal/RESULTS.md):

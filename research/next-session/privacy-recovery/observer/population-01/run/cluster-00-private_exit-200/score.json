@@ -1,0 +1,2856 @@
+{
+  "arm": "private_exit",
+  "classification": "SYNTHETIC_CONSTRAINT_MODEL",
+  "complete": true,
+  "direct_opening_record_diagnostics": {
+    "C": {
+      "cashouts": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      },
+      "drainage": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      },
+      "payment": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      }
+    },
+    "C+P": {
+      "cashouts": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      },
+      "drainage": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      },
+      "payment": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      }
+    },
+    "C+P+A": {
+      "cashouts": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      },
+      "drainage": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      },
+      "payment": {
+        "amount_eligible": 41,
+        "amount_known": 0,
+        "recipient_eligible": 41,
+        "recipient_known": 0
+      }
+    }
+  },
+  "inference": "Descriptive per-ledger counts only; independent-ledger uncertainty belongs to frozen aggregator.",
+  "legitimate_known_exclusions": {
+    "C": {
+      "cashouts": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      },
+      "drainage": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      },
+      "payment": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      }
+    },
+    "C+P": {
+      "cashouts": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      },
+      "drainage": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      },
+      "payment": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      }
+    },
+    "C+P+A": {
+      "cashouts": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      },
+      "drainage": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      },
+      "payment": {
+        "amount_exact": 0,
+        "amount_within_10pct": 0,
+        "recipient": 0,
+        "relationship": 0,
+        "sender": 0
+      }
+    }
+  },
+  "preserved_prior": {
+    "cap_percent": 20,
+    "denominator": 100025,
+    "successes": 21103,
+    "unchanged_failure": true
+  },
+  "privacy_qualification": false,
+  "rate": 200,
+  "regime": "overlap-independent",
+  "results": {
+    "C": {
+      "cashouts": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 6,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      },
+      "drainage": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 6,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      },
+      "payment": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      }
+    },
+    "C+P": {
+      "cashouts": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 6,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      },
+      "drainage": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 6,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      },
+      "payment": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      }
+    },
+    "C+P+A": {
+      "cashouts": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 6,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      },
+      "drainage": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 6,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      },
+      "payment": {
+        "cash_inverse": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "opening": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "prior": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        },
+        "residual": {
+          "metrics": {
+            "amount_exact": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "amount_within_10pct": {
+              "correct": 9,
+              "eligible": 41
+            },
+            "recipient": {
+              "correct": 1,
+              "eligible": 41
+            },
+            "relationship": {
+              "correct": 0,
+              "eligible": 41
+            },
+            "sender": {
+              "correct": 0,
+              "eligible": 41
+            }
+          },
+          "selective_relationship": {
+            "10": {
+              "correct": 0,
+              "eligible": 5,
+              "nominal_percent": 10,
+              "population": 41
+            },
+            "25": {
+              "correct": 0,
+              "eligible": 11,
+              "nominal_percent": 25,
+              "population": 41
+            },
+            "5": {
+              "correct": 0,
+              "eligible": 3,
+              "nominal_percent": 5,
+              "population": 41
+            }
+          }
+        }
+      }
+    }
+  },
+  "schema": "kpx3-population-ledger-score/v1",
+  "validation": {
+    "cash_failures": [],
+    "cash_requests": 32,
+    "complete": true,
+    "complete_drainage": true,
+    "exact_cash_requests_completed": 32,
+    "limits": [
+      "No independent proof/native execution; private unrevealed NF-key assignments remain model assumptions.",
+      "Request seed independence and prediction-before-truth require controller provenance."
+    ],
+    "no_aggregate_lifecycle_cost_qualification": true,
+    "ordinary_payment_fee_checks": [
+      {
+        "amount_sompi": 2000001000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 0
+      },
+      {
+        "amount_sompi": 2000002000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 1
+      },
+      {
+        "amount_sompi": 2000003000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 2
+      },
+      {
+        "amount_sompi": 2000004000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 3
+      },
+      {
+        "amount_sompi": 4670000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 4
+      },
+      {
+        "amount_sompi": 4877000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 5
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 6
+      },
+      {
+        "amount_sompi": 3596000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 7
+      },
+      {
+        "amount_sompi": 5000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 8
+      },
+      {
+        "amount_sompi": 2604000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 9
+      },
+      {
+        "amount_sompi": 4324000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 10
+      },
+      {
+        "amount_sompi": 2053000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 11
+      },
+      {
+        "amount_sompi": 2000001001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 12
+      },
+      {
+        "amount_sompi": 2000008000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 13
+      },
+      {
+        "amount_sompi": 1000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 14
+      },
+      {
+        "amount_sompi": 3545000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 15
+      },
+      {
+        "amount_sompi": 4000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 16
+      },
+      {
+        "amount_sompi": 5000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 17
+      },
+      {
+        "amount_sompi": 3345000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 18
+      },
+      {
+        "amount_sompi": 1000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 19
+      },
+      {
+        "amount_sompi": 1069000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 20
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 21
+      },
+      {
+        "amount_sompi": 2000006000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 22
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 23
+      },
+      {
+        "amount_sompi": 2000008001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 24
+      },
+      {
+        "amount_sompi": 2000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 25
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 26
+      },
+      {
+        "amount_sompi": 2000005000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 27
+      },
+      {
+        "amount_sompi": 2000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 28
+      },
+      {
+        "amount_sompi": 2000002001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 29
+      },
+      {
+        "amount_sompi": 1000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 30
+      },
+      {
+        "amount_sompi": 3895000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 31
+      },
+      {
+        "amount_sompi": 2000003001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 32
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 33
+      },
+      {
+        "amount_sompi": 1000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 34
+      },
+      {
+        "amount_sompi": 2459000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 35
+      },
+      {
+        "amount_sompi": 1000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 36
+      },
+      {
+        "amount_sompi": 2000004001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 37
+      },
+      {
+        "amount_sompi": 4000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 38
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 39
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 40
+      },
+      {
+        "amount_sompi": 1414000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 41
+      },
+      {
+        "amount_sompi": 5000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 42
+      },
+      {
+        "amount_sompi": 5000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 43
+      },
+      {
+        "amount_sompi": 1093000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 44
+      },
+      {
+        "amount_sompi": 2000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 45
+      },
+      {
+        "amount_sompi": 1094000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 46
+      },
+      {
+        "amount_sompi": 2000005001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 47
+      },
+      {
+        "amount_sompi": 4655000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 48
+      },
+      {
+        "amount_sompi": 2000006001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 49
+      },
+      {
+        "amount_sompi": 2138000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 50
+      },
+      {
+        "amount_sompi": 2000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 51
+      },
+      {
+        "amount_sompi": 2000007000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 52
+      },
+      {
+        "amount_sompi": 2102000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 53
+      },
+      {
+        "amount_sompi": 5000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 54
+      },
+      {
+        "amount_sompi": 2500000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 55
+      },
+      {
+        "amount_sompi": 5000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 56
+      },
+      {
+        "amount_sompi": 4000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 57
+      },
+      {
+        "amount_sompi": 5000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 58
+      },
+      {
+        "amount_sompi": 1139000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 59
+      },
+      {
+        "amount_sompi": 2000007001,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 60
+      },
+      {
+        "amount_sompi": 2000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 61
+      },
+      {
+        "amount_sompi": 4000000000,
+        "exceeds_ordinary_1pct": false,
+        "fee_sompi": 37917400,
+        "payment": 62
+      },
+      {
+        "amount_sompi": 1000000000,
+        "exceeds_ordinary_1pct": true,
+        "fee_sompi": 37917400,
+        "payment": 63
+      }
+    ],
+    "payments": 64,
+    "per_user": [
+      {
+        "cumulative_native_payouts_sompi": 30848163599,
+        "final_native_value_sompi": 30848163599,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 35060434600,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 4000002001,
+        "owner": 0,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 155811400
+      },
+      {
+        "cumulative_native_payouts_sompi": 30848161599,
+        "final_native_value_sompi": 30848161599,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 4000004001,
+        "owner": 1,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 165889200
+      },
+      {
+        "cumulative_native_payouts_sompi": 142272174000,
+        "final_native_value_sompi": 142272174000,
+        "incoming_payment_principal_sompi": 6500014001,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 4000006001,
+        "owner": 2,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 241888800
+      },
+      {
+        "cumulative_native_payouts_sompi": 72272168000,
+        "final_native_value_sompi": 72272168000,
+        "incoming_payment_principal_sompi": 6500010001,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 4000008001,
+        "owner": 3,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 241888800
+      },
+      {
+        "cumulative_native_payouts_sompi": 70810155799,
+        "final_native_value_sompi": 70810155799,
+        "incoming_payment_principal_sompi": 5000000000,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 4000010001,
+        "owner": 4,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 203889000
+      },
+      {
+        "cumulative_native_payouts_sompi": 280741010599,
+        "final_native_value_sompi": 141817010199,
+        "incoming_payment_principal_sompi": 6094000000,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 4000012001,
+        "owner": 5,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 291032600
+      },
+      {
+        "cumulative_native_payouts_sompi": 68310151799,
+        "final_native_value_sompi": 68310151799,
+        "incoming_payment_principal_sompi": 2500000000,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 4000014001,
+        "owner": 6,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 203889000
+      },
+      {
+        "cumulative_native_payouts_sompi": 136810149799,
+        "final_native_value_sompi": 136810149799,
+        "incoming_payment_principal_sompi": 1000000000,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 4000016001,
+        "owner": 7,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 203889000
+      },
+      {
+        "cumulative_native_payouts_sompi": 63752165600,
+        "final_native_value_sompi": 63752165600,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 6096000000,
+        "owner": 8,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 165889200
+      },
+      {
+        "cumulative_native_payouts_sompi": 88370258600,
+        "final_native_value_sompi": 88370258600,
+        "incoming_payment_principal_sompi": 26683007000,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 7895000000,
+        "owner": 9,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 431803200
+      },
+      {
+        "cumulative_native_payouts_sompi": 66279165600,
+        "final_native_value_sompi": 66279165600,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 3569000000,
+        "owner": 10,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 165889200
+      },
+      {
+        "cumulative_native_payouts_sompi": 32948170002,
+        "final_native_value_sompi": 32948170002,
+        "incoming_payment_principal_sompi": 6500004002,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 8324000000,
+        "owner": 11,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 241888800
+      },
+      {
+        "cumulative_native_payouts_sompi": 33251165800,
+        "final_native_value_sompi": 33251165800,
+        "incoming_payment_principal_sompi": 3545000000,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 5104000000,
+        "owner": 12,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 203889000
+      },
+      {
+        "cumulative_native_payouts_sompi": 139924000400,
+        "final_native_value_sompi": 139924000400,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 0,
+        "owner": 13,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 90054400
+      },
+      {
+        "cumulative_native_payouts_sompi": 81497017402,
+        "final_native_value_sompi": 81497017402,
+        "incoming_payment_principal_sompi": 11763016002,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 0,
+        "owner": 14,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 280053400
+      },
+      {
+        "cumulative_native_payouts_sompi": 46820166600,
+        "final_native_value_sompi": 46820166600,
+        "incoming_payment_principal_sompi": 17845000000,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 5683000000,
+        "owner": 15,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 355888200
+      },
+      {
+        "cumulative_native_payouts_sompi": 45953166200,
+        "final_native_value_sompi": 45953166200,
+        "incoming_payment_principal_sompi": 16219000000,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 5000000000,
+        "owner": 16,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 279888600
+      },
+      {
+        "cumulative_native_payouts_sompi": 74348007801,
+        "final_native_value_sompi": 74348007801,
+        "incoming_payment_principal_sompi": 4500007001,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 0,
+        "owner": 17,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 166054000
+      },
+      {
+        "cumulative_native_payouts_sompi": 79110084000,
+        "final_native_value_sompi": 79110084000,
+        "incoming_payment_principal_sompi": 14414000000,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 5000000000,
+        "owner": 18,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 317970800
+      },
+      {
+        "cumulative_native_payouts_sompi": 32782083200,
+        "final_native_value_sompi": 32782083200,
+        "incoming_payment_principal_sompi": 2604000000,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 4670000000,
+        "owner": 19,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 165971600
+      },
+      {
+        "cumulative_native_payouts_sompi": 29886083000,
+        "final_native_value_sompi": 29886083000,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 5000000000,
+        "owner": 20,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 127971800
+      },
+      {
+        "cumulative_native_payouts_sompi": 135886083000,
+        "final_native_value_sompi": 135886083000,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 4000000000,
+        "owner": 21,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 127971800
+      },
+      {
+        "cumulative_native_payouts_sompi": 142444083200,
+        "final_native_value_sompi": 142444083200,
+        "incoming_payment_principal_sompi": 3596000000,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 1000000000,
+        "owner": 22,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 165971600
+      },
+      {
+        "cumulative_native_payouts_sompi": 74797171001,
+        "final_native_value_sompi": 74797171001,
+        "incoming_payment_principal_sompi": 11309004001,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 6094000000,
+        "owner": 23,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 431887800
+      },
+      {
+        "cumulative_native_payouts_sompi": 29886083000,
+        "final_native_value_sompi": 29886083000,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 5000000000,
+        "owner": 24,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 127971800
+      },
+      {
+        "cumulative_native_payouts_sompi": 126528497200,
+        "final_native_value_sompi": 126528497200,
+        "incoming_payment_principal_sompi": 4500001000,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 17630000000,
+        "owner": 25,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 355558600
+      },
+      {
+        "cumulative_native_payouts_sompi": 33886083000,
+        "final_native_value_sompi": 33886083000,
+        "incoming_payment_principal_sompi": 0,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 1000000000,
+        "owner": 26,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 127971800
+      },
+      {
+        "cumulative_native_payouts_sompi": 26963500200,
+        "final_native_value_sompi": 26963500200,
+        "incoming_payment_principal_sompi": 2000004000,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 9695000000,
+        "owner": 27,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 355558600
+      },
+      {
+        "cumulative_native_payouts_sompi": 75848000800,
+        "final_native_value_sompi": 75848000800,
+        "incoming_payment_principal_sompi": 6000000000,
+        "native_input_sompi": 70070512400,
+        "net_shielded_initial_sompi": 70000000000,
+        "outgoing_payment_principal_sompi": 0,
+        "owner": 28,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 166054000
+      },
+      {
+        "cumulative_native_payouts_sompi": 141848083200,
+        "final_native_value_sompi": 141848083200,
+        "incoming_payment_principal_sompi": 4000000000,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 2000000000,
+        "owner": 29,
+        "protected_exact_cash_sompi": 1000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 165971600
+      },
+      {
+        "cumulative_native_payouts_sompi": 20813499200,
+        "final_native_value_sompi": 20813499200,
+        "incoming_payment_principal_sompi": 4000003000,
+        "native_input_sompi": 35070512400,
+        "net_shielded_initial_sompi": 35000000000,
+        "outgoing_payment_principal_sompi": 17845000000,
+        "owner": 30,
+        "protected_exact_cash_sompi": 2500000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 355558600
+      },
+      {
+        "cumulative_native_payouts_sompi": 125191498200,
+        "final_native_value_sompi": 125191498200,
+        "incoming_payment_principal_sompi": 2000002000,
+        "native_input_sompi": 140070512400,
+        "net_shielded_initial_sompi": 140000000000,
+        "outgoing_payment_principal_sompi": 16467000000,
+        "owner": 31,
+        "protected_exact_cash_sompi": 2000000000,
+        "returned_native_change_sompi": 56457600,
+        "total_actual_fees_sompi": 355558600
+      }
+    ],
+    "realized_active_shares": {
+      "all_modeled_chain_operation_count": {
+        "adversary": 60,
+        "by_owner": [
+          6,
+          6,
+          8,
+          8,
+          7,
+          11,
+          7,
+          7,
+          6,
+          13,
+          6,
+          8,
+          7,
+          4,
+          9,
+          11,
+          9,
+          6,
+          10,
+          6,
+          5,
+          5,
+          6,
+          13,
+          5,
+          11,
+          5,
+          11,
+          6,
+          6,
+          11,
+          11
+        ],
+        "total": 250
+      },
+      "economic_payment_count": {
+        "adversary": 16,
+        "by_owner": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          6,
+          1,
+          6,
+          0,
+          1,
+          6,
+          6
+        ],
+        "total": 64
+      },
+      "economic_payment_value_sompi": {
+        "adversary": 32000072008,
+        "by_owner": [
+          4000002001,
+          4000004001,
+          4000006001,
+          4000008001,
+          4000010001,
+          4000012001,
+          4000014001,
+          4000016001,
+          6096000000,
+          7895000000,
+          3569000000,
+          8324000000,
+          5104000000,
+          0,
+          0,
+          5683000000,
+          5000000000,
+          0,
+          5000000000,
+          4670000000,
+          5000000000,
+          4000000000,
+          1000000000,
+          6094000000,
+          5000000000,
+          17630000000,
+          1000000000,
+          9695000000,
+          0,
+          2000000000,
+          17845000000,
+          16467000000
+        ],
+        "total": 169072072008
+      },
+      "initial_gross_pool_funding_sompi": {
+        "adversary": 700074021400,
+        "by_owner": [
+          35000434600,
+          35010512400,
+          140010512400,
+          70010512400,
+          70010512400,
+          140010512400,
+          70010512400,
+          140010512400,
+          70010512400,
+          70010512400,
+          70010512400,
+          35010512400,
+          35010512400,
+          140010512400,
+          70010512400,
+          35010512400,
+          35010512400,
+          70010512400,
+          70010512400,
+          35010512400,
+          35010512400,
+          140010512400,
+          140010512400,
+          70010512400,
+          35010512400,
+          140010512400,
+          35010512400,
+          35010512400,
+          70010512400,
+          140010512400,
+          35010512400,
+          140010512400
+        ],
+        "total": 2450326319000
+      },
+      "initial_net_shielded_principal_sompi": {
+        "adversary": 700000000000,
+        "by_owner": [
+          35000000000,
+          35000000000,
+          140000000000,
+          70000000000,
+          70000000000,
+          140000000000,
+          70000000000,
+          140000000000,
+          70000000000,
+          70000000000,
+          70000000000,
+          35000000000,
+          35000000000,
+          140000000000,
+          70000000000,
+          35000000000,
+          35000000000,
+          70000000000,
+          70000000000,
+          35000000000,
+          35000000000,
+          140000000000,
+          140000000000,
+          70000000000,
+          35000000000,
+          140000000000,
+          35000000000,
+          35000000000,
+          70000000000,
+          140000000000,
+          35000000000,
+          140000000000
+        ],
+        "total": 2450000000000
+      },
+      "interpretation": "Realized traffic/value shares; recycled readmission is not new economic principal.",
+      "ordinary_native_transaction_count": {
+        "adversary": 9,
+        "by_owner": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "total": 33
+      },
+      "pool_chain_operation_count": {
+        "adversary": 51,
+        "by_owner": [
+          5,
+          5,
+          7,
+          7,
+          6,
+          9,
+          6,
+          6,
+          5,
+          12,
+          5,
+          7,
+          6,
+          3,
+          8,
+          10,
+          8,
+          5,
+          9,
+          5,
+          4,
+          4,
+          5,
+          12,
+          4,
+          10,
+          4,
+          10,
+          5,
+          5,
+          10,
+          10
+        ],
+        "total": 217
+      },
+      "recycled_gross_readmission_sompi": {
+        "adversary": 138923368800,
+        "by_owner": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          138923368800,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "total": 138923368800
+      }
+    },
+    "reentries": 1,
+    "revealing_fallbacks": [],
+    "schema": "kpx3-population-independent-validation/v1",
+    "urgent_full_exit_failures": [],
+    "urgent_full_exits_completed": 2
+  }
+}

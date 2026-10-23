@@ -1,0 +1,121 @@
+{
+  "GNU_time": {
+    "exit_status": 0,
+    "max_rss_kib": 1653796,
+    "swaps": 0,
+    "system_seconds": 0.94,
+    "user_seconds": 15.14,
+    "wall_seconds": 16.09
+  },
+  "actual_active_caps": {
+    "active_sample_count": 63,
+    "cpu_quota": "2s",
+    "memory_max_bytes": 6442450944,
+    "swap_max_bytes": 0
+  },
+  "classification": "READ_ONLY_RETAINED_PUBLIC_ARTIFACTS_NO_SEMANTIC_RERUN",
+  "cleanup": {
+    "MainPID_zero_or_unloaded": true,
+    "owned_cgroup_processes_empty": true,
+    "state": {
+      "ActiveState": "inactive",
+      "LoadState": "not-found",
+      "MainPID": "0",
+      "Result": "success",
+      "SubState": "dead"
+    }
+  },
+  "fixture_actual_bytes_and_sha256_independently_rehashed": true,
+  "limitations": [
+    "This one fixture has 10000 total operations, 19999 physical CM and NF records, and 10000 positive unspent notes; it is not 10000 accepted private payments.",
+    "Proofs, signatures, SDK IDs, encrypted receipt discovery and network retrieval are not performed; default network and wallet paths reject this typed fixture.",
+    "The 220.122 second transfer figure at 20 Mbit per second is payload arithmetic, not a network measurement. The 10.702 second replay excludes JSON decoding, which was separately measured at 1.124 seconds.",
+    "The process-level peak RSS includes generation, encoding, decoding and replay and is not a complete wallet memory qualification.",
+    "No proof or chain acceptance, private-payment privacy, fresh unspent exit or durable history availability is established by this benchmark."
+  ],
+  "outside_git_fixture_bytes": 550304208,
+  "outside_git_fixture_sha256": "ec1f4f0b9d9242e6f3948bc672f9a0a773c82ffb9c1a1049d536672feb19f4c1",
+  "public_artifacts": [
+    {
+      "bytes": 226,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/CLEANUP.json",
+      "sha256": "a7eb8ff2b8b645af22b059a15eb7dbb8fe456903bc0983a0e76d4fa7bc181595"
+    },
+    {
+      "bytes": 2898,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/PLAN.json",
+      "sha256": "8f0b7ec53b3d4681be844d4519fa3029afde444176a2db2c19f01b559e6c8258"
+    },
+    {
+      "bytes": 2080,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/RUNTIME-FREEZE.json",
+      "sha256": "7a07a20a541667035244afff443da7a577e3588764b666a03090e0dd448d56a6"
+    },
+    {
+      "bytes": 40311,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/TELEMETRY.json",
+      "sha256": "27322b9c83e6019d4d5208b0304e4fe28812c4cac2add32a03027740749ae6f6"
+    },
+    {
+      "bytes": 108,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/launch.log",
+      "sha256": "cdd956a928b3766217a2b86871fc966d32c97a8926630933633c04ad4181a640"
+    },
+    {
+      "bytes": 1634,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/report.json",
+      "sha256": "cc5fb053cb07836bd1391d17f2b783149eb574ecd69d20b50b1a5925ab5a7fa4"
+    },
+    {
+      "bytes": 834,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/resources.log",
+      "sha256": "944a5cccefaf994ecce0eaa6284b5bd08b5a7eecf97ec573e1eacb157daad5e6"
+    },
+    {
+      "bytes": 853,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/runtime.sh",
+      "sha256": "ff76fa258a6017767c889cfd1081d077644aeb9d8b2e1fab75867e0b420b08af"
+    },
+    {
+      "bytes": 686,
+      "path": "research/next-session/privacy-recovery/replay/scaling-01/unit-output.log",
+      "sha256": "9218ab004d79d7de430e08e643c47f2b53e2ecb5ed75c12c2c8286b314436b7c"
+    }
+  ],
+  "report": {
+    "actual_network_transfer_measured": false,
+    "ciphertexts_are_real_recipient_encryption": false,
+    "classification": "UNPROVED_SYNTHETIC_PUBLIC_REPLAY_SCALING_ONLY",
+    "complete": false,
+    "complete_wallet_recovery_qualified": false,
+    "context": "UNPROVED_SYNTHETIC",
+    "crypto_or_chain_acceptance_claimed": false,
+    "declared_json_transfer_seconds_at_20_mbit_per_second": 220.1216832,
+    "encoding_and_hash_seconds": 1.9809261040063575,
+    "expected": {
+      "cm_records": 19999,
+      "nf_records": 19999,
+      "operations": 10000,
+      "reserve_sompi": 600000000000,
+      "state_hex112": "4b505832535430319de4f84dbdaec6250d0029ca4b38ae12b9081a549e231eb529075af7fe59e85c2ac1d45c39da6219eed7d0988db61dad25efb8f7e82f51819518c8eadf735fba1f4e0000f18abf54aef5bc6df1d714b7fc465f151273a59506db930dfa2cceac1e7eb1bc1f4e0000",
+      "synthetic_spine_value_sompi": 60000000,
+      "unspent_positive_notes": 10000
+    },
+    "fixture_json_bytes": 550304208,
+    "fixture_sha256": "ec1f4f0b9d9242e6f3948bc672f9a0a773c82ffb9c1a1049d536672feb19f4c1",
+    "generation_seconds": 2.185943239950575,
+    "json_decode_measured": true,
+    "json_decode_seconds": 1.1238772129872814,
+    "native_execution_or_proof_verification": false,
+    "note": "Exact public transition/hash/witness work only. Generation/encoding/download arithmetic is separate from actual RPC/history availability, recipient scanning, signatures, Groth16, SDK IDs and payout observation.",
+    "parsed_bundle_already_in_memory_at_replay_start": true,
+    "passed": true,
+    "public_replay_complete": true,
+    "public_replay_seconds": 10.702471664990298,
+    "synthetic_transaction_ids_are_kaspa_hashes": false
+  },
+  "report_sha256": "cc5fb053cb07836bd1391d17f2b783149eb574ecd69d20b50b1a5925ab5a7fa4",
+  "reviewer_native_proof_network_seed_pk_or_semantic_benchmark_operations": 0,
+  "runtime_freeze_sha256": "7a07a20a541667035244afff443da7a577e3588764b666a03090e0dd448d56a6",
+  "schema": "kpx2-unproved-synthetic-scaling-artifact-closure/v1"
+}

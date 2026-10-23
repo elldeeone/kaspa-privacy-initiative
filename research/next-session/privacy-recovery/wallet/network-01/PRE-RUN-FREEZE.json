@@ -1,0 +1,78 @@
+{
+  "classification": "ACTUAL_READ_ONLY_NETWORK_RECONSTRUCTION_ONE_BACKUP",
+  "source_files": [
+    {
+      "path": "poc/independent-recovery/wallet.py",
+      "sha256": "f9d3e8c1937038c67d9d10711217d5ac006efd781c92484a4fea53515b5de82d"
+    },
+    {
+      "path": "poc/independent-recovery/replay.py",
+      "sha256": "f8be03c47008dd3b06ef601bd6da67ba42be47dec3f7c43a0d28dfe68e9b773d"
+    },
+    {
+      "path": "poc/independent-recovery/policy_template.py",
+      "sha256": "867c340348d25ecdec7c31e406d93b0f07d7b57005380216f575332f8bd2bd05"
+    },
+    {
+      "path": "poc/independent-recovery/kpx2-policy-template.bin",
+      "sha256": "8b0e6dd802b58400fdfd9fcc11cff2ef6e4a27659c973ff3d0b1bf946fcfda46"
+    },
+    {
+      "path": "poc/independent-recovery/kpx2-policy-template.json",
+      "sha256": "5f8e5354565c0545cfd6e6455958cbf955daa14d7982ac5c338673cc5a5a19bf"
+    },
+    {
+      "path": "poc/future-recipient/v2/recipient.py",
+      "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2"
+    },
+    {
+      "path": "research/next-session/privacy-recovery/wallet/network-01/request.json",
+      "sha256": "5b715ee45dea47d73735f227220f1d44d1c01bb112df084554975617838f88f1"
+    },
+    {
+      "path": "research/next-session/privacy-recovery/wallet/network-01/run.sh",
+      "sha256": "2a0a85572c023cfa4a13a1482d37c4b7d74791d19fcecf3a54e1dcaa5a8d2e7e"
+    },
+    {
+      "path": "research/next-session/privacy-recovery/fetch/descriptor-v1.json",
+      "sha256": "a7479ab4d78c52b239a9a1c1f08f8fe19035cbec4582a27045ce0c6600f2f110"
+    },
+    {
+      "path": "research/next-session/privacy-recovery/wallet/network-01/mount_check.py",
+      "sha256": "31928fe1f6b1680b5ce85db6f47d960cd8f8a5403bb338636f1caeeb2abc93c6"
+    }
+  ],
+  "crypto_bridge_sha256": "6f65ec202a2d634d0cf8c5ba3034fd591790374da0ea9ea1a144470eec3143ff",
+  "expected_descriptor_canonical_sha256": "434cefba486cf7d41afb44c0f538be898f93d4440bf70b1b40cbfaff4cfef1dd",
+  "cases": [
+    {
+      "case": "owner-01",
+      "fetch_path": "research/next-session/privacy-recovery/fetch/vector-refetch-02/network-data/fetch.json",
+      "fetch_sha256": "9390feab0166ca7710e4357ef6aa079d5bef10f84e357b4776d72c148ecba9e4",
+      "private_input": "Exactly one root-authorized seed-only backup, no backup bytes/hash published."
+    },
+    {
+      "case": "owner-02",
+      "fetch_path": "research/next-session/privacy-recovery/fetch/electron-refetch-02/network-data/fetch.json",
+      "fetch_sha256": "db0afb636d8fbd120b05ab65cc46ce51ae89e86bc8d5607a8e7e47bf61c0a669",
+      "private_input": "Exactly one root-authorized seed-only backup, no backup bytes/hash published."
+    }
+  ],
+  "resources": {
+    "cpu_quota": 2,
+    "memory_gib": 4,
+    "swap_bytes": 0,
+    "network_namespace": "isolated"
+  },
+  "mounted_private_input": "one own backup at /backup.json",
+  "excluded": [
+    "operator archives and old public testtree",
+    "private controller profile",
+    "payer and other receiver seed",
+    "PK",
+    "prover",
+    "native signer"
+  ],
+  "new_broadcast_or_signature": false,
+  "remaining_trust": "User-selected descriptor, selected validating nodes and retained public history; not independent consensus/durable DA."
+}

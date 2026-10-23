@@ -1,0 +1,22 @@
+{
+  "cause": "Historical generic JSON serialization lost OptionalHeader CompressedParents, producing parentsByLevel:{}; new fetch must explicitly expand it and restore blueWork bigint.",
+  "classification": "RETAINED_FIRST_TOOL_TEST_RESULT_SUMMARY",
+  "command": "node --test poc/independent-recovery/test_fetch.mjs",
+  "error": "Error: N/A constructing Header from historical accepting_block_header",
+  "failed": 1,
+  "failing_test": "actual public accepted body/header and ID roundtrip use pinned SDK",
+  "not_a_network_recovery_result": true,
+  "passed": 15,
+  "raw_tool_output_retained_in_session": true,
+  "source_pins": [
+    {
+      "path": "poc/independent-recovery/fetch.mjs",
+      "sha256": "8cb4443c6c32035c2e54bdece09ee97406cc01a2d8b54cc80d352c250a0ce269"
+    },
+    {
+      "path": "poc/independent-recovery/test_fetch.mjs",
+      "sha256": "203031d3438682de67183aa934dc546577e7c23d8728c57aebbbc67bc1b550c5"
+    }
+  ],
+  "tests": 16
+}

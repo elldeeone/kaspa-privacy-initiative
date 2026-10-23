@@ -1,0 +1,44 @@
+{
+  "classification": "MOCK_TRANSPORT_CONTROLS_NO_ACTUAL_CONSENSUS_OR_RPC",
+  "command_argv": [
+    "/usr/bin/bwrap",
+    "--die-with-parent",
+    "--unshare-net",
+    "--ro-bind",
+    "/",
+    "/",
+    "--tmpfs",
+    "/tmp",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "/home/luke/.local/bin/node",
+    "--test",
+    "poc/independent-recovery/test_fetch_failures.mjs"
+  ],
+  "fresh_trial_or_seed_input": false,
+  "kernel_namespace_requested_by_command": "--unshare-net",
+  "same_5_controls_prior_host_mock_run_retained": "FAULT-TEST-01.log",
+  "separate_network_namespace_inode_attestation_recorded": false,
+  "source_pins": [
+    {
+      "bytes": 27776,
+      "path": "poc/independent-recovery/fetch.mjs",
+      "sha256": "356d832583fc47b0fa9d7bc3efb68a05f908cec22e300791a3f603d95cce8453"
+    },
+    {
+      "bytes": 6311,
+      "path": "poc/independent-recovery/test_fetch_failures.mjs",
+      "sha256": "4afe8b7c8f4755055c2f9bbe7c45d0208b1899232198815517d1b38448cc3cc7"
+    },
+    {
+      "bytes": 532,
+      "path": "research/next-session/privacy-recovery/fetch/FAULT-TEST-02-NETWORK-OFF.log",
+      "sha256": "592e734b919010b95d946fa4bd38beeb5e6de19440dfdf7f10dd576e8768063b"
+    }
+  ],
+  "stdout_stderr_path": "FAULT-TEST-02-NETWORK-OFF.log",
+  "tests_passed": 5,
+  "working_directory": "/home/luke/projects/kpi-intensive-2026-10-22/continuation"
+}
