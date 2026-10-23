@@ -1,0 +1,129 @@
+{
+  "case_count": 3,
+  "cases": [
+    {
+      "case_id": "genuine-A-private-before-reveal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "genuine valid private ownership proof; current NF absent",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-A-private-before-reveal/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-A-private-before-reveal/transaction.json",
+        "sha256": "ab29c68e439d07835fdefc103a530c096b0081963257fbc91c570714646904a2"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-A-private-before-reveal/validation-case.json",
+        "sha256": "87852dc98dffc07b4a56ed51dd43cd13826fb73cd00bfcb52cf2182ac4c32b4c"
+      }
+    },
+    {
+      "case_id": "genuine-B-private-after-reveal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "genuine valid private ownership proof; CURRENT authenticated spent original Bob NF must reject before Groth16",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-B-private-after-reveal/supplied-context.json",
+        "sha256": "dc2b5ed0739503cea0546a12c57ddb693223c301f79b45c4d0c88be8b70f8ecc"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-B-private-after-reveal/transaction.json",
+        "sha256": "1a9c727cdf378720776405e1b09af10f330bfb56c94462e4b5c7113fecbc4b9e"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-B-private-after-reveal/validation-case.json",
+        "sha256": "a80eb6fc81f11db28655ec35eb267684257d049b7b24489caf01117d111fa47b"
+      }
+    },
+    {
+      "case_id": "genuine-private-then-old-Bob-reveal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "same old positioned CM/NF, current CM path and exact authenticated occupied NF equality; correct original native signer",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-private-then-old-Bob-reveal/supplied-context.json",
+        "sha256": "3c00bcba65858902cd27d009f429c99e306619c1149451bd32ecfaab2d4b8521"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50073,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-private-then-old-Bob-reveal/transaction.json",
+        "sha256": "4e2aff85d1161272e244411196ba2b196579304f6711beeb9dc4de10355fcd5a"
+      },
+      "validation_case": {
+        "bytes": 50397,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/fork-prepared-01/bodies/genuine-private-then-old-Bob-reveal/validation-case.json",
+        "sha256": "c75a4dd976b663b9ee3171d18d3849278a9d2a89bbb1ce919d83b5fecda2c0ac"
+      }
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "native_VM_or_Full_executed": false,
+  "primary_mainline_modified": false,
+  "scope": "two genuinely verified private R1CS proofs; CURRENT native NF exclusivity both orders",
+  "source_pins": [
+    {
+      "bytes": 4205,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_forks.py",
+      "sha256": "b2aee77540b34ca9629621c0a573d575a8e00e83c3195c4197472dd16899a001"
+    },
+    {
+      "bytes": 22893,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py",
+      "sha256": "bbaabb0e40b819f94e4f43c677d6a917c08610df00853cc4e5eea5d8cb84ffdf"
+    },
+    {
+      "bytes": 47758,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/source-forks-01/assemble.py",
+      "sha256": "7b4f3f0e9505a59c292855f0d5dfe4ddfe32ca22cdbf3ead4b36a9015b91e7f2"
+    },
+    {
+      "bytes": 13438264,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/future-union-selected/native-controls-05",
+      "sha256": "73fb41c66c374da91200f06ae442f5bd8beb3c7954c71fae954b12bec9b1c1cf"
+    },
+    {
+      "bytes": 128,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/fork-proof-A-01/proof128.bin",
+      "sha256": "9008c0fcdafdd2320efbd9377393749a1c4ae01461b2c173f78c8169a8e60162"
+    },
+    {
+      "bytes": 3053,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/fork-proof-A-01/report.json",
+      "sha256": "d41f5616d2aac9bd6b6e02b785393c5e621589265be30a8078a1b4e4acadaf0d"
+    },
+    {
+      "bytes": 128,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/fork-proof-B-01/proof128.bin",
+      "sha256": "1defbbdced31276b9ddef8d8cbfa27442e19d532f2e303c05541ef3d3535fc1b"
+    },
+    {
+      "bytes": 3055,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/fork-proof-B-01/report.json",
+      "sha256": "708a0afca04378c15e6c4e4bb5465da606ee0d93903494b5b9cc415bbe69a0d3"
+    }
+  ]
+}

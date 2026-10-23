@@ -1,0 +1,194 @@
+{
+  "C_public_reveal_equality_classes": {
+    "K": [],
+    "O": [],
+    "incoming": [],
+    "nativePK": []
+  },
+  "actual_reveal_disclosures": [
+    {
+      "cm": "6f5214a13229abf669caf794980aaf68f52d1b25cc33368d904b731af239043f",
+      "incoming_directory_record_indices": [
+        0
+      ],
+      "matching_invoice_record_indices": [
+        0
+      ],
+      "note_value_disclosed_sompi": 120000000,
+      "position": 0,
+      "source_stage": "PUBLIC_WITNESS_UNBROADCAST"
+    },
+    {
+      "cm": "ec9519ea028af5e432d66cf37c1ea1875445eaa0a8eb58e9f6a1501c5937c091",
+      "incoming_directory_record_indices": [
+        2
+      ],
+      "matching_invoice_record_indices": [
+        2
+      ],
+      "note_value_disclosed_sompi": 240000000,
+      "position": 2,
+      "source_stage": "PUBLIC_WITNESS_UNBROADCAST"
+    }
+  ],
+  "actual_source_derived": {
+    "chain_receipts": 3,
+    "invoice_records": 3,
+    "native_or_private_execution": false,
+    "reveal_records": 2
+  },
+  "arity_verdict": "counter-delta-only cannot distinguish one versus two real private inputs; branch itself differs; actual private bytes not qualified",
+  "byte_only_equality_canaries": [
+    {
+      "observable_equal_fields": [
+        "O"
+      ],
+      "relation_valid_note": false,
+      "repeated_field": "O"
+    },
+    {
+      "observable_equal_fields": [
+        "incoming"
+      ],
+      "relation_valid_note": false,
+      "repeated_field": "incoming"
+    },
+    {
+      "observable_equal_fields": [
+        "K"
+      ],
+      "relation_valid_note": false,
+      "repeated_field": "K"
+    },
+    {
+      "observable_equal_fields": [
+        "nativePK"
+      ],
+      "relation_valid_note": false,
+      "repeated_field": "nativePK"
+    },
+    {
+      "observable_equal_fields": [
+        "deliveryPK"
+      ],
+      "relation_valid_note": false,
+      "repeated_field": "deliveryPK"
+    }
+  ],
+  "classification": "OFFLINE_SYNTHETIC_BYTE_CHANNEL_DIAGNOSTIC_NOT_QUALIFICATION",
+  "conditional_arity_shapes": [
+    {
+      "private_nf_insertions": 2,
+      "real_inputs": 1
+    },
+    {
+      "private_nf_insertions": 2,
+      "real_inputs": 2
+    },
+    {
+      "real_inputs": 1,
+      "revealing_nf_insertions": 1
+    }
+  ],
+  "directory_equality_classes": {
+    "K": [],
+    "O": [],
+    "deliveryPK": [
+      [
+        0,
+        2
+      ]
+    ],
+    "incoming": [],
+    "nativePK": []
+  },
+  "freeze_sha256": "d08516d0bd446c29d63047b2b2123c24d5d280a1e7e585465af90fd8739ad77f",
+  "fresh_note_authority_field_repetitions": {
+    "K": [],
+    "O": [],
+    "incoming": [],
+    "nativePK": []
+  },
+  "gates": {
+    "C_note_incoming_equality": "NO_EQUALITY_OBSERVED_NOT_HIDING_PROOF",
+    "RFC0012_qualification": "OPEN_OLD_AMOUNT_WORKLOAD_REMAINS_FAILED",
+    "directory_whole_descriptor_unlinkability": "FAIL_STABLE_DELIVERYPK_EQUALITY",
+    "equality_and_disclosed_key_canaries": "PASS",
+    "public_hash_ADMIT_bytes": "INCOMPLETE_SOURCE_PROPOSAL_ONLY",
+    "real_historical_private_payment_amount": "INCOMPLETE_NO_PRIVATE_PROOF",
+    "reference_public_field_conformance": "PASS",
+    "rollback_knowledge_control": "PASS"
+  },
+  "interpretation": [
+    "V2 separates per-note incoming from stable directory-visible deliveryPK",
+    "directory observers still link matching deliveryPK and exact invoice-to-reveal records",
+    "absence of byte equality is not a hiding proof",
+    "revealed reused k identifies matching NFs over the public CM position set",
+    "published knowledge survives chain rollback",
+    "no 32-role C/P/A privacy qualification and no old failure retuning"
+  ],
+  "old_amount_workload": {
+    "absolute_cap_percent": 20,
+    "prior_denominator": 100025,
+    "prior_numerator": 21103,
+    "status": "UNQUALIFIED_UNCHANGED"
+  },
+  "resource_observation": {
+    "peak_rss_kib_linux": 1950208,
+    "system_cpu_seconds": 0.016378,
+    "threads": 1,
+    "user_cpu_seconds": 0.08090399999999999,
+    "wall_seconds": 0.0008312040008604527
+  },
+  "schema": "candidate-c-incremental-privacy-result-v2",
+  "scorer_sha256": "abc0cbf8d7b205784094af2900e5510a026048b7a0c968aa4df784dad38afcc2",
+  "synthetic_disclosed_key_scan": {
+    "candidate_field_level_CM_K_NF_relation": true,
+    "matched_public_record_indices": [
+      0,
+      1
+    ],
+    "private_or_native_validity_established": false,
+    "public_cm_count": 3,
+    "public_cm_positions": [
+      {
+        "cm": "6f5214a13229abf669caf794980aaf68f52d1b25cc33368d904b731af239043f",
+        "position": 0
+      },
+      {
+        "cm": "98b86399a2a424a81964194929208ae5c6d53bc17e91e84e48b4a477ebcd6ce6",
+        "position": 1
+      },
+      {
+        "cm": "7b7c241f3e960f303ca69eb64056ab24344edfedcc3f433761a8a0d5eaeb1e8c",
+        "position": 2
+      }
+    ],
+    "public_nf_set": [
+      "09c50cee18fdabc96c61d4b36c4d7dca496c76aa9dd123d8749260519b872108",
+      "343757bdc04519c68f2c2fd2bc5775956a28c9527cbc6c9fec99f5ec26728f6b",
+      "619fcaf39b5ba8936aee66ed50ca2d0a404db1b3ed26478c74078444841dd208"
+    ],
+    "sibling_key_assignment_given_to_observer": false,
+    "sibling_openings_given_to_observer": false
+  },
+  "synthetic_historical_amount_bindings": [
+    {
+      "logical_diagnostic": "exact historical direct-note value follows when payment=V",
+      "position": 0,
+      "real_private_payment_evidence": false,
+      "value_sompi": 120000000
+    },
+    {
+      "logical_diagnostic": "exact historical direct-note value follows when payment=V",
+      "position": 2,
+      "real_private_payment_evidence": false,
+      "value_sompi": 240000000
+    }
+  ],
+  "synthetic_rollback_knowledge": {
+    "later_same_note_nf_recognized": true,
+    "native_authorization_test": false,
+    "restored_unspent": true
+  }
+}

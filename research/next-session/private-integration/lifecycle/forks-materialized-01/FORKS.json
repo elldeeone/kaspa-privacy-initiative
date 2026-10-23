@@ -1,0 +1,59 @@
+{
+  "cases": [
+    {
+      "actual_prior_output_link": {
+        "amount_sompi": 2000000000,
+        "checked_actual_body_and_supplied_context": true,
+        "index": 0,
+        "previous_txid_raw_hex": "5d182f43dcba0dfe706cf2301ad2484841eb2d4945dca59a929a1d2d85fd88d9",
+        "script_public_key": "0000aa204800830d402eee1522eb7b16a97a6bfcfe82e9a8f02dd7e87508a89b106b85aa87"
+      },
+      "case_id": "A-private-before-reveal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "counterpart_followup": "native current-spent old Bob reveal must reject after this private",
+      "dummy_input_slots": 1,
+      "fee_sompi": 18751400,
+      "native_expected": "ACCEPT",
+      "not_economic_or_privacy_qualification": true,
+      "original_Bob_NF": "292cb85fe31c1302d5938828541ced49f9d2f21de303b323833dab01f3e7adb6",
+      "primary_mainline_modified": false,
+      "prior_actual_native_body": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/execution-01/private",
+      "private_R1CS_expected": "SATISFIED_WITH_GENUINE_PROOF",
+      "proof_stage": "PLACEHOLDER_NOT_VERIFIED",
+      "public_update_witness": "VALID",
+      "real_input_slots": 1,
+      "reserve_sompi": 2000000000,
+      "same_new_setup": true,
+      "unspent_lineage_oracle_expected": "VALID_FORK"
+    },
+    {
+      "actual_prior_output_link": {
+        "amount_sompi": 1000000000,
+        "checked_actual_body_and_supplied_context": true,
+        "index": 0,
+        "previous_txid_raw_hex": "e2541b68ea653b90f376f0e2a41d559aeee583464ad1956d2d2ee70d3a1c9ac6",
+        "script_public_key": "0000aa20ab8ea0541376075835bf4defa0a919e89cfd6cf87de8e9ab20ac48295105e1a587"
+      },
+      "case_id": "B-private-after-reveal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "counterpart_followup": "native current-spent private must reject after main Bob reveal",
+      "dummy_input_slots": 1,
+      "fee_sompi": 18751400,
+      "native_expected": "VerifyError",
+      "not_economic_or_privacy_qualification": true,
+      "original_Bob_NF": "292cb85fe31c1302d5938828541ced49f9d2f21de303b323833dab01f3e7adb6",
+      "primary_mainline_modified": false,
+      "prior_actual_native_body": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/execution-01/bob-reveal",
+      "private_R1CS_expected": "SATISFIED_WITH_GENUINE_PROOF",
+      "proof_stage": "PLACEHOLDER_NOT_VERIFIED",
+      "public_update_witness": "INTENTIONALLY_INVALID_CURRENT_SPENT_NF0",
+      "real_input_slots": 1,
+      "reserve_sompi": 1000000000,
+      "same_new_setup": true,
+      "unspent_lineage_oracle_expected": "REJECT_ALREADY_SPENT_BOB"
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "native_or_proof_execution_here": false,
+  "separate_hypothetical_forks_not_concatenated_mainline": true
+}

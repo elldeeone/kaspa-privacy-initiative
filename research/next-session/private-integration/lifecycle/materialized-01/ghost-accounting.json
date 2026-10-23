@@ -1,0 +1,70 @@
+{
+  "actual_fees_sompi": {
+    "admit": 4850400,
+    "founding": 2574600,
+    "fundingprep": 911400,
+    "private": 18751400
+  },
+  "canonical_genesis_and_ordered_current_lineage": "EXTERNAL_SUPPLIED_ORACLE",
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "counting": "two distinct useful10KAS recipients; no private change; all founding and funding change costs retained",
+  "notes": [
+    {
+      "owner": "Alice",
+      "position": 0,
+      "spent_after_private": true,
+      "value_sompi": 60000000
+    },
+    {
+      "owner": "Alice",
+      "position": 1,
+      "spent_after_private": true,
+      "value_sompi": 1958751400
+    },
+    {
+      "owner": "Bob",
+      "position": 2,
+      "spent_after_private": false,
+      "value_sompi": 1000000000
+    },
+    {
+      "owner": "Charlie",
+      "position": 3,
+      "spent_after_private": false,
+      "value_sompi": 1000000000
+    }
+  ],
+  "ordinary_source_input_sompi": 4000000000,
+  "source_funding_inputs_sompi": [
+    120000000,
+    1963601800
+  ],
+  "steps": [
+    {
+      "liability": 60000000,
+      "reserve": 60000000,
+      "stage": "founding",
+      "unspent_positions": [
+        0
+      ]
+    },
+    {
+      "liability": 2018751400,
+      "reserve": 2018751400,
+      "stage": "admit",
+      "unspent_positions": [
+        0,
+        1
+      ]
+    },
+    {
+      "liability": 2000000000,
+      "reserve": 2000000000,
+      "stage": "private",
+      "unspent_positions": [
+        2,
+        3
+      ]
+    }
+  ]
+}

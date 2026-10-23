@@ -1,0 +1,114 @@
+{
+  "format": "source-priced-one-source-complete-prefix-v1",
+  "scope": "prospective signed-body targets; actual native MassCalculator/Full takes precedence",
+  "reported_emitted_redeem_bytes": 22388,
+  "private_budget": 1600,
+  "one_external_source_oracle_sompi": 4000000000,
+  "ordinary_preparation": {
+    "passes": true,
+    "fee_sompi": 911400,
+    "metrics_evaluated_at_fee_sompi": 911400,
+    "required_fee_sompi": 911400,
+    "iterations": 3,
+    "metrics": {
+      "estimated_bytes": 370,
+      "compute_mass": 2450,
+      "transient_mass": 1480,
+      "storage_mass": 9114,
+      "normalized_mining_mass": 9114,
+      "default_relay_mass": 2450,
+      "native_dimension_limits_pass": true
+    }
+  },
+  "preparation_outputs_sompi": [
+    120000000,
+    1963601800,
+    1915486800
+  ],
+  "following_exact_target_packet_sha256": "a247aeffd4daa4c8ce911228e09beca3c65e6bdd8c14cfe0d067965ec172287c",
+  "same_payer_two_real_notes_two_distinct_recipient_nochange": true,
+  "full_payer_change_and_recipient_cashout_accounted": true,
+  "per_order_integer_cost_allocation": [
+    {
+      "first_recipient": 0,
+      "users": [
+        {
+          "recipient": 0,
+          "principal_sompi_counted_once": 1000000000,
+          "shared_prefix_fee_share_sompi": 13543900,
+          "own_reveal_fee_sompi": 4973800,
+          "native_payout_sompi": 995026200,
+          "all_modeled_route_fees_sompi": 18517700,
+          "ordinary_private_fee_share_sompi": 9375700,
+          "remaining_2percent_headroom_sompi": 1482300
+        },
+        {
+          "recipient": 1,
+          "principal_sompi_counted_once": 1000000000,
+          "shared_prefix_fee_share_sompi": 13543900,
+          "own_reveal_fee_sompi": 4963200,
+          "native_payout_sompi": 995036800,
+          "all_modeled_route_fees_sompi": 18507100,
+          "ordinary_private_fee_share_sompi": 9375700,
+          "remaining_2percent_headroom_sompi": 1492900
+        }
+      ],
+      "actual_shared_prefix_fee_sompi": 27087800,
+      "exact_total_route_fee_sompi": 37024800,
+      "all_returned_native_outputs_sompi": 3962975200,
+      "source_minus_returned_equals_fees": true,
+      "final_reserve_sompi": 0
+    },
+    {
+      "first_recipient": 1,
+      "users": [
+        {
+          "recipient": 0,
+          "principal_sompi_counted_once": 1000000000,
+          "shared_prefix_fee_share_sompi": 13543900,
+          "own_reveal_fee_sompi": 4963200,
+          "native_payout_sompi": 995036800,
+          "all_modeled_route_fees_sompi": 18507100,
+          "ordinary_private_fee_share_sompi": 9375700,
+          "remaining_2percent_headroom_sompi": 1492900
+        },
+        {
+          "recipient": 1,
+          "principal_sompi_counted_once": 1000000000,
+          "shared_prefix_fee_share_sompi": 13543900,
+          "own_reveal_fee_sompi": 4973800,
+          "native_payout_sompi": 995026200,
+          "all_modeled_route_fees_sompi": 18517700,
+          "ordinary_private_fee_share_sompi": 9375700,
+          "remaining_2percent_headroom_sompi": 1482300
+        }
+      ],
+      "actual_shared_prefix_fee_sompi": 27087800,
+      "exact_total_route_fee_sompi": 37024800,
+      "all_returned_native_outputs_sompi": 3962975200,
+      "source_minus_returned_equals_fees": true,
+      "final_reserve_sompi": 0
+    }
+  ],
+  "maximum_individual_lifecycle_fee_sompi": 18517700,
+  "remaining_ordinary_service_retry_headroom_sompi": 624300,
+  "service_proving_retry_costs_unpriced": true,
+  "genuine_selected_proof_budget_nativeFull_backing_privacy_latency_not_qualified_by_this_calculator": true,
+  "source_pins": [
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/fees/model.py",
+      "bytes": 32685,
+      "sha256": "ad6c25f8edc11662326033882d2e0f02d012bd26e3bcba2b3f18ca358911dc9e"
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/fees/prefix_prep.py",
+      "bytes": 4261,
+      "sha256": "b94e368aa3f130d60aa5c301857c6dd67634d5c0599b473da841894ded8d8f8f"
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/fees/actual-size-22388.json",
+      "bytes": 247933,
+      "sha256": "a247aeffd4daa4c8ce911228e09beca3c65e6bdd8c14cfe0d067965ec172287c"
+    }
+  ]
+}

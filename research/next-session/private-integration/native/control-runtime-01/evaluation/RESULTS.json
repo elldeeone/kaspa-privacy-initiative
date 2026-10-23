@@ -1,0 +1,2549 @@
+{
+  "case_count": 63,
+  "cases": [
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-valid-NONE2-funding",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "actual NONE2 signature; exact ALL guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45103
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45103
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT",
+        "EvalFalse"
+      ],
+      "case_id": "admit-corrupt-funding-signature",
+      "expectation_matched": false,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "ACCEPT",
+        "NullFail"
+      ],
+      "intended_cause": "pool checks cannot authorize the other input",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(EvalFalse)"
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 150289
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 150289
+          },
+          {
+            "accepted": false,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "typed_error": "EvalFalse",
+            "units": 100000
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT",
+        "EvalFalse"
+      ],
+      "case_id": "admit-wrong-funding-key",
+      "expectation_matched": false,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "ACCEPT",
+        "NullFail"
+      ],
+      "intended_cause": "valid signature under wrong secret with original SPK",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(EvalFalse)"
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 150289
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 150289
+          },
+          {
+            "accepted": false,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "typed_error": "EvalFalse",
+            "units": 100000
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-declared-fee-plus1",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "exact E=V+fee+C",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45278
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45278
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-reserve-output-minus1",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "exact Rprime=R+V",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45307
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45307
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-note-rho",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission note-rho binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45995
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45995
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-note-nativePK",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission note-nativePK binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45995
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45995
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-CM",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission CM binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45995
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45995
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-ciphertext",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission ciphertext binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 46587
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 46587
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-CM-append-path",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission CM-append-path binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51268
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51268
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-next-CMroot",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission next-CMroot binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 55846
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 55846
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-next-NFroot",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission next-NFroot binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 46722
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 46722
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-singleton-G-rho",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission singleton-G-rho binding",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 150257
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 150257
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-singleton-G-missing",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "n1/m1 singleton opening mandatory",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 145695
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 145695
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-singleton-G-wrong-value",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "singleton G.V equals actual R",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 145729
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 145729
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-range-V-zero",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer V-zero",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45175
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45175
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-range-V-below-floor",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer V-below-floor",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45179
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45179
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-range-V-above-MAX",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer V-above-MAX",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45200
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45200
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-range-fee-zero",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer fee-zero",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45201
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45201
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-range-change-above-MAX",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer change-above-MAX",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45250
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45250
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-actual-R-above-MAX",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "actual reserve bound before equations",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45067
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45067
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-actual-R-plus-E-above-MAX",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "combined actual inputs bounded before equations",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45182
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45182
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT",
+        "ACCEPT"
+      ],
+      "case_id": "admit-positive-change",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT",
+        "ACCEPT"
+      ],
+      "intended_cause": "same-key positive change path",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 4850400
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 150393
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 150393
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-change-value-minus1",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared exact change amount",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 145695
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 145695
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-change-wrong-key",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "change exact original funding SPK",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 145767
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 145767
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT"
+      ],
+      "case_id": "reveal-Charlie-terminal",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "conditional R=V full consumption",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 10000000
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 173877
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 173877
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT"
+      ],
+      "case_id": "reveal-Charlie-first",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "reversed independent recipient order",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 10000000
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 263935
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 263935
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT"
+      ],
+      "case_id": "reveal-Bob-terminal",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "reversed terminal recipient",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 10000000
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 174288
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 174288
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-valid-NONE2",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual NONE2 exact-ALL guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45019
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45019
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "EvalFalse"
+      ],
+      "case_id": "reveal-wrong-signer",
+      "expectation_matched": false,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "NullFail"
+      ],
+      "intended_cause": "wrong signing secret; original CM/nativePK",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(EvalFalse)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "EvalFalse",
+          "units": 263931
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "EvalFalse",
+            "units": 263931
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-wrong-payout-key",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "canonical CM-bound payout key",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 163899
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 163899
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-actual-payout-minus1",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual payout equals declared P",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 163744
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 163744
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-declared-fee-plus1",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "whole note V=P+fee",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 73609
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 73609
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-actual-R-above-MAX",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual R upper range",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45036
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45036
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-remainder-below-floor",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "continuing R-V>=60M",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 73667
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 73667
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-actual-outpoint",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual outpoint binds Auth",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45340
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45340
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-actual-R",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual R binds Auth",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45359
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45359
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-NF-predpath",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native NF-predpath before Groth16",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51045
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51045
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-NF-append-path",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native NF-append-path before Groth16",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 61379
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 61379
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-CM-append-path",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native CM-append-path before Groth16",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 92047
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 92047
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-ciphertext",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native ciphertext before Groth16",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 106842
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 106842
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-next-CMroot",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "proposed CMroot bound to actual append",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 105722
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 105722
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-successor-VK-change",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "immutable VK in successor policy",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 196650
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 196650
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-successor-code-change",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "immutable code suffix in successor policy",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 196650
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 196650
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "ZkIntegrity(\"Groth16 verification failed\")"
+      ],
+      "case_id": "private-genuine-proof-wrong-transcript",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "ZkIntegrity(\"Groth16 verification failed\")"
+      ],
+      "intended_cause": "genuine valid-curve proof, native-consistent changed cipher transcript",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14947778
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14947778
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "count-n-zero",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 44932
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 44932
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "count-n-over-cap",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 44948
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 44948
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "count-m-zero",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 44954
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 44954
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "count-m-over-cap",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 44974
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 44974
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "count-m-over-profile",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 44989
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 44989
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "count-private-CM-full",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45565
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45565
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "count-admit-CM-full",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "n+1 cap before append",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 46655
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 46655
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "count-reveal-profile-full",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "m+1<=2n+1 before NF path",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 45130
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 45130
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT",
+        "ACCEPT"
+      ],
+      "case_id": "admit-later-Gzero-positive",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT",
+        "ACCEPT"
+      ],
+      "intended_cause": "later current path and Gzero",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 10000000
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 145859
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 145859
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "case_id": "admit-later-G-nonzero",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "later G must be zero",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 145859
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 145859
+          },
+          {
+            "accepted": true,
+            "allowed_script_units": 109999,
+            "input_index": 1,
+            "units": 100001
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-then-reveal-current-equality",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "authenticated current spent NF: pred.value==NF",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 58291
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 58291
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-then-reveal-current-path-corrupt",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "current predecessor authentication",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 57874
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 57874
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "private-then-reveal-stale-NF-path",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "old predecessor root is stale",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 57855
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 57855
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT"
+      ],
+      "case_id": "base-Alice-reveal-before-private",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "alternative valid first spend",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 10000000
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 263808
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 263808
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-then-private-current-equality",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "current occupied original NF before Groth16; changed Auth has no valid-proof claim",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51481
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51481
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "reveal-then-private-current-path-corrupt",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "current occupied predecessor authentication",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51064
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51064
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "ACCEPT"
+      ],
+      "case_id": "capacity-append65536-terminal",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "conditional sole60M liability, actual17th-bit indexed NF append",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 24816000
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "units": 174595
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "units": 174595
+          }
+        ]
+      },
+      "supplied_context_only": true
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "capacity-append-top-sibling-corrupt",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "17th-level append authentication after valid current predecessor",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 69044
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 69044
+          }
+        ]
+      },
+      "supplied_context_only": true
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "matched": 60,
+  "mismatches": 3,
+  "reviewed_freeze_sha256": "aea1f6eae052ac98ed690f7fb700130a6bc48e6655030add46286b6979e0c526",
+  "scope": "exact frozen supplied-context native Full and every input engine; no accepted chain history/backing/privacy claim"
+}

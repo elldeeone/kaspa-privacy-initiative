@@ -1,0 +1,1831 @@
+{
+  "PK_or_compiled_executable_included": false,
+  "accepted_chain_backing_or_privacy_qualification": false,
+  "baseline_commit": "0c2f4c788a4274b381c4838e05cce5e9c32e8536",
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "created_utc": "2026-10-23T03:13:35.830590+00:00",
+  "files": [
+    {
+      "bytes": 36941,
+      "path": "poc/future-lifecycle/Cargo.lock",
+      "sha256": "1ac748719c4264a30ee013c4f1a99a39c3336c087c54877d1ed7a2dcb1a225ba"
+    },
+    {
+      "bytes": 443,
+      "path": "poc/future-lifecycle/Cargo.toml",
+      "sha256": "fd968b2a4f09289111021098be675662a9f7990464cce80da81085f7c7f35460"
+    },
+    {
+      "bytes": 3489,
+      "path": "poc/future-lifecycle/README.md",
+      "sha256": "80b05439dc08b476b6f77e627365ae640fa1263d8dda90bbd04cfa6a6766f186"
+    },
+    {
+      "bytes": 47758,
+      "path": "poc/future-lifecycle/assemble.py",
+      "sha256": "7b4f3f0e9505a59c292855f0d5dfe4ddfe32ca22cdbf3ead4b36a9015b91e7f2"
+    },
+    {
+      "bytes": 3083,
+      "path": "poc/future-lifecycle/seal.py",
+      "sha256": "f3dc5ce4c6baa5fccd7310125e5f325f99cf25a196b62457e4851db6181cd018"
+    },
+    {
+      "bytes": 9538,
+      "path": "poc/future-lifecycle/src/main.rs",
+      "sha256": "936dc0e7fe17ce2160cd99317e03313f4d133a229f0957e14d9128f6eee9c2be"
+    },
+    {
+      "bytes": 1802,
+      "path": "research/next-session/private-integration/lifecycle/CLEANUP-FINAL-01.json",
+      "sha256": "3e7fad41e5c76e7ef3650d9f6a0bf8dbbe301366eb69a09ce11220e5615f7478"
+    },
+    {
+      "bytes": 1228,
+      "path": "research/next-session/private-integration/lifecycle/CLEANUP-PRIMARY-01.json",
+      "sha256": "08e47f205204e25b5d7eab82e94acbc82ac37bd425ca280eda1f1f37c1ca4c69"
+    },
+    {
+      "bytes": 2735,
+      "path": "research/next-session/private-integration/lifecycle/CONTRACT.md",
+      "sha256": "c5404452440839f3966ef0eb43a8551513874a7dd54676e82c600d7adee170bf"
+    },
+    {
+      "bytes": 1671,
+      "path": "research/next-session/private-integration/lifecycle/FORK-NATIVE-RESULTS-01.json",
+      "sha256": "f639b27a8ba059d254e930cfcf86e322e4a3efcc1ce21757940575549aef8cad"
+    },
+    {
+      "bytes": 1160,
+      "path": "research/next-session/private-integration/lifecycle/FORK-PROOF-RESULTS-01.json",
+      "sha256": "9aa4e7d6421991d83db1c773049bdb15ec4aa7bcaf1d2829397e75122cc43d82"
+    },
+    {
+      "bytes": 51625,
+      "path": "research/next-session/private-integration/lifecycle/PRE-EXECUTION-FREEZE-01.json",
+      "sha256": "6b4a694d8a1357a4234737df9b235e2428b516f1e6472e91185b67d9740ef3c7"
+    },
+    {
+      "bytes": 2417,
+      "path": "research/next-session/private-integration/lifecycle/PRE-FORK-PROOFS-FREEZE-01.json",
+      "sha256": "0c90868d4c07d3f125d9476aa91f1570ae899074133695149b95121898c19561"
+    },
+    {
+      "bytes": 62761,
+      "path": "research/next-session/private-integration/lifecycle/PRE-FORKS-MATERIALIZE-FREEZE-01.json",
+      "sha256": "d5c61c45b487fcfa714a3b0ed9a88556e77f687e9e9c0e7f2adfeac777d5c363"
+    },
+    {
+      "bytes": 1881,
+      "path": "research/next-session/private-integration/lifecycle/PRE-MATERIALIZE-FREEZE-01.json",
+      "sha256": "5b6c74c25ee681879fced75b1a0596474a8bbd42f3fb625378b58bb94971c502"
+    },
+    {
+      "bytes": 41551,
+      "path": "research/next-session/private-integration/lifecycle/PRE-PREFIX-FREEZE-01.json",
+      "sha256": "e182557dea5d5d5969262eee0649baefc1e34b73a7b9ccbad5565933859b8c67"
+    },
+    {
+      "bytes": 3598,
+      "path": "research/next-session/private-integration/lifecycle/PRE-PROOF-FREEZE-01.json",
+      "sha256": "385c1e5d9bdc0ee4a923258a999d3420f92e3478654f01a2d8b9982c4ff7b587"
+    },
+    {
+      "bytes": 3307,
+      "path": "research/next-session/private-integration/lifecycle/PRE-SETUP-FREEZE-01.json",
+      "sha256": "aae855c095765e3e3f83e14b3d87ea5198f54dbb886ae42b9c47fa97118874ba"
+    },
+    {
+      "bytes": 3486,
+      "path": "research/next-session/private-integration/lifecycle/PRE-SETUP-FREEZE-02.json",
+      "sha256": "f3b1c912514f526e94f1b1fa54801f865e50cf013b1ce615680c0982bcef1554"
+    },
+    {
+      "bytes": 4113,
+      "path": "research/next-session/private-integration/lifecycle/PRE-SETUP-FREEZE-03.json",
+      "sha256": "c83a6e444fa59440694f8b585fe3299a07a30097b303595b54ccb19df26faee2"
+    },
+    {
+      "bytes": 10131,
+      "path": "research/next-session/private-integration/lifecycle/REPORT.md",
+      "sha256": "03f90138d675f2c89e7654e9ed0390921d4c4ae49cc8fee68d303734b109c2cb"
+    },
+    {
+      "bytes": 1218,
+      "path": "research/next-session/private-integration/lifecycle/build-01.log",
+      "sha256": "5db82a3ee440c3adeb775dff4ef9e4cfcf2d1ac01ca6b02be1283623d0754aaf"
+    },
+    {
+      "bytes": 1732,
+      "path": "research/next-session/private-integration/lifecycle/execution-01-inside.sh",
+      "sha256": "c6e73b7701242373486e919532ddb11db683055eac36239608d15394d209db17"
+    },
+    {
+      "bytes": 1711,
+      "path": "research/next-session/private-integration/lifecycle/execution-01-resources.log",
+      "sha256": "d84e73ac9c20a274ac116b4e8f6565f8029405e67194e25a32458eb4f06dd56c"
+    },
+    {
+      "bytes": 1659,
+      "path": "research/next-session/private-integration/lifecycle/execution-01-runtime.sh",
+      "sha256": "5bd93067588c543e5602f1087de6b412ed6cee457a04cd845b1a6a9f13408e45"
+    },
+    {
+      "bytes": 1912,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/RESULTS.json",
+      "sha256": "ab9ab27688ba762551900343add9e3a9e7b0a46c081ad476e5fc6b5099b9c50f"
+    },
+    {
+      "bytes": 1957,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/actual-body-links.json",
+      "sha256": "50b53f81d950db91fbc4fe4f1ee267a6496237f440c736740e770dac77222dde"
+    },
+    {
+      "bytes": 5237,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000.vector.json",
+      "sha256": "644f0c337da0f8de912d3031bf415c309033fb4b4b6bcd6014c9deccb7c5c3de"
+    },
+    {
+      "bytes": 168,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/command-result.json",
+      "sha256": "6cb2eb9c89a80749498af37c7ba00f25de9042d1e09adc645c19604aaa3f02b9"
+    },
+    {
+      "bytes": 730,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/metrics.json",
+      "sha256": "2c67e5d29f6b41f606c8f9c2eac7ced7e31ab0977746e1983b587195f6e3bbba"
+    },
+    {
+      "bytes": 521,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/outputs.json",
+      "sha256": "8962511f32b9371e04dd477e15968f97af1dab5e22cbdfb1c76b9bef4a23e295"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/successor-state.hex",
+      "sha256": "64662fcfb4db0e548ef4c588ad19e3007f6429c81328e2b00266d280bd5031d9"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/supplied-context.json",
+      "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+    },
+    {
+      "bytes": 50074,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/transaction.json",
+      "sha256": "2a63bffcfa6ad07b22acbf000b56a636aa88a463c5301764e5dd68887542070b"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/txid-raw.hex",
+      "sha256": "1fb0e65ac12997ae1f762de8c88a8a4d4a0250bdb2639221fca11ffaddc6e754"
+    },
+    {
+      "bytes": 50398,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-000/validation-case.json",
+      "sha256": "1b4741679af33e2c56b6cede7292102332e30f79ce5b54655318affc22ed8510"
+    },
+    {
+      "bytes": 5237,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001.vector.json",
+      "sha256": "05b0be05766000685b9b09d1698c6138c524cf5fac9819b0b00603d3204248f6"
+    },
+    {
+      "bytes": 168,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/command-result.json",
+      "sha256": "6cb2eb9c89a80749498af37c7ba00f25de9042d1e09adc645c19604aaa3f02b9"
+    },
+    {
+      "bytes": 752,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/metrics.json",
+      "sha256": "fc28d4f4b7bbb503dc3b5fd245720aeb62e36fdb189688ec12e4e0421d6e4dea"
+    },
+    {
+      "bytes": 521,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/outputs.json",
+      "sha256": "e089998016ccab556fb96bc8dd3427b78376015e16f2fa0f15ed605faf455391"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/successor-state.hex",
+      "sha256": "64662fcfb4db0e548ef4c588ad19e3007f6429c81328e2b00266d280bd5031d9"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/supplied-context.json",
+      "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+    },
+    {
+      "bytes": 50074,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/transaction.json",
+      "sha256": "a784d9294205df45a9fbbc1d01634d7798ca2e805e4b355fafbc018a537d6ce6"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/txid-raw.hex",
+      "sha256": "9f6f8afac2e3d6350e73333316988c39f7d790bc2b3916176d75b45c6604964b"
+    },
+    {
+      "bytes": 50398,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/quote-reveal-001/validation-case.json",
+      "sha256": "00e621c4a97fd92db6f2ece0d7a7b0b786e0b2e0cf2ca9c1219ea00948fccb82"
+    },
+    {
+      "bytes": 432,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-quotes/reveal-fee-fixedpoint.json",
+      "sha256": "a689029328ecf0372b07a1acbbf7a4ae3d34a4a51bc5e4cf5e0121125602673c"
+    },
+    {
+      "bytes": 5237,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal.vector.json",
+      "sha256": "05b0be05766000685b9b09d1698c6138c524cf5fac9819b0b00603d3204248f6"
+    },
+    {
+      "bytes": 165,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/command-result.json",
+      "sha256": "cdb50fa7cd67a6e6d8db288e94dad79772a119c1264643babf8bcdd21f639e0c"
+    },
+    {
+      "bytes": 752,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/metrics.json",
+      "sha256": "fc28d4f4b7bbb503dc3b5fd245720aeb62e36fdb189688ec12e4e0421d6e4dea"
+    },
+    {
+      "bytes": 409,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/native-validation.json",
+      "sha256": "46bc153f9baba7d801026611e19d8520345698b57ebdb8732e1ff58b0ce16f12"
+    },
+    {
+      "bytes": 521,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/outputs.json",
+      "sha256": "e089998016ccab556fb96bc8dd3427b78376015e16f2fa0f15ed605faf455391"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/successor-state.hex",
+      "sha256": "64662fcfb4db0e548ef4c588ad19e3007f6429c81328e2b00266d280bd5031d9"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/supplied-context.json",
+      "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+    },
+    {
+      "bytes": 50074,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/transaction.json",
+      "sha256": "a784d9294205df45a9fbbc1d01634d7798ca2e805e4b355fafbc018a537d6ce6"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/txid-raw.hex",
+      "sha256": "9f6f8afac2e3d6350e73333316988c39f7d790bc2b3916176d75b45c6604964b"
+    },
+    {
+      "bytes": 50398,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/bob-reveal/validation-case.json",
+      "sha256": "00e621c4a97fd92db6f2ece0d7a7b0b786e0b2e0cf2ca9c1219ea00948fccb82"
+    },
+    {
+      "bytes": 5237,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000.vector.json",
+      "sha256": "89eb74d85b74167c4846f1903e470acb5e36e0568b1090890d8723cb2d2bf458"
+    },
+    {
+      "bytes": 168,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000/command-result.json",
+      "sha256": "6cb2eb9c89a80749498af37c7ba00f25de9042d1e09adc645c19604aaa3f02b9"
+    },
+    {
+      "bytes": 727,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000/metrics.json",
+      "sha256": "9d3e8436977268f012f1dc12fe12f5a912d7c685d7486951fbd2f42bcdc260b5"
+    },
+    {
+      "bytes": 260,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000/outputs.json",
+      "sha256": "ba1c8f19bc2e9ac19718e589eef3551529e05183a1d00d790eacb18e600a4651"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000/supplied-context.json",
+      "sha256": "dc2b5ed0739503cea0546a12c57ddb693223c301f79b45c4d0c88be8b70f8ecc"
+    },
+    {
+      "bytes": 49905,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000/transaction.json",
+      "sha256": "4aad562c34ee5cd38edc3e0c23f9fe1b3e9b965b82b301eb18c129fd7f400dac"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000/txid-raw.hex",
+      "sha256": "395a84dfcc2013459ee81a9e90863646afc3f28d29c0eebd3baae6db6de024eb"
+    },
+    {
+      "bytes": 50219,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-000/validation-case.json",
+      "sha256": "e9e5fd769d946dc48ed6a8dbbfeeec8232605542d05758218a472fd14004c621"
+    },
+    {
+      "bytes": 5237,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001.vector.json",
+      "sha256": "e00f6ee9a527936967ae4bba712fb32e3abb7aed52a24dcd17a1c4caac1b057f"
+    },
+    {
+      "bytes": 168,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001/command-result.json",
+      "sha256": "6cb2eb9c89a80749498af37c7ba00f25de9042d1e09adc645c19604aaa3f02b9"
+    },
+    {
+      "bytes": 749,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001/metrics.json",
+      "sha256": "b005b9412c3d9a6a9ad82dbd99b28fba7a3b71663c24b1d2a2f38ef0c8c43dd6"
+    },
+    {
+      "bytes": 260,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001/outputs.json",
+      "sha256": "5d5b9525175630b8274b30f2f19424f23e84b320a289ae11a961720479560f18"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001/supplied-context.json",
+      "sha256": "dc2b5ed0739503cea0546a12c57ddb693223c301f79b45c4d0c88be8b70f8ecc"
+    },
+    {
+      "bytes": 49905,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001/transaction.json",
+      "sha256": "7253a7abf898a8ecab08cd84200caf1b7699d7055dc16dfe191f9e06f9b37074"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001/txid-raw.hex",
+      "sha256": "7f2d0d735a46bb0526cf659202210c52d9459e9833fc1ae1b32b1ffd355e9b57"
+    },
+    {
+      "bytes": 50219,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/quote-reveal-001/validation-case.json",
+      "sha256": "fc7a98fe23f2ace387459be9da8cff023ceed5f350f582d6d38bcf3a9a301d55"
+    },
+    {
+      "bytes": 432,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-quotes/reveal-fee-fixedpoint.json",
+      "sha256": "c284e9f5ae5e1259444139cf3a580696544dd11d7421f91f80990c579f37e427"
+    },
+    {
+      "bytes": 5237,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal.vector.json",
+      "sha256": "e00f6ee9a527936967ae4bba712fb32e3abb7aed52a24dcd17a1c4caac1b057f"
+    },
+    {
+      "bytes": 165,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/command-result.json",
+      "sha256": "cdb50fa7cd67a6e6d8db288e94dad79772a119c1264643babf8bcdd21f639e0c"
+    },
+    {
+      "bytes": 749,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/metrics.json",
+      "sha256": "b005b9412c3d9a6a9ad82dbd99b28fba7a3b71663c24b1d2a2f38ef0c8c43dd6"
+    },
+    {
+      "bytes": 409,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/native-validation.json",
+      "sha256": "a48d4c3a5f1cc5bdd88d736e10c33a2316ca95875e0e317970e05ff8e7e2ab94"
+    },
+    {
+      "bytes": 260,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/outputs.json",
+      "sha256": "5d5b9525175630b8274b30f2f19424f23e84b320a289ae11a961720479560f18"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/supplied-context.json",
+      "sha256": "dc2b5ed0739503cea0546a12c57ddb693223c301f79b45c4d0c88be8b70f8ecc"
+    },
+    {
+      "bytes": 49905,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/transaction.json",
+      "sha256": "7253a7abf898a8ecab08cd84200caf1b7699d7055dc16dfe191f9e06f9b37074"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/txid-raw.hex",
+      "sha256": "7f2d0d735a46bb0526cf659202210c52d9459e9833fc1ae1b32b1ffd355e9b57"
+    },
+    {
+      "bytes": 50219,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/charlie-reveal/validation-case.json",
+      "sha256": "fc7a98fe23f2ace387459be9da8cff023ceed5f350f582d6d38bcf3a9a301d55"
+    },
+    {
+      "bytes": 3737,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/final-public-records.json",
+      "sha256": "50d73b7c6b494497bae9c77a0382aa991842ea660a897ef71dfd2c88bc6fd32f"
+    },
+    {
+      "bytes": 24137,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/independent-private-auth-cases-genuine.json",
+      "sha256": "5148f00dcbd8b469c844261a73fbc2a3f9dc6ec564de4a9c63871afa10879754"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private.vector.json",
+      "sha256": "15784607fb47e59d4e7b9bd1bc6c11db62fe3737ba10c36602e80cafd67f0c29"
+    },
+    {
+      "bytes": 166,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/command-result.json",
+      "sha256": "4ddcd412bc6beb1003831ee39c5bc9a1c60fade2e7babb8c331b4222154a860d"
+    },
+    {
+      "bytes": 759,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/metrics.json",
+      "sha256": "ad5b225c346a335089666500e65307179537f5d745ba4f45643d4bc7a9207179"
+    },
+    {
+      "bytes": 416,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/native-validation.json",
+      "sha256": "9694023c3930d1b5fd8f7eb2ec220780a6dd2ae8aec8a2b7a2ac3825f7432300"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/outputs.json",
+      "sha256": "625e41506126a212e67cf142b3b29ab0b3e733fb41708ba0e646c2fd3a385dc9"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/successor-state.hex",
+      "sha256": "36df734e302825fe39c56861cf1324adf815fd1325af5b40d8e562a792dbdac2"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/supplied-context.json",
+      "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+    },
+    {
+      "bytes": 54563,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/transaction.json",
+      "sha256": "71e11b27bd21cde4abd7e839c78ccd3c742dac7c168ea7818cb0e2cb26261949"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/txid-raw.hex",
+      "sha256": "cd659b2bf78f3de9fd6bd28da6c3d4d359268a14bd15e8fa06c5b558803d7326"
+    },
+    {
+      "bytes": 54877,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/private/validation-case.json",
+      "sha256": "5c321ae0f217dbf2c14fb85f437a95b8275c26e9e85930bf6010d5f994ffdff5"
+    },
+    {
+      "bytes": 9634,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/restored-current-witnesses.json",
+      "sha256": "af3dc175d83bafe6dcd515b87b6eca58f317a3679a302c80e30817b23b6f50c3"
+    },
+    {
+      "bytes": 383,
+      "path": "research/next-session/private-integration/lifecycle/execution-01/services-absent-before-withdrawal.json",
+      "sha256": "803118da500960670247691be4fdae3f183ec7546b52c7c5f9d90b361b228765"
+    },
+    {
+      "bytes": 202,
+      "path": "research/next-session/private-integration/lifecycle/execution-environment-01.json",
+      "sha256": "e953b83dce2ee159b8a4ad064e052def93e9d910a0acb42c2f77d10bb51e6412"
+    },
+    {
+      "bytes": 484,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/authorization484.bin",
+      "sha256": "673c8340ef3f765ee35408d9433922c2b474c638406cbb269c11c9a414c92746"
+    },
+    {
+      "bytes": 207,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/cleanup.json",
+      "sha256": "0136e18e5c9eb160c33ce394b025efc3b8ef64d79c2873fbd4de8ac094b514fa"
+    },
+    {
+      "bytes": 24201,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/independent-private-auth-cases-genuine.json",
+      "sha256": "1bbc856a75e32a130747b5ddce0c2c57d83e019d83a5bbddbcf31880dea5cd62"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/private-native-vector-genuine.json",
+      "sha256": "580eac43015e0247592bcf8dd44f9af5438f0082f34e5defd576acaabead749f"
+    },
+    {
+      "bytes": 128,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/proof128.bin",
+      "sha256": "9008c0fcdafdd2320efbd9377393749a1c4ae01461b2c173f78c8169a8e60162"
+    },
+    {
+      "bytes": 3053,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/report.json",
+      "sha256": "d41f5616d2aac9bd6b6e02b785393c5e621589265be30a8078a1b4e4acadaf0d"
+    },
+    {
+      "bytes": 3734,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/resources.log",
+      "sha256": "5d64a6805dd2e14650c30743da0500b8b9a4aa33744d34c8ad2223696152d53c"
+    },
+    {
+      "bytes": 1372,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/runtime.sh",
+      "sha256": "ee2302849cba48ab5fe616cf4033aa425278e56b6022164689073691d74ccaad"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-A-01/verification-key.bin",
+      "sha256": "5f551fa7b0cbeb9ec89ccf0e198575b1803db4c8012919166436af625e0136bc"
+    },
+    {
+      "bytes": 484,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/authorization484.bin",
+      "sha256": "1f1d770e3d77550ff3f0ba258780426c013af744f3c7171ddb868de7cd2c1b7d"
+    },
+    {
+      "bytes": 207,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/cleanup.json",
+      "sha256": "512ae6bfffc446173fa77227d5491460ebdebe99e9925deb8dcca1f2d8ad7b88"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/private-native-vector-genuine.json",
+      "sha256": "ca4c9fadfe0ff0238141d01771f0a1343fd453818f645ca154cc250948ac15b3"
+    },
+    {
+      "bytes": 128,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/proof128.bin",
+      "sha256": "1defbbdced31276b9ddef8d8cbfa27442e19d532f2e303c05541ef3d3535fc1b"
+    },
+    {
+      "bytes": 3055,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/report.json",
+      "sha256": "708a0afca04378c15e6c4e4bb5465da606ee0d93903494b5b9cc415bbe69a0d3"
+    },
+    {
+      "bytes": 3736,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/resources.log",
+      "sha256": "21e3bec75cfc83d115fecc0b4bda7214ad1994cb89b03a6cf51420fb1d541996"
+    },
+    {
+      "bytes": 1371,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/runtime.sh",
+      "sha256": "55f389254f0f2bce324bae98458413c7df53b2f0b7a6bfdff2669dcbd10505fe"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/private-integration/lifecycle/fork-proof-B-01/verification-key.bin",
+      "sha256": "5f551fa7b0cbeb9ec89ccf0e198575b1803db4c8012919166436af625e0136bc"
+    },
+    {
+      "bytes": 1461,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialize-01.log",
+      "sha256": "096bf8e9a701fed8f95acc60d651594592f254a69e189d8a233ce8cd2eb7018c"
+    },
+    {
+      "bytes": 2298,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialize-01.sh",
+      "sha256": "447c6f83219b00ff0befa90b312dff15a97c3cd861f1028ea49b27078b054914"
+    },
+    {
+      "bytes": 1224,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/CASE.json",
+      "sha256": "d1bb196bf200478ed3632369a2a66354c3006406bf4cdf49efb23b59e5eb929d"
+    },
+    {
+      "bytes": 24183,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/independent-private-auth-cases.json",
+      "sha256": "efbdbcb38aa6ee866e0201c5d8b6414fbf98f38307282b269a3a7307fdc39248"
+    },
+    {
+      "bytes": 440,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/private-fee-fixedpoint.json",
+      "sha256": "c08acae2e8b5a8662a7dba6e50e35c8c0567dab442427bde1c67fc547d3c5575"
+    },
+    {
+      "bytes": 5864,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/private-fixture.json",
+      "sha256": "4af41de4066d8c65d9c0f08797dc6e853989deea5b02c969dcbb2738d22db5db"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/private-native-vector-placeholder.json",
+      "sha256": "2c981d29eed4ade137e7931078620356abfc67ad384d5f3f35a085c99c148bc2"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000.vector.json",
+      "sha256": "9b4d9c79ca668429c0029a80117174394f4c6dd6014e7fe095d2364b8c8400fd"
+    },
+    {
+      "bytes": 169,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/command-result.json",
+      "sha256": "585bda7296903e55be998ec00260af5a6dc7ebda4168341fb5fba73c60d022e1"
+    },
+    {
+      "bytes": 733,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/metrics.json",
+      "sha256": "464448eff0799dfe6fd8767727a31ca1e8fe0a77c651459c3d0aeccf8e63c9ff"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/outputs.json",
+      "sha256": "28697594c422dcaac97f10c4599814882597427a23a090a1bd42fcdefa5d37c4"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/successor-state.hex",
+      "sha256": "b9fe6d95c1bc634881bde49a08162f20916748edd1ebcbaa6458cde6e86523cc"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/supplied-context.json",
+      "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+    },
+    {
+      "bytes": 54563,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/transaction.json",
+      "sha256": "971b0aadfd94e5c8f4ca216dd57b653ae5f572a0214d1c17b36e632d6084fee0"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/txid-raw.hex",
+      "sha256": "569db2b45187e57999ca12481caeb53d3e9961b50279c9504ac91382e6e5fa5f"
+    },
+    {
+      "bytes": 54877,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-000/validation-case.json",
+      "sha256": "a39c374f60ee6e57661a014d9944c3677a1145842662681f5db00b7ea1f60e09"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001.vector.json",
+      "sha256": "2c981d29eed4ade137e7931078620356abfc67ad384d5f3f35a085c99c148bc2"
+    },
+    {
+      "bytes": 169,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/command-result.json",
+      "sha256": "585bda7296903e55be998ec00260af5a6dc7ebda4168341fb5fba73c60d022e1"
+    },
+    {
+      "bytes": 759,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/metrics.json",
+      "sha256": "d2832a7f20851a893b0cbc1ce0977efa9fb6708d8b8ffc989e7e6d880534e11a"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/outputs.json",
+      "sha256": "f2644632c49d0eb0231680c389bfba70fbdba72f30e59fb5e6cee1b893588e9a"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/successor-state.hex",
+      "sha256": "c7f9b583a45e873a5606f9d3642c1d66ec3c713a5f299136375b8ec6827ad998"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/supplied-context.json",
+      "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+    },
+    {
+      "bytes": 54563,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/transaction.json",
+      "sha256": "b72b90b8e43fb7aa5dfd068aac3e87d7b8e22ecfeb8032f511661ef9194162a1"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/txid-raw.hex",
+      "sha256": "38ff3b027f917b7dff60f830c27c80693eb283a7ae90c5d496a33f63bee6de55"
+    },
+    {
+      "bytes": 54877,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/quote-private-001/validation-case.json",
+      "sha256": "9ced2f222648a3ec5e854d84a318bc5e62aa82f878fb88fb262dea6fd310b53d"
+    },
+    {
+      "bytes": 8625,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/A-private-before-reveal/snapshots.json",
+      "sha256": "5118391bd514c2817e838e09d20399139be02354bb904bfe5f37ca66af59e03c"
+    },
+    {
+      "bytes": 1275,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/CASE.json",
+      "sha256": "32e647514aca0e5577d4a5dee311b22db682785b7f04c0300e958f988a7d9825"
+    },
+    {
+      "bytes": 440,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/private-fee-fixedpoint.json",
+      "sha256": "c08acae2e8b5a8662a7dba6e50e35c8c0567dab442427bde1c67fc547d3c5575"
+    },
+    {
+      "bytes": 5864,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/private-fixture.json",
+      "sha256": "26917effda37e1ee9bc25354cae0b9366001843399cdef85c5073dce1c8b1746"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/private-native-vector-placeholder.json",
+      "sha256": "5a498c5a2f8788523981e2c06ce9e517930766044b65edcc9e59f3f4ada32c99"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000.vector.json",
+      "sha256": "4f975f7baf0b69bd4129db5df9a300072bc4e193a108a477b3e41636dd2be26b"
+    },
+    {
+      "bytes": 169,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/command-result.json",
+      "sha256": "585bda7296903e55be998ec00260af5a6dc7ebda4168341fb5fba73c60d022e1"
+    },
+    {
+      "bytes": 733,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/metrics.json",
+      "sha256": "464448eff0799dfe6fd8767727a31ca1e8fe0a77c651459c3d0aeccf8e63c9ff"
+    },
+    {
+      "bytes": 262,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/outputs.json",
+      "sha256": "880363410d6537ff29aad91f5b0cbf7bbb1cfc3521008ebe57f89656fb08897b"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/successor-state.hex",
+      "sha256": "2f08b0e3d5e04d236ca883c35c40a7cda42e7f375a81bc69bf629e0b47c3ca22"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/supplied-context.json",
+      "sha256": "dc2b5ed0739503cea0546a12c57ddb693223c301f79b45c4d0c88be8b70f8ecc"
+    },
+    {
+      "bytes": 54562,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/transaction.json",
+      "sha256": "522a39d943a602a5ae7b1c542bbee494f7f66a169494beff12e784ac3e677826"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/txid-raw.hex",
+      "sha256": "65fa805b88080222c45ec8d31f859f7bd18d4e413d164974fba7d77c934cab9c"
+    },
+    {
+      "bytes": 54876,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-000/validation-case.json",
+      "sha256": "d23707f54a07ef2593063986769dbe1fbdab08d379ff62a05139c426093f0ea7"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001.vector.json",
+      "sha256": "5a498c5a2f8788523981e2c06ce9e517930766044b65edcc9e59f3f4ada32c99"
+    },
+    {
+      "bytes": 169,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/command-result.json",
+      "sha256": "585bda7296903e55be998ec00260af5a6dc7ebda4168341fb5fba73c60d022e1"
+    },
+    {
+      "bytes": 760,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/metrics.json",
+      "sha256": "8968828d7cf1223480a5fd296346d61752f8f275c5b3ff318f6c785451402d35"
+    },
+    {
+      "bytes": 262,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/outputs.json",
+      "sha256": "3bd8f15814936c58169c8f42ef71c0fb05f3cea42376d5e018722bda8a1d8957"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/successor-state.hex",
+      "sha256": "8327a8d00895eebf2d4563735defc9bcd436e4fb1353ef622f3de24992db187d"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/supplied-context.json",
+      "sha256": "dc2b5ed0739503cea0546a12c57ddb693223c301f79b45c4d0c88be8b70f8ecc"
+    },
+    {
+      "bytes": 54563,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/transaction.json",
+      "sha256": "b65baec2c0f9c822fc14efc5a65aaf9583a4f5b278febdfdb55decbd5dcb42f7"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/txid-raw.hex",
+      "sha256": "339a309fbbcbd56dce51319325a387dd7d0b0da348ba017d3a3e98274f0a058a"
+    },
+    {
+      "bytes": 54877,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/quote-private-001/validation-case.json",
+      "sha256": "3ac1d4b02f8d3a2e537ad2fe2781176ca90b12d2993bdb129240691719b019a4"
+    },
+    {
+      "bytes": 9057,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/B-private-after-reveal/snapshots.json",
+      "sha256": "0e8af62c735b0388b256fd2e189dd5a16645f82e94ff1aa1f267a3af465bcac2"
+    },
+    {
+      "bytes": 2889,
+      "path": "research/next-session/private-integration/lifecycle/forks-materialized-01/FORKS.json",
+      "sha256": "cec5a984791b9390d166aeddc900b1e3b8cc417db6e69122b408dace1a63f03d"
+    },
+    {
+      "bytes": 1482,
+      "path": "research/next-session/private-integration/lifecycle/materialize-01-resources.log",
+      "sha256": "389a4d5f0ed078b37eb4ee7ecef5f57f41ac1a1881b5c1ccb7b6e92b28d01304"
+    },
+    {
+      "bytes": 2324,
+      "path": "research/next-session/private-integration/lifecycle/materialize-01-runtime.sh",
+      "sha256": "249ad151481faba72e5bd23da7e3d34c1c3255141705a7e4ba8410abc5bbfcab"
+    },
+    {
+      "bytes": 739,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/MATERIALIZED.json",
+      "sha256": "3968b5e59e9d68785d6c4fc83003b6ce243bd88fb135cf7358fc017faaee6eba"
+    },
+    {
+      "bytes": 637,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/PUBLIC-SYNTHETIC-backups.json",
+      "sha256": "d20dd8f5e276fcb4ba76a7c820af72210f5e8bcfede1fe143ce141fcec54094f"
+    },
+    {
+      "bytes": 430,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-fee-fixedpoint.json",
+      "sha256": "6e63a3fc79e05623abd7c94438db32f1060ad194c1c0756af93573136b09bdd2"
+    },
+    {
+      "bytes": 4038,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final.vector.json",
+      "sha256": "80f53b8ece79bae2d7514c4faa6f6c646d00a1a0f7e87f6e3d0b2fb3d2dce1d2"
+    },
+    {
+      "bytes": 167,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/command-result.json",
+      "sha256": "f3d498aa542a23c7181f28412185689faf4b8da27c347e8e32b2c570b40863b4"
+    },
+    {
+      "bytes": 756,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/metrics.json",
+      "sha256": "bddbc046acccec77b2f79b88cd61f7fada767f1834cf7580185dae5567be7e4b"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/outputs.json",
+      "sha256": "e658d0bb71fd1fe8a56eeb7a38d4f0b0e43a2d574ae6f86948c00a9f36c9bf59"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/successor-state.hex",
+      "sha256": "deac75942066bfc1f42a0f9d2e98856d324d7066bd30d8ad2ad6ce65e6debcfa"
+    },
+    {
+      "bytes": 388,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/supplied-context.json",
+      "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+    },
+    {
+      "bytes": 48927,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/transaction.json",
+      "sha256": "15a474ef9e68557c07a36ade274ed6fe8fb3c8433dad8d3c4c6cb84333fe411d"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/txid-raw.hex",
+      "sha256": "f05722aa0511d8a8fcdcb308f07f2640ef23ef27bcc2624e19c699297de65047"
+    },
+    {
+      "bytes": 49477,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-final/validation-case.json",
+      "sha256": "faddce9a82c87480ef46f7c66cd4ae22dc8d5de39fa280468f3f6abf02f09a23"
+    },
+    {
+      "bytes": 4038,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/admit-native-vector.json",
+      "sha256": "80f53b8ece79bae2d7514c4faa6f6c646d00a1a0f7e87f6e3d0b2fb3d2dce1d2"
+    },
+    {
+      "bytes": 720,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-fee-fixedpoint.json",
+      "sha256": "0a752472bef160b9abea000d33e1d4b355800238962b12fdeaa92aec3cb39f04"
+    },
+    {
+      "bytes": 1892,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final.vector.json",
+      "sha256": "4e9ec85abf1dcc924b8e89d36db6a9d5982106e4d6b42dec185561e53f283cde"
+    },
+    {
+      "bytes": 170,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/command-result.json",
+      "sha256": "6326512c231c3f2c7bde1b72dd43c5338beecdd2ec5bafafd690c5abdd591489"
+    },
+    {
+      "bytes": 748,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/metrics.json",
+      "sha256": "1ba922533ca771de452bb6c253066ecca66a6fdde051262ef30e9c0d9d21ec61"
+    },
+    {
+      "bytes": 518,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/outputs.json",
+      "sha256": "939ed3a684d081444333749f86d61be07a13a662708063a7fee7b88e1c1d4923"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/successor-state.hex",
+      "sha256": "33ad656305ec8428b82b598962658afccb611521c35be21ebbf0d540ba94e2dd"
+    },
+    {
+      "bytes": 194,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/supplied-context.json",
+      "sha256": "c4e771c0a5fe87834f46839b7103e0b09b0c0bf41e9a6012a30a709a4f941275"
+    },
+    {
+      "bytes": 2043,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/transaction.json",
+      "sha256": "e8099325beac23677ed05757b4940bb2df4f929f7476f0f28960f2c4b375c2ca"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/txid-raw.hex",
+      "sha256": "fbffa9dd5a198731160854116b6d19df05f4ec86fa3a0c1537ecb4680f18cf04"
+    },
+    {
+      "bytes": 2364,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-final/validation-case.json",
+      "sha256": "dca0c70e551f01982ca9cceca2fb1ec9f245dadadb1a9454ea443b3e4284565a"
+    },
+    {
+      "bytes": 1892,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/founding-native-vector.json",
+      "sha256": "4e9ec85abf1dcc924b8e89d36db6a9d5982106e4d6b42dec185561e53f283cde"
+    },
+    {
+      "bytes": 581,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/funding-prep-fee-fixedpoint.json",
+      "sha256": "b30f2f66cc901628bf6efba8342b02564bd0ff926a7ce9d15b7ecb5e9acbb9fa"
+    },
+    {
+      "bytes": 627,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/funding-prep-native-vector.json",
+      "sha256": "4764270596d481846318888b171ff5b70d9dfad0c38ae4a5a44f7f444ae798f0"
+    },
+    {
+      "bytes": 1486,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/ghost-accounting.json",
+      "sha256": "43315baf22463cf53ce3b7a784ca6d3fb425be33e46f9ee72d957c93f3bbdb90"
+    },
+    {
+      "bytes": 24162,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/independent-private-auth-cases.json",
+      "sha256": "59e54ee73ae4eed175b5e9c9c4d6796156ba3f06e71a3c58276a8c3a8808f7a2"
+    },
+    {
+      "bytes": 1994,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/invoice-directory-DO-NOT-FUND.json",
+      "sha256": "17e0812de32e4c4130e341d5c00cfcba0e313a65662b67470737bbf01e5a648b"
+    },
+    {
+      "bytes": 440,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-fee-fixedpoint.json",
+      "sha256": "c08acae2e8b5a8662a7dba6e50e35c8c0567dab442427bde1c67fc547d3c5575"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned.vector.json",
+      "sha256": "c0135ac5894140dc2242ee59281b3ae9ac6289201ded2ee6bda439fc9cbebc49"
+    },
+    {
+      "bytes": 169,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/command-result.json",
+      "sha256": "585bda7296903e55be998ec00260af5a6dc7ebda4168341fb5fba73c60d022e1"
+    },
+    {
+      "bytes": 759,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/metrics.json",
+      "sha256": "ad5b225c346a335089666500e65307179537f5d745ba4f45643d4bc7a9207179"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/outputs.json",
+      "sha256": "625e41506126a212e67cf142b3b29ab0b3e733fb41708ba0e646c2fd3a385dc9"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/successor-state.hex",
+      "sha256": "36df734e302825fe39c56861cf1324adf815fd1325af5b40d8e562a792dbdac2"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/supplied-context.json",
+      "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+    },
+    {
+      "bytes": 54563,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/transaction.json",
+      "sha256": "95aa6c19605293aa5dbf08bf8c7f2a47b05a17388101783bed2d003309d9fa19"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/txid-raw.hex",
+      "sha256": "cd659b2bf78f3de9fd6bd28da6c3d4d359268a14bd15e8fa06c5b558803d7326"
+    },
+    {
+      "bytes": 54877,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-final-unsigned/validation-case.json",
+      "sha256": "2548520f24fa13ca3deac998c999e13c48fd8596b870d03f00e7878ef2064262"
+    },
+    {
+      "bytes": 5863,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-fixture.json",
+      "sha256": "e59a1dd7f93c1bbe7c6176e589accc558efa97907411508a12f6cbdfbf704a06"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/private-native-vector.json",
+      "sha256": "c0135ac5894140dc2242ee59281b3ae9ac6289201ded2ee6bda439fc9cbebc49"
+    },
+    {
+      "bytes": 4038,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000.vector.json",
+      "sha256": "43162daaf77deeb66bf81da6b50425725299f5339cb6591a81610ead1dfc3bd3"
+    },
+    {
+      "bytes": 167,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/command-result.json",
+      "sha256": "f3d498aa542a23c7181f28412185689faf4b8da27c347e8e32b2c570b40863b4"
+    },
+    {
+      "bytes": 734,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/metrics.json",
+      "sha256": "7365e2d5f7e4728404d0a9ff17435bb36a6e27d4c95b3d3da2a121ee2a5aea2e"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/outputs.json",
+      "sha256": "c0754cd3b2525d9abad424895c0e3f7b0cc93938638d7ed7d1ae07b9ccff3583"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/successor-state.hex",
+      "sha256": "deac75942066bfc1f42a0f9d2e98856d324d7066bd30d8ad2ad6ce65e6debcfa"
+    },
+    {
+      "bytes": 388,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/supplied-context.json",
+      "sha256": "47af3399b38651a02f04dd32fe6b34419e6c4c44409497f5a9bbe012c55b1d86"
+    },
+    {
+      "bytes": 48927,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/transaction.json",
+      "sha256": "36487cda71b53922ef135028c685e08a36ebf6f15d2f82b5b0dfa7cd0fc7bced"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/txid-raw.hex",
+      "sha256": "0d5a70cfaae3bd828f05f0ce745a3cce34a629affe0c27ca0d43de3545855b94"
+    },
+    {
+      "bytes": 49477,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-000/validation-case.json",
+      "sha256": "16a576acee3b58be412e32cd764bbcf0c567463fe5d5e84e2618aeba4ce1cab8"
+    },
+    {
+      "bytes": 4038,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001.vector.json",
+      "sha256": "898b2e80b6fd27b6f23f7d4d5cd0cb542a9f4e66a85ef989a9613d11c2e3a4b7"
+    },
+    {
+      "bytes": 167,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/command-result.json",
+      "sha256": "f3d498aa542a23c7181f28412185689faf4b8da27c347e8e32b2c570b40863b4"
+    },
+    {
+      "bytes": 756,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/metrics.json",
+      "sha256": "bddbc046acccec77b2f79b88cd61f7fada767f1834cf7580185dae5567be7e4b"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/outputs.json",
+      "sha256": "447df79880db84238aa0b5eb6c9a26c8c64e3ac74e8ea3f62c4394b6a97c4d24"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/successor-state.hex",
+      "sha256": "deac75942066bfc1f42a0f9d2e98856d324d7066bd30d8ad2ad6ce65e6debcfa"
+    },
+    {
+      "bytes": 388,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/supplied-context.json",
+      "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+    },
+    {
+      "bytes": 48927,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/transaction.json",
+      "sha256": "442d75edfe6add8f34dd3b4ff7bea1c55ca33fadda18d36f8aee1e4b1b63b7b0"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/txid-raw.hex",
+      "sha256": "6e9358da1cdd43072723e79750351bcbefbbab9b4a09f5b5a1bf9a6ac6410c01"
+    },
+    {
+      "bytes": 49477,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-admit-001/validation-case.json",
+      "sha256": "d3631f7090b67f991320568995ea30fc984ff75ea085be78d44e2c7abbbb61f4"
+    },
+    {
+      "bytes": 1886,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000.vector.json",
+      "sha256": "95e44f3a80b0d443645eb44cc1f90822486e01eb62ecc758c5e287d34d62f2e7"
+    },
+    {
+      "bytes": 170,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/command-result.json",
+      "sha256": "6326512c231c3f2c7bde1b72dd43c5338beecdd2ec5bafafd690c5abdd591489"
+    },
+    {
+      "bytes": 726,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/metrics.json",
+      "sha256": "19d59f25dff15fa25678f8cb7b15734f0f195f8ff9ad9ed4b753d66b0bf7f673"
+    },
+    {
+      "bytes": 518,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/outputs.json",
+      "sha256": "d5eb4710e267c041fe155c341c5666dae5d40ea3459021bd53a8f6fa5a6a3dc1"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/successor-state.hex",
+      "sha256": "33ad656305ec8428b82b598962658afccb611521c35be21ebbf0d540ba94e2dd"
+    },
+    {
+      "bytes": 194,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/supplied-context.json",
+      "sha256": "c4e771c0a5fe87834f46839b7103e0b09b0c0bf41e9a6012a30a709a4f941275"
+    },
+    {
+      "bytes": 2043,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/transaction.json",
+      "sha256": "b6bffa0862a47288f724e72d0b957900521184f58c7734c75b8918a3f0ea2312"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/txid-raw.hex",
+      "sha256": "87c1982b8c359ef6f759a38be5fb6863d602162cc3786354b3277df8860d6e2e"
+    },
+    {
+      "bytes": 2364,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-000/validation-case.json",
+      "sha256": "b013a7d6c790aaac5049ca70162fe0476a37b985c0c451ac4f982d6388889e0c"
+    },
+    {
+      "bytes": 1892,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001.vector.json",
+      "sha256": "39d3dda39c70f718ec6b1b4ea03891a0a0dba0d8a98491a5f989259020ac9407"
+    },
+    {
+      "bytes": 170,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/command-result.json",
+      "sha256": "6326512c231c3f2c7bde1b72dd43c5338beecdd2ec5bafafd690c5abdd591489"
+    },
+    {
+      "bytes": 749,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/metrics.json",
+      "sha256": "e3e29d73decfb87db48eaaf81a5b75d5236f32a370b3004ae177ef12e28a9578"
+    },
+    {
+      "bytes": 518,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/outputs.json",
+      "sha256": "d2c4558de62e93a7768e52da3b6992e7c20f77d7b6a6f1dcb4870ee815508100"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/successor-state.hex",
+      "sha256": "33ad656305ec8428b82b598962658afccb611521c35be21ebbf0d540ba94e2dd"
+    },
+    {
+      "bytes": 194,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/supplied-context.json",
+      "sha256": "c4e771c0a5fe87834f46839b7103e0b09b0c0bf41e9a6012a30a709a4f941275"
+    },
+    {
+      "bytes": 2043,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/transaction.json",
+      "sha256": "3b6c14d3192e0f1580e62cd1986a7d23e856529d3299a7136ce3c3487db81a8b"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/txid-raw.hex",
+      "sha256": "77129ed321850b46fa19ce42860e20ed77517c7ba22870899c2cb3401e0626d3"
+    },
+    {
+      "bytes": 2364,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-001/validation-case.json",
+      "sha256": "f834470ccfa7faee590bbf0928a8365c0b305a71b40af36117a5ccd4cea3afa5"
+    },
+    {
+      "bytes": 1892,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002.vector.json",
+      "sha256": "57a13ae4b4e534fd0fca15cb2147dcc989f02dc6d419de6cbb47d874e4845d3f"
+    },
+    {
+      "bytes": 170,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/command-result.json",
+      "sha256": "6326512c231c3f2c7bde1b72dd43c5338beecdd2ec5bafafd690c5abdd591489"
+    },
+    {
+      "bytes": 749,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/metrics.json",
+      "sha256": "cdaaeb078c16ba65d52a7f668a5707eddf2c30863b5b742f60bb691b332a2773"
+    },
+    {
+      "bytes": 518,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/outputs.json",
+      "sha256": "fdd4b8fd6059c26846f8ee962299fc674f14c2de6b293d323c96e182021ef2d4"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/successor-state.hex",
+      "sha256": "33ad656305ec8428b82b598962658afccb611521c35be21ebbf0d540ba94e2dd"
+    },
+    {
+      "bytes": 194,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/supplied-context.json",
+      "sha256": "c4e771c0a5fe87834f46839b7103e0b09b0c0bf41e9a6012a30a709a4f941275"
+    },
+    {
+      "bytes": 2043,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/transaction.json",
+      "sha256": "ce979046b4e7bf211278e4317713e86d9320cd87cc3fff738dbc50b3475f4b4d"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/txid-raw.hex",
+      "sha256": "89dcf14153ea39eae876514013ccb242718fc3f20b31d0d9e925ebd9165046c6"
+    },
+    {
+      "bytes": 2364,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-002/validation-case.json",
+      "sha256": "2787c22b327663068e82afe73d488317429f5c96d4af6e0b79e028d65404effc"
+    },
+    {
+      "bytes": 1892,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003.vector.json",
+      "sha256": "1f40a466cb09d15178599a7bea54e6da2f9749506efb6c196fe91369e3ba3e6b"
+    },
+    {
+      "bytes": 170,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/command-result.json",
+      "sha256": "6326512c231c3f2c7bde1b72dd43c5338beecdd2ec5bafafd690c5abdd591489"
+    },
+    {
+      "bytes": 748,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/metrics.json",
+      "sha256": "1ba922533ca771de452bb6c253066ecca66a6fdde051262ef30e9c0d9d21ec61"
+    },
+    {
+      "bytes": 518,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/outputs.json",
+      "sha256": "fb9ac21bc00d04edb643f3d5d676828cc84d16145f55a4c67a26cba51f2c688f"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/successor-state.hex",
+      "sha256": "33ad656305ec8428b82b598962658afccb611521c35be21ebbf0d540ba94e2dd"
+    },
+    {
+      "bytes": 194,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/supplied-context.json",
+      "sha256": "c4e771c0a5fe87834f46839b7103e0b09b0c0bf41e9a6012a30a709a4f941275"
+    },
+    {
+      "bytes": 2043,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/transaction.json",
+      "sha256": "466798c652d80997ec9b631b250ed8b7f5df07032e45f8ea3eacd56173a73100"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/txid-raw.hex",
+      "sha256": "fd73c1e56f5860af5fd7222673aa3a4c5fc5dd7d7a12fe346dedc2a6d5893010"
+    },
+    {
+      "bytes": 2364,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-founding-003/validation-case.json",
+      "sha256": "3e9e9c0148c3b3dee1d5106d79375748311d14fc46b68ccb888319c2d5c41029"
+    },
+    {
+      "bytes": 622,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000.vector.json",
+      "sha256": "30925273fc62ea2d91e9d17ed4843109e169970358a6c9bfc3e9d12a45a5cdf7"
+    },
+    {
+      "bytes": 174,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000/command-result.json",
+      "sha256": "350d13a39c8d10b5c9b6a623a9bb1cc5562a91319b499310267fc0e7aa46eb9e"
+    },
+    {
+      "bytes": 722,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000/metrics.json",
+      "sha256": "d3882c501f424e0b119c4bfdeae5a334c5934f65bfc0b102ae614b15f1d807c2"
+    },
+    {
+      "bytes": 778,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000/outputs.json",
+      "sha256": "3d0d8c0475e602edce0b76aa46ee4fe694625bdacc8564a98f6e52eb21e613ec"
+    },
+    {
+      "bytes": 195,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000/supplied-context.json",
+      "sha256": "e36d30f92ef9e3bb9b7400988a9f1b7f0f3a9fab4de041b7359a80098ff1f05f"
+    },
+    {
+      "bytes": 1135,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000/transaction.json",
+      "sha256": "af4d3be13d65dcda872ec42f1b5f3a588cc3a53ebe211dd98141ada0b0c240b7"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000/txid-raw.hex",
+      "sha256": "61d3dde3303710a1ae05f88f2c9326462e0a42e89b649fb8ab77e9440100bc0a"
+    },
+    {
+      "bytes": 1467,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-000/validation-case.json",
+      "sha256": "9a661393aaf8fe96a9ac6a0989a5e2c28be17a5a5d3a674192d6d87dbaf42c95"
+    },
+    {
+      "bytes": 627,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001.vector.json",
+      "sha256": "b2ad1cfd3512389cdb4066546fa469cdeda43387a6645bb39cbdadaa4a98923a"
+    },
+    {
+      "bytes": 174,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001/command-result.json",
+      "sha256": "350d13a39c8d10b5c9b6a623a9bb1cc5562a91319b499310267fc0e7aa46eb9e"
+    },
+    {
+      "bytes": 741,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001/metrics.json",
+      "sha256": "82f589f7ccb93215dc9a6c1feb1638a1f64f7f38c5a20075132d9d03d3a9feac"
+    },
+    {
+      "bytes": 778,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001/outputs.json",
+      "sha256": "41a60d51e0c572f6f26e3c326ccfcbcf03abe41e795c8e0ed68b349cc17f6ef2"
+    },
+    {
+      "bytes": 195,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001/supplied-context.json",
+      "sha256": "e36d30f92ef9e3bb9b7400988a9f1b7f0f3a9fab4de041b7359a80098ff1f05f"
+    },
+    {
+      "bytes": 1135,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001/transaction.json",
+      "sha256": "155c9b808e720016d4722bc63ff47fb20e0e2568552ddaaaa07d30cdec54b414"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001/txid-raw.hex",
+      "sha256": "d494a4e68d24c86717c746e24f9e8a975d0640c5c10686ad1444cad92a70e8c1"
+    },
+    {
+      "bytes": 1467,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-001/validation-case.json",
+      "sha256": "c90438310489dd87b924708dbe94693ff20f3c2b57b276d42dd65e0539e9e54a"
+    },
+    {
+      "bytes": 627,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002.vector.json",
+      "sha256": "4764270596d481846318888b171ff5b70d9dfad0c38ae4a5a44f7f444ae798f0"
+    },
+    {
+      "bytes": 174,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002/command-result.json",
+      "sha256": "350d13a39c8d10b5c9b6a623a9bb1cc5562a91319b499310267fc0e7aa46eb9e"
+    },
+    {
+      "bytes": 740,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002/metrics.json",
+      "sha256": "03521b47fffd4084e9a6c9e51461e6d51f14be88b4b84da9d2f9c28425909a7b"
+    },
+    {
+      "bytes": 778,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002/outputs.json",
+      "sha256": "403f6421aa9b3d8d47a84bbc6552cb906ca32570e296a46cfe35fb1f6bf51169"
+    },
+    {
+      "bytes": 195,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002/supplied-context.json",
+      "sha256": "e36d30f92ef9e3bb9b7400988a9f1b7f0f3a9fab4de041b7359a80098ff1f05f"
+    },
+    {
+      "bytes": 1135,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002/transaction.json",
+      "sha256": "6dcf369f9ca01128c1c162bf29c29c3dd9eb9fe3ed60914b85d0bc3fd9285d45"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002/txid-raw.hex",
+      "sha256": "c59f2edfe93485eecea4e276794e426552b2fc91987970bbdad64947ff48cb69"
+    },
+    {
+      "bytes": 1467,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-funding-prep-002/validation-case.json",
+      "sha256": "7f933047952cb2fe2f4fdb86a21c82eedb26ff3109f45ba76201234bedcff4b2"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000.vector.json",
+      "sha256": "c32c8c1ebc170d0e6d1531d0ddba4a0ed5a2fe0793398b0b0c8db8ddfae0f2d4"
+    },
+    {
+      "bytes": 169,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/command-result.json",
+      "sha256": "585bda7296903e55be998ec00260af5a6dc7ebda4168341fb5fba73c60d022e1"
+    },
+    {
+      "bytes": 733,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/metrics.json",
+      "sha256": "690c9cc6f027b2368628b9074388f6cf76543229979e3f6b13fb309c4efa7bff"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/outputs.json",
+      "sha256": "444c84b289984012ecdb96a92e0b190bfdafed321f2f70a262200d4650aa2af8"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/successor-state.hex",
+      "sha256": "774a35a46554d9e9082928c156bdde82621f8af23b46a9e55ed695f4f911e79e"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/supplied-context.json",
+      "sha256": "f5c1c4cc608321a415b22afa4e6ba0aa223666b78007522aa524e6722ed10fb0"
+    },
+    {
+      "bytes": 54563,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/transaction.json",
+      "sha256": "4d9a0913c73bb8d59944e6502f2ce14d27ad01cafb8fe5313266ebaca5404693"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/txid-raw.hex",
+      "sha256": "3aa0303facddb02dd6de45df1f1858e698f5281202312da128c5136642c5f94b"
+    },
+    {
+      "bytes": 54877,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-000/validation-case.json",
+      "sha256": "ee207241ce24e03b5c34203053716804adc4736c6f0b8e8756b02e2eb807b4df"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001.vector.json",
+      "sha256": "dd1f08a8ca80c4cdc24a82248305b068fd6d892edfc894985d228112f1a3ed63"
+    },
+    {
+      "bytes": 169,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/command-result.json",
+      "sha256": "585bda7296903e55be998ec00260af5a6dc7ebda4168341fb5fba73c60d022e1"
+    },
+    {
+      "bytes": 759,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/metrics.json",
+      "sha256": "ad5b225c346a335089666500e65307179537f5d745ba4f45643d4bc7a9207179"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/outputs.json",
+      "sha256": "03ffe1293cd1cf5200df6d95cd90bedb5adb49da32081bc0b7c9c69795a6328f"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/successor-state.hex",
+      "sha256": "36df734e302825fe39c56861cf1324adf815fd1325af5b40d8e562a792dbdac2"
+    },
+    {
+      "bytes": 197,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/supplied-context.json",
+      "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+    },
+    {
+      "bytes": 54563,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/transaction.json",
+      "sha256": "9e11cdb334ba97af9a28b0ca6498aa3ed948085a93777a2c45ea54796623be49"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/txid-raw.hex",
+      "sha256": "4c732139541e54ceb651dfa053bc5f2ce44715f5ed6567d087be36a1b6128139"
+    },
+    {
+      "bytes": 54877,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/quote-private-001/validation-case.json",
+      "sha256": "c4657de3dc71cf639708e094c1512908a081f33f34cef7502519b28382bd59dd"
+    },
+    {
+      "bytes": 6034,
+      "path": "research/next-session/private-integration/lifecycle/materialized-01/records.json",
+      "sha256": "7564712e3da81811e7ed3b57ee36abdd33f10bb838ab0a58c317f180a2d1f7d5"
+    },
+    {
+      "bytes": 1341,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01.log",
+      "sha256": "3d646affd421c94c6abdf33fac4fa1a33be6363e56b6138483d9a9f88fecc4ac"
+    },
+    {
+      "bytes": 1974,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01.sh",
+      "sha256": "43f0b43b1398f9b77ef1dba2a20a3d9ac77d926b59a160cdd625870f541abf00"
+    },
+    {
+      "bytes": 1221,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/PREFIX-RESULTS.json",
+      "sha256": "c2af11ed230dba3a95a51f08a9695a806b384000de0366e794c91709997eeab3"
+    },
+    {
+      "bytes": 4038,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit.vector.json",
+      "sha256": "80f53b8ece79bae2d7514c4faa6f6c646d00a1a0f7e87f6e3d0b2fb3d2dce1d2"
+    },
+    {
+      "bytes": 164,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/command-result.json",
+      "sha256": "164a78603191b7ef78ed37594089917ba4f59a7044cbe15f0caf38013cb5a2a0"
+    },
+    {
+      "bytes": 756,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/metrics.json",
+      "sha256": "bddbc046acccec77b2f79b88cd61f7fada767f1834cf7580185dae5567be7e4b"
+    },
+    {
+      "bytes": 530,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/native-validation.json",
+      "sha256": "7045eb14a335f4c58ed4fcd16d87ce4c53e4890e54befb29bf40110b848f6859"
+    },
+    {
+      "bytes": 263,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/outputs.json",
+      "sha256": "e658d0bb71fd1fe8a56eeb7a38d4f0b0e43a2d574ae6f86948c00a9f36c9bf59"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/successor-state.hex",
+      "sha256": "deac75942066bfc1f42a0f9d2e98856d324d7066bd30d8ad2ad6ce65e6debcfa"
+    },
+    {
+      "bytes": 388,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/supplied-context.json",
+      "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+    },
+    {
+      "bytes": 48927,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/transaction.json",
+      "sha256": "1c3f023a0514119d95b0454ce340f8df516babca407d7ef4256938b4a51b4818"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/txid-raw.hex",
+      "sha256": "f05722aa0511d8a8fcdcb308f07f2640ef23ef27bcc2624e19c699297de65047"
+    },
+    {
+      "bytes": 49477,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/admit/validation-case.json",
+      "sha256": "1ec2942a24f5de21dd7d10e45d97d8b8a59fa3e55886e3425c026a127b2c747f"
+    },
+    {
+      "bytes": 1892,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding.vector.json",
+      "sha256": "4e9ec85abf1dcc924b8e89d36db6a9d5982106e4d6b42dec185561e53f283cde"
+    },
+    {
+      "bytes": 167,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/command-result.json",
+      "sha256": "e7893be9a221e8469ecb773950856597b1be43b08dfd668908d5bd540fb7feaa"
+    },
+    {
+      "bytes": 748,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/metrics.json",
+      "sha256": "1ba922533ca771de452bb6c253066ecca66a6fdde051262ef30e9c0d9d21ec61"
+    },
+    {
+      "bytes": 407,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/native-validation.json",
+      "sha256": "765f7dd4a875b2d0ecf89ec222919e83ef614a6775effb287ef6a43dc420b83b"
+    },
+    {
+      "bytes": 518,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/outputs.json",
+      "sha256": "939ed3a684d081444333749f86d61be07a13a662708063a7fee7b88e1c1d4923"
+    },
+    {
+      "bytes": 225,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/successor-state.hex",
+      "sha256": "33ad656305ec8428b82b598962658afccb611521c35be21ebbf0d540ba94e2dd"
+    },
+    {
+      "bytes": 194,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/supplied-context.json",
+      "sha256": "c4e771c0a5fe87834f46839b7103e0b09b0c0bf41e9a6012a30a709a4f941275"
+    },
+    {
+      "bytes": 2043,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/transaction.json",
+      "sha256": "ba34ea158db740eae1b7349f912a2342ba18febb0508302ea2ba719b57957a90"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/txid-raw.hex",
+      "sha256": "fbffa9dd5a198731160854116b6d19df05f4ec86fa3a0c1537ecb4680f18cf04"
+    },
+    {
+      "bytes": 2364,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/founding/validation-case.json",
+      "sha256": "de15eda9f4c5064f2783d96d4aa42c8b02b65f8b5e8cadde18f860a0faaec104"
+    },
+    {
+      "bytes": 627,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep.vector.json",
+      "sha256": "4764270596d481846318888b171ff5b70d9dfad0c38ae4a5a44f7f444ae798f0"
+    },
+    {
+      "bytes": 171,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/command-result.json",
+      "sha256": "4f128592ed6c9f2691c45630a99d31d12b62024317b7a242fd20aa5a5da3339a"
+    },
+    {
+      "bytes": 740,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/metrics.json",
+      "sha256": "03521b47fffd4084e9a6c9e51461e6d51f14be88b4b84da9d2f9c28425909a7b"
+    },
+    {
+      "bytes": 406,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/native-validation.json",
+      "sha256": "4c8069a8453912182c9ea0e547c7db1c53ad37772576ad634b5a7a74d6ddb3a3"
+    },
+    {
+      "bytes": 778,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/outputs.json",
+      "sha256": "403f6421aa9b3d8d47a84bbc6552cb906ca32570e296a46cfe35fb1f6bf51169"
+    },
+    {
+      "bytes": 195,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/supplied-context.json",
+      "sha256": "e36d30f92ef9e3bb9b7400988a9f1b7f0f3a9fab4de041b7359a80098ff1f05f"
+    },
+    {
+      "bytes": 1135,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/transaction.json",
+      "sha256": "4e44982b30f551b1fed157b2daab0671e082694bb30a26a0de4abf54d8c7ec4f"
+    },
+    {
+      "bytes": 65,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/txid-raw.hex",
+      "sha256": "c59f2edfe93485eecea4e276794e426552b2fc91987970bbdad64947ff48cb69"
+    },
+    {
+      "bytes": 1467,
+      "path": "research/next-session/private-integration/lifecycle/prefix-01/funding-prep/validation-case.json",
+      "sha256": "1acb4dbf7d02ac6d7efb5664577ff99c5e3f5e1113357e4a38d993958670a937"
+    },
+    {
+      "bytes": 128,
+      "path": "research/next-session/private-integration/lifecycle/proof-01/proof128.bin",
+      "sha256": "ba4956158979d94ebc82bf2dd1375a288e78bcdb37b0d256606c56fa48d0365d"
+    },
+    {
+      "bytes": 1382,
+      "path": "research/next-session/private-integration/lifecycle/proof-01/report.json",
+      "sha256": "465eab9f805074a96f3c466ca32e0c3f52452d0a2465a51575d9d21ef83afe0d"
+    },
+    {
+      "bytes": 2284,
+      "path": "research/next-session/private-integration/lifecycle/proof-01/resources.log",
+      "sha256": "7df184e7509fa4c4a3d331c4dcf9f082e0222f393198daa53001c0fa3ae8f960"
+    },
+    {
+      "bytes": 1210,
+      "path": "research/next-session/private-integration/lifecycle/proof-01/runtime.sh",
+      "sha256": "92cb7fd1b2406a579c6f870602b22e9a56e3180d0851d5fe6d5f1dc5c2878255"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/private-integration/lifecycle/proof-01/verification-key.bin",
+      "sha256": "5f551fa7b0cbeb9ec89ccf0e198575b1803db4c8012919166436af625e0136bc"
+    },
+    {
+      "bytes": 309,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/cleanup.json",
+      "sha256": "8a2d1a502b3c95b76a463d857bf3cf447af2be3e28f2f8c0e602d2cec5eeb349"
+    },
+    {
+      "bytes": 1274,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/new-key-selection.json",
+      "sha256": "8c207d6e1220601c91a3eed3955e968949b46d9550c449b66bbd414df75027b9"
+    },
+    {
+      "bytes": 1181,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/report.json",
+      "sha256": "6d785168f3bfbf4b031af383648e458ce5134bc0bc7dbf8262986c34c9011835"
+    },
+    {
+      "bytes": 2072,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/resources.log",
+      "sha256": "fa4cb5fd5bc779fbc2bec37576d678a7af93228f300c48dd5979cd0066705646"
+    },
+    {
+      "bytes": 1191,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/runtime.sh",
+      "sha256": "d3262ed283d617850ed7724d9f2d59ce4fd5f303933a29962aac803aecf356f1"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/private-integration/lifecycle/setup-01/verification-key.bin",
+      "sha256": "5f551fa7b0cbeb9ec89ccf0e198575b1803db4c8012919166436af625e0136bc"
+    },
+    {
+      "bytes": 1401,
+      "path": "research/next-session/private-integration/lifecycle/shape-01/PLAN.json",
+      "sha256": "6d8877fb1754de8314ec11f6b27276430a88efcfd7a70fd82bd8dcb34a1d3e4d"
+    },
+    {
+      "bytes": 637,
+      "path": "research/next-session/private-integration/lifecycle/shape-01/PUBLIC-SYNTHETIC-backups.json",
+      "sha256": "d20dd8f5e276fcb4ba76a7c820af72210f5e8bcfede1fe143ce141fcec54094f"
+    },
+    {
+      "bytes": 2072,
+      "path": "research/next-session/private-integration/lifecycle/shape-01/invoice-directory-DO-NOT-FUND.json",
+      "sha256": "2f263d5b849edddaede56a409f653d20c3988056665aa12c01510b7d6d434658"
+    },
+    {
+      "bytes": 5863,
+      "path": "research/next-session/private-integration/lifecycle/shape-01/shape-fixture.json",
+      "sha256": "a99a19ddf60cc0b4125e8b2bd9c99ab85a3453a1024073d540dda0b19e53fd01"
+    },
+    {
+      "bytes": 9728,
+      "path": "research/next-session/private-integration/lifecycle/shape-01/shape-native-vector.json",
+      "sha256": "158a5804290ce38fbd110f67d290e33a5a966dfb4b54606d52477ba2c4134401"
+    },
+    {
+      "bytes": 5056,
+      "path": "research/next-session/private-integration/lifecycle/shape-01/shape-records.json",
+      "sha256": "a3aae90a924854cfb6e834519095b877d8da4109d9a8267708d6ad89da45e65d"
+    },
+    {
+      "bytes": 38569,
+      "path": "research/next-session/private-integration/lifecycle/source-execute-01/assemble.py",
+      "sha256": "3f155480c8db7fca5bbe52c561e136615da6858d88ebf6592430b41dd410264c"
+    },
+    {
+      "bytes": 47758,
+      "path": "research/next-session/private-integration/lifecycle/source-forks-01/assemble.py",
+      "sha256": "7b4f3f0e9505a59c292855f0d5dfe4ddfe32ca22cdbf3ead4b36a9015b91e7f2"
+    },
+    {
+      "bytes": 37413,
+      "path": "research/next-session/private-integration/lifecycle/source-materialize-01/assemble.py",
+      "sha256": "07b9586ffbf0b10b51c2523e99b3204f65491e0c6e082074d1255b378ff0338e"
+    },
+    {
+      "bytes": 36941,
+      "path": "research/next-session/private-integration/lifecycle/source-setup-01/poc/future-lifecycle/Cargo.lock",
+      "sha256": "1ac748719c4264a30ee013c4f1a99a39c3336c087c54877d1ed7a2dcb1a225ba"
+    },
+    {
+      "bytes": 443,
+      "path": "research/next-session/private-integration/lifecycle/source-setup-01/poc/future-lifecycle/Cargo.toml",
+      "sha256": "fd968b2a4f09289111021098be675662a9f7990464cce80da81085f7c7f35460"
+    },
+    {
+      "bytes": 9538,
+      "path": "research/next-session/private-integration/lifecycle/source-setup-01/poc/future-lifecycle/src/main.rs",
+      "sha256": "936dc0e7fe17ce2160cd99317e03313f4d133a229f0957e14d9128f6eee9c2be"
+    },
+    {
+      "bytes": 36140,
+      "path": "research/next-session/private-integration/lifecycle/source-setup-01/poc/future-private-payment/Cargo.lock",
+      "sha256": "464126587e0bf733854fdc07b9c376b31667d6370664133fc509cea8bc03849e"
+    },
+    {
+      "bytes": 523,
+      "path": "research/next-session/private-integration/lifecycle/source-setup-01/poc/future-private-payment/Cargo.toml",
+      "sha256": "bb89c36d95b7a46abf1468432d39e8469f45705b743195e7df8731e6ac76fc6a"
+    },
+    {
+      "bytes": 12838,
+      "path": "research/next-session/private-integration/lifecycle/source-setup-01/poc/future-private-payment/src/circuit.rs",
+      "sha256": "e1e3e3e6201ef817516fda2c48fa6dbefb275fecf56632c10c4d7fe915798bd3"
+    },
+    {
+      "bytes": 24326,
+      "path": "research/next-session/private-integration/lifecycle/source-setup-01/poc/future-private-payment/src/lib.rs",
+      "sha256": "fc38cee6232d35b5685f8e78c097dbe9f749acddb91111b22991146ec08cecf2"
+    }
+  ],
+  "indices_excluded_from_payload_hashing": [
+    "MANIFEST.json",
+    "PUBLIC-FILES.txt"
+  ],
+  "payload_bytes": 2937563,
+  "payload_members": 363,
+  "schema": "future-private-native-lifecycle-public-packet/v1"
+}

@@ -2,6 +2,41 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+[RFC-0020](rfc/0020-private-proof-and-native-exit-integration.md) and
+[ADR-0041](adr/0041-new-format-private-native-integration.md) now select a
+separate offline implementation of the genuine private relation and actual
+private/admission/reveal native union. The
+[complete offline lifecycle](../research/next-session/private-integration/RESULTS.md)
+now passes six linked native Full operations with a genuine private proof,
+pre-payment-backup recovery and both native owner payouts without the prover.
+Every positive liability and the reserve end at zero. This uses supplied UTXOs,
+current-head and archive oracles; it is not an accepted-chain lifecycle. New State112
+and Auth484 bind two private input/output slots, two real/dummy NF insertions
+and exact reserve/fee context; native reveal consumes the same original NF
+without a new proof. Sentinel-inclusive capacity has no old parity rule.
+
+[ADR-0042](adr/0042-separate-delivery-and-note-receive-fields.md) selects a
+208-byte one-time invoice separating stable delivery encryption from
+the per-index opaque note incoming field. The selected recipient/reference suite
+passes27 checks while preserving V1's25-check result. This removes one deterministic
+fresh-note equality channel; participant invoice linkage, emergency disclosure
+and the existing privacy-prior failure remain. Both backup recovery and current
+witness reconstruction use an explicit synthetic accepted-state/archive oracle.
+
+[ADR-0043](adr/0043-native-public-admission-experiment.md) selects native public
+admission as a fee experiment: a signed external P2PK input funds a positive note,
+its fee and same-owner change; existing reserve/NFs remain intact. Public ingress
+is not a private spend. The clean two-recipient pilot consumes both same-payer
+founding/admitted notes and cashes out both resulting liabilities. It must count
+all founding/admission/tail costs; generic recipient-plus-change remains a
+different, currently uneconomic direct-verifier case. Actual native fees in the
+two-recipient no-change pilot are 1.85177% and 1.85071% per 10-KAS payment,
+including both exits. The primary proof's 198.12 seconds and 5.41 GiB peak do not
+qualify wallet resources. [ADR-0044](adr/0044-selected-development-key-loading.md)
+scopes a separately pinned development-key loading experiment without changing
+the circuit, verification policy or baseline. No new production format,
+migration, funded deployment or financial-privacy qualification is adopted.
+
 [RFC-0019](rfc/0019-fees-and-independent-exit-obligations.md) and
 [ADR-0039](adr/0039-exit-liability-and-native-claim-experiments.md) now target
 complete-lifecycle fees and independent exits. They select an exhaustive

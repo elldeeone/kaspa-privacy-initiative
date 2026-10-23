@@ -1,5 +1,48 @@
 # Threat Model
 
+[RFC-0020](docs/rfc/0020-private-proof-and-native-exit-integration.md)'s new
+offline integration introduces a separately versioned experimental invoice,
+private relation and native union. Private input ownership requires both s and
+k; publication of k in a reveal must not authorize a competing private spend.
+Each branch must consume the same positioned NF against current authenticated
+state. The two-NF private padding/one-NF reveal profile requires the documented
+sentinel-inclusive capacity induction; count bounds alone do not establish
+valid prior liabilities or accepted backing. Fresh development setup integrity
+remains an untrusted assumption, and proof/key hashes do not prove trapdoor erasure.
+
+The [receive-V2 decision](docs/adr/0042-separate-delivery-and-note-receive-fields.md)
+separates opaque per-index note incoming from the stable encryption delivery key.
+Native Note168 openings must never include the full Invoice208/delivery key.
+Invoice-directory observers can still link the latter. Correct encryption is not
+proved by the private circuit: the recipient must decrypt, rederive descriptor
+authority from its pre-payment backup, authenticate the accepted CM position and
+check current NF state before normal credit. A later duplicate invoice must not
+freeze prior owned value; every accepted positive position remains a liability.
+Rollback cannot erase prior disclosures or orphan-only invoice knowledge.
+
+[Native public admission](docs/adr/0043-native-public-admission-experiment.md)
+must preserve reserve/NF state and charge only the signed funding input for its
+new liability/fee/change. An ALL-byte check is insufficient without actual native
+funding-signature validation. Singleton coherence does not choose canonical
+genesis or accepted current head. An offline linked sequence must compare each
+input against the actual previous body output, but its initial UTXO/lineage
+oracle, durable data, network inclusion and chain recovery remain separate.
+All fee accounting includes founding and every final tail; two genuine recipient
+payments are distinct from one recipient plus change. Existing privacy and
+ordinary/lifecycle targets are unchanged.
+
+The complete offline primary trace now checks six actual output links and drains
+every positive liability through backup-restored native exits while the prover
+and PK are absent. This demonstrates the declared supplied-context boundary,
+not accepted ancestry or independent network recovery. The development PK stays
+outside Git; the published DO_NOT_FUND fixtures expose synthetic secrets and
+must never receive funds. [ADR-0044](docs/adr/0044-selected-development-key-loading.md)
+permits a private trusted-input decoder only after a compiled independently
+selected complete-byte identity check on the same owned buffer. Untrusted proof
+and VK checks remain unchanged. Hash equality establishes artifact identity,
+not honest setup, trapdoor erasure or soundness. The primary proof exceeds the
+4 GiB target; fee and privacy failures are not removed by this result.
+
 [RFC-0019](docs/rfc/0019-fees-and-independent-exit-obligations.md) and
 [ADR-0039](docs/adr/0039-exit-liability-and-native-claim-experiments.md) add an
 offline liability/service-loss model and native terminal-claim cost diagnostic.

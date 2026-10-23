@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "all_six_native_operations": true,
+    "bob_actual_payout": true,
+    "bob_complete_fee": true,
+    "charlie_actual_payout": true,
+    "charlie_complete_fee": true,
+    "complete_fee": true,
+    "final_reserve_and_liability_zero": true,
+    "ordinary_preparation_fee": true,
+    "shared_prefix_fee": true
+  },
+  "classification": "ADDITIVE_ACTUAL_NATIVE_TO_PRE_FROZEN_ARITHMETIC_COMPARISON",
+  "inputs": [
+    {
+      "path": "research/next-session/private-integration/lifecycle/execution-01/RESULTS.json",
+      "sha256": "ab9ab27688ba762551900343add9e3a9e7b0a46c081ad476e5fc6b5099b9c50f"
+    },
+    {
+      "path": "research/next-session/private-integration/fees/complete-prefix-4B-source.json",
+      "sha256": "eb2032f71e03e14aef4c51010970a4cd1396550a069d2c1651cb5c984334b573"
+    }
+  ],
+  "native_semantics_rerun": false,
+  "passed": true,
+  "prior_manifest_unchanged": true,
+  "scope": "First recipient Bob, then Charlie; exact six-body offline primary. Reverse-order arithmetic is not executed here. Native network fees only; no broader privacy, resource, relay or testnet qualification."
+}

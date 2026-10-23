@@ -1,0 +1,1665 @@
+{
+  "case_count": 61,
+  "cases": [
+    {
+      "case_id": "admit-valid-NONE2-funding",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "actual NONE2 signature; exact ALL guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-valid-NONE2-funding/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-valid-NONE2-funding/transaction.json",
+        "sha256": "0a49e48059a18c1f1ff27888b7af24e339947cbbe6696bacf809c125c4533893"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-valid-NONE2-funding/validation-case.json",
+        "sha256": "1c4f7dedb97c1a22276d9b2377243a6040097fb3ab11e875f133d75f3f14ffba"
+      }
+    },
+    {
+      "case_id": "admit-corrupt-funding-signature",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "ACCEPT",
+        "NullFail"
+      ],
+      "intended_cause": "pool checks cannot authorize the other input",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-corrupt-funding-signature/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-corrupt-funding-signature/transaction.json",
+        "sha256": "468c7dee0a733273606685a4ab0f3c9e6e168685a0d97402311506eef465f553"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-corrupt-funding-signature/validation-case.json",
+        "sha256": "aad5647df3a9123601133c7cbed5077d0233261ce68446525e900cee823f8f51"
+      }
+    },
+    {
+      "case_id": "admit-wrong-funding-key",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "ACCEPT",
+        "NullFail"
+      ],
+      "intended_cause": "valid signature under wrong secret with original SPK",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-wrong-funding-key/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-wrong-funding-key/transaction.json",
+        "sha256": "613cbafbd05b13d0716c145ce0f421bcb0c4d10b72e33895a5c88b23a1d1eb37"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-wrong-funding-key/validation-case.json",
+        "sha256": "d3681ae98376c692ceaba804296b07cecca621d693804317176fbcaaacaaca6f"
+      }
+    },
+    {
+      "case_id": "admit-declared-fee-plus1",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "exact E=V+fee+C",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-declared-fee-plus1/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-declared-fee-plus1/transaction.json",
+        "sha256": "cc4f4543596feb919f55dc598b904f067c738a43e7cdf11360e31c44f9a401c9"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-declared-fee-plus1/validation-case.json",
+        "sha256": "b371e7ff51b32af5b4caef39a14e4e4a662017b332c3ccaa2daea751a469f4f0"
+      }
+    },
+    {
+      "case_id": "admit-reserve-output-minus1",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "exact Rprime=R+V",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-reserve-output-minus1/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-reserve-output-minus1/transaction.json",
+        "sha256": "8b14ab5f0b4550de0287aae8d34824d4a02183a530607d9f75ec587c1911d623"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-reserve-output-minus1/validation-case.json",
+        "sha256": "bb715877e1553e3ea4d11c06506a7a8f8bf8b1fe41a224a7393248436ad063c2"
+      }
+    },
+    {
+      "case_id": "admit-note-rho",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission note-rho binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-note-rho/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-note-rho/transaction.json",
+        "sha256": "86a63725c693e9848f40803352b95585e208c1546b0bdf379d82f3fac3c7dfee"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-note-rho/validation-case.json",
+        "sha256": "5e4cc9c7fdcf85985cfb6b9681e463b6a70ac3961e5162f56058411731b49fa8"
+      }
+    },
+    {
+      "case_id": "admit-note-nativePK",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission note-nativePK binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-note-nativePK/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-note-nativePK/transaction.json",
+        "sha256": "43fff16381ba06b9c09f47bfdf3bf137a36bc129ec82376a22e7972b302ba32c"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-note-nativePK/validation-case.json",
+        "sha256": "44d2b79e3b69503792ad5ea9b4c1f997b740910634947b64114e63db724b6091"
+      }
+    },
+    {
+      "case_id": "admit-CM",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission CM binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-CM/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-CM/transaction.json",
+        "sha256": "9c054663b6d6c954d97a2f754cd98ae142592c745faf267fdbe8ea9fd3882ae6"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-CM/validation-case.json",
+        "sha256": "5da9461f9163246de38dc58e7b621366c54a1fe2459cea193b5ae7b7c7ed8a7c"
+      }
+    },
+    {
+      "case_id": "admit-ciphertext",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission ciphertext binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-ciphertext/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-ciphertext/transaction.json",
+        "sha256": "323aac5a966123ef862a96b8b0c8768d4ef9321e334ab1d11ea8c5c84d115103"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-ciphertext/validation-case.json",
+        "sha256": "e3ef8945795e3801a20b6f5b15e58503702659fe2a389b02962c7eda7b2e1ae4"
+      }
+    },
+    {
+      "case_id": "admit-CM-append-path",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission CM-append-path binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-CM-append-path/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-CM-append-path/transaction.json",
+        "sha256": "84dd0907baac7543941d2d3cca413d19b16bf0a4f592ad584b1f012bca552df5"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-CM-append-path/validation-case.json",
+        "sha256": "1b16f998b555e4b4df0abdceb68abaa70c19be7c231c08c873cd838ee9883027"
+      }
+    },
+    {
+      "case_id": "admit-next-CMroot",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission next-CMroot binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-next-CMroot/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-next-CMroot/transaction.json",
+        "sha256": "ca19f9bb4512c9661eab3457c249a796267446d29d69e32004e0cdef172c3073"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-next-CMroot/validation-case.json",
+        "sha256": "20073c61a58e5124a84a249d5378fca9a069640dee268d6bee7e43c435ff8ac1"
+      }
+    },
+    {
+      "case_id": "admit-next-NFroot",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission next-NFroot binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-next-NFroot/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-next-NFroot/transaction.json",
+        "sha256": "7aa89c59df1c99cde8fa1334d74038cb47f4ec834bc5d8beec02f90f66edf084"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-next-NFroot/validation-case.json",
+        "sha256": "193b5e9d644401cebe6b8d8ec935f8f4ad5fdb4ab9dd32f76a3d67af62939d4f"
+      }
+    },
+    {
+      "case_id": "admit-singleton-G-rho",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "specific admission singleton-G-rho binding",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-rho/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-rho/transaction.json",
+        "sha256": "255ec45e1ed328ce6ba931a98b8f3be75d831f9dd9a35f1dc55bb57bf76fb7a2"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-rho/validation-case.json",
+        "sha256": "06b165a59208f7cc707966b21e242e62817b6eda91486253a8cab3dc337e8e0a"
+      }
+    },
+    {
+      "case_id": "admit-singleton-G-missing",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "n1/m1 singleton opening mandatory",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-missing/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-missing/transaction.json",
+        "sha256": "afd2a6cba8c99a6a75efe02756597720c1b8f67e646ee99b9690f5927f908404"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-missing/validation-case.json",
+        "sha256": "486e62f4d79ea6d98224e5eade92cf00d98f064c2e453edbdd25a897cf6526bc"
+      }
+    },
+    {
+      "case_id": "admit-singleton-G-wrong-value",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "singleton G.V equals actual R",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-wrong-value/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-wrong-value/transaction.json",
+        "sha256": "602fba11d106879d66ad3246392b3c1c10ac40603cf364530d1ff83530c5cb9b"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-singleton-G-wrong-value/validation-case.json",
+        "sha256": "0237ed848791505f61bd94f33d6e8b902dc39687b0e3770f2215e8f48c92b744"
+      }
+    },
+    {
+      "case_id": "admit-range-V-zero",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer V-zero",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-zero/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-zero/transaction.json",
+        "sha256": "4cb924bd759adf2a2a8d9b74e523ad937708b2387da884e88d62f3d01698f1d1"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-zero/validation-case.json",
+        "sha256": "9293f33064b6a8407b18079e8e4553a7c923d5c79a9c13fb0c1ef30f2a43d8c4"
+      }
+    },
+    {
+      "case_id": "admit-range-V-below-floor",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer V-below-floor",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-below-floor/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-below-floor/transaction.json",
+        "sha256": "ea73341a6f93a02bd48f924f1cb7d08bc21a4c5965fc17f866933dc6095198aa"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-below-floor/validation-case.json",
+        "sha256": "56b0a2e7133c531547547cbaa453e155e2dcb82cc9d2da7fec02ace7b578c935"
+      }
+    },
+    {
+      "case_id": "admit-range-V-above-MAX",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer V-above-MAX",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-above-MAX/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-above-MAX/transaction.json",
+        "sha256": "5af76cec91a7898f0842b2499b694ffe6f97c563a680461548b2433e474baef5"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-V-above-MAX/validation-case.json",
+        "sha256": "9878a65db2737ee48a800dd136c70647e95b3ba35217bb9354a8de31f4e3e309"
+      }
+    },
+    {
+      "case_id": "admit-range-fee-zero",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer fee-zero",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-fee-zero/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-fee-zero/transaction.json",
+        "sha256": "aacb78664dcccf1a1ec364e91bb1c5d08fb1a4012b3959849cf3943e0c6751fc"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-fee-zero/validation-case.json",
+        "sha256": "b53dc42f5ff7c5be2144562d6ad91ce988ac053e5474e4eb732337d2cb5f7092"
+      }
+    },
+    {
+      "case_id": "admit-range-change-above-MAX",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared bounded integer change-above-MAX",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-change-above-MAX/supplied-context.json",
+        "sha256": "99b45200a32e247a53a750a55996ce80d83f09dc137237ce1f4d34b8dc6055fe"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-change-above-MAX/transaction.json",
+        "sha256": "ef1be58198829e74309b8b73f2c191dedfdbd8518c72b885393ffe905d78e19e"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-range-change-above-MAX/validation-case.json",
+        "sha256": "1d5aa9b3cce8e12b3f167a4eb4f80df7d7b1007180d20ca8d4887ac627bce8f0"
+      }
+    },
+    {
+      "case_id": "admit-actual-R-above-MAX",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "actual reserve bound before equations",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 399,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-actual-R-above-MAX/supplied-context.json",
+        "sha256": "4d46a962e9eb886f61c5a89d2ed22b65c37acefcee7fc12806eeac1a6648ae1f"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-actual-R-above-MAX/transaction.json",
+        "sha256": "3d79ab290b5252f268a1306c507aeaf5739e759ecc1551475196998395d19e54"
+      },
+      "validation_case": {
+        "bytes": 49488,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-actual-R-above-MAX/validation-case.json",
+        "sha256": "c9e9a63c820ec9d2a79794e1a62f8091dfd8b6152222dc8b12191a1887fdf811"
+      }
+    },
+    {
+      "case_id": "admit-actual-R-plus-E-above-MAX",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "combined actual inputs bounded before equations",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 397,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-actual-R-plus-E-above-MAX/supplied-context.json",
+        "sha256": "b8c6f99b20b08ddb9b2395cb2ebcda5b901e64e665310d1bec3abcf8ab8b4d61"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-actual-R-plus-E-above-MAX/transaction.json",
+        "sha256": "e93122fe267c26868ca751f3250fbfc5ed23058af65ba2970b3e51d45ef2186a"
+      },
+      "validation_case": {
+        "bytes": 49486,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-actual-R-plus-E-above-MAX/validation-case.json",
+        "sha256": "d0bab0479108bcb3dd57c50865f7739c0bab4d66568489a74935bcc249cb94bb"
+      }
+    },
+    {
+      "case_id": "admit-positive-change",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT",
+        "ACCEPT"
+      ],
+      "intended_cause": "same-key positive change path",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-positive-change/supplied-context.json",
+        "sha256": "3eb9c3f89c9455f5de98e62f56ddf2f3f0286d81e59971b09dc82277cd840962"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 49090,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-positive-change/transaction.json",
+        "sha256": "0aea3265853ebab002cfbfe4b3ec46ddcd947a0c259a32bb9701c32d70592e07"
+      },
+      "validation_case": {
+        "bytes": 49650,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-positive-change/validation-case.json",
+        "sha256": "cf5895fba6b1958af2e6174d542541bdb93e610ba6b1a63e649aa5700ac59b0b"
+      }
+    },
+    {
+      "case_id": "admit-change-value-minus1",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "declared exact change amount",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-change-value-minus1/supplied-context.json",
+        "sha256": "3eb9c3f89c9455f5de98e62f56ddf2f3f0286d81e59971b09dc82277cd840962"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 49089,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-change-value-minus1/transaction.json",
+        "sha256": "60cb99e18594d70e00ea8342ff44f786a36d5bf1a2ec754914b15f54eca87eba"
+      },
+      "validation_case": {
+        "bytes": 49649,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-change-value-minus1/validation-case.json",
+        "sha256": "40f05a25247b8a0407bb500891a7a15f4f6c4f7e2a95a76ca4270be3c6b66cee"
+      }
+    },
+    {
+      "case_id": "admit-change-wrong-key",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "change exact original funding SPK",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-change-wrong-key/supplied-context.json",
+        "sha256": "3eb9c3f89c9455f5de98e62f56ddf2f3f0286d81e59971b09dc82277cd840962"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 49090,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-change-wrong-key/transaction.json",
+        "sha256": "8a0e588a04b2dda89a79187cf319d6a21b9fcfbfa0f9075f011df4a18dd5bf16"
+      },
+      "validation_case": {
+        "bytes": 49650,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-change-wrong-key/validation-case.json",
+        "sha256": "774e45193f8a810e2599569d8cd8537b4220fec3cb12597bf479525078191fa7"
+      }
+    },
+    {
+      "case_id": "reveal-Charlie-terminal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "conditional R=V full consumption",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Charlie-terminal/supplied-context.json",
+        "sha256": "dc2b5ed0739503cea0546a12c57ddb693223c301f79b45c4d0c88be8b70f8ecc"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 49906,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Charlie-terminal/transaction.json",
+        "sha256": "919a483ed50bab8f6238018eae985843febc35ff2679b7963efa1f0c43f94d3c"
+      },
+      "validation_case": {
+        "bytes": 50220,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Charlie-terminal/validation-case.json",
+        "sha256": "dc1909fe26d41902ed4c07d3d7a75115b965923fc7f905955a59464d20edbbae"
+      }
+    },
+    {
+      "case_id": "reveal-Charlie-first",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "reversed independent recipient order",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Charlie-first/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Charlie-first/transaction.json",
+        "sha256": "f549c402b3a0ef67bfbabfdc04b17df172f3f7498567b211bde31596a81b3ff0"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Charlie-first/validation-case.json",
+        "sha256": "96d14fe00ba6593538d87c4d3c4bbbaaf8fdd3a9e94477022ab5ad2ebf72eafd"
+      }
+    },
+    {
+      "case_id": "reveal-Bob-terminal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "reversed terminal recipient",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Bob-terminal/supplied-context.json",
+        "sha256": "485d2966ca7be7137aeecd9c4c79d4dca3d731715a8f95d0317e874000688ba5"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 49906,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Bob-terminal/transaction.json",
+        "sha256": "b9f4ac972b74eb0fd42c0fc35f388d6b4270f376017a4e263fd7c5c6732abd2b"
+      },
+      "validation_case": {
+        "bytes": 50220,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-Bob-terminal/validation-case.json",
+        "sha256": "ba275ceb6f02eaee9fd8d57edb88c38c83f2910c83cd016d33f7ee0461b8b393"
+      }
+    },
+    {
+      "case_id": "reveal-valid-NONE2",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual NONE2 exact-ALL guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-valid-NONE2/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-valid-NONE2/transaction.json",
+        "sha256": "a80787628a05f89023e22c82e8ba3cd0d820c0061616ea49da6038962462c3b4"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-valid-NONE2/validation-case.json",
+        "sha256": "bfd983c2327726951e759816e3b78dba9d963a7ae858596713b28c7df942c715"
+      }
+    },
+    {
+      "case_id": "reveal-wrong-signer",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "NullFail"
+      ],
+      "intended_cause": "wrong signing secret; original CM/nativePK",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-wrong-signer/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-wrong-signer/transaction.json",
+        "sha256": "1cee70ed8afdd4ec96b41d41cd48053cfd219776d2fe084acac4b32ca77bf6da"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-wrong-signer/validation-case.json",
+        "sha256": "c353fbb7093fe92a67cebafe73b8049e4703dc42e83f1a585982f9ec0574c6d2"
+      }
+    },
+    {
+      "case_id": "reveal-wrong-payout-key",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "canonical CM-bound payout key",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-wrong-payout-key/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-wrong-payout-key/transaction.json",
+        "sha256": "eb0b99f0463f8307a489be843e6dba41dfe25240bcb2ed2ee8ecd4e0b3760c0b"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-wrong-payout-key/validation-case.json",
+        "sha256": "5b47bb13be8e2c09055f7b7c88296b17d220358aa65f1f87fc3ff9159ea0d906"
+      }
+    },
+    {
+      "case_id": "reveal-actual-payout-minus1",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual payout equals declared P",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-actual-payout-minus1/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-actual-payout-minus1/transaction.json",
+        "sha256": "2beda18cd39bfbd10644890509a64ac129fd47e7dcf4d6d6664aead36492ed46"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-actual-payout-minus1/validation-case.json",
+        "sha256": "0adb3007ffa8788ec80fdd28de9eefe085d172a7996e9b65c0bd083e2f5663e1"
+      }
+    },
+    {
+      "case_id": "reveal-declared-fee-plus1",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "whole note V=P+fee",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-declared-fee-plus1/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-declared-fee-plus1/transaction.json",
+        "sha256": "f90bf72815ebf249e746601b51d4e3a506faac015568f342cfc33dba6bdd24bb"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-declared-fee-plus1/validation-case.json",
+        "sha256": "2c4511597aaa1dbc6ce969810997660d2f19a046dd3f02bb71983fbbaa3f0ee0"
+      }
+    },
+    {
+      "case_id": "reveal-actual-R-above-MAX",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual R upper range",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 206,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-actual-R-above-MAX/supplied-context.json",
+        "sha256": "c6d05b74fb96c7253865e124dd12d66dde7205ecdf66921e32e6fb5a3944538f"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-actual-R-above-MAX/transaction.json",
+        "sha256": "3223f58bf2ba137f0a76721813c095ca3d086b3123545f05a22e36fe9d173e1a"
+      },
+      "validation_case": {
+        "bytes": 50407,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-actual-R-above-MAX/validation-case.json",
+        "sha256": "ba7b4da0a3913bbb7c576d1b237b3d6d9e287b340d73e7c089054d559dc2ab92"
+      }
+    },
+    {
+      "case_id": "reveal-remainder-below-floor",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "continuing R-V>=60M",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-remainder-below-floor/supplied-context.json",
+        "sha256": "11bb362f6d9eeea19e762adafcea122ec4db29b90deda73037d23abf236cda53"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 50073,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-remainder-below-floor/transaction.json",
+        "sha256": "32a1056da1cf746e0d06160cafd5040698f8de7d9d0423b4479a296159f3ec10"
+      },
+      "validation_case": {
+        "bytes": 50397,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-remainder-below-floor/validation-case.json",
+        "sha256": "dd8d4d745f0b0e8581031caa1f5817a6a22c6ac1d081b85a7e478b38b187e4ae"
+      }
+    },
+    {
+      "case_id": "private-actual-outpoint",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual outpoint binds Auth",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-actual-outpoint/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-actual-outpoint/transaction.json",
+        "sha256": "ca42e8453dbe6be93f76a1c485eae1f75ccca026dd140b6546871fd5585daf8f"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-actual-outpoint/validation-case.json",
+        "sha256": "1ff25287aea49b74d15d141f01a4dabe0879c1200d534c3e39e0fe7e9c58eafc"
+      }
+    },
+    {
+      "case_id": "private-actual-R",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "actual R binds Auth",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-actual-R/supplied-context.json",
+        "sha256": "f3601587d1699c6d6a79ded3cfcda451c4e5a7345bf2b786cec720a0adf64a56"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-actual-R/transaction.json",
+        "sha256": "71e11b27bd21cde4abd7e839c78ccd3c742dac7c168ea7818cb0e2cb26261949"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-actual-R/validation-case.json",
+        "sha256": "b4ade3a257b746e70498d99d46e0d364fa55d411ed9c5bf5d9e41f0b6a4b5d8b"
+      }
+    },
+    {
+      "case_id": "private-NF-predpath",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native NF-predpath before Groth16",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-NF-predpath/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-NF-predpath/transaction.json",
+        "sha256": "0ce4c77ba8a13af27d47dce4bb7763d99d1f5f5b7acf5d8cfcdce8a0c39bf7a8"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-NF-predpath/validation-case.json",
+        "sha256": "b0686c557ff76f9ff39785d80fe8421384e57467b48779477b91131d16d5bc9b"
+      }
+    },
+    {
+      "case_id": "private-NF-append-path",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native NF-append-path before Groth16",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-NF-append-path/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-NF-append-path/transaction.json",
+        "sha256": "8e5950e6e7ad516f622ab9fde462058adfaaeff72aaafa2c285f4bee67b06001"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-NF-append-path/validation-case.json",
+        "sha256": "bf2b9f21dfcf7ddd3820aa7a37ea0c8e3c2e1d1de5f521d78ce6338980001246"
+      }
+    },
+    {
+      "case_id": "private-CM-append-path",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native CM-append-path before Groth16",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-CM-append-path/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-CM-append-path/transaction.json",
+        "sha256": "357ece40d7268ad06dd07b9aa62ec1bf3c45516ccc43fc41501d6ec583f76ce2"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-CM-append-path/validation-case.json",
+        "sha256": "d2bc70a296ea51593a7476b54849e5fbbfd59f156e414a66955ff4f88231d80e"
+      }
+    },
+    {
+      "case_id": "private-ciphertext",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "native ciphertext before Groth16",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-ciphertext/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-ciphertext/transaction.json",
+        "sha256": "ff8344ac6beae417527e11858fa02c47b1598761f11a064e796bbf9e2ee53ca4"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-ciphertext/validation-case.json",
+        "sha256": "1ed63c606e6c6f48852c33105f911d0258b596411fd64b5b47c579ee23f94eae"
+      }
+    },
+    {
+      "case_id": "private-next-CMroot",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "proposed CMroot bound to actual append",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-next-CMroot/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-next-CMroot/transaction.json",
+        "sha256": "4837a06ffa8949aca7295cd362765448d3cb037ae386eca9e5dea9c1d3352e61"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-next-CMroot/validation-case.json",
+        "sha256": "7c84ec9dba5509d39f3a848bbd4e62fba80383df3fd2c454c2b70483aba543b4"
+      }
+    },
+    {
+      "case_id": "private-successor-VK-change",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "immutable VK in successor policy",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-successor-VK-change/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-successor-VK-change/transaction.json",
+        "sha256": "1c05369377191bc55b3c71e51256098d6878251768c3f4205ad048ff3c7825c1"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-successor-VK-change/validation-case.json",
+        "sha256": "05015a661a174234cfb2bfb7bb052853cc13514369db26654403e907b05826c5"
+      }
+    },
+    {
+      "case_id": "private-successor-code-change",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "immutable code suffix in successor policy",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-successor-code-change/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-successor-code-change/transaction.json",
+        "sha256": "99a84d4e0be82a91feaa7ffb5e1c325a0d93254585304b647a78721b2db79c63"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-successor-code-change/validation-case.json",
+        "sha256": "f7ed77745f63e9dba1609d6dc75036beb6135f584999a0524596f6128847c1b1"
+      }
+    },
+    {
+      "case_id": "private-genuine-proof-wrong-transcript",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "ZkIntegrity(\"Groth16 verification failed\")"
+      ],
+      "intended_cause": "genuine valid-curve proof, native-consistent changed cipher transcript",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-genuine-proof-wrong-transcript/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-genuine-proof-wrong-transcript/transaction.json",
+        "sha256": "0f9ad11c7083e5c4fe893a80ca58c98f432e8014f4d4a126535ec5a59fa2703f"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-genuine-proof-wrong-transcript/validation-case.json",
+        "sha256": "8ee1509241c6cf10974e7ef45f517ad5b16d3cb2750ff1672ebac7e833950551"
+      }
+    },
+    {
+      "case_id": "count-n-zero",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-n-zero/supplied-context.json",
+        "sha256": "cec3367f638038c8fcbb76404e66ce55392791ab3cc58d4117d4687bb2f3f367"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-n-zero/transaction.json",
+        "sha256": "ebde1dd2d7ade29f706bd7c014dab87c64ff215332dd3085d0106ef8a72d4df0"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-n-zero/validation-case.json",
+        "sha256": "185156bd6a0d5e5cc4c7912a57c4ecef1d9b7d59c85f784b6f25c90d79166043"
+      }
+    },
+    {
+      "case_id": "count-n-over-cap",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-n-over-cap/supplied-context.json",
+        "sha256": "fed80d7634a554f6988f3811f19746d9bd7e1e716428e6a611a434ac22f0635e"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-n-over-cap/transaction.json",
+        "sha256": "2bae57ad32784916d04983a3f80a5c324d806aa086a872639aa3bb3635add904"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-n-over-cap/validation-case.json",
+        "sha256": "d6db69bf1963f67358cbe9cc171845215062e99bf84642b5c43d7df10c35cf1d"
+      }
+    },
+    {
+      "case_id": "count-m-zero",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-zero/supplied-context.json",
+        "sha256": "3d027d0151213e630e48c0cdd5d1d34f78ce6b4869c3bf2d604867447cca6ab3"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-zero/transaction.json",
+        "sha256": "6fbb5681e513c495d3c88947bb922394637baf34a5d096b416da3410f7c94ca8"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-zero/validation-case.json",
+        "sha256": "41d8aa24f3454091ca12e3fd522835ee258c416019b8cbd298099a7e473a5f98"
+      }
+    },
+    {
+      "case_id": "count-m-over-cap",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-over-cap/supplied-context.json",
+        "sha256": "6130422df7810aa3fac7beab8feba8761bdf5d262764466364ea98e1f591e72e"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-over-cap/transaction.json",
+        "sha256": "8cd874c8f9cbfec41cad2670d60010500197cf4bf581e48f8c48fbd37fc44e78"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-over-cap/validation-case.json",
+        "sha256": "c125ec9a62cc863b47e9f4a1bd9161f4d97561314cc0bf38c8965e336c3746d8"
+      }
+    },
+    {
+      "case_id": "count-m-over-profile",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-over-profile/supplied-context.json",
+        "sha256": "8181370335ea196b7ba90342f83f93edf5e28a176f302ce959a72a8ae8906899"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-over-profile/transaction.json",
+        "sha256": "b75aee7355af8f54db1abe5612946b93a546d4bd37015b60c66bddf2e44a29fb"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-m-over-profile/validation-case.json",
+        "sha256": "f50e73b3eaa929721fa767a51c2cd6e4b1002a32da186d8db4e4a244994df546"
+      }
+    },
+    {
+      "case_id": "count-private-CM-full",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "explicit current/private successor count guard",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-private-CM-full/supplied-context.json",
+        "sha256": "a784c07b2a25e53632413585bcbf344bcd7b0a3c9c2d3bdefcc68303459cce89"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-private-CM-full/transaction.json",
+        "sha256": "bc7109664ac8ccb61404748dff236d5c888ad250a6f0a9be1b9a903c22bb2c09"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-private-CM-full/validation-case.json",
+        "sha256": "22ebb66f365b5d1262a981d07d505ea41298ebfb220d31dace6d8dcf12d5b596"
+      }
+    },
+    {
+      "case_id": "count-admit-CM-full",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "n+1 cap before append",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-admit-CM-full/supplied-context.json",
+        "sha256": "54cb0bfd3aaf9b9ec34a40cfcb5b1b84bd12f0dc7e743f631b62749ed23030a4"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-admit-CM-full/transaction.json",
+        "sha256": "38af0c6349b3ca9e6cdc850fc6beef75539ec95d66c1d7804d5488701dca0d5a"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-admit-CM-full/validation-case.json",
+        "sha256": "77bc16123fdc58c64e2e22ca7de85c4770df99adf6ca0ea9afcc6229da26001e"
+      }
+    },
+    {
+      "case_id": "count-reveal-profile-full",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "m+1<=2n+1 before NF path",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-reveal-profile-full/supplied-context.json",
+        "sha256": "76faf6d6808def3987d00f587bd1e31a0a01150e6f9f22e2c0d6a4e181e3b005"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-reveal-profile-full/transaction.json",
+        "sha256": "c9bef19e282868499e18a00f7bd2d502935e585df0b1bc0532750569bd52f78d"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/count-reveal-profile-full/validation-case.json",
+        "sha256": "899a85b6866a69308e8fd404ca2508588ef7e73bb4366daba6845966ddb7800f"
+      }
+    },
+    {
+      "case_id": "admit-later-Gzero-positive",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT",
+        "ACCEPT"
+      ],
+      "intended_cause": "later current path and Gzero",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-later-Gzero-positive/supplied-context.json",
+        "sha256": "c3f8d068a893ab42f6bff646a89e3d75679781336542913864e157a7a7a5831e"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-later-Gzero-positive/transaction.json",
+        "sha256": "2f430ecb2aa4e7ac81003bc7dee7955ec72233be68ba7dcc5733bc313fa7d6a8"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-later-Gzero-positive/validation-case.json",
+        "sha256": "98565c98990b4a309c11b12169e8a1b2d9d157edb7b73ac4aade677cf59a42a7"
+      }
+    },
+    {
+      "case_id": "admit-later-G-nonzero",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError",
+        "ACCEPT"
+      ],
+      "intended_cause": "later G must be zero",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 388,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-later-G-nonzero/supplied-context.json",
+        "sha256": "c3f8d068a893ab42f6bff646a89e3d75679781336542913864e157a7a7a5831e"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 48927,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-later-G-nonzero/transaction.json",
+        "sha256": "f2601a793dfad5b5c58a85924921c7df5d8c9d167da55eaaeb7919c279f92ffa"
+      },
+      "validation_case": {
+        "bytes": 49477,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/admit-later-G-nonzero/validation-case.json",
+        "sha256": "62a24cb0cacd7f0ca6cf842271e3ba108a7bc29a979c5b1a6c1b4e95c6355c80"
+      }
+    },
+    {
+      "case_id": "private-then-reveal-current-equality",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "authenticated current spent NF: pred.value==NF",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-current-equality/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-current-equality/transaction.json",
+        "sha256": "ed9e4a7a617a37ba87706f5dae24e77980a84cf89ab4654c0c4ec80e22c61a5d"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-current-equality/validation-case.json",
+        "sha256": "92e387716d2dd943e87c424aeaed6b966a52cebd615c781d0dfc8dbe6a952a69"
+      }
+    },
+    {
+      "case_id": "private-then-reveal-current-path-corrupt",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "current predecessor authentication",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-current-path-corrupt/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-current-path-corrupt/transaction.json",
+        "sha256": "84aefae3f05fecb38a1c26079562d03115b7f1f17037ed7efa4ad157734a493c"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-current-path-corrupt/validation-case.json",
+        "sha256": "9a5c337754b32f2b923cd805b3b49c14728116878f5a85a57047180e6ebf131d"
+      }
+    },
+    {
+      "case_id": "private-then-reveal-stale-NF-path",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "old predecessor root is stale",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-stale-NF-path/supplied-context.json",
+        "sha256": "874e9e2f39d90755df54043f78326b3e9f6dd71472ab8d63219e36b88da2083d"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-stale-NF-path/transaction.json",
+        "sha256": "4480ffb01e8cf443b758d65152f4a34176e81f5342df9dffbaa875e03ccb0264"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/private-then-reveal-stale-NF-path/validation-case.json",
+        "sha256": "c121fdd2fbc1fdf694b6a20090aa91d844754d7d5aab54b041b1112b05023f05"
+      }
+    },
+    {
+      "case_id": "base-Alice-reveal-before-private",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "alternative valid first spend",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/base-Alice-reveal-before-private/supplied-context.json",
+        "sha256": "7d9a345457b2f5960d2f6c05071624563a857d5f0cc2e1a672266a264cb11ac1"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 50074,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/base-Alice-reveal-before-private/transaction.json",
+        "sha256": "689b482ec4705163192d20ccbcdd717258d3c4f4defba4207dc64e0c47f9a5c0"
+      },
+      "validation_case": {
+        "bytes": 50398,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/base-Alice-reveal-before-private/validation-case.json",
+        "sha256": "832df2958724d1fe4703a5f1fb9f4305067b44b3a3ad816edf2a21df9184d8b6"
+      }
+    },
+    {
+      "case_id": "reveal-then-private-current-equality",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "current occupied original NF before Groth16; changed Auth has no valid-proof claim",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-then-private-current-equality/supplied-context.json",
+        "sha256": "db632bf495e32aecea8a0c938ac9c07c7aa586272eba18140e512eddcfbf01d6"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-then-private-current-equality/transaction.json",
+        "sha256": "f4e6c183a4ec00c1defb05ac28c5a2e9612583b78f95ea5dbd3fbd0b23b576d1"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-then-private-current-equality/validation-case.json",
+        "sha256": "599385d5234c7713cf98ddb815911e6aea2f484c9d0031538a22e952d92c0fe9"
+      }
+    },
+    {
+      "case_id": "reveal-then-private-current-path-corrupt",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "current occupied predecessor authentication",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 197,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-then-private-current-path-corrupt/supplied-context.json",
+        "sha256": "db632bf495e32aecea8a0c938ac9c07c7aa586272eba18140e512eddcfbf01d6"
+      },
+      "supplied_context_only": false,
+      "transaction": {
+        "bytes": 54563,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-then-private-current-path-corrupt/transaction.json",
+        "sha256": "32325d52724ca979bd90e249fe32d8cf5fcf5a4b4d3950c3519155c86af9d025"
+      },
+      "validation_case": {
+        "bytes": 54877,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/control-prepared-03/bodies/reveal-then-private-current-path-corrupt/validation-case.json",
+        "sha256": "0d345279c0fc4af27f3008948d7f7af99e96f7944f11c2f1edc341ff95724b28"
+      }
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "limitations": [
+    "All state/UTXOs synthetic; no chain acceptance",
+    "All current-state count mutations explicitly supplied-only",
+    "Alternate positive admission controls do not enter primary fee denominator",
+    "No private proof is claimed valid for altered Auth in early native controls"
+  ],
+  "native_VM_or_Full_executed": false,
+  "proof_control_plan_addendum": "Original planned A-point negation replaced prospectively by byte-identical genuine proof against altered cipher+rehashed Auth, all native public checks consistent. Exact expected Groth16 verification failure unchanged.",
+  "source_pins": [
+    {
+      "bytes": 22893,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py",
+      "sha256": "bbaabb0e40b819f94e4f43c677d6a917c08610df00853cc4e5eea5d8cb84ffdf"
+    },
+    {
+      "bytes": 38569,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-lifecycle/assemble.py",
+      "sha256": "3f155480c8db7fca5bbe52c561e136615da6858d88ebf6592430b41dd410264c"
+    },
+    {
+      "bytes": 21564,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-recipient/v2/recipient.py",
+      "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2"
+    },
+    {
+      "bytes": 13438264,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/future-union-selected/native-controls-05",
+      "sha256": "73fb41c66c374da91200f06ae442f5bd8beb3c7954c71fae954b12bec9b1c1cf"
+    },
+    {
+      "bytes": 739,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/materialized-01/MATERIALIZED.json",
+      "sha256": "3968b5e59e9d68785d6c4fc83003b6ce243bd88fb135cf7358fc017faaee6eba"
+    },
+    {
+      "bytes": 128,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/proof-01/proof128.bin",
+      "sha256": "ba4956158979d94ebc82bf2dd1375a288e78bcdb37b0d256606c56fa48d0365d"
+    },
+    {
+      "bytes": 1382,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/lifecycle/proof-01/report.json",
+      "sha256": "465eab9f805074a96f3c466ca32e0c3f52452d0a2465a51575d9d21ef83afe0d"
+    }
+  ]
+}

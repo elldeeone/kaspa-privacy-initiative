@@ -1,0 +1,57 @@
+{
+  "accepted_chain_backing": false,
+  "both_path_orderings_reject_original_Bob_NF_second_spend": true,
+  "cases": [
+    {
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 18751400
+      },
+      "ScriptEngine": {
+        "accepted": true,
+        "allowed_script_units": 16009999,
+        "input_index": 0,
+        "units": 14947907
+      },
+      "case_id": "genuine-A-private-before-reveal",
+      "expected_matched": true
+    },
+    {
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "ScriptEngine": {
+        "accepted": false,
+        "allowed_script_units": 2009999,
+        "input_index": 0,
+        "typed_error": "VerifyError",
+        "units": 58313
+      },
+      "case_id": "genuine-private-then-old-Bob-reveal",
+      "expected_matched": true
+    },
+    {
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "ScriptEngine": {
+        "accepted": false,
+        "allowed_script_units": 16009999,
+        "input_index": 0,
+        "typed_error": "VerifyError",
+        "units": 51483
+      },
+      "case_id": "genuine-B-private-after-reveal",
+      "expected_matched": true
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "mainline_modified": false,
+  "native_B_rejects_current_spent_NF_before_Groth16": true,
+  "native_result_path": "research/next-session/private-integration/native/fork-runtime-01/evaluation/RESULTS.json",
+  "native_result_sha256": "b878ee34ef075b67b9ec23834962c06324c7874d2fd3ffdfaeda531eaa5ea54a",
+  "private_A_genuine_proof_and_native_accepted": true,
+  "same_new_setup": true
+}

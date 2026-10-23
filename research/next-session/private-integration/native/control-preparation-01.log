@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py", line 360, in <module>
+    prepare(parser.parse_args())
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py", line 255, in prepare
+    rf("reveal-remainder-below-floor",lambda c:c["entries"][0].update(amount=1_059_999_999),"continuing R-V>=60M",supplied=True)
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py", line 248, in rf
+    p.control(name,base,mutate,[expected],cause,bobkey,supplied,True)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py", line 145, in control
+    _, directory = self.construct(name, "control-resign-freeze", vector)
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py", line 134, in construct
+    raise ValueError("preparation failed, preserved: " + name)
+ValueError: preparation failed, preserved: reveal-remainder-below-floor

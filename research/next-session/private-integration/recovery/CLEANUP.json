@@ -1,0 +1,59 @@
+{
+  "all_cgroups_empty_or_removed": true,
+  "all_main_pids_zero": true,
+  "initial_record_error": "Initial collector resolved an empty ControlGroup to cgroupfs root. Its misleading raw result is retained separately; corrected collector treats empty unit group as removed.",
+  "units": [
+    {
+      "ActiveState": "failed",
+      "CPUQuotaPerSecUSec": "2s",
+      "ControlGroup": "",
+      "ExecMainStatus": "127",
+      "MainPID": "0",
+      "MemoryMax": "2147483648",
+      "MemorySwapMax": "0",
+      "SubState": "failed",
+      "cgroup_exists": false,
+      "cgroup_procs": [],
+      "unit": "kpi-c-recipient-build-01-20261023.service"
+    },
+    {
+      "ActiveState": "inactive",
+      "CPUQuotaPerSecUSec": "infinity",
+      "ControlGroup": "",
+      "ExecMainStatus": "0",
+      "MainPID": "0",
+      "MemoryMax": "infinity",
+      "MemorySwapMax": "infinity",
+      "SubState": "dead",
+      "cgroup_exists": false,
+      "cgroup_procs": [],
+      "unit": "kpi-c-recipient-build-02-20261023.service"
+    },
+    {
+      "ActiveState": "inactive",
+      "CPUQuotaPerSecUSec": "infinity",
+      "ControlGroup": "",
+      "ExecMainStatus": "0",
+      "MainPID": "0",
+      "MemoryMax": "infinity",
+      "MemorySwapMax": "infinity",
+      "SubState": "dead",
+      "cgroup_exists": false,
+      "cgroup_procs": [],
+      "unit": "kpi-c-recipient-run-01-20261023.service"
+    },
+    {
+      "ActiveState": "inactive",
+      "CPUQuotaPerSecUSec": "infinity",
+      "ControlGroup": "",
+      "ExecMainStatus": "0",
+      "MainPID": "0",
+      "MemoryMax": "infinity",
+      "MemorySwapMax": "infinity",
+      "SubState": "dead",
+      "cgroup_exists": false,
+      "cgroup_procs": [],
+      "unit": "kpi-c-recipient-v2-run-01-20261023.service"
+    }
+  ]
+}

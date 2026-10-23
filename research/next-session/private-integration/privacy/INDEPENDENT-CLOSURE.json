@@ -1,0 +1,28 @@
+{
+  "schema": "candidate-c-privacy-independent-closure-v1",
+  "reviewer": "/root/integration_adversary",
+  "method": "Independent source review before execution and source/input/result SHA-256 closure after execution; no semantic rerun.",
+  "freeze_sha256": "d08516d0bd446c29d63047b2b2123c24d5d280a1e7e585465af90fd8739ad77f",
+  "result_sha256": "ca288df89d4c3fcfdfd761ec3cd121bfc4735dabc01df578007cf72decf6648b",
+  "source_pins_rehashed": 9,
+  "input_pins_rehashed": 3,
+  "all_hashes_match": true,
+  "source_scorer_matches_freeze": true,
+  "source_review": [
+    "Canonical Invoice208 concatenation including separate deliveryPK",
+    "Actual C equality projection uses revealed note fields only",
+    "Invoice directory observer projection remains separate",
+    "Source-shaped same-k/K CM and exact HMAC NF controls",
+    "Selected amount floors, unsigned integer semantics and domain",
+    "Actual native, private-proof and ADMIT conformance remain incomplete"
+  ],
+  "post_execution_confirmation": {
+    "C_public_reveal_equality_classes_empty": true,
+    "directory_deliveryPK_class": [0, 2],
+    "synthetic_disclosed_key_scan_matches": [0, 1],
+    "old_amount_workload_unchanged_failed": true,
+    "no_wallet_performance_qualification": true,
+    "v1_evaluation_runs": 0,
+    "v2_evaluation_runs": 1
+  }
+}

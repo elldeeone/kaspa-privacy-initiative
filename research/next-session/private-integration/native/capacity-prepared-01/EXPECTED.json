@@ -1,0 +1,99 @@
+{
+  "case_count": 2,
+  "cases": [
+    {
+      "case_id": "capacity-append65536-terminal",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "conditional sole60M liability, actual17th-bit indexed NF append",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 195,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/capacity-prepared-01/bodies/capacity-quote-001/supplied-context.json",
+        "sha256": "8bd3978195ec9bdde3eaa7d88c0ee1c2ae5eb27d336afdc80f182e8c72a52cb3"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 49908,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/capacity-prepared-01/bodies/capacity-quote-001/transaction.json",
+        "sha256": "dc3c592b1818a3afbfa7ea8553e796a9444a601b0031127c03221ba7c34c86c3"
+      },
+      "validation_case": {
+        "bytes": 50220,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/capacity-prepared-01/bodies/capacity-quote-001/validation-case.json",
+        "sha256": "a72a840c59c33cf8d091b39e2cb6b95d9a3d69c61c41db1099d2f825f74b718d"
+      }
+    },
+    {
+      "case_id": "capacity-append-top-sibling-corrupt",
+      "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "17th-level append authentication after valid current predecessor",
+      "no_changed_Auth_proof_validity_claim": true,
+      "supplied_context": {
+        "bytes": 195,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/capacity-prepared-01/bodies/capacity-append-top-sibling-corrupt/supplied-context.json",
+        "sha256": "8bd3978195ec9bdde3eaa7d88c0ee1c2ae5eb27d336afdc80f182e8c72a52cb3"
+      },
+      "supplied_context_only": true,
+      "transaction": {
+        "bytes": 49908,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/capacity-prepared-01/bodies/capacity-append-top-sibling-corrupt/transaction.json",
+        "sha256": "b53abfaf452e35168178db7c6483b92154b9c875c5430cb1ae483bfcf79d2b74"
+      },
+      "validation_case": {
+        "bytes": 50220,
+        "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/private-integration/native/capacity-prepared-01/bodies/capacity-append-top-sibling-corrupt/validation-case.json",
+        "sha256": "afcd6c1f796a7d07f1e576aa1c8e5dee9947ced1cf27034bf63eca7c07600b32"
+      }
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "fee500_fixedpoint": [
+    {
+      "fee": 1,
+      "mining_mass": 49632,
+      "required500": 24816000
+    },
+    {
+      "fee": 24816000,
+      "mining_mass": 49632,
+      "required500": 24816000
+    }
+  ],
+  "historical_native_runs": 0,
+  "native_VM_or_Full_executed": false,
+  "source_pins": [
+    {
+      "bytes": 7825,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_capacity.py",
+      "sha256": "cfad78cfa4a46190a28bb289dc6235270607987ad1da81d853537039732c19a9"
+    },
+    {
+      "bytes": 22893,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-native-union/prepare_controls.py",
+      "sha256": "bbaabb0e40b819f94e4f43c677d6a917c08610df00853cc4e5eea5d8cb84ffdf"
+    },
+    {
+      "bytes": 13438264,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/future-union-selected/native-controls-05",
+      "sha256": "73fb41c66c374da91200f06ae442f5bd8beb3c7954c71fae954b12bec9b1c1cf"
+    },
+    {
+      "bytes": 46155,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-lifecycle/assemble.py",
+      "sha256": "5fd9de6d5930f1ddeeeb6f5c7b8da9ee8eb3ed03ec3c9ac46d60c608ecdd5db8"
+    },
+    {
+      "bytes": 21564,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/future-recipient/v2/recipient.py",
+      "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2"
+    }
+  ]
+}

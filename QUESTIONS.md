@@ -2,6 +2,25 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[RFC-0020](docs/rfc/0020-private-proof-and-native-exit-integration.md) now
+records a [passing complete offline lifecycle](research/next-session/private-integration/RESULTS.md)
+joining the actual private circuit, native public admission and self-funded
+reveal. The same payer's two useful 10-KAS payments amortize one verifier at
+1.85177% and 1.85071% complete native fees, counting founding, admission and both
+cashouts. How can fresh testnet identities authenticate accepted ancestry,
+current state and available public data through confirmed payout? How can the
+198.12-second, 5.41-GiB primary proof meet wallet resource targets? What composition
+can support generic recipient-plus-change or independent owners without pooling
+their private witnesses? Source floors and historical aggregation latency remain
+failures, not measurements of a new affordable route.
+
+The selected [receive-V2 separation](research/next-session/private-integration/INVOICE-V2-CONTRACT.md)
+removes one shared-note incoming equality while retaining directory linkage and
+selected-note reveal disclosure. Can real accepted public data support old-backup
+discovery and witness refresh without a trusted archive/current-head oracle,
+including orphaned disclosure history? A passing recipient reference or genuine
+proof does not close that recovery or financial-privacy question.
+
 [RFC-0019](docs/rfc/0019-fees-and-independent-exit-obligations.md) separates an
 unconsumed private note from an already accepted unpaid exit entitlement. Can
 either complete path meet the unchanged minimum-claim and per-user lifecycle

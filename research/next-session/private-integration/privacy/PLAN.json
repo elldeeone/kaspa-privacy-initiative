@@ -1,0 +1,32 @@
+{
+  "schema": "candidate-c-incremental-privacy-plan-v1",
+  "status": "awaiting-root-review-and-input-pin",
+  "base_commit": "0c2f4c788a4274b381c4838e05cce5e9c32e8536",
+  "workstream": "new-candidate-C-only",
+  "qualification": false,
+  "old_workload_retained": {
+    "prior_numerator": 21103,
+    "prior_denominator": 100025,
+    "adopted_amount_accuracy_cap_percent": 20,
+    "status": "unqualified-prior-floor-exceeds-cap"
+  },
+  "cpu_cores_max": 2,
+  "memory_bytes_max": 2147483648,
+  "network": false,
+  "proof_or_native_runtime": false,
+  "observer_profiles": ["C", "C+named-invoice-records", "C+publication-retained-through-reorg"],
+  "diagnostics": [
+    "actual-fresh-descriptor-and-payout-field-conformance",
+    "one-time-and-reused-descriptor-exact-equality",
+    "revealed-key-computability-for-known-CM-position",
+    "preacceptance-and-orphan-knowledge-retention",
+    "one-and-two-real-input-public-arity-counter-shapes",
+    "exact-historical-direct-payment-amount-disclosure-when-bound"
+  ],
+  "scoring": "exact deterministic checks only; no sampled accuracy or qualification",
+  "missing_source_or_control_failure": "incomplete-stop",
+  "supported_target_forced_disclosure": "named-claim-failure-retain",
+  "stop": "one frozen evaluation plus independent integrity review",
+  "trace_pin": null,
+  "runtime_authorized": false
+}

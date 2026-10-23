@@ -1,0 +1,119 @@
+{
+  "case_count": 3,
+  "cases": [
+    {
+      "actual_per_input": [
+        "ACCEPT"
+      ],
+      "case_id": "genuine-A-private-before-reveal",
+      "expectation_matched": true,
+      "expected_Full_accepted": true,
+      "expected_per_input": [
+        "ACCEPT"
+      ],
+      "intended_cause": "genuine valid private ownership proof; current NF absent",
+      "report": {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 18751400
+        },
+        "ScriptEngine": {
+          "accepted": true,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "units": 14947907
+        },
+        "all_input_engines_accepted": true,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "units": 14947907
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "genuine-private-then-old-Bob-reveal",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "same old positioned CM/NF, current CM path and exact authenticated occupied NF equality; correct original native signer",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 2009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 58313
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 2009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 58313
+          }
+        ]
+      },
+      "supplied_context_only": false
+    },
+    {
+      "actual_per_input": [
+        "VerifyError"
+      ],
+      "case_id": "genuine-B-private-after-reveal",
+      "expectation_matched": true,
+      "expected_Full_accepted": false,
+      "expected_per_input": [
+        "VerifyError"
+      ],
+      "intended_cause": "genuine valid private ownership proof; CURRENT authenticated spent original Bob NF must reject before Groth16",
+      "report": {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "ScriptEngine": {
+          "accepted": false,
+          "allowed_script_units": 16009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 51483
+        },
+        "all_input_engines_accepted": false,
+        "isolation": "PASS",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 16009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 51483
+          }
+        ]
+      },
+      "supplied_context_only": false
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "matched": 3,
+  "mismatches": 0,
+  "reviewed_freeze_sha256": "dde66f751aa383057a186f7fb659f4c440467246b615c5ca7e6e50f7be9a53c0",
+  "scope": "exact frozen supplied-context native Full and every input engine; no accepted chain history/backing/privacy claim"
+}

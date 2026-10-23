@@ -1,0 +1,48 @@
+{
+  "base_commit": "0c2f4c788a4274b381c4838e05cce5e9c32e8536",
+  "blinded": false,
+  "blinding_note": "Public synthetic fixtures were visible during pre-execution schema review; this is deterministic conformance, not held-out statistical evaluation.",
+  "domain": "9de4f84dbdaec6250d0029ca4b38ae12b9081a549e231eb529075af7fe59e85c",
+  "frozen_at_utc": "2026-10-23T01:28:54.493418+00:00",
+  "inputs": {
+    "invoice_directory": {
+      "path": "research/next-session/private-integration/recovery/attempt-01/invoice-directory.json",
+      "sha256": "7062d63058cc4eaf45ae45355ade4d4e67ab3e39cd01dbf75fd2f9afc9024571"
+    },
+    "public_wire": {
+      "path": "research/next-session/private-integration/recovery/attempt-01/public-wire.json",
+      "sha256": "ed9abae489e5f01104ae33257cbb8a33b1349930f6157be2d2cdaf877144a10f"
+    },
+    "synthetic_truth": {
+      "path": "research/next-session/private-integration/recovery/attempt-01/synthetic-truth.json",
+      "sha256": "ddcfc23d090c007d15bfcbd8c51ca28bc19b6b5f53f63443eceae13c71f0da49"
+    }
+  },
+  "one_shot_output": "research/next-session/private-integration/privacy/result-01.json",
+  "reference_observation_boundary": "Receipt/reveal reference snapshots only; no accepted/private proof/native transaction history. Invoice directory is P/I information, synthetic truth is not observer input.",
+  "resource_limit": {
+    "address_space_bytes": 2147483648,
+    "cpu_affinity": [
+      0
+    ],
+    "gpu": false,
+    "network": false,
+    "threads": 1
+  },
+  "root_review": "Root ACKed CONTRACT f56cc1 scope and deterministic cases, not qualification; one frozen evaluation after final input hash crosscheck.",
+  "runtime_authorized": true,
+  "schema": "candidate-c-incremental-privacy-freeze-v1",
+  "scorer_sha256": "93b2a1ab8febf1c19e87a0fe561cde8475f7ea1c1f6922003bfe7e7ac73ef19e",
+  "source_pins": {
+    "docs/rfc/0012-useful-privacy-requirements.md": "ce96d64687c06b9f57bc36ff2d9aa222ba8e731705af6c8987c4973a49e27a19",
+    "poc/future-exit-feasibility/src/main.rs": "29f4d40c0e9457fb541411ad5b92beed3b357c2e0e8e9b4de8816686a3691bf8",
+    "research/next-session/private-integration/privacy/ANALYTICAL-FINDINGS.md": "aec21988bc2a31b61bea02d7ca794ff6eafed1a60163fff71a00846ad4197267",
+    "research/next-session/private-integration/privacy/CONTRACT.md": "f56cc1c3cd1d51d275743ff287f0695881f4e5f595db0ce5904dc05f7084e1b1",
+    "research/next-session/private-integration/privacy/PLAN.json": "05f6ef06518b18b7ce878bb2cd944146cdf3a2d8bc17c64dad53d147fccf2e11",
+    "research/next-session/private-integration/privacy/evaluate.py": "93b2a1ab8febf1c19e87a0fe561cde8475f7ea1c1f6922003bfe7e7ac73ef19e",
+    "research/next-session/private-integration/recovery/CONTRACT-SNAPSHOT.md": "f40b2e320b97a0961584ff22673c13c7fecf890ff82d1c5667a1c598db9263a5",
+    "research/next-session/private-integration/recovery/PRE-RUN-MANIFEST-01.json": "1c5d9f720762d3485b710fdc8f99982d5333d72ba35746ec1eac6390345ff27a",
+    "research/privacy-target-consistency-2026-10-22.md": "94627d74cf5692ec3aa320b1f091ad7473c109c9e200b2a743d9327088bf2de3"
+  },
+  "stop": "One evaluation plus independent source/data integrity review; no broader attacks or native/proof execution."
+}

@@ -1,0 +1,22 @@
+[package]
+name = "kpi-selected-development-prover"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+[workspace]
+
+[dependencies]
+kpi-future-private-payment = { path = "../future-private-payment" }
+ark-bn254 = "=0.6.0"
+ark-groth16 = "=0.6.0"
+ark-serialize = "=0.6.0"
+rand = "=0.8.5"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.145"
+hex = "=0.4.3"
+sha2 = "=0.10.9"
+
+[profile.release]
+debug = 0

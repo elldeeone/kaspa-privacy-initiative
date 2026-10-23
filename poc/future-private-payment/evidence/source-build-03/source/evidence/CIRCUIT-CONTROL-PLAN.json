@@ -1,0 +1,11 @@
+{
+  "status": "prospective before first synthesis/setup/proof",
+  "initial_synthesis": "cross_language::measure_contract_synthesis: one-real+padding, two positive self outputs, V2corecredentials, transcript-bound placeholderNF/nextCMroots; sizing only, not final native trace",
+  "authority_controls": ["wrong_s", "wrong_k", "copied_k_no_s"],
+  "padding_controls": ["all_dummy", "dummy_nonzero_s", "real_nonzero_dummy_seed", "wrong_dummy_slot_nf"],
+  "binding_controls": ["wrong_path", "high_position", "wrong_real_nf", "output_cm_substitution", "wrong_domain", "wrong_state_domain"],
+  "integer_controls": ["subfloor_output", "out_of_range_value", "fee_reserve_mismatch", "count_capacity"],
+  "negative_success_criterion": "complete constraints synthesize and is_satisfied=false; compiler, resource or operational errors never count as relation rejection",
+  "phase_gate": "Initial sizing first; heavy17-case ignored suite only with measured resource release. Before genuine setup/proof, final actual nativecontext/V2recipient fixtures and genuineproof context mutations require separate frozen inputs/review.",
+  "native_checks_excluded": "current NF/CM path updates, native actual outpoint/amount/output/policy, complete backing/lineage/spentness and relay are owned by the separate native/integration workstreams"
+}

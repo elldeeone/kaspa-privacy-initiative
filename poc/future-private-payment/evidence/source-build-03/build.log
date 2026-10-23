@@ -1,0 +1,38 @@
+
+running 10 tests
+test cross_language::constraint_authority_and_boundaries ... ignored, complete relation controls require measured resources and review
+test cross_language::measure_contract_synthesis ... ignored, large complete relation synthesis requires reviewed resource release
+test cross_language::auth_exact_wire ... ok
+test cross_language::recipient_v1_core_hash_known_answer ... ok
+test cross_language::recipient_v2_known_answer ... ok
+test tests::note_wire_and_domains ... ok
+test tests::canonical_key_and_proof_framing ... ok
+test tests::positioned_rfc2104 ... ok
+test tests::root_selected_domain ... ok
+test tests::state_has_no_nf_parity_rule ... ok
+
+test result: ok. 8 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+	Command being timed: "/toolchain/bin/cargo test --frozen --offline --release -j4 --target x86_64-unknown-linux-gnu --lib --manifest-path /src/Cargo.toml -- --nocapture"
+	User time (seconds): 7.02
+	System time (seconds): 0.31
+	Percent of CPU this job got: 304%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.40
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 309448
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 26
+	Minor (reclaiming a frame) page faults: 119279
+	Voluntary context switches: 1409
+	Involuntary context switches: 50
+	Swaps: 0
+	File system inputs: 2864
+	File system outputs: 8248
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
