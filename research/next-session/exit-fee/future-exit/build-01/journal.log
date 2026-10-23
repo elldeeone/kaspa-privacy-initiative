@@ -1,0 +1,51 @@
+Started kpi-future-exit-build-01.service - [systemd-run] /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/exit-fee/future-exit/build-01/build.sh.
+   Compiling generic-array v0.14.7
+   Compiling educe v0.6.0
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling ark-serialize v0.6.0
+   Compiling blake2 v0.10.6
+   Compiling hmac v0.12.1
+   Compiling kaspa-utils v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling risc0-zkp v3.0.4
+   Compiling ark-ff v0.6.0
+   Compiling kaspa-hashes v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-math v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling risc0-binfmt v3.0.4
+   Compiling risc0-circuit-recursion v4.0.4
+   Compiling kaspa-merkle v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-smt v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-muhash v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-txscript-errors v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-consensus-core v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-seq-commit v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-database v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-smt-store v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling ark-poly v0.6.0
+   Compiling ark-relations v0.6.0
+   Compiling ark-ec v0.6.0
+   Compiling ark-snark v0.6.0
+   Compiling ark-crypto-primitives v0.6.0
+   Compiling ark-bn254 v0.6.0
+   Compiling ark-groth16 v0.6.0
+   Compiling kaspa-txscript v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-notify v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-consensus-client v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-consensus-notify v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-consensusmanager v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-pow v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kaspa-consensus v2.1.0 (https://github.com/kaspanet/rusty-kaspa?rev=01b532e8b553523216471682649693af92f0fd16#01b532e8)
+   Compiling kpi-future-exit-feasibility v0.1.0 (/src)
+error: no rules expected `.`
+   --> src/main.rs:894:383
+    |
+894 | ...rage<=500000,"fee_quotes":[100u64,200,500].map(|rate|json!({"rate_sompi_per_mass":rate,"required_sompi":mining*rate,"actual_somp...
+    |                                              ^ no rules expected this token in macro call
+    |
+    = note: while trying to match end of macro
+error: could not compile `kpi-future-exit-feasibility` (bin "kpi-future-exit-feasibility") due to 1 previous error
+kpi-future-exit-build-01.service: Main process exited, code=exited, status=101/n/a
+kpi-future-exit-build-01.service: Failed with result 'exit-code'.
+kpi-future-exit-build-01.service: Consumed 1min 35.656s CPU time over 24.930s wall clock time, 1.2G memory peak.

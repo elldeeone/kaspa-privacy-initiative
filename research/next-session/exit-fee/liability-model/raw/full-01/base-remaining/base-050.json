@@ -1,0 +1,85 @@
+{
+  "complete": true,
+  "conditional_reveal": false,
+  "config": {
+    "id": 50,
+    "mode": "native-p2pk",
+    "owners": [
+      1,
+      0,
+      1
+    ],
+    "values": [
+      2,
+      3,
+      2
+    ]
+  },
+  "counts": {
+    "accepted-feasible-claim-reachable": 60344,
+    "accepted_environment_product_edges": 511860,
+    "accepted_financial_edges": 55848,
+    "context_and_authority_rejections": 86126,
+    "economic-liveness-failure": 155240,
+    "environment_loss_edges": 207156,
+    "environment_product_states": 138104,
+    "financial_proposals": 316083,
+    "financial_states": 17263,
+    "rejected_financial_proposals": 260235,
+    "unaccepted-private-service-failure": 31300
+  },
+  "environment_product_exact_not_sampled": true,
+  "expected_liveness_failures": {
+    "economic-liveness-failure": {
+      "claim_nf": 1,
+      "environment": [
+        true,
+        true,
+        true
+      ],
+      "environment_loss_trace": [],
+      "principal": 1,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            0
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    },
+    "unaccepted-private-service-failure": {
+      "environment": [
+        false,
+        true,
+        true
+      ],
+      "environment_loss_trace": [
+        {
+          "kind": "ShutdownAcceptanceService"
+        }
+      ],
+      "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+      "trace": []
+    }
+  },
+  "mutant": null,
+  "reveal_authority_status": "UNRESOLVED_NOT_ENABLED",
+  "safety_violation": null,
+  "search_depth_cutoff": null,
+  "state_or_time_cutoff": null,
+  "wall_seconds": 2.8940270699677058,
+  "worker_cumulative_cpu_seconds": 67.263592,
+  "worker_cumulative_max_rss_kib": 132592
+}

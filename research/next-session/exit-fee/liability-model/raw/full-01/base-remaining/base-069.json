@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "conditional_reveal": false,
+  "config": {
+    "id": 69,
+    "mode": "shared-root",
+    "owners": [
+      0,
+      0,
+      0
+    ],
+    "values": [
+      3,
+      2,
+      3
+    ]
+  },
+  "counts": {
+    "accepted-feasible-claim-reachable": 503538,
+    "accepted_environment_product_edges": 3460210,
+    "accepted_financial_edges": 297056,
+    "context_and_authority_rejections": 457826,
+    "data-liveness-failure": 167846,
+    "economic-liveness-failure": 1089896,
+    "environment_loss_edges": 1724460,
+    "environment_product_states": 1149640,
+    "financial_proposals": 4661559,
+    "financial_states": 143705,
+    "rejected_financial_proposals": 4364503,
+    "unaccepted-private-service-failure": 108380
+  },
+  "environment_product_exact_not_sampled": true,
+  "expected_liveness_failures": {
+    "data-liveness-failure": {
+      "claim_nf": 1,
+      "environment": [
+        true,
+        false,
+        false
+      ],
+      "environment_loss_trace": [
+        {
+          "kind": "LosePublicData"
+        },
+        {
+          "kind": "LoseRetainedWitness"
+        }
+      ],
+      "principal": 3,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            0
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            0
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    },
+    "economic-liveness-failure": {
+      "claim_nf": 3,
+      "environment": [
+        true,
+        true,
+        true
+      ],
+      "environment_loss_trace": [],
+      "principal": 1,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            2
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    },
+    "unaccepted-private-service-failure": {
+      "environment": [
+        false,
+        true,
+        true
+      ],
+      "environment_loss_trace": [
+        {
+          "kind": "ShutdownAcceptanceService"
+        }
+      ],
+      "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+      "trace": []
+    }
+  },
+  "mutant": null,
+  "reveal_authority_status": "UNRESOLVED_NOT_ENABLED",
+  "safety_violation": null,
+  "search_depth_cutoff": null,
+  "state_or_time_cutoff": null,
+  "wall_seconds": 28.789095965970773,
+  "worker_cumulative_cpu_seconds": 120.690299,
+  "worker_cumulative_max_rss_kib": 216744
+}

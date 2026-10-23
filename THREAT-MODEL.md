@@ -1,5 +1,45 @@
 # Threat Model
 
+[RFC-0019](docs/rfc/0019-fees-and-independent-exit-obligations.md) and
+[ADR-0039](docs/adr/0039-exit-liability-and-native-claim-experiments.md) add an
+offline liability/service-loss model and native terminal-claim cost diagnostic.
+Ideal model authority/membership predicates are explicit assumptions, not
+cryptographic verification. Consuming a note into an unpaid claim must atomically
+consume its NF and preserve all backing; a separate stable claim ID is safe only
+after that consumption. Roots extending or regrouping claims must not create
+another economic identity. Stale current spent state and orphaned authorization
+must not release reserve. Reorgs do not erase already disclosed secrets or
+restore an unavailable service or data copy.
+
+A revealing future-format branch must not disclose the credential sufficient
+for a competing private SPEND. A native signature protecting only the revealing
+branch cannot stop that race. Current v6's reusable ownership/NF secret and
+uncommitted native payout key are not silently reinterpreted. No new branch is
+adopted. Native probes must separate principal, permission rent and external fee
+funding; a zero-fee script pass is not a claim-funded exit. A cheap terminal claim
+also does not solve service loss before its authorization was accepted.
+
+The separate [ADR-0040 public probe](docs/adr/0040-public-revealing-exit-feasibility.md)
+tests a new candidate whose private reference requires independent s+k and whose
+native exit reveals only k plus a signature under a CM-bound native key. No
+actual private circuit or secret-delivery/descriptor scheme is implemented.
+Supplied synthetic CM/NF roots and native backing are assumptions; matching a
+hash or passing Full is not accepted lineage. A size-padded reveal script does
+not implement the missing private branch. Sender-selected unusable exit keys,
+credential reuse, published-but-unaccepted disclosure and future-union code
+size remain explicit review boundaries. The old single-secret relation and
+immutable instances gain no new exit path.
+
+The [closed public probe](research/next-session/exit-fee/future-exit/REPORT.md)
+passes60 native positives and39 exact negatives. That source's real-NF count
+bound cannot be assumed compatible with an old private relation inserting two
+NFs for padded inputs. Future union size, padding semantics and privacy must be
+reviewed jointly. The fee/storage fixed-point failures remain failures even
+when the body is consensus-valid. Excluding small positive reserve tails needs
+complete exact backing and a preserved floor on every remaining obligation;
+I-1 alone does not imply either condition. No pending/refundable liability may
+be omitted to force that profile.
+
 [ADR-0038](docs/adr/0038-bounded-cost-and-proving-qualification.md) adds bounded
 offline resource and constraint checks. It adds no withdrawal authority or
 production trust assumption. A native operational budget is excluded from the

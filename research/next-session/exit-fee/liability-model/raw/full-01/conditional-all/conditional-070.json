@@ -1,0 +1,70 @@
+{
+  "complete": true,
+  "conditional_reveal": true,
+  "config": {
+    "id": 70,
+    "mode": "native-p2pk",
+    "owners": [
+      0,
+      0,
+      1
+    ],
+    "values": [
+      3,
+      2,
+      3
+    ]
+  },
+  "counts": {
+    "accepted-feasible-claim-reachable": 191320,
+    "accepted_environment_product_edges": 1551280,
+    "accepted_financial_edges": 148529,
+    "context_and_authority_rejections": 214094,
+    "economic-liveness-failure": 325480,
+    "environment_loss_edges": 672480,
+    "environment_product_states": 448320,
+    "financial_proposals": 846194,
+    "financial_states": 56040,
+    "rejected_financial_proposals": 697665
+  },
+  "environment_product_exact_not_sampled": true,
+  "expected_liveness_failures": {
+    "economic-liveness-failure": {
+      "claim_nf": 3,
+      "environment": [
+        true,
+        true,
+        true
+      ],
+      "environment_loss_trace": [],
+      "principal": 1,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            2
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    }
+  },
+  "mutant": null,
+  "reveal_authority_status": "ASSUMED_IDEAL_UNRESOLVED",
+  "safety_violation": null,
+  "search_depth_cutoff": null,
+  "state_or_time_cutoff": null,
+  "wall_seconds": 7.587435639987234,
+  "worker_cumulative_cpu_seconds": 112.707881,
+  "worker_cumulative_max_rss_kib": 275972
+}

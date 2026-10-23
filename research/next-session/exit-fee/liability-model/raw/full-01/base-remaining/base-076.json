@@ -1,0 +1,85 @@
+{
+  "complete": true,
+  "conditional_reveal": false,
+  "config": {
+    "id": 76,
+    "mode": "native-p2pk",
+    "owners": [
+      0,
+      1,
+      0
+    ],
+    "values": [
+      3,
+      2,
+      3
+    ]
+  },
+  "counts": {
+    "accepted-feasible-claim-reachable": 123976,
+    "accepted_environment_product_edges": 816068,
+    "accepted_financial_edges": 84992,
+    "context_and_authority_rejections": 129098,
+    "economic-liveness-failure": 196184,
+    "environment_loss_edges": 332340,
+    "environment_product_states": 221560,
+    "financial_proposals": 508865,
+    "financial_states": 27695,
+    "rejected_financial_proposals": 423873,
+    "unaccepted-private-service-failure": 43460
+  },
+  "environment_product_exact_not_sampled": true,
+  "expected_liveness_failures": {
+    "economic-liveness-failure": {
+      "claim_nf": 3,
+      "environment": [
+        true,
+        true,
+        true
+      ],
+      "environment_loss_trace": [],
+      "principal": 1,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            2
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    },
+    "unaccepted-private-service-failure": {
+      "environment": [
+        false,
+        true,
+        true
+      ],
+      "environment_loss_trace": [
+        {
+          "kind": "ShutdownAcceptanceService"
+        }
+      ],
+      "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+      "trace": []
+    }
+  },
+  "mutant": null,
+  "reveal_authority_status": "UNRESOLVED_NOT_ENABLED",
+  "safety_violation": null,
+  "search_depth_cutoff": null,
+  "state_or_time_cutoff": null,
+  "wall_seconds": 4.618477415002417,
+  "worker_cumulative_cpu_seconds": 108.077688,
+  "worker_cumulative_max_rss_kib": 216208
+}

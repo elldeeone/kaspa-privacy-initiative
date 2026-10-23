@@ -1,0 +1,2066 @@
+{
+  "all_required_counterexamples_found": true,
+  "must_detect_mutants": [
+    "omit-accept-nf",
+    "drop-pending-backing",
+    "omit-paid",
+    "root-local-id",
+    "historical-paid",
+    "service-dependent",
+    "redirect",
+    "fee-exhaustion",
+    "retire-pending",
+    "amount",
+    "missing-entitlement"
+  ],
+  "new_cryptographic_or_native_validation": false,
+  "results": {
+    "amount": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            1,
+            0,
+            0
+          ],
+          "nf": 1,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            3,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            3,
+            0
+          ],
+          "quote": 1,
+          "reserve": 5,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [
+            0
+          ],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 1,
+            "amount": 4,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "claim",
+            "recipient": 1,
+            "root": 7
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 6,
+        "accepted_financial_edges": 476,
+        "context_and_authority_rejections": 928,
+        "data-liveness-failure": 2,
+        "environment_product_states": 112,
+        "financial_proposals": 491,
+        "financial_states": 14,
+        "rejected_financial_proposals": 14,
+        "unaccepted-private-service-failure": 56
+      },
+      "expected_liveness_failures": {
+        "data-liveness-failure": {
+          "claim_nf": 1,
+          "environment": [
+            true,
+            false,
+            false
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "LosePublicData"
+            },
+            {
+              "kind": "LoseRetainedWitness"
+            }
+          ],
+          "principal": 3,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                0
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "amount",
+      "safety_violation": "lost-or-excess-shared-backing",
+      "stopped_at_first_counterexample": true
+    },
+    "drop-pending-backing": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            0,
+            0,
+            0
+          ],
+          "nf": 1,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            0,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            0,
+            0
+          ],
+          "quote": 1,
+          "reserve": 6,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted_financial_edges": 12,
+        "context_and_authority_rejections": 26,
+        "environment_product_states": 8,
+        "financial_proposals": 13,
+        "financial_states": 1,
+        "unaccepted-private-service-failure": 4
+      },
+      "expected_liveness_failures": {
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "drop-pending-backing",
+      "safety_violation": "lost-or-excess-shared-backing",
+      "stopped_at_first_counterexample": true
+    },
+    "fee-exhaustion": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            3,
+            0,
+            0
+          ],
+          "nf": 3,
+          "owners": [
+            1,
+            0,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            0,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            0,
+            0
+          ],
+          "quote": 1,
+          "reserve": 6,
+          "retired": false,
+          "roots": [
+            8
+          ],
+          "spent": [
+            1
+          ],
+          "values": [
+            3,
+            2,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": 1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "spend",
+            "recipient": 0,
+            "root": 0
+          },
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              1
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 0,
+            "amount": 1,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              1
+            ],
+            "kind": "claim",
+            "recipient": 0,
+            "root": 8
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 654,
+        "accepted_financial_edges": 1525,
+        "context_and_authority_rejections": 2888,
+        "data-liveness-failure": 218,
+        "economic-liveness-failure": 8,
+        "environment_product_states": 680,
+        "financial_proposals": 2264,
+        "financial_states": 85,
+        "rejected_financial_proposals": 738,
+        "unaccepted-private-service-failure": 276
+      },
+      "expected_liveness_failures": {
+        "data-liveness-failure": {
+          "claim_nf": 1,
+          "environment": [
+            true,
+            false,
+            false
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "LosePublicData"
+            },
+            {
+              "kind": "LoseRetainedWitness"
+            }
+          ],
+          "principal": 3,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                0
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "economic-liveness-failure": {
+          "claim_nf": 2,
+          "environment": [
+            true,
+            true,
+            true
+          ],
+          "environment_loss_trace": [],
+          "principal": 1,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": 1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                1
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "spend",
+              "recipient": 0,
+              "root": 0
+            },
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                1
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                1
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "fee-exhaustion",
+      "safety_violation": "fee-exhausted-nonpositive-payout",
+      "stopped_at_first_counterexample": true
+    },
+    "historical-paid": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            2,
+            0,
+            0
+          ],
+          "nf": 1,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            4,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            4,
+            0
+          ],
+          "quote": 1,
+          "reserve": 3,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [
+            0
+          ],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 1,
+            "amount": 3,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "claim",
+            "recipient": 1,
+            "root": 7
+          },
+          {
+            "actor": 1,
+            "amount": 3,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": true,
+            "ids": [
+              0
+            ],
+            "kind": "claim",
+            "recipient": 1,
+            "root": 7
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 4008,
+        "accepted_financial_edges": 5931,
+        "context_and_authority_rejections": 11050,
+        "data-liveness-failure": 1336,
+        "economic-liveness-failure": 432,
+        "environment_product_states": 3368,
+        "financial_proposals": 10107,
+        "financial_states": 421,
+        "rejected_financial_proposals": 4175,
+        "unaccepted-private-service-failure": 1252
+      },
+      "expected_liveness_failures": {
+        "data-liveness-failure": {
+          "claim_nf": 1,
+          "environment": [
+            true,
+            false,
+            false
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "LosePublicData"
+            },
+            {
+              "kind": "LoseRetainedWitness"
+            }
+          ],
+          "principal": 3,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                0
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "economic-liveness-failure": {
+          "claim_nf": 2,
+          "environment": [
+            true,
+            true,
+            true
+          ],
+          "environment_loss_trace": [],
+          "principal": 1,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": 1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                1
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "spend",
+              "recipient": 0,
+              "root": 0
+            },
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                1
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                1
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "historical-paid",
+      "safety_violation": "same-entitlement-paid-twice",
+      "stopped_at_first_counterexample": true
+    },
+    "missing-entitlement": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            0,
+            0,
+            0
+          ],
+          "nf": 1,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            0,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            0,
+            0
+          ],
+          "quote": 1,
+          "reserve": 9,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted_financial_edges": 12,
+        "context_and_authority_rejections": 26,
+        "environment_product_states": 8,
+        "financial_proposals": 13,
+        "financial_states": 1,
+        "unaccepted-private-service-failure": 4
+      },
+      "expected_liveness_failures": {
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "missing-entitlement",
+      "safety_violation": "missing-or-corrupted-immutable-entitlement",
+      "stopped_at_first_counterexample": true
+    },
+    "native-ticket-already-delivered": {
+      "deferred_pool_liability": 0,
+      "later_native_spend_still_pays_fee": true,
+      "owner_native_output": 3,
+      "pool_debit_at_acceptance": 3
+    },
+    "omit-accept-nf": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            0,
+            0,
+            0
+          ],
+          "nf": 0,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            0,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            0,
+            0
+          ],
+          "quote": 1,
+          "reserve": 9,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted_financial_edges": 12,
+        "context_and_authority_rejections": 26,
+        "environment_product_states": 8,
+        "financial_proposals": 13,
+        "financial_states": 1,
+        "unaccepted-private-service-failure": 4
+      },
+      "expected_liveness_failures": {
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "omit-accept-nf",
+      "safety_violation": "currently-spendable-liabilities-exceed-reserve",
+      "stopped_at_first_counterexample": true
+    },
+    "omit-paid": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            1,
+            0,
+            0
+          ],
+          "nf": 1,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            2,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            2,
+            0
+          ],
+          "quote": 1,
+          "reserve": 6,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 1,
+            "amount": 3,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "claim",
+            "recipient": 1,
+            "root": 7
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 6,
+        "accepted_financial_edges": 475,
+        "context_and_authority_rejections": 926,
+        "data-liveness-failure": 2,
+        "environment_product_states": 112,
+        "financial_proposals": 489,
+        "financial_states": 14,
+        "rejected_financial_proposals": 13,
+        "unaccepted-private-service-failure": 56
+      },
+      "expected_liveness_failures": {
+        "data-liveness-failure": {
+          "claim_nf": 1,
+          "environment": [
+            true,
+            false,
+            false
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "LosePublicData"
+            },
+            {
+              "kind": "LoseRetainedWitness"
+            }
+          ],
+          "principal": 3,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                0
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "omit-paid",
+      "safety_violation": "currently-spendable-liabilities-exceed-reserve",
+      "stopped_at_first_counterexample": true
+    },
+    "published-reusable-credential": {
+      "conditional_unsafe_note_format_only": true,
+      "counterexample": [
+        "publish-unaccepted-opening-with-ownerB-spending-credential",
+        "rollback-chain-only-knowledge-persists",
+        {
+          "actor": 2,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            0
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            0
+          ],
+          "kind": "spend",
+          "recipient": 2,
+          "root": 0
+        }
+      ],
+      "new_revealing_authority_implemented": false,
+      "opening_acceptance_required": false,
+      "same_NF_exclusion_does_not_prevent_theft_by_the_first_spender": true,
+      "violation": "copied-private-credential-theft"
+    },
+    "redirect": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            1,
+            0,
+            0
+          ],
+          "nf": 1,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            2,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            0,
+            2
+          ],
+          "quote": 1,
+          "reserve": 6,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [
+            0
+          ],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 1,
+            "amount": 3,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "claim",
+            "recipient": 2,
+            "root": 7
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 6,
+        "accepted_financial_edges": 476,
+        "context_and_authority_rejections": 928,
+        "data-liveness-failure": 2,
+        "environment_product_states": 112,
+        "financial_proposals": 490,
+        "financial_states": 14,
+        "rejected_financial_proposals": 13,
+        "unaccepted-private-service-failure": 56
+      },
+      "expected_liveness_failures": {
+        "data-liveness-failure": {
+          "claim_nf": 1,
+          "environment": [
+            true,
+            false,
+            false
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "LosePublicData"
+            },
+            {
+              "kind": "LoseRetainedWitness"
+            }
+          ],
+          "principal": 3,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                0
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "redirect",
+      "safety_violation": "wrong-claim-recipient",
+      "stopped_at_first_counterexample": true
+    },
+    "reorg-financial-restore-knowledge-persistence": {
+      "checkpoint_products_checked": 32,
+      "orphan_claim_rejected": true,
+      "scope": "financial ancestor states are already in the complete graph; arbitrary hash/DAA/reorg validation is not modeled",
+      "service_data_and_adversary_knowledge_not_rolled_back": true
+    },
+    "retire-pending": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            0,
+            0,
+            0
+          ],
+          "nf": 21,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            0,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            0,
+            0
+          ],
+          "quote": 1,
+          "reserve": 0,
+          "retired": true,
+          "roots": [
+            29127
+          ],
+          "spent": [],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0,
+              0,
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0,
+              2,
+              4
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [],
+            "kind": "retire",
+            "recipient": -1,
+            "root": 0
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 198,
+        "accepted_financial_edges": 678,
+        "context_and_authority_rejections": 1294,
+        "data-liveness-failure": 66,
+        "environment_product_states": 256,
+        "financial_proposals": 908,
+        "financial_states": 32,
+        "rejected_financial_proposals": 229,
+        "unaccepted-private-service-failure": 124
+      },
+      "expected_liveness_failures": {
+        "data-liveness-failure": {
+          "claim_nf": 1,
+          "environment": [
+            true,
+            false,
+            false
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "LosePublicData"
+            },
+            {
+              "kind": "LoseRetainedWitness"
+            }
+          ],
+          "principal": 3,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                0
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "retire-pending",
+      "safety_violation": "lost-or-excess-shared-backing",
+      "stopped_at_first_counterexample": true
+    },
+    "root-local-id": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          true,
+          true,
+          true
+        ],
+        "environment_loss_trace": [],
+        "state": {
+          "claims": [
+            3,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            1,
+            0,
+            0
+          ],
+          "nf": 5,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            2,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            2,
+            0
+          ],
+          "quote": 1,
+          "reserve": 6,
+          "retired": false,
+          "roots": [
+            7,
+            455
+          ],
+          "spent": [
+            56
+          ],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              2
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 1,
+            "amount": 3,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "claim",
+            "recipient": 1,
+            "root": 7
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 3900,
+        "accepted_financial_edges": 5185,
+        "context_and_authority_rejections": 9574,
+        "data-liveness-failure": 1300,
+        "economic-liveness-failure": 432,
+        "environment_product_states": 3304,
+        "financial_proposals": 9864,
+        "financial_states": 413,
+        "rejected_financial_proposals": 4678,
+        "unaccepted-private-service-failure": 1236
+      },
+      "directed_accepted_index_shift_double_payment": {
+        "actual_model_fees": 2,
+        "actual_model_native_paid": 4,
+        "new_accepted_root": 28679,
+        "new_leaf_index": 1,
+        "old_accepted_root": 28672,
+        "old_leaf_index": 0,
+        "original_principal": 3,
+        "same_source_nf": 5,
+        "second_payment_accepted_by_broken_model": true,
+        "separate_directed_trace_continues_past_first_backing_violation": true,
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              4
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 1,
+            "amount": 3,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              4
+            ],
+            "kind": "claim",
+            "recipient": 1,
+            "root": 28672
+          },
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          },
+          {
+            "actor": 1,
+            "amount": 3,
+            "authentic": true,
+            "fees": [
+              1
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              4
+            ],
+            "kind": "claim",
+            "recipient": 1,
+            "root": 28679
+          }
+        ]
+      },
+      "expected_liveness_failures": {
+        "data-liveness-failure": {
+          "claim_nf": 1,
+          "environment": [
+            true,
+            false,
+            false
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "LosePublicData"
+            },
+            {
+              "kind": "LoseRetainedWitness"
+            }
+          ],
+          "principal": 3,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                0
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "economic-liveness-failure": {
+          "claim_nf": 2,
+          "environment": [
+            true,
+            true,
+            true
+          ],
+          "environment_loss_trace": [],
+          "principal": 1,
+          "quote": 1,
+          "trace": [
+            {
+              "actor": 1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                1
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                0
+              ],
+              "kind": "spend",
+              "recipient": 0,
+              "root": 0
+            },
+            {
+              "actor": -1,
+              "amount": -1,
+              "authentic": true,
+              "fees": [
+                1
+              ],
+              "fresh": true,
+              "historical_paid": false,
+              "ids": [
+                1
+              ],
+              "kind": "accept",
+              "recipient": -1,
+              "root": 0
+            }
+          ]
+        },
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "root-local-id",
+      "safety_violation": "currently-spendable-liabilities-exceed-reserve",
+      "stopped_at_first_counterexample": true
+    },
+    "service-dependent": {
+      "complete": false,
+      "conditional_reveal": false,
+      "config": {
+        "id": 127,
+        "mode": "shared-root",
+        "owners": [
+          1,
+          1,
+          1
+        ],
+        "values": [
+          3,
+          3,
+          3
+        ]
+      },
+      "counterexample": {
+        "environment": [
+          false,
+          true,
+          true
+        ],
+        "environment_loss_trace": [
+          {
+            "kind": "ShutdownAcceptanceService"
+          }
+        ],
+        "state": {
+          "claims": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "escrow": 0,
+          "fees": [
+            0,
+            0,
+            0
+          ],
+          "nf": 1,
+          "owners": [
+            1,
+            -1,
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "paid_origin": [
+            0,
+            0,
+            0
+          ],
+          "paid_owner": [
+            0,
+            0,
+            0
+          ],
+          "quote": 1,
+          "reserve": 9,
+          "retired": false,
+          "roots": [
+            7
+          ],
+          "spent": [],
+          "values": [
+            3,
+            0,
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        "trace": [
+          {
+            "actor": -1,
+            "amount": -1,
+            "authentic": true,
+            "fees": [
+              0
+            ],
+            "fresh": true,
+            "historical_paid": false,
+            "ids": [
+              0
+            ],
+            "kind": "accept",
+            "recipient": -1,
+            "root": 0
+          }
+        ]
+      },
+      "counterexample_is_model_not_native_execution": true,
+      "counts": {
+        "accepted-feasible-claim-reachable": 1,
+        "accepted_financial_edges": 459,
+        "context_and_authority_rejections": 892,
+        "environment_product_states": 106,
+        "financial_proposals": 472,
+        "financial_states": 14,
+        "rejected_financial_proposals": 13,
+        "unaccepted-private-service-failure": 52
+      },
+      "expected_liveness_failures": {
+        "unaccepted-private-service-failure": {
+          "environment": [
+            false,
+            true,
+            true
+          ],
+          "environment_loss_trace": [
+            {
+              "kind": "ShutdownAcceptanceService"
+            }
+          ],
+          "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+          "trace": []
+        }
+      },
+      "mutant": "service-dependent",
+      "safety_violation": "accepted-claim-service-dependence",
+      "stopped_at_first_counterexample": true
+    }
+  }
+}

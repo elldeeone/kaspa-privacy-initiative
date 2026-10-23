@@ -1,0 +1,23 @@
+{
+  "schema": "native-terminal-claim-prebuild-v1",
+  "scope": "normal depth1/count1-to-0 terminal claim under ADR0039; public synthetic UTXOs only",
+  "source_plan_sha256": "5c665f60e822f30cd856a8af9df65907464a75431250cd4b238eab98d87f5dbb",
+  "pre_execution_plan_amendment": "Before any source/config or prepared-input freeze, replace exact-size fee UTXO by existing100M P2PK fee coin with P2PK change. Original plan remains immutable; no result informed this change.",
+  "claim_principal_sompi": 60000000,
+  "permission_rent_sompi": 50000000,
+  "external_fee_coin_sompi": 100000000,
+  "terminal_payout_sompi": 110000000,
+  "rates_sompi_per_mining_mass_gram": [100, 200, 500],
+  "permission_compute_budget": 22,
+  "delegate_compute_budget": 0,
+  "fee_payer_compute_budget": 10,
+  "budget_rationale": "Cost-agent conservative source bound220421 permission units permits budget22; no unmeasured minimum-budget claim. Delegate source bound1835 fits free9999, payer Schnorr100001 fits budget10.",
+  "expected_cases": 22,
+  "positive_full_cases": ["sponsored-positive-100", "sponsored-positive-200", "sponsored-positive-500", "zero-fee"],
+  "self_funded_target": "60M principal to >=10M principal payout, fee entirely from that principal; unchanged source expected to reject three positive-fee attempts",
+  "source_semantics": "Terminal new-path result discarded; do not claim second-path mutation rejection. Wrong delegate covenant/SPK and leaf hash tag are specific controls, not general app-domain replay.",
+  "validation_gate": "Freeze exact signed preparation and expected input-script verdicts, then independent second pass before run invokes VM/Full. Resource/compiler errors are not negative acceptance results.",
+  "resources": {"cpu_max_equivalents": 6, "memory_max_gib": 10, "swap_max_bytes": 0, "network": "isolated", "gpu": false},
+  "private_target": "/home/luke/projects/kpi-intensive-2026-10-22/native-claim-target",
+  "upstream_native_branch_local_ref": "Task-local cached origin/master pinned9fdbaf1b1886fb5742783d2da73c36239bd6f272 for offline resolution; original upstream/global caches unchanged. Lock retains both exact native revisions."
+}

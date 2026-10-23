@@ -1,0 +1,1574 @@
+{
+  "schema": "native-terminal-claim-source-bridge-v1",
+  "created_utc": "2026-10-22T23:43:00.526398+00:00",
+  "status": "SOURCE_REVIEW_ONLY_PREBUILD; no compilation or runtime validation",
+  "plan": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/exit-fee/NATIVE-CLAIM-PROBE-PLAN.md",
+    "sha256": "5c665f60e822f30cd856a8af9df65907464a75431250cd4b238eab98d87f5dbb",
+    "source_path_correction": "The plan shorthand test-suite/tests/permission_spend.rs resolves to zk/backend/risc0/test-suite/tests/permission_spend.rs at the exact vProgs pin."
+  },
+  "scope": {
+    "tree_depth": 1,
+    "initial_unclaimed_count": 1,
+    "final_unclaimed_count": 0,
+    "entitlement_sompi": 60000000,
+    "deduct_sompi": 60000000,
+    "permission_rent_sompi": 50000000,
+    "minimum_final_payout_sompi": 110000000,
+    "continuation_output_count": 0,
+    "script_public_key_version": 0,
+    "transaction_version_is_separate": "Use selected native Toccata transaction construction; SPK version 0 does not imply transaction version 0.",
+    "synthetic_supplied_utxos_only": true
+  },
+  "source_identities": {
+    "vprogs": {
+      "official_repository": "https://github.com/kaspanet/vprogs",
+      "commit": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "local_cache": "/home/luke/projects/kpi-intensive-2026-10-22/binding-cargo-home/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8",
+      "verified_cache_head": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "native_lock_source": "git+https://github.com/kaspanet/rusty-kaspa?branch=master#9fdbaf1b1886fb5742783d2da73c36239bd6f272",
+      "source_files": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 11273,
+          "sha256": "0303e247ae3662b3b1eff42f61cfc0b6457d9a6431e1952531e89176737aebf8",
+          "lines": 218,
+          "git_blob": "876d619e3853172904fd7612ab73b3493ea9cf94"
+        },
+        {
+          "path": "Cargo.lock",
+          "bytes": 247686,
+          "sha256": "98cc62c70291ec83ba8ed9cc490e358f5b52e6b09a2b4b5433e1e392af74344e",
+          "lines": 10657,
+          "git_blob": "893d40dfe0deb803e0b4473109074296385c4ecb"
+        },
+        {
+          "path": "zk/backend/risc0/api/Cargo.toml",
+          "bytes": 2187,
+          "sha256": "38b782c4dc87c6c4614efa2a744ae94c454ce7807b8573ac43e9f937560510f3",
+          "lines": 59,
+          "git_blob": "4f702bfd5167601a34e3083bc8e75d862c699235"
+        },
+        {
+          "path": "zk/backend/risc0/api/build.rs",
+          "bytes": 1316,
+          "sha256": "346c032038554f43482a92f1254988775a565b4bd726cb8dd8660fa6caceda7b",
+          "lines": 33,
+          "git_blob": "05d7cf1e2cec4a8fff45626e617ac90c51fea44a"
+        },
+        {
+          "path": "zk/backend/risc0/api/src/lib.rs",
+          "bytes": 1469,
+          "sha256": "e342cc935dff0d45d061a48cd6f64dee3dc5093c24fd31613b23018fef3c3331",
+          "lines": 50,
+          "git_blob": "c9795a9c004a8fa73f54c8ed09129d1f1d33ac00"
+        },
+        {
+          "path": "zk/backend/risc0/api/src/permission_script.rs",
+          "bytes": 33826,
+          "sha256": "f23c746cc15203e3f52c64dc66c2b651b688ddc49e62722a067b6178f5c13d5e",
+          "lines": 852,
+          "git_blob": "1d9d615708711fbea586e15ceff4c70d35d896ab"
+        },
+        {
+          "path": "zk/backend/risc0/api/src/permission_tree.rs",
+          "bytes": 9464,
+          "sha256": "b91f7c0b1fc3300887497772d6d8a5f8c4674dbfb3ed4cc7e8af3fa1875db616",
+          "lines": 231,
+          "git_blob": "39bea38f6df7876958687b4e8df955afb191ecbd"
+        },
+        {
+          "path": "zk/backend/risc0/api/src/permission_tags.rs",
+          "bytes": 1895,
+          "sha256": "5bcca7a6c438f6dae86be058abcf5a66bfda85ebd1e9d56666075b7effc08e0a",
+          "lines": 38,
+          "git_blob": "e86d1aa7b9db0a323193427d626a1e0761f1624f"
+        },
+        {
+          "path": "zk/backend/risc0/api/src/sha256.rs",
+          "bytes": 1321,
+          "sha256": "f70c8fd4f204f461175d2026290c779ee8ab41d3132a1a96bf08e3abad329fb4",
+          "lines": 39,
+          "git_blob": "abf932c43a5786a4f457ba99f01a175efa7ac865"
+        },
+        {
+          "path": "zk/abi/Cargo.toml",
+          "bytes": 1607,
+          "sha256": "5c08dc43dead45a77cb949bc1a8bcfe6ea61928fb9cb05f20bbd0fd5d0f2a633",
+          "lines": 42,
+          "git_blob": "688a64b1df90184db98882aa71218a006f3a22de"
+        },
+        {
+          "path": "zk/abi/src/delegate_script.rs",
+          "bytes": 1584,
+          "sha256": "58563d9fc0295720649758f0ed54c4af0a1d93d40bf1bcf20de7877024a4d3f4",
+          "lines": 25,
+          "git_blob": "4e656373493e2ac51ffab7e018d7f3c9b24e73b5"
+        },
+        {
+          "path": "core/merkle-tree/src/streaming_builder.rs",
+          "bytes": 10224,
+          "sha256": "8fd3215a0ff8c8c0f76616599799cafbaa4af8c52dc7336f0f2013a545c93227",
+          "lines": 282,
+          "git_blob": "88a0d0fb8dbff379fbe6eddbfcca025f95c4cd82"
+        },
+        {
+          "path": "zk/backend/risc0/test-suite/tests/permission_spend.rs",
+          "bytes": 19347,
+          "sha256": "18762273061489fdf4777fd85f4a9b71d039dd7fb2464204be90efe31f7ed5b3",
+          "lines": 448,
+          "git_blob": "f68666232d91d75d731e77c520b16d69330b7c18"
+        }
+      ]
+    },
+    "native_upstream_lock": {
+      "official_repository": "https://github.com/kaspanet/rusty-kaspa",
+      "commit": "9fdbaf1b1886fb5742783d2da73c36239bd6f272",
+      "object_access": "git show exact commit from existing native cache; no checkout, fetch or patch"
+    },
+    "native_full_checker": {
+      "official_repository": "https://github.com/kaspanet/rusty-kaspa",
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "local_cache": "/home/luke/projects/kpi-intensive-2026-10-22/binding-cargo-home/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e",
+      "verified_cache_head": "01b532e8b553523216471682649693af92f0fd16",
+      "reusable_checker_files": [
+        {
+          "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/public-state-consensus-check/Cargo.toml",
+          "bytes": 880,
+          "sha256": "6b69883a457c9ff5f94db3da5fdf7034b9c592390d05b951a41b51dab37eb3a4"
+        },
+        {
+          "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/public-state-consensus-check/Cargo.lock",
+          "bytes": 109286,
+          "sha256": "7e9ea615a2e391b7642929862f181f9093eb11887804fa77e31d13c5f214dfd1"
+        },
+        {
+          "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/public-state-consensus-check/src/main.rs",
+          "bytes": 17227,
+          "sha256": "6c33f1b270770b2b8e925be6c4e236bf10cc199c9e301210277f3a5d19ab6414"
+        }
+      ]
+    },
+    "native_file_comparison": [
+      {
+        "path": "crypto/txscript/src/opcodes/mod.rs",
+        "byte_identical": false,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/opcodes/mod.rs",
+            "bytes": 236928,
+            "sha256": "85c67bb171620c8bfb087d94444adcb7e9e153866fec0545ccdd0a012e4a6cfc",
+            "lines": 5208,
+            "git_blob": "8236e6c8d569428d16fecc0195b983c07b67d440"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/opcodes/mod.rs",
+            "bytes": 222781,
+            "sha256": "201d69b5a8de3db27b94b3e850a7ee62c4920532886c1d19544baed7fd163731",
+            "lines": 4965,
+            "git_blob": "3e5e2133a457c17b14ec7904dc8dd7aced892ef8"
+          }
+        }
+      },
+      {
+        "path": "crypto/txscript/src/opcodes/macros.rs",
+        "byte_identical": true,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/opcodes/macros.rs",
+            "bytes": 7252,
+            "sha256": "4885456e9d7ddf7ca96a150ea0094f6e8c2946ae202bf1260c73074b98d0a4c3",
+            "lines": 182,
+            "git_blob": "b12d72c67813a3491e7cacf39a233aab5f10abde"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/opcodes/macros.rs",
+            "bytes": 7252,
+            "sha256": "4885456e9d7ddf7ca96a150ea0094f6e8c2946ae202bf1260c73074b98d0a4c3",
+            "lines": 182,
+            "git_blob": "b12d72c67813a3491e7cacf39a233aab5f10abde"
+          }
+        }
+      },
+      {
+        "path": "crypto/txscript/src/lib.rs",
+        "byte_identical": false,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/lib.rs",
+            "bytes": 117620,
+            "sha256": "fd414680bddce1eba4a82fb406f428972d4354f6e2227aa230bd0d197f3f6cff",
+            "lines": 2734,
+            "git_blob": "d29522d58f90d5ddb4004be85244718f77cdf1e4"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/lib.rs",
+            "bytes": 113326,
+            "sha256": "f8011e2f992172f4ecfc0e5d30a89b78e07c1a3b1d0b981065bcfd0518593b53",
+            "lines": 2662,
+            "git_blob": "8981f6b4fc9d85c0b71c64c59b829424e24f83af"
+          }
+        }
+      },
+      {
+        "path": "crypto/txscript/src/covenants.rs",
+        "byte_identical": true,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/covenants.rs",
+            "bytes": 19436,
+            "sha256": "152ff055a603aa50cc24fdf8a8ae281b944892e1c0a55631425652cd54c08ec0",
+            "lines": 452,
+            "git_blob": "7cf8603e1cd7b4dc574145563e6c560bb6c1c93e"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/covenants.rs",
+            "bytes": 19436,
+            "sha256": "152ff055a603aa50cc24fdf8a8ae281b944892e1c0a55631425652cd54c08ec0",
+            "lines": 452,
+            "git_blob": "7cf8603e1cd7b4dc574145563e6c560bb6c1c93e"
+          }
+        }
+      },
+      {
+        "path": "crypto/txscript/src/data_stack.rs",
+        "byte_identical": false,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/data_stack.rs",
+            "bytes": 37406,
+            "sha256": "eb4ae96043f83ae0152c845b53613c8351091b6957af5e296c69b27ddb5e020e",
+            "lines": 855,
+            "git_blob": "ae79fe122bf60dac4399ed8eb4b47cdd4b54b523"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/data_stack.rs",
+            "bytes": 32973,
+            "sha256": "9caf21b92c51002099f02b140b119f9126274630365805d63837f847f4168050",
+            "lines": 759,
+            "git_blob": "6ef8cb335a3e54ee5c3de1a59eb53f2e4f0fe869"
+          }
+        }
+      },
+      {
+        "path": "crypto/txscript/src/script_builder.rs",
+        "byte_identical": false,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/script_builder.rs",
+            "bytes": 37123,
+            "sha256": "b6217359a81ec4866d0c6e7ef2edda1a20e7c93376ce526ef2942e9e05c190be",
+            "lines": 787,
+            "git_blob": "3f368a602fd8c05e22ffebb9858570d7c3f89a5c"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/script_builder.rs",
+            "bytes": 35823,
+            "sha256": "dd07e2666c3e65249229e33e9f825c9f0da30825f8235bdd6079c6178297fe7b",
+            "lines": 764,
+            "git_blob": "a68de78f19c147c2390102dd89ae80a325e70755"
+          }
+        }
+      },
+      {
+        "path": "crypto/txscript/src/standard.rs",
+        "byte_identical": true,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/standard.rs",
+            "bytes": 11078,
+            "sha256": "4b7f6132bc927c8daffdfd9d704cd55c338f9e15498c3a9ec39f79f0074ae765",
+            "lines": 226,
+            "git_blob": "29619a85a01cf8d14c78e6b89c751cfc0a79c55b"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/standard.rs",
+            "bytes": 11078,
+            "sha256": "4b7f6132bc927c8daffdfd9d704cd55c338f9e15498c3a9ec39f79f0074ae765",
+            "lines": 226,
+            "git_blob": "29619a85a01cf8d14c78e6b89c751cfc0a79c55b"
+          }
+        }
+      },
+      {
+        "path": "crypto/txscript/src/script_class.rs",
+        "byte_identical": true,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "crypto/txscript/src/script_class.rs",
+            "bytes": 7158,
+            "sha256": "7199dfe439441e3c25cabc25b73d0afe065122828ea2bb864257a4cb49bd9b66",
+            "lines": 203,
+            "git_blob": "9d9b84b7ec7c301b8fd87bde4fc461f4c01acbe9"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "crypto/txscript/src/script_class.rs",
+            "bytes": 7158,
+            "sha256": "7199dfe439441e3c25cabc25b73d0afe065122828ea2bb864257a4cb49bd9b66",
+            "lines": 203,
+            "git_blob": "9d9b84b7ec7c301b8fd87bde4fc461f4c01acbe9"
+          }
+        }
+      },
+      {
+        "path": "consensus/core/src/tx/script_public_key.rs",
+        "byte_identical": true,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "consensus/core/src/tx/script_public_key.rs",
+            "bytes": 18401,
+            "sha256": "40c232195b69c90a8307aa9778dfaed31140fabe9ccae0df97994a0393431cde",
+            "lines": 504,
+            "git_blob": "500f15608ca4d8ad27ac31d35bcdb6188a67bfe2"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "consensus/core/src/tx/script_public_key.rs",
+            "bytes": 18401,
+            "sha256": "40c232195b69c90a8307aa9778dfaed31140fabe9ccae0df97994a0393431cde",
+            "lines": 504,
+            "git_blob": "500f15608ca4d8ad27ac31d35bcdb6188a67bfe2"
+          }
+        }
+      },
+      {
+        "path": "consensus/core/src/tx.rs",
+        "byte_identical": true,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "consensus/core/src/tx.rs",
+            "bytes": 49654,
+            "sha256": "bec0ba712a976e227a184ee3130bc0fd1222a452dade5820af92173ca5961656",
+            "lines": 1245,
+            "git_blob": "8e383daccf03a94f6592d0d17672a9bd61db05be"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "consensus/core/src/tx.rs",
+            "bytes": 49654,
+            "sha256": "bec0ba712a976e227a184ee3130bc0fd1222a452dade5820af92173ca5961656",
+            "lines": 1245,
+            "git_blob": "8e383daccf03a94f6592d0d17672a9bd61db05be"
+          }
+        }
+      },
+      {
+        "path": "consensus/core/src/constants.rs",
+        "byte_identical": false,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "consensus/core/src/constants.rs",
+            "bytes": 2446,
+            "sha256": "fdd5d6bd6b62169ef781086de1f102fab72148e7b2396a7f5d692e44ec897312",
+            "lines": 56,
+            "git_blob": "1b5e8a571bbd444019d49764312b4383bd94a9f6"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "consensus/core/src/constants.rs",
+            "bytes": 2200,
+            "sha256": "e972b0582b2e40566cb0fc1140da7cd7de88d681104a0b6b63d7a5b2e06d3a2e",
+            "lines": 51,
+            "git_blob": "dd49fe31412b33189454af8a844d3eb3c60f68d4"
+          }
+        }
+      },
+      {
+        "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+        "byte_identical": false,
+        "revisions": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": {
+            "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+            "bytes": 50696,
+            "sha256": "52fb7c8f8319230ec8a81e82988a2a1a0f38bf1030394bead3e40ff5cbb4d63e",
+            "lines": 1140,
+            "git_blob": "214dd841df50dacd8c9ea5607a1f7723e53afdec"
+          },
+          "01b532e8b553523216471682649693af92f0fd16": {
+            "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+            "bytes": 50222,
+            "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+            "lines": 1124,
+            "git_blob": "477101933095872c5fdee38806a00ea369a87056"
+          }
+        }
+      }
+    ]
+  },
+  "api_feature_boundary": {
+    "package": "vprogs-zk-backend-risc0-api",
+    "requested_dependency_default_features": false,
+    "requested_features": [],
+    "manifest_features": {
+      "cuda": [
+        "risc0-zkvm/cuda"
+      ],
+      "default": [
+        "std"
+      ],
+      "guest": [
+        "dep:risc0-zkvm"
+      ],
+      "host": [
+        "std",
+        "guest",
+        "risc0-zkvm/prove",
+        "dep:ark-bn254",
+        "dep:ark-groth16",
+        "dep:ark-serialize",
+        "dep:risc0-binfmt",
+        "dep:risc0-groth16",
+        "dep:risc0-zkos-v1compat",
+        "dep:vprogs-core-macros",
+        "dep:vprogs-zk-aggregate-prover",
+        "dep:vprogs-zk-backend-risc0-covenant",
+        "dep:vprogs-zk-batch-prover",
+        "dep:vprogs-zk-transaction-prover",
+        "dep:vprogs-zk-vm"
+      ],
+      "std": [
+        "vprogs-zk-abi/std"
+      ]
+    },
+    "public_unconditional_exports_source": "zk/backend/risc0/api/src/lib.rs:34-50",
+    "risc0_zkvm_dependency": {
+      "version": "3.0",
+      "default-features": false,
+      "optional": true
+    },
+    "source_result": "The selected API feature set does not itself enable optional risc0-zkvm, host, guest, CUDA, Arkworks, or proving backends. Permission/delegate generation and tree hashes are unconditional public exports.",
+    "not_dependency_free": "ABI retains nonoptional kaspa-hashes, kaspa-seq-commit, kaspa-smt, vprogs-l1-utils and core dependencies. build.rs also uses core hashing/Merkle crates.",
+    "abi_nonoptional_dependencies": [
+      "kaspa-hashes",
+      "kaspa-seq-commit",
+      "kaspa-smt",
+      "tap",
+      "thiserror",
+      "vprogs-core-codec",
+      "vprogs-core-hashing",
+      "vprogs-core-smt",
+      "vprogs-core-types",
+      "vprogs-l1-utils",
+      "zerocopy"
+    ],
+    "build_or_full_cargo_feature_resolution_performed": false,
+    "feature_unification_caveat": "A complete harness Cargo.lock/graph must preserve selected native revisions and be checked for unintended feature unification. This source-only audit is not cargo-tree or build evidence."
+  },
+  "raw_byte_bridge": {
+    "allowed": [
+      "Official emitter Vec<u8> or fixed byte-array script values",
+      "32-byte hashes, covenant IDs and public keys explicitly copied into selected native types"
+    ],
+    "forbidden": [
+      "Passing rusty-kaspa Rust types across source revisions",
+      "Substituting rewritten emitters",
+      "Patching native or upstream source to make a case pass"
+    ],
+    "numeric_opcode_result": "All 40 declared OP_* constants in permission_script.rs match native numeric opcode IDs at both exact native revisions.",
+    "declared_permission_opcode_count": 40,
+    "permission_opcodes": [
+      {
+        "vprogs_constant": "OP_FALSE",
+        "byte_hex": "00",
+        "native_name": "OpFalse",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 320,
+        "native_01b532e_line": 250,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "4c54588ad952a5a2f7d8fa6df1527e0927e027dc837f91efd49dff76323a46cc",
+          "01b532e8b553523216471682649693af92f0fd16": "4c54588ad952a5a2f7d8fa6df1527e0927e027dc837f91efd49dff76323a46cc"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TRUE",
+        "byte_hex": "51",
+        "native_name": "OpTrue",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 407,
+        "native_01b532e_line": 337,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "95f3700d9e8cd9fa4339e4086aa5e9f3efedcfcced609adbe78c6a2337a9ef88",
+          "01b532e8b553523216471682649693af92f0fd16": "95f3700d9e8cd9fa4339e4086aa5e9f3efedcfcced609adbe78c6a2337a9ef88"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_IF",
+        "byte_hex": "63",
+        "native_name": "OpIf",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 428,
+        "native_01b532e_line": 358,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "b44733d41521f7c846af037ff829e24d20da991efcc43b27a963c738cbf29a71",
+          "01b532e8b553523216471682649693af92f0fd16": "a24c9841288cb069e22a4a562152c5e4fbd5a64b08c0b0c01ba3c0e42c5251fa"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_ELSE",
+        "byte_hex": "67",
+        "native_name": "OpElse",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 489,
+        "native_01b532e_line": 393,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "88bf3640c29ed0cb291cc21adae56c02f852930034e71aec8892954e9b98f542",
+          "01b532e8b553523216471682649693af92f0fd16": "88bf3640c29ed0cb291cc21adae56c02f852930034e71aec8892954e9b98f542"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_ENDIF",
+        "byte_hex": "68",
+        "native_name": "OpEndIf",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 498,
+        "native_01b532e_line": 402,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "c4bae34d5095dad083c24395b1fda23af658e830ed969b1790d6527ddf2fbe5e",
+          "01b532e8b553523216471682649693af92f0fd16": "c4bae34d5095dad083c24395b1fda23af658e830ed969b1790d6527ddf2fbe5e"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_VERIFY",
+        "byte_hex": "69",
+        "native_name": "OpVerify",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 505,
+        "native_01b532e_line": 409,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "7ad73932237aaf42ce28ee4083637ffa9960b5474e4544b5cbffa211115b5cf3",
+          "01b532e8b553523216471682649693af92f0fd16": "7ad73932237aaf42ce28ee4083637ffa9960b5474e4544b5cbffa211115b5cf3"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TOALTSTACK",
+        "byte_hex": "6b",
+        "native_name": "OpToAltStack",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 516,
+        "native_01b532e_line": 420,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "cabf6329952495c790fd8052ef4e3855e2c0abf2b69eeecb8e71d05ee698f99d",
+          "01b532e8b553523216471682649693af92f0fd16": "cabf6329952495c790fd8052ef4e3855e2c0abf2b69eeecb8e71d05ee698f99d"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_FROMALTSTACK",
+        "byte_hex": "6c",
+        "native_name": "OpFromAltStack",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 522,
+        "native_01b532e_line": 426,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "ff35e6cd99902ca8b60a9c60761b451ecd12a1575c5e643220e45a1f7bd1970f",
+          "01b532e8b553523216471682649693af92f0fd16": "ff35e6cd99902ca8b60a9c60761b451ecd12a1575c5e643220e45a1f7bd1970f"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_DROP",
+        "byte_hex": "75",
+        "native_name": "OpDrop",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 545,
+        "native_01b532e_line": 449,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "5c1a62525362a259bfc42a0aad128d3af285236fc4929b88cb6329548e511e43",
+          "01b532e8b553523216471682649693af92f0fd16": "5c1a62525362a259bfc42a0aad128d3af285236fc4929b88cb6329548e511e43"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_DUP",
+        "byte_hex": "76",
+        "native_name": "OpDup",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 546,
+        "native_01b532e_line": 450,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "40f42fda7dc5f732b9fc58858d74826aee48ea4e7ef7e28f6d912f913baff918",
+          "01b532e8b553523216471682649693af92f0fd16": "40f42fda7dc5f732b9fc58858d74826aee48ea4e7ef7e28f6d912f913baff918"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_NIP",
+        "byte_hex": "77",
+        "native_name": "OpNip",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 548,
+        "native_01b532e_line": 452,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "ed1458f2295610f29bddfa8943db68c77ec8d7230458b3ef753aac9ab4a0fadd",
+          "01b532e8b553523216471682649693af92f0fd16": "ed1458f2295610f29bddfa8943db68c77ec8d7230458b3ef753aac9ab4a0fadd"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_OVER",
+        "byte_hex": "78",
+        "native_name": "OpOver",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 558,
+        "native_01b532e_line": 462,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "4c70cf1b8d02b70c4b66a13bd5d096b68da8d59e4e7c562e5cf887981edb462c",
+          "01b532e8b553523216471682649693af92f0fd16": "4c70cf1b8d02b70c4b66a13bd5d096b68da8d59e4e7c562e5cf887981edb462c"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_PICK",
+        "byte_hex": "79",
+        "native_name": "OpPick",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 560,
+        "native_01b532e_line": 464,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "6261dfca2a08ccd761163d1fdbc13482fede308611acb3d2f509d4ca6d8d124e",
+          "01b532e8b553523216471682649693af92f0fd16": "6261dfca2a08ccd761163d1fdbc13482fede308611acb3d2f509d4ca6d8d124e"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_ROLL",
+        "byte_hex": "7a",
+        "native_name": "OpRoll",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 568,
+        "native_01b532e_line": 472,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "3dba7335f9001f6adc30accb41b7aac068619c0bad44678303143f5a8aa35d86",
+          "01b532e8b553523216471682649693af92f0fd16": "3dba7335f9001f6adc30accb41b7aac068619c0bad44678303143f5a8aa35d86"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_ROT",
+        "byte_hex": "7b",
+        "native_name": "OpRot",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 576,
+        "native_01b532e_line": 480,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "c12d3e0bfe5920a2ba027e64162ab247c576e13854e8fc5738dfc6ebdbbf85f0",
+          "01b532e8b553523216471682649693af92f0fd16": "c12d3e0bfe5920a2ba027e64162ab247c576e13854e8fc5738dfc6ebdbbf85f0"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_SWAP",
+        "byte_hex": "7c",
+        "native_name": "OpSwap",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 577,
+        "native_01b532e_line": 481,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "641a7be4a2d27c8ddffff49cffb204377a7f56bd0dc6776201d589d2a35a0011",
+          "01b532e8b553523216471682649693af92f0fd16": "641a7be4a2d27c8ddffff49cffb204377a7f56bd0dc6776201d589d2a35a0011"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_CAT",
+        "byte_hex": "7e",
+        "native_name": "OpCat",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 590,
+        "native_01b532e_line": 494,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "4cf3f0bc6cb08e4f5516d8101bcb956b89f01affc796969dd6d58483f4dd7f37",
+          "01b532e8b553523216471682649693af92f0fd16": "c79e12a0c0382c35ac2b5d091e9a426bf6c2d626ee934260786e27fe5777adb9"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_EQUAL",
+        "byte_hex": "87",
+        "native_name": "OpEqual",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 680,
+        "native_01b532e_line": 560,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "541449904791bccb55fc2395b520bef9c461816e2a3158274d2152a738d14919",
+          "01b532e8b553523216471682649693af92f0fd16": "541449904791bccb55fc2395b520bef9c461816e2a3158274d2152a738d14919"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_EQUALVERIFY",
+        "byte_hex": "88",
+        "native_name": "OpEqualVerify",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 693,
+        "native_01b532e_line": 573,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "2dad6e607071334ee56e156a98efe06721e680a56b286e3b9a08d879d04ea822",
+          "01b532e8b553523216471682649693af92f0fd16": "2dad6e607071334ee56e156a98efe06721e680a56b286e3b9a08d879d04ea822"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_1SUB",
+        "byte_hex": "8c",
+        "native_name": "Op1Sub",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 717,
+        "native_01b532e_line": 597,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "e62c0be94c08f76cb42437d35323d0e092c21b2ff6fbee660538e1a43ea89642",
+          "01b532e8b553523216471682649693af92f0fd16": "e62c0be94c08f76cb42437d35323d0e092c21b2ff6fbee660538e1a43ea89642"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_ADD",
+        "byte_hex": "93",
+        "native_name": "OpAdd",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 755,
+        "native_01b532e_line": 635,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "38181386da4c2f6c3cb48d0317f52490607006a6bdfc4ae8c8f51e75f056e014",
+          "01b532e8b553523216471682649693af92f0fd16": "38181386da4c2f6c3cb48d0317f52490607006a6bdfc4ae8c8f51e75f056e014"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_SUB",
+        "byte_hex": "94",
+        "native_name": "OpSub",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 762,
+        "native_01b532e_line": 642,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "92566d92a89d405b9d253d63f7dfd7a7f7c68bdf813f7df011e3758b10424457",
+          "01b532e8b553523216471682649693af92f0fd16": "92566d92a89d405b9d253d63f7dfd7a7f7c68bdf813f7df011e3758b10424457"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_NUMEQUALVERIFY",
+        "byte_hex": "9d",
+        "native_name": "OpNumEqualVerify",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 826,
+        "native_01b532e_line": 694,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "5bdb0a47b5d0c80e7c2f428f104836392b4348bacd6afd3b17bd45cf41fe7a4a",
+          "01b532e8b553523216471682649693af92f0fd16": "5bdb0a47b5d0c80e7c2f428f104836392b4348bacd6afd3b17bd45cf41fe7a4a"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_GREATERTHAN",
+        "byte_hex": "a0",
+        "native_name": "OpGreaterThan",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 848,
+        "native_01b532e_line": 716,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "4d6b4a26e8f6f710fcfdbd8f8489ed899a5fbc6f7ac0e0b466cefaf81704cd96",
+          "01b532e8b553523216471682649693af92f0fd16": "4d6b4a26e8f6f710fcfdbd8f8489ed899a5fbc6f7ac0e0b466cefaf81704cd96"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_GREATERTHANOREQUAL",
+        "byte_hex": "a2",
+        "native_name": "OpGreaterThanOrEqual",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 862,
+        "native_01b532e_line": 730,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "0585580d11f470c7c1eb749eddbc8e552583124cab5c35527e6b96482534026e",
+          "01b532e8b553523216471682649693af92f0fd16": "0585580d11f470c7c1eb749eddbc8e552583124cab5c35527e6b96482534026e"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_SHA256",
+        "byte_hex": "a8",
+        "native_name": "OpSHA256",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 925,
+        "native_01b532e_line": 785,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "67eafa17b8466d2cb8e2acbd5fa618a2061060aaa388e347805ec579fb1ee32f",
+          "01b532e8b553523216471682649693af92f0fd16": "67eafa17b8466d2cb8e2acbd5fa618a2061060aaa388e347805ec579fb1ee32f"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_BLAKE2B",
+        "byte_hex": "aa",
+        "native_name": "OpBlake2b",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 937,
+        "native_01b532e_line": 797,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "776117b7745d9407df9714a71e3f234fcbc8e73d426b7bab6c11e8e2194d74d3",
+          "01b532e8b553523216471682649693af92f0fd16": "776117b7745d9407df9714a71e3f234fcbc8e73d426b7bab6c11e8e2194d74d3"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TXINPUTCOUNT",
+        "byte_hex": "b3",
+        "native_name": "OpTxInputCount",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1121,
+        "native_01b532e_line": 979,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "7bf808b0e502a44d3af16203be5579a5b478b0bd4cfa34ef247eaac9c891c9fc",
+          "01b532e8b553523216471682649693af92f0fd16": "7bf808b0e502a44d3af16203be5579a5b478b0bd4cfa34ef247eaac9c891c9fc"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TXOUTPUTCOUNT",
+        "byte_hex": "b4",
+        "native_name": "OpTxOutputCount",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1129,
+        "native_01b532e_line": 987,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "6df846996d17a643d88b2ac8f5b63aa9b8250e765555fbb7554339d3de1d7fd2",
+          "01b532e8b553523216471682649693af92f0fd16": "6df846996d17a643d88b2ac8f5b63aa9b8250e765555fbb7554339d3de1d7fd2"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TXINPUTINDEX",
+        "byte_hex": "b9",
+        "native_name": "OpTxInputIndex",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1188,
+        "native_01b532e_line": 1038,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "32f0c4a6e59e73acb2b9f1818c1db9d47dbb650cc15862c9708c2a6c160c6123",
+          "01b532e8b553523216471682649693af92f0fd16": "32f0c4a6e59e73acb2b9f1818c1db9d47dbb650cc15862c9708c2a6c160c6123"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TXINPUTSCRIPTSIGSUBSTR",
+        "byte_hex": "bc",
+        "native_name": "OpTxInputScriptSigSubstr",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1226,
+        "native_01b532e_line": 1072,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "a596b081c5756b13991280c35bd85c6fe47e68e0d3e93fb314036598d4138706",
+          "01b532e8b553523216471682649693af92f0fd16": "6ff8dac247dc5165e0bb875cde1458d373a8cf51a5ab281473d9f62a026f763c"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_TXINPUTAMOUNT",
+        "byte_hex": "be",
+        "native_name": "OpTxInputAmount",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1258,
+        "native_01b532e_line": 1100,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "30190014e91960818bec3c97723637d452548812aaf728a44596d1ce23c18e5a",
+          "01b532e8b553523216471682649693af92f0fd16": "30190014e91960818bec3c97723637d452548812aaf728a44596d1ce23c18e5a"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TXINPUTSPK",
+        "byte_hex": "bf",
+        "native_name": "OpTxInputSpk",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1270,
+        "native_01b532e_line": 1112,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "2500db61ad33c35008829485d1812e312dc47e33a5d25fdccb34a1ec7153aa58",
+          "01b532e8b553523216471682649693af92f0fd16": "2500db61ad33c35008829485d1812e312dc47e33a5d25fdccb34a1ec7153aa58"
+        },
+        "source_interval_identical": true
+      },
+      {
+        "vprogs_constant": "OP_TXOUTPUTAMOUNT",
+        "byte_hex": "c2",
+        "native_name": "OpTxOutputAmount",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1313,
+        "native_01b532e_line": 1151,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "ce0ce489f41c7b13d2ff56e32736e27e8da3f556871e53662f28e940ed64730e",
+          "01b532e8b553523216471682649693af92f0fd16": "c05afa7bc0348278c20bff5bc21d6df93291a0184e400f70b4d2a40cb19c8a5b"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_TXOUTPUTSPK",
+        "byte_hex": "c3",
+        "native_name": "OpTxOutputSpk",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1325,
+        "native_01b532e_line": 1163,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "ed6af6c64f9221fae74dfed3ec4ff881f84103a878e40823c96169131dcc1420",
+          "01b532e8b553523216471682649693af92f0fd16": "b7f5d68345c4f32000a4edd2c0c889954d5afbd6be9d0ed0592f315fb0ae40d9"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_TXINPUTSCRIPTSIGLEN",
+        "byte_hex": "c9",
+        "native_name": "OpTxInputScriptSigLen",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1421,
+        "native_01b532e_line": 1249,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "990d16dd9e63872facf65f0600de78e738c68203bb93cab67bd522e5a4bf2a02",
+          "01b532e8b553523216471682649693af92f0fd16": "e1798b8000732c5dc2dbf203b75f3eaf4907d7bcc7e2f3a80e2aa5428006457a"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_NUM2BIN",
+        "byte_hex": "cd",
+        "native_name": "OpNum2Bin",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1475,
+        "native_01b532e_line": 1297,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "a180e9feebb2c21289565dbcc279e05dda03efba9e98845bb79a602086b90e2e",
+          "01b532e8b553523216471682649693af92f0fd16": "bb049cb1774627d1b1a8998ac591bd4e06aeaccd24773f586d1890d5c1d4b6ab"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_INPUTCOVENANTID",
+        "byte_hex": "cf",
+        "native_name": "OpInputCovenantId",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1500,
+        "native_01b532e_line": 1318,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "54bc0684a88a083ced02b131e1f3c22d6c3f9386284d81b9e69fe2f6806980ba",
+          "01b532e8b553523216471682649693af92f0fd16": "155f5fbdb4989e34530b9d52cec18369f1985a3221dc9fa899a8ef3d5afcbc12"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_COVOUTCOUNT",
+        "byte_hex": "d2",
+        "native_name": "OpCovOutputCount",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1549,
+        "native_01b532e_line": 1361,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "ada5b312b17a023350ac541d9f18c4cc66583ab2963806ec32335f15292b89f6",
+          "01b532e8b553523216471682649693af92f0fd16": "2251d2a55b9ab97b88d3a2a3a7e79a5295d9a402423243c9bca4c42029e08063"
+        },
+        "source_interval_identical": false
+      },
+      {
+        "vprogs_constant": "OP_COVOUTPUTIDX",
+        "byte_hex": "d3",
+        "native_name": "OpCovOutputIdx",
+        "numeric_match_both_refs": true,
+        "native_9fdb_line": 1564,
+        "native_01b532e_line": 1374,
+        "opcode_source_interval_sha256": {
+          "9fdbaf1b1886fb5742783d2da73c36239bd6f272": "7e24b582bbc82639ac888e8bd29716b3424156685309118adec29753b0f8fe99",
+          "01b532e8b553523216471682649693af92f0fd16": "4de7c3e65686e14bee3702ea1c1f3af384d813dfec2d5439e0bad6967237183e"
+        },
+        "source_interval_identical": false
+      }
+    ],
+    "literal_emitter_push_codes": [
+      {
+        "byte_hex": "01",
+        "native_name": "OpData1",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "02",
+        "native_name": "OpData2",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "03",
+        "native_name": "OpData3",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "04",
+        "native_name": "OpData4",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "05",
+        "native_name": "OpData5",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "06",
+        "native_name": "OpData6",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "07",
+        "native_name": "OpData7",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "08",
+        "native_name": "OpData8",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "09",
+        "native_name": "OpData9",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "0a",
+        "native_name": "OpData10",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "0b",
+        "native_name": "OpData11",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "0c",
+        "native_name": "OpData12",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "0d",
+        "native_name": "OpData13",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "0e",
+        "native_name": "OpData14",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "0f",
+        "native_name": "OpData15",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "10",
+        "native_name": "OpData16",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "11",
+        "native_name": "OpData17",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "12",
+        "native_name": "OpData18",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "13",
+        "native_name": "OpData19",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "14",
+        "native_name": "OpData20",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "15",
+        "native_name": "OpData21",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "16",
+        "native_name": "OpData22",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "17",
+        "native_name": "OpData23",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "18",
+        "native_name": "OpData24",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "19",
+        "native_name": "OpData25",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "1a",
+        "native_name": "OpData26",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "1b",
+        "native_name": "OpData27",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "1c",
+        "native_name": "OpData28",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "1d",
+        "native_name": "OpData29",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "1e",
+        "native_name": "OpData30",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "1f",
+        "native_name": "OpData31",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "20",
+        "native_name": "OpData32",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "21",
+        "native_name": "OpData33",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "22",
+        "native_name": "OpData34",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "23",
+        "native_name": "OpData35",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "24",
+        "native_name": "OpData36",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "25",
+        "native_name": "OpData37",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "26",
+        "native_name": "OpData38",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "27",
+        "native_name": "OpData39",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "28",
+        "native_name": "OpData40",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "29",
+        "native_name": "OpData41",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "2a",
+        "native_name": "OpData42",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "2b",
+        "native_name": "OpData43",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "2c",
+        "native_name": "OpData44",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "2d",
+        "native_name": "OpData45",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "2e",
+        "native_name": "OpData46",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "2f",
+        "native_name": "OpData47",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "30",
+        "native_name": "OpData48",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "31",
+        "native_name": "OpData49",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "32",
+        "native_name": "OpData50",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "33",
+        "native_name": "OpData51",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "34",
+        "native_name": "OpData52",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "35",
+        "native_name": "OpData53",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "36",
+        "native_name": "OpData54",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "37",
+        "native_name": "OpData55",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "38",
+        "native_name": "OpData56",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "39",
+        "native_name": "OpData57",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "3a",
+        "native_name": "OpData58",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "3b",
+        "native_name": "OpData59",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "3c",
+        "native_name": "OpData60",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "3d",
+        "native_name": "OpData61",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "3e",
+        "native_name": "OpData62",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "3f",
+        "native_name": "OpData63",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "40",
+        "native_name": "OpData64",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "41",
+        "native_name": "OpData65",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "42",
+        "native_name": "OpData66",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "43",
+        "native_name": "OpData67",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "44",
+        "native_name": "OpData68",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "45",
+        "native_name": "OpData69",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "46",
+        "native_name": "OpData70",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "47",
+        "native_name": "OpData71",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "48",
+        "native_name": "OpData72",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "49",
+        "native_name": "OpData73",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "4a",
+        "native_name": "OpData74",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "4b",
+        "native_name": "OpData75",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "4f",
+        "native_name": "Op1Negate",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "51",
+        "native_name": "OpTrue",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "52",
+        "native_name": "Op2",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "53",
+        "native_name": "Op3",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "54",
+        "native_name": "Op4",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "55",
+        "native_name": "Op5",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "56",
+        "native_name": "Op6",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "57",
+        "native_name": "Op7",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "58",
+        "native_name": "Op8",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "59",
+        "native_name": "Op9",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "5a",
+        "native_name": "Op10",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "5b",
+        "native_name": "Op11",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "5c",
+        "native_name": "Op12",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "5d",
+        "native_name": "Op13",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "5e",
+        "native_name": "Op14",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "5f",
+        "native_name": "Op15",
+        "numeric_match_both_refs": true
+      },
+      {
+        "byte_hex": "60",
+        "native_name": "Op16",
+        "numeric_match_both_refs": true
+      }
+    ],
+    "literal_push_scope": "Emitter push_data supports raw lengths <=75. push_i64 emits 0x00,0x4f,0x51..0x60 or a length-prefixed signed-magnitude integer. Witness/redeem wrapping must use selected native ScriptBuilder and is not runtime-validated here.",
+    "native_opcode_body_differences": [
+      {
+        "opcodes": [
+          "OpIf"
+        ],
+        "difference": "01b532e retains the 9fdb covenants_enabled=true boolean-pop branch; old pre-Toccata boolean branch is removed."
+      },
+      {
+        "opcodes": [
+          "OpCat",
+          "OpTxInputScriptSigSubstr",
+          "OpTxInputScriptSigLen",
+          "OpNum2Bin",
+          "OpInputCovenantId",
+          "OpCovOutputCount",
+          "OpCovOutputIdx"
+        ],
+        "difference": "The 9fdb covenants_enabled guard is removed; the former enabled body remains, with formatting differences."
+      },
+      {
+        "opcodes": [
+          "OpTxOutputAmount",
+          "OpTxOutputSpk"
+        ],
+        "difference": "InvalidOutputIndex diagnostic length corrected from tx.inputs().len() to tx.outputs().len(). Valid access and out-of-range rejection remain unchanged."
+      }
+    ],
+    "comparison_condition": "Compare 9fdb only with post-Toccata covenants_enabled=true. Its default/disabled mode is incompatible with these covenant scripts. 01b532e removes the activation switch and always uses post-Toccata behavior.",
+    "shared_engine_differences": "01b532e removes pre-Toccata minimal-push/numeric/boolean alternatives and split script limits, retaining post-Toccata operation and 1,000,000-byte script/element limits. Numeric IDs alone are not an engine equivalence proof."
+  },
+  "spk_encoding": {
+    "native_definition": "crypto/txscript/src/lib.rs SpkEncoding::to_bytes: u16 version.to_be_bytes() followed by raw script bytes; function identical in both pins.",
+    "native_p2sh_definition": "crypto/txscript/src/standard.rs:51-54; unkeyed Blake2b-256(redeem), native P2SH script. standard.rs and script_class.rs are byte-identical across pins.",
+    "selected_p2sh_spk_serialized_form": "00 00 aa 20 || blake2b_256(redeem_script)[32 bytes] || 87",
+    "vprogs_source": "permission_script.rs:638-645 emits literal 00 00 aa 20 before redeem hash, then 87.",
+    "documentation_discrepancy": "Emitter comment says TX_VERSION (0) as 2B LE. Native SPK encoding actually uses SPK version as u16 BE. Version zero has identical BE/LE bytes, so selected version-zero bytes agree. Freeze version 0; do not generalize that comment to a nonzero version.",
+    "native_max_supported_spk_version_both_refs": 0,
+    "selected_profile_byte_incompatibility_identified": false
+  },
+  "covenants_context": {
+    "source": "crypto/txscript/src/covenants.rs:101 onward",
+    "whole_file_identical_both_refs": true,
+    "sha256": "152ff055a603aa50cc24fdf8a8ae281b944892e1c0a55631425652cd54c08ec0",
+    "input_membership": "Only supplied UTXO entries with Some(covenant_id) populate shared input indices.",
+    "output_membership": "CovenantBinding outputs with the authorizing input UTXO covenant ID are continuation outputs and populate per-input/shared contexts. Genesis groups validate reconstructed ID but do not populate continuation contexts.",
+    "terminal_implication": "Selected count1->0 branch requires num_covenant_outputs(current input covenant ID)==0. No successor/continuation is allowed.",
+    "validator_difference": "9fdb gates covenant-context construction and EngineFlags by Toccata activation. 01b532e removes the activation split and always calls CovenantsContext::from_tx; exact validator hashes recorded above.",
+    "boundary": "This compares supplied-UTXO interpretation, not global spent-set or private note ancestry evidence."
+  },
+  "delegate_entry": {
+    "source": "zk/abi/src/delegate_script.rs:16-25; permission_script.rs:94-108",
+    "redeem_length_bytes": 53,
+    "prefix_hex": "b900a06900cf20",
+    "embedded_covenant_id_length_bytes": 32,
+    "suffix_hex": "880000c97652947cbc0251758851",
+    "decoded_instructions": [
+      "OpTxInputIndex",
+      "OpFalse",
+      "OpGreaterThan",
+      "OpVerify",
+      "OpFalse",
+      "OpInputCovenantId",
+      "OpData32(covenant_id)",
+      "OpEqualVerify",
+      "OpFalse (substring input index 0)",
+      "OpFalse (length input index 0)",
+      "OpTxInputScriptSigLen",
+      "OpDup",
+      "Op2",
+      "OpSub",
+      "OpSwap",
+      "OpTxInputScriptSigSubstr",
+      "OpData2(51 75)",
+      "OpEqualVerify",
+      "OpTrue"
+    ],
+    "semantics": [
+      "Current delegate input index must be >0.",
+      "Input0 supplied UTXO covenant_id, or zero hash if absent, must equal embedded covenant ID.",
+      "Input0 signature-script slice [len-2,len) must equal 51 75 (OpTrue OpDrop). Undersized scripts or invalid slices error.",
+      "Return true. No permission-holder signature is required by this public trigger branch. Authorization comes from input0 permission payout-to-committed-recipient checks; input0 must itself pass Full."
+    ],
+    "substring_native_contract": "OpTxInputScriptSigSubstr pops [input_index,start,end] with end exclusive. Same contract in both pins; 9fdb requires covenants_enabled=true.",
+    "permission_trailer": "Official permission emitter ends OpTrue OpTrue OpDrop. Pushed redeem must remain last in input0 signature script, preserving raw final bytes 51 75.",
+    "not_sufficient_alone": "Covenant ID and trailer alone do not prove input0 is the intended permission program. Probe must supply official permission P2SH and validate every input under Full, including external fee signature."
+  },
+  "terminal_and_fee_findings": {
+    "permission_sources": [
+      "permission_script.rs:408-450 terminal payout and no continuation",
+      "permission_script.rs:514-604 exact delegate-balance/change accounting",
+      "permission_script.rs:678-712 official builder"
+    ],
+    "terminal_root_limit": "Normal one-leaf accumulator uses depth 1. Both Merkle walks execute, but final branch discards computed new root. Missing old/new path-witness binding remains a continuing-root safety blocker, explicitly excluded.",
+    "self_funded_positive_fee_result": "Final payout >= deduct + permission rent, and delegate change equals recognized delegate inputs minus deduct. All protocol input value remains required in protocol outputs. Positive miner fee needs nondelegate external capital; no-external claim-funded-fee attempt must retain rejection.",
+    "external_fee_positive_is_not_project_target": "An external-fee case cannot establish 60M principal paying its own positive miner fee while preserving target payout."
+  },
+  "source_review_conclusion": {
+    "identified_source_byte_bridge_blockers_within_selected_version0_terminal_post_toccata_profile": [],
+    "required_conditions": [
+      "Unmodified official emitters at exact vProgs pin",
+      "Raw bytes only across native revisions",
+      "SPK version 0",
+      "Full engine pin 01b532e and exact native Toccata transaction construction",
+      "Permission input index0; delegate input index>0",
+      "Normal depth1/count1->0 terminal branch; no continuation output",
+      "Every input script Full validated; external fee input actually signed"
+    ],
+    "remaining_pre_execution_requirements": [
+      "Freeze isolated harness source, locked graph and case schema",
+      "Independent funding/signature/payout/current-root/cross-domain review",
+      "Build without source patches or stubs from available caches",
+      "Runtime isolation, exact mass/storage/fee and Full checks for all retained controls"
+    ],
+    "unqualified": [
+      "Compilation and dependency availability",
+      "Runtime emitted artifact bytes (not generated in audit)",
+      "Native Full acceptance/rejection",
+      "Fee/mass/signature correctness",
+      "Continuing-root safety",
+      "Private ancestry/authorization, global spent-set/replay, financial privacy, mainnet readiness"
+    ],
+    "audit_actions": "Read pinned public source and existing plan/checker files; calculate hashes and opcode comparisons; create this JSON only. No source patches, dependency resolution, build, GPU, proof, funding, broadcast, owner/replay workflow, index, commit or push."
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "complete": true,
+  "conditional_reveal": true,
+  "config": {
+    "id": 109,
+    "mode": "shared-root",
+    "owners": [
+      1,
+      1,
+      0
+    ],
+    "values": [
+      3,
+      2,
+      3
+    ]
+  },
+  "counts": {
+    "accepted-feasible-claim-reachable": 570432,
+    "accepted_environment_product_edges": 4377576,
+    "accepted_financial_edges": 373444,
+    "context_and_authority_rejections": 572016,
+    "data-liveness-failure": 190144,
+    "economic-liveness-failure": 1260032,
+    "environment_loss_edges": 2189976,
+    "environment_product_states": 1459984,
+    "financial_proposals": 5339676,
+    "financial_states": 182498,
+    "rejected_financial_proposals": 4966232
+  },
+  "environment_product_exact_not_sampled": true,
+  "expected_liveness_failures": {
+    "data-liveness-failure": {
+      "claim_nf": 1,
+      "environment": [
+        true,
+        false,
+        false
+      ],
+      "environment_loss_trace": [
+        {
+          "kind": "LosePublicData"
+        },
+        {
+          "kind": "LoseRetainedWitness"
+        }
+      ],
+      "principal": 3,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            0
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            0
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    },
+    "economic-liveness-failure": {
+      "claim_nf": 3,
+      "environment": [
+        true,
+        true,
+        true
+      ],
+      "environment_loss_trace": [],
+      "principal": 1,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            2
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    }
+  },
+  "mutant": null,
+  "reveal_authority_status": "ASSUMED_IDEAL_UNRESOLVED",
+  "safety_violation": null,
+  "search_depth_cutoff": null,
+  "state_or_time_cutoff": null,
+  "wall_seconds": 33.343001864966936,
+  "worker_cumulative_cpu_seconds": 237.636356,
+  "worker_cumulative_max_rss_kib": 469788
+}

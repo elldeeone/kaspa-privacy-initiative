@@ -1,0 +1,101 @@
+{
+  "economic_gate_passed": true,
+  "failure_reason": null,
+  "final_actual_fee_sompi": 10595600,
+  "final_payout_sompi": 49404400,
+  "iterations": [
+    {
+      "fee_sompi": 0,
+      "mining_mass": 102381,
+      "native_id": "7986a9711b37888551a150325d4377639da884575b3497e19ca0c673eb3ae4a5",
+      "payout_sompi": 60000000,
+      "required_fee_sompi": 10238100
+    },
+    {
+      "fee_sompi": 10238100,
+      "mining_mass": 105810,
+      "native_id": "eede48c7e0e9a2eac08daa15077bc254a8a822c14f5dc1c8074a4f23b348521f",
+      "payout_sompi": 49761900,
+      "required_fee_sompi": 10581000
+    },
+    {
+      "fee_sompi": 10581000,
+      "mining_mass": 105950,
+      "native_id": "2342993a08a3a3f1aa15af7a4a291773b6b516050cc8549618ba8c98523fb403",
+      "payout_sompi": 49419000,
+      "required_fee_sompi": 10595000
+    },
+    {
+      "fee_sompi": 10595000,
+      "mining_mass": 105955,
+      "native_id": "f9c9514b152bf90e1be4864ca1adbf6cd05b78bac61dc2b474815c96fa8c4bc6",
+      "payout_sompi": 49405000,
+      "required_fee_sompi": 10595500
+    },
+    {
+      "fee_sompi": 10595500,
+      "mining_mass": 105956,
+      "native_id": "6b6261a29781276f2928e04c87fc8cc8b28edcadcdb636b71eb1897c3f14748c",
+      "payout_sompi": 49404500,
+      "required_fee_sompi": 10595600
+    },
+    {
+      "fee_sompi": 10595600,
+      "mining_mass": 105956,
+      "native_id": "4ce2446475db74a44cf91618729fce471199bc0fa7e34d625a3e4a6b9a0bd67a",
+      "payout_sompi": 49404400,
+      "required_fee_sompi": 10595600
+    }
+  ],
+  "metrics": {
+    "P2SH_sigop_counts": [
+      1
+    ],
+    "compute_mass": 29060,
+    "estimated_bytes": 8330,
+    "fee_quotes": [
+      {
+        "actual_sompi": 10595600,
+        "passes": true,
+        "rate_sompi_per_mass": 100,
+        "required_sompi": 10595600
+      },
+      {
+        "actual_sompi": 10595600,
+        "passes": false,
+        "rate_sompi_per_mass": 200,
+        "required_sompi": 21191200
+      },
+      {
+        "actual_sompi": 10595600,
+        "passes": false,
+        "rate_sompi_per_mass": 500,
+        "required_sompi": 52978000
+      }
+    ],
+    "fee_sompi": 10595600,
+    "mining_mass": 105956,
+    "relay_mass": 29060,
+    "singleton_rate500_gate": false,
+    "source_adapted_block_mass_caps": true,
+    "source_adapted_default_relay_fee": true,
+    "source_adapted_sigop_policy": true,
+    "standard_script_classes": true,
+    "storage_mass": 105956,
+    "transient_mass": 33320
+  },
+  "name": "agility-continuing-remainder10M-minimal-r100",
+  "native_execution": {
+    "Full": {
+      "accepted": true,
+      "fee_sompi": 10595600
+    },
+    "ScriptEngine": {
+      "accepted": true,
+      "units": 165264
+    },
+    "isolation": "PASS"
+  },
+  "prospective_fee_fixed_point": true,
+  "rate_sompi_per_mass": 100
+}

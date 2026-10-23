@@ -1,0 +1,86 @@
+{
+  "complete": true,
+  "conditional_reveal": true,
+  "config": {
+    "id": 124,
+    "mode": "native-p2pk",
+    "owners": [
+      1,
+      1,
+      0
+    ],
+    "values": [
+      3,
+      3,
+      3
+    ]
+  },
+  "counts": {
+    "accepted-feasible-claim-reachable": 395880,
+    "accepted_environment_product_edges": 2676328,
+    "accepted_financial_edges": 244404,
+    "context_and_authority_rejections": 347458,
+    "economic-liveness-failure": 398520,
+    "environment_loss_edges": 1173744,
+    "environment_product_states": 782496,
+    "financial_proposals": 1443389,
+    "financial_states": 97812,
+    "rejected_financial_proposals": 1198985
+  },
+  "environment_product_exact_not_sampled": true,
+  "expected_liveness_failures": {
+    "economic-liveness-failure": {
+      "claim_nf": 2,
+      "environment": [
+        true,
+        true,
+        true
+      ],
+      "environment_loss_trace": [],
+      "principal": 1,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": 1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            0
+          ],
+          "kind": "spend",
+          "recipient": 0,
+          "root": 0
+        },
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            1
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    }
+  },
+  "mutant": null,
+  "reveal_authority_status": "ASSUMED_IDEAL_UNRESOLVED",
+  "safety_violation": null,
+  "search_depth_cutoff": null,
+  "state_or_time_cutoff": null,
+  "wall_seconds": 13.198143844027072,
+  "worker_cumulative_cpu_seconds": 260.470929,
+  "worker_cumulative_max_rss_kib": 276152
+}

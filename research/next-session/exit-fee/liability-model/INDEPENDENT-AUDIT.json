@@ -1,0 +1,24 @@
+{
+  "format": "independent-closed-output-audit-v1",
+  "reviewer": "exit_pattern_sources background agent",
+  "model_execution_performed_by_reviewer": false,
+  "coverage_base": {
+    "initial_configs": 128,
+    "ids": "000..127 once;127pilot reused",
+    "financial_states": 9397840,
+    "environment_product_states": 75182720
+  },
+  "coverage_conditional": {
+    "initial_configs": 128,
+    "ids": "000..127 once",
+    "financial_states": 13051392,
+    "environment_product_states": 104411136
+  },
+  "all256_complete_no_cutoff_no_model_safety_violation": true,
+  "graph_source_freeze_sha256": "3d72f799914df77a59bda810b939850bd1f7283f36cf0984d072fd1d19967dd6",
+  "all_four_graph_original_control_phase_before_after_and_snapshots_match": true,
+  "all11_broken_variants_have_counterexamples": true,
+  "old32_checkpoint_products_do_not_cover_raised_quote": true,
+  "conditional_reveal_authority_remains_ideal_unresolved": true,
+  "additional_controls03_review": "binding_adversary independently rehashed d9c2b497 result and412d7585 selection;64rollbackproducts/9directraces/11mutants match source; no core graph rerun"
+}

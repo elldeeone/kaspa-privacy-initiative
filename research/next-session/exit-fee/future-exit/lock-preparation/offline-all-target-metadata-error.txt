@@ -1,0 +1,4 @@
+After regenerating the Linux-independent lock offline, all-target cargo metadata attempted an unavailable platform-specific crate:
+error: failed to download android_system_properties v0.1.6
+Caused by: attempting to make an HTTP request, but --offline was specified
+The pruned429-package lock was generated before this fetch failure. All428 external package name/version/source/checksum identities are present verbatim in the original441-package pinned lock. Linux-target build remains a separate check; no network fetch or version change was used.

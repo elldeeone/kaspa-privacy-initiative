@@ -2,8 +2,36 @@
 
 **Status:** exploratory. No architecture has been selected.
 
-[ADR-0038](adr/0038-bounded-cost-and-proving-qualification.md) confines the next
-work to ordinary-budget qualification, unchanged-claim proving performance and
+[RFC-0019](rfc/0019-fees-and-independent-exit-obligations.md) and
+[ADR-0039](adr/0039-exit-liability-and-native-claim-experiments.md) now target
+complete-lifecycle fees and independent exits. They select an exhaustive
+abstract liability/service-loss model and an existing upstream native terminal
+permission-claim cost probe under public synthetic UTXOs. An accepted unpaid
+claim is a different state from an unconsumed private note: cheap redemption
+after earlier authorization does not supply the latter's independent exit.
+No new note format, revealing branch or production reserve authority is adopted.
+
+[ADR-0040](adr/0040-public-revealing-exit-feasibility.md) additionally selects a
+separate public synthetic revealing-exit probe. Its new candidate relation
+separates undisclosed private ownership from a revealed note-local NF credential
+and CM-bound native signature authority. It can test current-state exclusion
+and full native costs; it has no implemented private-proof branch, accepted
+funding, wallet recovery or migration. Future combined-script cost remains
+conditional on an explicit byte-size envelope. Existing v6/S7 formats and
+requirements are unchanged.
+
+The [closed exit-feasibility checkpoint](../research/next-session/exit-fee/RESULTS.md)
+now records60 native positive bodies and39 exact rejection controls in that
+separate public prototype. A60M claim can self-fund at500 and retain44,631,000
+sompi in the minimal continuing60M-remainder context; the32KiB size envelope
+also passes, while49KiB and20M/10M remainder fee profiles fail. No private
+branch is implemented. Exact backing plus a60M positive-note floor is an
+inductive future-profile condition, not an inference from supplied native roots
+or permission to discard the boundary failures. Current S7/private fees remain
+unchanged; complete lifecycle fee allocation and accepted owner recovery remain open.
+
+[ADR-0038](adr/0038-bounded-cost-and-proving-qualification.md) scoped the previous
+work on ordinary-budget qualification, unchanged-claim proving performance and
 self-consistent circuit boundaries. The [decision review](../research/next-session/ARCHITECTURE-DECISION-REVIEW.md)
 keeps accepted backing, financial privacy and independent exits open. A
 [new conditional lower bound](../research/next-session/fee-frontier/README.md)

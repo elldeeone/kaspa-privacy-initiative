@@ -1,0 +1,78 @@
+{
+  "format": "finite-exit-liability-closure-v1",
+  "base_commit": "8d7d719f18ae5975e651a4a114f8cecceb3e8b7c",
+  "graph_source_freeze_sha256": "3d72f799914df77a59bda810b939850bd1f7283f36cf0984d072fd1d19967dd6",
+  "control_source_freeze_sha256": "412d758552bc17f09cab138a0549b73f3f10479bd0fd5bb006886e73aeadab9c",
+  "pilot_base127_counted_once": true,
+  "financial_graphs_repeated_after_control_only_change": false,
+  "all_owned_units_stopped_pid_zero_cgroup_empty": true,
+  "complete_protocol_liveness_pass": false,
+  "existing_revealing_authority": "UNRESOLVED",
+  "new_native_validation_or_cryptography": false,
+  "results": {
+    "base": {
+      "complete_initial_configurations": 128,
+      "missing_or_duplicate_initial_configurations": false,
+      "safety_violation": null,
+      "counts": {
+        "accepted-feasible-claim-reachable": 33450288,
+        "accepted_environment_product_edges": 234154080,
+        "accepted_financial_edges": 20943504,
+        "context_and_authority_rejections": 32069568,
+        "data-liveness-failure": 8951952,
+        "economic-liveness-failure": 72527040,
+        "environment_loss_edges": 112774080,
+        "environment_product_states": 75182720,
+        "financial_proposals": 283151680,
+        "financial_states": 9397840,
+        "rejected_financial_proposals": 262208176,
+        "unaccepted-private-service-failure": 8460800
+      },
+      "failure_configuration_counts": {
+        "economic-liveness-failure": 128,
+        "data-liveness-failure": 64,
+        "unaccepted-private-service-failure": 128
+      },
+      "conditional_cryptographic_assumption": false
+    },
+    "conditional-ideal-reveal": {
+      "complete_initial_configurations": 128,
+      "missing_or_duplicate_initial_configurations": false,
+      "safety_violation": null,
+      "counts": {
+        "accepted-feasible-claim-reachable": 40715040,
+        "accepted_environment_product_edges": 324209008,
+        "accepted_financial_edges": 28574072,
+        "context_and_authority_rejections": 42896592,
+        "economic-liveness-failure": 88783488,
+        "environment_loss_edges": 156616704,
+        "environment_product_states": 104411136,
+        "financial_proposals": 338527552,
+        "financial_states": 13051392,
+        "rejected_financial_proposals": 309953480,
+        "data-liveness-failure": 10158432
+      },
+      "failure_configuration_counts": {
+        "economic-liveness-failure": 128,
+        "data-liveness-failure": 64,
+        "unaccepted-private-service-failure": 0
+      },
+      "conditional_cryptographic_assumption": true
+    }
+  },
+  "historical_control_failure_retained": {
+    "file": "reorg-quote-regression-freeze02.json",
+    "passed": false,
+    "raw_exit_code": 1,
+    "expected_quote": 2,
+    "actual_restored_quote": 1,
+    "scope": "directed controls only; no graph semantics"
+  },
+  "final_controls": {
+    "required_broken_variant_counterexamples": 11,
+    "raised_quote_reorg_products": 64,
+    "same_original_NF_race_rejections": 9,
+    "old_accepted_root_usable_then_paid_replay_rejected": true,
+    "raw_result_sha256": "d9c2b4977a40cf585c95f1e490ceaeea994d48c840dfbf455ff1f58438633721"
+  }
+}

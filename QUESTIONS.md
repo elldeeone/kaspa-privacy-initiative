@@ -2,6 +2,28 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[RFC-0019](docs/rfc/0019-fees-and-independent-exit-obligations.md) separates an
+unconsumed private note from an already accepted unpaid exit entitlement. Can
+either complete path meet the unchanged minimum-claim and per-user lifecycle
+targets without another user's arrival, hidden sponsorship or discarded
+liability? The [selected offline experiments](docs/adr/0039-exit-liability-and-native-claim-experiments.md)
+test liability/service-loss counterexamples and the full fee contract of an
+existing native terminal claim. A hypothetical revealing future note additionally
+needs destination binding, an identical current NF and private-spend authority
+that remains secret after revelation; current v6 notes do not supply that branch.
+[ADR-0040](docs/adr/0040-public-revealing-exit-feasibility.md) now selects only a
+public feasibility checker for that new relation. Can the complete native body,
+including current-state proofs, signature, future-code byte allowance and KIP9
+storage, fit100,000 mining mass at the60M claim endpoint? Even if it can, what
+genuine private relation, recipient descriptor and admitted funding would make
+the same claim safely available before any exit request is accepted?
+The [new native probe](research/next-session/exit-fee/RESULTS.md) now passes its
+frozen current-state/authorization cases and self-funded60M rate500 screen for
+minimal/32KiB layouts with terminal or60M-remainder contexts. Larger layouts
+and small tails still fail. Can a genuine combined private relation preserve
+the exact-backing/floor condition, account for padded NF identities and fit that
+byte envelope without changing any existing supported claim or privacy target?
+
 [ADR-0038](docs/adr/0038-bounded-cost-and-proving-qualification.md) prioritizes
 cost and proving qualification before larger batches. Which architecture can
 avoid the [conditional admission-plus-exit fee floor](research/next-session/fee-frontier/README.md)

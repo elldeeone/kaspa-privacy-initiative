@@ -1,0 +1,52 @@
+Started kpi-future-exit-build-02.service - [systemd-run] /home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/exit-fee/future-exit/build-02/build.sh.
+   Compiling kpi-future-exit-feasibility v0.1.0 (/src)
+error[E0308]: mismatched types
+   --> src/main.rs:800:48
+    |
+800 |         &secp256k1::Message::from_digest_slice(hash.as_bytes()).unwrap(),
+    |          ------------------------------------- ^^^^^^^^^^^^^^^ expected `&[u8]`, found `[u8; 32]`
+    |          |
+    |          arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> /cargo/registry/src/index.crates.io-1949cf8c6b5b557f/secp256k1-0.29.1/src/lib.rs:254:12
+    |
+254 |     pub fn from_digest_slice(digest: &[u8]) -> Result<Message, Error> {
+    |            ^^^^^^^^^^^^^^^^^
+help: consider borrowing here
+    |
+800 |         &secp256k1::Message::from_digest_slice(&hash.as_bytes()).unwrap(),
+    |                                                +
+error[E0689]: can't call method `to_le_bytes` on ambiguous numeric type `{integer}`
+   --> src/main.rs:928:59
+    |
+928 |                     put(&mut candidate.payload, FEE, &fee.to_le_bytes());
+    |                                                           ^^^^^^^^^^^
+    |
+help: you must specify a type for this binding, like `i32`
+    |
+923 |                 let mut fee: i32 = 0;
+    |                            +++++
+error[E0308]: mismatched types
+    --> src/main.rs:1205:56
+     |
+1205 |                 &secp256k1::Message::from_digest_slice(digest.as_bytes())?,
+     |                  ------------------------------------- ^^^^^^^^^^^^^^^^^ expected `&[u8]`, found `[u8; 32]`
+     |                  |
+     |                  arguments to this function are incorrect
+     |
+note: associated function defined here
+    --> /cargo/registry/src/index.crates.io-1949cf8c6b5b557f/secp256k1-0.29.1/src/lib.rs:254:12
+     |
+ 254 |     pub fn from_digest_slice(digest: &[u8]) -> Result<Message, Error> {
+     |            ^^^^^^^^^^^^^^^^^
+help: consider borrowing here
+     |
+1205 |                 &secp256k1::Message::from_digest_slice(&digest.as_bytes())?,
+     |                                                        +
+Some errors have detailed explanations: E0308, E0689.
+For more information about an error, try `rustc --explain E0308`.
+error: could not compile `kpi-future-exit-feasibility` (bin "kpi-future-exit-feasibility") due to 3 previous errors
+kpi-future-exit-build-02.service: Main process exited, code=exited, status=101/n/a
+kpi-future-exit-build-02.service: Failed with result 'exit-code'.
+kpi-future-exit-build-02.service: Consumed 613ms CPU time over 635ms wall clock time, 139.1M memory peak.

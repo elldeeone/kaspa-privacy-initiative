@@ -1,0 +1,1572 @@
+{
+  "all_expected_outcomes": true,
+  "cases": [
+    {
+      "case": "sponsored-positive-100",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2553
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": true,
+      "expected_full_error_exact": null,
+      "expected_script_error_exact": null,
+      "expected_scripts": [
+        true,
+        true,
+        true
+      ],
+      "full": {
+        "accepted": true,
+        "fee_sompi": 498700,
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000799032
+    },
+    {
+      "case": "claim-funded-fee-100",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2015
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 345500,
+        "actual_relay_admission": false,
+        "compute_mass": 3455,
+        "default_relay_floor_sompi": 345500,
+        "estimated_bytes": 895,
+        "inclusion": false,
+        "input_sum_sompi": 110000000,
+        "mining_mass": 3455,
+        "output_sum_sompi": 109654500,
+        "relay_noncontextual_mass": 3455,
+        "sigops_scanner": [
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 3580
+      },
+      "seconds": 0.000143363
+    },
+    {
+      "case": "sponsored-positive-200",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2553
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": true,
+      "expected_full_error_exact": null,
+      "expected_script_error_exact": null,
+      "expected_scripts": [
+        true,
+        true,
+        true
+      ],
+      "full": {
+        "accepted": true,
+        "fee_sompi": 997400,
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 997400,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209002600,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000318306
+    },
+    {
+      "case": "claim-funded-fee-200",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2015
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 691000,
+        "actual_relay_admission": false,
+        "compute_mass": 3455,
+        "default_relay_floor_sompi": 345500,
+        "estimated_bytes": 895,
+        "inclusion": false,
+        "input_sum_sompi": 110000000,
+        "mining_mass": 3455,
+        "output_sum_sompi": 109309000,
+        "relay_noncontextual_mass": 3455,
+        "sigops_scanner": [
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 3580
+      },
+      "seconds": 0.000122482
+    },
+    {
+      "case": "sponsored-positive-500",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2553
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": true,
+      "expected_full_error_exact": null,
+      "expected_script_error_exact": null,
+      "expected_scripts": [
+        true,
+        true,
+        true
+      ],
+      "full": {
+        "accepted": true,
+        "fee_sompi": 2493500,
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 2493500,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 207506500,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000291314
+    },
+    {
+      "case": "claim-funded-fee-500",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2015
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 1727500,
+        "actual_relay_admission": false,
+        "compute_mass": 3455,
+        "default_relay_floor_sompi": 345500,
+        "estimated_bytes": 895,
+        "inclusion": false,
+        "input_sum_sompi": 110000000,
+        "mining_mass": 3455,
+        "output_sum_sompi": 108272500,
+        "relay_noncontextual_mass": 3455,
+        "sigops_scanner": [
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 3580
+      },
+      "seconds": 0.000139636
+    },
+    {
+      "case": "zero-fee",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2479
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        }
+      ],
+      "expected_full_accept": true,
+      "expected_full_error_exact": null,
+      "expected_script_error_exact": null,
+      "expected_scripts": [
+        true,
+        true
+      ],
+      "full": {
+        "accepted": true,
+        "fee_sompi": 0,
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 0,
+        "actual_relay_admission": false,
+        "compute_mass": 3455,
+        "default_relay_floor_sompi": 345500,
+        "estimated_bytes": 895,
+        "inclusion": false,
+        "input_sum_sompi": 110000000,
+        "mining_mass": 3455,
+        "output_sum_sompi": 110000000,
+        "relay_noncontextual_mass": 3455,
+        "sigops_scanner": [
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 3580
+      },
+      "seconds": 0.000175554
+    },
+    {
+      "case": "wrong-payout-destination",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 1091
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000165836
+    },
+    {
+      "case": "underpay-final-one-sompi",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2015
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000200733
+    },
+    {
+      "case": "rent-diversion",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2015
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000213557
+    },
+    {
+      "case": "wrong-current-root",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 1714
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000211162
+    },
+    {
+      "case": "wrong-old-sibling",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 1714
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000190212
+    },
+    {
+      "case": "wrong-leaf-amount",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 1715
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.00018357
+    },
+    {
+      "case": "malformed-count",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 4024
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000204549
+    },
+    {
+      "case": "wrong-leaf-hash-domain",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 1714
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000201033
+    },
+    {
+      "case": "wrong-delegate-spk",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2518
+        },
+        {
+          "accepted": false,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": "VerifyError",
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 173
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000275204
+    },
+    {
+      "case": "wrong-permission-covenant-id",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2518
+        },
+        {
+          "accepted": false,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": "VerifyError",
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 173
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000212364
+    },
+    {
+      "case": "unexpected-continuation",
+      "each_input_script_meter": [
+        {
+          "accepted": false,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": "VerifyError",
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2000
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(VerifyError)",
+      "expected_script_error_exact": {
+        "exact_debug": "VerifyError",
+        "input": 0
+      },
+      "expected_scripts": [
+        false,
+        null,
+        true
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(VerifyError)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 5444,
+        "default_relay_floor_sompi": 544400,
+        "estimated_bytes": 1154,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 33103,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 5444,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 33103,
+        "transient_mass": 4616
+      },
+      "seconds": 0.000199059
+    },
+    {
+      "case": "bad-payer-signature",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2553
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": false,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": "EvalFalse",
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100000
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(EvalFalse)",
+      "expected_script_error_exact": {
+        "exact_debug": "EvalFalse",
+        "input": 2
+      },
+      "expected_scripts": [
+        true,
+        true,
+        false
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(EvalFalse)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000261699
+    },
+    {
+      "case": "wrong-payer-key",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2553
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": false,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": "EvalFalse",
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100000
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(EvalFalse)",
+      "expected_script_error_exact": {
+        "exact_debug": "EvalFalse",
+        "input": 2
+      },
+      "expected_scripts": [
+        true,
+        true,
+        false
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(EvalFalse)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498700,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000292718
+    },
+    {
+      "case": "post-sign-overpayment",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2553
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": false,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": "EvalFalse",
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100000
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "SignatureInvalid(EvalFalse)",
+      "expected_script_error_exact": {
+        "exact_debug": "EvalFalse",
+        "input": 2
+      },
+      "expected_scripts": [
+        true,
+        true,
+        false
+      ],
+      "full": {
+        "accepted": false,
+        "error": "SignatureInvalid(EvalFalse)",
+        "stage": "Full"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 498699,
+        "actual_relay_admission": false,
+        "compute_mass": 4987,
+        "default_relay_floor_sompi": 498700,
+        "estimated_bytes": 1067,
+        "inclusion": false,
+        "input_sum_sompi": 210000000,
+        "mining_mass": 4987,
+        "output_sum_sompi": 209501301,
+        "relay_noncontextual_mass": 4987,
+        "sigops_scanner": [
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 4268
+      },
+      "seconds": 0.000308116
+    },
+    {
+      "case": "duplicate-permission-input",
+      "each_input_script_meter": [
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 0,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2628
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 9999,
+          "committed_budget": 0,
+          "error": null,
+          "input": 1,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 181
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 109999,
+          "committed_budget": 10,
+          "error": null,
+          "input": 2,
+          "minimum_covering_budget_for_observed_units": 10,
+          "script_units": 100001
+        },
+        {
+          "accepted": true,
+          "allowed_script_units": 229999,
+          "committed_budget": 22,
+          "error": null,
+          "input": 3,
+          "minimum_covering_budget_for_observed_units": 0,
+          "script_units": 2632
+        }
+      ],
+      "expected_full_accept": false,
+      "expected_full_error_exact": "TxDuplicateInputs",
+      "expected_script_error_exact": null,
+      "expected_scripts": null,
+      "full": {
+        "accepted": false,
+        "error": "TxDuplicateInputs",
+        "stage": "Isolation"
+      },
+      "matched_exact_script_error": true,
+      "matched_expectation": true,
+      "matched_script_expectations": true,
+      "metrics": {
+        "actual_fee_sompi": 50498700,
+        "actual_relay_admission": false,
+        "compute_mass": 7828,
+        "default_relay_floor_sompi": 782800,
+        "estimated_bytes": 1708,
+        "inclusion": false,
+        "input_sum_sompi": 260000000,
+        "mining_mass": 7828,
+        "output_sum_sompi": 209501300,
+        "relay_noncontextual_mass": 7828,
+        "sigops_scanner": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "source_adapted_native_dimensions": true,
+        "source_adapted_standardness": true,
+        "storage_mass": 0,
+        "transient_mass": 6832
+      },
+      "seconds": 0.000227815
+    }
+  ],
+  "missing_permission_entry_control": {
+    "missing_after_removal": true,
+    "not_a_ledger_replayer": true,
+    "official_full_spentness_test": false,
+    "present_before": true,
+    "source_adapted_context_lookup": true
+  },
+  "multi_claim_continuation_qualified": false,
+  "new_proof_or_gpu": false,
+  "prepared_manifest_sha256": "2dc7a4fc92ceb96072adc1c630584f2724be55f7cba5ad26744c0519d31b8f6f",
+  "relay_or_inclusion": false,
+  "root_origin_authenticated": false,
+  "schema": "native-terminal-claim-cost-results-v1",
+  "self_funded_60M_target_qualified": false
+}

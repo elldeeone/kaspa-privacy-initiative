@@ -1,0 +1,66 @@
+{
+  "economic_gate_passed": false,
+  "failure_reason": "next required fee exceeds50M /10M payout floor",
+  "final_actual_fee_sompi": 0,
+  "final_payout_sompi": 60000000,
+  "iterations": [
+    {
+      "fee_sompi": 0,
+      "mining_mass": 102381,
+      "native_id": "7986a9711b37888551a150325d4377639da884575b3497e19ca0c673eb3ae4a5",
+      "payout_sompi": 60000000,
+      "required_fee_sompi": 51190500
+    }
+  ],
+  "metrics": {
+    "P2SH_sigop_counts": [
+      1
+    ],
+    "compute_mass": 29060,
+    "estimated_bytes": 8330,
+    "fee_quotes": [
+      {
+        "actual_sompi": 0,
+        "passes": false,
+        "rate_sompi_per_mass": 100,
+        "required_sompi": 10238100
+      },
+      {
+        "actual_sompi": 0,
+        "passes": false,
+        "rate_sompi_per_mass": 200,
+        "required_sompi": 20476200
+      },
+      {
+        "actual_sompi": 0,
+        "passes": false,
+        "rate_sompi_per_mass": 500,
+        "required_sompi": 51190500
+      }
+    ],
+    "fee_sompi": 0,
+    "mining_mass": 102381,
+    "relay_mass": 29060,
+    "singleton_rate500_gate": false,
+    "source_adapted_block_mass_caps": true,
+    "source_adapted_default_relay_fee": false,
+    "source_adapted_sigop_policy": true,
+    "standard_script_classes": true,
+    "storage_mass": 102381,
+    "transient_mass": 33320
+  },
+  "name": "agility-continuing-remainder10M-minimal-r500",
+  "native_execution": {
+    "Full": {
+      "accepted": true,
+      "fee_sompi": 0
+    },
+    "ScriptEngine": {
+      "accepted": true,
+      "units": 165252
+    },
+    "isolation": "PASS"
+  },
+  "prospective_fee_fixed_point": true,
+  "rate_sompi_per_mass": 500
+}

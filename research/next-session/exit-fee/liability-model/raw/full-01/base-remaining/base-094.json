@@ -1,0 +1,101 @@
+{
+  "complete": true,
+  "conditional_reveal": false,
+  "config": {
+    "id": 94,
+    "mode": "native-p2pk",
+    "owners": [
+      0,
+      1,
+      1
+    ],
+    "values": [
+      3,
+      3,
+      3
+    ]
+  },
+  "counts": {
+    "accepted-feasible-claim-reachable": 244200,
+    "accepted_environment_product_edges": 1316208,
+    "accepted_financial_edges": 130927,
+    "context_and_authority_rejections": 195670,
+    "economic-liveness-failure": 228600,
+    "environment_loss_edges": 538032,
+    "environment_product_states": 358688,
+    "financial_proposals": 828743,
+    "financial_states": 44836,
+    "rejected_financial_proposals": 697816,
+    "unaccepted-private-service-failure": 58600
+  },
+  "environment_product_exact_not_sampled": true,
+  "expected_liveness_failures": {
+    "economic-liveness-failure": {
+      "claim_nf": 2,
+      "environment": [
+        true,
+        true,
+        true
+      ],
+      "environment_loss_trace": [],
+      "principal": 1,
+      "quote": 1,
+      "trace": [
+        {
+          "actor": 0,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            0
+          ],
+          "kind": "spend",
+          "recipient": 0,
+          "root": 0
+        },
+        {
+          "actor": -1,
+          "amount": -1,
+          "authentic": true,
+          "fees": [
+            1
+          ],
+          "fresh": true,
+          "historical_paid": false,
+          "ids": [
+            1
+          ],
+          "kind": "accept",
+          "recipient": -1,
+          "root": 0
+        }
+      ]
+    },
+    "unaccepted-private-service-failure": {
+      "environment": [
+        false,
+        true,
+        true
+      ],
+      "environment_loss_trace": [
+        {
+          "kind": "ShutdownAcceptanceService"
+        }
+      ],
+      "existing_format_reveal": "UNRESOLVED_AUTH_ASSUMPTION",
+      "trace": []
+    }
+  },
+  "mutant": null,
+  "reveal_authority_status": "UNRESOLVED_NOT_ENABLED",
+  "safety_violation": null,
+  "search_depth_cutoff": null,
+  "state_or_time_cutoff": null,
+  "wall_seconds": 7.275787576043513,
+  "worker_cumulative_cpu_seconds": 148.780087,
+  "worker_cumulative_max_rss_kib": 216504
+}

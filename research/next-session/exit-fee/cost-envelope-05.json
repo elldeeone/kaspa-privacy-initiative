@@ -1,0 +1,3327 @@
+{
+  "format": "native-exit-cost-envelope-source-only-v1",
+  "calculator_sha256": "ea382803c79c07272c8485fb51505aabe27c90180e9f8e325de29f21f807a6df",
+  "both_checkout_revisions_and_native_vprogs_source_blobs_verified": true,
+  "native_revision": "01b532e8b553523216471682649693af92f0fd16",
+  "vprogs_revision": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+  "liability_sompi": 60000000,
+  "minimum_retained_payout_sompi": 10000000,
+  "maximum_attributable_fee_sompi": 50000000,
+  "max_affordable_mining_mass": [
+    {
+      "rate": 100,
+      "mass": 500000
+    },
+    {
+      "rate": 200,
+      "mass": 250000
+    },
+    {
+      "rate": 500,
+      "mass": 100000
+    }
+  ],
+  "native_baseline_size_checks_pass": true,
+  "native_execution_performed": false,
+  "sources": [
+    {
+      "kind": "native",
+      "relative_path": "consensus/core/src/mass/mod.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/mass/mod.rs",
+      "bytes": 38856,
+      "sha256": "7e17c80810046525e7bf1a7147e6e8c6918dfe4c76ef64b6ca4078502d2a9fae"
+    },
+    {
+      "kind": "native",
+      "relative_path": "consensus/core/src/mass/units.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/mass/units.rs",
+      "bytes": 6857,
+      "sha256": "0a47b4dda868da1df5064a9745c4f1278d9b3fd388db7416f5fb05068fef12ab"
+    },
+    {
+      "kind": "native",
+      "relative_path": "consensus/core/src/constants.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/constants.rs",
+      "bytes": 2200,
+      "sha256": "e972b0582b2e40566cb0fc1140da7cd7de88d681104a0b6b63d7a5b2e06d3a2e"
+    },
+    {
+      "kind": "native",
+      "relative_path": "consensus/core/src/config/params.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/consensus/core/src/config/params.rs",
+      "bytes": 33023,
+      "sha256": "13296eef360764b637e70b2e8892941d97e3e88d8a5c58830e80332d0ff80ea2"
+    },
+    {
+      "kind": "native",
+      "relative_path": "crypto/txscript/src/lib.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/crypto/txscript/src/lib.rs",
+      "bytes": 113326,
+      "sha256": "f8011e2f992172f4ecfc0e5d30a89b78e07c1a3b1d0b981065bcfd0518593b53"
+    },
+    {
+      "kind": "native",
+      "relative_path": "crypto/txscript/src/runtime_resource_meter.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/crypto/txscript/src/runtime_resource_meter.rs",
+      "bytes": 6154,
+      "sha256": "e20be933cb5f49eabe2de9ccaa1fefbd9d5af3a7cf2c256c3fdbd0eab8875e6c"
+    },
+    {
+      "kind": "native",
+      "relative_path": "crypto/txscript/src/opcodes/mod.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/crypto/txscript/src/opcodes/mod.rs",
+      "bytes": 222781,
+      "sha256": "201d69b5a8de3db27b94b3e850a7ee62c4920532886c1d19544baed7fd163731"
+    },
+    {
+      "kind": "native",
+      "relative_path": "crypto/txscript/src/zk_precompiles/groth16/mod.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/crypto/txscript/src/zk_precompiles/groth16/mod.rs",
+      "bytes": 12801,
+      "sha256": "cb9fa14115d445c727cb8639ba384bde37d9a01f6c6f7fd1c92f77861f8a388d"
+    },
+    {
+      "kind": "native",
+      "relative_path": "crypto/txscript/src/zk_precompiles/tags.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/crypto/txscript/src/zk_precompiles/tags.rs",
+      "bytes": 2497,
+      "sha256": "b3288d447e0ea09447e6564c921389bd6d5668d6d302c8d409ded7895919ef03"
+    },
+    {
+      "kind": "native",
+      "relative_path": "mining/src/mempool/check_transaction_standard.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/mining/src/mempool/check_transaction_standard.rs",
+      "bytes": 20329,
+      "sha256": "9de15e3df1d932520c3051712c0a0cbcd66fd734b4727e82f7722d996656e571"
+    },
+    {
+      "kind": "native",
+      "relative_path": "mining/src/mempool/check_transaction_limits.rs",
+      "path": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e/mining/src/mempool/check_transaction_limits.rs",
+      "bytes": 8164,
+      "sha256": "bcad67ea88cc85a9559e6d9fb5775b44189084795adcc368b3d8128e662a9c7e"
+    },
+    {
+      "kind": "vprogs",
+      "relative_path": "zk/backend/risc0/api/src/permission_script.rs",
+      "path": "/home/luke/.cargo/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8/zk/backend/risc0/api/src/permission_script.rs",
+      "bytes": 33826,
+      "sha256": "f23c746cc15203e3f52c64dc66c2b651b688ddc49e62722a067b6178f5c13d5e"
+    },
+    {
+      "kind": "vprogs",
+      "relative_path": "zk/backend/risc0/api/src/permission_tree.rs",
+      "path": "/home/luke/.cargo/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8/zk/backend/risc0/api/src/permission_tree.rs",
+      "bytes": 9464,
+      "sha256": "b91f7c0b1fc3300887497772d6d8a5f8c4674dbfb3ed4cc7e8af3fa1875db616"
+    },
+    {
+      "kind": "vprogs",
+      "relative_path": "zk/backend/risc0/api/src/permission_tags.rs",
+      "path": "/home/luke/.cargo/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8/zk/backend/risc0/api/src/permission_tags.rs",
+      "bytes": 1895,
+      "sha256": "5bcca7a6c438f6dae86be058abcf5a66bfda85ebd1e9d56666075b7effc08e0a"
+    },
+    {
+      "kind": "vprogs",
+      "relative_path": "zk/abi/src/delegate_script.rs",
+      "path": "/home/luke/.cargo/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8/zk/abi/src/delegate_script.rs",
+      "bytes": 1584,
+      "sha256": "58563d9fc0295720649758f0ed54c4af0a1d93d40bf1bcf20de7877024a4d3f4"
+    },
+    {
+      "kind": "vprogs",
+      "relative_path": "zk/backend/risc0/test-suite/tests/permission_spend.rs",
+      "path": "/home/luke/.cargo/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8/zk/backend/risc0/test-suite/tests/permission_spend.rs",
+      "bytes": 19347,
+      "sha256": "18762273061489fdf4777fd85f4a9b71d039dd7fb2464204be90efe31f7ed5b3"
+    },
+    {
+      "kind": "vprogs",
+      "relative_path": "zk/backend/risc0/covenant/src/script.rs",
+      "path": "/home/luke/.cargo/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8/zk/backend/risc0/covenant/src/script.rs",
+      "bytes": 61301,
+      "sha256": "de63b73557aa640ff496fe88751cd8fad601d896929e1e7d02011b90151c5dfb"
+    },
+    {
+      "kind": "vprogs",
+      "relative_path": "Cargo.lock",
+      "path": "/home/luke/.cargo/git/checkouts/vprogs-12fa1eb54d96a3a2/f9b84a8/Cargo.lock",
+      "bytes": 247686,
+      "sha256": "98cc62c70291ec83ba8ed9cc490e358f5b52e6b09a2b4b5433e1e392af74344e"
+    },
+    {
+      "kind": "repository",
+      "relative_path": "poc/shared-pool/src/s7_lifecycle/native.rs",
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/shared-pool/src/s7_lifecycle/native.rs",
+      "bytes": 39475,
+      "sha256": "7df243d9b94224e464cd2b49f60cbcce24b0ae2db649c89d7241fd3cdde689cb"
+    },
+    {
+      "kind": "repository",
+      "relative_path": "docs/rfc/0012-useful-privacy-requirements.md",
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/docs/rfc/0012-useful-privacy-requirements.md",
+      "bytes": 33037,
+      "sha256": "ce96d64687c06b9f57bc36ff2d9aa222ba8e731705af6c8987c4973a49e27a19"
+    },
+    {
+      "kind": "repository",
+      "relative_path": "research/next-session/ordinary-budget/actual-01/results/report.json",
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/ordinary-budget/actual-01/results/report.json",
+      "bytes": 270380,
+      "sha256": "23aa712b2fb763085341dcfbf9927557dff4bf28a2dea932dc436b4096b32a85"
+    }
+  ],
+  "standard_ticket_conditional": [
+    {
+      "label": "conditional compact ticket",
+      "not_an_emitted_or_qualified_script": true,
+      "signature_script_bytes": 1024,
+      "budget": 11,
+      "allowance": 119999,
+      "payload_bytes": 0,
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 268400,
+          "metrics_evaluated_at_fee_sompi": 268400,
+          "required_fee_sompi": 268400,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 1224,
+            "compute_mass": 2684,
+            "transient_mass": 4896,
+            "storage_mass": 75,
+            "normalized_mining_mass": 2684,
+            "default_relay_mass": 2684,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 536800,
+          "metrics_evaluated_at_fee_sompi": 536800,
+          "required_fee_sompi": 536800,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 1224,
+            "compute_mass": 2684,
+            "transient_mass": 4896,
+            "storage_mass": 151,
+            "normalized_mining_mass": 2684,
+            "default_relay_mass": 2684,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": true,
+          "fee_sompi": 1342000,
+          "metrics_evaluated_at_fee_sompi": 1342000,
+          "required_fee_sompi": 1342000,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 1224,
+            "compute_mass": 2684,
+            "transient_mass": 4896,
+            "storage_mass": 381,
+            "normalized_mining_mass": 2684,
+            "default_relay_mass": 2684,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "conditional wider ticket",
+      "not_an_emitted_or_qualified_script": true,
+      "signature_script_bytes": 4096,
+      "budget": 50,
+      "allowance": 509999,
+      "payload_bytes": 0,
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 965600,
+          "metrics_evaluated_at_fee_sompi": 965600,
+          "required_fee_sompi": 965600,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 4296,
+            "compute_mass": 9656,
+            "transient_mass": 17184,
+            "storage_mass": 273,
+            "normalized_mining_mass": 9656,
+            "default_relay_mass": 9656,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 1931200,
+          "metrics_evaluated_at_fee_sompi": 1931200,
+          "required_fee_sompi": 1931200,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 4296,
+            "compute_mass": 9656,
+            "transient_mass": 17184,
+            "storage_mass": 554,
+            "normalized_mining_mass": 9656,
+            "default_relay_mass": 9656,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": true,
+          "fee_sompi": 4828000,
+          "metrics_evaluated_at_fee_sompi": 4828000,
+          "required_fee_sompi": 4828000,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 4296,
+            "compute_mass": 9656,
+            "transient_mass": 17184,
+            "storage_mass": 1459,
+            "normalized_mining_mass": 9656,
+            "default_relay_mass": 9656,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "conditional retained-size proof-free shape",
+      "not_an_emitted_or_qualified_script": true,
+      "signature_script_bytes": 24709,
+      "budget": 100,
+      "allowance": 1009999,
+      "payload_bytes": 5231,
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 6028000,
+          "metrics_evaluated_at_fee_sompi": 6028000,
+          "required_fee_sompi": 6028000,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 30140,
+            "compute_mass": 40500,
+            "transient_mass": 120560,
+            "storage_mass": 1862,
+            "normalized_mining_mass": 60280,
+            "default_relay_mass": 60280,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 12056000,
+          "metrics_evaluated_at_fee_sompi": 12056000,
+          "required_fee_sompi": 12056000,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 30140,
+            "compute_mass": 40500,
+            "transient_mass": 120560,
+            "storage_mass": 4191,
+            "normalized_mining_mass": 60280,
+            "default_relay_mass": 60280,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": true,
+          "fee_sompi": 30140000,
+          "metrics_evaluated_at_fee_sompi": 30140000,
+          "required_fee_sompi": 30140000,
+          "iterations": 2,
+          "metrics": {
+            "estimated_bytes": 30140,
+            "compute_mass": 40500,
+            "transient_mass": 120560,
+            "storage_mass": 16823,
+            "normalized_mining_mass": 60280,
+            "default_relay_mass": 60280,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    }
+  ],
+  "shared_reserve_conditional": [
+    {
+      "reserve_remainder_sompi": 10000000,
+      "optimistic_shape": "1024-byte signature_script, budget11, no covenant IDs",
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 10595600,
+          "metrics_evaluated_at_fee_sompi": 10595600,
+          "required_fee_sompi": 10595600,
+          "iterations": 6,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 105956,
+            "normalized_mining_mass": 105956,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 22472200,
+          "metrics_evaluated_at_fee_sompi": 22472200,
+          "required_fee_sompi": 22472200,
+          "iterations": 7,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 112361,
+            "normalized_mining_mass": 112361,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": false,
+          "reason": "minimum next fee exceeds50M attributable cost allowance",
+          "next_required_fee_sompi": 51190500,
+          "fee_cap_sompi": 50000000,
+          "fee_sompi": 0,
+          "metrics_evaluated_at_fee_sompi": 0,
+          "required_fee_sompi": 51190500,
+          "iterations": 1,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 102381,
+            "normalized_mining_mass": 102381,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    },
+    {
+      "reserve_remainder_sompi": 20000000,
+      "optimistic_shape": "1024-byte signature_script, budget11, no covenant IDs",
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 5587800,
+          "metrics_evaluated_at_fee_sompi": 5587800,
+          "required_fee_sompi": 5587800,
+          "iterations": 5,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 55878,
+            "normalized_mining_mass": 55878,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 11635200,
+          "metrics_evaluated_at_fee_sompi": 11635200,
+          "required_fee_sompi": 11635200,
+          "iterations": 7,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 58176,
+            "normalized_mining_mass": 58176,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": false,
+          "reason": "minimum next fee exceeds50M attributable cost allowance",
+          "next_required_fee_sompi": 53587000,
+          "fee_cap_sompi": 50000000,
+          "fee_sompi": 45647500,
+          "metrics_evaluated_at_fee_sompi": 45647500,
+          "required_fee_sompi": 53587000,
+          "iterations": 6,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 107174,
+            "normalized_mining_mass": 107174,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    },
+    {
+      "reserve_remainder_sompi": 25000000,
+      "optimistic_shape": "1024-byte signature_script, budget11, no covenant IDs",
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 4629600,
+          "metrics_evaluated_at_fee_sompi": 4629600,
+          "required_fee_sompi": 4629600,
+          "iterations": 5,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 46296,
+            "normalized_mining_mass": 46296,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 9616600,
+          "metrics_evaluated_at_fee_sompi": 9616600,
+          "required_fee_sompi": 9616600,
+          "iterations": 6,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 48083,
+            "normalized_mining_mass": 48083,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": true,
+          "fee_sompi": 31930500,
+          "metrics_evaluated_at_fee_sompi": 31930500,
+          "required_fee_sompi": 31930500,
+          "iterations": 22,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 63861,
+            "normalized_mining_mass": 63861,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    },
+    {
+      "reserve_remainder_sompi": 60000000,
+      "optimistic_shape": "1024-byte signature_script, budget11, no covenant IDs",
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 2574600,
+          "metrics_evaluated_at_fee_sompi": 2574600,
+          "required_fee_sompi": 2574600,
+          "iterations": 4,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 25746,
+            "normalized_mining_mass": 25746,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 5324400,
+          "metrics_evaluated_at_fee_sompi": 5324400,
+          "required_fee_sompi": 5324400,
+          "iterations": 5,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 26622,
+            "normalized_mining_mass": 26622,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": true,
+          "fee_sompi": 15369000,
+          "metrics_evaluated_at_fee_sompi": 15369000,
+          "required_fee_sompi": 15369000,
+          "iterations": 9,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 30738,
+            "normalized_mining_mass": 30738,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    },
+    {
+      "reserve_remainder_sompi": 1000000000,
+      "optimistic_shape": "1024-byte signature_script, budget11, no covenant IDs",
+      "rates": [
+        {
+          "rate": 100,
+          "passes": true,
+          "fee_sompi": 1721500,
+          "metrics_evaluated_at_fee_sompi": 1721500,
+          "required_fee_sompi": 1721500,
+          "iterations": 4,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 17215,
+            "normalized_mining_mass": 17215,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 200,
+          "passes": true,
+          "fee_sompi": 3554600,
+          "metrics_evaluated_at_fee_sompi": 3554600,
+          "required_fee_sompi": 3554600,
+          "iterations": 6,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 17773,
+            "normalized_mining_mass": 17773,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        },
+        {
+          "rate": 500,
+          "passes": true,
+          "fee_sompi": 10035500,
+          "metrics_evaluated_at_fee_sompi": 10035500,
+          "required_fee_sompi": 10035500,
+          "iterations": 8,
+          "metrics": {
+            "estimated_bytes": 1277,
+            "compute_mass": 3107,
+            "transient_mass": 5108,
+            "storage_mass": 20071,
+            "normalized_mining_mass": 20071,
+            "default_relay_mass": 3107,
+            "native_dimension_limits_pass": true
+          }
+        }
+      ]
+    }
+  ],
+  "ticket_fanout_storage_lower_bounds": [
+    {
+      "tickets": 1,
+      "covenant_ID": false,
+      "ticket_plurality": 1,
+      "zero_fee_storage_lower_bound": 0,
+      "storage_limit_pass": true,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 0,
+          "ceil_per_ticket_sompi": 0
+        },
+        {
+          "rate": 200,
+          "total_sompi": 0,
+          "ceil_per_ticket_sompi": 0
+        },
+        {
+          "rate": 500,
+          "total_sompi": 0,
+          "ceil_per_ticket_sompi": 0
+        }
+      ]
+    },
+    {
+      "tickets": 7,
+      "covenant_ID": false,
+      "ticket_plurality": 1,
+      "zero_fee_storage_lower_bound": 114282,
+      "storage_limit_pass": true,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 11428200,
+          "ceil_per_ticket_sompi": 1632600
+        },
+        {
+          "rate": 200,
+          "total_sompi": 22856400,
+          "ceil_per_ticket_sompi": 3265200
+        },
+        {
+          "rate": 500,
+          "total_sompi": 57141000,
+          "ceil_per_ticket_sompi": 8163000
+        }
+      ]
+    },
+    {
+      "tickets": 8,
+      "covenant_ID": false,
+      "ticket_plurality": 1,
+      "zero_fee_storage_lower_bound": 131245,
+      "storage_limit_pass": true,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 13124500,
+          "ceil_per_ticket_sompi": 1640563
+        },
+        {
+          "rate": 200,
+          "total_sompi": 26249000,
+          "ceil_per_ticket_sompi": 3281125
+        },
+        {
+          "rate": 500,
+          "total_sompi": 65622500,
+          "ceil_per_ticket_sompi": 8202813
+        }
+      ]
+    },
+    {
+      "tickets": 16,
+      "covenant_ID": false,
+      "ticket_plurality": 1,
+      "zero_fee_storage_lower_bound": 265615,
+      "storage_limit_pass": true,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 26561500,
+          "ceil_per_ticket_sompi": 1660094
+        },
+        {
+          "rate": 200,
+          "total_sompi": 53123000,
+          "ceil_per_ticket_sompi": 3320188
+        },
+        {
+          "rate": 500,
+          "total_sompi": 132807500,
+          "ceil_per_ticket_sompi": 8300469
+        }
+      ]
+    },
+    {
+      "tickets": 30,
+      "covenant_ID": false,
+      "ticket_plurality": 1,
+      "zero_fee_storage_lower_bound": 499425,
+      "storage_limit_pass": true,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 49942500,
+          "ceil_per_ticket_sompi": 1664750
+        },
+        {
+          "rate": 200,
+          "total_sompi": 99885000,
+          "ceil_per_ticket_sompi": 3329500
+        },
+        {
+          "rate": 500,
+          "total_sompi": 249712500,
+          "ceil_per_ticket_sompi": 8323750
+        }
+      ]
+    },
+    {
+      "tickets": 31,
+      "covenant_ID": false,
+      "ticket_plurality": 1,
+      "zero_fee_storage_lower_bound": 516109,
+      "storage_limit_pass": false,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 51610900,
+          "ceil_per_ticket_sompi": 1664868
+        },
+        {
+          "rate": 200,
+          "total_sompi": 103221800,
+          "ceil_per_ticket_sompi": 3329736
+        },
+        {
+          "rate": 500,
+          "total_sompi": 258054500,
+          "ceil_per_ticket_sompi": 8324339
+        }
+      ]
+    },
+    {
+      "tickets": 1,
+      "covenant_ID": true,
+      "ticket_plurality": 2,
+      "zero_fee_storage_lower_bound": 50000,
+      "storage_limit_pass": true,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 5000000,
+          "ceil_per_ticket_sompi": 5000000
+        },
+        {
+          "rate": 200,
+          "total_sompi": 10000000,
+          "ceil_per_ticket_sompi": 10000000
+        },
+        {
+          "rate": 500,
+          "total_sompi": 25000000,
+          "ceil_per_ticket_sompi": 25000000
+        }
+      ]
+    },
+    {
+      "tickets": 7,
+      "covenant_ID": true,
+      "ticket_plurality": 2,
+      "zero_fee_storage_lower_bound": 464282,
+      "storage_limit_pass": true,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 46428200,
+          "ceil_per_ticket_sompi": 6632600
+        },
+        {
+          "rate": 200,
+          "total_sompi": 92856400,
+          "ceil_per_ticket_sompi": 13265200
+        },
+        {
+          "rate": 500,
+          "total_sompi": 232141000,
+          "ceil_per_ticket_sompi": 33163000
+        }
+      ]
+    },
+    {
+      "tickets": 8,
+      "covenant_ID": true,
+      "ticket_plurality": 2,
+      "zero_fee_storage_lower_bound": 531245,
+      "storage_limit_pass": false,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 53124500,
+          "ceil_per_ticket_sompi": 6640563
+        },
+        {
+          "rate": 200,
+          "total_sompi": 106249000,
+          "ceil_per_ticket_sompi": 13281125
+        },
+        {
+          "rate": 500,
+          "total_sompi": 265622500,
+          "ceil_per_ticket_sompi": 33202813
+        }
+      ]
+    },
+    {
+      "tickets": 16,
+      "covenant_ID": true,
+      "ticket_plurality": 2,
+      "zero_fee_storage_lower_bound": 1065615,
+      "storage_limit_pass": false,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 106561500,
+          "ceil_per_ticket_sompi": 6660094
+        },
+        {
+          "rate": 200,
+          "total_sompi": 213123000,
+          "ceil_per_ticket_sompi": 13320188
+        },
+        {
+          "rate": 500,
+          "total_sompi": 532807500,
+          "ceil_per_ticket_sompi": 33300469
+        }
+      ]
+    },
+    {
+      "tickets": 30,
+      "covenant_ID": true,
+      "ticket_plurality": 2,
+      "zero_fee_storage_lower_bound": 1999425,
+      "storage_limit_pass": false,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 199942500,
+          "ceil_per_ticket_sompi": 6664750
+        },
+        {
+          "rate": 200,
+          "total_sompi": 399885000,
+          "ceil_per_ticket_sompi": 13329500
+        },
+        {
+          "rate": 500,
+          "total_sompi": 999712500,
+          "ceil_per_ticket_sompi": 33323750
+        }
+      ]
+    },
+    {
+      "tickets": 31,
+      "covenant_ID": true,
+      "ticket_plurality": 2,
+      "zero_fee_storage_lower_bound": 2066109,
+      "storage_limit_pass": false,
+      "rate_quotes_storage_only": [
+        {
+          "rate": 100,
+          "total_sompi": 206610900,
+          "ceil_per_ticket_sompi": 6664868
+        },
+        {
+          "rate": 200,
+          "total_sompi": 413221800,
+          "ceil_per_ticket_sompi": 13329736
+        },
+        {
+          "rate": 500,
+          "total_sompi": 1033054500,
+          "ceil_per_ticket_sompi": 33324339
+        }
+      ]
+    }
+  ],
+  "official_permission_terminal_external_fee": [
+    {
+      "shape": {
+        "depth": 1,
+        "redeem_bytes": 467,
+        "permission_signature_script_bytes": 587,
+        "estimated_bytes": 1015,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 220421,
+        "conservative_permission_budget": 22,
+        "budgets": [
+          22,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 100,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 457500,
+        "metrics_evaluated_at_fee_sompi": 457500,
+        "required_fee_sompi": 457500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 1015,
+          "compute_mass": 4575,
+          "transient_mass": 4060,
+          "storage_mass": 0,
+          "normalized_mining_mass": 4575,
+          "default_relay_mass": 4575,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 1,
+        "redeem_bytes": 467,
+        "permission_signature_script_bytes": 587,
+        "estimated_bytes": 1015,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 220421,
+        "conservative_permission_budget": 22,
+        "budgets": [
+          22,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 200,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 915000,
+        "metrics_evaluated_at_fee_sompi": 915000,
+        "required_fee_sompi": 915000,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 1015,
+          "compute_mass": 4575,
+          "transient_mass": 4060,
+          "storage_mass": 0,
+          "normalized_mining_mass": 4575,
+          "default_relay_mass": 4575,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 1,
+        "redeem_bytes": 467,
+        "permission_signature_script_bytes": 587,
+        "estimated_bytes": 1015,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 220421,
+        "conservative_permission_budget": 22,
+        "budgets": [
+          22,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 500,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 2287500,
+        "metrics_evaluated_at_fee_sompi": 2287500,
+        "required_fee_sompi": 2287500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 1015,
+          "compute_mass": 4575,
+          "transient_mass": 4060,
+          "storage_mass": 0,
+          "normalized_mining_mass": 4575,
+          "default_relay_mass": 4575,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 16,
+        "redeem_bytes": 797,
+        "permission_signature_script_bytes": 1937,
+        "estimated_bytes": 2365,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 640811,
+        "conservative_permission_budget": 64,
+        "budgets": [
+          64,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 100,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 1012500,
+        "metrics_evaluated_at_fee_sompi": 1012500,
+        "required_fee_sompi": 1012500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 2365,
+          "compute_mass": 10125,
+          "transient_mass": 9460,
+          "storage_mass": 0,
+          "normalized_mining_mass": 10125,
+          "default_relay_mass": 10125,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 16,
+        "redeem_bytes": 797,
+        "permission_signature_script_bytes": 1937,
+        "estimated_bytes": 2365,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 640811,
+        "conservative_permission_budget": 64,
+        "budgets": [
+          64,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 200,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 2025000,
+        "metrics_evaluated_at_fee_sompi": 2025000,
+        "required_fee_sompi": 2025000,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 2365,
+          "compute_mass": 10125,
+          "transient_mass": 9460,
+          "storage_mass": 0,
+          "normalized_mining_mass": 10125,
+          "default_relay_mass": 10125,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 16,
+        "redeem_bytes": 797,
+        "permission_signature_script_bytes": 1937,
+        "estimated_bytes": 2365,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 640811,
+        "conservative_permission_budget": 64,
+        "budgets": [
+          64,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 500,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 5062500,
+        "metrics_evaluated_at_fee_sompi": 5062500,
+        "required_fee_sompi": 5062500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 2365,
+          "compute_mass": 10125,
+          "transient_mass": 9460,
+          "storage_mass": 0,
+          "normalized_mining_mass": 10125,
+          "default_relay_mass": 10125,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 32,
+        "redeem_bytes": 1149,
+        "permission_signature_script_bytes": 3377,
+        "estimated_bytes": 3805,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 1329291,
+        "conservative_permission_budget": 132,
+        "budgets": [
+          132,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 100,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 1836500,
+        "metrics_evaluated_at_fee_sompi": 1836500,
+        "required_fee_sompi": 1836500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 3805,
+          "compute_mass": 18365,
+          "transient_mass": 15220,
+          "storage_mass": 0,
+          "normalized_mining_mass": 18365,
+          "default_relay_mass": 18365,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 32,
+        "redeem_bytes": 1149,
+        "permission_signature_script_bytes": 3377,
+        "estimated_bytes": 3805,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 1329291,
+        "conservative_permission_budget": 132,
+        "budgets": [
+          132,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 200,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 3673000,
+        "metrics_evaluated_at_fee_sompi": 3673000,
+        "required_fee_sompi": 3673000,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 3805,
+          "compute_mass": 18365,
+          "transient_mass": 15220,
+          "storage_mass": 0,
+          "normalized_mining_mass": 18365,
+          "default_relay_mass": 18365,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 32,
+        "redeem_bytes": 1149,
+        "permission_signature_script_bytes": 3377,
+        "estimated_bytes": 3805,
+        "output_raw_script_lengths": [
+          34
+        ],
+        "source_upper_bound_permission_units": 1329291,
+        "conservative_permission_budget": 132,
+        "budgets": [
+          132,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 500,
+      "fixed_fee_coin_value_sompi": null,
+      "fee_change_output": false,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 9182500,
+        "metrics_evaluated_at_fee_sompi": 9182500,
+        "required_fee_sompi": 9182500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 3805,
+          "compute_mass": 18365,
+          "transient_mass": 15220,
+          "storage_mass": 0,
+          "normalized_mining_mass": 18365,
+          "default_relay_mass": 18365,
+          "native_dimension_limits_pass": true
+        }
+      }
+    }
+  ],
+  "official_permission_terminal_1KAS_fee_input_and_change": [
+    {
+      "shape": {
+        "depth": 1,
+        "redeem_bytes": 467,
+        "permission_signature_script_bytes": 587,
+        "estimated_bytes": 1067,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 220421,
+        "conservative_permission_budget": 22,
+        "budgets": [
+          22,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 100,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 498700,
+        "metrics_evaluated_at_fee_sompi": 498700,
+        "required_fee_sompi": 498700,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 1067,
+          "compute_mass": 4987,
+          "transient_mass": 4268,
+          "storage_mass": 0,
+          "normalized_mining_mass": 4987,
+          "default_relay_mass": 4987,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 1,
+        "redeem_bytes": 467,
+        "permission_signature_script_bytes": 587,
+        "estimated_bytes": 1067,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 220421,
+        "conservative_permission_budget": 22,
+        "budgets": [
+          22,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 200,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 997400,
+        "metrics_evaluated_at_fee_sompi": 997400,
+        "required_fee_sompi": 997400,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 1067,
+          "compute_mass": 4987,
+          "transient_mass": 4268,
+          "storage_mass": 0,
+          "normalized_mining_mass": 4987,
+          "default_relay_mass": 4987,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 1,
+        "redeem_bytes": 467,
+        "permission_signature_script_bytes": 587,
+        "estimated_bytes": 1067,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 220421,
+        "conservative_permission_budget": 22,
+        "budgets": [
+          22,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 500,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 2493500,
+        "metrics_evaluated_at_fee_sompi": 2493500,
+        "required_fee_sompi": 2493500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 1067,
+          "compute_mass": 4987,
+          "transient_mass": 4268,
+          "storage_mass": 0,
+          "normalized_mining_mass": 4987,
+          "default_relay_mass": 4987,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 16,
+        "redeem_bytes": 797,
+        "permission_signature_script_bytes": 1937,
+        "estimated_bytes": 2417,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 640811,
+        "conservative_permission_budget": 64,
+        "budgets": [
+          64,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 100,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 1053700,
+        "metrics_evaluated_at_fee_sompi": 1053700,
+        "required_fee_sompi": 1053700,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 2417,
+          "compute_mass": 10537,
+          "transient_mass": 9668,
+          "storage_mass": 0,
+          "normalized_mining_mass": 10537,
+          "default_relay_mass": 10537,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 16,
+        "redeem_bytes": 797,
+        "permission_signature_script_bytes": 1937,
+        "estimated_bytes": 2417,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 640811,
+        "conservative_permission_budget": 64,
+        "budgets": [
+          64,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 200,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 2107400,
+        "metrics_evaluated_at_fee_sompi": 2107400,
+        "required_fee_sompi": 2107400,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 2417,
+          "compute_mass": 10537,
+          "transient_mass": 9668,
+          "storage_mass": 0,
+          "normalized_mining_mass": 10537,
+          "default_relay_mass": 10537,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 16,
+        "redeem_bytes": 797,
+        "permission_signature_script_bytes": 1937,
+        "estimated_bytes": 2417,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 640811,
+        "conservative_permission_budget": 64,
+        "budgets": [
+          64,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 500,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 5268500,
+        "metrics_evaluated_at_fee_sompi": 5268500,
+        "required_fee_sompi": 5268500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 2417,
+          "compute_mass": 10537,
+          "transient_mass": 9668,
+          "storage_mass": 0,
+          "normalized_mining_mass": 10537,
+          "default_relay_mass": 10537,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 32,
+        "redeem_bytes": 1149,
+        "permission_signature_script_bytes": 3377,
+        "estimated_bytes": 3857,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 1329291,
+        "conservative_permission_budget": 132,
+        "budgets": [
+          132,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 100,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 1877700,
+        "metrics_evaluated_at_fee_sompi": 1877700,
+        "required_fee_sompi": 1877700,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 3857,
+          "compute_mass": 18777,
+          "transient_mass": 15428,
+          "storage_mass": 0,
+          "normalized_mining_mass": 18777,
+          "default_relay_mass": 18777,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 32,
+        "redeem_bytes": 1149,
+        "permission_signature_script_bytes": 3377,
+        "estimated_bytes": 3857,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 1329291,
+        "conservative_permission_budget": 132,
+        "budgets": [
+          132,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 200,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 3755400,
+        "metrics_evaluated_at_fee_sompi": 3755400,
+        "required_fee_sompi": 3755400,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 3857,
+          "compute_mass": 18777,
+          "transient_mass": 15428,
+          "storage_mass": 0,
+          "normalized_mining_mass": 18777,
+          "default_relay_mass": 18777,
+          "native_dimension_limits_pass": true
+        }
+      }
+    },
+    {
+      "shape": {
+        "depth": 32,
+        "redeem_bytes": 1149,
+        "permission_signature_script_bytes": 3377,
+        "estimated_bytes": 3857,
+        "output_raw_script_lengths": [
+          34,
+          34
+        ],
+        "source_upper_bound_permission_units": 1329291,
+        "conservative_permission_budget": 132,
+        "budgets": [
+          132,
+          0,
+          10
+        ],
+        "delegate_units_upper_bound": 1835,
+        "fee_input_units": 100001
+      },
+      "rate": 500,
+      "fixed_fee_coin_value_sompi": 100000000,
+      "fee_change_output": true,
+      "fee_source": "additional nondelegate payer input; not liability or permission rent",
+      "claim_funded_under_unchanged_script": false,
+      "quote": {
+        "passes": true,
+        "fee_sompi": 9388500,
+        "metrics_evaluated_at_fee_sompi": 9388500,
+        "required_fee_sompi": 9388500,
+        "iterations": 2,
+        "metrics": {
+          "estimated_bytes": 3857,
+          "compute_mass": 18777,
+          "transient_mass": 15428,
+          "storage_mass": 0,
+          "normalized_mining_mass": 18777,
+          "default_relay_mass": 18777,
+          "native_dimension_limits_pass": true
+        }
+      }
+    }
+  ],
+  "official_permission_continuing_external_fee": [
+    {
+      "delegate_input_sompi": 60000000,
+      "rows": [
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2452,
+            "output_raw_script_lengths": [
+              34,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 100,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 1058200,
+            "metrics_evaluated_at_fee_sompi": 1058200,
+            "required_fee_sompi": 1058200,
+            "iterations": 2,
+            "metrics": {
+              "estimated_bytes": 2452,
+              "compute_mass": 10582,
+              "transient_mass": 9808,
+              "storage_mass": 0,
+              "normalized_mining_mass": 10582,
+              "default_relay_mass": 10582,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2452,
+            "output_raw_script_lengths": [
+              34,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 200,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 2116400,
+            "metrics_evaluated_at_fee_sompi": 2116400,
+            "required_fee_sompi": 2116400,
+            "iterations": 2,
+            "metrics": {
+              "estimated_bytes": 2452,
+              "compute_mass": 10582,
+              "transient_mass": 9808,
+              "storage_mass": 0,
+              "normalized_mining_mass": 10582,
+              "default_relay_mass": 10582,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2452,
+            "output_raw_script_lengths": [
+              34,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 500,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 5291000,
+            "metrics_evaluated_at_fee_sompi": 5291000,
+            "required_fee_sompi": 5291000,
+            "iterations": 2,
+            "metrics": {
+              "estimated_bytes": 2452,
+              "compute_mass": 10582,
+              "transient_mass": 9808,
+              "storage_mass": 0,
+              "normalized_mining_mass": 10582,
+              "default_relay_mass": 10582,
+              "native_dimension_limits_pass": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "delegate_input_sompi": 60000001,
+      "rows": [
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 100,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": false,
+            "reason": "native dimension limit",
+            "fee_sompi": 0,
+            "metrics_evaluated_at_fee_sompi": 0,
+            "required_fee_sompi": 99999995121400,
+            "iterations": 1,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 999999951214,
+              "normalized_mining_mass": 999999951214,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": false
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 200,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": false,
+            "reason": "native dimension limit",
+            "fee_sompi": 0,
+            "metrics_evaluated_at_fee_sompi": 0,
+            "required_fee_sompi": 199999990242800,
+            "iterations": 1,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 999999951214,
+              "normalized_mining_mass": 999999951214,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": false
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 500,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": false,
+            "reason": "native dimension limit",
+            "fee_sompi": 0,
+            "metrics_evaluated_at_fee_sompi": 0,
+            "required_fee_sompi": 499999975607000,
+            "iterations": 1,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 999999951214,
+              "normalized_mining_mass": 999999951214,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "delegate_input_sompi": 70000000,
+      "rows": [
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 100,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 7075800,
+            "metrics_evaluated_at_fee_sompi": 7075800,
+            "required_fee_sompi": 7075800,
+            "iterations": 6,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 70758,
+              "normalized_mining_mass": 70758,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 200,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 15762800,
+            "metrics_evaluated_at_fee_sompi": 15762800,
+            "required_fee_sompi": 15762800,
+            "iterations": 7,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 78814,
+              "normalized_mining_mass": 78814,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 500,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": false,
+            "reason": "minimum next fee exceeds50M attributable cost allowance",
+            "next_required_fee_sompi": 50021000,
+            "fee_cap_sompi": 50000000,
+            "fee_sompi": 45587000,
+            "metrics_evaluated_at_fee_sompi": 45587000,
+            "required_fee_sompi": 50021000,
+            "iterations": 3,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 100042,
+              "normalized_mining_mass": 100042,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "delegate_input_sompi": 80000000,
+      "rows": [
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 100,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 2600600,
+            "metrics_evaluated_at_fee_sompi": 2600600,
+            "required_fee_sompi": 2600600,
+            "iterations": 6,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 26006,
+              "normalized_mining_mass": 26006,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 200,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 5762800,
+            "metrics_evaluated_at_fee_sompi": 5762800,
+            "required_fee_sompi": 5762800,
+            "iterations": 7,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 28814,
+              "normalized_mining_mass": 28814,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 500,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 20001000,
+            "metrics_evaluated_at_fee_sompi": 20001000,
+            "required_fee_sompi": 20001000,
+            "iterations": 11,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 40002,
+              "normalized_mining_mass": 40002,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "delegate_input_sompi": 120000000,
+      "rows": [
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 100,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 2032800,
+            "metrics_evaluated_at_fee_sompi": 2032800,
+            "required_fee_sompi": 2032800,
+            "iterations": 5,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 20328,
+              "normalized_mining_mass": 20328,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 200,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 4308800,
+            "metrics_evaluated_at_fee_sompi": 4308800,
+            "required_fee_sompi": 4308800,
+            "iterations": 6,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 21544,
+              "normalized_mining_mass": 21544,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 500,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 12936000,
+            "metrics_evaluated_at_fee_sompi": 12936000,
+            "required_fee_sompi": 12936000,
+            "iterations": 9,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 25872,
+              "normalized_mining_mass": 25872,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "delegate_input_sompi": 1000000000,
+      "rows": [
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 100,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 8261300,
+            "metrics_evaluated_at_fee_sompi": 8261300,
+            "required_fee_sompi": 8261300,
+            "iterations": 3,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 82613,
+              "normalized_mining_mass": 82613,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 200,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 16545800,
+            "metrics_evaluated_at_fee_sompi": 16545800,
+            "required_fee_sompi": 16545800,
+            "iterations": 3,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 82729,
+              "normalized_mining_mass": 82729,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 500,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 41536500,
+            "metrics_evaluated_at_fee_sompi": 41536500,
+            "required_fee_sompi": 41536500,
+            "iterations": 4,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 83073,
+              "normalized_mining_mass": 83073,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "delegate_input_sompi": 1000000000000,
+      "rows": [
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 100,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 9665500,
+            "metrics_evaluated_at_fee_sompi": 9665500,
+            "required_fee_sompi": 9665500,
+            "iterations": 2,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 96655,
+              "normalized_mining_mass": 96655,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 200,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 19331000,
+            "metrics_evaluated_at_fee_sompi": 19331000,
+            "required_fee_sompi": 19331000,
+            "iterations": 2,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 96655,
+              "normalized_mining_mass": 96655,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        },
+        {
+          "shape": {
+            "depth": 16,
+            "redeem_bytes": 797,
+            "permission_signature_script_bytes": 1937,
+            "estimated_bytes": 2505,
+            "output_raw_script_lengths": [
+              34,
+              35,
+              35
+            ],
+            "source_upper_bound_permission_units": 640811,
+            "conservative_permission_budget": 64,
+            "budgets": [
+              64,
+              0,
+              10
+            ],
+            "delegate_units_upper_bound": 1835,
+            "fee_input_units": 100001
+          },
+          "rate": 500,
+          "fixed_fee_coin_value_sompi": null,
+          "fee_change_output": false,
+          "fee_source": "additional nondelegate payer input; not liability or permission rent",
+          "claim_funded_under_unchanged_script": false,
+          "quote": {
+            "passes": true,
+            "fee_sompi": 48327500,
+            "metrics_evaluated_at_fee_sompi": 48327500,
+            "required_fee_sompi": 48327500,
+            "iterations": 2,
+            "metrics": {
+              "estimated_bytes": 2505,
+              "compute_mass": 11005,
+              "transient_mass": 10020,
+              "storage_mass": 96655,
+              "normalized_mining_mass": 96655,
+              "default_relay_mass": 11005,
+              "native_dimension_limits_pass": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "known_cost_atoms": {
+    "ADMIT_factory1700_measured_mass": 201631,
+    "ADMIT_prospective1600_measured_mass": 191631,
+    "ADMIT_actual_authorized_fee_sompi": 40000000,
+    "paired1700_measured_mass": 196484,
+    "paired_actual_authorized_total_fee_sompi": 80000000,
+    "paired_useful_payment_count": 2,
+    "paired_actual_authorized_per_payment_fee_sompi": 40000000,
+    "fixed_fees_repriced": false
+  },
+  "10KAS_lifecycle_lower_bounds": [
+    {
+      "rate": 100,
+      "single_two_verifier_lower_bound": 29500000,
+      "three_verifier_lower_bound": 44250000,
+      "one_admit_plus_one_two_digest_ticket_authorization_lower_bound": 29500000,
+      "one_admit_plus_one_five_input_outer_authorization_lower_bound": 30250000,
+      "target_10KAS_lifecycle_at_reference": 20000000,
+      "reference_only_target": true
+    },
+    {
+      "rate": 200,
+      "single_two_verifier_lower_bound": 59000000,
+      "three_verifier_lower_bound": 88500000,
+      "one_admit_plus_one_two_digest_ticket_authorization_lower_bound": 59000000,
+      "one_admit_plus_one_five_input_outer_authorization_lower_bound": 60500000,
+      "target_10KAS_lifecycle_at_reference": 20000000,
+      "reference_only_target": false
+    },
+    {
+      "rate": 500,
+      "single_two_verifier_lower_bound": 147500000,
+      "three_verifier_lower_bound": 221250000,
+      "one_admit_plus_one_two_digest_ticket_authorization_lower_bound": 147500000,
+      "one_admit_plus_one_five_input_outer_authorization_lower_bound": 151250000,
+      "target_10KAS_lifecycle_at_reference": 20000000,
+      "reference_only_target": false
+    }
+  ],
+  "Ba_Bp_integer_route_frontiers": [
+    {
+      "admit_attributed_real_users_Ba": 1,
+      "private_payments_Bp": 2,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": true,
+      "other_Bp_shapes_conditional": false,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 14750000,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 24811700,
+        "necessary_budget_test_pass": false,
+        "shape_source_upper_total_sompi": 25031700,
+        "unallocated_budget_after_shape_upper_sompi": -5031700,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 19163100,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 29224800,
+        "necessary_budget_test_pass": false,
+        "shape_source_upper_total_sompi": 29444800,
+        "unallocated_budget_after_shape_upper_sompi": -9444800,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 1,
+      "private_payments_Bp": 4,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 14750000,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 19924500,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 20144500,
+        "unallocated_budget_after_shape_upper_sompi": -144500,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 19163100,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 24337600,
+        "necessary_budget_test_pass": false,
+        "shape_source_upper_total_sompi": 24557600,
+        "unallocated_budget_after_shape_upper_sompi": -4557600,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 1,
+      "private_payments_Bp": 8,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 14750000,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 17480900,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 17700900,
+        "unallocated_budget_after_shape_upper_sompi": 2299100,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 19163100,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 21894000,
+        "necessary_budget_test_pass": false,
+        "shape_source_upper_total_sompi": 22114000,
+        "unallocated_budget_after_shape_upper_sompi": -2114000,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 1,
+      "private_payments_Bp": 12,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 14750000,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 16666367,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 16886367,
+        "unallocated_budget_after_shape_upper_sompi": 3113633,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 19163100,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 21079467,
+        "necessary_budget_test_pass": false,
+        "shape_source_upper_total_sompi": 21299467,
+        "unallocated_budget_after_shape_upper_sompi": -1299467,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 2,
+      "private_payments_Bp": 2,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": true,
+      "other_Bp_shapes_conditional": false,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 7375000,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 17436700,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 17656700,
+        "unallocated_budget_after_shape_upper_sompi": 2343300,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 9581550,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 19643250,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 19863250,
+        "unallocated_budget_after_shape_upper_sompi": 136750,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 2,
+      "private_payments_Bp": 4,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 7375000,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 12549500,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 12769500,
+        "unallocated_budget_after_shape_upper_sompi": 7230500,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 9581550,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 14756050,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 14976050,
+        "unallocated_budget_after_shape_upper_sompi": 5023950,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 2,
+      "private_payments_Bp": 8,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 7375000,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 10105900,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 10325900,
+        "unallocated_budget_after_shape_upper_sompi": 9674100,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 9581550,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 12312450,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 12532450,
+        "unallocated_budget_after_shape_upper_sompi": 7467550,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 2,
+      "private_payments_Bp": 12,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 7375000,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 9291367,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 9511367,
+        "unallocated_budget_after_shape_upper_sompi": 10488633,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 9581550,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 11497917,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 11717917,
+        "unallocated_budget_after_shape_upper_sompi": 8282083,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 4,
+      "private_payments_Bp": 2,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": true,
+      "other_Bp_shapes_conditional": false,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 3687500,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 13749200,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 13969200,
+        "unallocated_budget_after_shape_upper_sompi": 6030800,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 4790775,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 14852475,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 15072475,
+        "unallocated_budget_after_shape_upper_sompi": 4927525,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 4,
+      "private_payments_Bp": 4,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 3687500,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 8862000,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 9082000,
+        "unallocated_budget_after_shape_upper_sompi": 10918000,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 4790775,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 9965275,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 10185275,
+        "unallocated_budget_after_shape_upper_sompi": 9814725,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 4,
+      "private_payments_Bp": 8,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 3687500,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 6418400,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 6638400,
+        "unallocated_budget_after_shape_upper_sompi": 13361600,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 4790775,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 7521675,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 7741675,
+        "unallocated_budget_after_shape_upper_sompi": 12258325,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 4,
+      "private_payments_Bp": 12,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 3687500,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 5603867,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 5823867,
+        "unallocated_budget_after_shape_upper_sompi": 14176133,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 4790775,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 6707142,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 6927142,
+        "unallocated_budget_after_shape_upper_sompi": 13072858,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 8,
+      "private_payments_Bp": 2,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": true,
+      "other_Bp_shapes_conditional": false,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1843750,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 11905450,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 12125450,
+        "unallocated_budget_after_shape_upper_sompi": 7874550,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 2395388,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 12457088,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 12677088,
+        "unallocated_budget_after_shape_upper_sompi": 7322912,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 8,
+      "private_payments_Bp": 4,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1843750,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 7018250,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 7238250,
+        "unallocated_budget_after_shape_upper_sompi": 12761750,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 2395388,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 7569888,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 7789888,
+        "unallocated_budget_after_shape_upper_sompi": 12210112,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 8,
+      "private_payments_Bp": 8,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1843750,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 4574650,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 4794650,
+        "unallocated_budget_after_shape_upper_sompi": 15205350,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 2395388,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 5126288,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 5346288,
+        "unallocated_budget_after_shape_upper_sompi": 14653712,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 8,
+      "private_payments_Bp": 12,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1843750,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 3760117,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 3980117,
+        "unallocated_budget_after_shape_upper_sompi": 16019883,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 2395388,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 4311755,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 4531755,
+        "unallocated_budget_after_shape_upper_sompi": 15468245,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 12,
+      "private_payments_Bp": 2,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": true,
+      "other_Bp_shapes_conditional": false,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1229167,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 11290867,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 11510867,
+        "unallocated_budget_after_shape_upper_sompi": 8489133,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 1596925,
+        "private_fee_share_sompi": 9824200,
+        "necessary_total_with_terminal_lower_sompi": 11658625,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 11878625,
+        "unallocated_budget_after_shape_upper_sompi": 8121375,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 12,
+      "private_payments_Bp": 4,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1229167,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 6403667,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 6623667,
+        "unallocated_budget_after_shape_upper_sompi": 13376333,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 1596925,
+        "private_fee_share_sompi": 4937000,
+        "necessary_total_with_terminal_lower_sompi": 6771425,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 6991425,
+        "unallocated_budget_after_shape_upper_sompi": 13008575,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 12,
+      "private_payments_Bp": 8,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1229167,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 3960067,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 4180067,
+        "unallocated_budget_after_shape_upper_sompi": 15819933,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 1596925,
+        "private_fee_share_sompi": 2493400,
+        "necessary_total_with_terminal_lower_sompi": 4327825,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 4547825,
+        "unallocated_budget_after_shape_upper_sompi": 15452175,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    },
+    {
+      "admit_attributed_real_users_Ba": 12,
+      "private_payments_Bp": 12,
+      "same_principal_sompi": 1000000000,
+      "reference_lifecycle_cap_sompi": 20000000,
+      "current_genuine_B2_anchor_used": false,
+      "other_Bp_shapes_conditional": true,
+      "actual_native_admit_support_for_Ba_above1": false,
+      "ideal_admit_G16_floor": {
+        "admit_fee_share_sompi": 1229167,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 3145534,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 3365534,
+        "unallocated_budget_after_shape_upper_sompi": 16634466,
+        "excludes_funding_creation_service_proving_retries": true
+      },
+      "optimistic_division_of_measured_admit_atom": {
+        "admit_fee_share_sompi": 1596925,
+        "private_fee_share_sompi": 1678867,
+        "necessary_total_with_terminal_lower_sompi": 3513292,
+        "necessary_budget_test_pass": true,
+        "shape_source_upper_total_sompi": 3733292,
+        "unallocated_budget_after_shape_upper_sompi": 16266708,
+        "excludes_funding_creation_service_proving_retries": true
+      }
+    }
+  ],
+  "unamortized_admit_minimum_Bp_shape_frontiers": [
+    {
+      "Ba": 1,
+      "admit_mass_atom": 147500,
+      "admit_interpretation": "ideal_admit_verifier_floor",
+      "terminal_mass": 0,
+      "terminal_interpretation": "optimistic_lower_bound",
+      "minimum_Bp_for_fixed_padded_shape_arithmetic": 4,
+      "qualified_native_arity_range": "onlyB2isgenuine;4/8/12sourceconditional;largerunselected",
+      "extra_ticket_outputs_and_metadata_included": false
+    },
+    {
+      "Ba": 1,
+      "admit_mass_atom": 191631,
+      "admit_interpretation": "measured_admit_atom",
+      "terminal_mass": 0,
+      "terminal_interpretation": "optimistic_lower_bound",
+      "minimum_Bp_for_fixed_padded_shape_arithmetic": 25,
+      "qualified_native_arity_range": "onlyB2isgenuine;4/8/12sourceconditional;largerunselected",
+      "extra_ticket_outputs_and_metadata_included": false
+    },
+    {
+      "Ba": 1,
+      "admit_mass_atom": 147500,
+      "admit_interpretation": "ideal_admit_verifier_floor",
+      "terminal_mass": 2375,
+      "terminal_interpretation": "optimistic_lower_bound",
+      "minimum_Bp_for_fixed_padded_shape_arithmetic": 4,
+      "qualified_native_arity_range": "onlyB2isgenuine;4/8/12sourceconditional;largerunselected",
+      "extra_ticket_outputs_and_metadata_included": false
+    },
+    {
+      "Ba": 1,
+      "admit_mass_atom": 191631,
+      "admit_interpretation": "measured_admit_atom",
+      "terminal_mass": 2375,
+      "terminal_interpretation": "optimistic_lower_bound",
+      "minimum_Bp_for_fixed_padded_shape_arithmetic": 36,
+      "qualified_native_arity_range": "onlyB2isgenuine;4/8/12sourceconditional;largerunselected",
+      "extra_ticket_outputs_and_metadata_included": false
+    },
+    {
+      "Ba": 1,
+      "admit_mass_atom": 147500,
+      "admit_interpretation": "ideal_admit_verifier_floor",
+      "terminal_mass": 4575,
+      "terminal_interpretation": "source_upper_not_a_necessary_lower_bound",
+      "minimum_Bp_for_fixed_padded_shape_arithmetic": 5,
+      "qualified_native_arity_range": "onlyB2isgenuine;4/8/12sourceconditional;largerunselected",
+      "extra_ticket_outputs_and_metadata_included": false
+    },
+    {
+      "Ba": 1,
+      "admit_mass_atom": 191631,
+      "admit_interpretation": "measured_admit_atom",
+      "terminal_mass": 4575,
+      "terminal_interpretation": "source_upper_not_a_necessary_lower_bound",
+      "minimum_Bp_for_fixed_padded_shape_arithmetic": 60,
+      "qualified_native_arity_range": "onlyB2isgenuine;4/8/12sourceconditional;largerunselected",
+      "extra_ticket_outputs_and_metadata_included": false
+    }
+  ],
+  "optimistic_batch_ticket_shape": [
+    {
+      "payments_and_tickets": 2,
+      "conditional_estimated_bytes": 26220,
+      "conditional_compute_mass": 197330,
+      "optimistic_reference_native_share_sompi": 9866500,
+      "unamortized_admit_G16_floor_plus_share_sompi": 24616500,
+      "remaining_20M_for_claim_funding_service_retries": -4616500,
+      "newticketmetadata_bytes_assumed": 0,
+      "existing_proofs_authorize_these_outputs": false,
+      "budget1700_for_newcode_qualified": false
+    },
+    {
+      "payments_and_tickets": 4,
+      "conditional_estimated_bytes": 27322,
+      "conditional_compute_mass": 199172,
+      "optimistic_reference_native_share_sompi": 4979300,
+      "unamortized_admit_G16_floor_plus_share_sompi": 19729300,
+      "remaining_20M_for_claim_funding_service_retries": 270700,
+      "newticketmetadata_bytes_assumed": 0,
+      "existing_proofs_authorize_these_outputs": false,
+      "budget1700_for_newcode_qualified": false
+    },
+    {
+      "payments_and_tickets": 8,
+      "conditional_estimated_bytes": 29526,
+      "conditional_compute_mass": 202856,
+      "optimistic_reference_native_share_sompi": 2535700,
+      "unamortized_admit_G16_floor_plus_share_sompi": 17285700,
+      "remaining_20M_for_claim_funding_service_retries": 2714300,
+      "newticketmetadata_bytes_assumed": 0,
+      "existing_proofs_authorize_these_outputs": false,
+      "budget1700_for_newcode_qualified": false
+    },
+    {
+      "payments_and_tickets": 12,
+      "conditional_estimated_bytes": 31730,
+      "conditional_compute_mass": 206540,
+      "optimistic_reference_native_share_sompi": 1721167,
+      "unamortized_admit_G16_floor_plus_share_sompi": 16471167,
+      "remaining_20M_for_claim_funding_service_retries": 3528833,
+      "newticketmetadata_bytes_assumed": 0,
+      "existing_proofs_authorize_these_outputs": false,
+      "budget1700_for_newcode_qualified": false
+    }
+  ],
+  "scope": "source-derived arithmetic only; full claim candidate, accepted authorization, funding availability, privacy and full per-user lifecycle remain unqualified"
+}

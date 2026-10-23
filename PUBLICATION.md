@@ -4,8 +4,13 @@ This branch combines two separately published research snapshots. It contains
 source and public test data; a complete fundable private payment system has not
 been demonstrated. DO_NOT_FUND.
 
-The [current cost and correctness checkpoint](research/next-session/RESULTS.md)
-tracks the bounded follow-up work, its retained failures and remaining gates.
+The [latest fee and independent-exit checkpoint](research/next-session/exit-fee/RESULTS.md)
+records the new public self-funded native reveal prototype, finite liability
+models and upstream permission-claim cost checks. Its current-state/authority
+and fee results do not implement the future private-proof branch or complete a
+private payment lifecycle. All keys/credentials in these fixtures are deliberately
+public test vectors. The [previous cost and correctness checkpoint](research/next-session/RESULTS.md)
+retains its separate proof/performance and budget results unchanged.
 
 | Snapshot | Retained result | Evidence |
 | --- | --- | --- |

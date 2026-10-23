@@ -1,0 +1,2086 @@
+{
+  "format": "independent-future-cost-body-recount-v1",
+  "freeze02_sha256": "1c8d432425ced73fc4f7e9a0d74cf992c86d0ad41dc3001504cd1998ba4a3983",
+  "freeze02_members_rehashed": 191,
+  "fixed50M_count": 15,
+  "agility_count": 45,
+  "counts": {
+    "fixed500pass": 2,
+    "agility100pass": 15,
+    "agility200pass": 15,
+    "agility500pass": 6
+  },
+  "all60_body_metrics_and_actual_value_equations_match": true,
+  "all45_monotone_fee_histories_match": true,
+  "official_native_execution_by_reviewer": false,
+  "private_proof_or_complete_lifecycle_qualified": false,
+  "rows": [
+    {
+      "name": "terminal-singleton-minimal",
+      "profile": "fixed50M",
+      "transaction_sha256": "5b2faacbcdc16e1123705e88d5baeea9386a918fd0b3b4024930dcd95d858fcc",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 8277,
+        "compute_mass": 28637,
+        "transient_mass": 33108,
+        "storage_mass": 83334,
+        "mining_mass": 83334,
+        "relay_mass": 28637,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": []
+    },
+    {
+      "name": "terminal-singleton-32768",
+      "profile": "fixed50M",
+      "transaction_sha256": "d436fb7d1e1e372ea7daf82a37f484810341b3d418d68487b2a2b9f8a0201615",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 35066,
+        "compute_mass": 55426,
+        "transient_mass": 140264,
+        "storage_mass": 83334,
+        "mining_mass": 83334,
+        "relay_mass": 70132,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": []
+    },
+    {
+      "name": "terminal-singleton-49152",
+      "profile": "fixed50M",
+      "transaction_sha256": "bf608b7a6c49f588d42954b116589855ba09fdb4deff4683bb8a53b0240797a6",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 51450,
+        "compute_mass": 71810,
+        "transient_mass": 205800,
+        "storage_mass": 83334,
+        "mining_mass": 102900,
+        "relay_mass": 102900,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder60M-minimal",
+      "profile": "fixed50M",
+      "transaction_sha256": "af0256aeabe333b589bcbc35a23e5a1f7b9f29bf083a12a0f85ddde82c0886f0",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 108333,
+        "mining_mass": 108333,
+        "relay_mass": 29060,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder60M-32768",
+      "profile": "fixed50M",
+      "transaction_sha256": "892931996aedd1d4bad4e2db6a793e9f4028f0fe32a5b54dcf8d98c455f762c6",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 108333,
+        "mining_mass": 108333,
+        "relay_mass": 70238,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder60M-49152",
+      "profile": "fixed50M",
+      "transaction_sha256": "f7912473e65a5cce856846a366ade3fae12bda7f0c0793fd7e0f3340cbe51f3c",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 108333,
+        "mining_mass": 108333,
+        "relay_mass": 103006,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder20M-minimal",
+      "profile": "fixed50M",
+      "transaction_sha256": "e3523d467327eeed11b982f73de502b0ed46052f04eb69f25cbf96da7665ec9a",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 137500,
+        "mining_mass": 137500,
+        "relay_mass": 29060,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder20M-32768",
+      "profile": "fixed50M",
+      "transaction_sha256": "03e3663de3ddf683929811ea440771c5305748a00de4e4e7eac3ef872be2a41b",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 137500,
+        "mining_mass": 137500,
+        "relay_mass": 70238,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder20M-49152",
+      "profile": "fixed50M",
+      "transaction_sha256": "1e68af276aa85da74cd488e1e5cd04ae899f5c24804a8d0f42e8f4e696a023dd",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 137500,
+        "mining_mass": 137500,
+        "relay_mass": 103006,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder10M-minimal",
+      "profile": "fixed50M",
+      "transaction_sha256": "b9f430463951f85bb5ec10b5c4358c820e97cbe6f684afb8f8382d534982e586",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 185715,
+        "mining_mass": 185715,
+        "relay_mass": 29060,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder10M-32768",
+      "profile": "fixed50M",
+      "transaction_sha256": "c2de4878b98906d47c6f9fe39afa6cb424718cac8ae43e302ce0cf0844976611",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 185715,
+        "mining_mass": 185715,
+        "relay_mass": 70238,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "continuing-remainder10M-49152",
+      "profile": "fixed50M",
+      "transaction_sha256": "597749fd174046b13b1684937988fe0fa94a7beef2ac4144cca5ef95e80ba703",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 185715,
+        "mining_mass": 185715,
+        "relay_mass": 103006,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "high-index65536-minimal",
+      "profile": "fixed50M",
+      "transaction_sha256": "aff209714675febcb3f3c39bb3cabb532c3ff3c37217d11fc292b8e4c0e1965d",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 108333,
+        "mining_mass": 108333,
+        "relay_mass": 29060,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "high-index65536-32768",
+      "profile": "fixed50M",
+      "transaction_sha256": "0aad7233c47ca8c9f924a964aeee9372f5a7e0d32c908193fffaf08d48f3c2f2",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 108333,
+        "mining_mass": 108333,
+        "relay_mass": 70238,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "high-index65536-49152",
+      "profile": "fixed50M",
+      "transaction_sha256": "6fe58396ebe8d5406c8e1e70fca81dd20179fa30cc4a53b7d8dc4ef51bdef5c0",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 10000000,
+      "fee_sompi": 50000000,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 108333,
+        "mining_mass": 108333,
+        "relay_mass": 103006,
+        "fee_sompi": 50000000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": []
+    },
+    {
+      "name": "agility-terminal-singleton-minimal-r100",
+      "profile": "agility",
+      "transaction_sha256": "6ed5922d7797d50b83e975ef873f91c8acc79be157421f38618eb13ad6865988",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 57136300,
+      "fee_sompi": 2863700,
+      "independent_metrics": {
+        "estimated_bytes": 8277,
+        "compute_mass": 28637,
+        "transient_mass": 33108,
+        "storage_mass": 836,
+        "mining_mass": 28637,
+        "relay_mass": 28637,
+        "fee_sompi": 2863700
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 28637,
+          "required_fee_sompi": 2863700
+        },
+        {
+          "fee_sompi": 2863700,
+          "payout_sompi": 57136300,
+          "mining_mass": 28637,
+          "required_fee_sompi": 2863700
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-minimal-r200",
+      "profile": "agility",
+      "transaction_sha256": "fa189340c5e9533b23bf4f770446e728acf90f953de86c3a7e0a596c8bdc46ce",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 54272600,
+      "fee_sompi": 5727400,
+      "independent_metrics": {
+        "estimated_bytes": 8277,
+        "compute_mass": 28637,
+        "transient_mass": 33108,
+        "storage_mass": 1759,
+        "mining_mass": 28637,
+        "relay_mass": 28637,
+        "fee_sompi": 5727400
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 28637,
+          "required_fee_sompi": 5727400
+        },
+        {
+          "fee_sompi": 5727400,
+          "payout_sompi": 54272600,
+          "mining_mass": 28637,
+          "required_fee_sompi": 5727400
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-minimal-r500",
+      "profile": "agility",
+      "transaction_sha256": "b5e0d57e2d34f367bceeb3f275b3962694b50f3151a09cae155478d38aa3ed7d",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 45681500,
+      "fee_sompi": 14318500,
+      "independent_metrics": {
+        "estimated_bytes": 8277,
+        "compute_mass": 28637,
+        "transient_mass": 33108,
+        "storage_mass": 5224,
+        "mining_mass": 28637,
+        "relay_mass": 28637,
+        "fee_sompi": 14318500
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 28637,
+          "required_fee_sompi": 14318500
+        },
+        {
+          "fee_sompi": 14318500,
+          "payout_sompi": 45681500,
+          "mining_mass": 28637,
+          "required_fee_sompi": 14318500
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-32768-r100",
+      "profile": "agility",
+      "transaction_sha256": "e288d5f7bda66c14b5836e3752407fcc1533e66e389bfff6793694dcafa5c78e",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 52986800,
+      "fee_sompi": 7013200,
+      "independent_metrics": {
+        "estimated_bytes": 35066,
+        "compute_mass": 55426,
+        "transient_mass": 140264,
+        "storage_mass": 2206,
+        "mining_mass": 70132,
+        "relay_mass": 70132,
+        "fee_sompi": 7013200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70132,
+          "required_fee_sompi": 7013200
+        },
+        {
+          "fee_sompi": 7013200,
+          "payout_sompi": 52986800,
+          "mining_mass": 70132,
+          "required_fee_sompi": 7013200
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-32768-r200",
+      "profile": "agility",
+      "transaction_sha256": "f0ba3a33658392d4808cfb91df6af5609738f1e9724793144cf02a85808eeaba",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 45973600,
+      "fee_sompi": 14026400,
+      "independent_metrics": {
+        "estimated_bytes": 35066,
+        "compute_mass": 55426,
+        "transient_mass": 140264,
+        "storage_mass": 5085,
+        "mining_mass": 70132,
+        "relay_mass": 70132,
+        "fee_sompi": 14026400
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70132,
+          "required_fee_sompi": 14026400
+        },
+        {
+          "fee_sompi": 14026400,
+          "payout_sompi": 45973600,
+          "mining_mass": 70132,
+          "required_fee_sompi": 14026400
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-32768-r500",
+      "profile": "agility",
+      "transaction_sha256": "761920e91c8d20482b270ca1a1139f0eb3e29afb89907825f8e84cb76377c9f1",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 24934000,
+      "fee_sompi": 35066000,
+      "independent_metrics": {
+        "estimated_bytes": 35066,
+        "compute_mass": 55426,
+        "transient_mass": 140264,
+        "storage_mass": 23439,
+        "mining_mass": 70132,
+        "relay_mass": 70132,
+        "fee_sompi": 35066000
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70132,
+          "required_fee_sompi": 35066000
+        },
+        {
+          "fee_sompi": 35066000,
+          "payout_sompi": 24934000,
+          "mining_mass": 70132,
+          "required_fee_sompi": 35066000
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-49152-r100",
+      "profile": "agility",
+      "transaction_sha256": "270aea3982bd4fcfd51cc25329e2d53b0d5d0f7f223aed285e04b7644907208f",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 49710000,
+      "fee_sompi": 10290000,
+      "independent_metrics": {
+        "estimated_bytes": 51450,
+        "compute_mass": 71810,
+        "transient_mass": 205800,
+        "storage_mass": 3450,
+        "mining_mass": 102900,
+        "relay_mass": 102900,
+        "fee_sompi": 10290000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102900,
+          "required_fee_sompi": 10290000
+        },
+        {
+          "fee_sompi": 10290000,
+          "payout_sompi": 49710000,
+          "mining_mass": 102900,
+          "required_fee_sompi": 10290000
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-49152-r200",
+      "profile": "agility",
+      "transaction_sha256": "b429adea702e5aa9fd4de8acc04ab70b357024beebe7e1c71179ec98e12e1985",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 39420000,
+      "fee_sompi": 20580000,
+      "independent_metrics": {
+        "estimated_bytes": 51450,
+        "compute_mass": 71810,
+        "transient_mass": 205800,
+        "storage_mass": 8701,
+        "mining_mass": 102900,
+        "relay_mass": 102900,
+        "fee_sompi": 20580000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102900,
+          "required_fee_sompi": 20580000
+        },
+        {
+          "fee_sompi": 20580000,
+          "payout_sompi": 39420000,
+          "mining_mass": 102900,
+          "required_fee_sompi": 20580000
+        }
+      ]
+    },
+    {
+      "name": "agility-terminal-singleton-49152-r500",
+      "profile": "agility",
+      "transaction_sha256": "482e9fa2ccc160978c31b83c3d14b45f096ae9fe3c64b9cdcc8b54690cad1e37",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 60000000,
+      "payout_sompi": 60000000,
+      "fee_sompi": 0,
+      "independent_metrics": {
+        "estimated_bytes": 51450,
+        "compute_mass": 71810,
+        "transient_mass": 205800,
+        "storage_mass": 0,
+        "mining_mass": 102900,
+        "relay_mass": 102900,
+        "fee_sompi": 0
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102900,
+          "required_fee_sompi": 51450000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-minimal-r100",
+      "profile": "agility",
+      "transaction_sha256": "d4979d3156fd0bb48780e9a1873d8d5b32899ab6106a94597088baf07cd3905a",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 57094000,
+      "fee_sompi": 2906000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 25847,
+        "mining_mass": 29060,
+        "relay_mass": 29060,
+        "fee_sompi": 2906000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 2906000
+        },
+        {
+          "fee_sompi": 2906000,
+          "payout_sompi": 57094000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 2906000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-minimal-r200",
+      "profile": "agility",
+      "transaction_sha256": "e63e790f9fa0e6901ffe5e29528a3d8813707b50a4b236ec70453ebef5b02408",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 54188000,
+      "fee_sompi": 5812000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 26787,
+        "mining_mass": 29060,
+        "relay_mass": 29060,
+        "fee_sompi": 5812000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 5812000
+        },
+        {
+          "fee_sompi": 5812000,
+          "payout_sompi": 54188000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 5812000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-minimal-r500",
+      "profile": "agility",
+      "transaction_sha256": "92344e68743462e1cb9f44846a81e9978e33ce800ab30600233d44b039c6845f",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 44631000,
+      "fee_sompi": 15369000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 30738,
+        "mining_mass": 30738,
+        "relay_mass": 29060,
+        "fee_sompi": 15369000
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 14530000
+        },
+        {
+          "fee_sompi": 14530000,
+          "payout_sompi": 45470000,
+          "mining_mass": 30325,
+          "required_fee_sompi": 15162500
+        },
+        {
+          "fee_sompi": 15162500,
+          "payout_sompi": 44837500,
+          "mining_mass": 30635,
+          "required_fee_sompi": 15317500
+        },
+        {
+          "fee_sompi": 15317500,
+          "payout_sompi": 44682500,
+          "mining_mass": 30713,
+          "required_fee_sompi": 15356500
+        },
+        {
+          "fee_sompi": 15356500,
+          "payout_sompi": 44643500,
+          "mining_mass": 30732,
+          "required_fee_sompi": 15366000
+        },
+        {
+          "fee_sompi": 15366000,
+          "payout_sompi": 44634000,
+          "mining_mass": 30737,
+          "required_fee_sompi": 15368500
+        },
+        {
+          "fee_sompi": 15368500,
+          "payout_sompi": 44631500,
+          "mining_mass": 30738,
+          "required_fee_sompi": 15369000
+        },
+        {
+          "fee_sompi": 15369000,
+          "payout_sompi": 44631000,
+          "mining_mass": 30738,
+          "required_fee_sompi": 15369000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-32768-r100",
+      "profile": "agility",
+      "transaction_sha256": "16481799dd0be92d1202c9a361d22da948ab5c946fb492aea95d959494f0d7ec",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 52976200,
+      "fee_sompi": 7023800,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 27209,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 7023800
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 7023800
+        },
+        {
+          "fee_sompi": 7023800,
+          "payout_sompi": 52976200,
+          "mining_mass": 70238,
+          "required_fee_sompi": 7023800
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-32768-r200",
+      "profile": "agility",
+      "transaction_sha256": "2bd248030752078d87b19b92ae4a00c11eefa97ff164e285d38124de06850111",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 45952400,
+      "fee_sompi": 14047600,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 30094,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 14047600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 14047600
+        },
+        {
+          "fee_sompi": 14047600,
+          "payout_sompi": 45952400,
+          "mining_mass": 70238,
+          "required_fee_sompi": 14047600
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-32768-r500",
+      "profile": "agility",
+      "transaction_sha256": "7c23c79f71417f4e3c19d1ee783e8b37cfaae295fd9b5261eaf1311127ae5c48",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 24881000,
+      "fee_sompi": 35119000,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 48524,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 35119000
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 35119000
+        },
+        {
+          "fee_sompi": 35119000,
+          "payout_sompi": 24881000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 35119000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-49152-r100",
+      "profile": "agility",
+      "transaction_sha256": "a28304e4a694f38e32ddf9cef7a876afab5de745fce669b018fbac762725640d",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 49699400,
+      "fee_sompi": 10300600,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 28453,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 10300600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 10300600
+        },
+        {
+          "fee_sompi": 10300600,
+          "payout_sompi": 49699400,
+          "mining_mass": 103006,
+          "required_fee_sompi": 10300600
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-49152-r200",
+      "profile": "agility",
+      "transaction_sha256": "06ed3a99471a5370b644fe211eab8d69c82c35c87d3f1cab357844a4b9047a1e",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 39398800,
+      "fee_sompi": 20601200,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 33714,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 20601200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 20601200
+        },
+        {
+          "fee_sompi": 20601200,
+          "payout_sompi": 39398800,
+          "mining_mass": 103006,
+          "required_fee_sompi": 20601200
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder60M-49152-r500",
+      "profile": "agility",
+      "transaction_sha256": "5008a0a2ffab900e6176082bd79bc309d980581d449b07b55d3e02eb646bdf10",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 60000000,
+      "fee_sompi": 0,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 24999,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 0
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 51503000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-minimal-r100",
+      "profile": "agility",
+      "transaction_sha256": "55481efbdc543307cbff9a3311e10d72dc727d1f993a385fa65c5d36f9e824f3",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 54412200,
+      "fee_sompi": 5587800,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 55878,
+        "mining_mass": 55878,
+        "relay_mass": 29060,
+        "fee_sompi": 5587800
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 54166,
+          "required_fee_sompi": 5416600
+        },
+        {
+          "fee_sompi": 5416600,
+          "payout_sompi": 54583400,
+          "mining_mass": 55820,
+          "required_fee_sompi": 5582000
+        },
+        {
+          "fee_sompi": 5582000,
+          "payout_sompi": 54418000,
+          "mining_mass": 55876,
+          "required_fee_sompi": 5587600
+        },
+        {
+          "fee_sompi": 5587600,
+          "payout_sompi": 54412400,
+          "mining_mass": 55878,
+          "required_fee_sompi": 5587800
+        },
+        {
+          "fee_sompi": 5587800,
+          "payout_sompi": 54412200,
+          "mining_mass": 55878,
+          "required_fee_sompi": 5587800
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-minimal-r200",
+      "profile": "agility",
+      "transaction_sha256": "2b417d5c2eda8deca793220f628025707db2ba8448be051dea74fab6fdf13ab9",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 48364800,
+      "fee_sompi": 11635200,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 58176,
+        "mining_mass": 58176,
+        "relay_mass": 29060,
+        "fee_sompi": 11635200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 54166,
+          "required_fee_sompi": 10833200
+        },
+        {
+          "fee_sompi": 10833200,
+          "payout_sompi": 49166800,
+          "mining_mass": 57838,
+          "required_fee_sompi": 11567600
+        },
+        {
+          "fee_sompi": 11567600,
+          "payout_sompi": 48432400,
+          "mining_mass": 58147,
+          "required_fee_sompi": 11629400
+        },
+        {
+          "fee_sompi": 11629400,
+          "payout_sompi": 48370600,
+          "mining_mass": 58173,
+          "required_fee_sompi": 11634600
+        },
+        {
+          "fee_sompi": 11634600,
+          "payout_sompi": 48365400,
+          "mining_mass": 58175,
+          "required_fee_sompi": 11635000
+        },
+        {
+          "fee_sompi": 11635000,
+          "payout_sompi": 48365000,
+          "mining_mass": 58176,
+          "required_fee_sompi": 11635200
+        },
+        {
+          "fee_sompi": 11635200,
+          "payout_sompi": 48364800,
+          "mining_mass": 58176,
+          "required_fee_sompi": 11635200
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-minimal-r500",
+      "profile": "agility",
+      "transaction_sha256": "f34c6f0d4da52cddc6128a02ccbbe6a508c5de71bb1d066860efbe359e0f0d53",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 14352500,
+      "fee_sompi": 45647500,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 107174,
+        "mining_mass": 107174,
+        "relay_mass": 29060,
+        "fee_sompi": 45647500
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 54166,
+          "required_fee_sompi": 27083000
+        },
+        {
+          "fee_sompi": 27083000,
+          "payout_sompi": 32917000,
+          "mining_mass": 67879,
+          "required_fee_sompi": 33939500
+        },
+        {
+          "fee_sompi": 33939500,
+          "payout_sompi": 26060500,
+          "mining_mass": 75872,
+          "required_fee_sompi": 37936000
+        },
+        {
+          "fee_sompi": 37936000,
+          "payout_sompi": 22064000,
+          "mining_mass": 82822,
+          "required_fee_sompi": 41411000
+        },
+        {
+          "fee_sompi": 41411000,
+          "payout_sompi": 18589000,
+          "mining_mass": 91295,
+          "required_fee_sompi": 45647500
+        },
+        {
+          "fee_sompi": 45647500,
+          "payout_sompi": 14352500,
+          "mining_mass": 107174,
+          "required_fee_sompi": 53587000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-32768-r100",
+      "profile": "agility",
+      "transaction_sha256": "3e46bcfb8aa6956104e649fe3003ef79d4c653402ac512c934ff3f6bdb0cb2ac",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 52976200,
+      "fee_sompi": 7023800,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 56376,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 7023800
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 7023800
+        },
+        {
+          "fee_sompi": 7023800,
+          "payout_sompi": 52976200,
+          "mining_mass": 70238,
+          "required_fee_sompi": 7023800
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-32768-r200",
+      "profile": "agility",
+      "transaction_sha256": "2254a8235822433fa33267edd61d9bf6720f31e6ed335e5b1be54523b866003c",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 45952400,
+      "fee_sompi": 14047600,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 59261,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 14047600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 14047600
+        },
+        {
+          "fee_sompi": 14047600,
+          "payout_sompi": 45952400,
+          "mining_mass": 70238,
+          "required_fee_sompi": 14047600
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-32768-r500",
+      "profile": "agility",
+      "transaction_sha256": "1793cb555534010b93d44510d81b47fafe987c434b780a39022948345906c272",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 12864500,
+      "fee_sompi": 47135500,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 115233,
+        "mining_mass": 115233,
+        "relay_mass": 70238,
+        "fee_sompi": 47135500
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 35119000
+        },
+        {
+          "fee_sompi": 35119000,
+          "payout_sompi": 24881000,
+          "mining_mass": 77691,
+          "required_fee_sompi": 38845500
+        },
+        {
+          "fee_sompi": 38845500,
+          "payout_sompi": 21154500,
+          "mining_mass": 84771,
+          "required_fee_sompi": 42385500
+        },
+        {
+          "fee_sompi": 42385500,
+          "payout_sompi": 17614500,
+          "mining_mass": 94271,
+          "required_fee_sompi": 47135500
+        },
+        {
+          "fee_sompi": 47135500,
+          "payout_sompi": 12864500,
+          "mining_mass": 115233,
+          "required_fee_sompi": 57616500
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-49152-r100",
+      "profile": "agility",
+      "transaction_sha256": "d2ba7fdf0f2ad8990f351fc98461c36a0cf9a080e4f6cab98170fb22bbbabb68",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 49699400,
+      "fee_sompi": 10300600,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 57620,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 10300600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 10300600
+        },
+        {
+          "fee_sompi": 10300600,
+          "payout_sompi": 49699400,
+          "mining_mass": 103006,
+          "required_fee_sompi": 10300600
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-49152-r200",
+      "profile": "agility",
+      "transaction_sha256": "98d30450ba7c4fb76a5532757c883e034490848963f336baa16031442415c6b0",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 39398800,
+      "fee_sompi": 20601200,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 62881,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 20601200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 20601200
+        },
+        {
+          "fee_sompi": 20601200,
+          "payout_sompi": 39398800,
+          "mining_mass": 103006,
+          "required_fee_sompi": 20601200
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder20M-49152-r500",
+      "profile": "agility",
+      "transaction_sha256": "e956ad102d0d0b95ca53baad6943e07951404e8a0814d180f9f2926d10b18b9a",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 80000000,
+      "payout_sompi": 60000000,
+      "fee_sompi": 0,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 54166,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 0
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 51503000
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-minimal-r100",
+      "profile": "agility",
+      "transaction_sha256": "1ef92a4e0723371f988775ac3d18f76db0ad823b6b070acff2c889e9370cb438",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 49404400,
+      "fee_sompi": 10595600,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 105956,
+        "mining_mass": 105956,
+        "relay_mass": 29060,
+        "fee_sompi": 10595600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102381,
+          "required_fee_sompi": 10238100
+        },
+        {
+          "fee_sompi": 10238100,
+          "payout_sompi": 49761900,
+          "mining_mass": 105810,
+          "required_fee_sompi": 10581000
+        },
+        {
+          "fee_sompi": 10581000,
+          "payout_sompi": 49419000,
+          "mining_mass": 105950,
+          "required_fee_sompi": 10595000
+        },
+        {
+          "fee_sompi": 10595000,
+          "payout_sompi": 49405000,
+          "mining_mass": 105955,
+          "required_fee_sompi": 10595500
+        },
+        {
+          "fee_sompi": 10595500,
+          "payout_sompi": 49404500,
+          "mining_mass": 105956,
+          "required_fee_sompi": 10595600
+        },
+        {
+          "fee_sompi": 10595600,
+          "payout_sompi": 49404400,
+          "mining_mass": 105956,
+          "required_fee_sompi": 10595600
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-minimal-r200",
+      "profile": "agility",
+      "transaction_sha256": "e69fb379d11ff29f6f2e913b991f399a3cee59cefd97e364fdb6b75cb8c94b9a",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 37527800,
+      "fee_sompi": 22472200,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 112361,
+        "mining_mass": 112361,
+        "relay_mass": 29060,
+        "fee_sompi": 22472200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102381,
+          "required_fee_sompi": 20476200
+        },
+        {
+          "fee_sompi": 20476200,
+          "payout_sompi": 39523800,
+          "mining_mass": 111016,
+          "required_fee_sompi": 22203200
+        },
+        {
+          "fee_sompi": 22203200,
+          "payout_sompi": 37796800,
+          "mining_mass": 112172,
+          "required_fee_sompi": 22434400
+        },
+        {
+          "fee_sompi": 22434400,
+          "payout_sompi": 37565600,
+          "mining_mass": 112335,
+          "required_fee_sompi": 22467000
+        },
+        {
+          "fee_sompi": 22467000,
+          "payout_sompi": 37533000,
+          "mining_mass": 112358,
+          "required_fee_sompi": 22471600
+        },
+        {
+          "fee_sompi": 22471600,
+          "payout_sompi": 37528400,
+          "mining_mass": 112361,
+          "required_fee_sompi": 22472200
+        },
+        {
+          "fee_sompi": 22472200,
+          "payout_sompi": 37527800,
+          "mining_mass": 112361,
+          "required_fee_sompi": 22472200
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-minimal-r500",
+      "profile": "agility",
+      "transaction_sha256": "68f1325b8523c39a94f550b1febc32164b1f33f0a06dedb62e4550b787d5f96a",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 60000000,
+      "fee_sompi": 0,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 102381,
+        "mining_mass": 102381,
+        "relay_mass": 29060,
+        "fee_sompi": 0
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102381,
+          "required_fee_sompi": 51190500
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-32768-r100",
+      "profile": "agility",
+      "transaction_sha256": "ae4025b84d7b0bf64274d39892986891907de83ae08bc4c307be627fdeabb074",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 49404400,
+      "fee_sompi": 10595600,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 105956,
+        "mining_mass": 105956,
+        "relay_mass": 70238,
+        "fee_sompi": 10595600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102381,
+          "required_fee_sompi": 10238100
+        },
+        {
+          "fee_sompi": 10238100,
+          "payout_sompi": 49761900,
+          "mining_mass": 105810,
+          "required_fee_sompi": 10581000
+        },
+        {
+          "fee_sompi": 10581000,
+          "payout_sompi": 49419000,
+          "mining_mass": 105950,
+          "required_fee_sompi": 10595000
+        },
+        {
+          "fee_sompi": 10595000,
+          "payout_sompi": 49405000,
+          "mining_mass": 105955,
+          "required_fee_sompi": 10595500
+        },
+        {
+          "fee_sompi": 10595500,
+          "payout_sompi": 49404500,
+          "mining_mass": 105956,
+          "required_fee_sompi": 10595600
+        },
+        {
+          "fee_sompi": 10595600,
+          "payout_sompi": 49404400,
+          "mining_mass": 105956,
+          "required_fee_sompi": 10595600
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-32768-r200",
+      "profile": "agility",
+      "transaction_sha256": "86d1cd72f4af1ba05e0c2084119776e0db3909cc54dcd2105847f19d0fa1c7aa",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 37527800,
+      "fee_sompi": 22472200,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 112361,
+        "mining_mass": 112361,
+        "relay_mass": 70238,
+        "fee_sompi": 22472200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102381,
+          "required_fee_sompi": 20476200
+        },
+        {
+          "fee_sompi": 20476200,
+          "payout_sompi": 39523800,
+          "mining_mass": 111016,
+          "required_fee_sompi": 22203200
+        },
+        {
+          "fee_sompi": 22203200,
+          "payout_sompi": 37796800,
+          "mining_mass": 112172,
+          "required_fee_sompi": 22434400
+        },
+        {
+          "fee_sompi": 22434400,
+          "payout_sompi": 37565600,
+          "mining_mass": 112335,
+          "required_fee_sompi": 22467000
+        },
+        {
+          "fee_sompi": 22467000,
+          "payout_sompi": 37533000,
+          "mining_mass": 112358,
+          "required_fee_sompi": 22471600
+        },
+        {
+          "fee_sompi": 22471600,
+          "payout_sompi": 37528400,
+          "mining_mass": 112361,
+          "required_fee_sompi": 22472200
+        },
+        {
+          "fee_sompi": 22472200,
+          "payout_sompi": 37527800,
+          "mining_mass": 112361,
+          "required_fee_sompi": 22472200
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-32768-r500",
+      "profile": "agility",
+      "transaction_sha256": "6c59ca2b7b4792f19921725d5847e3819124e46c7cad99d2c52acb8ee2be1c88",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 60000000,
+      "fee_sompi": 0,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 102381,
+        "mining_mass": 102381,
+        "relay_mass": 70238,
+        "fee_sompi": 0
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 102381,
+          "required_fee_sompi": 51190500
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-49152-r100",
+      "profile": "agility",
+      "transaction_sha256": "77ae5a569a8a5c2ef847a1fbb02b8a4d787d1b79536d8afa6425662c064c22c3",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 49404400,
+      "fee_sompi": 10595600,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 105956,
+        "mining_mass": 105956,
+        "relay_mass": 103006,
+        "fee_sompi": 10595600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 10300600
+        },
+        {
+          "fee_sompi": 10300600,
+          "payout_sompi": 49699400,
+          "mining_mass": 105835,
+          "required_fee_sompi": 10583500
+        },
+        {
+          "fee_sompi": 10583500,
+          "payout_sompi": 49416500,
+          "mining_mass": 105951,
+          "required_fee_sompi": 10595100
+        },
+        {
+          "fee_sompi": 10595100,
+          "payout_sompi": 49404900,
+          "mining_mass": 105955,
+          "required_fee_sompi": 10595500
+        },
+        {
+          "fee_sompi": 10595500,
+          "payout_sompi": 49404500,
+          "mining_mass": 105956,
+          "required_fee_sompi": 10595600
+        },
+        {
+          "fee_sompi": 10595600,
+          "payout_sompi": 49404400,
+          "mining_mass": 105956,
+          "required_fee_sompi": 10595600
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-49152-r200",
+      "profile": "agility",
+      "transaction_sha256": "7caec158fea318231715f3290f8d92df9a9f893973679d50e1846c51f484c707",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 37527800,
+      "fee_sompi": 22472200,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 112361,
+        "mining_mass": 112361,
+        "relay_mass": 103006,
+        "fee_sompi": 22472200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 20601200
+        },
+        {
+          "fee_sompi": 20601200,
+          "payout_sompi": 39398800,
+          "mining_mass": 111096,
+          "required_fee_sompi": 22219200
+        },
+        {
+          "fee_sompi": 22219200,
+          "payout_sompi": 37780800,
+          "mining_mass": 112183,
+          "required_fee_sompi": 22436600
+        },
+        {
+          "fee_sompi": 22436600,
+          "payout_sompi": 37563400,
+          "mining_mass": 112336,
+          "required_fee_sompi": 22467200
+        },
+        {
+          "fee_sompi": 22467200,
+          "payout_sompi": 37532800,
+          "mining_mass": 112358,
+          "required_fee_sompi": 22471600
+        },
+        {
+          "fee_sompi": 22471600,
+          "payout_sompi": 37528400,
+          "mining_mass": 112361,
+          "required_fee_sompi": 22472200
+        },
+        {
+          "fee_sompi": 22472200,
+          "payout_sompi": 37527800,
+          "mining_mass": 112361,
+          "required_fee_sompi": 22472200
+        }
+      ]
+    },
+    {
+      "name": "agility-continuing-remainder10M-49152-r500",
+      "profile": "agility",
+      "transaction_sha256": "9b779b885c76cc0be4e4aa499b5858fc66cb28b0033f5db0755a6e0ef1cde5c8",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 70000000,
+      "payout_sompi": 60000000,
+      "fee_sompi": 0,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 102381,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 0
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 51503000
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-minimal-r100",
+      "profile": "agility",
+      "transaction_sha256": "cab176069f67585e595fdae9611553a51f8d6fe00f4e120a2615d85b7c5951c5",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 57094000,
+      "fee_sompi": 2906000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 25847,
+        "mining_mass": 29060,
+        "relay_mass": 29060,
+        "fee_sompi": 2906000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 2906000
+        },
+        {
+          "fee_sompi": 2906000,
+          "payout_sompi": 57094000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 2906000
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-minimal-r200",
+      "profile": "agility",
+      "transaction_sha256": "55237c137dcfe145954fa36bedc8106956a83fe663d3a457da568afd6edcbe97",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 54188000,
+      "fee_sompi": 5812000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 26787,
+        "mining_mass": 29060,
+        "relay_mass": 29060,
+        "fee_sompi": 5812000
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 5812000
+        },
+        {
+          "fee_sompi": 5812000,
+          "payout_sompi": 54188000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 5812000
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-minimal-r500",
+      "profile": "agility",
+      "transaction_sha256": "15c8cdfbc38adecf12c3a50231a91431a6bcf688edc40b020b7c78c685905667",
+      "redeem_bytes": 5979,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 44631000,
+      "fee_sompi": 15369000,
+      "independent_metrics": {
+        "estimated_bytes": 8330,
+        "compute_mass": 29060,
+        "transient_mass": 33320,
+        "storage_mass": 30738,
+        "mining_mass": 30738,
+        "relay_mass": 29060,
+        "fee_sompi": 15369000
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 29060,
+          "required_fee_sompi": 14530000
+        },
+        {
+          "fee_sompi": 14530000,
+          "payout_sompi": 45470000,
+          "mining_mass": 30325,
+          "required_fee_sompi": 15162500
+        },
+        {
+          "fee_sompi": 15162500,
+          "payout_sompi": 44837500,
+          "mining_mass": 30635,
+          "required_fee_sompi": 15317500
+        },
+        {
+          "fee_sompi": 15317500,
+          "payout_sompi": 44682500,
+          "mining_mass": 30713,
+          "required_fee_sompi": 15356500
+        },
+        {
+          "fee_sompi": 15356500,
+          "payout_sompi": 44643500,
+          "mining_mass": 30732,
+          "required_fee_sompi": 15366000
+        },
+        {
+          "fee_sompi": 15366000,
+          "payout_sompi": 44634000,
+          "mining_mass": 30737,
+          "required_fee_sompi": 15368500
+        },
+        {
+          "fee_sompi": 15368500,
+          "payout_sompi": 44631500,
+          "mining_mass": 30738,
+          "required_fee_sompi": 15369000
+        },
+        {
+          "fee_sompi": 15369000,
+          "payout_sompi": 44631000,
+          "mining_mass": 30738,
+          "required_fee_sompi": 15369000
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-32768-r100",
+      "profile": "agility",
+      "transaction_sha256": "54652e87353a8c81b256af3f86deea76f042d41250fd9b342033e9d7dd3cfeea",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 52976200,
+      "fee_sompi": 7023800,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 27209,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 7023800
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 7023800
+        },
+        {
+          "fee_sompi": 7023800,
+          "payout_sompi": 52976200,
+          "mining_mass": 70238,
+          "required_fee_sompi": 7023800
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-32768-r200",
+      "profile": "agility",
+      "transaction_sha256": "8e1e430e82f0e3f9fe7fc605550f212836a445195d53fc55c4b2c7106743dbb3",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 45952400,
+      "fee_sompi": 14047600,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 30094,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 14047600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 14047600
+        },
+        {
+          "fee_sompi": 14047600,
+          "payout_sompi": 45952400,
+          "mining_mass": 70238,
+          "required_fee_sompi": 14047600
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-32768-r500",
+      "profile": "agility",
+      "transaction_sha256": "c68c4a30978461bb3d3035d5f5cd3529494e0acb5cd71df494062907e44084f7",
+      "redeem_bytes": 32768,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 24881000,
+      "fee_sompi": 35119000,
+      "independent_metrics": {
+        "estimated_bytes": 35119,
+        "compute_mass": 55849,
+        "transient_mass": 140476,
+        "storage_mass": 48524,
+        "mining_mass": 70238,
+        "relay_mass": 70238,
+        "fee_sompi": 35119000
+      },
+      "rate500_fee_is_sufficient": true,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 35119000
+        },
+        {
+          "fee_sompi": 35119000,
+          "payout_sompi": 24881000,
+          "mining_mass": 70238,
+          "required_fee_sompi": 35119000
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-49152-r100",
+      "profile": "agility",
+      "transaction_sha256": "1875ed0cb580b32485bcb580dc5f0dfd0210ce10a17a6b97c5ddda32b8e48517",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 49699400,
+      "fee_sompi": 10300600,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 28453,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 10300600
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 10300600
+        },
+        {
+          "fee_sompi": 10300600,
+          "payout_sompi": 49699400,
+          "mining_mass": 103006,
+          "required_fee_sompi": 10300600
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-49152-r200",
+      "profile": "agility",
+      "transaction_sha256": "e881f6a4a86d45f7ef93c291d4214d9f07fd3ca4706fb6a4e22706ff4d50df6e",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 39398800,
+      "fee_sompi": 20601200,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 33714,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 20601200
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 20601200
+        },
+        {
+          "fee_sompi": 20601200,
+          "payout_sompi": 39398800,
+          "mining_mass": 103006,
+          "required_fee_sompi": 20601200
+        }
+      ]
+    },
+    {
+      "name": "agility-high-index65536-49152-r500",
+      "profile": "agility",
+      "transaction_sha256": "8951b03a1130cc34ffd3e1416cb3c653162185dcf697a05e309380c1cb38bafc",
+      "redeem_bytes": 49152,
+      "reserve_sompi": 120000000,
+      "payout_sompi": 60000000,
+      "fee_sompi": 0,
+      "independent_metrics": {
+        "estimated_bytes": 51503,
+        "compute_mass": 72233,
+        "transient_mass": 206012,
+        "storage_mass": 24999,
+        "mining_mass": 103006,
+        "relay_mass": 103006,
+        "fee_sompi": 0
+      },
+      "rate500_fee_is_sufficient": false,
+      "independent_iterations": [
+        {
+          "fee_sompi": 0,
+          "payout_sompi": 60000000,
+          "mining_mass": 103006,
+          "required_fee_sompi": 51503000
+        }
+      ]
+    }
+  ]
+}

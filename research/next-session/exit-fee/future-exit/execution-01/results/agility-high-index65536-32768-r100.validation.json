@@ -1,0 +1,73 @@
+{
+  "economic_gate_passed": true,
+  "failure_reason": null,
+  "final_actual_fee_sompi": 7023800,
+  "final_payout_sompi": 52976200,
+  "iterations": [
+    {
+      "fee_sompi": 0,
+      "mining_mass": 70238,
+      "native_id": "2a08f38f2bc2c54b0dfdf5065514cf8c2ff5ce23cd1673bfb05c02f4c5d10a53",
+      "payout_sompi": 60000000,
+      "required_fee_sompi": 7023800
+    },
+    {
+      "fee_sompi": 7023800,
+      "mining_mass": 70238,
+      "native_id": "423bd16cfc3c31ae101af46a5969468b1eddd9be90dd6336bec68c0707d48976",
+      "payout_sompi": 52976200,
+      "required_fee_sompi": 7023800
+    }
+  ],
+  "metrics": {
+    "P2SH_sigop_counts": [
+      1
+    ],
+    "compute_mass": 55849,
+    "estimated_bytes": 35119,
+    "fee_quotes": [
+      {
+        "actual_sompi": 7023800,
+        "passes": true,
+        "rate_sompi_per_mass": 100,
+        "required_sompi": 7023800
+      },
+      {
+        "actual_sompi": 7023800,
+        "passes": false,
+        "rate_sompi_per_mass": 200,
+        "required_sompi": 14047600
+      },
+      {
+        "actual_sompi": 7023800,
+        "passes": false,
+        "rate_sompi_per_mass": 500,
+        "required_sompi": 35119000
+      }
+    ],
+    "fee_sompi": 7023800,
+    "mining_mass": 70238,
+    "relay_mass": 70238,
+    "singleton_rate500_gate": false,
+    "source_adapted_block_mass_caps": true,
+    "source_adapted_default_relay_fee": true,
+    "source_adapted_sigop_policy": true,
+    "standard_script_classes": true,
+    "storage_mass": 27209,
+    "transient_mass": 140476
+  },
+  "name": "agility-high-index65536-32768-r100",
+  "native_execution": {
+    "Full": {
+      "accepted": true,
+      "fee_sompi": 7023800
+    },
+    "ScriptEngine": {
+      "accepted": true,
+      "units": 326833
+    },
+    "isolation": "PASS"
+  },
+  "prospective_fee_fixed_point": true,
+  "rate_sompi_per_mass": 100
+}

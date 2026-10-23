@@ -1,0 +1,73 @@
+{
+  "economic_gate_passed": true,
+  "failure_reason": null,
+  "final_actual_fee_sompi": 20580000,
+  "final_payout_sompi": 39420000,
+  "iterations": [
+    {
+      "fee_sompi": 0,
+      "mining_mass": 102900,
+      "native_id": "128e03225e67b66bbf3b6872452d6173d016029fd18bdbede02177b203416d90",
+      "payout_sompi": 60000000,
+      "required_fee_sompi": 20580000
+    },
+    {
+      "fee_sompi": 20580000,
+      "mining_mass": 102900,
+      "native_id": "13981cd7316b4120b459ee14a3b1e5cd67005da0609609729faf5e85725cd261",
+      "payout_sompi": 39420000,
+      "required_fee_sompi": 20580000
+    }
+  ],
+  "metrics": {
+    "P2SH_sigop_counts": [
+      1
+    ],
+    "compute_mass": 71810,
+    "estimated_bytes": 51450,
+    "fee_quotes": [
+      {
+        "actual_sompi": 20580000,
+        "passes": true,
+        "rate_sompi_per_mass": 100,
+        "required_sompi": 10290000
+      },
+      {
+        "actual_sompi": 20580000,
+        "passes": true,
+        "rate_sompi_per_mass": 200,
+        "required_sompi": 20580000
+      },
+      {
+        "actual_sompi": 20580000,
+        "passes": false,
+        "rate_sompi_per_mass": 500,
+        "required_sompi": 51450000
+      }
+    ],
+    "fee_sompi": 20580000,
+    "mining_mass": 102900,
+    "relay_mass": 102900,
+    "singleton_rate500_gate": false,
+    "source_adapted_block_mass_caps": true,
+    "source_adapted_default_relay_fee": true,
+    "source_adapted_sigop_policy": true,
+    "standard_script_classes": true,
+    "storage_mass": 8701,
+    "transient_mass": 205800
+  },
+  "name": "agility-terminal-singleton-49152-r200",
+  "native_execution": {
+    "Full": {
+      "accepted": true,
+      "fee_sompi": 20580000
+    },
+    "ScriptEngine": {
+      "accepted": true,
+      "units": 227295
+    },
+    "isolation": "PASS"
+  },
+  "prospective_fee_fixed_point": true,
+  "rate_sompi_per_mass": 200
+}

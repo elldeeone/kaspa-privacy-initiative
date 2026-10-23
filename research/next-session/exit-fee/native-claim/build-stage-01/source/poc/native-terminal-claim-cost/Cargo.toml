@@ -1,0 +1,25 @@
+[package]
+name = "kpi-native-terminal-claim-cost"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+[workspace]
+
+[dependencies]
+vprogs-zk-backend-risc0-api = { git = "https://github.com/kaspanet/vprogs", rev = "f9b84a863a7c7c20586a9cf947550475e894f72e", default-features = false }
+vprogs-zk-abi = { git = "https://github.com/kaspanet/vprogs", rev = "f9b84a863a7c7c20586a9cf947550475e894f72e", default-features = false }
+kaspa-consensus = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "01b532e8b553523216471682649693af92f0fd16" }
+kaspa-consensus-core = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "01b532e8b553523216471682649693af92f0fd16" }
+kaspa-hashes = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "01b532e8b553523216471682649693af92f0fd16" }
+kaspa-txscript = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "01b532e8b553523216471682649693af92f0fd16" }
+secp256k1 = { version = "=0.29.1", features = ["rand-std"] }
+borsh = "=1.8.1"
+sha2 = "=0.10.9"
+hex = "=0.4.3"
+serde_json = "=1.0.145"
+
+[profile.dev]
+debug = 0
+incremental = false
