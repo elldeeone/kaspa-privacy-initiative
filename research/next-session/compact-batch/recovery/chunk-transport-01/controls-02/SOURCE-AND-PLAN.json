@@ -1,0 +1,83 @@
+{
+  "actual_PK_backup_proof_native_or_network": false,
+  "command": [
+    "systemd-run",
+    "--user",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=kpi-chunk-finalmissing-9495780b0ccd",
+    "-p",
+    "CPUQuota=400%",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,os,pathlib,sys; rel=pathlib.Path(\"/proc/self/cgroup\").read_text().split(\":\",2)[2].strip(); p=pathlib.Path(\"/sys/fs/cgroup\")/rel.lstrip(\"/\"); print(\"OBSERVED_CAPS \"+json.dumps({n:(p/n).read_text().strip() for n in (\"cpu.max\",\"memory.max\",\"memory.swap.max\")}),flush=True); os.execv(sys.argv[1],sys.argv[1:])",
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--clearenv",
+    "--die-with-parent",
+    "--new-session",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/compact-batch/recovery/chunk-transport-01/controls-02/source/poc/recovery-portability",
+    "/work",
+    "--chdir",
+    "/work",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_chunk_public.ChunkControls.test_missing_final_chunk_fails_without_publishing"
+  ],
+  "only_tiny_public_synthetic_bytes": true,
+  "schema": "kpx4-public-chunk-tiny-controls/v1",
+  "scope": "Only the one peer-requested added final-chunk absence control; 15 earlier distinct controls retained.",
+  "source_files": [
+    {
+      "path": "poc/recovery-portability/capsule.py",
+      "sha256": "88e13b484f9fd6c867a54b58610122ddc09693544f7a9ee20a1cd071737e4f56"
+    },
+    {
+      "path": "poc/recovery-portability/chunk_public.py",
+      "sha256": "8cbe9d2ce5d78297cb69e65b748b031835a1b7fd0e981f15ef73111b6d3825bc"
+    },
+    {
+      "path": "poc/recovery-portability/test_chunk_public.py",
+      "sha256": "2bce0c4e037c2b6d82c437e042f884f8727aa5502b8843edc300042e653888a7"
+    },
+    {
+      "path": "research/next-session/compact-batch/recovery/chunk-transport-01/PLAN-AND-API.md",
+      "sha256": "1f310b4c6657c32a25f30094ffd5080f4b884bb018a568f6c9219b2f63d6b76e"
+    },
+    {
+      "path": "research/next-session/compact-batch/recovery/chunk-transport-01/SOURCES.md",
+      "sha256": "fda8f4f25f2d53b3a80283d44bc7467300a58eec1227710b2af2617b45f1eddf"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "kpx4-capsule-public-controls/v1",
+  "source_files": [
+    {
+      "path": "poc/recovery-portability/capsule.py",
+      "sha256": "88e13b484f9fd6c867a54b58610122ddc09693544f7a9ee20a1cd071737e4f56"
+    },
+    {
+      "path": "poc/recovery-portability/test_capsule.py",
+      "sha256": "5dfe8c86efab81fe0d1a960068595c49f75af09e536d75ac6976744a0c1a539d"
+    },
+    {
+      "path": "research/next-session/compact-batch/recovery/PLAN-TRANSPORT-CONTROLS-01.md",
+      "sha256": "c2c7a25e68f0bd2b06d9c12a32f2af425e128633236bfc78758133621f3ea1c5"
+    }
+  ],
+  "command": [
+    "systemd-run",
+    "--user",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=kpi-capsule-controls-f491ca4c6175",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "RuntimeMaxSec=600",
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--clearenv",
+    "--die-with-parent",
+    "--new-session",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-portability",
+    "/work",
+    "--chdir",
+    "/work",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_capsule"
+  ],
+  "private_backup_PK_native_prover_network_inputs_mounted": false,
+  "scope": "PUBLIC_STRUCTURE_ONLY_DO_NOT_FUND"
+}

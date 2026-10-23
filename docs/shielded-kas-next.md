@@ -2,6 +2,38 @@
 
 ## Current checkpoint — 2026-10-23
 
+The [matched batch result](../research/next-session/compact-batch/RESULTS.md)
+under ADR0057 now completes 33 genuine proofs and 34 native Full transactions:
+32 useful 10-KAS payments, 32 independent original-backup withdrawals and zero
+terminal reserve. Complete supplied-context fees are **1.9486784375%**. The
+first withdrawal actually restores the 1.308GB compact PK through a fallback
+with the original source/cache absent. All 32 original backups subsequently
+recognize their spent receipts and rederive the per-claim payout keys. This is
+local integration evidence; there are no new accepted-chain payouts or durable
+independent-provider claims. The source-frozen 96-view linkage study is complete:
+61 views complete and 35 incomplete; it does not qualify financial privacy.
+Its completed wide C+1 cells expose payer-role labeling through legitimate
+invoice metadata; staggered use exposes some funding ancestry. Address these
+channels in the next design, while preserving the unresolved compact views.
+Existing privacy failures and completed testnet instances stand.
+Fixed 1 GiB chunk pack/restore also roundtrips both real proving keys without
+original source/cache paths. Four corrected transport APIs retain the same
+file-alias exclusions across repeated reads; 46 current controls pass. Independent
+provider retention, accepted-state currentness and full-capacity exits stay open.
+
+The [individual fee blocker](../research/next-session/compact-batch/fees/NEXT-FEE-BLOCKER-01.md)
+is architectural: two separate private verifications already cost at least
+2.95% of 10 KAS at rate100 before bytes, storage and native checks. Fewer L1
+verifications per genuine payment are the largest fee lever. Compare established
+aggregation/shared settlement with the minimal native route while pricing
+unilateral exits, data availability and delay; do not assume vProgs is required
+or unnecessary. Budget reduction remains an unimplemented secondary experiment.
+The [aggregation compatibility memo](../research/next-session/compact-batch/fees/AGGREGATION-COMPATIBILITY-01.md)
+shows why a verifier wrapper alone does not authorize combined state, nullifier,
+payout and fee effects. Specify a two-action public transcript before choosing
+new cryptographic implementation. Fresh complete testnet rehearsal and durable
+independent public-data/software distribution remain separate delivery gates.
+
 The [private-change extension](../research/next-session/private-change/PLAN.md)
 is now confirmed under ADR-0055: partial cashout, restore change, spend it
 privately, restore again and finish both remaining native exits. All three
@@ -12,8 +44,9 @@ parallel experiments; neither is treated as financial privacy qualification.
 The complete compact-policy emitter under ADR-0056 now passes55 expected
 native outcomes. Its23575-byte program/source execution bound projects1.9491%
 complete fees for32 simultaneous10-KAS payments plus independent exits. The
-next fee gate is separately reviewed matched circuits/proofs, capacity and
-recovery; separate-time two-output payments still exceed target. A smaller
+matched-circuit/proof and bounded recovery gates are now closed by ADR0057's
+local result above; capacity, durable availability and fresh live settlement
+remain open. Separate-time two-output payments still exceed target. A smaller
 200M live functional change/recovery pilot is confirmed; the10-KAS targets
 stay unchanged.
 
@@ -23,14 +56,16 @@ Each cold owner reconstructed fresh public history, loaded authenticated public
 parameters and generated a new proof locally from one seed-only backup. The
 payouts are 41,000,100 and 41,042,400 sompi; terminal reserve is zero.
 
-The next privacy blocker is the selected whole-claim wallet: public payout plus
-fee reveals its consumed claim's value. Extend the existing relation's private
-change capability into owner-controlled repeated spending and seed-only change
-recovery, then run a prospectively frozen stronger arithmetic-observer comparison.
+The preceding whole-claim wallet exposed its consumed value through payout
+plus fee. ADR0055 now implements and confirms private change/repeated spending
+and original-backup change recovery. The next privacy measurement is the new
+prospectively frozen stronger observer study; change alone did not qualify
+financial privacy.
 See the [source-grounded next step](../research/next-session/private-service-loss/privacy/NEXT-BLOCKER-01.md).
-The unchanged privacy and 2% complete-fee targets still fail. Setup honesty and
-retained public parameters/history remain assumptions; independent consensus
-has not been verified.
+The unchanged financial-privacy targets still fail. Earlier unamortized fee
+profiles remain failures; the new32-payment matched batch passes only its
+bounded supplied-context fee workload. Setup honesty and retained public
+parameters/history remain assumptions; independent consensus is unverified.
 
 ## Earlier checkpoint — 2026-10-23
 

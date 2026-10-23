@@ -1,0 +1,30 @@
+OBSERVED_CAPS {"cpu.max": "400000 100000", "memory.max": "4294967296", "memory.swap.max": "0"}
+Running as unit: kpi-chunk-iterator-before-bbde77a8cb9e.service; invocation ID: fdbf018bcb5c473399ce5a8fb7faf7bd
+test_generator_forbidden_manifest_guard_before_content_open (test_chunk_public.ChunkControls.test_generator_forbidden_manifest_guard_before_content_open) ... FAIL
+
+======================================================================
+FAIL: test_generator_forbidden_manifest_guard_before_content_open (test_chunk_public.ChunkControls.test_generator_forbidden_manifest_guard_before_content_open)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/test_chunk_public.py", line 231, in test_generator_forbidden_manifest_guard_before_content_open
+    with self.assertRaises(c.Invalid):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Invalid not raised
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/work/test_chunk_public.py", line 234, in test_generator_forbidden_manifest_guard_before_content_open
+    self.assertEqual(watch.events(), b'')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'\x01\x00\x00\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' != b''
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (failures=1)
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=1/FAILURE
+               Service runtime: 109ms
+             CPU time consumed: 98ms
+                   Memory peak: 17M (swap: 0B)

@@ -1,0 +1,22 @@
+Running as unit: kpi-capsule-source-loss-6dcce02c3f85.service
+test_source_and_cache_absent_in_actual_retrieval_namespace (test_source_loss_cli.SourceLossCLI.test_source_and_cache_absent_in_actual_retrieval_namespace) ... FAIL
+
+======================================================================
+FAIL: test_source_and_cache_absent_in_actual_retrieval_namespace (test_source_loss_cli.SourceLossCLI.test_source_and_cache_absent_in_actual_retrieval_namespace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/test_source_loss_cli.py", line 57, in test_source_and_cache_absent_in_actual_retrieval_namespace
+    self.assertEqual(process.returncode, 0, process.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.005s
+
+FAILED (failures=1)
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=1/FAILURE
+               Service runtime: 1.147s
+             CPU time consumed: 136ms
+                   Memory peak: 19.1M (swap: 0B)

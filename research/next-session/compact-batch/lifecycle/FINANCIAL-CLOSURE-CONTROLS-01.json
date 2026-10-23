@@ -1,0 +1,21 @@
+{
+  "schema": "kpx4-financial-closure-public-controls/v1",
+  "classification": "PUBLIC_ARITHMETIC_AND_MOCK_REPORT_PROJECTION_ONLY",
+  "closure_source_sha256": "7d3fa8d489dbabb04f412b71400fb4fe2afd3ed71c8fea97f1f987fa7704397a",
+  "test_source_sha256": "6e4d64f3bdf79634a8f294aeba91aec3108e05314b8b08ca2c38dd1cba42a6d5",
+  "command": "python3 -B -m unittest -v test_closure.py",
+  "working_directory": "poc/compact-batch-lifecycle",
+  "test_count": 5,
+  "status": "PASS",
+  "controls": [
+    "exact whole-source reconciliation, all34fees,32B useful denominator and149500 refund",
+    "reject donated terminal credit, hidden source tail and missing or extra exit",
+    "reject gross-credit or refund enlarged useful denominator",
+    "reject source/change mismatch and refund reclassification or removal",
+    "reject changed reference rate, mass, recorded Full/engine status, coinbase, DAA or fee"
+  ],
+  "source_collector_export": "aggregate financial results and selected proof/Auth hashes only; no transaction IDs, quote IDs, raw Auth, CM/NF, paths or owner map",
+  "private_controller_backup_witness_or_PK_read": false,
+  "native_VM_SDK_G16_setup_network_or_main_fixture_execution": false,
+  "cryptographic_soundness_native_acceptance_or_currentness_claim_from_mock_controls": false
+}

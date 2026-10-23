@@ -1,0 +1,111 @@
+{
+  "actual_owner_proof_or_network_execution": false,
+  "actual_two_full_authenticated_PK_loads": true,
+  "all_checks_passed": true,
+  "cases": [
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": null,
+      "expected_early_error_code": null,
+      "full_parameter_readiness_before_any_witness_bytes": true,
+      "label": "ready-compact2",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "compact2",
+      "wall_seconds": 3.2196782020037062
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": null,
+      "expected_early_error_code": null,
+      "full_parameter_readiness_before_any_witness_bytes": true,
+      "label": "ready-wide32",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "wide32",
+      "wall_seconds": 8.751547089021187
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": 158,
+      "expected_early_error_code": "parameter_pk_io",
+      "full_parameter_readiness_before_any_witness_bytes": false,
+      "label": "missing-compact2",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "compact2",
+      "wall_seconds": 0.0037607820122502744
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": 158,
+      "expected_early_error_code": "parameter_pk_io",
+      "full_parameter_readiness_before_any_witness_bytes": false,
+      "label": "missing-wide32",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "wide32",
+      "wall_seconds": 0.0031104720546863973
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": 158,
+      "expected_early_error_code": "parameter_pk_length",
+      "full_parameter_readiness_before_any_witness_bytes": false,
+      "label": "wrong-role-compact",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "compact2",
+      "wall_seconds": 0.0028325740131549537
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": 158,
+      "expected_early_error_code": "parameter_pk_length",
+      "full_parameter_readiness_before_any_witness_bytes": false,
+      "label": "wrong-role-wide",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "wide32",
+      "wall_seconds": 0.003179414023179561
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": 158,
+      "expected_early_error_code": "parameter_pk_digest",
+      "full_parameter_readiness_before_any_witness_bytes": false,
+      "label": "same-length-corrupt",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "compact2",
+      "wall_seconds": 1.5429434719844721
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": 158,
+      "expected_early_error_code": "parameter_pk_length",
+      "full_parameter_readiness_before_any_witness_bytes": false,
+      "label": "short",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "compact2",
+      "wall_seconds": 0.0035829610424116254
+    },
+    {
+      "all_checks_passed": true,
+      "early_rejection_canary_bytes_retained": 158,
+      "expected_early_error_code": "parameter_pk_length",
+      "full_parameter_readiness_before_any_witness_bytes": false,
+      "label": "trailing",
+      "private_owner_input_read": false,
+      "proof_output_created": false,
+      "role": "compact2",
+      "wall_seconds": 0.0030296879704110324
+    }
+  ],
+  "private_owner_inputs_hashes_or_paths_published": false,
+  "public_control_canary_definition_published": true,
+  "public_metadata_normalization": "Split the combined publication-description flag after retaining the explicitly public control source. Executed case rows and outcomes are unchanged.",
+  "schema": "kpx4-actual-parameter-readiness-controls/v1",
+  "wrong_domain_VK_dimensions_and_authenticated_trailing_decoder_controls": "Separate eight tiny-parameter unit tests; do not claim those used full real keys"
+}

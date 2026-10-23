@@ -1,0 +1,33 @@
+
+running 28 tests
+test circuit::selected_hmac_tests::exact_inner_bytes_and_original_hmac_known_answers ... ok
+test circuit::selected_hmac_tests::malformed_padding_or_length_cannot_match_original_hmac ... ok
+test circuit::selected_hmac_tests::malformed_selector_field_assignment_is_rejected ... ok
+test circuit::selected_hmac_tests::padded_inner_requires_exact_three_blocks ... ok
+test exact_sha256::tests::boolean_truth_tables_and_no_constant_regression ... ok
+test exact_sha256::tests::exact_sha_boundary_and_contract_lengths ... ok
+test parameters::tests::authenticated_wrong_vk_dimensions_and_trailing_bytes_reject ... ok
+test parameters::tests::bad_parameter_bytes_never_reach_decoder_or_witness_reader ... ok
+test parameters::tests::canonical_manifest_bytes_reject_aliases ... ok
+test parameters::tests::manifest_policy_rejects_source_domain_format_vk_and_object_aliases ... ok
+test parameters::tests::role_swaps_reject_before_blob_access ... ok
+test parameters::tests::template_is_unselected_before_pk_io ... ok
+test parameters::tests::tiny_official_parameters_authenticate_decode_prove_and_verify ... ok
+test parameters::tests::unselected_role_policies_reject_before_manifest_decode ... ok
+test public_encoding_tests::canonical_terminal_role_and_cipher_sentinels ... ok
+test public_encoding_tests::exact_role_names_and_metadata_roundtrip ... ok
+test public_encoding_tests::integer_alignment_and_capacity_boundaries ... ok
+test request::tests::duplicate_fields_reject_at_every_object_level ... ok
+test request::tests::every_hex_field_requires_lowercase_exact_width ... ok
+test request::tests::exact_input_output_and_path_arities_are_required ... ok
+test request::tests::installed_role_fixes_output_arity_and_cannot_be_overridden ... ok
+test request::tests::parser_and_io_errors_never_include_private_details ... ok
+test request::tests::positions_are_u32_and_embedded_auth_encoding_is_checked ... ok
+test request::tests::read_and_parse_enforce_the_cap_without_unbounded_reads ... ok
+test request::tests::schema_missing_fields_and_unknown_fields_reject ... ok
+test request::tests::schema_objects_cannot_be_replaced_by_struct_field_arrays ... ok
+test request::tests::syntax_accepts_without_claiming_relation_validity ... ok
+test request::tests::trailing_payload_rejects_but_whitespace_is_allowed ... ok
+
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 27.18s
+

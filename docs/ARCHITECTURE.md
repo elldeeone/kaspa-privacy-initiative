@@ -1,7 +1,34 @@
 # Candidate Architecture
 
-**Status:** experimental native-KAS lifecycle validated on TN10; production
-architecture remains unselected.
+**Status:** earlier native-KAS lifecycles are confirmed on TN10; the current
+matched batch is validated locally. Production architecture remains unselected.
+
+[ADR-0057](adr/0057-matched-batch-proofs-and-portable-recovery.md) selects
+separate fixed compact2/wide32 Groth16 relations for the measured compact native
+program, with fresh parameters and unchanged shared real nullifiers. Compact
+owners need only compact parameters. New sparse public recovery capsules retain
+physical positions and independent static authority; fresh chain/current-UTXO
+reconciliation remains mandatory before spending. The unfunded
+[matched rehearsal](../research/next-session/compact-batch/RESULTS.md) now passes
+33 genuine proofs and 34 native Full transactions through all 32 independent
+withdrawals, ending with zero reserve. Complete supplied-context fees are
+1.9486784375% for 32 useful 10-KAS payments. All original backups recover their
+spent receipts and per-claim payout keys; the first withdrawal uses the real
+compact PK fetched through a fallback with the original source/cache absent.
+These are local supplied-context results, not new accepted-chain payouts,
+financial privacy or durable independent-provider availability. The frozen
+global linkage study completes all 96 views (61 complete, 35 incomplete), with
+no financial-privacy qualification. Legitimate invoice facts let the fixed
+heuristic label other same-batch payer roles in the modeled workload; staggered
+withdrawals also force some funding ancestry. These are separate from human
+identity and exact note-to-payout links. Individual payment plus independent exit has
+a source-derived verification-only floor of 2.95% for 10 KAS at reference rate 100; the
+batch result does not solve that case. Existing failures and old instances stand.
+Optional fixed 1 GiB chunks now reconstruct both exact public role PKs with
+original paths absent. Four transport entry points preserve exclusion iterables
+across all reads after an independently reproduced alias-guard bug; historical
+executed source is archived separately from corrected current source. These
+changes affect public byte transport, not financial authority or capsule format.
 
 [ADR-0055](adr/0055-recoverable-private-change-and-repeated-spending.md) extends
 the owner wallet to requested partial cashout, seed-recoverable private change,

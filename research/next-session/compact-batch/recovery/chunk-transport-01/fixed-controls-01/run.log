@@ -1,0 +1,29 @@
+OBSERVED_CAPS {"cpu.max": "400000 100000", "memory.max": "4294967296", "memory.swap.max": "0"}
+Running as unit: kpi-chunk-fixed-e7eb853e6c85.service; invocation ID: 62769ef693a9444596d2bdad7a944c48
+test_actual_production_cli_single_chunk_source_loss (test_chunk_public.ChunkControls.test_actual_production_cli_single_chunk_source_loss) ... ok
+test_alias_guards_before_content_open_kernel_calibrated (test_chunk_public.ChunkControls.test_alias_guards_before_content_open_kernel_calibrated) ... ok
+test_all_corrupt_fail_without_publishing (test_chunk_public.ChunkControls.test_all_corrupt_fail_without_publishing) ... ok
+test_corrupt_preferred_falls_back_same_chunk (test_chunk_public.ChunkControls.test_corrupt_preferred_falls_back_same_chunk) ... ok
+test_existing_destination_never_replaced (test_chunk_public.ChunkControls.test_existing_destination_never_replaced) ... ok
+test_external_anchor_checked_before_chunk_open (test_chunk_public.ChunkControls.test_external_anchor_checked_before_chunk_open) ... ok
+test_failed_pack_whole_hash_removes_owned_output (test_chunk_public.ChunkControls.test_failed_pack_whole_hash_removes_owned_output) ... ok
+test_generator_forbidden_manifest_guard_before_content_open (test_chunk_public.ChunkControls.test_generator_forbidden_manifest_guard_before_content_open) ... ok
+test_missing_final_chunk_fails_without_publishing (test_chunk_public.ChunkControls.test_missing_final_chunk_fails_without_publishing) ... ok
+test_reordered_manifest_positions_rejected (test_chunk_public.ChunkControls.test_reordered_manifest_positions_rejected) ... ok
+test_repeated_chunk_hashes_are_legal (test_chunk_public.ChunkControls.test_repeated_chunk_hashes_are_legal) ... ok
+test_roundtrip_after_original_source_removed (test_chunk_public.ChunkControls.test_roundtrip_after_original_source_removed) ... ok
+test_self_consistent_substitution_fails_whole_anchor (test_chunk_public.ChunkControls.test_self_consistent_substitution_fails_whole_anchor) ... ok
+test_symlink_manifest_chunk_and_output_parent_rejected (test_chunk_public.ChunkControls.test_symlink_manifest_chunk_and_output_parent_rejected) ... ok
+test_truncation_and_trailing_rejected (test_chunk_public.ChunkControls.test_truncation_and_trailing_rejected) ... ok
+test_unsafe_basename_and_duplicate_field_rejected (test_chunk_public.ChunkControls.test_unsafe_basename_and_duplicate_field_rejected) ... ok
+test_visible_original_rejected_before_public_content (test_chunk_public.ChunkControls.test_visible_original_rejected_before_public_content) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.114s
+
+OK
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 217ms
+             CPU time consumed: 201ms
+                   Memory peak: 27.8M (swap: 0B)

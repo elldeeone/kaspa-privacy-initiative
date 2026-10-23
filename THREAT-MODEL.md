@@ -1,5 +1,36 @@
 # Threat Model
 
+[ADR-0057](docs/adr/0057-matched-batch-proofs-and-portable-recovery.md)
+adds fixed proof-role/mode/list binding and sparse recovery obligations. Real
+nullifiers must stay identical across compact/wide/REVEAL roles; role separation
+there would enable repeated consumption. A capsule hash authenticates transport
+bytes only against an independently selected authority; it cannot select code,
+recreate missing randomized parameters/receipts or establish current consensus.
+Fresh current-state reconciliation and all original native financial checks
+remain required. Bounded local paths/mirror isolation do not prove durable
+provider independence. Full-capacity private exits remain unselected/open.
+The matched32 local drainage and actual fallback compact-PK recovery exercise
+those boundaries with genuine proofs and original backups. Supplied UTXO
+contexts still assert backing/currentness; local mirrors do not supply retention
+across providers. The stronger observer study models honest one-real-input
+wallet arithmetic and source lineage, not arbitrary circuit witnesses, private
+ownership or human identity. Its unknown results must remain incomplete, never
+privacy passes. Original-backup payout recovery uses the receipt commitment and
+physical position for per-claim derivation; no retained issuance map substitutes
+for public-history availability.
+Public same-note compact/wide/REVEAL controls now exercise original-nullifier
+mutual exclusion. A genuine private-SAT proof bound to the fresh post-REVEAL
+state rejects at the native occupied-NF guard with ample reserve, before G16;
+absence remains a native responsibility. Separate stale Auth rebases do not
+substitute for that check. Local supplied contexts do not establish live racing,
+reorg handling or current-chain finality.
+The frozen prospective arithmetic study retains all35 incomplete views and
+four-cluster uncertainty. Same-birth invoice facts can label a single issuer's
+other modeled payments; staggered withdrawals can expose original funding
+ancestry. Neither zero forced CM-to-cashout edges nor SAT alternate arithmetic
+worlds establishes human/cryptographic owner anonymity. Uniform32-value wallet
+knowledge and the failed common-price prior remain explicit privacy boundaries.
+
 [ADR-0055](docs/adr/0055-recoverable-private-change-and-repeated-spending.md)
 keeps actual private conservation separate from public diagnostic sizing. A
 sizing quote has zero proof and no private witness; only an actual legal

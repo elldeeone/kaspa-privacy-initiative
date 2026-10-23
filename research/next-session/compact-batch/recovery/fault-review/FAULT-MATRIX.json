@@ -1,0 +1,63 @@
+{
+  "schema": "kpx-compact-recovery-fault-matrix/v1",
+  "status": "DESIGN_ONLY_NOT_EXECUTED",
+  "source_commit": "a6fcdf1edd904dbe1bb395285230649b6c40d44c",
+  "scope": "Six integration families against frozen production entrypoints after implementation/root release; no duplicate VM or proof jobs.",
+  "families": [
+    {
+      "id": "availability_without_operator_or_old_cache",
+      "entrypoint": "public capsule verifier, then separately authorized recovery consumer",
+      "faults": ["operator/source checkout absent", "old local cache absent", "first mirror absent or corrupt, second exact selected object present", "wide PK absent for compact-role or recover-only operation"],
+      "expected": "Exact root-matching complete public capsule may verify without operator/old cache; rejected mirror recorded; no currentness claim from capsule alone. Recover-only needs no PK/prover; compact proving cannot require wide PK.",
+      "evidence_tier": "PUBLIC_OBJECTS_ONLY until selected compact integration is released",
+      "private_gate": "No actual backup mounted during public-only test"
+    },
+    {
+      "id": "external_authority_and_parameter_role",
+      "entrypoint": "production capsule plus descriptor/manifest selection gate",
+      "faults": ["root supplied only inside capsule", "different root digest", "recomputed internal manifest/object hashes against unchanged outside root", "wrong role", "wrong D or VK with same dimensions", "swapped compact/wide manifest", "capsule-selected unapproved executable or policy"],
+      "expected": "Reject before backup contents and parameter decoding; a newly self-consistent unselected root never becomes authority.",
+      "evidence_tier": "PUBLIC_SELECTION_REJECTION",
+      "private_gate": "Synthetic non-seed sentinel IN_OPEN count zero"
+    },
+    {
+      "id": "public_object_integrity_and_aliases",
+      "entrypoint": "production object resolver/verifier, using owned sandbox copies only",
+      "faults": ["missing required object", "truncated object", "same-size corrupted object", "appended bytes", "conflicting duplicate inventory entries", "path traversal or symlink escape", "public hardlink alias to synthetic backup sentinel", "all mirrors disagree with selected digest"],
+      "expected": "Unavailable or invalid, never partial success/current balance; no mixed-provider object prefix splice; no private-content open.",
+      "evidence_tier": "PUBLIC_OBJECT_INTEGRITY_REJECTION",
+      "private_gate": "Synthetic sentinel IN_OPEN count zero; actual backups/caches/releases unmounted"
+    },
+    {
+      "id": "sparse_history_completeness_and_ancestry",
+      "entrypoint": "new history consumer/replay adapter with authenticated public fixture inventory",
+      "faults": ["missing selected predecessor/body/context", "wrong founding point or history tip", "duplicate/conflicting successor spend", "valid individual header/body bytes without authenticated accepted membership", "missing old bulk pages accompanied by copied complete-scan flags"],
+      "expected": "Reject required lineage gaps/ancestry conflicts or label historical bytes-only status. A separately defined sparse result may omit unrelated bulk pages but must never claim an old full scan was freshly performed.",
+      "evidence_tier": "PUBLIC_HISTORY_GATE; no new SDK/native run unless specifically scheduled",
+      "private_gate": "No backup read or current spendable result on incomplete history"
+    },
+    {
+      "id": "current_view_reorg_and_spentness",
+      "entrypoint": "new current-observation composition boundary; fake transport explicitly labeled in offline controls",
+      "faults": ["intact but old current view", "timestamps advanced without new observation", "fresh view not bound to capsule history tip", "removed/reorganized anchor or finite frontier", "missing current-head query", "consumed reserve reported unspent", "wrong amount/script for current reserve or payout", "post-query spend/removal of any live point", "watched live-point subset", "node unavailable or required history pruned"],
+      "expected": "Historical capsule may remain verified; currentness/spendability remains unknown or incomplete. No missing-data-to-zero conversion. Fake transport is not consensus evidence.",
+      "evidence_tier": "OFFLINE_COMPOSITION_REJECTION; actual fresh-node check requires separate root release",
+      "private_gate": "Synthetic sentinel unopened for invalid current-dependent action; no automatic broadcast or revealing fallback"
+    },
+    {
+      "id": "compact_parameters_ready_before_backup",
+      "entrypoint": "actual selected compact loader and owner entrypoint after implementation/root execution release",
+      "faults": ["wrong-role/old-domain same-dimension PK", "missing compact PK", "owned truncated/corrupted PK copy", "valid selected full PK without requested parameters-ready identity", "public input alias to synthetic backup"],
+      "expected": "Selection then complete owned-PK length/hash before decode, decoder exhaustion plus extracted VK/role/dimensions, selected parameters-ready, then private-input access. Every negative stops before synthetic sentinel open.",
+      "evidence_tier": "DEFERRED_ACTUAL_SELECTED_PUBLIC_PK_LOADER; no proof generation in this lane",
+      "private_gate": "Synthetic non-seed sentinel only; scheduled genuine owner rehearsal supplies positive private/proof evidence separately"
+    }
+  ],
+  "stop_rules": [
+    "No execution until concrete production API/source and root scope are frozen",
+    "No actual private backup, PK blob, network request, native VM or proof before explicit root release",
+    "No destructive mutation outside fresh owned sandbox fixture copies",
+    "No check weakening or post-result expected-outcome changes",
+    "No cryptographic, fresh-consensus, financial-privacy or production qualification from public/synthetic controls"
+  ]
+}

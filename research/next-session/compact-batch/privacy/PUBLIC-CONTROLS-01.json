@@ -1,0 +1,401 @@
+{
+  "current_uniform32_control": {
+    "actual_current_uniform32_policy": "All32 equal claim values forced by one known input, fee and equal-output wallet prior, even before drainage",
+    "current_uniform_demo_financial_privacy_qualification": false,
+    "no_heldout_generation_scoring": true,
+    "passed": 2,
+    "primary16_is_future_varied_wallet_model": true,
+    "prospective_varied_positive_policy": "All32 positive, individual values have checked arithmetic alternatives, no cryptographic privacy claim",
+    "schema": "kpx3-linkage-public-policy-controls/v1"
+  },
+  "development_probes": {
+    "public_probe_01": {
+      "cases": [
+        {
+          "arm": "wide32",
+          "independent_true_history_validated": true,
+          "metrics_are_public_development_not_heldout": true,
+          "observer_seconds": 122.28237638203427,
+          "observer_status": "INCOMPLETE",
+          "queries": 1
+        },
+        {
+          "arm": "compact2",
+          "independent_true_history_validated": true,
+          "metrics_are_public_development_not_heldout": true,
+          "observer_seconds": 125.07042182498844,
+          "observer_status": "INCOMPLETE",
+          "queries": 1
+        }
+      ],
+      "generation_seconds": 12.33581968798535,
+      "heldout_generation_or_scoring_performed": false,
+      "privacy_qualification": false,
+      "schema": "kpx3-linkage-known-public-development-probe/v1",
+      "source_pins": [
+        {
+          "bytes": 3925,
+          "path": "poc/payment-linkage/aggregate.py",
+          "sha256": "9671d6edd23f6c3fa3ab0658bd2e420177719104526bd69f205746e2da87cfe3"
+        },
+        {
+          "bytes": 3731,
+          "path": "poc/payment-linkage/certificate.py",
+          "sha256": "355b887e4d0a1981d83622777b91bfa4844de753a20802e07bbbc37c3cf0c902"
+        },
+        {
+          "bytes": 15497,
+          "path": "poc/payment-linkage/generate.py",
+          "sha256": "f5277125cdc4bc182026a3393889ca588c777fc70ec4559220737800a915d2e4"
+        },
+        {
+          "bytes": 2028,
+          "path": "poc/payment-linkage/generate_cli.py",
+          "sha256": "8079bf1e099858376b3fb528c36e16296cd1e88091768b55cd10c8c3a5170608"
+        },
+        {
+          "bytes": 12885,
+          "path": "poc/payment-linkage/model.py",
+          "sha256": "6856367dd560cfd98e844577ea3b75aa1bba7a83f2afc0cf47f398c48321afe0"
+        },
+        {
+          "bytes": 3814,
+          "path": "poc/payment-linkage/observe.py",
+          "sha256": "270483d3960afcc378570f176841474e41bbda496c2ccadcdb24c610aaaf24ad"
+        },
+        {
+          "bytes": 918,
+          "path": "poc/payment-linkage/probe_generate_cli.py",
+          "sha256": "8daca07aff6f9783e9f00b65d241b616bc2dcef41eae15e390609e8cde915037"
+        },
+        {
+          "bytes": 3221,
+          "path": "poc/payment-linkage/public_controls.py",
+          "sha256": "46acaf48c79f2554b29d469b8cdbe94dc1429323d0251ef69fe160884446985f"
+        },
+        {
+          "bytes": 4130,
+          "path": "poc/payment-linkage/public_probe.py",
+          "sha256": "63d37aa66f77f6cc9a4f6333a8d3838bc4fd0cc8f9c3291fd11fdb7b52778bb0"
+        },
+        {
+          "bytes": 9177,
+          "path": "poc/payment-linkage/run.py",
+          "sha256": "83276a559f26ae04bd683657e5133304dabfcb110a0411090ebefdbbc069ac47"
+        },
+        {
+          "bytes": 7370,
+          "path": "poc/payment-linkage/run_controls.py",
+          "sha256": "7b6968f0dbb311485b4cab2e0be28b2f19d3732a7d4cbacb445736103c0d7630"
+        },
+        {
+          "bytes": 2916,
+          "path": "poc/payment-linkage/run_lemma_controls.py",
+          "sha256": "4df0180f0f556c98f17eff0ae5f38572427681a076b6806779c7f1a86ab78e15"
+        },
+        {
+          "bytes": 9624,
+          "path": "poc/payment-linkage/schema.py",
+          "sha256": "3704c2e8fa4cd1a1cb775b624c66ed34df0bf38746a86e12baa2536904048339"
+        },
+        {
+          "bytes": 12236,
+          "path": "poc/payment-linkage/score.py",
+          "sha256": "f30a57a1b4cdbdd5c41129ba52d2943e3f4ab453577e327c79524816189fe16b"
+        },
+        {
+          "bytes": 447,
+          "path": "poc/payment-linkage/score_cli.py",
+          "sha256": "d4505fadf08c8e49f494d800fb5929d3f3db530418b0d9784a6cf6cda49b73d0"
+        },
+        {
+          "bytes": 21564,
+          "path": "poc/future-recipient/v2/recipient.py",
+          "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2"
+        },
+        {
+          "bytes": 30195,
+          "path": "research/next-session/private-change/fees/WHOLE-EMITTED-COSTS-01.json",
+          "sha256": "c4f7043c4f0cdd3c4509a3d93a02558b506e731aead243fc67a431f9db2d8d82"
+        }
+      ],
+      "total_seconds": 259.7872293390101
+    },
+    "public_probe_02": {
+      "cases": [
+        {
+          "arm": "wide32",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 7.935659321025014,
+          "public_sha256": "7efd6ca04fad52b07aba604f5d912778ca4e85e92c95b5774435bddf69b1957d",
+          "queries": 2275,
+          "status": "COMPLETE",
+          "true_history_validated": true
+        },
+        {
+          "arm": "compact2",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 26.8072177710128,
+          "public_sha256": "dd5cc1c253c862e52c3aeb161e7e82723277213dbec441cf9f7aec7d4cae5b23",
+          "queries": 2273,
+          "status": "COMPLETE",
+          "true_history_validated": true
+        }
+      ],
+      "privacy_qualification": false,
+      "read_seed_or_keys": false,
+      "regenerated_data": false,
+      "schema": "kpx3-linkage-same-public-input-reobserve/v1"
+    },
+    "public_probe_03": {
+      "cases": [
+        {
+          "arm": "wide32",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 0.13463908503763378,
+          "public_sha256": "5b71b1c664dd0510bd37b87f6d41f0697d5c9a8c4aad2a332f48d3fc7702ea96",
+          "queries": 2,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "payment-C.json"
+        },
+        {
+          "arm": "wide32",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 5.788265429961029,
+          "public_sha256": "760e289d4ba0cb3155888196b969f05d5c8e47f0f693e9635843e20e9d821688",
+          "queries": 3347,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "drain-Cplus8.json"
+        },
+        {
+          "arm": "wide32",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 0.17189184098970145,
+          "public_sha256": "8a3f34f9c17f496423e1f559f34ca07d0319408dd69e6a1bfa54f12a7d1c5c15",
+          "queries": 18,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "payment-Cplus8.json"
+        },
+        {
+          "arm": "compact2",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 1.245458223973401,
+          "public_sha256": "0b69f8e4e4185ca84dfa0a1f9b41cd88610426b7e4c2a8669e7df5a974ad1cbf",
+          "queries": 2,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "payment-C.json"
+        }
+      ]
+    },
+    "public_probe_04": {
+      "cases": [
+        {
+          "arm": "wide32",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 0.13334706000750884,
+          "public_sha256": "5b71b1c664dd0510bd37b87f6d41f0697d5c9a8c4aad2a332f48d3fc7702ea96",
+          "queries": 2,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "payment-C.json"
+        },
+        {
+          "arm": "wide32",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 6.228131947980728,
+          "public_sha256": "760e289d4ba0cb3155888196b969f05d5c8e47f0f693e9635843e20e9d821688",
+          "queries": 3347,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "drain-Cplus8.json"
+        },
+        {
+          "arm": "wide32",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 0.15260493900859728,
+          "public_sha256": "8a3f34f9c17f496423e1f559f34ca07d0319408dd69e6a1bfa54f12a7d1c5c15",
+          "queries": 18,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "payment-Cplus8.json"
+        },
+        {
+          "arm": "compact2",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 1.2721574479946867,
+          "public_sha256": "0b69f8e4e4185ca84dfa0a1f9b41cd88610426b7e4c2a8669e7df5a974ad1cbf",
+          "queries": 2,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "payment-C.json"
+        },
+        {
+          "arm": "compact2",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 128.4275674460223,
+          "public_sha256": "0fb0fa1447f0fa2930c7b8c47903001e11d56691d338c0daa30ea979a921f0bc",
+          "queries": 101,
+          "status": "INCOMPLETE",
+          "true_history_validated": true,
+          "view": "drain-Cplus8.json"
+        },
+        {
+          "arm": "compact2",
+          "not_heldout_privacy_qualification": true,
+          "observer_seconds": 1.3555238329572603,
+          "public_sha256": "8443fd67c93dbdeed23844211c13ffc1a6e7be0661e6c606d8dc0b45ea8e08f7",
+          "queries": 18,
+          "status": "COMPLETE",
+          "true_history_validated": true,
+          "view": "payment-Cplus8.json"
+        }
+      ],
+      "privacy_qualification": false,
+      "read_seed_or_keys": false,
+      "regenerated_data": false,
+      "schema": "kpx3-linkage-same-public-input-reobserve/v1"
+    }
+  },
+  "failures_retained": [
+    {
+      "cause": "Ingress Note value decoder/producers used wrong offset; caught before heldout data; original source retained; fixed to64:72",
+      "id": "controls-01"
+    },
+    {
+      "cause": "Wide COMPLETE assertion failed; partial original observer report not retained; cannot claim exact UNKNOWN row",
+      "id": "controls-02"
+    },
+    {
+      "cause": "Both fixed known two-payer drained baselines UNKNOWN after120s; original inputs and outputs retained",
+      "id": "public-probe-01"
+    },
+    {
+      "cause": "Serial drain C+8 killed at4GiB cgroup limit after four earlier COMPLETE views; no prediction from killed view; original retained",
+      "id": "public-probe-03"
+    },
+    {
+      "cause": "New public fixture helper was shadowed by an int; corrected import alias in03; original failure log retained",
+      "id": "integrity-controls-02"
+    },
+    {
+      "cause": "Serial drain C+8 INCOMPLETE at101solverchecks; later serial prefix still COMPLETE; no missing result reclassified as ambiguity",
+      "id": "public-probe-04"
+    }
+  ],
+  "heldout_material_generated": false,
+  "latest_exact_model_controls": {
+    "checks": [
+      {
+        "name": "same-birth-slot-symmetry-and-single-payer-lineage",
+        "passed": true
+      },
+      {
+        "name": "zero-dummy-NONE-is-not-positive-forced-link",
+        "passed": true
+      },
+      {
+        "name": "participant-class-breaker-and-NF-known-spend",
+        "passed": true
+      },
+      {
+        "name": "known-counterparty-is-not-original-source-equality",
+        "passed": true
+      },
+      {
+        "name": "two-source-full-drainage-exact-global-forcing",
+        "passed": true
+      },
+      {
+        "name": "repeated-public-CM-opening-contradiction",
+        "passed": true
+      },
+      {
+        "name": "repeated-CM-distinct-positions-disable-grouping-preserve-equal-values",
+        "passed": true
+      },
+      {
+        "name": "UNKNOWN-baseline-never-ambiguity",
+        "passed": true
+      },
+      {
+        "name": "independent-certificate-replay-future-value-gap-rejections",
+        "passed": true
+      },
+      {
+        "name": "strict-private-field-type-frame-count-amount-negatives",
+        "passed": true
+      },
+      {
+        "name": "duplicate-json-fields-reject",
+        "passed": true
+      },
+      {
+        "name": "wide32-full-independent-drainage-source-lineage-negative-control",
+        "passed": true
+      }
+    ],
+    "classification": "FIXED_PUBLIC_CONTROLS_NO_HELDOUT_DATA",
+    "malformed_inputs_rejected": 12,
+    "passed": 12,
+    "privacy_or_native_financial_qualification": false,
+    "schema": "kpx3-payment-linkage-public-controls/v1",
+    "wide32_classes": 33,
+    "wide32_queries": 594
+  },
+  "latest_integrity_controls": {
+    "checks": [
+      "complete-public-report-independent-validation",
+      "missing-note",
+      "duplicate-note",
+      "missing-native",
+      "unknown-in-COMPLETE",
+      "missing-candidate",
+      "duplicate-candidate",
+      "missing-source",
+      "missing-NONE",
+      "wrong-forced-input",
+      "wrong-forced-note",
+      "missing-guess-target",
+      "bad-public-CM",
+      "boolean-position",
+      "wrong-baseline-status",
+      "public-SAT-certificate-must-match-exact-query",
+      "huge-irrelevant-subset-weight-skips-unbounded-bitshift",
+      "subset-search-failure-is-not-UNSAT",
+      "serial-unanchored-leaf-permutation-rechecks-change-and-exact-predicate",
+      "solver-memory-exception-is-INCOMPLETE-never-UNSAT"
+    ],
+    "heldout_generation_or_scoring": false,
+    "passed": 20,
+    "privacy_qualification": false,
+    "schema": "kpx3-linkage-independent-integrity-controls/v1"
+  },
+  "latest_lemma_controls": {
+    "checks": [
+      "open-positive-prefix-has-NONE-and-no-terminal-lemmas",
+      "matching-ingress-native-values-not-forced-into-P0",
+      "too-many-unmatched-positive-ingresses-for-P0-reject",
+      "note-before-later-P0-not-falsely-native-finite-bounded",
+      "above-2pow53-integer-exactness",
+      "first-UNKNOWN-stops-all-later-queries-without-forcedness"
+    ],
+    "heldout_generation_scoring": false,
+    "passed": 6,
+    "privacy_qualified": false,
+    "schema": "kpx3-linkage-lemma-boundary-controls/v1"
+  },
+  "native_execution_claimed": false,
+  "primary_workload": "VARIED_POSITIVE_FUTURE_WALLET",
+  "privacy_qualification": false,
+  "schema": "kpx3-payment-linkage-public-development-summary/v1",
+  "source_corpus_or_thresholds_retuned_after_heldout": false,
+  "unchanged_price_prior": {
+    "fails_original20percent_gate": true,
+    "hits": 21103,
+    "total": 100025
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "command": [
+    "systemd-run",
+    "--user",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=kpi-current-recovery-guards-1342d7070f03",
+    "-p",
+    "CPUQuota=400%",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,os,pathlib,sys; rel=pathlib.Path(\"/proc/self/cgroup\").read_text().split(\":\",2)[2].strip(); p=pathlib.Path(\"/sys/fs/cgroup\")/rel.lstrip(\"/\"); print(\"OBSERVED_CAPS \"+json.dumps({n:(p/n).read_text().strip() for n in (\"cpu.max\",\"memory.max\",\"memory.swap.max\")}),flush=True); os.execv(sys.argv[1],sys.argv[1:])",
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--clearenv",
+    "--die-with-parent",
+    "--new-session",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability",
+    "/work",
+    "--chdir",
+    "/work",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_capsule",
+    "test_pack_local",
+    "test_https_mirror",
+    "test_chunk_public",
+    "test_outer_iterator_guards"
+  ],
+  "files": [
+    {
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/capsule.py",
+      "source_path": "poc/recovery-portability/capsule.py"
+    },
+    {
+      "sha256": "30bb75aef5a2dea57fdfc17b23c601c766dffe7e23f6ea4a0d336c2bbe89b218",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/pack_local.py",
+      "source_path": "poc/recovery-portability/pack_local.py"
+    },
+    {
+      "sha256": "be1b5046f07293d5e42cfbb975879966109080b0727c8096530d6ded394664d2",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/https_mirror.py",
+      "source_path": "poc/recovery-portability/https_mirror.py"
+    },
+    {
+      "sha256": "c713a4871079acd040f5c434ceed47c4d6f71885c8e5256199a86488a5f724aa",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/chunk_public.py",
+      "source_path": "poc/recovery-portability/chunk_public.py"
+    },
+    {
+      "sha256": "5dfe8c86efab81fe0d1a960068595c49f75af09e536d75ac6976744a0c1a539d",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/test_capsule.py",
+      "source_path": "poc/recovery-portability/test_capsule.py"
+    },
+    {
+      "sha256": "726bf2eee0ca43ca66187ca6aa857f5e8b631afc548634ea63cc4d3c32f30b5a",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/test_pack_local.py",
+      "source_path": "poc/recovery-portability/test_pack_local.py"
+    },
+    {
+      "sha256": "6b52eaa4311c5f05eacdb0de7c4befc91d28cc2b4448c4348405a82ec46b3912",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/test_https_mirror.py",
+      "source_path": "poc/recovery-portability/test_https_mirror.py"
+    },
+    {
+      "sha256": "86a0a89d169eeb194d3d7c181e0f9bd43d2d312b977b96628ef4ffc532480758",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/test_chunk_public.py",
+      "source_path": "poc/recovery-portability/test_chunk_public.py"
+    },
+    {
+      "sha256": "64a2d7eefdd1fd9ffc3c3b577b04a5c113b03d2f2224f0ed676c3a711ffd1332",
+      "snapshot_path": "research/next-session/compact-batch/recovery/chunk-transport-01/current-api-controls-01/source/poc/recovery-portability/test_outer_iterator_guards.py",
+      "source_path": "research/next-session/compact-batch/recovery/fault-review/chunk-review-01/test_outer_iterator_guards.py"
+    }
+  ],
+  "schema": "kpx4-current-public-recovery-api-controls/v1",
+  "scope": "Current4 modules, existing tiny controls and3 independently authored outer iterator controls; zero actual PK/private bytes."
+}

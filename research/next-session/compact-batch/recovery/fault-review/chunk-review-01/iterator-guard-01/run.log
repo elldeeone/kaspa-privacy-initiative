@@ -1,0 +1,22 @@
+OBSERVED_CAPS {"cpu.max": "100000 100000", "memory.max": "1073741824", "memory.swap.max": "0"}
+Running as unit: kpi-chunk-iterator-negative-e17c7cd10b4f.service; invocation ID: 6c5fd037febe4469bd3e0a575984907d
+test_manifest_alias_iterator_rejects_before_content_open (test_chunk_iterator_guard.IteratorGuard.test_manifest_alias_iterator_rejects_before_content_open) ... FAIL
+
+======================================================================
+FAIL: test_manifest_alias_iterator_rejects_before_content_open (test_chunk_iterator_guard.IteratorGuard.test_manifest_alias_iterator_rejects_before_content_open)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/work/test_chunk_iterator_guard.py", line 68, in test_manifest_alias_iterator_rejects_before_content_open
+    self.assertEqual(events, b'', 'forbidden iterator alias was content-opened')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'\x01\x00\x00\x00 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' != b'' : forbidden iterator alias was content-opened
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=1/FAILURE
+               Service runtime: 88ms
+             CPU time consumed: 77ms
+                   Memory peak: 13.3M (swap: 0B)

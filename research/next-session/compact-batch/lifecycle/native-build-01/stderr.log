@@ -1,0 +1,53 @@
+Running as unit: kpi-compact-batch-native-build-01.service
+   Compiling kpi-compact-batch-native-emitter v0.1.0 (/workspace)
+warning: constant `PRIVATE_PAYLOAD` is never used
+  --> src/policy.rs:13:11
+   |
+13 | pub const PRIVATE_PAYLOAD: usize = 3920;
+   |           ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `WIDE_PAYLOAD` is never used
+  --> src/policy.rs:14:11
+   |
+14 | pub const WIDE_PAYLOAD: usize = 12672;
+   |           ^^^^^^^^^^^^
+
+warning: constant `PRIVATE_BUDGET` is never used
+  --> src/policy.rs:17:11
+   |
+17 | pub const PRIVATE_BUDGET: u16 = 1600;
+   |           ^^^^^^^^^^^^^^
+
+warning: constant `REVEAL_BUDGET` is never used
+  --> src/policy.rs:18:11
+   |
+18 | pub const REVEAL_BUDGET: u16 = 200;
+   |           ^^^^^^^^^^^^^
+
+warning: constant `OWNER_TAG` is never used
+  --> src/policy.rs:19:7
+   |
+19 | const OWNER_TAG: &[u8; 8] = b"KPX1OWN\0";
+   |       ^^^^^^^^^
+
+warning: constant `ADMIT_BUDGET` is never used
+   --> src/policy.rs:563:11
+    |
+563 | pub const ADMIT_BUDGET: u16 = 200;
+    |           ^^^^^^^^^^^^
+
+warning: function `owner_tag` is never used
+   --> src/policy.rs:902:8
+    |
+902 | pub fn owner_tag() -> &'static [u8; 8] {
+    |        ^^^^^^^^^
+
+warning: `kpi-compact-batch-native-emitter` (bin "kpi-compact-batch-native-emitter") generated 7 warnings
+    Finished `release` profile [optimized] target(s) in 0.69s
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 738ms
+             CPU time consumed: 1.696s
+                   Memory peak: 168.9M (swap: 0B)

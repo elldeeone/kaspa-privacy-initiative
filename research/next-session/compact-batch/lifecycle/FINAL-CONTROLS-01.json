@@ -1,0 +1,23 @@
+{
+  "Native_or_G16_or_PK_or_network_execution_by_this_test_suite": false,
+  "command": "python3 -B -m unittest test_primitives test_actions test_scan_closed test_closure -v",
+  "cryptographic_correctness_privacy_production_safety_or_live_readiness_proven": false,
+  "cwd": "poc/compact-batch-lifecycle",
+  "elapsed_seconds": 20.132,
+  "failed": 0,
+  "fixtures": "DETERMINISTIC_PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "main_private_inputs_or_backups_read": false,
+  "passed": 21,
+  "schema": "kpx4-lifecycle-final-public-controls/v1",
+  "scope": [
+    "sparse physical positions, gaps and cursor bounds",
+    "NF ordering, duplicates, reachability and terminal omission",
+    "all32 established-crypto receiver receipts and state-only full drain",
+    "public context canonicalization, own-backup symlink/hardlink alias refusal and quote binding",
+    "strict singleton GN bootstrap",
+    "spent original receipt payout-key rederivation with established crypto",
+    "exact fixed financial denominator/refund/source and selected native-metrics controls"
+  ],
+  "separate_actual_execution_public_selection_sha256": "01bc2bbb54c42aadc8d37204ab0eefad6cf307931a7a57be0673d1e9a9beac3f",
+  "source_selection_sha256": "9d19db9c31471e9de4760fea5557d65125c1af3a338fa763d589e5b06a7e3e99"
+}

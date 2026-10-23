@@ -1,0 +1,79 @@
+{
+  "schema": "kpx4-local-capsule-pack-controls/v1",
+  "source_files": [
+    {
+      "path": "poc/recovery-portability/capsule.py",
+      "sha256": "88e13b484f9fd6c867a54b58610122ddc09693544f7a9ee20a1cd071737e4f56"
+    },
+    {
+      "path": "poc/recovery-portability/pack_local.py",
+      "sha256": "bedbc6060c29af1596504e07c716b5cd27b0d1cc3c562f9c695b6dd90d9cf0bd"
+    },
+    {
+      "path": "poc/recovery-portability/test_capsule.py",
+      "sha256": "5dfe8c86efab81fe0d1a960068595c49f75af09e536d75ac6976744a0c1a539d"
+    },
+    {
+      "path": "poc/recovery-portability/test_pack_local.py",
+      "sha256": "726bf2eee0ca43ca66187ca6aa857f5e8b631afc548634ea63cc4d3c32f30b5a"
+    },
+    {
+      "path": "research/next-session/compact-batch/recovery/PLAN-LOCAL-PACK-01.md",
+      "sha256": "88749f039b0e21bc214b08f18117ce454a574ec6249ea0f35e75b6c56c78df1e"
+    }
+  ],
+  "command": [
+    "systemd-run",
+    "--user",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=kpi-capsule-pack-7318990b0136",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "RuntimeMaxSec=600",
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--clearenv",
+    "--die-with-parent",
+    "--new-session",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-portability",
+    "/work",
+    "--chdir",
+    "/work",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_pack_local"
+  ],
+  "no_actual_PK_backup_native_proof_or_node_exercised": true
+}

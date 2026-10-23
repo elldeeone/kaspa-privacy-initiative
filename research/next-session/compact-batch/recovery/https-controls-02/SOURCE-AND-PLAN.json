@@ -1,0 +1,85 @@
+{
+  "schema": "kpx4-capsule-HTTP-controls/v1",
+  "source_files": [
+    {
+      "path": "poc/recovery-portability/capsule.py",
+      "sha256": "88e13b484f9fd6c867a54b58610122ddc09693544f7a9ee20a1cd071737e4f56"
+    },
+    {
+      "path": "poc/recovery-portability/https_mirror.py",
+      "sha256": "0e86c705c0abbf2dd30748872825d97f2f436eb815fdd5388427dcebeabd354c"
+    },
+    {
+      "path": "poc/recovery-portability/test_capsule.py",
+      "sha256": "5dfe8c86efab81fe0d1a960068595c49f75af09e536d75ac6976744a0c1a539d"
+    },
+    {
+      "path": "poc/recovery-portability/test_https_mirror.py",
+      "sha256": "6b52eaa4311c5f05eacdb0de7c4befc91d28cc2b4448c4348405a82ec46b3912"
+    },
+    {
+      "path": "research/next-session/compact-batch/recovery/PLAN-HTTPS-CONTROLS-01.md",
+      "sha256": "64f8f14f507650b3bf16341e0f2d35bc1e06cd200ef4a28b4ab9fc9a63820361"
+    }
+  ],
+  "command": [
+    "systemd-run",
+    "--user",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=kpi-capsule-http-fix-116de9711ffb",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "RuntimeMaxSec=600",
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--clearenv",
+    "--die-with-parent",
+    "--new-session",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/etc/ssl/certs",
+    "/etc/ssl/certs",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-portability",
+    "/work",
+    "--chdir",
+    "/work",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_https_mirror.HTTPControls.test_all_sources_missing_returns_incomplete",
+    "test_https_mirror.HTTPControls.test_preferred_source_stopped_then_real_mirror_restore"
+  ],
+  "actual_PK_backup_native_prover_or_external_provider_inputs_mounted": false,
+  "scope": "ACTUAL_LITERAL_LOOPBACK_HTTP_PUBLIC_STRUCTURE_ONLY_DO_NOT_FUND",
+  "change_reason": "Close HTTPError response handles explicitly after404 before fallback; original8/8 outcome/log retained. Targeted existing404/source-stopped controls only, no expected-outcome change."
+}

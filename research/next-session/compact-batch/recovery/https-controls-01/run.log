@@ -1,0 +1,21 @@
+Running as unit: kpi-capsule-http-6604ecb5c664.service; invocation ID: d9ce6aa37aae439ba2a8f219f852b5da
+test_URL_policy_and_HTTPS_redirect_safety (test_https_mirror.HTTPControls.test_URL_policy_and_HTTPS_redirect_safety) ... ok
+test_actual_loopback_redirect_queries_not_reported (test_https_mirror.HTTPControls.test_actual_loopback_redirect_queries_not_reported) ... ok
+test_all_sources_missing_returns_incomplete (test_https_mirror.HTTPControls.test_all_sources_missing_returns_incomplete) ... /usr/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 404: 'File not found'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+ok
+test_corrupted_primary_objects_use_exact_mirror (test_https_mirror.HTTPControls.test_corrupted_primary_objects_use_exact_mirror) ... ok
+test_preferred_source_stopped_then_real_mirror_restore (test_https_mirror.HTTPControls.test_preferred_source_stopped_then_real_mirror_restore) ... ok
+test_recognition_performs_no_PK_HTTP_request (test_https_mirror.HTTPControls.test_recognition_performs_no_PK_HTTP_request) ... ok
+test_truncated_response_falls_back_without_splicing (test_https_mirror.HTTPControls.test_truncated_response_falls_back_without_splicing) ... ok
+test_wrong_role_rejected_before_PK_network_request (test_https_mirror.HTTPControls.test_wrong_role_rejected_before_PK_network_request) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 4.582s
+
+OK
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 4.686s
+             CPU time consumed: 187ms
+                   Memory peak: 24.1M (swap: 0B)

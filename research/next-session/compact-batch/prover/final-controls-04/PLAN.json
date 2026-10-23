@@ -1,0 +1,136 @@
+{
+  "CS_setup_proof_native_or_RPC_execution": false,
+  "cases": [
+    {
+      "expected_relation_satisfied": false,
+      "filename": "00-wide-late31-CM-opening.json",
+      "label": "wide-late31-CM-opening",
+      "purpose": "Last output rho changes while Auth array digest stays fixed; tests last-slot CM/list binding without changing values.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "wide32"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "01-wide-late31-duplicate-coherent-digest.json",
+      "label": "wide-late31-duplicate-coherent-digest",
+      "purpose": "Slots0/31 become identical with equal original values and a recomputed list digest; isolates all-slot distinctness.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "wide32"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "02-wide-u64-overflow-coherent-digest.json",
+      "label": "wide-u64-overflow-coherent-digest",
+      "purpose": "All32 values are individually legal and CMs remain distinct; exact sum exceeds u64 and input/reserve, with coherent digest.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "wide32"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "03-wide-ordered-list-swap.json",
+      "label": "wide-ordered-list-swap",
+      "purpose": "Distinct equal-value outputs30/31 swap while original ordered digest remains; binds physical order.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "wide32"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "04-compact-terminal-rho.json",
+      "label": "compact-terminal-rho",
+      "purpose": "Nonzero private rho under unchanged terminal zero sentinels must fail, despite no output CM being appended.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "05-compact-terminal-cipher-not-empty-hash.json",
+      "label": "compact-terminal-cipher-not-empty-hash",
+      "purpose": "Terminal binds SHA256(528 zero bytes), never SHA256(empty).",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "06-compact-reserved-byte.json",
+      "label": "compact-reserved-byte",
+      "purpose": "Directly retained reserved-byte witness must be zero, not merely normalized by host serialization.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "07-compact-alignment.json",
+      "label": "compact-alignment",
+      "purpose": "Old cursor1 requires aligned start2; the in-range nonmultiple3 must fail.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "08-compact-wrong-role-mode32.json",
+      "label": "compact-wrong-role-mode32",
+      "purpose": "Compact matrix cannot be promoted to wide by the Auth mode, preserving all other compact data.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "09-compact-wrong-prior-CM-root.json",
+      "label": "compact-wrong-prior-CM-root",
+      "purpose": "Real-note membership must authenticate the exact prior root.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "10-compact-wrong-real-NF.json",
+      "label": "compact-wrong-real-NF",
+      "purpose": "The actual-slot real HMAC NF is independently constrained, not accepted from Auth.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "11-compact-private-output-plus-payout-inflation.json",
+      "label": "compact-private-output-plus-payout-inflation",
+      "purpose": "Public reserve/fee/payout equation remains balanced and SPK is valid; private outputs unchanged make private conservation fail.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": false,
+      "filename": "12-compact-input-sum-exceeds-reserve.json",
+      "label": "compact-input-sum-exceeds-reserve",
+      "purpose": "Private input/output/fee equation unchanged; public reserve equation balanced but owned input sum exceeds reserve.",
+      "required_result_kind": "DIRECT_CONSTRAINT_UNSAT",
+      "requires_native_checks_to_reject": false,
+      "role": "compact2"
+    },
+    {
+      "expected_relation_satisfied": true,
+      "filename": "13-compact-next-CM-root-is-native-obligation.json",
+      "label": "compact-next-CM-root-is-native-obligation",
+      "purpose": "Private relation deliberately does not authenticate the continuing tree append; native public path/root checks remain mandatory.",
+      "required_result_kind": "DIRECT_CONSTRAINT_SAT",
+      "requires_native_checks_to_reject": true,
+      "role": "compact2"
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "domain_hex32": "35ee940cae12aec848a773738de04feaef80c17798a686f1d5aa808179584fd6",
+  "parser_rejection_does_not_count_as_direct_UNSAT": true,
+  "private_witness_or_input_hash_emitted": false,
+  "schema": "kpx4-direct-relation-control-plan/v1"
+}
