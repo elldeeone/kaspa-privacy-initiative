@@ -1,0 +1,161 @@
+{
+  "actual_PK_backup_witness_native_or_external_network": false,
+  "command": [
+    "systemd-run",
+    "--user",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=kpi-recovery-issuer-unreachable-e19796eb17a0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "MemoryMax=3G",
+    "-p",
+    "MemorySwapMax=0",
+    "/usr/bin/python3",
+    "-B",
+    "-c",
+    "import json,os,pathlib,sys; rel=pathlib.Path(\"/proc/self/cgroup\").read_text().split(\":\",2)[2].strip(); p=pathlib.Path(\"/sys/fs/cgroup\")/rel.lstrip(\"/\"); print(\"OBSERVED_CAPS \"+json.dumps({n:(p/n).read_text().strip() for n in (\"cpu.max\",\"memory.max\",\"memory.swap.max\")}),flush=True); os.execv(sys.argv[1],sys.argv[1:])",
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--clearenv",
+    "--die-with-parent",
+    "--new-session",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/etc/ssl/certs",
+    "/etc/ssl/certs",
+    "--ro-bind",
+    "/etc/hosts",
+    "/etc/hosts",
+    "--ro-bind",
+    "/etc/nsswitch.conf",
+    "/etc/nsswitch.conf",
+    "--ro-bind",
+    "/etc/alternatives",
+    "/etc/alternatives",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/independent-payments/recovery-transport/controls-03/source",
+    "/work",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/independent-payments/recovery-transport/public-fixture",
+    "/fixtures",
+    "--chdir",
+    "/work",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_public_fetch.HTTPSControls.test_actual_unreachable_issuer_endpoint_falls_back"
+  ],
+  "fixture_files": [
+    {
+      "bytes": 827,
+      "path": "EXTERNAL-SELECTION.json",
+      "sha256": "0caf77d22aa2360e790d0480b47f15f32398d443ae48ccf74701b47655052645"
+    },
+    {
+      "bytes": 3555,
+      "path": "PUBLICATION.json",
+      "sha256": "cd9d49b36850cd3e969f8eeffe8dbabb52c3bfd3f6014fedbd65d61cc10e4d78"
+    },
+    {
+      "bytes": 893,
+      "path": "capsule.json",
+      "sha256": "a2255fa1fda71909f7802ec5bd4474519de1d2a92416c4056024032c4cfd7d89"
+    },
+    {
+      "bytes": 624,
+      "path": "compact2-chunks.json",
+      "sha256": "4d4afe53cef26c3226a894d20471371399ea0bac9503e672d3df4852b762e872"
+    },
+    {
+      "bytes": 49273,
+      "path": "descriptor.json",
+      "sha256": "61e0f955850f199305bb50ec57ad389aafbc645de2685ff3572d76f11d864ed8"
+    },
+    {
+      "bytes": 2137,
+      "path": "history.json",
+      "sha256": "1d387cbc57a2379178763be75a2fe7a0633f9dfb2dd2ec6d93882995d7e5f750"
+    },
+    {
+      "bytes": 2724,
+      "path": "parameters_manifest.json",
+      "sha256": "f27a806928b5c2409d4e4c5428a75deabef6ecf9601b60889667e90363f26043"
+    },
+    {
+      "bytes": 649,
+      "path": "software_inventory.json",
+      "sha256": "c48751132d2b4bbb5fb99ea36390f005173d24679a6a58d73c60cfa027fe9256"
+    }
+  ],
+  "loopback_TLS_CA_control_not_external_provider_evidence": true,
+  "schema": "kpx4-public-distribution-controls/v1",
+  "scope": "Only one added actual unreachable-TLS-source fallback; earlier19 cases not rerun or summed.",
+  "source_files": [
+    {
+      "bytes": 1640,
+      "path": "trusted_util.py",
+      "sha256": "78633b9e62a57796d609b600139cea77f4e1866ec362aa5bdd2588516baad9a6"
+    },
+    {
+      "bytes": 7861,
+      "path": "public_fetch.py",
+      "sha256": "37f1a3aa6a7b0c9e4f5363ffb15f2deebde087295c49b60d1cd9b2b9f6eb32ae"
+    },
+    {
+      "bytes": 10193,
+      "path": "prepare.py",
+      "sha256": "c928ad6545a77fbfb829994e7d52ab2c7ae443987104ed54d1547b697aac4427"
+    },
+    {
+      "bytes": 10510,
+      "path": "retrieve.py",
+      "sha256": "e7b3f56b404fa73a6a27a4add7102c604ad2c814b69143406c6a02f007a6abcb"
+    },
+    {
+      "bytes": 9088,
+      "path": "test_public_fetch.py",
+      "sha256": "79d8e1c8ceaef4b2fa520423c61516a94df286d237e2fddcf6c1feee5aeef5b5"
+    },
+    {
+      "bytes": 6615,
+      "path": "test_retrieve.py",
+      "sha256": "a89c5d5c95b0e556f00197f813744d0a68c50112489ab9efba5d02328fe1b130"
+    },
+    {
+      "bytes": 26619,
+      "path": "vendor/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 13724,
+      "path": "vendor/chunk_public.py",
+      "sha256": "c713a4871079acd040f5c434ceed47c4d6f71885c8e5256199a86488a5f724aa"
+    }
+  ],
+  "synthetic_ephemeral_TLS_key_created_and_deleted_in_namespace": true
+}

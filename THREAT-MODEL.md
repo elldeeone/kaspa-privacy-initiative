@@ -1,5 +1,39 @@
 # Threat Model
 
+[RFC-0024](docs/rfc/0024-independent-private-payment-settlement-and-recovery.md)
+adds a combined settlement/recovery investigation. Verifying several owner
+proofs cannot authorize an aggregate body's state, payouts or fees by itself.
+Owner witnesses must not be collected as a shortcut to multiparty settlement.
+Invoice/co-output role labeling and sparse-funding ancestry remain demonstrated
+privacy channels. A changed model or more solver coverage cannot erase them.
+
+[ADR-0058](docs/adr/0058-private-full-note-exits-without-commitment-appends.md)
+selects a new-instance no-append full-note cashout experiment. A public mode0
+with reserve remaining must still prove a positive authorized full-input payout
+and retain the immutable exact reserve continuation. It must create no hidden
+change. The original current positioned real NFs and both current absence/update
+proofs remain mandatory. NF capacity rests on every valid branch preserving
+m+2U<=2n+1; arbitrary supplied roots do not establish that history. Public
+append/no-append behavior belongs in the privacy observer. Fresh parameter
+identity, missing ciphertext and accepted-head/reorg reconciliation remain
+distinct obligations. Actual provider separation and retention cannot follow
+from two local caches, a content hash or a successful one-time download.
+The new capacity proof/native packet now exercises the boundary and a fresh
+current occupied-NF rejection. The cold HTTPS experiment restores all exact
+software/PK bytes and makes a genuine local terminal proof from one known-public
+backup, with original paths absent. Neither experiment authenticates an accepted
+head or makes GitHub/CDN endpoints separate administrative failure domains.
+
+[ADR-0059](docs/adr/0059-scheduled-private-actions-with-public-settlement-proofs.md)
+introduces explicitly virtual scheduled P0 transitions only in a new unfunded
+wrapper. Actual current point/state/reserve, exact immutable continuation,
+complete public child data and allocated fees must be bound independently by
+native code. Its journal must not contain a self-referential own-body/proof/image
+hash. A pending virtual receipt is not settled value. Same original NFs must
+bind aggregate and direct private fallback; missing operator/outer assets cannot
+disable that fallback. Public output partitions persist through ordinary
+aggregation, and per-recipient exit fees remain payable.
+
 [ADR-0057](docs/adr/0057-matched-batch-proofs-and-portable-recovery.md)
 adds fixed proof-role/mode/list binding and sparse recovery obligations. Real
 nullifiers must stay identical across compact/wide/REVEAL roles; role separation

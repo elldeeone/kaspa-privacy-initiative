@@ -1,0 +1,36 @@
+test_corrupt_header_checksum (__main__.UnpackTests.test_corrupt_header_checksum) ... ok
+test_declared_backup_hardlink_alias_before_any_content_open (__main__.UnpackTests.test_declared_backup_hardlink_alias_before_any_content_open) ... ok
+test_duplicate_effective_path_and_unlisted_member (__main__.UnpackTests.test_duplicate_effective_path_and_unlisted_member) ... ok
+test_duplicate_member_selection (__main__.UnpackTests.test_duplicate_member_selection) ... ok
+test_existing_output_or_symlink_parent (__main__.UnpackTests.test_existing_output_or_symlink_parent) ... ok
+test_hidden_second_tar_or_overlong_uncompressed_stream (__main__.UnpackTests.test_hidden_second_tar_or_overlong_uncompressed_stream) ... ok
+test_member_digest_and_header_size_mismatch (__main__.UnpackTests.test_member_digest_and_header_size_mismatch) ... ok
+test_member_inventory_backup_alias_before_archive_read (__main__.UnpackTests.test_member_inventory_backup_alias_before_archive_read) ... ok
+test_member_path_traversal_absolute_and_aliases (__main__.UnpackTests.test_member_path_traversal_absolute_and_aliases) ... ok
+test_noncanonical_header_with_valid_checksum (__main__.UnpackTests.test_noncanonical_header_with_valid_checksum) ... ok
+test_nonzero_trailing_padding (__main__.UnpackTests.test_nonzero_trailing_padding) ... ok
+test_pax_extension_and_gnu_longname_not_allowed (__main__.UnpackTests.test_pax_extension_and_gnu_longname_not_allowed) ... FAIL
+test_symlink_hardlink_and_directory_headers (__main__.UnpackTests.test_symlink_hardlink_and_directory_headers) ... ok
+test_truncated_compressed_and_tar_stream (__main__.UnpackTests.test_truncated_compressed_and_tar_stream) ... ok
+test_unhashable_kind_is_fixed_typed_rejection (__main__.UnpackTests.test_unhashable_kind_is_fixed_typed_rejection) ... ok
+test_valid_exact_restore_no_execution_then_separate_typed_restore (__main__.UnpackTests.test_valid_exact_restore_no_execution_then_separate_typed_restore) ... ok
+test_wrong_archive_pin_before_decompress (__main__.UnpackTests.test_wrong_archive_pin_before_decompress) ... ok
+test_wrong_member_or_typed_inventory_pin (__main__.UnpackTests.test_wrong_member_or_typed_inventory_pin) ... ok
+
+======================================================================
+FAIL: test_pax_extension_and_gnu_longname_not_allowed (__main__.UnpackTests.test_pax_extension_and_gnu_longname_not_allowed)
+----------------------------------------------------------------------
+software_bundle.Invalid: noncanonical-ustar-header
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-coldbuild/test_unpack.py", line 160, in test_pax_extension_and_gnu_longname_not_allowed
+    with self.assertRaisesRegex(Invalid, '^tar-links-directories-or-extensions-forbidden$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^tar-links-directories-or-extensions-forbidden$" does not match "noncanonical-ustar-header"
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.111s
+
+FAILED (failures=1)

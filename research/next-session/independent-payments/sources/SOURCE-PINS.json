@@ -1,0 +1,455 @@
+{
+  "schema": "independent-native-kas-payments-primary-source-refresh/v1",
+  "reviewed_utc": "2026-10-23T22:27:09Z",
+  "workspace_base_commit": "5aaf99532d8714e510d421102df719f60f54d073",
+  "access": "read-only public GitHub connector and official specifications/research",
+  "execution_runtime": {
+    "repository": "kaspanet/rusty-kaspa",
+    "version": "2.1.0",
+    "commit": "01b532e8b553523216471682649693af92f0fd16",
+    "master_substituted": false
+  },
+  "heads": [
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "branch": "master",
+      "commit": "4edcbbccb449f84832afb1ca157904b35f37d006",
+      "url": "https://github.com/kaspanet/rusty-kaspa/tree/4edcbbccb449f84832afb1ca157904b35f37d006"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "branch": "main",
+      "commit": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+      "url": "https://github.com/kaspanet/docs/tree/0ac77d043a802fc8196abfd5812ac2afbd97a2b9"
+    },
+    {
+      "repository": "kaspanet/vprogs",
+      "branch": "master",
+      "commit": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "url": "https://github.com/kaspanet/vprogs/tree/f9b84a863a7c7c20586a9cf947550475e894f72e"
+    },
+    {
+      "repository": "kaspanet/research",
+      "branch": "main",
+      "commit": "c923faca11a49148fa7d912d27ce00197a5c5a4a",
+      "url": "https://github.com/kaspanet/research/tree/c923faca11a49148fa7d912d27ce00197a5c5a4a"
+    },
+    {
+      "repository": "zcash/orchard",
+      "branch": "main",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "url": "https://github.com/zcash/orchard/tree/616a669df8c9a59c33d47064d3ce04b25d026b2e"
+    },
+    {
+      "repository": "AztecProtocol/aztec-packages",
+      "branch": "next",
+      "commit": "c1b606f97dcd56668ccd8087a794190c34b4c571",
+      "url": "https://github.com/AztecProtocol/aztec-packages/tree/c1b606f97dcd56668ccd8087a794190c34b4c571"
+    },
+    {
+      "repository": "Railgun-Privacy/contract",
+      "branch": "main",
+      "commit": "36bcf5ed7cf94bfafb6e1a303e1832c769c16780",
+      "url": "https://github.com/Railgun-Privacy/contract/tree/36bcf5ed7cf94bfafb6e1a303e1832c769c16780"
+    },
+    {
+      "repository": "Railgun-Privacy/circuits-v2",
+      "branch": "main",
+      "commit": "0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb",
+      "url": "https://github.com/Railgun-Privacy/circuits-v2/tree/0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb"
+    },
+    {
+      "repository": "Railgun-Community/engine",
+      "branch": "main",
+      "commit": "6e2614d53a106dd62abad91e7ce03ee4a3956138",
+      "url": "https://github.com/Railgun-Community/engine/tree/6e2614d53a106dd62abad91e7ce03ee4a3956138"
+    },
+    {
+      "repository": "monero-project/monero",
+      "branch": "master",
+      "commit": "8340be5e920d881edc006e0896d6074cd06dfb2e",
+      "url": "https://github.com/monero-project/monero/tree/8340be5e920d881edc006e0896d6074cd06dfb2e"
+    },
+    {
+      "repository": "litecoin-project/litecoin",
+      "branch": "master",
+      "commit": "ec1b6489a900d09cf5991e220dce089c77a232a2",
+      "url": "https://github.com/litecoin-project/litecoin/tree/ec1b6489a900d09cf5991e220dce089c77a232a2"
+    },
+    {
+      "repository": "zcash/librustzcash",
+      "branch": "main",
+      "commit": "146a08fc779678f6b81997da5f9b7c3378ffccb9",
+      "url": "https://github.com/zcash/librustzcash/tree/146a08fc779678f6b81997da5f9b7c3378ffccb9"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "branch": "main",
+      "commit": "7ffe8353437604322f8bdd6e8d0c4f5b15a55ee1",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/tree/7ffe8353437604322f8bdd6e8d0c4f5b15a55ee1"
+    }
+  ],
+  "aztec_client": {
+    "parent_repository": "AztecProtocol/aztec-packages",
+    "parent_commit": "c1b606f97dcd56668ccd8087a794190c34b4c571",
+    "path": "labs",
+    "repository": "aztec-labs-eng/aztec-node",
+    "gitlink_commit": "ea00f1b0939d034448fce9c16d461a7ea363a992",
+    "unchanged": true
+  },
+  "supplementary_sapling_source": {
+    "repository": "zcash/sapling-crypto",
+    "branch": "main",
+    "commit": "88a7946b4a3066787776e11f0a502654167e022d",
+    "not_execution_dependency": true
+  },
+  "files": [
+    {
+      "repository": "zcash/orchard",
+      "ref": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/builder.rs",
+      "git_blob_sha": "8f2aee7dbdeeb88b464d74c39b10fc3434e5320b",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/builder.rs"
+    },
+    {
+      "repository": "zcash/orchard",
+      "ref": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/value.rs",
+      "git_blob_sha": "7d014dcd03b3b1c4399b47225bc9a2a57d614308",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/value.rs"
+    },
+    {
+      "repository": "zcash/orchard",
+      "ref": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/tree.rs",
+      "git_blob_sha": "c4bafc968d41fbc8493ec4a3e4324757d8561c0e",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/tree.rs"
+    },
+    {
+      "repository": "zcash/orchard",
+      "ref": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/keys.rs",
+      "git_blob_sha": "3295be22286e09cf0207eca89f0e4494e33514c6",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/keys.rs"
+    },
+    {
+      "repository": "zcash/librustzcash",
+      "ref": "146a08fc779678f6b81997da5f9b7c3378ffccb9",
+      "path": "pczt/src/lib.rs",
+      "git_blob_sha": "9c1e87fb3046ce01ec9e0c6289af83f6de1f52e9",
+      "url": "https://github.com/zcash/librustzcash/blob/146a08fc779678f6b81997da5f9b7c3378ffccb9/pczt/src/lib.rs"
+    },
+    {
+      "repository": "zcash/librustzcash",
+      "ref": "146a08fc779678f6b81997da5f9b7c3378ffccb9",
+      "path": "pczt/src/roles/prover/mod.rs",
+      "git_blob_sha": "5985fe8273b74814e483d96c1144a1c7160fc81a",
+      "url": "https://github.com/zcash/librustzcash/blob/146a08fc779678f6b81997da5f9b7c3378ffccb9/pczt/src/roles/prover/mod.rs"
+    },
+    {
+      "repository": "zcash/librustzcash",
+      "ref": "146a08fc779678f6b81997da5f9b7c3378ffccb9",
+      "path": "zcash_primitives/src/transaction/components/sapling.rs",
+      "git_blob_sha": "f1d13d0b6b1dcd1993d0e75a7da395f10db9f6a6",
+      "url": "https://github.com/zcash/librustzcash/blob/146a08fc779678f6b81997da5f9b7c3378ffccb9/zcash_primitives/src/transaction/components/sapling.rs"
+    },
+    {
+      "repository": "Railgun-Privacy/circuits-v2",
+      "ref": "0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb",
+      "path": "src/library/joinsplit.circom",
+      "git_blob_sha": "9f38ff6315500ec60f3cf5601f30b16e2d5d8d08",
+      "url": "https://github.com/Railgun-Privacy/circuits-v2/blob/0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb/src/library/joinsplit.circom"
+    },
+    {
+      "repository": "monero-project/monero",
+      "ref": "8340be5e920d881edc006e0896d6074cd06dfb2e",
+      "path": "src/blockchain_db/blockchain_db.h",
+      "git_blob_sha": "7ecfab5ba49af7c8a8d51e94f1038d390985ad4a",
+      "url": "https://github.com/monero-project/monero/blob/8340be5e920d881edc006e0896d6074cd06dfb2e/src/blockchain_db/blockchain_db.h"
+    },
+    {
+      "repository": "litecoin-project/litecoin",
+      "ref": "ec1b6489a900d09cf5991e220dce089c77a232a2",
+      "path": "doc/mweb/pmmr.md",
+      "git_blob_sha": "f61630b8b322f93c6cd083f70b142c0297fae2dc",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/doc/mweb/pmmr.md"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "ref": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+      "path": "content/docs/toccata/agent-brief.mdx",
+      "git_blob_sha": "f3ee68edab91f01d9ee981a46371fd02cf2efa16",
+      "url": "https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/agent-brief.mdx"
+    },
+    {
+      "repository": "kaspanet/vprogs",
+      "ref": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "path": "README.md",
+      "git_blob_sha": "3aa0c7fb1515715d123ac5bcb3d7d4a0e6b2d3d7",
+      "url": "https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/README.md"
+    },
+    {
+      "repository": "kaspanet/research",
+      "ref": "c923faca11a49148fa7d912d27ce00197a5c5a4a",
+      "path": "README.md",
+      "git_blob_sha": "903a44389d36cc66f489194579b3733fb17d18b6",
+      "url": "https://github.com/kaspanet/research/blob/c923faca11a49148fa7d912d27ce00197a5c5a4a/README.md"
+    },
+    {
+      "repository": "zcash/librustzcash",
+      "ref": "146a08fc779678f6b81997da5f9b7c3378ffccb9",
+      "path": "pczt/src/roles/prover/orchard.rs",
+      "git_blob_sha": "fcc7132a933b42038fcfe318735279f364829730",
+      "url": "https://github.com/zcash/librustzcash/blob/146a08fc779678f6b81997da5f9b7c3378ffccb9/pczt/src/roles/prover/orchard.rs"
+    },
+    {
+      "repository": "zcash/librustzcash",
+      "ref": "146a08fc779678f6b81997da5f9b7c3378ffccb9",
+      "path": "pczt/README.md",
+      "git_blob_sha": "60091074a9aee047679a35571b7cb36d8a169038",
+      "url": "https://github.com/zcash/librustzcash/blob/146a08fc779678f6b81997da5f9b7c3378ffccb9/pczt/README.md"
+    },
+    {
+      "repository": "zcash/orchard",
+      "ref": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/pczt/prover.rs",
+      "git_blob_sha": "6e3c8d2a3fe5db50238eda6bd6d287c901e936f8",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/pczt/prover.rs"
+    },
+    {
+      "repository": "zcash/orchard",
+      "ref": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/pczt.rs",
+      "git_blob_sha": "530d5f682351ae6fd281dee467bfd8f97afbabd5",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/pczt.rs"
+    },
+    {
+      "repository": "litecoin-project/litecoin",
+      "ref": "ec1b6489a900d09cf5991e220dce089c77a232a2",
+      "path": "doc/mweb/consensus.md",
+      "git_blob_sha": "592b40e7d76ca4cb1f147bbffd30cb221a96e5d4",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/doc/mweb/consensus.md"
+    },
+    {
+      "repository": "litecoin-project/litecoin",
+      "ref": "ec1b6489a900d09cf5991e220dce089c77a232a2",
+      "path": "doc/mweb/store.md",
+      "git_blob_sha": "d5b9c80a461a77ec313dabe366c90cf3500d7762",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/doc/mweb/store.md"
+    },
+    {
+      "repository": "aztec-labs-eng/aztec-node",
+      "ref": "ea00f1b0939d034448fce9c16d461a7ea363a992",
+      "path": "yarn-project/stdlib/src/trees/nullifier_leaf.ts",
+      "git_blob_sha": "e41472c8e7e6d093b28cd9f1990abafd48f6a385",
+      "url": "https://github.com/aztec-labs-eng/aztec-node/blob/ea00f1b0939d034448fce9c16d461a7ea363a992/yarn-project/stdlib/src/trees/nullifier_leaf.ts"
+    },
+    {
+      "repository": "aztec-labs-eng/aztec-node",
+      "ref": "ea00f1b0939d034448fce9c16d461a7ea363a992",
+      "path": "docs/docs-developers/docs/foundational-topics/advanced/storage/note_discovery.md",
+      "git_blob_sha": "92edb2657ea495bfab4d497dcd013d5f5838d19c",
+      "url": "https://github.com/aztec-labs-eng/aztec-node/blob/ea00f1b0939d034448fce9c16d461a7ea363a992/docs/docs-developers/docs/foundational-topics/advanced/storage/note_discovery.md"
+    },
+    {
+      "repository": "aztec-labs-eng/aztec-node",
+      "ref": "ea00f1b0939d034448fce9c16d461a7ea363a992",
+      "path": "yarn-project/stdlib/src/contract/complete_address.ts",
+      "git_blob_sha": "0e5cf4e5e838b3276713b52b647e9055b4c59ed9",
+      "url": "https://github.com/aztec-labs-eng/aztec-node/blob/ea00f1b0939d034448fce9c16d461a7ea363a992/yarn-project/stdlib/src/contract/complete_address.ts"
+    },
+    {
+      "repository": "monero-project/monero",
+      "ref": "8340be5e920d881edc006e0896d6074cd06dfb2e",
+      "path": "src/device/device_default.cpp",
+      "git_blob_sha": "4b35691f47cf5ff9c3e3af90f4d9d40913a7f6e5",
+      "url": "https://github.com/monero-project/monero/blob/8340be5e920d881edc006e0896d6074cd06dfb2e/src/device/device_default.cpp"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "ref": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+      "path": "content/docs/programmability/based-apps.mdx",
+      "git_blob_sha": "190b28e034dcc38db5a7a870df6eacb0434c10ee",
+      "url": "https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/programmability/based-apps.mdx"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "ref": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+      "path": "content/docs/toccata/inline-zk.mdx",
+      "git_blob_sha": "7b30fa59eeaace9f324b92abdc433bdea39d105d",
+      "url": "https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/inline-zk.mdx"
+    },
+    {
+      "repository": "zcash/sapling-crypto",
+      "ref": "88a7946b4a3066787776e11f0a502654167e022d",
+      "path": "src/bundle.rs",
+      "git_blob_sha": "196c6756832602012cbf90e7727b33fccfe94c8d",
+      "url": "https://github.com/zcash/sapling-crypto/blob/88a7946b4a3066787776e11f0a502654167e022d/src/bundle.rs"
+    },
+    {
+      "repository": "Railgun-Privacy/contract",
+      "ref": "36bcf5ed7cf94bfafb6e1a303e1832c769c16780",
+      "path": "contracts/logic/RailgunSmartWallet.sol",
+      "git_blob_sha": "917b2096f41baf89fa6b7ff5e2816c3e6099158e",
+      "url": "https://github.com/Railgun-Privacy/contract/blob/36bcf5ed7cf94bfafb6e1a303e1832c769c16780/contracts/logic/RailgunSmartWallet.sol"
+    },
+    {
+      "repository": "Railgun-Privacy/contract",
+      "ref": "36bcf5ed7cf94bfafb6e1a303e1832c769c16780",
+      "path": "contracts/logic/Commitments.sol",
+      "git_blob_sha": "89f40690c8156a142798e17be3fe2df6109c7cb0",
+      "url": "https://github.com/Railgun-Privacy/contract/blob/36bcf5ed7cf94bfafb6e1a303e1832c769c16780/contracts/logic/Commitments.sol"
+    },
+    {
+      "repository": "Railgun-Privacy/contract",
+      "ref": "36bcf5ed7cf94bfafb6e1a303e1832c769c16780",
+      "path": "contracts/logic/RailgunLogic.sol",
+      "git_blob_sha": "1420e3cf7d28fdaa379b84ad0c11243d21db864e",
+      "url": "https://github.com/Railgun-Privacy/contract/blob/36bcf5ed7cf94bfafb6e1a303e1832c769c16780/contracts/logic/RailgunLogic.sol"
+    }
+  ],
+  "issues": [
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 4,
+      "state": "open",
+      "title": "[P04] Define the minimal note model",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/4",
+      "updated_at": "2026-10-02T13:58:29Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 5,
+      "state": "open",
+      "title": "[P05] Define nullifier requirements",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/5",
+      "updated_at": "2026-10-02T13:58:31Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 6,
+      "state": "open",
+      "title": "[P06] Define value-conservation proof statement",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/6",
+      "updated_at": "2026-10-02T13:58:34Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 8,
+      "state": "open",
+      "title": "[P08] Define permissionless exit/unshield mechanism",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/8",
+      "updated_at": "2026-10-02T13:58:39Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 9,
+      "state": "open",
+      "title": "[P09] Prover failure experiment design",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/9",
+      "updated_at": "2026-10-02T13:58:41Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 10,
+      "state": "open",
+      "title": "[P10] State availability and recovery specification",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/10",
+      "updated_at": "2026-10-02T13:58:45Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 11,
+      "state": "open",
+      "title": "[P11] Compare proof systems available to the first PoC",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/11",
+      "updated_at": "2026-10-18T23:58:02Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 12,
+      "state": "open",
+      "title": "[P12] Wallet note-discovery research",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/12",
+      "updated_at": "2026-10-02T13:58:51Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 13,
+      "state": "open",
+      "title": "[P13] Practical privacy leakage analysis",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/13",
+      "updated_at": "2026-10-02T13:58:54Z"
+    },
+    {
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "number": 23,
+      "state": "open",
+      "title": "[Exit liveness] Resolve fixed-fee lockup before production-capable exits",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/issues/23",
+      "updated_at": "2026-10-04T07:56:51Z"
+    }
+  ],
+  "official_specifications": [
+    {
+      "title": "ZIP225 Version5 Transaction Format",
+      "url": "https://zips.z.cash/zip-0225",
+      "status_observed": "Final, Consensus",
+      "relevant_sections": [
+        "Transaction Format: separate Sapling spend/output counts, value balance and anchor"
+      ]
+    }
+  ],
+  "primary_research": [
+    {
+      "title": "An Empirical Analysis of Anonymity in Zcash",
+      "authors": [
+        "George Kappos",
+        "Haaroon Yousaf",
+        "Mary Maller",
+        "Sarah Meiklejohn"
+      ],
+      "venue": "USENIX Security2018",
+      "url": "https://www.usenix.org/conference/usenixsecurity18/presentation/kappos",
+      "pdf": "https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-kappos.pdf",
+      "relevant_section": "6.3 historical amount/timing heuristic; not a current Orchard attack"
+    }
+  ],
+  "local_inputs": [
+    {
+      "path": "SECURITY-INVARIANTS.md",
+      "sha256": "67b6e7ab82d8a57ab43967e1ac8414b07d34ca769717e52a1b941650ac2da2f5"
+    },
+    {
+      "path": "docs/shielded-kas-next.md",
+      "sha256": "b398bd2746d5edb9b88b688e8f2d1e4077fe5859f1dfe485dcdbd0867feb73b2"
+    },
+    {
+      "path": "research/next-session/compact-batch/privacy/heldout-study-01/REPORT-01.md",
+      "sha256": "4f903b6fe43cb9fbd2e2d00479bf4700286b4ddaa7bf3abfbc24ba9dd456f509"
+    },
+    {
+      "path": "research/next-session/compact-batch/fees/AGGREGATION-COMPATIBILITY-01.md",
+      "sha256": "ef1a9dcc3aebb4e433e467af9d97a438b0884a69e41c6d8a2d63f80262a5bef1"
+    },
+    {
+      "path": "research/next-session/compact-batch/fees/NEXT-FEE-BLOCKER-01.md",
+      "sha256": "4be13bf3b2994793052a715bc8444defeed5e3b2e37e9d7973e7ccfd40522d65"
+    },
+    {
+      "path": "research/next-session/private-change/fees/EMPTY-SUFFIX-AND-CAPACITY-01.md",
+      "sha256": "fc03859524a0f38b4480c0629c660c55931a0948e88b7030ce832d33a9f3c472"
+    }
+  ],
+  "boundaries": [
+    "no new cryptographic primitive or implementation selected",
+    "no inherited security or privacy claim",
+    "no operator owner-witness collection",
+    "no admin exit",
+    "historical membership roots do not replace current spentness",
+    "constant epoch storage and retained data not established",
+    "no production or cryptographic qualification",
+    "all ten inspected public issues remain open"
+  ]
+}
+

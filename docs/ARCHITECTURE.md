@@ -3,6 +3,32 @@
 **Status:** earlier native-KAS lifecycles are confirmed on TN10; the current
 matched batch is validated locally. Production architecture remains unselected.
 
+[RFC-0024](rfc/0024-independent-private-payment-settlement-and-recovery.md)
+now coordinates independent-sender settlement fees, the demonstrated financial
+privacy leaks, cold/independently distributed recovery and private exits at
+state capacity. A public two-action checker must verify actual owner proofs and
+complete native effects before selecting aggregation. It does not itself reduce
+L1 verifier calls. [ADR-0058](adr/0058-private-full-note-exits-without-commitment-appends.md)
+selects a separate unfunded experiment: full-note private cashout may omit CMs
+while preserving another user's reserve. Terminality depends on remaining
+reserve, independently of append mode; every original ownership, nullifier,
+membership and payout constraint remains. Fresh domain/role parameters and
+independent code/CS review are required. No old instance changes. Prototype and
+validation results are tracked in the
+[new execution packet](../research/next-session/independent-payments/PLAN.md);
+the four product gates are not yet closed. The
+[capacity result](../research/next-session/independent-payments/exits/RESULTS.md)
+now completes three genuine proofs, two native full-note exits at CM65535 and
+NF131071, zero terminal reserve and a fresh current occupied-NF rejection.
+The public research release also supplies exact software/parameters over HTTPS;
+a clean owner restores them and generates a genuine local terminal withdrawal
+from its original known-public canary backup. These are supplied-context
+experiments, not accepted-chain or separately administered retention evidence.
+[ADR-0059](adr/0059-scheduled-private-actions-with-public-settlement-proofs.md)
+selects the next unfunded two-action public settlement proof/native prototype,
+with exact fee allocation, acyclic body binding and private fallback. Financial
+privacy, low-demand fees and live readiness remain open.
+
 [ADR-0057](adr/0057-matched-batch-proofs-and-portable-recovery.md) selects
 separate fixed compact2/wide32 Groth16 relations for the measured compact native
 program, with fresh parameters and unchanged shared real nullifiers. Compact

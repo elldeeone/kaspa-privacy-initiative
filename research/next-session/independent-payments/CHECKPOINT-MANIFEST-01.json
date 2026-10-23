@@ -1,0 +1,2692 @@
+{
+  "all_four_product_gates_closed": false,
+  "baseline_commit": "5aaf99532d8714e510d421102df719f60f54d073",
+  "checkpoint_is_byte_provenance_not_financial_authority": true,
+  "file_list_sha256": "41fa87e10ea24918a709bc09321a0a3d9cb71d61ce4a2f8ce50f8873893c9772",
+  "files": [
+    {
+      "bytes": 1335,
+      "path": ".gitattributes",
+      "sha256": "6f1df9291536efa91dfd5e733bb654b584b2aaf75728587553777351305f676e"
+    },
+    {
+      "bytes": 67144,
+      "path": "THREAT-MODEL.md",
+      "sha256": "fb52d655e4ee0e1984696b6c9f74a5a52532c2d025b7cb1540521e6a59faf68c"
+    },
+    {
+      "bytes": 63975,
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "571df74666e2a91522261a8f292a9d526e55a9fd3d62e8b8b52670017de76e58"
+    },
+    {
+      "bytes": 6797,
+      "path": "docs/adr/0058-private-full-note-exits-without-commitment-appends.md",
+      "sha256": "9aaa68673cb5c03ab81fee4adc1aaf6fccfe460bd05a5511b7dd19e974c31c8d"
+    },
+    {
+      "bytes": 6904,
+      "path": "docs/adr/0059-scheduled-private-actions-with-public-settlement-proofs.md",
+      "sha256": "e9b3d027eaaed23f47ae80566147a143faf38a0c5bc038432339dd67a0f8f242"
+    },
+    {
+      "bytes": 5505,
+      "path": "docs/adr/README.md",
+      "sha256": "3ccccf549cc23dfbf996757d280e9801322a79376f4b3135d95636e7c1239041"
+    },
+    {
+      "bytes": 5656,
+      "path": "docs/rfc/0024-independent-private-payment-settlement-and-recovery.md",
+      "sha256": "5f5acf1aef10eacfd9e42a63a46c66db6793b7fef97440c2c78d309217b913da"
+    },
+    {
+      "bytes": 3008,
+      "path": "docs/rfc/README.md",
+      "sha256": "68ecd2ca8aaaa5d138938ad99fc7637b07bff663935f2e963635b76f4c3d94a3"
+    },
+    {
+      "bytes": 20186,
+      "path": "docs/shielded-kas-next.md",
+      "sha256": "51f76076738a30cf1edd5b60b978f5628fbe3f30d64d3fb5a4974c58af58ae74"
+    },
+    {
+      "bytes": 15582,
+      "path": "poc/private-exit-stress/capacity.py",
+      "sha256": "3ce1111b4cbe6ce9c24312e5ce46c1f94a414d78f12e7a9de57e44fa805006f0"
+    },
+    {
+      "bytes": 7426,
+      "path": "poc/private-exit-stress/controls.py",
+      "sha256": "e3a798914461738a9490f51b7feeb46d21fa56f4434045d49dd4ff4e07de0922"
+    },
+    {
+      "bytes": 93924,
+      "path": "poc/private-exit-stress/native/Cargo.lock",
+      "sha256": "c07ed07a4301f5eb106b76d50691712d5706fb21c2e4760c8b43e3196bb7b615"
+    },
+    {
+      "bytes": 418,
+      "path": "poc/private-exit-stress/native/Cargo.toml",
+      "sha256": "c3786b544b7d55a367dd5daf34ff9612694a7f930d32c1f2386bf3c42bb72915"
+    },
+    {
+      "bytes": 687,
+      "path": "poc/private-exit-stress/native/SOURCE-REUSE.json",
+      "sha256": "30f475a2063bcd796680cea48f79ace17108aae24f8d72aa79ffcb7ec54ebd96"
+    },
+    {
+      "bytes": 4458,
+      "path": "poc/private-exit-stress/native/src/main.rs",
+      "sha256": "19247b6ca3dda4258f118093867207b749777e8baa9b26b6c973d29450664100"
+    },
+    {
+      "bytes": 28114,
+      "path": "poc/private-exit-stress/native/src/policy.rs",
+      "sha256": "315655892e55a06c3e69e0c9a08b0c764697497a2e6938e8c4c78914f806420b"
+    },
+    {
+      "bytes": 5406,
+      "path": "poc/private-exit-stress/native_negatives.py",
+      "sha256": "31f1458ccfc06e4247a4fc07cc98de47a330696fa04a51d4a69bbdc7ff89fdbe"
+    },
+    {
+      "bytes": 2551,
+      "path": "poc/private-exit-stress/native_selected.py",
+      "sha256": "3028946aab059147d5bd2696bf7531cf8b8a88c41f3d19676f301e3a57a29007"
+    },
+    {
+      "bytes": 36191,
+      "path": "poc/private-exit-stress/prover/Cargo.lock",
+      "sha256": "0a20feb98a78135194062dfa940dfe5834a5ae13ea625a651dfce3034d4331e0"
+    },
+    {
+      "bytes": 838,
+      "path": "poc/private-exit-stress/prover/Cargo.toml",
+      "sha256": "56eb8ff788c86e834ded13640e1032e66e53a9daf87a03b004dee14ed0d767f6"
+    },
+    {
+      "bytes": 2231,
+      "path": "poc/private-exit-stress/prover/build.rs",
+      "sha256": "cf2eae949f9c145877480de750db0604092b6e6b95423790e98578056de15921"
+    },
+    {
+      "bytes": 245,
+      "path": "poc/private-exit-stress/prover/pins/compact2/parameter-selection.json",
+      "sha256": "4cc7323c74173b9e90f82e0260b4f0d36c8d612467cb528560dc7eea2cb98f5b"
+    },
+    {
+      "bytes": 2732,
+      "path": "poc/private-exit-stress/prover/pins/compact2/public-parameters.json",
+      "sha256": "d6f0e2bbafab39a72106ef0a0ebd6483362a858926117721a8be5aa37a459011"
+    },
+    {
+      "bytes": 328,
+      "path": "poc/private-exit-stress/prover/pins/compact2/verification-key.bin",
+      "sha256": "074c06a5f21f46c7c87a948c8ca6a0896198cc9fc255b8d5e08cc01ceb73a987"
+    },
+    {
+      "bytes": 243,
+      "path": "poc/private-exit-stress/prover/pins/wide32/parameter-selection.json",
+      "sha256": "acda273fe8aeabe40c5611a34687c4c0a2c2e410f37b3699b2992481c264fdc4"
+    },
+    {
+      "bytes": 2731,
+      "path": "poc/private-exit-stress/prover/pins/wide32/public-parameters.json",
+      "sha256": "c4689e7f30e1b325bdc71337e3b317c69d4a6f7f3a8e317cd3dffa16ad2a7386"
+    },
+    {
+      "bytes": 328,
+      "path": "poc/private-exit-stress/prover/pins/wide32/verification-key.bin",
+      "sha256": "160c879f984151c49648490e3b7e1f5aecc8a62b838a085cf9dfa8e9808c8f8d"
+    },
+    {
+      "bytes": 4337,
+      "path": "poc/private-exit-stress/prover/select_parameters.py",
+      "sha256": "a1c1f529c801fe9c57425fbfae66c96ac4d20586c87788fa07df9e372bcd3fba"
+    },
+    {
+      "bytes": 4307,
+      "path": "poc/private-exit-stress/prover/src/bin/cache_probe.rs",
+      "sha256": "e0d903771ed7e996280870bda31dec708b68b2272e6c58356c056edc0ff44ef7"
+    },
+    {
+      "bytes": 16589,
+      "path": "poc/private-exit-stress/prover/src/bin/setup.rs",
+      "sha256": "462fc4d1c27e5c5ed5bd3a8ea6aa386f0fea626e71d708b9f1ed04c4ef35cb4f"
+    },
+    {
+      "bytes": 28413,
+      "path": "poc/private-exit-stress/prover/src/circuit.rs",
+      "sha256": "17c39f7d3064d66c0db8ee8d23a97c53fd14e8cfd07531781eab933ff242acef"
+    },
+    {
+      "bytes": 12532,
+      "path": "poc/private-exit-stress/prover/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "bytes": 22408,
+      "path": "poc/private-exit-stress/prover/src/lib.rs",
+      "sha256": "638c3f5b1d34be4df0543718bb40dae8ff27aeeba1a53e10434935e1f91a2724"
+    },
+    {
+      "bytes": 12805,
+      "path": "poc/private-exit-stress/prover/src/main.rs",
+      "sha256": "eb4da9709e66a2f03aa2a5d56450494963891e274088099dd5a77412dcaa2314"
+    },
+    {
+      "bytes": 26474,
+      "path": "poc/private-exit-stress/prover/src/parameters.rs",
+      "sha256": "08009ab7b8dff19f71ade18c349e07ec15037dcc58377405b85b77ac891c6370"
+    },
+    {
+      "bytes": 15840,
+      "path": "poc/private-exit-stress/prover/src/request.rs",
+      "sha256": "ce13ab1c54adeb2abc9f8e6bd95b62070ba2b4ac618276cab12d533e8cbd313c"
+    },
+    {
+      "bytes": 398,
+      "path": "poc/private-exit-stress/prover/trial-selection.json",
+      "sha256": "0a2809a287c394712d09a7bc84edf722763f784f77c7fd18604e658feb6f51da"
+    },
+    {
+      "bytes": 10437,
+      "path": "poc/private-exit-stress/rehearse.py",
+      "sha256": "8f11398f0864697c0b59b4f599db128d3092cdeb40c26f3203f5d609e7f73e43"
+    },
+    {
+      "bytes": 1101,
+      "path": "poc/private-exit-stress/runtime_resources.py",
+      "sha256": "b57c818136377f381d03c4f46226f0d844d89a369dfb4dee489899d87d7e519b"
+    },
+    {
+      "bytes": 3361,
+      "path": "poc/private-exit-stress/setup_parameters.py",
+      "sha256": "529e5a5c5d373b268c28db61672f10706f955dc1ce5bec33891d746700d9349c"
+    },
+    {
+      "bytes": 4062,
+      "path": "poc/private-exit-stress/test_capacity.py",
+      "sha256": "5ff5181615ce43578497f90865ca1f2469bbc2c08c308d31d5632bff44e03b86"
+    },
+    {
+      "bytes": 4159,
+      "path": "poc/recovery-coldbuild/README.md",
+      "sha256": "f8234fe40c31c4afa19da1467382f677c467978eca1e1c54e6892f19b23c7d69"
+    },
+    {
+      "bytes": 3921,
+      "path": "poc/recovery-coldbuild/archive_bundle.py",
+      "sha256": "40d770057060f44b30abe3e1adb0224d4c6faf6c8e366d0c4438a812c0d3a69f"
+    },
+    {
+      "bytes": 1984,
+      "path": "poc/recovery-coldbuild/canary_recognize.py",
+      "sha256": "ffb6e0ca71be813c1a9260873896e29156c15971101811cecc5099edf9c51615"
+    },
+    {
+      "bytes": 7922,
+      "path": "poc/recovery-coldbuild/prepare_bundle.py",
+      "sha256": "3b4c21585e19bea97deadff8758dd8b86b49e8ba9b38f617338dfb917177401c"
+    },
+    {
+      "bytes": 8872,
+      "path": "poc/recovery-coldbuild/reconcile.py",
+      "sha256": "dbd99cde961a1491eb74616dcfb9deabaf1228e9ec3e03b3d32eba05db984403"
+    },
+    {
+      "bytes": 6676,
+      "path": "poc/recovery-coldbuild/run_clean_build.py",
+      "sha256": "b0208145bde70033c5d5c8061183bf69db3feb2529a3f7c25b22ee83d62ce1b9"
+    },
+    {
+      "bytes": 9108,
+      "path": "poc/recovery-coldbuild/run_public_canary.py",
+      "sha256": "b0a09cd2d6ab1d1085e7f1780cbfda89acf6e5bc1409830ea3a92cb474950284"
+    },
+    {
+      "bytes": 7620,
+      "path": "poc/recovery-coldbuild/software_bundle.py",
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705"
+    },
+    {
+      "bytes": 13685,
+      "path": "poc/recovery-coldbuild/test_recovery.py",
+      "sha256": "d33b1fcfe89675ab3916d942e2d97a06d5d64d37aace651520f4beb1d1af60f3"
+    },
+    {
+      "bytes": 12274,
+      "path": "poc/recovery-coldbuild/test_unpack.py",
+      "sha256": "e877b8509d59fded67a607d594c77f73f8c99733b8dbf750bb579935b5174079"
+    },
+    {
+      "bytes": 10176,
+      "path": "poc/recovery-coldbuild/unpack_bundle.py",
+      "sha256": "19c41c96b41c968a0ed0dfefe3a38fe855a323ce366b1f1aba46ef155a6d2a22"
+    },
+    {
+      "bytes": 4245,
+      "path": "poc/recovery-distribution/README.md",
+      "sha256": "a8887380ba2faa9cee36952b2f159698d60fddfaffa38ffcd88c3a5505077d3e"
+    },
+    {
+      "bytes": 10193,
+      "path": "poc/recovery-distribution/prepare.py",
+      "sha256": "c928ad6545a77fbfb829994e7d52ab2c7ae443987104ed54d1547b697aac4427"
+    },
+    {
+      "bytes": 7861,
+      "path": "poc/recovery-distribution/public_fetch.py",
+      "sha256": "37f1a3aa6a7b0c9e4f5363ffb15f2deebde087295c49b60d1cd9b2b9f6eb32ae"
+    },
+    {
+      "bytes": 10510,
+      "path": "poc/recovery-distribution/retrieve.py",
+      "sha256": "e7b3f56b404fa73a6a27a4add7102c604ad2c814b69143406c6a02f007a6abcb"
+    },
+    {
+      "bytes": 9088,
+      "path": "poc/recovery-distribution/test_public_fetch.py",
+      "sha256": "79d8e1c8ceaef4b2fa520423c61516a94df286d237e2fddcf6c1feee5aeef5b5"
+    },
+    {
+      "bytes": 6615,
+      "path": "poc/recovery-distribution/test_retrieve.py",
+      "sha256": "a89c5d5c95b0e556f00197f813744d0a68c50112489ab9efba5d02328fe1b130"
+    },
+    {
+      "bytes": 1640,
+      "path": "poc/recovery-distribution/trusted_util.py",
+      "sha256": "78633b9e62a57796d609b600139cea77f4e1866ec362aa5bdd2588516baad9a6"
+    },
+    {
+      "bytes": 26619,
+      "path": "poc/recovery-distribution/vendor/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 13724,
+      "path": "poc/recovery-distribution/vendor/chunk_public.py",
+      "sha256": "c713a4871079acd040f5c434ceed47c4d6f71885c8e5256199a86488a5f724aa"
+    },
+    {
+      "bytes": 1091,
+      "path": "research/next-session/independent-payments/CHECKPOINT-AUDIT-01.json",
+      "sha256": "d5ce32df15c4d7bab82c6abf463bf4559b72834ca7454b81f6faccdd02b54034"
+    },
+    {
+      "bytes": 5067,
+      "path": "research/next-session/independent-payments/PLAN.md",
+      "sha256": "e3e7985348ce0cca4ea2a460f6c9803e6284f22371ef225899e056bbd583aced"
+    },
+    {
+      "bytes": 8145,
+      "path": "research/next-session/independent-payments/RESULTS.md",
+      "sha256": "09f2a2590c3ea22dc0e5324926c9c92e9d21acf60f680ad7d5b02b2cb91088c8"
+    },
+    {
+      "bytes": 1375,
+      "path": "research/next-session/independent-payments/exits/COMPLETION.json",
+      "sha256": "2e1a25d48852a6f2fdf3b98ed419caab75936d34a78c1c2dd39ba591fbbd17fa"
+    },
+    {
+      "bytes": 1378,
+      "path": "research/next-session/independent-payments/exits/CONTROLLER-FREEZE-PROOF-01.json",
+      "sha256": "d83a95b79f9a8ad84c609c422910d8f9e57df9b6626bac720c2a2e5c74477d32"
+    },
+    {
+      "bytes": 7193,
+      "path": "research/next-session/independent-payments/exits/DESIGN.md",
+      "sha256": "5cf1a3cfbf087f53fe83e8c95cd665ff11d6f66c186089d791c42a6292f1989c"
+    },
+    {
+      "bytes": 593,
+      "path": "research/next-session/independent-payments/exits/EXCLUSIONS.json",
+      "sha256": "e2a098f61b5289ee0c949a6891ea7d662bdb7169ab45ddc1c7be9f0e13d84181"
+    },
+    {
+      "bytes": 53482,
+      "path": "research/next-session/independent-payments/exits/MANIFEST.json",
+      "sha256": "ed9d3422fe5b10bb2566c73d673c8c64152fea7a56dbd4f8cd64af036692df9c"
+    },
+    {
+      "bytes": 1469,
+      "path": "research/next-session/independent-payments/exits/NATIVE-SELECTION.json",
+      "sha256": "39d85a966a2752e0da0a61fb7b7f74c0b6710a24aeae197805cf6b9170476c42"
+    },
+    {
+      "bytes": 3524,
+      "path": "research/next-session/independent-payments/exits/PARAMETER-PIN-SUPERSESSION.json",
+      "sha256": "1249812179b628ea073fa852a679506ff82154685b24efd3df3e81a97c759dd8"
+    },
+    {
+      "bytes": 563,
+      "path": "research/next-session/independent-payments/exits/PROVER-SELECTION.json",
+      "sha256": "7ff0ca2aec2af4f524d0f2f51c3836939ff17e3bdd4aef956bd934717a2d8c50"
+    },
+    {
+      "bytes": 22239,
+      "path": "research/next-session/independent-payments/exits/PUBLIC-FILES.txt",
+      "sha256": "e9983cac7efcb242ee8a139e80a5ad945f632574a8e0ba8ed231dfbb192c0aa6"
+    },
+    {
+      "bytes": 540,
+      "path": "research/next-session/independent-payments/exits/PUBLIC-INSTANCE.json",
+      "sha256": "f2ba0670445ee73c73268e62d0750bc49cae9ff31b389cb3bf0aafb11aae1532"
+    },
+    {
+      "bytes": 10599,
+      "path": "research/next-session/independent-payments/exits/RESULTS.md",
+      "sha256": "9342b79c7fd9a6f6470d0d9909d72648a842f19b80507a85e4342619cf694898"
+    },
+    {
+      "bytes": 3823,
+      "path": "research/next-session/independent-payments/exits/SOURCE-FREEZE-PRE-SETUP.json",
+      "sha256": "e05a40eecaa5ab45992dfafab710490390383cbd6cd3b2271be59390662654b3"
+    },
+    {
+      "bytes": 3754,
+      "path": "research/next-session/independent-payments/exits/SOURCE-FREEZE-SELECTED.json",
+      "sha256": "c341fbfbce61ce9d3bf1f198a8ef8be800416d3d99f9910dc0bd0ff0b10160b3"
+    },
+    {
+      "bytes": 795,
+      "path": "research/next-session/independent-payments/exits/UNIT-CONTROLS-01.json",
+      "sha256": "bce2f0dda8b850220dacade90f52af56e27c5f1b61a3895c574d3464e0b6c9df"
+    },
+    {
+      "bytes": 1063,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-absence-is-native-obligation.resources.log",
+      "sha256": "0c08022506cd5d4755f0a3662ee0248294e4be5dd0899a6c313e5bb53ba24ab5"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-absence-is-native-obligation.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 483,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-absence-is-native-obligation.stdout.log",
+      "sha256": "7ebf865ab1c57596d1d934a40cafa7a008a50628d5aab468823552a4dec1dc03"
+    },
+    {
+      "bytes": 539,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-absence-is-native-obligation/report.json",
+      "sha256": "07d595e43fd1ce36f56e795ab8776ea17f35a4ef4eff6627ca1ef6bed9ca5bcd"
+    },
+    {
+      "bytes": 1053,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-tree-bound-still-active.resources.log",
+      "sha256": "7715246fdac0853c33249744ad495876bbb118239c5653521f1da5b7690a42c4"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-tree-bound-still-active.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 492,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-tree-bound-still-active.stdout.log",
+      "sha256": "523451db01967f8493a4a17fb6fb083f09c76a0f6a35bcded03f8c40bc71018b"
+    },
+    {
+      "bytes": 548,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/NF-tree-bound-still-active/report.json",
+      "sha256": "93e8a506e93e951f37b71f5fc4dd1f34bf5c62aa4fc1008e9635c8999712d275"
+    },
+    {
+      "bytes": 2857,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/PLAN.json",
+      "sha256": "e404a0dcc0f24315ed69f9b987153da01d6f10909baff60abb4f035bf914cac3"
+    },
+    {
+      "bytes": 11581,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/RESULTS.json",
+      "sha256": "379daf71ed59e8d49eb067c2bcf1061da2d0bc1d3de50afc84a57fb83b0523b6"
+    },
+    {
+      "bytes": 1092,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/changed-current-outpoint-is-native-obligation.resources.log",
+      "sha256": "ed000b5c058609e85b81a43f78676338a2c4c6a4e0c71268ecdcf76eb30900cd"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/changed-current-outpoint-is-native-obligation.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 484,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/changed-current-outpoint-is-native-obligation.stdout.log",
+      "sha256": "aed34b0afa731ddd93f33140279ee7eb7c2b900e55cda67979d8b465f8ec24bb"
+    },
+    {
+      "bytes": 540,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/changed-current-outpoint-is-native-obligation/report.json",
+      "sha256": "1175043ef762fbeff89b8b70218729c124152a6afecb05bd44340626109b3c42"
+    },
+    {
+      "bytes": 1062,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/compact-mode-cannot-select-wide.resources.log",
+      "sha256": "61ae35939029c867561a375eb84bc533aa7260f27d04a6f61b9b36a7c70024f3"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/compact-mode-cannot-select-wide.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/compact-mode-cannot-select-wide.stdout.log",
+      "sha256": "f4d1934fbcc1ba56fe24f0ac400f79d698884601214234042ea0efe71260266a"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/compact-mode-cannot-select-wide/report.json",
+      "sha256": "1656e57ad58cacf4420c9c3c24b38bcbf680c719494f19c125f917e9d6662890"
+    },
+    {
+      "bytes": 1091,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cannot-hide-coherently-funded-change.resources.log",
+      "sha256": "d2158fa8f2f9a2fe6bf35f6ac6ae1e6421d4d4de18fa9a6e28a955ccb574eb05"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cannot-hide-coherently-funded-change.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cannot-hide-coherently-funded-change.stdout.log",
+      "sha256": "6f36712be413b34142e3087dc49152b98d3325b5b03cc7d2a20605477aa50c7b"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cannot-hide-coherently-funded-change/report.json",
+      "sha256": "496054689b89c41a2e90006f495153b8f3d17d9597982079e4ff1847923b15df"
+    },
+    {
+      "bytes": 1049,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-cursor.resources.log",
+      "sha256": "fc1f78a5054a09e9137009ac533c0daa6d32331e10361a37532548c381abb2db"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-cursor.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-cursor.stdout.log",
+      "sha256": "03c3cd4a82290376441aeecba6957ee644f63c585cbb6a1952a05db35420738a"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-cursor/report.json",
+      "sha256": "edf12733094e2e249f40a6d21178d7cec881afbace427a02428cc95870cf9cc0"
+    },
+    {
+      "bytes": 1045,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-root.resources.log",
+      "sha256": "e01a63684fe48b567d2853cdc93050689a3c65f92ac2f16a2779b72fee653d0b"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-root.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-root.stdout.log",
+      "sha256": "a7e41f39dca1d3d970e7c8c09dbccd5a0527095587e3f3456feb7c716a90a119"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-carry-CM-root/report.json",
+      "sha256": "79fa62d4912afa84633c4597477160c2fd10a6632149bfa759c771be354068a4"
+    },
+    {
+      "bytes": 1072,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cipher-exact-zero-container.resources.log",
+      "sha256": "762384343eeb3203f3d4243e5178e19b463209b6510a51ec42779cc694005956"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cipher-exact-zero-container.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 492,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cipher-exact-zero-container.stdout.log",
+      "sha256": "e87ad001228188501a39027e9058e29bd7d8b526031eb49479dd0c02ac310af5"
+    },
+    {
+      "bytes": 548,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-cipher-exact-zero-container/report.json",
+      "sha256": "a87ad359fa27e3ed079f909c9792585aa4414d7381b5937cf77f414b82e729e7"
+    },
+    {
+      "bytes": 1045,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-exact-two-NFs.resources.log",
+      "sha256": "1bcabe2f41c0400d7e1b1f24fd26ea822590599ced6cf3f7185618891d470012"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-exact-two-NFs.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-exact-two-NFs.stdout.log",
+      "sha256": "d9377c7ced4210ff98bede9f47801474c24df9233c87a1ff01a11ead294704c8"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-exact-two-NFs/report.json",
+      "sha256": "538656be18b2ea44239288a548fc191fd584a9989b4e7229a93b81ea45b3612d"
+    },
+    {
+      "bytes": 1051,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-list-digest-zero.resources.log",
+      "sha256": "3f1129969f2814a1198fe123bc1f77d4bf0dfa11dd53e8e3e22d6ec6351f97af"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-list-digest-zero.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-list-digest-zero.stdout.log",
+      "sha256": "7e9e54cf7af24f1be35f1659cabdcdb9ed8b0192fe690822a08e51deb586d7b4"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-list-digest-zero/report.json",
+      "sha256": "adf5092d0d44000e761270f83119d3801a8065aa642d2c1c238e30c9bdc4e6cf"
+    },
+    {
+      "bytes": 1059,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-must-zero-unused-rho.resources.log",
+      "sha256": "67d99cb8fbbbbf0e89370846cde95d4d2de30a22aab8e656e156af2e80054ca4"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-must-zero-unused-rho.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-must-zero-unused-rho.stdout.log",
+      "sha256": "48db38b3e788f6a71d7c26b6019bc3027eae9f0424422ec56f9bad023c425ed5"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-must-zero-unused-rho/report.json",
+      "sha256": "7180955cb19dcfbcd792aaa0cbabc9cf5230192d68a6999d56a8060145a69dcb"
+    },
+    {
+      "bytes": 1091,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-remaining-reserve-floor-still-active.resources.log",
+      "sha256": "233513cd599d28f13202e2295e43609f34fbe942b25eb5fc5d691aaf28369645"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-remaining-reserve-floor-still-active.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 492,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-remaining-reserve-floor-still-active.stdout.log",
+      "sha256": "37efc7d5ca43d06f2f9330fd9f94038958b7b1f4598ba5eb3364f40c9f5a6f2a"
+    },
+    {
+      "bytes": 548,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-remaining-reserve-floor-still-active/report.json",
+      "sha256": "5b53d21826c2dac022fee1c03675ce5d5d24383f70e5081991a43d99f6c577e7"
+    },
+    {
+      "bytes": 1067,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-requires-positive-payout.resources.log",
+      "sha256": "727a763ffaf68843ba3bff12d46892d406a580907576b97f3ed65d9fda865b67"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-requires-positive-payout.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-requires-positive-payout.stdout.log",
+      "sha256": "8d8b14c0fd1c8673806e0c2cacf59949dca3949aa88970cdc02297b4fc54ef37"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-requires-positive-payout/report.json",
+      "sha256": "8b8e1e5f05cff98c7382621a96a95d3526e7e806e5f26d8e00e884db28e1ec3a"
+    },
+    {
+      "bytes": 1038,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-start-zero.resources.log",
+      "sha256": "17763ae46515884e1626e16f070481e2e05d5a1c3cc3ac33b49d62a05efee346"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-start-zero.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-start-zero.stdout.log",
+      "sha256": "9ac0f7dc02d28d5b47a27d70be847811f5a2b90c62aa7783749f5609f2f0f20d"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/noappend-start-zero/report.json",
+      "sha256": "9645bc01dae9c28afc2afe7242b2dabe657753945c87bb6013e85af71935c806"
+    },
+    {
+      "bytes": 1053,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/original-real-NF-preserved.resources.log",
+      "sha256": "da52244462020e644a5fea17968636796897abec44172ea434973677ce8d2093"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/original-real-NF-preserved.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 484,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/original-real-NF-preserved.stdout.log",
+      "sha256": "7c5c6c8fc458d982c716cab63fc467c9fb9266636c9956e8e7b1ef1492a9ae32"
+    },
+    {
+      "bytes": 540,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/original-real-NF-preserved/report.json",
+      "sha256": "3ad294fda231796900dffdffb7dab147af2242482a480a63b23ee637b6934b7c"
+    },
+    {
+      "bytes": 1052,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/reserved-bytes-remain-zero.resources.log",
+      "sha256": "d179c15f630a7dacc22617074c6e270c7237c6161e6aaa4a77860ac4087c4977"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/reserved-bytes-remain-zero.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/reserved-bytes-remain-zero.stdout.log",
+      "sha256": "8501a20a6cbf42f0040b00f64921af355dd235df2cbc11d948ca6e267098f832"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/reserved-bytes-remain-zero/report.json",
+      "sha256": "9fbdc73abb2faa52ea6a93d68f14dd943a3fc7cf6e556e81c028b4cc4c220d6f"
+    },
+    {
+      "bytes": 1054,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-continuing.resources.log",
+      "sha256": "cc24cff12fd236a4b5d99f9dddb6a015f5c3ef57e5d33c25e38127dba17ad872"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-continuing.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1316,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-continuing.stdout.log",
+      "sha256": "4d32e8a9d529ae15f6d5b617f616b76172789ddc788fa201fdd11efc2bfa0ffa"
+    },
+    {
+      "bytes": 967,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-continuing/report.json",
+      "sha256": "dea3d339c4b3481996d7aa8c210d7d6b279f804f849025767c7f93b654d29717"
+    },
+    {
+      "bytes": 1050,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-terminal.resources.log",
+      "sha256": "36fcae7755d82abc7083c79ef756e12d39368fbcaa616702416bda98d77f15bf"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-terminal.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1330,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-terminal.stdout.log",
+      "sha256": "520b1b049da0e7c46f045068f57c8448c4893fcb34d14c7add4d28c4d027f7af"
+    },
+    {
+      "bytes": 974,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-capacity-noappend-terminal/report.json",
+      "sha256": "8bbc4c782f6726805c5fcad7e50cc5942f4a990c994fba56b65f255cca407463"
+    },
+    {
+      "bytes": 1026,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-compact-append.resources.log",
+      "sha256": "ff264708a03b3faa695309c4eda87b8836e97712471561864529275786d269be"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-compact-append.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1330,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-compact-append.stdout.log",
+      "sha256": "9f871239226509abef1a01ce316104ba38acb0a7551ba1e2a3961edb58cfac5d"
+    },
+    {
+      "bytes": 974,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-compact-append/report.json",
+      "sha256": "5eddf0da2aa3f3efc6d3fd9ecdcc6b6a4ab09da5d697d92057adec5be1f0143c"
+    },
+    {
+      "bytes": 1025,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-wide32-append.resources.log",
+      "sha256": "145c131da9a86b3176904c79c163c98f48b5048e645c96a744e22959161b5184"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-wide32-append.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1318,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-wide32-append.stdout.log",
+      "sha256": "6e8511039604213deb43a450978df813e19566fb185e61d9d97977db2ea36303"
+    },
+    {
+      "bytes": 973,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/shape-wide32-append/report.json",
+      "sha256": "eb2463baac4f898430ead2af1defa462c2e31209d13278dcc567bdb3cd477015"
+    },
+    {
+      "bytes": 1054,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-current-CM-membership.resources.log",
+      "sha256": "086021cbb19672ddaaa20ab05d9fb319bb9b0908674749df985cb99370cc90dd"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-current-CM-membership.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 492,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-current-CM-membership.stdout.log",
+      "sha256": "6ed46331cf03379e030cd79082b63d394fcf6c454413e8d74ad9a7f926bb3a77"
+    },
+    {
+      "bytes": 548,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-current-CM-membership/report.json",
+      "sha256": "052cfceb420758319e5b201cd2b166f530dce713e01947ccf0aca9ea289746e3"
+    },
+    {
+      "bytes": 1025,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-domain.resources.log",
+      "sha256": "4b13c4f36aa5046c352fbc6a7404f19e41c8ba83dfa02a4adac8081c2d7ca893"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-domain.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 485,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-domain.stdout.log",
+      "sha256": "334deb41c3094f97aa0a5bf593c37ebaf2b77dab0b6362f5f691eadbd6bd2966"
+    },
+    {
+      "bytes": 541,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-domain/report.json",
+      "sha256": "dd3673ed938edf78c4021ce049fdd10a45e674b4761d05a80d32f83558848920"
+    },
+    {
+      "bytes": 1037,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-owner-secret.resources.log",
+      "sha256": "1c39ec56313e5e9317dc84b2df6adf18184a7c3da146c1c3b5fae6237baf4ccd"
+    },
+    {
+      "bytes": 44,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-owner-secret.stderr.log",
+      "sha256": "0073173c6f47e5214ba314ae1cb5e8e182f4bb13bfa072928efa903f6f350342"
+    },
+    {
+      "bytes": 484,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-owner-secret.stdout.log",
+      "sha256": "003dae1a57bab66e1f64c5b6b1420f6ded4dcc7db6e2b2daec2a2eaa927980cf"
+    },
+    {
+      "bytes": 540,
+      "path": "research/next-session/independent-payments/exits/direct-CS-01/wrong-owner-secret/report.json",
+      "sha256": "e70e33c2ffa6069c56ff5eb820ce2ff9a500abd71056747420aada46042ffec9"
+    },
+    {
+      "bytes": 640,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/RESOURCES.json",
+      "sha256": "c59d923b1d906ca676d42d63f996c567e2b60eb6c5240044588c61341a48da90"
+    },
+    {
+      "bytes": 1911,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/RESULTS.json",
+      "sha256": "7ab67230a0b1aafad4f3d28eecadfe681eb255674245919d9374ef707e6b3f77"
+    },
+    {
+      "bytes": 2732,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/compact2/public-parameters.json",
+      "sha256": "d6f0e2bbafab39a72106ef0a0ebd6483362a858926117721a8be5aa37a459011"
+    },
+    {
+      "bytes": 3997,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/compact2/report.json",
+      "sha256": "04e416add9cf10e6194af8b342bb4ea8f64d9d56e7f722332e0319bf3023323c"
+    },
+    {
+      "bytes": 609,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/compact2/selection.json",
+      "sha256": "d199017b915d48dcb1f02f594d34b87dc4a5fe1f74edd098519b5e84e77e6530"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/compact2/verification-key.bin",
+      "sha256": "074c06a5f21f46c7c87a948c8ca6a0896198cc9fc255b8d5e08cc01ceb73a987"
+    },
+    {
+      "bytes": 2731,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/wide32/public-parameters.json",
+      "sha256": "c4689e7f30e1b325bdc71337e3b317c69d4a6f7f3a8e317cd3dffa16ad2a7386"
+    },
+    {
+      "bytes": 3997,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/wide32/report.json",
+      "sha256": "419407414774bda26214580264eabcce9aa910c4bdc2071199c45d4ce0172f10"
+    },
+    {
+      "bytes": 607,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/wide32/selection.json",
+      "sha256": "7808f9c8f1988e5697be3cb9df5fba45e9bd94c475a8ecd45500621271ba1b5f"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/exits/fresh-parameters-01/wide32/verification-key.bin",
+      "sha256": "160c879f984151c49648490e3b7e1f5aecc8a62b838a085cf9dfa8e9808c8f8d"
+    },
+    {
+      "bytes": 10742,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/RESULTS.json",
+      "sha256": "216371d64e8783fafc7151557b8310fc2e74d445011e02d4558e938ad4415b2a"
+    },
+    {
+      "bytes": 760,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-current-occupied-NF/metrics.json",
+      "sha256": "5f0895c5dfcb43bc6fded02eeadf13c785c75b9f8d0b4aa732c93d7bb4518bca"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-current-occupied-NF/native-validation.json",
+      "sha256": "d04c59a6b19373d57c78569c8e69ad2cb23776cde9b7019a55daad66e376426a"
+    },
+    {
+      "bytes": 54088,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-current-occupied-NF/validation-case.json",
+      "sha256": "7cc38c271d1193bab4d29ad5336d2deb3d3e75a6c942ee9a49a3f64d99da60d2"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-first/metrics.json",
+      "sha256": "3a1589e1feeef97b4bda0b0b562afe4a8372c38fcb81f7e5dad0035e74819637"
+    },
+    {
+      "bytes": 416,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-first/native-validation.json",
+      "sha256": "a603a4180d4a9e629c7efe45ce05e95dc24282c907d0d8274995504069a6b77b"
+    },
+    {
+      "bytes": 54222,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-first/validation-case.json",
+      "sha256": "6b0550dd718c93ead10160bb74240736a32032f577d3630e44a7d4a2a46b9a6a"
+    },
+    {
+      "bytes": 760,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-terminal/metrics.json",
+      "sha256": "5f0895c5dfcb43bc6fded02eeadf13c785c75b9f8d0b4aa732c93d7bb4518bca"
+    },
+    {
+      "bytes": 416,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-terminal/native-validation.json",
+      "sha256": "f299449c79a144713d868034a4a4171dd79cb6b60bc6c44f6ff5722c60f88777"
+    },
+    {
+      "bytes": 54088,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/native-terminal/validation-case.json",
+      "sha256": "fe9f8783820d68c861af800042b3d5494ae306c90852ece812364ca357e7f21f"
+    },
+    {
+      "bytes": 528,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-current-occupied-NF/authorization528.bin",
+      "sha256": "31e83dd395bdbf9f81222338d53a8e6ba654dbcd7bb9291e377d1a24b83ca6e7"
+    },
+    {
+      "bytes": 128,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-current-occupied-NF/proof128.bin",
+      "sha256": "eecbf6d0fa679078a5ef0162a8d553f02ea20dc8cdbeee477278ce0edddebcd1"
+    },
+    {
+      "bytes": 1892,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-current-occupied-NF/report.json",
+      "sha256": "c51c0b510461a9b5f1f18a2276b555a75c48ed62e4a9bbb326a045437d36a09b"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-current-occupied-NF/verification-key.bin",
+      "sha256": "074c06a5f21f46c7c87a948c8ca6a0896198cc9fc255b8d5e08cc01ceb73a987"
+    },
+    {
+      "bytes": 528,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-first/authorization528.bin",
+      "sha256": "baf67ecf90a6ac205ef27f7a73c03f6a85451f3a880dedd407c824b26de35419"
+    },
+    {
+      "bytes": 128,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-first/proof128.bin",
+      "sha256": "cc0a36d67b7cf661719e75c7f321e21d4016785ad634c8a07e4c86c921b0dd69"
+    },
+    {
+      "bytes": 1901,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-first/report.json",
+      "sha256": "d48bc643b175070f5e91221c8b784a143eac240e85fa1d33c5d92af4ea9271d3"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-first/verification-key.bin",
+      "sha256": "074c06a5f21f46c7c87a948c8ca6a0896198cc9fc255b8d5e08cc01ceb73a987"
+    },
+    {
+      "bytes": 528,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-terminal/authorization528.bin",
+      "sha256": "e70b91581264855b88497322b19e9d8a6ac3e1b8b79d80591b1e13bb852a667b"
+    },
+    {
+      "bytes": 128,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-terminal/proof128.bin",
+      "sha256": "24bbd829a517ab87f136a6800bfede3a5e3d04cfddc0a864b1c33f48a5a501c0"
+    },
+    {
+      "bytes": 1901,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-terminal/report.json",
+      "sha256": "6e1d622cb214a68353bd7746fd940d9afeac4d5e2e96d8ad54a3122742df34e2"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/exits/genuine-capacity-01/proof-terminal/verification-key.bin",
+      "sha256": "074c06a5f21f46c7c87a948c8ca6a0896198cc9fc255b8d5e08cc01ceb73a987"
+    },
+    {
+      "bytes": 9892,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/RESULTS.json",
+      "sha256": "3f757f995d1028414755401a09be835f7f73496617369ec89c787d11051c8316"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/current-outpoint-mismatch/metrics.json",
+      "sha256": "3a1589e1feeef97b4bda0b0b562afe4a8372c38fcb81f7e5dad0035e74819637"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/current-outpoint-mismatch/native-validation.json",
+      "sha256": "5860950e895550715a6dec0156073b85cbd0d8086f7e7443379dbaa0d4008d01"
+    },
+    {
+      "bytes": 54222,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/current-outpoint-mismatch/validation-case.json",
+      "sha256": "72fcef796487c2c949d7e750296eab1ed96e426c6c02f627926a61f17627a865"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-payout-destination-substitution/metrics.json",
+      "sha256": "3a1589e1feeef97b4bda0b0b562afe4a8372c38fcb81f7e5dad0035e74819637"
+    },
+    {
+      "bytes": 511,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-payout-destination-substitution/native-validation.json",
+      "sha256": "0a551462d60e044547c435b8675cd8871fe296ad3c7b634fa1e421b8fb6c1fed"
+    },
+    {
+      "bytes": 54222,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-payout-destination-substitution/validation-case.json",
+      "sha256": "ce2c6f215b7910b4895c2c88dc394da53a12ad2ba97d4a316ca2940a7e447eaa"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-payout-plus1-reserve-minus1/metrics.json",
+      "sha256": "3a1589e1feeef97b4bda0b0b562afe4a8372c38fcb81f7e5dad0035e74819637"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-payout-plus1-reserve-minus1/native-validation.json",
+      "sha256": "9676284110fbaaa67396f1e5bd978b4f2815783f483dbec9887bae21e211b340"
+    },
+    {
+      "bytes": 54221,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-payout-plus1-reserve-minus1/validation-case.json",
+      "sha256": "35fa889d41f9b60a091859e0c0666c8b8c32a065d0a12b53537435099daec485"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-reserve-redirected-with-same-amount/metrics.json",
+      "sha256": "76e59567584b41fd6301d3c7f0256580d85e0030d2c05e58113ed79d5671044a"
+    },
+    {
+      "bytes": 511,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-reserve-redirected-with-same-amount/native-validation.json",
+      "sha256": "c5427eb62df063b04ad4e7236ccdb0521e343507f03037a6bd97c2ce164cbec3"
+    },
+    {
+      "bytes": 54220,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/native-reserve-redirected-with-same-amount/validation-case.json",
+      "sha256": "5eaef94fb9ee562adcfb0dba29286534e2abd1fe134737ee394b541c4231483c"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-NF-append-witness-corrupted/metrics.json",
+      "sha256": "3a1589e1feeef97b4bda0b0b562afe4a8372c38fcb81f7e5dad0035e74819637"
+    },
+    {
+      "bytes": 511,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-NF-append-witness-corrupted/native-validation.json",
+      "sha256": "3db5b91c6232066cd31ab96a179cb11b3c7936759fa8563d87b1b18af5d47157"
+    },
+    {
+      "bytes": 54222,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-NF-append-witness-corrupted/validation-case.json",
+      "sha256": "2cbd2e4da564d68ef0de9314fd38ebe561d59bdb743cc1f6a01ea7933018059d"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-extra-NF-witness-byte/metrics.json",
+      "sha256": "0dd02db7fa9116b28f8711e251808fa2340f04144114a9c624380b5404b0c02b"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-extra-NF-witness-byte/native-validation.json",
+      "sha256": "0a038b4b86424a95fe9de638d43435203c42a773b95adf818cd198c6ff41ece3"
+    },
+    {
+      "bytes": 54224,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-extra-NF-witness-byte/validation-case.json",
+      "sha256": "d0939f17213c66b5289a7e78e570bc3349db26a0312c591cad55fcc1f5c0d4b2"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-missing-NF-witness-byte/metrics.json",
+      "sha256": "6096ed24c037971e6bb7a9bf163584a819f25344a268f3d3bd6c5dbe50b672c9"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-missing-NF-witness-byte/native-validation.json",
+      "sha256": "0a038b4b86424a95fe9de638d43435203c42a773b95adf818cd198c6ff41ece3"
+    },
+    {
+      "bytes": 54220,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-missing-NF-witness-byte/validation-case.json",
+      "sha256": "e97e8b40990072d55fd5873c688e6c3167c1a707113019edd0100c6e48816e87"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-next-CM-root-changed/metrics.json",
+      "sha256": "3a1589e1feeef97b4bda0b0b562afe4a8372c38fcb81f7e5dad0035e74819637"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-next-CM-root-changed/native-validation.json",
+      "sha256": "315d081a628b1b59981ab05d3ff2d963877f19b33b32c3bfafac5b381b5d1474"
+    },
+    {
+      "bytes": 54222,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/noappend-next-CM-root-changed/validation-case.json",
+      "sha256": "561cfc1468b0714c199c5d3da0f6efd9293d0a2fd1331e90e3fcba67ee85bca0"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/stale-proof-for-coherent-authorized-amount-change/metrics.json",
+      "sha256": "108d9e386e906b0fc9235a46e2fbb1e19976377841fd9e6e9ced99242ba9ce81"
+    },
+    {
+      "bytes": 614,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/stale-proof-for-coherent-authorized-amount-change/native-validation.json",
+      "sha256": "84824c0f6061f02527029831d90a9d87897fcd92a7a204bf4da506da7c77faf5"
+    },
+    {
+      "bytes": 54222,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/stale-proof-for-coherent-authorized-amount-change/validation-case.json",
+      "sha256": "34f3c7b4a991482dadf2e5d22e898750b7885140b2f0f347c24299158ab2a8ab"
+    },
+    {
+      "bytes": 763,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/terminal-extra-output/metrics.json",
+      "sha256": "bdf8aa3825670e8c2d1264efbb8b9493a179ee60b2b256d34a97c3d3ccd24fe1"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/terminal-extra-output/native-validation.json",
+      "sha256": "e3ebd2d33fc2a9e89f756e50119c9aac77aacbcf8ed0da19e243895a16a4e6eb"
+    },
+    {
+      "bytes": 54219,
+      "path": "research/next-session/independent-payments/exits/native-tamper-01/terminal-extra-output/validation-case.json",
+      "sha256": "b4fb3589854ed78f60d7fb4b98074ef58bf66658326d1c58457f1b980deedb8d"
+    },
+    {
+      "bytes": 5790,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/RESULTS.json",
+      "sha256": "692b1ded54ff34f5c3c3b264660851f2f859f443901a1c7aed2479d0303f0c3b"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/capacity-noappend-continuing/metrics.json",
+      "sha256": "3a1589e1feeef97b4bda0b0b562afe4a8372c38fcb81f7e5dad0035e74819637"
+    },
+    {
+      "bytes": 725,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/capacity-noappend-continuing/native-validation.json",
+      "sha256": "e9bd96d4547844c436375786564c84fec88e7e4d42404ba907af3a635d3fd703"
+    },
+    {
+      "bytes": 54222,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/capacity-noappend-continuing/validation-case.json",
+      "sha256": "fdf2b5513e8a822ba4f949a7e9884b95e62e39b5b8701fe94c82d78b01bdbc97"
+    },
+    {
+      "bytes": 760,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/capacity-noappend-terminal/metrics.json",
+      "sha256": "5f0895c5dfcb43bc6fded02eeadf13c785c75b9f8d0b4aa732c93d7bb4518bca"
+    },
+    {
+      "bytes": 725,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/capacity-noappend-terminal/native-validation.json",
+      "sha256": "b736b1e2b1fbc35d1fcd660179ecfa0fa20e3137cad4c9f6dcc8c90d659eb573"
+    },
+    {
+      "bytes": 54088,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/capacity-noappend-terminal/validation-case.json",
+      "sha256": "a3cffab27c375b880bd3c582805ffb78f26c8ff433884fc93dc934b9c81b67ce"
+    },
+    {
+      "bytes": 761,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/compact-append/metrics.json",
+      "sha256": "7429eb560de75f6465c49442187d54ca97e80bb12c27e768987bb7d05b7b36ae"
+    },
+    {
+      "bytes": 725,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/compact-append/native-validation.json",
+      "sha256": "e4023eb7a1dbe5f8c5a356c4b6f8ecf4bc7d3e16b13df9d8865929542ac39e88"
+    },
+    {
+      "bytes": 56234,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/compact-append/validation-case.json",
+      "sha256": "fb3f5c109e4db74daf2d897364045f4a717ed033dd6963806eb4cb2d80d1a271"
+    },
+    {
+      "bytes": 759,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/wide32-append/metrics.json",
+      "sha256": "5f73963475cc14952f908e563dd51c161968e99b2ba5d699d228b476a47a0cef"
+    },
+    {
+      "bytes": 725,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/wide32-append/native-validation.json",
+      "sha256": "321f563eb792f769298909d310c4e9e67ba1b30eb3d6492465b23a69ed4ce14f"
+    },
+    {
+      "bytes": 73740,
+      "path": "research/next-session/independent-payments/exits/new-native-public-gates-01/wide32-append/validation-case.json",
+      "sha256": "da940197680c12f30c3283c92df2814ea8d25c1b12d0420b77b1276568312d15"
+    },
+    {
+      "bytes": 1527,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/FILES.json",
+      "sha256": "1d1ab4b2fb7bfb1db6aa68fdff6f5b0b6e690901304b196b015e82191448f7b8"
+    },
+    {
+      "bytes": 3190,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/RESULTS.json",
+      "sha256": "11a46f1953b5c544d84cf6bb55ef04b1c954001355f8be98f3d87dbe8eacc78e"
+    },
+    {
+      "bytes": 596,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/SOURCE.json",
+      "sha256": "98852ab1c4fec47325b00fdb9cc1ab9fa0566e500a095939bdf3f4063a5fc556"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/nonterminal-noappend-blocked/metrics.json",
+      "sha256": "187a37583f060e7fd7613e1c97e2607ddf47722eebb7bff124180dc7a1fde1f0"
+    },
+    {
+      "bytes": 509,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/nonterminal-noappend-blocked/native-validation.json",
+      "sha256": "86afc4fb932732313d3ff73cd6d28e60708c305b71f5eb28e09cd8669ec18fb2"
+    },
+    {
+      "bytes": 54108,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/nonterminal-noappend-blocked/validation-case.json",
+      "sha256": "33d0d89788f4ae4db1f2837e09744eed0ea6b09b853fc3ca8d8053d457f9efef"
+    },
+    {
+      "bytes": 760,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/terminal-zero-proof-G16-seam/metrics.json",
+      "sha256": "3fff893ee52d7d99aefd8ec57b8fedb9b24101b5ef9e2898f04d1e2eb55d6d5b"
+    },
+    {
+      "bytes": 725,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/terminal-zero-proof-G16-seam/native-validation.json",
+      "sha256": "130bbe3608382ba220ed8bfa07e941e0e12ddc694f0bfb284251a63f2d832435"
+    },
+    {
+      "bytes": 53974,
+      "path": "research/next-session/independent-payments/exits/original-policy-boundary-01/terminal-zero-proof-G16-seam/validation-case.json",
+      "sha256": "9205ad975244342286a3a370c2e5ad4b1360244640f377c47b660b4ec1333a91"
+    },
+    {
+      "bytes": 548,
+      "path": "research/next-session/independent-payments/exits/setup-path-failure-01/RESULTS.json",
+      "sha256": "7e838f2f6b8d34daa856de00af2d0925718eba4f429adedff4f7eba5afe5a2e7"
+    },
+    {
+      "bytes": 82,
+      "path": "research/next-session/independent-payments/exits/source-pre-setup-pins/compact2/parameter-selection.json",
+      "sha256": "94d4c3e2419ed35229feafece58fa86f8f2b9e394b71b86be863432d37906e19"
+    },
+    {
+      "bytes": 2,
+      "path": "research/next-session/independent-payments/exits/source-pre-setup-pins/compact2/public-parameters.json",
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/exits/source-pre-setup-pins/compact2/verification-key.bin",
+      "sha256": "7b4499c3cc6e82a9da3100028f52af7f8c1e9ee60e33010a108e401989782962"
+    },
+    {
+      "bytes": 80,
+      "path": "research/next-session/independent-payments/exits/source-pre-setup-pins/wide32/parameter-selection.json",
+      "sha256": "06b900912196a21af137e20c5f2a43c3437dacb184507626a086a34ec5fdab57"
+    },
+    {
+      "bytes": 2,
+      "path": "research/next-session/independent-payments/exits/source-pre-setup-pins/wide32/public-parameters.json",
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/exits/source-pre-setup-pins/wide32/verification-key.bin",
+      "sha256": "7b4499c3cc6e82a9da3100028f52af7f8c1e9ee60e33010a108e401989782962"
+    },
+    {
+      "bytes": 13041,
+      "path": "research/next-session/independent-payments/fees/PLAN-R0-SETTLEMENT-01.md",
+      "sha256": "762066d94b2e4a67cff6460b691a8dc3dfd549a9b21d8a57b7c2f569eb41013d"
+    },
+    {
+      "bytes": 8697,
+      "path": "research/next-session/independent-payments/fees/SOURCE-REFRESH-01.json",
+      "sha256": "c467c9042f96e025b3a46900540604cba50ba27f278dc8e23b434b732baa213a"
+    },
+    {
+      "bytes": 5666,
+      "path": "research/next-session/independent-payments/privacy/CONTROLS-PLAN-01.md",
+      "sha256": "d36e882f9655739e52a4233fc79fb30e29857ff266fc97730a689f303564453d"
+    },
+    {
+      "bytes": 11479,
+      "path": "research/next-session/independent-payments/privacy/DESIGN-01.md",
+      "sha256": "7f7ee6972eee36306365022f0f6eef15a21332b0171868dfb5d2b4e908cb1fc6"
+    },
+    {
+      "bytes": 4262,
+      "path": "research/next-session/independent-payments/privacy/POWER-AND-FREEZE-01.md",
+      "sha256": "52e42c4de3a1f769f59d57b30e4a2e6f28cd0346fc4027ddb6832efbc49eef98"
+    },
+    {
+      "bytes": 2192,
+      "path": "research/next-session/independent-payments/recovery-software/BUILD-PROVENANCE-RESOLUTION.json",
+      "sha256": "d00e7a49393991686f74909e0d039fe300ad65babf7d05a9e4ff4bff5ea582cc"
+    },
+    {
+      "bytes": 26626,
+      "path": "research/next-session/independent-payments/recovery-software/DEPENDENCY-ACQUISITION.json",
+      "sha256": "2fe86a706785335b43c9d27f8f67f7209a1987955f06dac99cc3acce4163f682"
+    },
+    {
+      "bytes": 5388,
+      "path": "research/next-session/independent-payments/recovery-software/DESIGN.md",
+      "sha256": "0952e97b4167e6d624d6ba67dfc1c95cf252625c482ad948ff39d7e22c0bd5d8"
+    },
+    {
+      "bytes": 657,
+      "path": "research/next-session/independent-payments/recovery-software/EXTERNAL-SELECTION.json",
+      "sha256": "aa78eb78ec28f52bfb96487e9f84564515a3461a0b09c3f483c1016b7da07575"
+    },
+    {
+      "bytes": 15098,
+      "path": "research/next-session/independent-payments/recovery-software/PUBLIC-FILES-SOFTWARE-02.txt",
+      "sha256": "0721ef28cb50e154bf5e8b01f38fd6d814188ff48991ae6225ba659a82f74c2b"
+    },
+    {
+      "bytes": 31540,
+      "path": "research/next-session/independent-payments/recovery-software/PUBLIC-MANIFEST-SOFTWARE-02.json",
+      "sha256": "b0bc037eeeff6cd7032c4ae2c65088459f85a3e69390a862971e09c7c7df68e5"
+    },
+    {
+      "bytes": 11432,
+      "path": "research/next-session/independent-payments/recovery-software/RESULTS.json",
+      "sha256": "23d2c3e927e87b5d1ae1396912170bac72df56ad8bdee6b87b1df0a84ddbaa6e"
+    },
+    {
+      "bytes": 1145980,
+      "path": "research/next-session/independent-payments/recovery-software/SOFTWARE-BUNDLE.json",
+      "sha256": "592d49207dfbd7e73969bafa9ae18937fc38e90c5b1b077f59519b1cc0d1e5df"
+    },
+    {
+      "bytes": 649,
+      "path": "research/next-session/independent-payments/recovery-software/SOFTWARE-INVENTORY.json",
+      "sha256": "6b1ca328624bf587c85d1ce5eb8d09137ff3c4b15e3faf2bd82b55f2149b1932"
+    },
+    {
+      "bytes": 1652,
+      "path": "research/next-session/independent-payments/recovery-software/SOURCE-FREEZE-01.json",
+      "sha256": "4145a7a067376060d88e69068a82e0d629a4ff60195e4e2d30201586441c381c"
+    },
+    {
+      "bytes": 3131,
+      "path": "research/next-session/independent-payments/recovery-software/SOURCE-FREEZE-02.json",
+      "sha256": "53ec5108b3e4cfcfcdac73509f8951daaa76ca469c1433811517a72bb6a7bf52"
+    },
+    {
+      "bytes": 686,
+      "path": "research/next-session/independent-payments/recovery-software/SOURCE-SUPERSESSION.json",
+      "sha256": "966fce27efc65fa89188e964afc9f54af96ce503e675715b730fde2669edfc00"
+    },
+    {
+      "bytes": 2604,
+      "path": "research/next-session/independent-payments/recovery-software/SYSTEM-DEPENDENCIES.json",
+      "sha256": "e05906c9ac830a5867baf685e19ba4ee49e38140a2d0bd983d7c93726454c5bb"
+    },
+    {
+      "bytes": 34237,
+      "path": "research/next-session/independent-payments/recovery-software/VENDOR-STDERR.log",
+      "sha256": "6b12288d803c238f4ca264c7872510998e61ba6760eaf8a92fd6b31c4b9a15cb"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/ACTIVE-CAPS.json",
+      "sha256": "b43086d7d02b59948ac16018df8f63e0cfeda76575380bf09de8ee544e5a3e82"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 477,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/RESULTS.json",
+      "sha256": "c64edffcae86dee0666a94a8236f39798cd0058e7b2424be9efd6bfd09ad3c4b"
+    },
+    {
+      "bytes": 8872,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/source/reconcile.py",
+      "sha256": "dbd99cde961a1491eb74616dcfb9deabaf1228e9ec3e03b3d32eba05db984403"
+    },
+    {
+      "bytes": 7620,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/source/software_bundle.py",
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705"
+    },
+    {
+      "bytes": 13685,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/source/test_recovery.py",
+      "sha256": "d33b1fcfe89675ab3916d942e2d97a06d5d64d37aace651520f4beb1d1af60f3"
+    },
+    {
+      "bytes": 12274,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/source/test_unpack.py",
+      "sha256": "e877b8509d59fded67a607d594c77f73f8c99733b8dbf750bb579935b5174079"
+    },
+    {
+      "bytes": 10176,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/source/unpack_bundle.py",
+      "sha256": "19c41c96b41c968a0ed0dfefe3a38fe855a323ce366b1f1aba46ef155a6d2a22"
+    },
+    {
+      "bytes": 5690,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/stderr.log",
+      "sha256": "12c15585d77496365995b7e87242cc2feca14da0cfcbd43089057ec72fbf7615"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/archive-controls-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 92,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/ABSENCE.json",
+      "sha256": "fb45c28bde189f32caf01d952f3f7db0e758bf39b87468d5a466fba103a2b4e3"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/ACTIVE-CAPS.json",
+      "sha256": "8ff1e0fc82bd956b58a15e73d74d1f015039f631a5c769c7e1140185ac71747e"
+    },
+    {
+      "bytes": 630,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/BUILD-RECIPE.json",
+      "sha256": "3d7e9235119ba98d28dd5ce73bd24985a93f18d390b98509c151844ddd0e8030"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 333,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/EXECUTION.json",
+      "sha256": "9b0937c8a2810a7ec7cab41e4c0eed28ff0dbcc5577d3a24793d95284c098238"
+    },
+    {
+      "bytes": 361,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/RESTORE.json",
+      "sha256": "d10c015be76053b9c47d41a4f7ae0e0f18515de9329490ee407e467eab6333e6"
+    },
+    {
+      "bytes": 631,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/RESULTS.json",
+      "sha256": "c0f67a3f9b80ad75d17622c4f4b2bdb7e4dca8253aa42a96c731aeafd7777aab"
+    },
+    {
+      "bytes": 3234,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/STDERR.log",
+      "sha256": "5eb6d42a7753dde256c4c9c8717d35b1df185b16921e67410ec95f4c5d280cdf"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/STDOUT.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 262,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/source/SOURCE.json",
+      "sha256": "25cadc49c817edca53a123dfcc78864e06da30c42028f4ab9636b851aa31ddad"
+    },
+    {
+      "bytes": 5397,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/source/run_clean_build.py",
+      "sha256": "3954b44bf8fa385d7eef1fbf08bd5886be13fb869022f93f1cda2c7d3e63d405"
+    },
+    {
+      "bytes": 7569,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/source/software_bundle.py",
+      "sha256": "1cb6e539e703bd382f18be0a8771111cdf71652514a25625afa5245b47153a64"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 657,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-01/stdout.log",
+      "sha256": "1a57a5b52eb32c7389e389de3279a6b8b574c0bfc8b85eb8be96fe90621f2368"
+    },
+    {
+      "bytes": 92,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/ABSENCE.json",
+      "sha256": "fb45c28bde189f32caf01d952f3f7db0e758bf39b87468d5a466fba103a2b4e3"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/ACTIVE-CAPS.json",
+      "sha256": "8ff1e0fc82bd956b58a15e73d74d1f015039f631a5c769c7e1140185ac71747e"
+    },
+    {
+      "bytes": 668,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/BUILD-RECIPE.json",
+      "sha256": "89370f010744d8dc6a901480e12c904f7ce446737d575d0419e1474e8a3b259b"
+    },
+    {
+      "bytes": 248,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/CLEANUP.json",
+      "sha256": "4e91d1b43d7bfdd096db2797a1a56cd2d114a1b9071c02a951e4e6e6133a38d1"
+    },
+    {
+      "bytes": 333,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/EXECUTION.json",
+      "sha256": "98f01548f6dbbdb99002e5b41ee4ec886aabb309375eb21aebb8012db63cfe97"
+    },
+    {
+      "bytes": 361,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/RESTORE.json",
+      "sha256": "37a7913d3c3feef6118f6c43f78bb2724a17a8c1e3b96348f686831b617b3427"
+    },
+    {
+      "bytes": 719,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/RESULTS.json",
+      "sha256": "79d5366c6bbdf081eaccd6cfc0d4f2e53d608e45c396ca771aa2958fca87b285"
+    },
+    {
+      "bytes": 3234,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/STDERR.log",
+      "sha256": "f22cbba4a01b3b67cf282f27546ede02ab2dd7de8779c60d191eb7f0b245cd10"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/STDOUT.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 7922,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/source/prepare_bundle.py",
+      "sha256": "3b4c21585e19bea97deadff8758dd8b86b49e8ba9b38f617338dfb917177401c"
+    },
+    {
+      "bytes": 6208,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/source/run_clean_build.py",
+      "sha256": "457e71f4bcefc322570a65ca874089d5eb5411d2728f0354194cfed8fbd3aa5c"
+    },
+    {
+      "bytes": 7569,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/source/software_bundle.py",
+      "sha256": "1cb6e539e703bd382f18be0a8771111cdf71652514a25625afa5245b47153a64"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 747,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-02/stdout.log",
+      "sha256": "226a74ad6596e8f181f296271a76268b711b3d3343fd7aa49c6c86574e4b6f4f"
+    },
+    {
+      "bytes": 92,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/ABSENCE.json",
+      "sha256": "fb45c28bde189f32caf01d952f3f7db0e758bf39b87468d5a466fba103a2b4e3"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/ACTIVE-CAPS.json",
+      "sha256": "8ff1e0fc82bd956b58a15e73d74d1f015039f631a5c769c7e1140185ac71747e"
+    },
+    {
+      "bytes": 667,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/BUILD-RECIPE.json",
+      "sha256": "0e77167176f00f6bb768dcd072224b3f805f648998fabb958f3c8ff32e183bda"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 332,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/EXECUTION.json",
+      "sha256": "e85006b8573d8dbf4c5ee33feb149f54806d880ba65d596250ae4e244547fd61"
+    },
+    {
+      "bytes": 361,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/RESTORE.json",
+      "sha256": "37a7913d3c3feef6118f6c43f78bb2724a17a8c1e3b96348f686831b617b3427"
+    },
+    {
+      "bytes": 762,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/RESULTS.json",
+      "sha256": "9129f696ae65b3f2b0dbba0a66fe4f830b884c63d2071f86c332efd3402abee6"
+    },
+    {
+      "bytes": 3234,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/STDERR.log",
+      "sha256": "8b778d14ee1dea1159eaa549f7b19a8b26d30379e9219731b44619b77560d8c4"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/STDOUT.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 7922,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/source/prepare_bundle.py",
+      "sha256": "3b4c21585e19bea97deadff8758dd8b86b49e8ba9b38f617338dfb917177401c"
+    },
+    {
+      "bytes": 6676,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/source/run_clean_build.py",
+      "sha256": "b0208145bde70033c5d5c8061183bf69db3feb2529a3f7c25b22ee83d62ce1b9"
+    },
+    {
+      "bytes": 7569,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/source/software_bundle.py",
+      "sha256": "1cb6e539e703bd382f18be0a8771111cdf71652514a25625afa5245b47153a64"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 792,
+      "path": "research/next-session/independent-payments/recovery-software/cold-build-03/stdout.log",
+      "sha256": "6c03fb85aca8b5001788eedb1cd83301f75175ddb48cc4b7eae986dfe673790b"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/ACTIVE-CAPS.json",
+      "sha256": "b43086d7d02b59948ac16018df8f63e0cfeda76575380bf09de8ee544e5a3e82"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 475,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/RESULTS.json",
+      "sha256": "679eefeed2fabc33d36c8f593e9446d4313a20e87b530eb0bb7584dc043c4086"
+    },
+    {
+      "bytes": 421,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/SOURCE.json",
+      "sha256": "087247e47b1b700ddfcbf070e93e0fd637379fccd9bbc3b75919b196f7bd40e2"
+    },
+    {
+      "bytes": 8497,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/source/reconcile.py",
+      "sha256": "66904d3edf03d1c46d1fdf630d5f6d30c9302b8bd8d197b97559b602dc4c8bb9"
+    },
+    {
+      "bytes": 7569,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/source/software_bundle.py",
+      "sha256": "1cb6e539e703bd382f18be0a8771111cdf71652514a25625afa5245b47153a64"
+    },
+    {
+      "bytes": 12940,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/source/test_recovery.py",
+      "sha256": "4a97daecdf8fbd5bf1d2ee784c1f0bc7a59f185205b294aa6f9ed831b1d8a63b"
+    },
+    {
+      "bytes": 3047,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/stderr.log",
+      "sha256": "ef797d82a246861ac7ced98a37d560c27fc0506162b331e6fd17e7a3f2bcdac4"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/controls-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/ACTIVE-CAPS.json",
+      "sha256": "b43086d7d02b59948ac16018df8f63e0cfeda76575380bf09de8ee544e5a3e82"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 476,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/RESULTS.json",
+      "sha256": "2486620f50df2e73620c50545039bbbc795d2c3f3cac13724685e0859d35eaaa"
+    },
+    {
+      "bytes": 421,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/SOURCE.json",
+      "sha256": "23026064c5a72adcda2695c540fddf40f37bda855618d8a64a8b65a6e935b98b"
+    },
+    {
+      "bytes": 8872,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/source/reconcile.py",
+      "sha256": "dbd99cde961a1491eb74616dcfb9deabaf1228e9ec3e03b3d32eba05db984403"
+    },
+    {
+      "bytes": 7569,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/source/software_bundle.py",
+      "sha256": "1cb6e539e703bd382f18be0a8771111cdf71652514a25625afa5245b47153a64"
+    },
+    {
+      "bytes": 13685,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/source/test_recovery.py",
+      "sha256": "d33b1fcfe89675ab3916d942e2d97a06d5d64d37aace651520f4beb1d1af60f3"
+    },
+    {
+      "bytes": 3207,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/stderr.log",
+      "sha256": "e090c8e24294355d93df5a66dcb46efeb51ee3999c03d8f28b5038b676bb4b00"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/controls-02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1146892,
+      "path": "research/next-session/independent-payments/recovery-software/distribution-03/ARCHIVE-MEMBERS.json",
+      "sha256": "d59d5dbbbac0fd9b68c4d07153f5ac94c6abfcdf8c6bf3aa79efb096a3fe151e"
+    },
+    {
+      "bytes": 549,
+      "path": "research/next-session/independent-payments/recovery-software/distribution-03/ARCHIVE.json",
+      "sha256": "84cdbbc77c3ae672d0cc8d57fb12c32c8340d421481e04e6e35cea7303723ea8"
+    },
+    {
+      "bytes": 26621,
+      "path": "research/next-session/independent-payments/recovery-software/distribution-03/DEPENDENCY-ACQUISITION.json",
+      "sha256": "bb33954838c053710107475cfc911f77932efd77ac0224f0710efb1746887e2f"
+    },
+    {
+      "bytes": 658,
+      "path": "research/next-session/independent-payments/recovery-software/distribution-03/EXTERNAL-SELECTION.json",
+      "sha256": "084dc075aea7516482a50beca6848b1285cebaa37f742113b7d33eba3f803a31"
+    },
+    {
+      "bytes": 1146337,
+      "path": "research/next-session/independent-payments/recovery-software/distribution-03/SOFTWARE-BUNDLE.json",
+      "sha256": "d8f96ce9f133d846b94ad5219f45d8664acba8972355fccd2d27b3315a06b808"
+    },
+    {
+      "bytes": 649,
+      "path": "research/next-session/independent-payments/recovery-software/distribution-03/SOFTWARE-INVENTORY.json",
+      "sha256": "c48751132d2b4bbb5fb99ea36390f005173d24679a6a58d73c60cfa027fe9256"
+    },
+    {
+      "bytes": 33987,
+      "path": "research/next-session/independent-payments/recovery-software/distribution-03/VENDOR-STDERR.log",
+      "sha256": "64405389afd7f649105cefbc1c24d45a8f9ea2f2fba4734d1a7ba52d5bc3bff7"
+    },
+    {
+      "bytes": 43,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/ABSENCE.json",
+      "sha256": "6e04bed56f21f12d57dd31e4f48fa9237ae91f082da5ca77de0231f0e1ad2fdf"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/ACTIVE-CAPS.json",
+      "sha256": "b43086d7d02b59948ac16018df8f63e0cfeda76575380bf09de8ee544e5a3e82"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 189,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/CLIENT-EXECUTION.json",
+      "sha256": "7d81452393f0167ccec2874f3da5aba946e4ead37c3e3e35bf9e53053c0e183f"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/CLIENT-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 531,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/CLIENT-stdout.log",
+      "sha256": "98c4cc2b63dab96b9b0ad3da32011818fd106ff3575b2b5351b36bddb3900d7b"
+    },
+    {
+      "bytes": 321,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/EXECUTION.json",
+      "sha256": "b4aee68799802b271cb580cb654bb7b8c46d36ca72a98fe4d4defe68dfa5c6e8"
+    },
+    {
+      "bytes": 510,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/RESULTS.json",
+      "sha256": "ac6984655dd7460131860aacd2ee59a10e0d2f684667f64c0fbd72c7350552d6"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 189,
+      "path": "research/next-session/independent-payments/recovery-software/recognition-01/stdout.log",
+      "sha256": "7d81452393f0167ccec2874f3da5aba946e4ead37c3e3e35bf9e53053c0e183f"
+    },
+    {
+      "bytes": 4159,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/README.md",
+      "sha256": "f8234fe40c31c4afa19da1467382f677c467978eca1e1c54e6892f19b23c7d69"
+    },
+    {
+      "bytes": 3921,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/archive_bundle.py",
+      "sha256": "40d770057060f44b30abe3e1adb0224d4c6faf6c8e366d0c4438a812c0d3a69f"
+    },
+    {
+      "bytes": 1984,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/canary_recognize.py",
+      "sha256": "ffb6e0ca71be813c1a9260873896e29156c15971101811cecc5099edf9c51615"
+    },
+    {
+      "bytes": 7922,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/prepare_bundle.py",
+      "sha256": "3b4c21585e19bea97deadff8758dd8b86b49e8ba9b38f617338dfb917177401c"
+    },
+    {
+      "bytes": 8872,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/reconcile.py",
+      "sha256": "dbd99cde961a1491eb74616dcfb9deabaf1228e9ec3e03b3d32eba05db984403"
+    },
+    {
+      "bytes": 6676,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/run_clean_build.py",
+      "sha256": "b0208145bde70033c5d5c8061183bf69db3feb2529a3f7c25b22ee83d62ce1b9"
+    },
+    {
+      "bytes": 9108,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/run_public_canary.py",
+      "sha256": "b0a09cd2d6ab1d1085e7f1780cbfda89acf6e5bc1409830ea3a92cb474950284"
+    },
+    {
+      "bytes": 7620,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/software_bundle.py",
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705"
+    },
+    {
+      "bytes": 13685,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/test_recovery.py",
+      "sha256": "d33b1fcfe89675ab3916d942e2d97a06d5d64d37aace651520f4beb1d1af60f3"
+    },
+    {
+      "bytes": 12274,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/test_unpack.py",
+      "sha256": "e877b8509d59fded67a607d594c77f73f8c99733b8dbf750bb579935b5174079"
+    },
+    {
+      "bytes": 10176,
+      "path": "research/next-session/independent-payments/recovery-software/selected-source-02/unpack_bundle.py",
+      "sha256": "19c41c96b41c968a0ed0dfefe3a38fe855a323ce366b1f1aba46ef155a6d2a22"
+    },
+    {
+      "bytes": 95,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/ACTIVE-CAPS.json",
+      "sha256": "b43086d7d02b59948ac16018df8f63e0cfeda76575380bf09de8ee544e5a3e82"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 321,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/EXECUTION.json",
+      "sha256": "ba3f9b44ec35aa78861e5bcd3ac06f3fcc989be367f72f649b88d54508de2393"
+    },
+    {
+      "bytes": 1347,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/RESULTS.json",
+      "sha256": "16bac9143bb8b746fd7a5a141c3443b5fcc33abc603b36dd5a24a0d38d520532"
+    },
+    {
+      "bytes": 7620,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/source/software_bundle.py",
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705"
+    },
+    {
+      "bytes": 10176,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/source/unpack_bundle.py",
+      "sha256": "19c41c96b41c968a0ed0dfefe3a38fe855a323ce366b1f1aba46ef155a6d2a22"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1347,
+      "path": "research/next-session/independent-payments/recovery-software/software-unpack-HTTPS-01/stdout.log",
+      "sha256": "16bac9143bb8b746fd7a5a141c3443b5fcc33abc603b36dd5a24a0d38d520532"
+    },
+    {
+      "bytes": 97,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/ACTIVE-CAPS.json",
+      "sha256": "5ced29fc26fa6b1a43cc12c7a9274b225de6353d5f68a06debd5b2af43fb6897"
+    },
+    {
+      "bytes": 252,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/CLEANUP.json",
+      "sha256": "236ca5480c21107d2eaa12b38e3948928c9becc7f33b152eed1c6f82007959cf"
+    },
+    {
+      "bytes": 326,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/EXECUTION.json",
+      "sha256": "54bd2d61ccb4bb81d1fc226ff9ba4215f97a3cb73c6a0e89df86640c2ea5815c"
+    },
+    {
+      "bytes": 43,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/ABSENCE.json",
+      "sha256": "1b0e2eeb76f0e726f077139b604e2682c479dd0c5845cb6ea88469cab54c928e"
+    },
+    {
+      "bytes": 347,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/CLASSIFICATION.json",
+      "sha256": "a1cddae85938793abe7af08e44417e86e435b9564e2210004943f9eaa5f2bfc4"
+    },
+    {
+      "bytes": 188,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/CLIENT-EXECUTION.json",
+      "sha256": "bafa441d5187db4ac7043614524c0f4b42ed079e946623c4d28db09e611df009"
+    },
+    {
+      "bytes": 986,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/OWNER-RESULT.json",
+      "sha256": "44f31b8f7d812bcf0264dc72dac37f9e9f529ee305e954c4f80302d35cb72d89"
+    },
+    {
+      "bytes": 420,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/PARAMETERS-READY.json",
+      "sha256": "39064571a2c28c8e59335f6c05959f24af28427f10244cd964bd51a30c99c3a5"
+    },
+    {
+      "bytes": 1893,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/PROVER-REPORT.json",
+      "sha256": "f595bc2d06cf3e51b1f728c018ec3f13d07f2caa9a3d28d55df694366040877c"
+    },
+    {
+      "bytes": 984,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/QUOTE-SUMMARY.json",
+      "sha256": "3500e65a271ac7062e58667a1fe5f8770387800b64cfd6f544437d856da221ef"
+    },
+    {
+      "bytes": 528,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/authorization528.bin",
+      "sha256": "76bc328c0671bccf5027d2fc1eccb675787ff76a7c8d57165d71ee275c8ea46c"
+    },
+    {
+      "bytes": 571,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/metrics.json",
+      "sha256": "2b7904136bbf9e79d32156ff968fc5bc712afe0028e53ddaba1f9cbe78f50d2a"
+    },
+    {
+      "bytes": 309,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/native-validation.json",
+      "sha256": "2dd0eb1fc02331effe5817de77b657ef68c4fc7482182a0a6b7acf419b79bf57"
+    },
+    {
+      "bytes": 128,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/proof128.bin",
+      "sha256": "b31b5255cb73feb943e2d385a1439ebcc53b1b8859600702fbc0a971be8aa7d6"
+    },
+    {
+      "bytes": 190,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/supplied-context.json",
+      "sha256": "0255df3fa266f03048010127c9c07fb39f5687eb727db7b780f950bea971335e"
+    },
+    {
+      "bytes": 53774,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/transaction.json",
+      "sha256": "196d4ab2d665437b31009a31c05f2de408605716f9c804964c077d71c779ed8e"
+    },
+    {
+      "bytes": 53974,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/validation-case.json",
+      "sha256": "d928a660dea999e1d07d4d291c28282771d5129b6ead682e939bc70e71a1505d"
+    },
+    {
+      "bytes": 328,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/public-case/verification-key.bin",
+      "sha256": "bf033abd75237c3f04f4b8ca19ef93c115b192d04eb8360b8d5060ccdb9bed78"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 188,
+      "path": "research/next-session/independent-payments/recovery-software/terminal-proof-HTTPS-01/stdout.log",
+      "sha256": "bafa441d5187db4ac7043614524c0f4b42ed079e946623c4d28db09e611df009"
+    },
+    {
+      "bytes": 259,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-01/RESULTS.json",
+      "sha256": "31090b24fb9df73d110f41ad9a60a8a77e6f23fd55158c46937203bd43d7c3c4"
+    },
+    {
+      "bytes": 7620,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-01/software_bundle.py",
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705"
+    },
+    {
+      "bytes": 6985,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-01/stderr.log",
+      "sha256": "49590acffd75f31d01eab87b1b83bb4ce63aff61bb26e9c8fbb09e4162f748d0"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 10048,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-01/test_unpack.py",
+      "sha256": "cc3c267b8ff2831b3b2878971a82f5bf0b3250049f677b0a25df5b4e0ee7f58f"
+    },
+    {
+      "bytes": 9660,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-01/unpack_bundle.py",
+      "sha256": "1dd66d412245b8f259c7872781b55c20f2d1733808c7649d19d9ed09752e0506"
+    },
+    {
+      "bytes": 249,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-02/RESULTS.json",
+      "sha256": "042c381008fec908c501693850e2897a9baeda734277ca88ae611e839ebd1042"
+    },
+    {
+      "bytes": 7620,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-02/software_bundle.py",
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705"
+    },
+    {
+      "bytes": 3171,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-02/stderr.log",
+      "sha256": "09fc37173759e118405ab9472b5dc291fe05f6c1e748c8dbc36477d8f708b2e5"
+    },
+    {
+      "bytes": 0,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 10979,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-02/test_unpack.py",
+      "sha256": "8b0286db9a3b7047bead4206dfdd8893881115fd373f1e317fe6780e7579ac3f"
+    },
+    {
+      "bytes": 9660,
+      "path": "research/next-session/independent-payments/recovery-software/unpack-development-02/unpack_bundle.py",
+      "sha256": "1dd66d412245b8f259c7872781b55c20f2d1733808c7649d19d9ed09752e0506"
+    },
+    {
+      "bytes": 260,
+      "path": "research/next-session/independent-payments/recovery-software/vendor-failure-01/RESULTS.json",
+      "sha256": "e74237a3974d3d3646532407ba119aa4b0f5f27470913a36cced037473d7da8f"
+    },
+    {
+      "bytes": 306,
+      "path": "research/next-session/independent-payments/recovery-software/vendor-failure-01/stderr.log",
+      "sha256": "ffa0c0661b2d049696035c9a8f31df28173adc0c9b3d846e580aa61762079a3a"
+    },
+    {
+      "bytes": 827,
+      "path": "research/next-session/independent-payments/recovery-transport/FINAL-PREPARED-SELECTION.json",
+      "sha256": "0caf77d22aa2360e790d0480b47f15f32398d443ae48ccf74701b47655052645"
+    },
+    {
+      "bytes": 4366,
+      "path": "research/next-session/independent-payments/recovery-transport/FINAL-PUBLIC-ASSET-INVENTORY.json",
+      "sha256": "7ddfabacada1800ba566fb752f8696ecec7b1217d47ac65cb8708941b55df8ad"
+    },
+    {
+      "bytes": 22079,
+      "path": "research/next-session/independent-payments/recovery-transport/MANIFEST.json",
+      "sha256": "aca7ad4551b49566beb029523f6f611040f590598d27c19ecd3471e663f7c193"
+    },
+    {
+      "bytes": 2665,
+      "path": "research/next-session/independent-payments/recovery-transport/PLAN.md",
+      "sha256": "7b577624ca92b94c5306532cb75bebc4e45f1b9d9d30134d3bcddce7c61848ba"
+    },
+    {
+      "bytes": 827,
+      "path": "research/next-session/independent-payments/recovery-transport/PREPARED-SELECTION.json",
+      "sha256": "ecc5bffc3cd0d3cf37829d72f20ec241f0fcd1dfeca694790785cdd572763849"
+    },
+    {
+      "bytes": 2004,
+      "path": "research/next-session/independent-payments/recovery-transport/PROVIDER-INVENTORY.json",
+      "sha256": "b7ffe4425c224087ac786a24f87ddfecf6011108e15e316ea7651a6285d1c60b"
+    },
+    {
+      "bytes": 5482,
+      "path": "research/next-session/independent-payments/recovery-transport/PROVIDER-SOURCES.md",
+      "sha256": "034c19fcd3c364be20d065fd56459389d5b260d9038031d6bc220e3856e8fe36"
+    },
+    {
+      "bytes": 8714,
+      "path": "research/next-session/independent-payments/recovery-transport/PUBLIC-FILES.txt",
+      "sha256": "42f7ee15dcb6db50031801d6e583344ad316d34329c17cc778d2deacf915a277"
+    },
+    {
+      "bytes": 1445,
+      "path": "research/next-session/independent-payments/recovery-transport/PUBLIC-INPUT-IDENTITIES.json",
+      "sha256": "c09ab973d559294dbb562411a6f973eda772a1dc6dcef58e6c2fdd2ca68ba3ff"
+    },
+    {
+      "bytes": 9036,
+      "path": "research/next-session/independent-payments/recovery-transport/PUBLISHED-RELEASE-01.json",
+      "sha256": "64408b2c6d32f1d7321376c02d17cd70bfc2c52b3f5fc9791a5b648e037d31c5"
+    },
+    {
+      "bytes": 9453,
+      "path": "research/next-session/independent-payments/recovery-transport/PUBLISHED-RELEASE-02.json",
+      "sha256": "cfb68fbf141912d199ea0b4f24feddc6bec32e6518e34a681aa2d5c96090bd1d"
+    },
+    {
+      "bytes": 4740,
+      "path": "research/next-session/independent-payments/recovery-transport/RESULTS.md",
+      "sha256": "d6b4e32eaef1548cc5cef56a198e4b9a41417064f626b2b5f465bcce25091779"
+    },
+    {
+      "bytes": 4083,
+      "path": "research/next-session/independent-payments/recovery-transport/ROOT-ASSET-AUDIT-01.json",
+      "sha256": "ac7913c6320743b3c955d8d18b69e80b7b04ced2ca0afcef95968860d47baa19"
+    },
+    {
+      "bytes": 1666,
+      "path": "research/next-session/independent-payments/recovery-transport/ROOT-OWNED-REFERENCES.json",
+      "sha256": "a0dc1ca1a828cf99a976e1a35c88e932b4536dc7f37f3d232e5558070b8e33e2"
+    },
+    {
+      "bytes": 505,
+      "path": "research/next-session/independent-payments/recovery-transport/actual-https-01/RESULT.json",
+      "sha256": "18dd21b5ad14edc44d05ace8556408ac9f487db10a5342b899913b0766dd8d1a"
+    },
+    {
+      "bytes": 3497,
+      "path": "research/next-session/independent-payments/recovery-transport/actual-https-01/SOURCE-AND-PLAN.json",
+      "sha256": "9cb6402064454acfeee3ec84eb518b5b503eab0fef977d35862a36b69ad1da84"
+    },
+    {
+      "bytes": 2724,
+      "path": "research/next-session/independent-payments/recovery-transport/actual-https-01/client-output/public-parameters.json",
+      "sha256": "f27a806928b5c2409d4e4c5428a75deabef6ecf9601b60889667e90363f26043"
+    },
+    {
+      "bytes": 976,
+      "path": "research/next-session/independent-payments/recovery-transport/actual-https-01/run.log",
+      "sha256": "93441aa3399f7a9767609653933a103b4ed33fa35206f6324d165627e23726e1"
+    },
+    {
+      "bytes": 7861,
+      "path": "research/next-session/independent-payments/recovery-transport/actual-https-01/source/public_fetch.py",
+      "sha256": "37f1a3aa6a7b0c9e4f5363ffb15f2deebde087295c49b60d1cd9b2b9f6eb32ae"
+    },
+    {
+      "bytes": 1640,
+      "path": "research/next-session/independent-payments/recovery-transport/actual-https-01/source/trusted_util.py",
+      "sha256": "78633b9e62a57796d609b600139cea77f4e1866ec362aa5bdd2588516baad9a6"
+    },
+    {
+      "bytes": 26619,
+      "path": "research/next-session/independent-payments/recovery-transport/actual-https-01/source/vendor/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 386,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/RESULT.json",
+      "sha256": "64f477c3c7ee975a8d4f2a0cfa487a7c9f56e9ff8510f835f603f803399e1cd7"
+    },
+    {
+      "bytes": 4534,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/SOURCE-AND-PLAN.json",
+      "sha256": "a1430257115c37f154c486e3cf6ad52a564257dbd4b5692de94794f5a49b868f"
+    },
+    {
+      "bytes": 3051,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/run.log",
+      "sha256": "37948143683d246dd9f69a03670661262b7140bec077213f3dc99f17567f2876"
+    },
+    {
+      "bytes": 10193,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/prepare.py",
+      "sha256": "c928ad6545a77fbfb829994e7d52ab2c7ae443987104ed54d1547b697aac4427"
+    },
+    {
+      "bytes": 7861,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/public_fetch.py",
+      "sha256": "37f1a3aa6a7b0c9e4f5363ffb15f2deebde087295c49b60d1cd9b2b9f6eb32ae"
+    },
+    {
+      "bytes": 10510,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/retrieve.py",
+      "sha256": "e7b3f56b404fa73a6a27a4add7102c604ad2c814b69143406c6a02f007a6abcb"
+    },
+    {
+      "bytes": 8407,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/test_public_fetch.py",
+      "sha256": "a6db279682fd9222bb8fb1e290ce1865b036c6bfcb58d34de3501abbce0e42ec"
+    },
+    {
+      "bytes": 5851,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/test_retrieve.py",
+      "sha256": "7aa3187e237c5abd98c115e9651f68185f1c0cf039c0da5da93ca57ebe99806b"
+    },
+    {
+      "bytes": 1640,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/trusted_util.py",
+      "sha256": "78633b9e62a57796d609b600139cea77f4e1866ec362aa5bdd2588516baad9a6"
+    },
+    {
+      "bytes": 26619,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/vendor/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 13724,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-01/source/vendor/chunk_public.py",
+      "sha256": "c713a4871079acd040f5c434ceed47c4d6f71885c8e5256199a86488a5f724aa"
+    },
+    {
+      "bytes": 436,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/RESULT.json",
+      "sha256": "c5adfe073d5325a5d3dcab6967c956783ae18fb2aced93d81794f60ac4c5c996"
+    },
+    {
+      "bytes": 4681,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/SOURCE-AND-PLAN.json",
+      "sha256": "d36c3d48f95054163a18ed4cf98691cf0c0ef3a280fe9be0c06ace70b37c211a"
+    },
+    {
+      "bytes": 638,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/run.log",
+      "sha256": "1e8c1b94d5b57e7e47f2d049a4894b03508762b3c1c338da76bb7f05627ac490"
+    },
+    {
+      "bytes": 10193,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/prepare.py",
+      "sha256": "c928ad6545a77fbfb829994e7d52ab2c7ae443987104ed54d1547b697aac4427"
+    },
+    {
+      "bytes": 7861,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/public_fetch.py",
+      "sha256": "37f1a3aa6a7b0c9e4f5363ffb15f2deebde087295c49b60d1cd9b2b9f6eb32ae"
+    },
+    {
+      "bytes": 10510,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/retrieve.py",
+      "sha256": "e7b3f56b404fa73a6a27a4add7102c604ad2c814b69143406c6a02f007a6abcb"
+    },
+    {
+      "bytes": 8407,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/test_public_fetch.py",
+      "sha256": "a6db279682fd9222bb8fb1e290ce1865b036c6bfcb58d34de3501abbce0e42ec"
+    },
+    {
+      "bytes": 6615,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/test_retrieve.py",
+      "sha256": "a89c5d5c95b0e556f00197f813744d0a68c50112489ab9efba5d02328fe1b130"
+    },
+    {
+      "bytes": 1640,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/trusted_util.py",
+      "sha256": "78633b9e62a57796d609b600139cea77f4e1866ec362aa5bdd2588516baad9a6"
+    },
+    {
+      "bytes": 26619,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/vendor/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 13724,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-02/source/vendor/chunk_public.py",
+      "sha256": "c713a4871079acd040f5c434ceed47c4d6f71885c8e5256199a86488a5f724aa"
+    },
+    {
+      "bytes": 445,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/RESULT.json",
+      "sha256": "e04167ff29949817b8acd5e1f362bb492d7f58d8f9693876212d0a555210fa56"
+    },
+    {
+      "bytes": 4681,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/SOURCE-AND-PLAN.json",
+      "sha256": "cf1c84401332db45fba10a9acf4197ae39df1188ad9d4ba8e6a75d21e4119615"
+    },
+    {
+      "bytes": 681,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/run.log",
+      "sha256": "5b67badd2f3509d73d6f88192b6742ae084e1fd9371dc527450b2a34dbde9c35"
+    },
+    {
+      "bytes": 10193,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/prepare.py",
+      "sha256": "c928ad6545a77fbfb829994e7d52ab2c7ae443987104ed54d1547b697aac4427"
+    },
+    {
+      "bytes": 7861,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/public_fetch.py",
+      "sha256": "37f1a3aa6a7b0c9e4f5363ffb15f2deebde087295c49b60d1cd9b2b9f6eb32ae"
+    },
+    {
+      "bytes": 10510,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/retrieve.py",
+      "sha256": "e7b3f56b404fa73a6a27a4add7102c604ad2c814b69143406c6a02f007a6abcb"
+    },
+    {
+      "bytes": 9088,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/test_public_fetch.py",
+      "sha256": "79d8e1c8ceaef4b2fa520423c61516a94df286d237e2fddcf6c1feee5aeef5b5"
+    },
+    {
+      "bytes": 6615,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/test_retrieve.py",
+      "sha256": "a89c5d5c95b0e556f00197f813744d0a68c50112489ab9efba5d02328fe1b130"
+    },
+    {
+      "bytes": 1640,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/trusted_util.py",
+      "sha256": "78633b9e62a57796d609b600139cea77f4e1866ec362aa5bdd2588516baad9a6"
+    },
+    {
+      "bytes": 26619,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/vendor/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 13724,
+      "path": "research/next-session/independent-payments/recovery-transport/controls-03/source/vendor/chunk_public.py",
+      "sha256": "c713a4871079acd040f5c434ceed47c4d6f71885c8e5256199a86488a5f724aa"
+    },
+    {
+      "bytes": 712,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/ARCHIVE-RECEIPT.json",
+      "sha256": "452e8667c095a493ec786b4e93f5d1c514684c00a68af899b1f5171a9755aaae"
+    },
+    {
+      "bytes": 9486,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/MATERIALS-RECEIPT.json",
+      "sha256": "c40c9436fcd64d011b74368e46630bce1f1efb50bb0e3b0e1f2f7ea20eedfdae"
+    },
+    {
+      "bytes": 711,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/MEMBERS-RECEIPT.json",
+      "sha256": "eba8a64969f01ea2de7b7576937e6e45ab0a920e93e0cf2e3b265f533ed207d0"
+    },
+    {
+      "bytes": 708,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/PUBLICATION-RECEIPT.json",
+      "sha256": "f6b43d267a11128824861b6fdc95e419326bc5aefdb304a88a6011bcfede6b99"
+    },
+    {
+      "bytes": 499,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/RESULT.json",
+      "sha256": "a43b1a28c31a1aa81ea59b52f2d07228b584a8ed46d54196f98dbdacb05e4f33"
+    },
+    {
+      "bytes": 4128,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/SOURCE-AND-PLAN.json",
+      "sha256": "2a6b2b3647751790fa4820d9ccc0626dc45f10a6f0501031dae5916dbb987c19"
+    },
+    {
+      "bytes": 1191,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/SUMMARY.json",
+      "sha256": "b545d977f99cefd9a931e55b16cf4459daddcfb9eb5d5e7e95e852f3243b4105"
+    },
+    {
+      "bytes": 10045,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/run.log",
+      "sha256": "7cc12025de02929e8f1859c20d8df4eb659e380d439717b7cd43d502a437575d"
+    },
+    {
+      "bytes": 2204,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/source/entry.py",
+      "sha256": "f8be7b7a71233dd79a5715ce102e397704c5efb03a67170d11c73f12a6b801fd"
+    },
+    {
+      "bytes": 7861,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/source/public_fetch.py",
+      "sha256": "37f1a3aa6a7b0c9e4f5363ffb15f2deebde087295c49b60d1cd9b2b9f6eb32ae"
+    },
+    {
+      "bytes": 10510,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/source/retrieve.py",
+      "sha256": "e7b3f56b404fa73a6a27a4add7102c604ad2c814b69143406c6a02f007a6abcb"
+    },
+    {
+      "bytes": 1640,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/source/trusted_util.py",
+      "sha256": "78633b9e62a57796d609b600139cea77f4e1866ec362aa5bdd2588516baad9a6"
+    },
+    {
+      "bytes": 26619,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/source/vendor/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 13724,
+      "path": "research/next-session/independent-payments/recovery-transport/full-HTTPS-01/source/vendor/chunk_public.py",
+      "sha256": "c713a4871079acd040f5c434ceed47c4d6f71885c8e5256199a86488a5f724aa"
+    },
+    {
+      "bytes": 580,
+      "path": "research/next-session/independent-payments/recovery-transport/offline-01/RESULT.json",
+      "sha256": "89714436ff3d66448c51848dee0e95d93654898e7239dc4d72171643d7861919"
+    },
+    {
+      "bytes": 3311,
+      "path": "research/next-session/independent-payments/recovery-transport/offline-01/SOURCE-AND-PLAN.json",
+      "sha256": "77ed3e43fefea8532aeb67d1767bdb5ba59bad14f550affcffc7bd7a24b15dc8"
+    },
+    {
+      "bytes": 26619,
+      "path": "research/next-session/independent-payments/recovery-transport/offline-01/capsule.py",
+      "sha256": "ba6fba072eb00e54297e47473c61ce7ef2230356183c9dfd60d0a8741cc492d2"
+    },
+    {
+      "bytes": 2038,
+      "path": "research/next-session/independent-payments/recovery-transport/offline-01/run.log",
+      "sha256": "403c807f34e935464962355370c6c1115b757aeb79bfa6cfb2882deccbf5ba8f"
+    },
+    {
+      "bytes": 302,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-01/CLASSIFICATION.json",
+      "sha256": "53f4310ffffaac3f07645f6a10d159cd75c1dcebe830f84d784df8ccb5d9fe78"
+    },
+    {
+      "bytes": 367,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-01/PREPARATION-EXECUTION.json",
+      "sha256": "a231b069310243bbf02b081544373d92ed0fbc5f670736a93a26d1a754487dbd"
+    },
+    {
+      "bytes": 5008,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-01/PUBLIC-PREPARATION-SOURCE-AND-PLAN.json",
+      "sha256": "b013b201b0bfdfc2eb49f71bdac528eeaa861754183497d4a6868102fcbb85da"
+    },
+    {
+      "bytes": 1006,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-01/preparation.log",
+      "sha256": "8697e30a7d8d3ef569dac99de584821a15620bad3fe3045dffe8213530e2f9b8"
+    },
+    {
+      "bytes": 300,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-02/CLASSIFICATION.json",
+      "sha256": "0fcf8cc6fc5e3553c5885fb17e66606b12598a94e41cdb6c03de08db8ffcbaa8"
+    },
+    {
+      "bytes": 463,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-02/PREPARATION-EXECUTION.json",
+      "sha256": "64ff096fa7c7fe253c6fe1151a81cbc20cf78866462a4d2903dc284439d11a3a"
+    },
+    {
+      "bytes": 5253,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-02/PUBLIC-PREPARATION-SOURCE-AND-PLAN.json",
+      "sha256": "9d088195bc1511a9f51b8c4dc165453a89b8130d18931290afd9d3552c9b7c99"
+    },
+    {
+      "bytes": 1004,
+      "path": "research/next-session/independent-payments/recovery-transport/preparation-02/preparation.log",
+      "sha256": "3d554b3bb873680e12613353b4236e9c3f3467962c3d50602144339296c4904a"
+    },
+    {
+      "bytes": 1181,
+      "path": "research/next-session/independent-payments/recovery-transport/provider-observation-01/RESULT.json",
+      "sha256": "07758c6d6b9524f8e6d7897aaeb5a3e29467d991e9cab7820b4228bf53daf9e4"
+    },
+    {
+      "bytes": 2,
+      "path": "research/next-session/independent-payments/recovery-transport/provider-observation-01/public-releases.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "bytes": 18192,
+      "path": "research/next-session/independent-payments/recovery-transport/provider-observation-01/repository.json",
+      "sha256": "57671c94947c4dc2f688490de410310c2b9d2ffaea083831ea3cf4d53f5c040c"
+    },
+    {
+      "bytes": 827,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/EXTERNAL-SELECTION.json",
+      "sha256": "0caf77d22aa2360e790d0480b47f15f32398d443ae48ccf74701b47655052645"
+    },
+    {
+      "bytes": 3555,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/PUBLICATION.json",
+      "sha256": "cd9d49b36850cd3e969f8eeffe8dbabb52c3bfd3f6014fedbd65d61cc10e4d78"
+    },
+    {
+      "bytes": 893,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/capsule.json",
+      "sha256": "a2255fa1fda71909f7802ec5bd4474519de1d2a92416c4056024032c4cfd7d89"
+    },
+    {
+      "bytes": 624,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/compact2-chunks.json",
+      "sha256": "4d4afe53cef26c3226a894d20471371399ea0bac9503e672d3df4852b762e872"
+    },
+    {
+      "bytes": 49273,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/descriptor.json",
+      "sha256": "61e0f955850f199305bb50ec57ad389aafbc645de2685ff3572d76f11d864ed8"
+    },
+    {
+      "bytes": 2137,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/history.json",
+      "sha256": "1d387cbc57a2379178763be75a2fe7a0633f9dfb2dd2ec6d93882995d7e5f750"
+    },
+    {
+      "bytes": 2724,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/parameters_manifest.json",
+      "sha256": "f27a806928b5c2409d4e4c5428a75deabef6ecf9601b60889667e90363f26043"
+    },
+    {
+      "bytes": 649,
+      "path": "research/next-session/independent-payments/recovery-transport/public-fixture/software_inventory.json",
+      "sha256": "c48751132d2b4bbb5fb99ea36390f005173d24679a6a58d73c60cfa027fe9256"
+    },
+    {
+      "bytes": 2207,
+      "path": "research/next-session/independent-payments/review/CAPACITY-CODE-REVIEW-01.md",
+      "sha256": "4ca50636edd0c7d3259b5e8010e470bcca835b571b1e3d7d1749553648d23642"
+    },
+    {
+      "bytes": 2067,
+      "path": "research/next-session/independent-payments/review/CAPACITY-CS-REVIEW-01.md",
+      "sha256": "31dd53b038371ecfae19aafc4abd31e8104a8f04a2936c7ecbab5b63aba5ddc0"
+    },
+    {
+      "bytes": 4339,
+      "path": "research/next-session/independent-payments/review/CAPACITY-DESIGN-REVIEW-01.md",
+      "sha256": "fc9cf4881feaf5a1625a14b28aaecc19627fd15d360aced0140ab5943d5c825a"
+    },
+    {
+      "bytes": 879,
+      "path": "research/next-session/independent-payments/review/CAPACITY-INDUCTION-RESULTS-01.json",
+      "sha256": "5ac57b91150c676c31f3533cb33dae503f542885e2194b45b7e9461f209607b1"
+    },
+    {
+      "bytes": 463,
+      "path": "research/next-session/independent-payments/review/CAPACITY-INVENTORY-01.json",
+      "sha256": "774c312ea5c7ea772404171fd683e6194afc6da9f9b21be660c463ce3924ce5d"
+    },
+    {
+      "bytes": 1254,
+      "path": "research/next-session/independent-payments/review/CAPACITY-PUBLIC-JOINS-01.json",
+      "sha256": "7c6583818a06bc941f1d2a3b807fccdfc23f62fdd7fb05f7d1816f541d92bcb9"
+    },
+    {
+      "bytes": 4465,
+      "path": "research/next-session/independent-payments/review/CAPACITY-RESULTS-REVIEW-01.md",
+      "sha256": "3bedef6dcd50267b548ddbfb81a88b67b457244dbb2d8fdd570c1505d85b1672"
+    },
+    {
+      "bytes": 2731,
+      "path": "research/next-session/independent-payments/review/COLD-BUILD-RESULTS-REVIEW-01.md",
+      "sha256": "4e79550b11284c8970f2767204542f95b020d7dae0a2e1b21e0366480b4b8abc"
+    },
+    {
+      "bytes": 397,
+      "path": "research/next-session/independent-payments/review/COLD-RESTORE-ITERATOR-01.json",
+      "sha256": "390b2e81e658acbff60aa0836a708aafe8c1f7368ef3ee0f942d16d62c41a09d"
+    },
+    {
+      "bytes": 515,
+      "path": "research/next-session/independent-payments/review/COLD-RESTORE-ITERATOR-02.json",
+      "sha256": "1dfc0577e3fdf879ea39196502c326694cac391c19eadb84ef4808b67ae2dfdb"
+    },
+    {
+      "bytes": 492,
+      "path": "research/next-session/independent-payments/review/COLD-RESTORE-ITERATOR-03.json",
+      "sha256": "65612c0adc7c8a7e87df880a40fa8295f278aed963c9fc493a667a1940f3bf1c"
+    },
+    {
+      "bytes": 810,
+      "path": "research/next-session/independent-payments/review/PUBLIC-RELEASE-MATERIAL-01.json",
+      "sha256": "6577c596d7d43f60676fb0bc1eb606614e1d483dae0adfb797fa66ff34f78cc3"
+    },
+    {
+      "bytes": 670,
+      "path": "research/next-session/independent-payments/review/RECOVERY-PUBLIC-JOINS-01.json",
+      "sha256": "aecbe9dd8e074df92e89df1d24fd7bee8f9ac4a3721f843d30da79fb75623796"
+    },
+    {
+      "bytes": 3628,
+      "path": "research/next-session/independent-payments/review/RECOVERY-RESULTS-REVIEW-01.md",
+      "sha256": "e2d03fc1e455991395ab36da6add5ec74353b984c5f60ea78f01fc3566919fd7"
+    },
+    {
+      "bytes": 3900,
+      "path": "research/next-session/independent-payments/review/RECOVERY-SOURCE-REVIEW-01.md",
+      "sha256": "c6df0e15c424e64d989a6c65a370f62e6a9ca3730033379cf197e658a149d7f3"
+    },
+    {
+      "bytes": 2938,
+      "path": "research/next-session/independent-payments/review/capacity_induction.py",
+      "sha256": "dde7b74c874d47d21dc11407ade4be094e864bf1121f71ae5bd266a82383ffdf"
+    },
+    {
+      "bytes": 6749,
+      "path": "research/next-session/independent-payments/review/capacity_public_join.py",
+      "sha256": "27cde0e65f0851c366bf791db6898f9c84da52bbdc753d38e202689fb2e8d6ea"
+    },
+    {
+      "bytes": 2696,
+      "path": "research/next-session/independent-payments/review/cold_restore_swap.py",
+      "sha256": "60e3cf2b2a684cd1b3f0f5af51ae63bf67965cbaffb8365df93c4d3bdf279421"
+    },
+    {
+      "bytes": 6508,
+      "path": "research/next-session/independent-payments/review/recovery_public_join.py",
+      "sha256": "11b90bad1629046509d10443678228aca4cdf303f132829be0f84d5ed455f78f"
+    },
+    {
+      "bytes": 7180,
+      "path": "research/next-session/independent-payments/settlement/VIRTUAL-P0-CONTRACT-01.md",
+      "sha256": "ef3eebd883f90be77ad1664848c12906d09530effc9b5eefde41f12567e2afb0"
+    },
+    {
+      "bytes": 19796,
+      "path": "research/next-session/independent-payments/sources/SOURCE-PINS.json",
+      "sha256": "29757267497db72f9d0389afeb487b2ed786367f615cc2c7fe9390d56027eaa8"
+    },
+    {
+      "bytes": 13538,
+      "path": "research/next-session/independent-payments/sources/SOURCE-REFRESH.md",
+      "sha256": "3f61c514d9c6090d3175c4061c9090d78a5bb23c8e8a220dbdbf3d8ce8dbd67b"
+    }
+  ],
+  "payload_bytes": 6932594,
+  "payload_count": 536,
+  "schema": "kpi-capacity-recovery-checkpoint-manifest/v1",
+  "scope": "Closed capacity/old-profile public HTTPS recovery; other work continues."
+}

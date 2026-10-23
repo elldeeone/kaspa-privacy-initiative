@@ -1,0 +1,48 @@
+{
+  "all_expected": true,
+  "checked": {
+    "ADMIT": 4095,
+    "REVEAL": 3969,
+    "private_append_2": 46878,
+    "private_append_32": 8250528,
+    "private_noappend": 7813,
+    "starting_states": 4095
+  },
+  "cryptographic_or_reachable_history_qualification": false,
+  "forbidden_premise_counterexamples": {
+    "REVEAL_of_zero_value_can_insert_without_spending": [
+      1,
+      2,
+      1
+    ],
+    "all_dummy_private_can_insert_two_without_spending": [
+      1,
+      3,
+      1
+    ],
+    "positive_admission_without_new_CM_slot": [
+      1,
+      1,
+      2
+    ]
+  },
+  "near_full_boundary_n_m_live": [
+    [
+      65535,
+      131067,
+      2
+    ],
+    [
+      65535,
+      131069,
+      1
+    ],
+    [
+      65535,
+      131071,
+      0
+    ]
+  ],
+  "schema": "independent-capacity-induction-screen/v1",
+  "scope": "COUNTER_ONLY_PUBLIC_NO_KEYS_NO_NATIVE_NO_CHAIN"
+}

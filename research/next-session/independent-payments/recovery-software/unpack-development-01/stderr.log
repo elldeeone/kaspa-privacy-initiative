@@ -1,0 +1,90 @@
+test_corrupt_header_checksum (__main__.UnpackTests.test_corrupt_header_checksum) ... ok
+test_declared_backup_hardlink_alias_before_any_content_open (__main__.UnpackTests.test_declared_backup_hardlink_alias_before_any_content_open) ... ok
+test_duplicate_effective_path_and_unlisted_member (__main__.UnpackTests.test_duplicate_effective_path_and_unlisted_member) ... 
+  test_duplicate_effective_path_and_unlisted_member (__main__.UnpackTests.test_duplicate_effective_path_and_unlisted_member) (options={'extra': True}) ... FAIL
+test_duplicate_member_selection (__main__.UnpackTests.test_duplicate_member_selection) ... ok
+test_existing_output_or_symlink_parent (__main__.UnpackTests.test_existing_output_or_symlink_parent) ... ok
+test_hidden_second_tar_or_overlong_uncompressed_stream (__main__.UnpackTests.test_hidden_second_tar_or_overlong_uncompressed_stream) ... ok
+test_member_digest_and_header_size_mismatch (__main__.UnpackTests.test_member_digest_and_header_size_mismatch) ... FAIL
+test_member_inventory_backup_alias_before_archive_read (__main__.UnpackTests.test_member_inventory_backup_alias_before_archive_read) ... ok
+test_member_path_traversal_absolute_and_aliases (__main__.UnpackTests.test_member_path_traversal_absolute_and_aliases) ... ok
+test_nonzero_trailing_padding (__main__.UnpackTests.test_nonzero_trailing_padding) ... ok
+test_pax_extension_and_gnu_longname_not_allowed (__main__.UnpackTests.test_pax_extension_and_gnu_longname_not_allowed) ... ok
+test_symlink_hardlink_and_directory_headers (__main__.UnpackTests.test_symlink_hardlink_and_directory_headers) ... 
+  test_symlink_hardlink_and_directory_headers (__main__.UnpackTests.test_symlink_hardlink_and_directory_headers) (kind=b'1') ... FAIL
+  test_symlink_hardlink_and_directory_headers (__main__.UnpackTests.test_symlink_hardlink_and_directory_headers) (kind=b'5') ... FAIL
+test_truncated_compressed_and_tar_stream (__main__.UnpackTests.test_truncated_compressed_and_tar_stream) ... FAIL
+test_unhashable_kind_is_fixed_typed_rejection (__main__.UnpackTests.test_unhashable_kind_is_fixed_typed_rejection) ... ok
+test_valid_exact_restore_no_execution_then_separate_typed_restore (__main__.UnpackTests.test_valid_exact_restore_no_execution_then_separate_typed_restore) ... ok
+test_wrong_archive_pin_before_decompress (__main__.UnpackTests.test_wrong_archive_pin_before_decompress) ... ok
+test_wrong_member_or_typed_inventory_pin (__main__.UnpackTests.test_wrong_member_or_typed_inventory_pin) ... ok
+
+======================================================================
+FAIL: test_duplicate_effective_path_and_unlisted_member (__main__.UnpackTests.test_duplicate_effective_path_and_unlisted_member) (options={'extra': True})
+----------------------------------------------------------------------
+software_bundle.Invalid: fresh-unpack-output-required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-coldbuild/test_unpack.py", line 128, in test_duplicate_effective_path_and_unlisted_member
+    with self.subTest(options=options), self.assertRaisesRegex(Invalid, '^unlisted-or-duplicate-tar-member$'):
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^unlisted-or-duplicate-tar-member$" does not match "fresh-unpack-output-required"
+
+======================================================================
+FAIL: test_member_digest_and_header_size_mismatch (__main__.UnpackTests.test_member_digest_and_header_size_mismatch)
+----------------------------------------------------------------------
+software_bundle.Invalid: fresh-unpack-output-required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-coldbuild/test_unpack.py", line 141, in test_member_digest_and_header_size_mismatch
+    with self.assertRaisesRegex(Invalid, '^noncanonical-tar-member-metadata$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^noncanonical-tar-member-metadata$" does not match "fresh-unpack-output-required"
+
+======================================================================
+FAIL: test_symlink_hardlink_and_directory_headers (__main__.UnpackTests.test_symlink_hardlink_and_directory_headers) (kind=b'1')
+----------------------------------------------------------------------
+software_bundle.Invalid: fresh-unpack-output-required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-coldbuild/test_unpack.py", line 123, in test_symlink_hardlink_and_directory_headers
+    with self.assertRaisesRegex(Invalid, '^tar-links-directories-or-extensions-forbidden$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^tar-links-directories-or-extensions-forbidden$" does not match "fresh-unpack-output-required"
+
+======================================================================
+FAIL: test_symlink_hardlink_and_directory_headers (__main__.UnpackTests.test_symlink_hardlink_and_directory_headers) (kind=b'5')
+----------------------------------------------------------------------
+software_bundle.Invalid: fresh-unpack-output-required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-coldbuild/test_unpack.py", line 123, in test_symlink_hardlink_and_directory_headers
+    with self.assertRaisesRegex(Invalid, '^tar-links-directories-or-extensions-forbidden$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^tar-links-directories-or-extensions-forbidden$" does not match "fresh-unpack-output-required"
+
+======================================================================
+FAIL: test_truncated_compressed_and_tar_stream (__main__.UnpackTests.test_truncated_compressed_and_tar_stream)
+----------------------------------------------------------------------
+software_bundle.Invalid: fresh-unpack-output-required
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/recovery-coldbuild/test_unpack.py", line 158, in test_truncated_compressed_and_tar_stream
+    with self.assertRaisesRegex(Invalid, '^incomplete-or-noncanonical-tar$'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "^incomplete-or-noncanonical-tar$" does not match "fresh-unpack-output-required"
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.094s
+
+FAILED (failures=5)

@@ -1,0 +1,30 @@
+OBSERVED_CAPS {"cpu.max": "200000 100000", "memory.max": "3221225472", "memory.swap.max": "0"}
+Running as unit: kpi-recovery-distribution-controls-7d5565770657.service; invocation ID: 4ae6290eaf07472f936afdba73f8189c
+test_actual_TLS_exact_bytes (test_public_fetch.HTTPSControls.test_actual_TLS_exact_bytes) ... ok
+test_all_missing_is_incomplete_without_output (test_public_fetch.HTTPSControls.test_all_missing_is_incomplete_without_output) ... ok
+test_corrupt_preferred_falls_back_without_splice (test_public_fetch.HTTPSControls.test_corrupt_preferred_falls_back_without_splice) ... ok
+test_existing_destination_and_symlink_parent_never_clobbered (test_public_fetch.HTTPSControls.test_existing_destination_and_symlink_parent_never_clobbered) ... ok
+test_hostname_mismatch_rejected (test_public_fetch.HTTPSControls.test_hostname_mismatch_rejected) ... ok
+test_initial_credential_query_and_wrong_pin_rejected (test_public_fetch.HTTPSControls.test_initial_credential_query_and_wrong_pin_rejected) ... ok
+test_missing_issuer_falls_back (test_public_fetch.HTTPSControls.test_missing_issuer_falls_back) ... ok
+test_real_signed_redirect_query_never_enters_receipt (test_public_fetch.HTTPSControls.test_real_signed_redirect_query_never_enters_receipt) ... ok
+test_redirect_every_hop_policy_and_limit (test_public_fetch.HTTPSControls.test_redirect_every_hop_policy_and_limit) ... ok
+test_truncation_and_declared_overflow_never_publish (test_public_fetch.HTTPSControls.test_truncation_and_declared_overflow_never_publish) ... ok
+test_untrusted_certificate_rejected (test_public_fetch.HTTPSControls.test_untrusted_certificate_rejected) ... ok
+test_corrupt_small_object_fails_before_PK_download (test_retrieve.PipelineControls.test_corrupt_small_object_fails_before_PK_download) ... ok
+test_generator_publication_alias_rejected_before_content_open (test_retrieve.PipelineControls.test_generator_publication_alias_rejected_before_content_open) ... ok
+test_missing_required_PK_chunk_is_incomplete_never_zero (test_retrieve.PipelineControls.test_missing_required_PK_chunk_is_incomplete_never_zero) ... ok
+test_recognition_actual_TLS_without_PK_requests_or_current_claim (test_retrieve.PipelineControls.test_recognition_actual_TLS_without_PK_requests_or_current_claim) ... ok
+test_reordered_chunk_index_rejected_before_chunk_requests (test_retrieve.PipelineControls.test_reordered_chunk_index_rejected_before_chunk_requests) ... ok
+test_self_consistent_index_cannot_replace_external_whole_key (test_retrieve.PipelineControls.test_self_consistent_index_cannot_replace_external_whole_key) ... ok
+test_wrong_publication_root_fails_before_any_network (test_retrieve.PipelineControls.test_wrong_publication_root_fails_before_any_network) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.145s
+
+OK
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 1.260s
+             CPU time consumed: 259ms
+                   Memory peak: 23.8M (swap: 0B)

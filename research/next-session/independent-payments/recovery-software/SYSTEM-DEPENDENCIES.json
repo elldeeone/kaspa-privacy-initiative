@@ -1,0 +1,77 @@
+{
+  "architecture": "x86_64",
+  "cargo_verbose": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)\nrelease: 1.95.0\ncommit-hash: f2d3ce0bd7f24a49f8f72d9000448f8838c4e850\ncommit-date: 2026-03-21\nhost: x86_64-unknown-linux-gnu\nlibgit2: 1.9.2 (sys:0.20.4 vendored)\nlibcurl: 8.15.0-DEV (sys:0.4.83+curl-8.15.0 vendored ssl:OpenSSL/3.5.4)\nssl: OpenSSL 3.5.4 30 Sep 2025\nos: Ubuntu 26.4.0 (resolute) [64-bit]\n",
+  "compiler_toolchain_preinstalled_not_independently_downloaded": true,
+  "runtime_ELF_dependencies": [
+    {
+      "component": "selected_prover",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "needed_shared_libraries": [
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libm.so.6",
+        "libgcc_s.so.1"
+      ],
+      "sha256": "1662fcd9a5b90b8658e07aed2250a4c9c11d2390e80d7addae717090d63fb94d"
+    },
+    {
+      "component": "crypto",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "needed_shared_libraries": [
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libgcc_s.so.1"
+      ],
+      "sha256": "6f65ec202a2d634d0cf8c5ba3034fd591790374da0ea9ea1a144470eec3143ff"
+    },
+    {
+      "component": "Node",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "needed_shared_libraries": [
+        "libdl.so.2",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libpthread.so.0",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c"
+    },
+    {
+      "component": "native_validator",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "needed_shared_libraries": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061"
+    },
+    {
+      "component": "emitter",
+      "interpreter": [
+        "/lib64/ld-linux-x86-64.so.2"
+      ],
+      "needed_shared_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "sha256": "2ed7562656cfa8344c4b3d3176278b789e0392861732a5526c9c34db9f6f469c"
+    }
+  ],
+  "rustc_verbose": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: x86_64-unknown-linux-gnu\nrelease: 1.95.0\nLLVM version: 22.1.2\n",
+  "schema": "kpx4-system-runtime-inventory/v1",
+  "system_OS_shared_libraries_trusted_not_bundled": true
+}

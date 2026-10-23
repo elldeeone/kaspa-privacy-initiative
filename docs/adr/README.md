@@ -36,6 +36,8 @@ Use [0000-template.md](0000-template.md).
 
 ## Records
 
+- [ADR-0059: Scheduled private actions with public settlement proofs](0059-scheduled-private-actions-with-public-settlement-proofs.md) — Accepted for a new unfunded two-action R0/native prototype; exact fee/body semantics and direct private fallback remain required gates.
+- [ADR-0058: Private full-note exits without commitment appends](0058-private-full-note-exits-without-commitment-appends.md) — Accepted for a separate unfunded capacity experiment; fresh parameters and proof/native validation required, old instances unchanged.
 - [ADR-0002: A0 terminal reserve-release experiment](0002-a0-reserve-release-experiment.md)
 - [ADR-0003: A1 finite successor reserve and independent terminal exit](0003-a1-successor-reserve.md)
 - [ADR-0007: bounded local proof-byte classification experiment](0007-local-proof-classification.md)

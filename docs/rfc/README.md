@@ -8,6 +8,7 @@ When a durable architecture or design decision is reached, record its rationale 
 
 ## Proposals
 
+- [RFC-0024: Independent private payments, settlement and recovery](0024-independent-private-payment-settlement-and-recovery.md) — Open; four parallel execution tracks, with separate settlement, privacy, availability and full-capacity exit gates.
 - [RFC-0001: State architecture for the first native-KAS privacy PoC](0001-state-architecture.md) — Open; no architecture selected.
 - [RFC-0006: Reusable private authorization](0006-reusable-private-authorization.md) — Bounded experiment completed; broader scale, privacy and liveness questions remain open.
 - [RFC-0010: Independent deposits without replacing saved exit proofs](0010-compact-independent-deposits.md) — Bounded v5 offline and TN10 experiment passed; broader privacy remains open.

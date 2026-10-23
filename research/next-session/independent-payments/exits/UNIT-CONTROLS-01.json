@@ -1,0 +1,16 @@
+{
+  "actual_cryptographic_relation_proof_or_native_positive": false,
+  "command": "cargo test --offline --locked --release --manifest-path poc/private-exit-stress/prover/Cargo.toml --lib",
+  "failed": 0,
+  "initial_compile_failure": {
+    "cause": "initial identifier replacement no_append_cipher_hash had no definition; an in-flight compile read the earlier file",
+    "fix": "current source retains existing terminal_cipher_hash() for SHA256(528 zero bytes)",
+    "location": "prover/src/circuit.rs:357",
+    "successful_implementation_compiled_after_fix": true
+  },
+  "passed": 29,
+  "result": "PASS",
+  "schema": "kpx-capacity-public-unit-control-observation/v1",
+  "source_freeze_sha256": "e05a40eecaa5ab45992dfafab710490390383cbd6cd3b2271be59390662654b3",
+  "test_runner_seconds": 17.62
+}

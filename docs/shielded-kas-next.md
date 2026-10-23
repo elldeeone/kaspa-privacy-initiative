@@ -1,5 +1,25 @@
 # Next focus: shielded native KAS and financial privacy
 
+## Active work — independent payments and recovery
+
+The owner authorizes all four tracks in
+[RFC-0024](rfc/0024-independent-private-payment-settlement-and-recovery.md):
+actual public settlement semantics and complete independent-sender fees,
+changed payment behavior addressing invoice/timing linkage, cold recovery with
+independent public distribution, and private exits at CM/NF capacity.
+[ADR-0058](adr/0058-private-full-note-exits-without-commitment-appends.md)
+selects only a new unfunded full-note no-append exit experiment; old instances
+are unchanged. The [execution gates](../research/next-session/independent-payments/PLAN.md)
+keep actual proof/native results, model evidence, provider retention and accepted
+testnet terminal payouts separate. The
+[new checkpoint](../research/next-session/independent-payments/RESULTS.md)
+now closes the bounded full-tree no-append proof/native gate and completes a
+public-release/clean-HTTPS-software-and-PK/original-backup/private-terminal
+withdrawal in supplied contexts. Independent retention/currentness remains
+open. ADR-0059's scheduled shared-settlement prototype and the privacy redesign
+continue; original fee/privacy failures remain. No product gate is marked
+complete merely because a bounded component passed.
+
 ## Current checkpoint — 2026-10-23
 
 The [matched batch result](../research/next-session/compact-batch/RESULTS.md)
