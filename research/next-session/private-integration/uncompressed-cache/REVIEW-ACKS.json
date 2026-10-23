@@ -1,0 +1,23 @@
+{
+  "schema": "recorded-source-review-messages/v1",
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND",
+  "scope": "Source/identity review acknowledgments recorded from independent agents; not independent native execution or cryptographic proof of correctness",
+  "reviewers": [
+    "integration_adversary/oracle_source_review",
+    "outer_proof_engineer/pk_loader_review"
+  ],
+  "conversion_source_ack": {
+    "plan_sha256": "46e028a0b77efa34ed442baa20a428099de0c4f649e926a3e11254488fb0170a",
+    "original_key_sha256": "da94deeee1e892a6173c66eeaca11e440057a8611bc48978b47eb2f447340e92",
+    "converter_sha256": "17c3a43f2d1608141540173fe22e23fb0a21336270d2ffef4f82d66729009437",
+    "cache_module_sha256": "65bbc1e02233d99ad2deddc4538e00439aca31c11ef50bd2f4e2c4b7a8dcd226",
+    "main_sha256": "40956cb137eeaab1c903ccc056a6cdb3c7c2e74bc2cb3e760b17e2098243f9fb",
+    "assessment": "No authority/provenance blocker; exact originatingkey before official serialization, freshfsyncedoutput andfullhash; UNSELECTED blocksbeforecacheIO; review didnotselect futurecache."
+  },
+  "selected_identity_ack": {
+    "root_selection_sha256": "9664be1fa203338561b10542e9851d883091eccf94055f675cd18b4bb7b91b64",
+    "compiled_identity_sha256": "a9770ef85440e9acc82ecea48b0ae6f7712bc46ad95857d3272f0ad83606d8c7",
+    "assessment": "Onlyidentityselectedflag/cachehash/provenancehashchanged; allRustunchanged; exactrootcache/provenance/origin/VKmatch; privateownedbufferhashbeforeNo gateintact."
+  },
+  "reviewers_performed_key_reads_tests_conversion_or_runtime": false
+}
