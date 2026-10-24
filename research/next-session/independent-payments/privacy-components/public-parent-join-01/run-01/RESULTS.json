@@ -1,0 +1,157 @@
+{
+  "accepted_chain_UTXO_global_unspentness_reorg_or_currentness_claimed": false,
+  "actual_parent_joins": [
+    {
+      "actor": "R1",
+      "hidden_plaintext_amounts_independently_verified_from_wire": false,
+      "input_authorization_key_equals_parent_Ko": true,
+      "input_commitment": "09d6dead0af826bc8d66b48f61a93a07dced0bf28209dc3293d72e4429e7aca659",
+      "input_commitment_equals_parent": true,
+      "input_output_pubkey": "0384bd6ce95c54515b40d8a98a887eb71e2b56bf69838d2124a4e197f1c2805d71",
+      "parent_commitment": "09d6dead0af826bc8d66b48f61a93a07dced0bf28209dc3293d72e4429e7aca659",
+      "parent_output_id": "ec7911b3ae224ca5ba5ce7fa8dec160736d82d3fa798e8de6f991d5ddce17704",
+      "parent_receiver_pubkey": "0384bd6ce95c54515b40d8a98a887eb71e2b56bf69838d2124a4e197f1c2805d71",
+      "public_fee_matches_retained_observation": true,
+      "public_fee_sum": 1,
+      "received_output_id": "ec7911b3ae224ca5ba5ce7fa8dec160736d82d3fa798e8de6f991d5ddce17704",
+      "retained_amount_equation": {
+        "fee": 1,
+        "next_output": 9,
+        "received": 10
+      }
+    },
+    {
+      "actor": "R2",
+      "hidden_plaintext_amounts_independently_verified_from_wire": false,
+      "input_authorization_key_equals_parent_Ko": true,
+      "input_commitment": "09fb3530730ed55e1a56d64b4bffe96b43a4da503f0c7868e29df5c6545317f454",
+      "input_commitment_equals_parent": true,
+      "input_output_pubkey": "02b09a0fa8b5ee51d0d7a5954bc4e956b5095fb961a03456fffe6b0e48b9cfbc2e",
+      "parent_commitment": "09fb3530730ed55e1a56d64b4bffe96b43a4da503f0c7868e29df5c6545317f454",
+      "parent_output_id": "8ffed90397fc629e9c615414696851af8534c23aa3b50a9d69cc3684a6a6124d",
+      "parent_receiver_pubkey": "02b09a0fa8b5ee51d0d7a5954bc4e956b5095fb961a03456fffe6b0e48b9cfbc2e",
+      "public_fee_matches_retained_observation": true,
+      "public_fee_sum": 1,
+      "received_output_id": "8ffed90397fc629e9c615414696851af8534c23aa3b50a9d69cc3684a6a6124d",
+      "retained_amount_equation": {
+        "fee": 1,
+        "next_output": 19,
+        "received": 20
+      }
+    }
+  ],
+  "actual_public_inspections": 3,
+  "actual_signature_or_rangeproof_validation_calls": 0,
+  "calibrated_public_field_copy_negatives": [
+    {
+      "actor": "R1",
+      "case": "same-ID-other-parent-commitment",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "parent-commitment-mismatch",
+      "keeps_original_input_ID": true,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "parent-commitment-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R1",
+      "case": "same-ID-other-parent-authorization-key",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "parent-authorization-key-mismatch",
+      "keeps_original_input_ID": true,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "parent-authorization-key-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R1",
+      "case": "cross-parent-ID-only",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "parent-commitment-mismatch",
+      "keeps_original_input_ID": false,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "parent-commitment-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R1",
+      "case": "other-complete-parent-fields-original-recipient",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "recipient-observation-parent-ID-mismatch",
+      "keeps_original_input_ID": false,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "recipient-observation-parent-ID-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R1",
+      "case": "absent-parent-ID",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "missing-parent-output-ID",
+      "keeps_original_input_ID": false,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "missing-parent-output-ID",
+      "rejected": true
+    },
+    {
+      "actor": "R2",
+      "case": "same-ID-other-parent-commitment",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "parent-commitment-mismatch",
+      "keeps_original_input_ID": true,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "parent-commitment-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R2",
+      "case": "same-ID-other-parent-authorization-key",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "parent-authorization-key-mismatch",
+      "keeps_original_input_ID": true,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "parent-authorization-key-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R2",
+      "case": "cross-parent-ID-only",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "parent-commitment-mismatch",
+      "keeps_original_input_ID": false,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "parent-commitment-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R2",
+      "case": "other-complete-parent-fields-original-recipient",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "recipient-observation-parent-ID-mismatch",
+      "keeps_original_input_ID": false,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "recipient-observation-parent-ID-mismatch",
+      "rejected": true
+    },
+    {
+      "actor": "R2",
+      "case": "absent-parent-ID",
+      "cryptographic_validation_run": false,
+      "expected_rejection": "missing-parent-output-ID",
+      "keeps_original_input_ID": false,
+      "mutated_public_field_copy_not_signed_transaction": true,
+      "observed_rejection": "missing-parent-output-ID",
+      "rejected": true
+    }
+  ],
+  "classification": "READ_ONLY_EXISTING_PUBLIC_OBJECTS_NO_CHAIN_OR_PRIVACY_QUALIFICATION",
+  "new_signatures_proofs_keys_random_draws_or_upstream_changes": 0,
+  "original_standalone_crypto_validation_is_separate_retained_evidence": true,
+  "parent_ID_commitment_and_Ko_all_match": true,
+  "retained_recipient_crypto_result_matches_input_manifest": true,
+  "retained_recipient_result_sha256": "302c52e137e1fa69b4ee2f0d1f0823da30e85895a071a9ba58af947195d32195",
+  "run_id": "MWEB-READ-ONLY-PUBLIC-PARENT-JOIN-01",
+  "schema": "kpi-MWEB-explicit-public-parent-field-join/v1",
+  "source_sha256": "e716347a15075e8b7c38c027e72f8b3d853bba4ea11f9c5c0c886cdd6377239e",
+  "two_distinct_received_parent_outputs": true
+}

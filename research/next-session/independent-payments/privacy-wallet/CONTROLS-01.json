@@ -1,0 +1,20 @@
+{
+  "classification": "PUBLIC_DEVELOPMENT_RECEIPT_CRYPTO_AND_STATE_NOT_NATIVE_OR_PROOF",
+  "command": "python3 -B -m unittest -v test_payment.py",
+  "full_lifecycle_completed": false,
+  "new_relation_setup_parameters_domain": false,
+  "privacy_fee_security_or_currentness_qualified": false,
+  "proof_PK_native_node_network_or_main_seed_read": false,
+  "retained_development_corrections": [
+    "Initial test fee fixture subtracted412 rather than41200sompi; corrected to recorded compactP0 fee18826500.",
+    "Fake small program encoded with PUSHDATA1; enlarged explicitly non-native fixture to exercise the required currentPUSHDATA2 frame.",
+    "Spent-claim control initially hit backing guard first; preparation now rejects known spent NF before private derivation."
+  ],
+  "schema": "kpx4-single-invoice-wallet-public-controls/v1",
+  "shared_settlement_authority_or_old_proof_reuse_claimed": false,
+  "source_freeze_sha256": "e4abc86d6e1fcc0ad21408ff22a87cec787a63a0605d5bcc5c18989c30983bf9",
+  "status": "PASS",
+  "test_count": 8,
+  "unittest_reported_wall_seconds": 1.858,
+  "working_directory": "poc/independent-single-payment"
+}

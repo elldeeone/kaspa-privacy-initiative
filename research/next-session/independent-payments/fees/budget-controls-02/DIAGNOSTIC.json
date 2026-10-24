@@ -1,0 +1,19 @@
+{
+  "CPUQuota_percent": 200,
+  "MemoryMax_bytes": 1073741824,
+  "additional_failed_case_diagnostic_calls": 1,
+  "cause": "Precompile wraps committed-budget error Display inside ZkIntegrity, not Debug variant name",
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND_NO_MAIN_DATA",
+  "first_attempt": "BUDGET_CONTROLLER_ASSERTION_MISMATCH_NOT_NATIVE_VALIDITY_FAILURE",
+  "first_attempt_native_calls": 3,
+  "first_attempt_peak_memory_display": "38M",
+  "first_attempt_service_seconds": 0.225,
+  "fix": "Require exact wrapped meter-message structure plus attempted-used > actual committed limit; no rejection predicate weakened to generic failure",
+  "kernel_remaining_process_observation": null,
+  "schema": "kpx5-public-budget-controller-diagnostic/v1",
+  "successful_complete_campaign_native_calls": 9,
+  "successful_peak_memory_display": "39.7M",
+  "successful_service_seconds": 0.487,
+  "swap_bytes": 0,
+  "total_actual_native_calls": 13
+}

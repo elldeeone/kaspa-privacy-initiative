@@ -1,0 +1,20 @@
+{
+  "command": "python3 -B -m unittest -v test_bound",
+  "coverage": [
+    "complete canonical input overcharge and selectedprogram",
+    "wrongprogram and wrongtail failclosed",
+    "maximum conditional alternative retained",
+    "unsupported opcode/dynamic width/stackshape failclosed",
+    "i64MIN ninebyte and opaque112byte literal",
+    "inexact OP_SIZE refused; fixed initialSIZE allowed"
+  ],
+  "limits": {
+    "CPUQuota_percent": 200,
+    "MemoryMax_bytes": 2147483648
+  },
+  "native_VM_proof_PK_backup_seed_or_network_run": false,
+  "reported_seconds": 0.008,
+  "schema": "kpx5-private-source-bound-controls/v1",
+  "test_source_sha256": "b2ff0ece322944cd2e08f0f1d5516905c4b0f2e95c493b4b4fb2f0ca8c5d1710",
+  "tests_passed": 6
+}

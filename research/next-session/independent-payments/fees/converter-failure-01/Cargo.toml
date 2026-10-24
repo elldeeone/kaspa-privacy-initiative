@@ -1,0 +1,26 @@
+[package]
+name = "kpi-shared-settlement-host"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+kpi-shared-settlement-public = { path = "../common" }
+kpi-private-note-proof = { path = "../../private-note-proof" }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["client", "disable-dev-mode"] }
+risc0-binfmt = "=3.0.4"
+risc0-zkos-v1compat = "=2.2.2"
+risc0-zkp = { version = "=3.0.4", default-features = false }
+risc0-circuit-recursion = { version = "=4.0.4", default-features = false }
+bincode = "=1.3.3"
+serde_json = "=1.0.145"
+hex = "=0.4.3"
+ark-bn254 = "=0.6.0"
+ark-groth16 = "=0.6.0"
+ark-serialize = "=0.6.0"
+risc0-groth16 = { version = "=3.0.4", default-features = false, features = ["std"] }
+
+[profile.release]
+debug = 0

@@ -16,11 +16,26 @@ testnet terminal payouts separate. The
 now closes the bounded full-tree no-append proof/native gate and completes a
 public-release/clean-HTTPS-software-and-PK/original-backup/private-terminal
 withdrawal in supplied contexts. Independent retention/currentness remains
-open. ADR-0059's scheduled shared-settlement prototype and the privacy redesign
-continue; original fee/privacy failures remain. No product gate is marked
-complete merely because a bounded component passed.
+open. ADR-0059 now has genuine two-owner scheduled private proofs, a 408.730-second
+CUDA Succinct receipt, same-claim compression and actual immutable W native Full
+acceptance at an 18,508,000-sompi outer fee. The current private prover also
+cold-rebuilds byte for byte from public source/dependencies. Both original
+backups now recover incoming payment/change on that profile and generate genuine two-real-input private exits from downloaded software/PK,
+ending at zero reserve. Outer plus private-exit fees total 52,512,100 sompi
+(2.625605% of the two declared 10-KAS synthetic payments before entry costs).
+The stronger privacy controls and actual upstream MWEB recipient/spend component
+retain the demonstrated observer failures; original fee/privacy failures
+remain. No product gate is marked complete merely because a bounded component passed.
 
-## Current checkpoint — 2026-10-23
+The next implementation package is strict two-owner GN2 funding and accepted-W
+history/current-head reconciliation on a fresh fundable profile; see the
+[source-reviewed readiness design](../research/next-session/independent-payments/testnet-next/DESIGN-READINESS.md).
+For privacy, first resolve the established owner-private construction/binding
+contract in the [decision note](../research/next-session/independent-payments/privacy-next/DECISION-NEXT.md),
+before another prover or heldout study. Independent recovery retention still
+requires a separately controlled destination.
+
+## Previous checkpoint — 2026-10-23
 
 The [matched batch result](../research/next-session/compact-batch/RESULTS.md)
 under ADR0057 now completes 33 genuine proofs and 34 native Full transactions:

@@ -1,0 +1,52 @@
+{
+  "private_runtime_paths_included": false,
+  "red_failure_is_expected_calibrated_test_not_native_or_funding_failure": true,
+  "runs": [
+    {
+      "CPUQuota_percent": 200,
+      "MemoryMax_bytes": 6442450944,
+      "MemorySwapMax_bytes": 0,
+      "exit_status": 0,
+      "gnu_time_max_RSS_kB": 59292,
+      "gnu_time_system_seconds": 0.02,
+      "gnu_time_user_seconds": 0.16,
+      "name": "original-eight",
+      "observation_source": "systemd-run --wait completion output captured in task transcript",
+      "observed_cgroup_cpu_ms": 193,
+      "observed_cgroup_memory_peak_formatted": "36M",
+      "observed_service_runtime_ms": 203,
+      "observed_swap_formatted": "0B"
+    },
+    {
+      "CPUQuota_percent": 200,
+      "MemoryMax_bytes": 6442450944,
+      "MemorySwapMax_bytes": 0,
+      "exit_status": 1,
+      "gnu_time_max_RSS_kB": 57048,
+      "gnu_time_system_seconds": 0.01,
+      "gnu_time_user_seconds": 0.06,
+      "name": "expected-red",
+      "observation_source": "systemd-run --wait completion output captured in task transcript",
+      "observed_cgroup_cpu_ms": 85,
+      "observed_cgroup_memory_peak_formatted": "32.8M",
+      "observed_service_runtime_ms": 95,
+      "observed_swap_formatted": "0B"
+    },
+    {
+      "CPUQuota_percent": 200,
+      "MemoryMax_bytes": 6442450944,
+      "MemorySwapMax_bytes": 0,
+      "exit_status": 0,
+      "gnu_time_max_RSS_kB": 59232,
+      "gnu_time_system_seconds": 0.05,
+      "gnu_time_user_seconds": 0.23,
+      "name": "green-eight-plus-addon",
+      "observation_source": "systemd-run --wait completion output captured in task transcript",
+      "observed_cgroup_cpu_ms": 292,
+      "observed_cgroup_memory_peak_formatted": "42.2M",
+      "observed_service_runtime_ms": 305,
+      "observed_swap_formatted": "0B"
+    }
+  ],
+  "schema": "independent-payment-control-resources/v1"
+}

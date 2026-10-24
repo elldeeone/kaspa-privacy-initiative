@@ -1,0 +1,8 @@
+{
+  "schema": "kpx5-public-transcript-launch-failure/v1",
+  "reason": "systemd user service defaults to home; initial relative script path resolved under /home/luke",
+  "script_executed": false,
+  "native_VM_G16_or_proof_executed": false,
+  "exit_code": 2,
+  "fix": "Use explicit WorkingDirectory on a fresh unit and retain this failed launch."
+}

@@ -1,0 +1,54 @@
+{
+  "DESIGN_sha256": "821e602139b33a52715217cb6411fbf377134d77d15ed5bf0ca7c84da780d22f",
+  "actors": [
+    {
+      "change": 14,
+      "fee": 1,
+      "input": 25,
+      "label": "A",
+      "payment": 10
+    },
+    {
+      "change": 19,
+      "fee": 1,
+      "input": 40,
+      "label": "B",
+      "payment": 20
+    }
+  ],
+  "aggregation_process_separate": true,
+  "amount_unit": "integer unfunded MWEB test amount; not native KAS or real LTC",
+  "entropy_bridge": "upstream GetStrongRandBytes fixture API backed by installed OpenSSL RAND_bytes; no production claim",
+  "fixed_negative_controls": [
+    "duplicate input/kernel aggregation",
+    "dropped output balance",
+    "mutated rangeproof direct validator",
+    "invalid signature direct validator"
+  ],
+  "fresh_verification_process": true,
+  "frozen_utc": "2026-10-23T23:07:12.513952+00:00",
+  "owner_processes": 2,
+  "preaggregate_observer_mapping_is_retained_negative": true,
+  "schema": "kpi-mweb-component-preregistered-plan/v1",
+  "singleton_and_spent_output_id_leakage_retained": true,
+  "source_files": [
+    {
+      "bytes": 2189,
+      "path": "poc/mweb-component-screen/CMakeLists.txt",
+      "sha256": "cda3713bae3d8dfe061645876e133381c3f9e16fde3b6c27830f140d2124fd04"
+    },
+    {
+      "bytes": 282,
+      "path": "poc/mweb-component-screen/entropy_bridge.cpp",
+      "sha256": "53f161ae49f48f6fc5ff82d2d0c8ea6bc0aff75a37457c461c026254ca568145"
+    },
+    {
+      "bytes": 8013,
+      "path": "poc/mweb-component-screen/screen.cpp",
+      "sha256": "5d101e7e22f73fd6393ecd19ef116e8e66181dd8f62dc7936837376d833d8a9d"
+    }
+  ],
+  "threshold_or_anonymity_qualification_claimed": false,
+  "upstream_commit": "ec1b6489a900d09cf5991e220dce089c77a232a2",
+  "validation": "unmodified upstream signature, 64bit rangeproof, kernel and stealth balance plus ordering/duplicate checks"
+}

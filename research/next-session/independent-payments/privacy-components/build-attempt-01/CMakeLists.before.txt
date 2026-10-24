@@ -1,0 +1,43 @@
+cmake_minimum_required(VERSION 3.16)
+project(kpi_mweb_component_screen LANGUAGES C CXX)
+if(NOT DEFINED LITECOIN_SOURCE OR NOT DEFINED FMT_SOURCE)
+  message(FATAL_ERROR "Explicit pinned LITECOIN_SOURCE and FMT_SOURCE required")
+endif()
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -g0 -ffunction-sections -fdata-sections")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -g0 -ffunction-sections -fdata-sections")
+find_package(OpenSSL REQUIRED COMPONENTS Crypto)
+set(UP ${LITECOIN_SOURCE}/src)
+add_library(upstream_secp STATIC ${UP}/secp256k1-zkp/src/secp256k1.c)
+target_include_directories(upstream_secp PRIVATE ${UP}/secp256k1-zkp ${UP}/secp256k1-zkp/src)
+target_compile_definitions(upstream_secp PRIVATE HAVE_CONFIG_H=1)
+add_library(upstream_mweb STATIC
+  ${UP}/libmw/src/common/Logger.cpp
+  ${UP}/libmw/src/crypto/Bulletproofs.cpp
+  ${UP}/libmw/src/crypto/ConversionUtil.cpp
+  ${UP}/libmw/src/crypto/Hasher.cpp
+  ${UP}/libmw/src/crypto/Pedersen.cpp
+  ${UP}/libmw/src/crypto/PublicKeys.cpp
+  ${UP}/libmw/src/crypto/Schnorr.cpp
+  ${UP}/libmw/src/crypto/SecretKeys.cpp
+  ${UP}/libmw/src/models/crypto/Commitment.cpp
+  ${UP}/libmw/src/models/crypto/PublicKey.cpp
+  ${UP}/libmw/src/models/tx/Input.cpp
+  ${UP}/libmw/src/models/tx/Kernel.cpp
+  ${UP}/libmw/src/models/tx/Output.cpp
+  ${UP}/libmw/src/models/tx/Transaction.cpp
+  ${UP}/libmw/src/models/tx/TxBody.cpp
+  ${UP}/libmw/test/framework/src/TxBuilder.cpp
+  ${UP}/util/strencodings.cpp
+  ${UP}/support/cleanse.cpp
+  ${UP}/crypto/sha256.cpp
+  ${UP}/uint256.cpp)
+target_include_directories(upstream_mweb PUBLIC ${UP} ${UP}/libmw/include
+  ${UP}/libmw/test/framework/include ${UP}/libmw/deps/caches/include
+  ${UP}/libmw/deps/ghc/include ${UP}/libmw/deps/mio/include
+  ${UP}/libmw/deps/crypto/include ${UP}/secp256k1-zkp/include ${FMT_SOURCE}/include)
+target_compile_definitions(upstream_mweb PUBLIC FMT_HEADER_ONLY=1)
+add_executable(mweb_component_screen screen.cpp entropy_bridge.cpp)
+target_link_libraries(mweb_component_screen PRIVATE upstream_mweb upstream_secp OpenSSL::Crypto pthread)
+target_link_options(mweb_component_screen PRIVATE -Wl,--gc-sections)

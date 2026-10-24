@@ -94,8 +94,14 @@ terminal proof also pass in supplied contexts; separately administered
 retention and fresh accepted-state reconciliation remain open.
 
 [ADR-0059](../adr/0059-scheduled-private-actions-with-public-settlement-proofs.md)
-now selects an unfunded scheduled two-P0-action/R0/native prototype. Virtual
-authorization, acyclic exact financial projection, sumFi=actualF and a direct
-private fallback are mandatory. No old pool upgrade or fee/privacy target
-qualification follows. Track current results in the
+now has genuine scheduled two-P0-action owner proofs, a CUDA Succinct receipt,
+same-claim Groth16 compression and actual W native Full/all-engine acceptance.
+The outer fee is 18,508,000 sompi, with exact sumFi=actualF and no surplus
+output. Virtual children remain virtual; actual physical W history is the
+authority for later wallet recovery. Both original backups now recover their
+incoming payment and change, make genuine two-real-input private exits with HTTPS-restored software/parameters
+and drain the reserve. Total outer/two-exit fees are 52,512,100 sompi; this
+exceeds 2% for the two declared 10-KAS synthetic payments even before entry.
+No old pool upgrade, accepted-chain settlement or fee/privacy qualification
+follows. Track current results in the
 [execution checkpoint](../../research/next-session/independent-payments/RESULTS.md).

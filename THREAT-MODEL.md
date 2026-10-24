@@ -32,7 +32,17 @@ native code. Its journal must not contain a self-referential own-body/proof/imag
 hash. A pending virtual receipt is not settled value. Same original NFs must
 bind aggregate and direct private fallback; missing operator/outer assets cannot
 disable that fallback. Public output partitions persist through ordinary
-aggregation, and per-recipient exit fees remain payable.
+aggregation, and per-recipient exit fees remain payable. Genuine outer/native
+acceptance now exercises that exact binding. SDK raw G2 coordinates must be
+parsed as canonical fields with independent curve/subgroup/nonidentity checks,
+not interpreted as Arkworks serialization flags. A selected runtime archive
+does not establish setup honesty or accepted-chain backing. Recovery replays
+another owner's canonical protocol compute budget through fresh native Full;
+local budget optimization must not become an ownership or history authority.
+A same-backup two-real-input exit derives its payout key from the minimum
+physical owned position and excludes both real input keys; shuffled proof slots
+must not change the deterministic payout key. No private owner map or retained
+second seed may substitute for that reconstruction.
 
 [ADR-0057](docs/adr/0057-matched-batch-proofs-and-portable-recovery.md)
 adds fixed proof-role/mode/list binding and sparse recovery obligations. Real
@@ -42,7 +52,8 @@ bytes only against an independently selected authority; it cannot select code,
 recreate missing randomized parameters/receipts or establish current consensus.
 Fresh current-state reconciliation and all original native financial checks
 remain required. Bounded local paths/mirror isolation do not prove durable
-provider independence. Full-capacity private exits remain unselected/open.
+provider independence. ADR0057 left full-capacity private exits open; the
+separate ADR0058 capacity experiment above now exercises that boundary.
 The matched32 local drainage and actual fallback compact-PK recovery exercise
 those boundaries with genuine proofs and original backups. Supplied UTXO
 contexts still assert backing/currentness; local mirrors do not supply retention

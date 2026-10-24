@@ -1,0 +1,42 @@
+{
+  "accepted_backing_currentness_privacy_funding_or_production_claimed": false,
+  "classification": "UNFUNDED_PUBLIC_NATIVE_EMITTER_AND_BODY_ORACLE_NOT_RECEIPT_OR_CHAIN_QUALIFICATION",
+  "distinct_templates": {
+    "ACTUAL_R0_W": "KPX5WS01 always verifies the real compressed receipt. No runtime or payload switch disables verification.",
+    "UNSAFE_HASH_ORACLE_ONLY": "KPX5WO01 is a different program/P2SH. Public expected Jhash is SSproofslot first32 bytes with zero96 suffix, not in its own body projection; only a codec diagnostic."
+  },
+  "independent_image_requirement": "Compile guest before selecting outer image in W; external trusted software checks returned image, never takes an adjacent image as authority. Shared child profile contains no outer image.",
+  "input_covenant_scope": "Host oracle requires exact None. Native opcode exposes only covenantID or ZERO sentinel; canonical W outputs have no covenant, with valid bootstrap/reachable starting state an external premise.",
+  "native_upstream": "kaspanet/rusty-kaspa@01b532e8b553523216471682649693af92f0fd16",
+  "private_inputs_PK_wallet_seed_network_or_native_VM_in_emitter": false,
+  "reused": {
+    "capacity_private_policy": "Public helpers/private_branch/private_payout_index copied; mode0 no-CM remains independent of terminal reserve. W dispatch restricts compact modes0/2 and supplies the same trusted compact VK to the otherwise unreachable wide arm. No admission/revealing/admin branch is emitted.",
+    "new_application_semantics": "Actual input/current childstate/reserve, exactly two compact/P0 records, exact allocated fee and immutable W output; journal424 and financial projection8301 derived through introspection. Child D remains the note/state/NF namespace; wrapper D only scopes outer journal/profile.",
+    "receipt_claim": "Official fixed VK/control root/control ID/successful assumption-free claim and five-public-input split adapted field-for-field from checked public-state-native-check/vProgs; ISC notice retained."
+  },
+  "risc0_sdk": "3.0.3",
+  "schema": "kpx5-native-wrapper-source-reuse/v1",
+  "sources": [
+    {
+      "path": "poc/private-exit-stress/native/src/policy.rs",
+      "sha256": "315655892e55a06c3e69e0c9a08b0c764697497a2e6938e8c4c78914f806420b"
+    },
+    {
+      "path": "poc/public-state-native-check/src/script.rs",
+      "sha256": "9d7710e2efdc5d542746a5288f1de7f2c5bcc33af5a678e67429b0dbc8157df2"
+    },
+    {
+      "path": "poc/public-state-native-check/src/receipt.rs",
+      "sha256": "34461fa8293d5801e55fd303c1577508a0478114356baf47b00d63eea191e47d"
+    },
+    {
+      "path": "poc/public-state-native-check/NOTICE",
+      "sha256": "330e989a8031c116357ea3f50a6c21857c1688bb32cc6692119fb1e41e8dcaf1"
+    },
+    {
+      "path": "poc/shared-settlement-proof/child-profile.json",
+      "sha256": "492a0981ad04891ea68243f2c8221976f436501acf940e42211bb8773744fbdd"
+    }
+  ],
+  "workspace_base": "5aaf99532d8714e510d421102df719f60f54d073"
+}

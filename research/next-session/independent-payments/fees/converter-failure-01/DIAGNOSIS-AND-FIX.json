@@ -1,0 +1,62 @@
+{
+  "actual_fixed_conversion": {
+    "host_sha256": "c9bbdc8cfb06c0844dc8cbfb72b173f0d2671e7ebf1a7d90692bc59e17985300",
+    "proof_bytes": 128,
+    "proof_sha256": "4e6e4e0eb6122207d951b5069c16cf7ee03a428b1685543407d75f5aada3eeba",
+    "swap_bytes": 0,
+    "systemd_cpu_seconds": 0.015,
+    "systemd_displayed_peak": "2.6M",
+    "systemd_seconds": 0.029
+  },
+  "controls": [
+    "G1 generator and its negative accepted",
+    "G2 generator and its negative accepted",
+    "injected affine sign flags rejected",
+    "wrong coordinate endianness rejected",
+    "wrong extension-field component order rejected",
+    "malformed coordinate width rejected",
+    "off-curve canonical coordinates rejected",
+    "noncanonical field bytes rejected",
+    "zero/identity rejected"
+  ],
+  "extra_attempts": [
+    {
+      "exit_code": 101,
+      "name": "05",
+      "reason": "Test array repetition required Copy for Vec; fixed with std::array::from_fn",
+      "swap_bytes": 0,
+      "systemd_cpu_seconds": 2.716,
+      "systemd_displayed_peak": "260.7M",
+      "systemd_seconds": 2.456
+    },
+    {
+      "name": "06",
+      "swap_bytes": 0,
+      "systemd_cpu_seconds": 1.503,
+      "systemd_displayed_peak": "217.8M",
+      "systemd_seconds": 0.831,
+      "test_passed": true
+    },
+    {
+      "name": "07",
+      "release_build_passed": true,
+      "swap_bytes": 0,
+      "systemd_cpu_seconds": 2.927,
+      "systemd_displayed_peak": "225.7M",
+      "systemd_seconds": 1.261
+    }
+  ],
+  "failure": "Canonical SDK G2 coordinates rejected by an affine-serialization roundtrip that adds an Ark SW y-sign bit.",
+  "filtered_Rust_tests": {
+    "failed": 0,
+    "passed": 1
+  },
+  "financial_check_removed": false,
+  "fix": "Keep checked curve/subgroup decode and nonidentity; canonical-serialize the FIELD x and y values, then compare all coordinate bytes. No bit masking and no A negation.",
+  "guest_or_payment_or_outer_proof_repeated": false,
+  "independent_source_review": "ACK before conversion/native handoff",
+  "original_failed_source_pins": "All three original host files reconstructed and asserted byte-identical to R0-RUNTIME-SELECTION-01 source digests; original frozen ELF also retained.",
+  "primary_source": "ark-ec0.6.0 short_weierstrass/mod.rs125-145 writes y with point.to_flags even for Compress::No. SDK Seal carries field coordinates only.",
+  "same_original_receipt": true,
+  "schema": "kpx5-native-converter-diagnosis/v1"
+}

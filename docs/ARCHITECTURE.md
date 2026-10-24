@@ -1,7 +1,8 @@
 # Candidate Architecture
 
-**Status:** earlier native-KAS lifecycles are confirmed on TN10; the current
-matched batch is validated locally. Production architecture remains unselected.
+**Status:** earlier native-KAS lifecycles are confirmed on TN10. The matched
+batch and two-owner shared settlement/private drainage are validated locally.
+Production architecture remains unselected.
 
 [RFC-0024](rfc/0024-independent-private-payment-settlement-and-recovery.md)
 now coordinates independent-sender settlement fees, the demonstrated financial
@@ -25,9 +26,18 @@ a clean owner restores them and generates a genuine local terminal withdrawal
 from its original known-public canary backup. These are supplied-context
 experiments, not accepted-chain or separately administered retention evidence.
 [ADR-0059](adr/0059-scheduled-private-actions-with-public-settlement-proofs.md)
-selects the next unfunded two-action public settlement proof/native prototype,
-with exact fee allocation, acyclic body binding and private fallback. Financial
-privacy, low-demand fees and live readiness remain open.
+now has a genuine two-owner public-settlement receipt, same-claim Groth16
+compression and actual immutable W native Full/all-engine acceptance. The
+18,508,000-sompi outer fee is exactly allocated between the two owner-local
+proofs; continuation reserve is 3,981,492,000 sompi. Genuine bytes and coherent
+body rejection controls preserve the acyclic financial binding. Current
+private-prover source also cold-rebuilds exactly from all 19 current files and
+148 locked dependency packages. Both original backups now recover their
+incoming payment and change on the same W, generate two genuine two-real-input private exits using HTTPS-restored
+software/parameters and drain all 3,981,492,000 remaining sompi. Total outer plus
+exit fees are 52,512,100 sompi, or 2.625605% of two declared 10-KAS synthetic
+payments before entry costs. Financial privacy, low-demand fees, accepted-head reconciliation and independent retention remain
+open; public synthetic state is not live readiness.
 
 [ADR-0057](adr/0057-matched-batch-proofs-and-portable-recovery.md) selects
 separate fixed compact2/wide32 Groth16 relations for the measured compact native

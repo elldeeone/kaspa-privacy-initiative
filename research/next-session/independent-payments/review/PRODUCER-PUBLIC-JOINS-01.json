@@ -1,0 +1,87 @@
+{
+  "actual_wrapper_receipt_native_acceptance_chain_backing_currentness_or_privacy_claim": false,
+  "all_public_joins_pass": true,
+  "child_profile": {
+    "child_domain_hex32": "d55d006a9bb253963db4f4e44495e60333df9fcc83c1c3ae220806d0f326a0bb",
+    "child_parameter_manifest_sha256": "d6f0e2bbafab39a72106ef0a0ebd6483362a858926117721a8be5aa37a459011",
+    "child_profile_sha256": "492a0981ad04891ea68243f2c8221976f436501acf940e42211bb8773744fbdd",
+    "child_template_tail_sha256": "4ada93d72649bd20ec6b64c97038da08843135920aae131446c1f00dd6aea0d1",
+    "child_vk_sha256": "074c06a5f21f46c7c87a948c8ca6a0896198cc9fc255b8d5e08cc01ceb73a987",
+    "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND_UNFUNDED_BENCHMARK_ONLY",
+    "wrapper_domain_hex32": "becdc8b30d3724ec79c773f0af662e3e25695b9d9a203d636fc3f6aef5c3b067"
+  },
+  "final_run_G16_verifications": 2,
+  "final_virtual_reserve_sompi": 3981492000,
+  "finite_public_payloads_hashed": 26,
+  "manifest_sha256": "07e32656d86f4e81a8a0dcba96d4c65765d01bc7da277d49f90ab5decb2b4ec4",
+  "native_VM_or_proving_or_PK_backup_witness_access": false,
+  "public_case_json_is_pre_ID_mass_zero_proof_template_component_embeds_actual_case": true,
+  "results": [
+    {
+      "CM_cursor_after": 4,
+      "NF_count_after": 3,
+      "authorization_sha256": "1b74e475f4a78827c3f8f2e00007c0b0d2ace8532e5f63dd4025f62c82ac9eab",
+      "component": 0,
+      "fee_sompi": 9254000,
+      "genuine_G16_independently_verified": true,
+      "mode": 2,
+      "native_payout_sompi": 0,
+      "previous_point": {
+        "index": 0,
+        "transactionId": "976583fb0f7ed5a8670820df0f891065e2c895bae635f78092122f69cc2fcb8d"
+      },
+      "proof_sha256": "5a1b7f642157e71a73aa9712b9e02ece04ef55ac78b24a4ec1a865ff80486912",
+      "public_transition_semantics_pass": true,
+      "reserve_after_sompi": 3990746000,
+      "role": "compact2",
+      "virtual_successor_point": {
+        "index": 0,
+        "transactionId": "ce5c84d57d7bf3f6523bbddf8a385a12b733ba96fbc3b8a30456ec06908287d8"
+      }
+    },
+    {
+      "CM_cursor_after": 6,
+      "NF_count_after": 5,
+      "authorization_sha256": "e5693d3e9057b31fe73451cf0d21dc87b51f80cd127a4bcf4298a631bf58db47",
+      "component": 1,
+      "fee_sompi": 9254000,
+      "genuine_G16_independently_verified": true,
+      "mode": 2,
+      "native_payout_sompi": 0,
+      "previous_point": {
+        "index": 0,
+        "transactionId": "ce5c84d57d7bf3f6523bbddf8a385a12b733ba96fbc3b8a30456ec06908287d8"
+      },
+      "proof_sha256": "0100c396dfa4e789929a00b5c79be56b0ae0f048a851298fa1ecff88e130c8ca",
+      "public_transition_semantics_pass": true,
+      "reserve_after_sompi": 3981492000,
+      "role": "compact2",
+      "virtual_successor_point": {
+        "index": 0,
+        "transactionId": "e5672747cbf1bdb383b91f2db8b7de04cd883128e81e4140fdddcfb49b8dfe89"
+      }
+    }
+  ],
+  "reviewer_harness_corrections": [
+    {
+      "G16_calls": 0,
+      "attempt": 1,
+      "cause": "draft_is_zero_ID_proof_template_not_final_component"
+    },
+    {
+      "G16_calls": 1,
+      "attempt": 2,
+      "cause": "second_draft_also_has_uncommitted_mass_zero_before_normalization"
+    }
+  ],
+  "schema": "independent-public-two-P0-component-join/v1",
+  "source_sha256s": {
+    "poc/shared-settlement-verifier/capacity_g16.py": "155d29db45d4508f8ee1604ea403f2acea38f9e281387317c6683e731a86dbb4",
+    "poc/shared-settlement/policy.py": "982ec706f6a3d5d85b223e1c642ee0466e1d35e5047e339da039414930e40b68",
+    "poc/shared-settlement/selected.py": "0b95317f4076dc15e15cec546ba5fa778f7a3d8f7f4f6491cb00909f01872772",
+    "poc/shared-settlement/wire.py": "64598cb094f8821c66777278169a33a8a0b15c05f220f0d990a8d0c793360044"
+  },
+  "starting_reserve_sompi": 4000000000,
+  "total_campaign_G16_verifications": 3,
+  "total_component_fees_sompi": 18508000
+}

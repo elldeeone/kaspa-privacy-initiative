@@ -1,0 +1,76 @@
+{
+  "CPU_seconds": 2.934,
+  "cgroup_limits": {
+    "CPUQuota": "400%",
+    "MemoryMax": "4G",
+    "MemorySwapMax": 0
+  },
+  "classification": "PUBLIC_FIXTURES_SOURCE_AND_SEMANTICS_ONLY",
+  "command": "python3 -B poc/shared-settlement/run.py --output research/next-session/independent-payments/settlement/attempt-03/RESULTS.json",
+  "earlier_success_with_less_detailed_summary_retained": "../attempt-02/RESULTS.json",
+  "explicit_working_directory": true,
+  "files": [
+    {
+      "bytes": 6103,
+      "path": "poc/shared-settlement/wire.py",
+      "sha256": "64598cb094f8821c66777278169a33a8a0b15c05f220f0d990a8d0c793360044"
+    },
+    {
+      "bytes": 12006,
+      "path": "poc/shared-settlement/policy.py",
+      "sha256": "4e58f5d314e2f1d8fb191dd9ea33bb29f994a322d7556f1eacc1de0d9a27d498"
+    },
+    {
+      "bytes": 3511,
+      "path": "poc/shared-settlement/fixtures.py",
+      "sha256": "8e8d5c33aea4f36fd2136fd16a85433158da9c307990ad96f391f93bc342e4e6"
+    },
+    {
+      "bytes": 5745,
+      "path": "poc/shared-settlement/transcript.py",
+      "sha256": "2b5eae13682885f522f4f13683cf232820caab92d1635f1f5c9adf0a66a0b55e"
+    },
+    {
+      "bytes": 12589,
+      "path": "poc/shared-settlement/run.py",
+      "sha256": "58c93dc61378f741aa4ade8c0a756f8196ed234bdfbe0f08a66e7e0013f55ca8"
+    },
+    {
+      "bytes": 9271,
+      "path": "poc/shared-settlement/test_wire.py",
+      "sha256": "14bb73c8822cd57a0dc06db2f4daa46c8defb6fda07d036afb8a7e0d0904ccf7"
+    },
+    {
+      "bytes": 2394,
+      "path": "poc/shared-settlement/test_policy.py",
+      "sha256": "dea46a5ea5979514058da0d4ec2d9a5eb6a38731c3d07eb62a48f95a51d35334"
+    },
+    {
+      "bytes": 6555,
+      "path": "poc/shared-settlement-verifier/public_g16.py",
+      "sha256": "f559a4eade76cceac366edf8b0df6928a95bf34e870dd1d9c5d3e1740aad6816"
+    },
+    {
+      "bytes": 3584,
+      "path": "poc/shared-settlement-verifier/public_native.py",
+      "sha256": "27d9f46f69951ac1c1963bf5bae50f2e325416c1907f4b77d88ae92b60c38acc"
+    }
+  ],
+  "first_failed_launch_retained": "../attempt-01/LAUNCH-FAILURE.json",
+  "kernel_cgroup_process_observation": null,
+  "memory_peak_display": "45.8M",
+  "memory_peak_is_rounded_not_byte_precision": true,
+  "native_VM_new_proof_PK_backup_private_main_or_truth_calls": 0,
+  "process_exit_code": 0,
+  "schema": "kpx5-public-transcript-source-execution/v1",
+  "service_seconds": 2.75,
+  "swap_peak_display": "0B",
+  "systemd_result": "success",
+  "unit_controls": {
+    "command": "python3 -B -m unittest -v test_wire.py test_policy.py",
+    "count": 11,
+    "seconds": 0.495,
+    "status": "PASS"
+  },
+  "workspace_base": "5aaf99532d8714e510d421102df719f60f54d073"
+}

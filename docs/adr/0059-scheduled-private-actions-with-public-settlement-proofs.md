@@ -102,3 +102,32 @@ availability, source/receipt/native verification, or infeasible proving costs.
 Passing supplied-context tests never establishes accepted backing/currentness,
 independent operators, cryptographic soundness, financial privacy or readiness
 for a fresh testnet rehearsal through confirmed payouts.
+
+## Observed prototype results, 2026-10-24
+
+Two fresh owner-local compact proofs, the selected RISC Zero guest and native
+W now agree on the same 424-byte journal and exact public financial projection.
+The actual GPU Succinct receipt takes 408.730 seconds; same-claim Groth16
+compression takes 4.436 seconds. Independent CPU verification and the genuine
+W native Full/all-engine transaction pass at 15,646,440 units. Five coherent
+unchanged-proof native-body mutants reject. Outer fee is 18,508,000 sompi;
+reserve changes 4,000,000,000 -> 3,981,492,000. This is a constructed two-owner
+cross-payment, not accepted funding or independently measured economic demand.
+
+The SDK-to-native proof converter initially rejected genuine raw G2 coordinates.
+The correction retains strict canonical-field, curve, subgroup and nonidentity
+checks instead of treating coordinate bytes as Arkworks affine flags. Original
+RED evidence is retained; guest/image/receipt bytes did not change.
+
+The complete private-input source bound 14,957,286 supports selecting budget 1500
+for fresh private fallback quotes/Auths/proofs; aggregate budget remains 1600.
+Historical direct budgets are canonical protocol u16 values checked through
+fresh native Full, not restricted by this client's fee preference. Both
+original backups now recover their two current claims, use the exact
+HTTPS-restored current runtime/PK and make genuine two-real-input private
+no-append exits. Exact outer plus two-exit fees are 52,512,100 sompi; native
+payouts total 3,947,487,900 and remaining reserve is zero. That is 2.625605% of
+the two declared 10-KAS synthetic payments before unperformed entry costs. Public
+software/parameters do not supply an accepted-currentness adapter, a trusted
+setup ceremony, independent retention or financial privacy. See the
+[current results](../../research/next-session/independent-payments/RESULTS.md).

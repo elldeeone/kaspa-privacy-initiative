@@ -1,0 +1,91 @@
+{
+  "R0_execution_or_proof_or_native_VM_or_PK_or_owner_witness": false,
+  "actual_cap_reference_crypto_calls": 4,
+  "actual_new_host_crypto_calls": 5,
+  "actual_official_ID_normalizations": 1,
+  "all_expected_outcomes": true,
+  "cases": [
+    {
+      "args": [
+        "key-check"
+      ],
+      "case": "selected-key",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"checked_static_key\":true,\"child_domain\":\"d55d006a9bb253963db4f4e44495e60333df9fcc83c1c3ae220806d0f326a0bb\",\"child_tail_sha256\":\"4ada93d72649bd20ec6b64c97038da08843135920aae131446c1f00dd6aea0d1\",\"private_input_read\":false,\"vk_sha256\":\"074c06a5f21f46c7c87a948c8ca6a0896198cc9fc255b8d5e08cc01ceb73a987\",\"wrapper_domain\":\"becdc8b30d3724ec79c773f0af662e3e25695b9d9a203d636fc3f6aef5c3b067\"}\n"
+    },
+    {
+      "args": [
+        "crypto-check",
+        "/home/luke/projects/kpi-intensive-2026-10-22/capacity-exit-genuine-01/proof-first/authorization528.bin",
+        "/home/luke/projects/kpi-intensive-2026-10-22/capacity-exit-genuine-01/proof-first/proof128.bin"
+      ],
+      "case": "genuine-backend-differential-first",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"authorization_sha256\":\"baf67ecf90a6ac205ef27f7a73c03f6a85451f3a880dedd407c824b26de35419\",\"genuine_G16_verified\":true,\"proof_sha256\":\"cc0a36d67b7cf661719e75c7f321e21d4016785ad634c8a07e4c86c921b0dd69\"}\n"
+    },
+    {
+      "args": [
+        "crypto-check",
+        "/home/luke/projects/kpi-intensive-2026-10-22/capacity-exit-genuine-01/proof-terminal/authorization528.bin",
+        "/home/luke/projects/kpi-intensive-2026-10-22/capacity-exit-genuine-01/proof-terminal/proof128.bin"
+      ],
+      "case": "genuine-backend-differential-terminal",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"authorization_sha256\":\"e70b91581264855b88497322b19e9d8a6ac3e1b8b79d80591b1e13bb852a667b\",\"genuine_G16_verified\":true,\"proof_sha256\":\"24bbd829a517ab87f136a6800bfede3a5e3d04cfddc0a864b1c33f48a5a501c0\"}\n"
+    },
+    {
+      "args": [
+        "crypto-check",
+        "/home/luke/projects/kpi-intensive-2026-10-22/capacity-exit-genuine-01/proof-current-occupied-NF/authorization528.bin",
+        "/home/luke/projects/kpi-intensive-2026-10-22/capacity-exit-genuine-01/proof-current-occupied-NF/proof128.bin"
+      ],
+      "case": "genuine-backend-differential-current-occupied-NF",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"authorization_sha256\":\"31e83dd395bdbf9f81222338d53a8e6ba654dbcd7bb9291e377d1a24b83ca6e7\",\"genuine_G16_verified\":true,\"proof_sha256\":\"eecbf6d0fa679078a5ef0162a8d553f02ea20dc8cdbeee477278ce0edddebcd1\"}\n"
+    },
+    {
+      "args": [
+        "crypto-check",
+        "/home/luke/projects/kpi-intensive-2026-10-22/shared-settlement-host-controls-01/coherent-fee-reserve/auth.bin",
+        "/home/luke/projects/kpi-intensive-2026-10-22/shared-settlement-host-controls-01/coherent-fee-reserve/proof.bin"
+      ],
+      "case": "coherent-fee-reserve",
+      "exit_code": 1,
+      "stderr": "Error: \"public crypto: invalid proof\"\n",
+      "stdout": ""
+    },
+    {
+      "args": [
+        "crypto-check",
+        "/home/luke/projects/kpi-intensive-2026-10-22/shared-settlement-host-controls-01/trailing-proof/auth.bin",
+        "/home/luke/projects/kpi-intensive-2026-10-22/shared-settlement-host-controls-01/trailing-proof/proof.bin"
+      ],
+      "case": "trailing-proof",
+      "exit_code": 1,
+      "stderr": "Error: \"public input size\"\n",
+      "stdout": ""
+    },
+    {
+      "args": [
+        "virtual-id",
+        "/home/luke/projects/kpi-intensive-2026-10-22/shared-settlement-host-controls-01/HASH-CODEC-ONLY-PUBLIC-INVALID-PAYMENT.bin"
+      ],
+      "case": "native-keyed-BLAKE3-virtual-ID-differential",
+      "classification": "HASH_CODEC_ONLY_INTENTIONALLY_INVALID_PAYMENT_NO_VM_NO_PROOF_QUALIFICATION",
+      "exit_code": 0,
+      "official_txid": "7e3242eb0fdaa3da1e33648cb51802845272be307dc7667595940b672f48be30",
+      "stderr": "",
+      "stdout": "{\"canonical_virtual_id\":\"7e3242eb0fdaa3da1e33648cb51802845272be307dc7667595940b672f48be30\",\"crypto_or_native_execution\":false}\n"
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND_NO_MAIN_DATA",
+  "compatible_two_P0_settlement_qualification": false,
+  "host_elf_sha256": "a2032f4022558763ae8b36ebff1c765925958f8c69f47e733a3494663014fd06",
+  "reference_width_rejection_before_Rust": 1,
+  "schema": "kpx5-public-host-backend-controls/v1",
+  "source_sha256": "b443e5a9daf8bb5969942f8d320c09cdc7f7337fff2e7e033b5f553132bb3937"
+}

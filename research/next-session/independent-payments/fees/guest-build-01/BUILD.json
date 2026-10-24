@@ -1,0 +1,23 @@
+{
+  "RISC0_FEATURE_bigint2": "1",
+  "RUSTFLAGS": "-C passes=lower-atomic -C link-arg=-Ttext=0x00200800 -C link-arg=--fatal-warnings -C panic=abort --cfg getrandom_backend=\"custom\"",
+  "command": [
+    "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/risc0-rust/bin/cargo",
+    "build",
+    "--offline",
+    "--locked",
+    "--release",
+    "--jobs",
+    "4",
+    "--target",
+    "riscv32im-risc0-zkvm-elf",
+    "--manifest-path",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/shared-settlement-proof/guest/Cargo.toml"
+  ],
+  "exit_code": 101,
+  "guest_execution_or_proof_generation": false,
+  "host_elf_sha256": "a2032f4022558763ae8b36ebff1c765925958f8c69f47e733a3494663014fd06",
+  "schema": "kpx5-public-settlement-guest-build/v1",
+  "seconds": 0.208025346044451,
+  "wrapper_native_acceptance_or_chain_claim": false
+}

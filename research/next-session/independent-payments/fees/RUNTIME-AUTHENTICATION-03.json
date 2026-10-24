@@ -1,0 +1,69 @@
+{
+  "extraction_or_installation": false,
+  "official_signed_archive_and_retained_member_chain": true,
+  "proof_or_guest_execution": false,
+  "schema": "kpx5-public-R0-runtime-authentication/v1",
+  "signature_command": [
+    "openssl",
+    "dgst",
+    "-sha256",
+    "-verify",
+    "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-rzup-v3.0.3-public_key.pem",
+    "-signature",
+    "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-manifest-signature.bin",
+    "-sigopt",
+    "rsa_padding_mode:pss",
+    "-sigopt",
+    "rsa_pss_saltlen:32",
+    "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-manifest-signable.json"
+  ],
+  "signature_verification": "Verified OK",
+  "utc": "2026-10-23T23:36:56.188313+00:00",
+  "whole_bytes_reauthenticated": [
+    {
+      "bytes": 693,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-distribution_manifest.json",
+      "sha256": "92398d7623b5fbd3732d8b5fcaf614e8e407a27d79bb61af495e4f8b2e927235"
+    },
+    {
+      "bytes": 166,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-manifest-signable.json",
+      "sha256": "478ba3f07a5d721d6c610e390ccd05afbe014c86f3097e51688f0d41ea25d1f2"
+    },
+    {
+      "bytes": 451,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/official-rzup-v3.0.3-public_key.pem",
+      "sha256": "ef3cafeb1e540719b0187b5879359128d289ac2bcfa64f010f7998422960f491"
+    },
+    {
+      "bytes": 2335797480,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/risc0-groth16-v0.1.0.tar.xz",
+      "sha256": "4b4f2b2fb8380369ed14f0dc48380a1bbcbc82c7d553f1888b47d0a9f8e72e4d"
+    },
+    {
+      "bytes": 3620786504,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/risc0-home/extensions/v0.1.0-risc0-groth16/stark_verify_final.zkey",
+      "sha256": "f525bfbcadcd01339a243db59213f213a357adbaaff7b4203c9c57ce25e91d5c"
+    },
+    {
+      "bytes": 576,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/risc0-home/extensions/v0.1.0-risc0-groth16/fuzzed_msm_results.bin",
+      "sha256": "5c31207007ab5489bddf60594434c161739baca4cde6786f493ffa44aaebcc43"
+    },
+    {
+      "bytes": 1442123704,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/risc0-home/extensions/v0.1.0-risc0-groth16/preprocessed_coeffs.bin",
+      "sha256": "424368948ad64d7cdd6632fc9efa9b1a52f45ea8b5bf1d568682a7eaa91efbb0"
+    },
+    {
+      "bytes": 251721088,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/risc0-home/extensions/v0.1.0-risc0-groth16/stark_verify_graph.bin",
+      "sha256": "51020d6fd9ded9627ed08044fb428bca46ee2bfcc90f5819469601564050315f"
+    },
+    {
+      "bytes": 165756672,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda",
+      "sha256": "3f22b68b6d32904fe766e14e62ce011febdc946dd98d015747f40ce5fb5fffc7"
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "classification": "ADDITIVE_SOURCE_ARITHMETIC_ONLY_NOT_NEW_PROFILE_PROOF_QUOTE_OR_FEE_QUALIFICATION",
+  "conditional_rows": [
+    {
+      "N": 2,
+      "compute_mass": 185080,
+      "estimated_serialized_bytes_assuming_same_W_and_overhead": 24710,
+      "evidence_class": "OBSERVED_N2_SIZE_AND_OUTER_FEE_ANCHOR",
+      "modeled_mining_mass_if_storage_not_dominant": 185080,
+      "modeled_outer_fee_sompi_at_rate100": 18508000,
+      "modeled_outer_share_sompi": 9254000,
+      "modeled_total_fee_sompi_if_N_minus1_reference_B1500_continuing_exits_and1_reference_terminal": 52512100,
+      "normalized_transient_mass": 49420,
+      "outer_fee_divided_equally_is_integral": true,
+      "percent_net10KAS_with_reference_continuing_private_exit_B1500": "2.62772",
+      "percent_net10KAS_with_reference_continuing_private_exit_B1600": "2.72772",
+      "percent_of_N_net10KAS_under_that_reference_exit_pattern": "2.625605",
+      "raw_transient_mass": 98840,
+      "with_reference_continuing_private_exit_B1500_sompi": 26277200,
+      "with_reference_continuing_private_exit_B1600_sompi": 27277200
+    },
+    {
+      "N": 8,
+      "compute_mass": 209368,
+      "estimated_serialized_bytes_assuming_same_W_and_overhead": 48998,
+      "evidence_class": "UNPERFORMED_FIXED_SIZE_COUNTERFACTUAL_ONLY",
+      "modeled_mining_mass_if_storage_not_dominant": 209368,
+      "modeled_outer_fee_sompi_at_rate100": 20936800,
+      "modeled_outer_share_sompi": 2617100,
+      "modeled_total_fee_sompi_if_N_minus1_reference_B1500_continuing_exits_and1_reference_terminal": 157080100,
+      "normalized_transient_mass": 97996,
+      "outer_fee_divided_equally_is_integral": true,
+      "percent_net10KAS_with_reference_continuing_private_exit_B1500": "1.96403",
+      "percent_net10KAS_with_reference_continuing_private_exit_B1600": "2.06403",
+      "percent_of_N_net10KAS_under_that_reference_exit_pattern": "1.96350125",
+      "raw_transient_mass": 195992,
+      "with_reference_continuing_private_exit_B1500_sompi": 19640300,
+      "with_reference_continuing_private_exit_B1600_sompi": 20640300
+    },
+    {
+      "N": 16,
+      "compute_mass": 241752,
+      "estimated_serialized_bytes_assuming_same_W_and_overhead": 81382,
+      "evidence_class": "UNPERFORMED_FIXED_SIZE_COUNTERFACTUAL_ONLY",
+      "modeled_mining_mass_if_storage_not_dominant": 241752,
+      "modeled_outer_fee_sompi_at_rate100": 24175200,
+      "modeled_outer_share_sompi": 1510950,
+      "modeled_total_fee_sompi_if_N_minus1_reference_B1500_continuing_exits_and1_reference_terminal": 296504100,
+      "normalized_transient_mass": 162764,
+      "outer_fee_divided_equally_is_integral": true,
+      "percent_net10KAS_with_reference_continuing_private_exit_B1500": "1.853415",
+      "percent_net10KAS_with_reference_continuing_private_exit_B1600": "1.953415",
+      "percent_of_N_net10KAS_under_that_reference_exit_pattern": "1.853150625",
+      "raw_transient_mass": 325528,
+      "with_reference_continuing_private_exit_B1500_sompi": 18534150,
+      "with_reference_continuing_private_exit_B1600_sompi": 19534150
+    }
+  ],
+  "execution_statement": {
+    "existing_sealed_136_or45_path_payloads_edited": false,
+    "new_experiment_native_call_proof_setup_key_GPU_cloud_or_funding": false,
+    "only_local_primary_source_reads_hashes_and_integer_arithmetic": true
+  },
+  "local_source_and_observation_pins": [
+    {
+      "path": "research/next-session/independent-payments/settlement/native-body-codec-01/RESULTS.json",
+      "sha256": "1f9fcf7ad1819f7910019aca6eadb60d3eb7e027905baa6fc414eac73f9253dd"
+    },
+    {
+      "path": "research/next-session/independent-payments/settlement/genuine-native-01/RESULTS.json",
+      "sha256": "7b25030bc14498fb57a68da19e1cd3b8051403dfeff0f049be8b0d42f3e779e3"
+    },
+    {
+      "path": "research/next-session/independent-payments/settlement/genuine-native-01/MATERIAL-MANIFEST.json",
+      "sha256": "76a89467705486ddf8a6b3bb9c59861e0a56f99ee174abd38eeaa2f1746b84ae"
+    },
+    {
+      "path": "research/next-session/independent-payments/settlement-wallet/actual-owners-01/FINANCIAL-CLOSURE.json",
+      "sha256": "6c9f46f774fc39678b37e9048aa7e0c0f48e93ccc6418fa3b161a8b4611f8c1b"
+    },
+    {
+      "path": "research/next-session/independent-payments/settlement-wallet/actual-owners-01/exit-01/metrics.json",
+      "sha256": "2fa10e53bf0a83272ef27e999f0734c5e0f30ba9d9aa2f448658016d4951485b"
+    },
+    {
+      "path": "research/next-session/independent-payments/settlement-wallet/actual-owners-01/exit-02/metrics.json",
+      "sha256": "a7a2e4a90c464f2f8b4e951035951cc4ba2e19ed0f56509731da1681d98b6015"
+    },
+    {
+      "line_intervals": [
+        [
+          261,
+          289
+        ]
+      ],
+      "path": "poc/private-exit-native/src/native.rs",
+      "sha256": "0a5a535b6baaa86e719d0becacf611129da7a825e3190f632baa9b0cf58f7857"
+    },
+    {
+      "line_intervals": [
+        [
+          352,
+          370
+        ]
+      ],
+      "path": "poc/shared-settlement-native/src/main.rs",
+      "sha256": "6dba3a057b2cdcff6dedafb0b7948e5072633ad12b672b22bd5f91dd2aab05a7"
+    },
+    {
+      "line_intervals": [
+        [
+          14,
+          16
+        ],
+        [
+          445,
+          486
+        ]
+      ],
+      "path": "poc/shared-settlement-proof/common/src/lib.rs",
+      "sha256": "f8575b12e0ba8af6cb099ce1cc0be371fe14d961837b6b6e6711b50c96ab9013"
+    }
+  ],
+  "ownership_and_exit_count_assumption": {
+    "generic_disjoint_payment_limit": "N distinct payers and N distinct recipients can require separate sender-change exits as well as recipient exits, potentially2N exits. Different owners' claims cannot be merged by collecting their private witnesses. Those additional exits are not priced by the N-exit table.",
+    "no_manufactured_demand_or_denominator": "A synthetic payment cycle is not evidence of real demand or new useful principal. Do not manufacture a ring, omit sender-change exits, count retained principal/refunds as new payments, or enlarge the frozen useful-net denominator to claim a fee pass.",
+    "reference_pattern": "The observed N2 cross-payment pattern has each actor own both an incoming recipient claim and that same actor's own change. Each original backup therefore consumes two real claims in one private exit. The N-exit counterfactual assumes that same ownership/claim pattern, not generic N disjoint payers and recipients."
+  },
+  "primary_sources": [
+    {
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "line_intervals": [
+        [
+          21,
+          56
+        ],
+        [
+          176,
+          187
+        ],
+        [
+          254,
+          259
+        ],
+        [
+          298,
+          306
+        ],
+        [
+          333,
+          369
+        ]
+      ],
+      "path": "consensus/core/src/mass/mod.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "role": "Estimated serialization; normalized dimensional maximum; compute and raw transient mass",
+      "sha256": "7e17c80810046525e7bf1a7147e6e8c6918dfe4c76ef64b6ca4078502d2a9fae",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/mass/mod.rs"
+    },
+    {
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "line_intervals": [
+        [
+          3,
+          6
+        ]
+      ],
+      "path": "consensus/core/src/mass/units.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "role": "100 mass units per committed compute-budget unit",
+      "sha256": "0a47b4dda868da1df5064a9745c4f1278d9b3fd388db7416f5fb05068fef12ab",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/mass/units.rs"
+    },
+    {
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "line_intervals": [
+        [
+          651,
+          685
+        ]
+      ],
+      "path": "consensus/core/src/config/params.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "role": "Selected TESTNET_PARAMS mass costs and block limits",
+      "sha256": "13296eef360764b637e70b2e8892941d97e3e88d8a5c58830e80332d0ff80ea2",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/config/params.rs"
+    },
+    {
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "line_intervals": [
+        [
+          31,
+          31
+        ]
+      ],
+      "path": "consensus/core/src/constants.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "role": "Raw transient byte-to-mass factor4",
+      "sha256": "e972b0582b2e40566cb0fc1140da7cd7de88d681104a0b6b63d7a5b2e06d3a2e",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/constants.rs"
+    }
+  ],
+  "schema": "kpx5-larger-batch-conditional-sizing-correction/v1",
+  "selected_source_formulas": {
+    "absolute_transient_dimension_limit": "Raw T<=1000000 implies S<=250000; this is a dimension cap, not permission to use unsupported batch counts.",
+    "complete_mining_mass": "max(C, ceil(T*0.5), ceil(storage_mass*1))",
+    "compute": "C = S*1 + sum_output(2+SPK.script.len)*10 + 100*sum_input_compute_budget for version1",
+    "compute_block_limit": 500000,
+    "conditional_transient_takeover": "With these fixed assumptions, normalized transient exceeds compute only when S>160370, first at integerN36. N16 does not reach it.",
+    "counterfactual_compute": "C(N)=S(N)+370+160000",
+    "estimated_size": "S = transaction_estimated_serialized_size; deterministic fee-estimation size, not necessarily wire serialization",
+    "fixed_size_counterfactual": "S(N)=24710+4048*(N-2)=16614+4048*N; assumes the same16202-byte W redeem, same12-byte payload header, oneinput/one37-byte outputSPK, fixed framing/overhead, fixed outerB1600 and no other payload",
+    "grams_per_compute_budget_unit": 100,
+    "mass_per_output_SPK_byte_including_version": 10,
+    "mass_per_tx_byte": 1,
+    "normalized_transient": "ceil(T*500000/1000000) = 2*S",
+    "raw_transient": "T = 4*S",
+    "raw_transient_byte_factor": 4,
+    "reference_fee": "100*normalized_mining_mass; not a measured network fee market",
+    "storage_block_limit": 500000,
+    "storage_normalization_ratio": {
+      "denominator": 500000,
+      "numerator": 500000
+    },
+    "transient_block_limit": 1000000,
+    "transient_normalization_ratio": {
+      "denominator": 1000000,
+      "numerator": 500000
+    }
+  },
+  "supersedes_informal_notifications": [
+    {
+      "notification": "Initial compute-only rough N8/N16 fee projections",
+      "status": "Incomplete reasoning, superseded by explicit normalized dimensional calculation. Its approximate N16 B1600 number happens to agree under these fixed-size assumptions because compute still dominates."
+    },
+    {
+      "notification": "Later correction treated raw transient325528 as N16 pricing mass and estimated about2.0058% with B1600 fallback",
+      "status": "Incorrect for the selected TN parameters: normalized transient is162764, not325528. Superseded by this addendum."
+    }
+  ],
+  "unchanged_actual_result": {
+    "N": 2,
+    "actual_2percent_target_pass": false,
+    "actual_B1500_continuing_exit_fee_sompi": 17023200,
+    "actual_B1500_terminal_exit_fee_sompi": 16980900,
+    "actual_exact_percent_of_frozen_requested_net": "2.625605",
+    "actual_total_fee_sompi": 52512100,
+    "compute_mass": 185080,
+    "entry_or_bootstrap_fee_known": false,
+    "estimated_serialized_bytes": 24710,
+    "frozen_requested_net_principal_sompi": 2000000000,
+    "mining_mass": 185080,
+    "normalized_transient_mass": 49420,
+    "outer_compute_budget": 1600,
+    "outer_fee_sompi_at_reference100": 18508000,
+    "outer_payload_bytes": 8108,
+    "raw_transient_mass": 98840,
+    "record_bytes": 4048,
+    "storage_mass": 1
+  },
+  "unperformed_or_unpriced_costs_and_limits": [
+    "Only N2 is implemented and genuinely proved. The selected guest, record codec and native W currently require exactly two children; N8/N16 are not accepted by that profile.",
+    "A larger count changes guest image and native program constants/body shape. New source/design selection, exact public transcript checks, real quote and genuine proof/native validation would be required. No such work ran for this addendum.",
+    "The table holds W bytes, framing, B1600, child record width and private exit shapes fixed. Future byte overhead, script-unit requirements, capacity/NF/history behavior or storage mass can change costs; storage is explicitly assumed not dominant.",
+    "B1500 continuing/terminal reference costs are actual N2 owner measurements, not universal larger-batch exit quotes. B1600 reference adds the source-derived budget delta of10000mass/1000000sompi; no newB1600 proof is claimed.",
+    "The N-exit reference pattern requires the explicit same-owner incoming+change ownership assumption above. Generic disjoint payers/recipients may need2N exits; that case is not priced and no witness gathering or sender-change exit discount is assumed.",
+    "The N-minus1 continuing plus one terminal pattern is a counterfactual average, not a promised payout schedule or fee allocation. All modeled aggregate amounts are integer sompi; percentage strings are display-only.",
+    "Funding/entry fees remain unknown; operator charges, data availability, hardware/proving expense, latency, contention, inclusion/currentness, storage under changed amounts and independent distribution/retention are not priced. No full-lifecycle2percent pass follows.",
+    "Private unilateral low-demand behavior is not improved by assuming a larger batch. No REVEAL substitution or privacy/accepted-chain/mainnet/security claim follows."
+  ]
+}

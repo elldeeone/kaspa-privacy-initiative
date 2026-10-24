@@ -1,0 +1,12 @@
+{
+  "cause": "checked-in old config enables schnorrsig but omits its upstream-required extrakeys module",
+  "cpu_seconds": 38.692,
+  "error": "implicit declaration secp256k1_xonly_pubkey_load in schnorrsig module",
+  "fix": "enable existing EXTRAKEYS module in harness build definitions, exactly as upstream configure.ac512-520 does; no source or validation change",
+  "memory_peak_formatted": "1G",
+  "status": "BUILD_CONFIG_FAILURE_BEFORE_ANY_TEST_EXECUTION",
+  "swap_peak_formatted": "0B",
+  "tests_run": 0,
+  "upstream_source_modified": false,
+  "wall_seconds": 10.468
+}

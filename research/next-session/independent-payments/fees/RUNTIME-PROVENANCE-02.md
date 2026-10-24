@@ -1,0 +1,7 @@
+The historical roughly303-second paired RISC Zero proof used the **CUDA worker**, not a CPU-only prover benchmark. Earlier planning messages described it as CPU timing; that description is corrected here. The historical guest, input and receipt remain different from ADR59's new424-byte journal/8108-byte payload experiment.
+
+The retained worker is `proof-target/tools/r0vm-cuda`, SHA256 `3f22b68b6d32904fe766e14e62ce011febdc946dd98d015747f40ce5fb5fffc7`,165,756,672bytes. [SDK-AUTHENTICATION-01.json](SDK-AUTHENTICATION-01.json) reauthenticates its whole bytes, the ordinary worker, guest compiler/Cargo and official tool archives against the old published build-freeze identity. No SDK installation or dependency upgrade was needed.
+
+The root coordinator observed an idle local RTX3070 with8GiB VRAM and authorized its use after the new semantic/receipt/resource gates. No cloud allocation or paid infrastructure is proposed. Guest compilation and ordinary host verification are CPU build/check work; they establish no new proof latency or GPU memory requirement. The new guest's actual execution/proof measurements must be recorded separately, including any failure.
+
+The initial common-library compile resolved newer semver-compatible RISC Zero components despite the top SDK3.0.3 pin. Before any guest execution, the new manifests pinned the earlier proved graph: binfmt/zkp/groth16 3.0.4, recursion/rv32im4.0.4, keccak4.0.5 and v1compat2.2.2. The host release build and its key/crypto controls use that explicit graph. The earlier compile was syntax evidence only.

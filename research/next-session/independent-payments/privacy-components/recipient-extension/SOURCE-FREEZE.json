@@ -1,0 +1,74 @@
+{
+  "DESIGN_sha256": "780e9cd7546c260a26ba7ec875d6877ae99ca8ce76674457f10fa8706c77df5e",
+  "binary_sha256": "b93af9810a91f8a21843c70355f5259331a9257247be096c017b304ca7a506dc",
+  "expected_receipt_and_spend_values": {
+    "R1": [
+      10,
+      9,
+      1
+    ],
+    "R2": [
+      20,
+      19,
+      1
+    ]
+  },
+  "fixed_actors": {
+    "A": [
+      25,
+      10,
+      14,
+      1
+    ],
+    "B": [
+      40,
+      20,
+      19,
+      1
+    ]
+  },
+  "frozen_utc": "2026-10-23T23:22:05.753486+00:00",
+  "original_component_source_result_and_workload_unchanged": true,
+  "primary_sources": [
+    {
+      "path": "src/libmw/src/wallet/Keychain.cpp",
+      "sha256": "1dbede3add30a0ccb9e65fabed19920406757582497186e48b93da6298c54ed3",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/src/libmw/src/wallet/Keychain.cpp"
+    },
+    {
+      "path": "src/libmw/include/mw/models/tx/OutputMask.h",
+      "sha256": "b770e85bb7ccec70f8650452e712ab5b96c5588fc5b194f19d8167bbcb7f1ae1",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/src/libmw/include/mw/models/tx/OutputMask.h"
+    },
+    {
+      "path": "src/libmw/src/wallet/TxBuilder.cpp",
+      "sha256": "fbceb911482216bb91aec94756d2153129fae8fe415cd783f5fd8c14f0aff046",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/src/libmw/src/wallet/TxBuilder.cpp"
+    },
+    {
+      "path": "src/libmw/test/tests/wallet/Test_Keychain.cpp",
+      "sha256": "33606634183095661b7e2a43b29e9f3e83d7c54b29ca82bad9e31f02cdefcc4a",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/src/libmw/test/tests/wallet/Test_Keychain.cpp"
+    },
+    {
+      "path": "src/libmw/include/mw/models/wallet/StealthAddress.h",
+      "sha256": "afde524dc3bf80a7a551f7ef16556c68abd2aa84bdd4af2b400f2849acfd1dcf",
+      "url": "https://github.com/litecoin-project/litecoin/blob/ec1b6489a900d09cf5991e220dce089c77a232a2/src/libmw/include/mw/models/wallet/StealthAddress.h"
+    }
+  ],
+  "privacy_threshold_or_original_result_retuning": false,
+  "schema": "kpi-mweb-recipient-extension-pre-run-freeze/v1",
+  "source_files": [
+    {
+      "bytes": 7250,
+      "path": "poc/mweb-component-screen/recipient/recipient.cpp",
+      "sha256": "5213a65b538cacb4f4a92c4af24446bc4eb7c34e01ac38ec2eb4481fa9f24cd8"
+    },
+    {
+      "bytes": 6994,
+      "path": "poc/mweb-component-screen/recipient/run_recipients.py",
+      "sha256": "fab801228bf703678ee341b0573efbc46279903991c8d968cefd62611c3764ce"
+    }
+  ],
+  "upstream_commit": "ec1b6489a900d09cf5991e220dce089c77a232a2"
+}

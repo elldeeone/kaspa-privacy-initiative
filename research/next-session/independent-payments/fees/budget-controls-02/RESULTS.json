@@ -1,0 +1,560 @@
+{
+  "B1475_specific_committed_script_budget_rejections": 3,
+  "B1500_genuine_proof_native_positives": 3,
+  "B1600_baselines": 3,
+  "actual_native_validation_calls": 9,
+  "all_expected_outcomes": true,
+  "cases": [
+    {
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 1000
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "compact-continuing-B1600",
+      "engine": {
+        "accepted": true,
+        "allowed_script_units": 16009999,
+        "input_index": 0,
+        "units": 14946274
+      },
+      "expected_native_accept": true,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 188265,
+        "estimated_bytes": 27895,
+        "mining_mass": 188265,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 18826500
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 37653000
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 94132500
+          }
+        ],
+        "relay_mass": 188265,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 111580
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 1000
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "compact-continuing-B1500",
+      "engine": {
+        "accepted": true,
+        "allowed_script_units": 15009999,
+        "input_index": 0,
+        "units": 14946274
+      },
+      "expected_native_accept": true,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 178265,
+        "estimated_bytes": 27895,
+        "mining_mass": 178265,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 17826500
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 35653000
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 89132500
+          }
+        ],
+        "relay_mass": 178265,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 111580
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Kaspa txscript error: script units exceeded the amount committed in the input: used=14946273, limit=14759999\"))"
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "compact-continuing-B1475",
+      "engine": {
+        "accepted": false,
+        "allowed_script_units": 14759999,
+        "input_index": 0,
+        "typed_error": "ZkIntegrity(\"Kaspa txscript error: script units exceeded the amount committed in the input: used=14946273, limit=14759999\")",
+        "units": 14196273
+      },
+      "expected_native_accept": false,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 175765,
+        "estimated_bytes": 27895,
+        "mining_mass": 175765,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 17576500
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 35153000
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 87882500
+          }
+        ],
+        "relay_mass": 175765,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 111580
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 1000
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "compact-terminal-B1600",
+      "engine": {
+        "accepted": true,
+        "allowed_script_units": 16009999,
+        "input_index": 0,
+        "units": 14841729
+      },
+      "expected_native_accept": true,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 187182,
+        "estimated_bytes": 26822,
+        "mining_mass": 187182,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 18718200
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 37436400
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 93591000
+          }
+        ],
+        "relay_mass": 187182,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 107288
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 1000
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "compact-terminal-B1500",
+      "engine": {
+        "accepted": true,
+        "allowed_script_units": 15009999,
+        "input_index": 0,
+        "units": 14841729
+      },
+      "expected_native_accept": true,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 177182,
+        "estimated_bytes": 26822,
+        "mining_mass": 177182,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 17718200
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 35436400
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 88591000
+          }
+        ],
+        "relay_mass": 177182,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 107288
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Kaspa txscript error: script units exceeded the amount committed in the input: used=14841728, limit=14759999\"))"
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "compact-terminal-B1475",
+      "engine": {
+        "accepted": false,
+        "allowed_script_units": 14759999,
+        "input_index": 0,
+        "typed_error": "ZkIntegrity(\"Kaspa txscript error: script units exceeded the amount committed in the input: used=14841728, limit=14759999\")",
+        "units": 14091728
+      },
+      "expected_native_accept": false,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 174682,
+        "estimated_bytes": 26822,
+        "mining_mass": 174682,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 17468200
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 34936400
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 87341000
+          }
+        ],
+        "relay_mass": 174682,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 107288
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 1000
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "wide32-B1600",
+      "engine": {
+        "accepted": true,
+        "allowed_script_units": 16009999,
+        "input_index": 0,
+        "units": 14969639
+      },
+      "expected_native_accept": true,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 197017,
+        "estimated_bytes": 36647,
+        "mining_mass": 197017,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 19701700
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 39403400
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 98508500
+          }
+        ],
+        "relay_mass": 197017,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 146588
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 1000
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "wide32-B1500",
+      "engine": {
+        "accepted": true,
+        "allowed_script_units": 15009999,
+        "input_index": 0,
+        "units": 14969639
+      },
+      "expected_native_accept": true,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 187017,
+        "estimated_bytes": 36647,
+        "mining_mass": 187017,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 18701700
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 37403400
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 93508500
+          }
+        ],
+        "relay_mass": 187017,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 146588
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    },
+    {
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Kaspa txscript error: script units exceeded the amount committed in the input: used=14969638, limit=14759999\"))"
+      },
+      "authorization_payload_byte_identical": true,
+      "case": "wide32-B1475",
+      "engine": {
+        "accepted": false,
+        "allowed_script_units": 14759999,
+        "input_index": 0,
+        "typed_error": "ZkIntegrity(\"Kaspa txscript error: script units exceeded the amount committed in the input: used=14969638, limit=14759999\")",
+        "units": 14219638
+      },
+      "expected_native_accept": false,
+      "metrics": {
+        "P2SH_sigop_counts": [
+          1
+        ],
+        "actual_fee_sompi": 1000,
+        "compute_mass": 184517,
+        "estimated_bytes": 36647,
+        "mining_mass": 184517,
+        "quotes": [
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 18451700
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 36903400
+          },
+          {
+            "actual_sompi": 1000,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 92258500
+          }
+        ],
+        "relay_mass": 184517,
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true,
+        "storage_mass": 0,
+        "transient_mass": 146588
+      },
+      "native_elf_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+      "native_validation_calls": 1,
+      "normalization_VM_calls": 0,
+      "only_compute_budget_and_derived_mass_changed": true,
+      "proof_reused_byte_identical": true,
+      "transaction_id_unchanged": true
+    }
+  ],
+  "classification": "PUBLIC_SYNTHETIC_DO_NOT_FUND_INTEROPERABILITY_ONLY_UNDERPAID_FEE1000",
+  "comparisons": [
+    {
+      "B1500_slack_SU": 63725,
+      "actual_units": 14946274,
+      "case": "compact-continuing",
+      "observed_reference_fee_floor_difference_sompi": 1000000,
+      "reference_rate100_required_sompi_B1500": 17826500,
+      "reference_rate100_required_sompi_B1600": 18826500
+    },
+    {
+      "B1500_slack_SU": 168270,
+      "actual_units": 14841729,
+      "case": "compact-terminal",
+      "observed_reference_fee_floor_difference_sompi": 1000000,
+      "reference_rate100_required_sompi_B1500": 17718200,
+      "reference_rate100_required_sompi_B1600": 18718200
+    },
+    {
+      "B1500_slack_SU": 40360,
+      "actual_units": 14969639,
+      "case": "wide32",
+      "observed_reference_fee_floor_difference_sompi": 1000000,
+      "reference_rate100_required_sompi_B1500": 18701700,
+      "reference_rate100_required_sompi_B1600": 19701700
+    }
+  ],
+  "new_proof_PK_setup_backup_or_owner_witness_reads": false,
+  "old_params_proof_Auth_or_body_ID_changed": false,
+  "schema": "kpx5-public-native-budget-controls/v1",
+  "source_sha256": {
+    "controls": "d19f403b266378e9c4767ae5c6b9661787abbcfcd6a154a97eca6a282e2e5599",
+    "public_native": "27d9f46f69951ac1c1963bf5bae50f2e325416c1907f4b77d88ae92b60c38acc"
+  },
+  "uniform_policy_bound_complete_lifecycle_fee_or_relay_qualification": false
+}

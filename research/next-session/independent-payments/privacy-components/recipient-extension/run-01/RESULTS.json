@@ -1,0 +1,210 @@
+{
+  "C1_or_financial_privacy_thresholds_measured": false,
+  "aggregate": {
+    "aggregate_arguments_have_no_spend_secrets": true,
+    "distinct_per_output_sender_keys": true,
+    "input_count": 2,
+    "input_ids": [
+      "21bef16082ab08b1da0ff6e690c4a3c5395ef018b434589202dd340498d02fc2",
+      "cd7aa7fad4a1a530c9a2d7eb8485e0abe12604f48996a335b927ae9093a5076e"
+    ],
+    "kernel_count": 2,
+    "kernel_ids": [
+      "036895ee8afb05a9eeb663f6fb932d84d471f1eb66948ab88743ea13f61db368",
+      "90b8a892d62557cc3dc1f9d789405ed61da0bfdffff73308b06d87070e661a2a"
+    ],
+    "mode": "public_components_only_aggregation",
+    "output_count": 4,
+    "output_ids": [
+      "8e520999b1c622f5c623b437400a4f88c7cfb4859369e544823801ba5aba444f",
+      "8ffed90397fc629e9c615414696851af8534c23aa3b50a9d69cc3684a6a6124d",
+      "98f2fcc9e06994cc09e7d27e16949908f6ffcd435e4eb7c8ad9dd09e3e87990d",
+      "ec7911b3ae224ca5ba5ce7fa8dec160736d82d3fa798e8de6f991d5ddce17704"
+    ],
+    "serialized_bytes": 4311,
+    "valid": true
+  },
+  "aggregate_fresh_verifier": {
+    "input_count": 2,
+    "input_ids": [
+      "21bef16082ab08b1da0ff6e690c4a3c5395ef018b434589202dd340498d02fc2",
+      "cd7aa7fad4a1a530c9a2d7eb8485e0abe12604f48996a335b927ae9093a5076e"
+    ],
+    "kernel_count": 2,
+    "kernel_ids": [
+      "036895ee8afb05a9eeb663f6fb932d84d471f1eb66948ab88743ea13f61db368",
+      "90b8a892d62557cc3dc1f9d789405ed61da0bfdffff73308b06d87070e661a2a"
+    ],
+    "mode": "fresh_process_public_validation",
+    "output_count": 4,
+    "output_ids": [
+      "8e520999b1c622f5c623b437400a4f88c7cfb4859369e544823801ba5aba444f",
+      "8ffed90397fc629e9c615414696851af8534c23aa3b50a9d69cc3684a6a6124d",
+      "98f2fcc9e06994cc09e7d27e16949908f6ffcd435e4eb7c8ad9dd09e3e87990d",
+      "ec7911b3ae224ca5ba5ce7fa8dec160736d82d3fa798e8de6f991d5ddce17704"
+    ],
+    "serialized_bytes": 4311,
+    "valid": true
+  },
+  "aggregate_verifier_binary_sha256": "f08f10a69eeda286cc0638f3cbac1c9a3dd9829898063a9f127b3f510e36583e",
+  "all_private_actor_processes_ended": true,
+  "classification": "UNFUNDED_LOCAL_COMPONENT_ONLY_NO_ACCEPTED_CHAIN_OR_KAS_PRIVACY_QUALIFICATION",
+  "known_address_recovery_adapter_not_wallet_DB": true,
+  "new_recipient_processes": 2,
+  "private_keys_coin_openings_or_hashes_emitted": false,
+  "process_events": [
+    {
+      "phase": "sender-A",
+      "pid": 1080679,
+      "returncode": 0,
+      "wall_seconds": 0.23707276402274147
+    },
+    {
+      "phase": "sender-B",
+      "pid": 1080680,
+      "returncode": 0,
+      "wall_seconds": 0.23801262403139845
+    },
+    {
+      "phase": "aggregate",
+      "pid": 1080681,
+      "returncode": 0,
+      "wall_seconds": 0.1677378219901584
+    },
+    {
+      "phase": "aggregate-fresh-verify",
+      "pid": 1080682,
+      "returncode": 0,
+      "wall_seconds": 0.1588938600034453
+    },
+    {
+      "phase": "recipient-R1",
+      "pid": 1080677,
+      "returncode": 0
+    },
+    {
+      "phase": "recipient-R2",
+      "pid": 1080678,
+      "returncode": 0
+    },
+    {
+      "phase": "R1-spend-fresh-verify",
+      "pid": 1080683,
+      "returncode": 0,
+      "wall_seconds": 0.1572775419917889
+    },
+    {
+      "phase": "R2-spend-fresh-verify",
+      "pid": 1080684,
+      "returncode": 0,
+      "wall_seconds": 0.15615797002101317
+    }
+  ],
+  "production_wallet_builder_used": true,
+  "public_spent_output_ID_coordinator_grouping_singleton_timing_failures_resolved": false,
+  "received_output_IDs_distinct": true,
+  "recipient_binary_sha256": "b93af9810a91f8a21843c70355f5259331a9257247be096c017b304ca7a506dc",
+  "recipient_private_keys_exported_or_written": false,
+  "recipient_receipts": [
+    {
+      "actor": "R1",
+      "event": "recipient_recovered_and_spent",
+      "other_outputs_accepted": 0,
+      "owned_outputs_recovered": 1,
+      "pid": 1080677,
+      "private_keys_or_blinds_exported": false,
+      "production_recipient_spend_valid": true,
+      "received_output_id": "ec7911b3ae224ca5ba5ce7fa8dec160736d82d3fa798e8de6f991d5ddce17704",
+      "recovered_amount": 10,
+      "scanned_outputs": 4,
+      "spend_fee": 1,
+      "spend_key_matches_received_authorization_key": true,
+      "spend_output_amount": 9
+    },
+    {
+      "actor": "R2",
+      "event": "recipient_recovered_and_spent",
+      "other_outputs_accepted": 0,
+      "owned_outputs_recovered": 1,
+      "pid": 1080678,
+      "private_keys_or_blinds_exported": false,
+      "production_recipient_spend_valid": true,
+      "received_output_id": "8ffed90397fc629e9c615414696851af8534c23aa3b50a9d69cc3684a6a6124d",
+      "recovered_amount": 20,
+      "scanned_outputs": 4,
+      "spend_fee": 1,
+      "spend_key_matches_received_authorization_key": true,
+      "spend_output_amount": 19
+    }
+  ],
+  "recipient_spends_fresh_verified": [
+    {
+      "actor": "R1",
+      "input_count": 1,
+      "input_ids": [
+        "ec7911b3ae224ca5ba5ce7fa8dec160736d82d3fa798e8de6f991d5ddce17704"
+      ],
+      "kernel_count": 1,
+      "kernel_ids": [
+        "3575e6b7047385ba23c55f4cfcaa27c17b6e5c01a1902bbaff008b4ded01f0e7"
+      ],
+      "mode": "fresh_process_public_validation",
+      "output_count": 1,
+      "output_ids": [
+        "60fdc38d39091b43690a6b809d30cef7d300d73eea138d90160e3b0c483fcdc1"
+      ],
+      "serialized_bytes": 1292,
+      "valid": true
+    },
+    {
+      "actor": "R2",
+      "input_count": 1,
+      "input_ids": [
+        "8ffed90397fc629e9c615414696851af8534c23aa3b50a9d69cc3684a6a6124d"
+      ],
+      "kernel_count": 1,
+      "kernel_ids": [
+        "7bbb5957a472e33a954dda225c2748f115bd3841ff491b975d5f39b465cdb347"
+      ],
+      "mode": "fresh_process_public_validation",
+      "output_count": 1,
+      "output_ids": [
+        "40c9f404715e883324002a02c175c4cd56021f2f5e2f3f4ce2e6337e4201c528"
+      ],
+      "serialized_bytes": 1292,
+      "valid": true
+    }
+  ],
+  "resources_before_controller_exit": {
+    "available": true,
+    "cpu.stat": {
+      "burst_usec": 0,
+      "core_sched.force_idle_usec": 0,
+      "nice_usec": 0,
+      "nr_bursts": 0,
+      "nr_periods": 15,
+      "nr_throttled": 0,
+      "system_usec": 114071,
+      "throttled_usec": 0,
+      "usage_usec": 1532167,
+      "user_usec": 1418096
+    },
+    "memory.events": {
+      "high": 0,
+      "low": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_group_kill": 0,
+      "oom_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory.peak": 40656896,
+    "memory.swap.peak": 0,
+    "pids.current": 2,
+    "pids.peak": 5
+  },
+  "schema": "kpi-MWEB-independent-recipient-component/v1",
+  "sender_processes": 2,
+  "senders_receive_only_public_66byte_stealth_addresses": true,
+  "source_freeze_sha256": "425bd8c5947e29db8d3aa20333b761603ce9611d1656a6d1126e980398a95e00"
+}
