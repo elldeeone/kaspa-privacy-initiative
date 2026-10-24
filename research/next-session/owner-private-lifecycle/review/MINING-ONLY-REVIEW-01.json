@@ -1,0 +1,94 @@
+{
+  "conclusion": "The exact selected mining-only program and typed fresh LIVE identity support the finite sequential free-TN10 acquisition plan. This report itself starts no miner and releases no consolidation or pool transaction.",
+  "control_evidence": {
+    "control_log_independently_retrieved": false,
+    "producer_source_freeze_reports_targeted_python_controls": 3,
+    "targeted_mining_restart_control_source_inspected": true,
+    "tests_or_mining_executed_by_this_reviewer": false
+  },
+  "core_source_freeze02_reference_sha256": "ab0b854ec0fc48e2189f7d4ee9967f438c452ddcbde5bb6bef746305c376f77a",
+  "excluded_and_still_held": [
+    "Ordinary self-consolidation broadcast: separate preflight/once-submit gate",
+    "GN3 experimental pool funding and all mixed/exit broadcasts: complete genuine local rehearsal plus separate root release",
+    "Future lifecycle-mode submit CLI-trial versus descriptor-trial mismatch is outside this mining gate and remains a separate correction/review",
+    "No claim of actual mined rewards, maturity, confirmations, financial privacy, independent consensus or long-term recovery availability"
+  ],
+  "funding_keys_distinct_from_three_local_rehearsal_keys": true,
+  "funding_source_freeze01_sha256": "07321c5c6ff2dd1e8811302dbd81536bead7dbee0dc2fce2d32ea08cdfa0ee5f",
+  "live_read_only_template_plans": [
+    {
+      "launch_sha256": "cca5a46df68eae55ffdb6c353125902261cb6c24328524b3ef6cd37b7ac47f93",
+      "party": 0,
+      "read_only_plan_passed": true,
+      "template_plan_sha256": "795183c79c8be4333082757431440270d2ac339f4a656ee055e4e547d115ee02"
+    },
+    {
+      "launch_sha256": "276cd601e6dc8729c7320b1c0ec9f166310b9a4c7f50589ac55631c5abfcbe19",
+      "party": 1,
+      "read_only_plan_passed": true,
+      "template_plan_sha256": "795183c79c8be4333082757431440270d2ac339f4a656ee055e4e547d115ee02"
+    },
+    {
+      "launch_sha256": "616d6a668f3ea1f7debd36becbb96214f3a41d35dc32f33d9574c3721892d9be",
+      "party": 2,
+      "read_only_plan_passed": true,
+      "template_plan_sha256": "795183c79c8be4333082757431440270d2ac339f4a656ee055e4e547d115ee02"
+    }
+  ],
+  "original_private_contents_or_hashes_read_by_reviewer": false,
+  "reviewed_at": "2026-10-24T21:14:33.915320+00:00",
+  "root_release_required": true,
+  "schema": "kpx8-mining-only-source-review/v1",
+  "scope_source_files": [
+    {
+      "bytes": 13817,
+      "path": "poc/owner-private-lifecycle/bootstrap/miner.mjs",
+      "sha256": "0c0a0fb2a8cb78d55e91e9a09a38c5fc5ab82721490d2c54b200989159eb77df"
+    },
+    {
+      "bytes": 6508,
+      "path": "poc/owner-private-lifecycle/bootstrap/run_miner.py",
+      "sha256": "c56f874c83608812eb7f78d8309dbdc764a0af82af71a1cdc03ef8e6087bcd51"
+    },
+    {
+      "bytes": 3075,
+      "path": "poc/owner-private-lifecycle/bootstrap/funding_identity.py",
+      "sha256": "e2070ae1ffec04bc51097b3bfee2877071ae320a36016a5b40291cfc9157d38d"
+    },
+    {
+      "bytes": 4172,
+      "path": "poc/owner-private-lifecycle/bootstrap/new_trial.py",
+      "sha256": "304a15dc0dcb12c0b23e392e68bf3cfee1a77a9697c9016b695db2ed5e7e1f2a"
+    },
+    {
+      "bytes": 5553,
+      "path": "poc/owner-private-lifecycle/bootstrap/FUNDING-PLAN.md",
+      "sha256": "c8b6cad5e21899df28d7fe7d601cdfb085eea6bec8e0706ef15667d8034d3326"
+    },
+    {
+      "bytes": 2605,
+      "path": "poc/owner-private-lifecycle/bootstrap/test_funding.py",
+      "sha256": "f36776726e0a77720d6f54571b750c003af0075f8a753e4259ebc6143b704fe7"
+    }
+  ],
+  "selected_funding_identity_sha256": "3a119ca2cf6c71324dd35f5063000179620066f03800cf70933e128da5ef127a",
+  "source_checks": [
+    "TN10-only URLs/client/server/dag identity and selected Node/SDK bytes",
+    "Only selected own P2PK reward script; full raw template preserved except nonce; independent PoW/header hash recheck",
+    "Per-block durable immutable intent before at most one submission; unknown response queried by hash, never resent",
+    "Canonical trial/party global consumed marker before child launch; new controller cannot reset; ancestors and marker fsynced",
+    "No original seed/backup/funding key/PK/host home/Docker socket mount in miner",
+    "Observed own coinbase UTXOs decide target; maturity and ordinary consolidation remain separate; SIGTERM/target completion terminate all owned workers"
+  ],
+  "status": "MINING_ONLY_SOURCE_GATE_PASS_PENDING_ROOT_RELEASE",
+  "trial_id": "2a93ba31-0220-47d8-a845-369adadd0c95",
+  "typed_live_owner_exports_exactly_matched": true,
+  "unresolved_findings_within_mining_only_scope": [],
+  "workload": {
+    "CPU_workers_per_party": 12,
+    "GPU_or_new_node_daemon_required": false,
+    "observed_coinbase_target_sompi_per_party": 3100000000,
+    "owners": 3,
+    "sequential_parties": true
+  }
+}

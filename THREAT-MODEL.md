@@ -1,5 +1,33 @@
 # Threat Model
 
+[ADR-0064](docs/adr/0064-owner-private-native-kas-lifecycle.md) selects one new
+TN10-only integrated lifecycle. The
+[contract](research/next-session/owner-private-lifecycle/CONTRACT.md) requires
+three-source GN3 admission to authenticate all initial liabilities and exact
+reserve/policy before owner-local ALL signing. Complete initial Note168 rows
+are public transparent-deposit records. Ordinary funding derives from the same
+owner seed at reserved index `0xffffffff`; other invoice/exit indices must not
+reuse that key. Accepted replay authenticates GN3 and physical successors;
+supplied JSON roots, opaque ACKs and MPC success do not establish backing.
+
+Independent Exit152 consumes one owned note with the original positioned NF,
+no CM append, and exact `value=payout+fee`. Its native branch must authenticate
+current state/NF insertion, actual reserve point, immutable continuation and
+exact payout/destination; it must not depend on another party or the original
+outer prover. The selected valid-history capacity invariant is `m+U=n+1`,
+starting at `(n,m,U)=(3,1,3)`. Arbitrary supplied states do not establish it.
+Root/component/native identities remain acyclic and fixed before owner input.
+
+Recovery must keep note CM/position/maps inside owner clients, authenticate
+complete public history/software/parameters, and treat missing/pruned/conflicting
+data as INCOMPLETE. Same-host isolation does not establish independent custody
+or administration. Loss of the original coordinator/shared prover is a liveness
+experiment; actual separately administered storage and available replacement
+infrastructure must be measured rather than inferred. Fresh local/live financial
+evidence is required for this domain. Expanded privacy-study step4 is not part
+of the requested execution; known amount, ancestry, endpoint, collusion and
+transparent exit limitations and the previous privacy failures remain unchanged.
+
 [ADR-0063](docs/adr/0063-owner-private-payments-prototype.md) adds a **new,
 unfunded** three-owner/six-output construction experiment, not a migration or
 qualification of the funded profile. Separate Spend/Output proofs and stock

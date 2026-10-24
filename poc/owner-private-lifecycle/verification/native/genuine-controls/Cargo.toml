@@ -1,0 +1,16 @@
+[package]
+name = "kpi-owner-private-lifecycle-native-control-codec"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+kaspa-consensus-core = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "01b532e8b553523216471682649693af92f0fd16" }
+serde_json = "=1.0.145"
+
+[profile.dev]
+debug = 0
+[profile.release]
+debug = 0

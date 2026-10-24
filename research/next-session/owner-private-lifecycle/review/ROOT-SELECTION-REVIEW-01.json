@@ -1,0 +1,47 @@
+{
+  "checks": [
+    "new_domain_roles_and_profile_without_old_identity_reuse",
+    "GN3_public_initial_notes_match_committed_value_and_backing",
+    "native_direct_exit_checks_NF_transition_and_actual_effects",
+    "fullnote_exit_no_MPC_outerprover_or_CM_append",
+    "seedonly_recovery_keeps_note_identity_private",
+    "no_new_expanded_step4_privacy_experiment"
+  ],
+  "decision": "RELEASE_FRESH_ROLE_SETUP_AND_GENUINE_LOCAL_CONTROLS",
+  "financial_or_privacy_completion_claimed": false,
+  "observed_at_utc": "2026-10-24T20:30:20.986013+00:00",
+  "open_gates": [
+    "native_genuine_proof_VM_positive_and_semantic_negatives",
+    "real_two_round_backup_change_recovery_and_direct_exits",
+    "wallet_pending_authorization_independent_exit_liveness_fix",
+    "accepted_GN3_full_native_proof_history_and_current_head_binding",
+    "pre_exit_public_dependency_closure_and_replacement_client_use",
+    "actual_separately_administered_storage_destination",
+    "local_complete_genuine_route_then_real_confirmed_testnet_payouts"
+  ],
+  "private_contents_opened": 0,
+  "reviewed": [
+    {
+      "bytes": 10998,
+      "path": "docs/adr/0064-owner-private-native-kas-lifecycle.md",
+      "sha256": "846fdc47a4871ef1cce8539806088777b4d9ca5471dbb2327b9a52dee71cda5d"
+    },
+    {
+      "bytes": 10699,
+      "path": "research/next-session/owner-private-lifecycle/CONTRACT.md",
+      "sha256": "5e1779b05aaff16d3e8507c7601a2e19851d1f379273bda6689c9ff24b738bb0"
+    },
+    {
+      "bytes": 6471,
+      "path": "research/next-session/owner-private-lifecycle/review/RELATION-REVIEW-01.json",
+      "sha256": "62c554422119b342b0deef912d87493420551aeec40bd134f1d0a59955a3862a"
+    }
+  ],
+  "schema": "owner-private-lifecycle-root-selection-review/v1",
+  "selected_workload": {
+    "expected_individual_exits": 9,
+    "mixed_rounds": 2,
+    "outputs_per_round": 6,
+    "spends_per_round": 3
+  }
+}

@@ -36,6 +36,8 @@ Use [0000-template.md](0000-template.md).
 
 ## Records
 
+- [ADR-0064: Owner-private native KAS lifecycle](0064-owner-private-native-kas-lifecycle.md) — New TN10-only GN3, repeated private rounds, seed recovery and direct one-owner exits; actual integrated execution remains required.
+- [ADR-0063: Owner-private payments prototype](0063-owner-private-payments-prototype.md) — Separate Spend/Output proofs and malicious MPC construction; genuine unfunded local verification and a bounded grouping study, no inherited testnet lifecycle.
 - [ADR-0062: exercise an existing checked private field-sum API](0062-existing-engine-private-field-sum.md) — Public synthetic component gate; no KAS construction or privacy qualification.
 - [ADR-0061: Construction API and partition falsification](0061-construction-api-and-partition-falsification.md) — Accepted bounded existing-API/curve controls; no new KAS relation, setup, proof or privacy qualification.
 - [ADR-0060: Four-wallet GN2 testnet rehearsal](0060-four-wallet-gn2-testnet-rehearsal.md) — Accepted bounded contract; fresh testnet profile, owner-local two-input funding, strict accepted-history recovery and four independent exits.

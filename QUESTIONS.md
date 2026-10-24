@@ -2,6 +2,20 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[RFC-0027](docs/rfc/0027-owner-private-native-kas-lifecycle.md) and
+[ADR-0064](docs/adr/0064-owner-private-native-kas-lifecycle.md) now select a
+fresh TN10-only integration, under the
+[shared contract](research/next-session/owner-private-lifecycle/CONTRACT.md).
+Can genuine GN3 backing, successive owner-private rounds, seed-only recovered
+payments/change and direct independent exits complete in one profile with
+confirmed payouts? Can fresh clients recover accepted history and full public
+software/parameters after the original coordinator/shared prover disappears,
+while keeping recovered note CMs/positions private? Which real independently
+administered storage destination and retrieval support that result? Does the
+complete acquisition-to-exit fee ledger meet the unchanged 2% target?
+These are execution questions; no earlier funded/unfunded profile answers them
+by inheritance, and expanded privacy-study step4 is outside this selected batch.
+
 [RFC-0026](docs/rfc/0026-owner-private-multiparty-construction.md) and
 [ADR-0063](docs/adr/0063-owner-private-payments-prototype.md) now select the
 [new unfunded three-owner/six-output contract](research/next-session/owner-private-prototype/CONTRACT.md):

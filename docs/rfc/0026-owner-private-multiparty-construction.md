@@ -105,3 +105,12 @@ qualify privacy. Active composition, recipient-key privacy, larger useful
 anonymity sets, new-domain repeated spending/recovery and independent exits
 remain open. No funding, accepted backing or complete testnet lifecycle is
 established for this explicitly unfunded domain.
+
+The owner now selects integrated lifecycle steps1,2,3,5 in
+[RFC-0027](0027-owner-private-native-kas-lifecycle.md), with the new profile
+decision in [ADR-0064](../adr/0064-owner-private-native-kas-lifecycle.md).
+GN3 backing, successive private rounds, seed-only recovery and a direct
+one-owner no-append exit are selected together. This preserves ADR-0063's
+unfunded identity and does not import old payouts or claim the unresolved
+composed privacy target is achieved. Expanded privacy-study step4 is outside
+that execution batch; required financial correctness and review remain.

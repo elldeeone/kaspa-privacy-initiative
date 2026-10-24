@@ -1,0 +1,120 @@
+{
+  "schema": "kpx8-owner-private-lifecycle-relation-source-review/v1",
+  "reviewed_at_utc": "2026-10-24",
+  "reviewer": "independent-source-review",
+  "baseline_commit": "760d27491b3a7ab28a14712ee41e107ebdc76b76",
+  "scope": "new additive relation source only, before fresh three-role setup",
+  "domain_hex32": "be2c62d1ca8714bcce51659dfe12c190acc42234c6b1c2ff3c0fa60cf653e480",
+  "verdict": "NO_BLOCKING_RELATION_DEFECT_FOUND",
+  "source_identity_sha256": "99dbf035cc679ff8328561712880f33e6432392449a42eebb6b650fda6f80447",
+  "files": [
+    {
+      "path": "poc/owner-private-lifecycle/relation/Cargo.toml",
+      "sha256": "0379ffbbd03e12be280830f774b83be9db25826a306b04d0df083be10629c94d",
+      "bytes": 1405
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/Cargo.lock",
+      "sha256": "175993106dad0e5c3c221e820d6e8822e907b64afb365b9e514d9f515643e6a7",
+      "bytes": 37112
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/lib.rs",
+      "sha256": "4e1bc5845d3370d8b6034ed1c10eab91ad2af9a8653c3dfba845bbaf78b2a35a",
+      "bytes": 5113
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/cv.rs",
+      "sha256": "350153426d8ff86905a7956a76311726812151bbe301b319ee254336b33c2f05",
+      "bytes": 13720
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/statements.rs",
+      "sha256": "86acf7ae34feb423b4542262c26fa00aabab6146cec6c66dfaed60b29c217fc3",
+      "bytes": 5486
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/wire.rs",
+      "sha256": "e47fc2e3e033b644f6099a2b2753c89d67eae7d999c975acf21475d92a32a3ef",
+      "bytes": 3846
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/circuit.rs",
+      "sha256": "e13fa9bd6ba33bd01b71e824d10944b3d8561854b3c026f997b282cf57fde4b0",
+      "bytes": 14225
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8",
+      "bytes": 12532
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/request.rs",
+      "sha256": "f20e3898bbba046f00dcfe03e090ffb329ebc77b23f2cef98724fdf0cb0e7d55",
+      "bytes": 16921
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/keys.rs",
+      "sha256": "a5a5dc977601cee76b169f8ba6f61ddf2d2b893607c7518533b78350bae70bb5",
+      "bytes": 8656
+    },
+    {
+      "path": "poc/owner-private-lifecycle/relation/src/main.rs",
+      "sha256": "fafe8733da515cca0ce54dc9879fd1887094802579030db57a51cb1a0dbc1474",
+      "bytes": 8925
+    }
+  ],
+  "checks": [
+    {
+      "property": "fixed domain and role-separated statement tags",
+      "evidence": "lib.rs:28-30; statements.rs:4-6; circuit.rs:129-233",
+      "result": "Spend200, Output168 and Exit152 all bind the selected new domain inside the circuit; each role has a distinct statement tag and selected verifier role."
+    },
+    {
+      "property": "exact public digest representation",
+      "evidence": "statements.rs:7-12; circuit.rs:39-50",
+      "result": "SHA256 of the complete statement is constrained in circuit and represented by two exact little-endian 128-bit field elements; no 256-bit digest reduction."
+    },
+    {
+      "property": "owned membership and stable nullifier",
+      "evidence": "circuit.rs:129-171,186-233; lib.rs:73-102",
+      "result": "Spend and Exit recompute full note commitment, owner hash and nullifier-key commitment; they prove 16-level membership, constrain high position bits to zero and use the same positioned HMAC nullifier independent of effects/session."
+    },
+    {
+      "property": "exit integer value conservation",
+      "evidence": "circuit.rs:199-204; statements.rs:127-140",
+      "result": "The note value, payout and fee are bounded u64 values. Payout is at least 10000000 sompi, fee is positive, and note value equals payout plus fee. The maximum possible sum is far below BN254 Fr, so field wrap cannot satisfy a false integer equality."
+    },
+    {
+      "property": "canonical commitments and proof encodings",
+      "evidence": "circuit.rs:67-87; cv.rs:41-76,80-113; wire.rs:32-67",
+      "result": "All blinding bits are constrained below the BabyJubjub scalar order; fixed-base equality enforces the subgroup commitment. Native proof/VK and CV decoders validate subgroup and canonical round trips and reject identity points."
+    },
+    {
+      "property": "fresh selected setup and private request ingress",
+      "evidence": "keys.rs:35-134,136-195; main.rs:176-222; request.rs:40-148",
+      "result": "Fresh role-specific OS RNG setup; source/role/domain/curve and full external manifest/PK identities are checked before private stdin. Strict private request shapes do not accept foreign role schemas, unknown fields or malformed canonical byte strings."
+    },
+    {
+      "property": "retained primitive reuse",
+      "evidence": "cv.rs and exact_sha256.rs compared with ADR0063 source",
+      "result": "Pedersen arithmetic and the exact SHA gadget are reused unchanged apart from the public new-domain parameter-digest tag. This is source review, not a cryptographic proof."
+    }
+  ],
+  "remaining_integration_obligations": [
+    "Native Exit policy must independently verify current full state, authenticated indexed-NF insertion, unchanged CM root/count, exact reserve decrease, actual payout script/amount, fee and continuing versus terminal layout.",
+    "Native policy and guest must pin the selected Exit VK, Spend/Output VK profile and program identity; caller-selected keys are not authority.",
+    "Run the selected existing circuit/boundary controls and genuine same-proof role/effects/value/root/NF/domain rejections before funding; this source pass did not execute tests.",
+    "Wallet and accepted-history reader must derive GN3 roots from public full Note168 records and authenticate native backing/accepted history; an asserted genesis/root or host verdict is insufficient.",
+    "Each GN3 signer must check its own seed-derived admission record before signing the complete founding transaction.",
+    "Recipient ciphertext validity, multi-party composition, setup trust, malicious-host isolation, data availability and general privacy remain outside this relation-only conclusion."
+  ],
+  "actions": {
+    "source_edits": 0,
+    "tests_run": 0,
+    "network_requests": 0,
+    "private_file_content_reads": 0,
+    "private_file_hashes": 0
+  },
+  "security_or_privacy_qualification": false
+}

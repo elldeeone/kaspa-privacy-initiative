@@ -1,0 +1,149 @@
+{
+  "checks": [
+    "Network/domain/trial/participant/source script and exact canonical integer coinbase observations",
+    "Coinbase inputs unique, own P2PK, noncovenanted and at least1000DAA mature; full source total bounded",
+    "One original owner seed leaf only, reserved funding key0xffffffff, ALL signatures on every own input",
+    "Single ordinary output back to the identical owner funding key; exact input sum=output+rate100 fee",
+    "Selected SDK safe roundtrip/native normalization and Full/all-input validation before export",
+    "Submit preflight ties case/profile/trial, exact NativeFull/reference fee, then two fresh live exact UTXO/maturity queries",
+    "Durable stage intent plus global transaction ID intent before one logical RPC call; fresh controller/stage/trial cannot reset transaction ID",
+    "Unknown submission result is query-only; no auto retry; acknowledgement is not confirmation"
+  ],
+  "controls": {
+    "producer_reports_targeted_node_tests": 3,
+    "producer_reports_targeted_python_tests": 3,
+    "raw_control_logs_independently_retrieved": false,
+    "test_source_inspected_for_maturity_context_substitution_one_RPC_and_cross_trial_registry": true,
+    "tests_or_native_VM_rerun_by_reviewer": false
+  },
+  "corrected_findings": {
+    "cross_trial_same_transaction_intent_reset": "CLOSED_BY_GLOBAL_SUBMISSION_TRANSACTIONS_TXID_REGISTRY",
+    "lifecycle_CLI_trial_descriptor_mismatch": "CLOSED_BY_SELECTED_DESCRIPTOR_TRIAL_EQUALITY_BEFORE_OUTPUT_OR_NATIVE_REPLAY",
+    "mining_fresh_controller_reset": "CLOSED_BY_GLOBAL_TRIAL_PARTY_CONSUMPTION_AND_PARENT_FSYNC"
+  },
+  "financial_privacy_independent_consensus_longterm_availability_or_complete_lifecycle_claimed": false,
+  "genuine_local_supplied_context_evidence": [
+    {
+      "case_sha256": "ad934cab2ca9c6d1c054ee147c6f4beb612b5c8862099492befbe12dc5c2f703",
+      "context": "NONEXISTENT_SUPPLIED_COINBASE_UTXOS_NOT_MINED_OR_ACCEPTED",
+      "inputs": 11,
+      "owner": 0,
+      "producer_reports_genuine_Native_Full": true,
+      "producer_result_sha256": "4be9288966507c8a45a99844c9cdbe7c61c960a0094717f4fc41d9f99a287f92",
+      "self_output_and_exact_fee_equation_independently_matched": true
+    },
+    {
+      "case_sha256": "c94331b60a94311b7e03f61db2541631ec22be6c5a0be61361fe3c810fa9da6f",
+      "context": "NONEXISTENT_SUPPLIED_COINBASE_UTXOS_NOT_MINED_OR_ACCEPTED",
+      "inputs": 11,
+      "owner": 1,
+      "producer_reports_genuine_Native_Full": true,
+      "producer_result_sha256": "03cb3648192e8f29b2a94528790268e5f8d69447c59498a898ff1c17c09dc16c",
+      "self_output_and_exact_fee_equation_independently_matched": true
+    },
+    {
+      "case_sha256": "e81d69f46de40d556d9c8d45f2fa8a2143f2b49c31fe81c030acaf20b57b16a3",
+      "context": "NONEXISTENT_SUPPLIED_COINBASE_UTXOS_NOT_MINED_OR_ACCEPTED",
+      "inputs": 11,
+      "owner": 2,
+      "producer_reports_genuine_Native_Full": true,
+      "producer_result_sha256": "819511a7028d008d85b2f8e24a3ae83769ad020fd65372cc5f2a1f93a36334ce",
+      "self_output_and_exact_fee_equation_independently_matched": true
+    }
+  ],
+  "original_private_backup_seed_map_or_controller_contents_read_or_hashed": false,
+  "pool_GN3_payment_exit_broadcast_release": false,
+  "previous_mining_only_gate": "research/next-session/owner-private-lifecycle/review/MINING-ONLY-REVIEW-01.json",
+  "remaining_before_each_live_ordinary_submission": [
+    "Actual current mature mined UTXO observation from the selected validating node",
+    "Owner-local fresh candidate generation and root review of that exact public case",
+    "Selected source and complete native preflight plus two live UTXO/maturity checks and durable once-only intent",
+    "Root explicit ordinary-consolidation release; afterwards read-only output confirmation before GN3 use"
+  ],
+  "retained_public_native_preflight": {
+    "Full_and_all_11_input_engines": true,
+    "not_live_UTXO_or_acceptance": true,
+    "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/local-01/submit-consolidation-preflight-01/preflight/native-Full/native/native-validation.json",
+    "sha256": "428588cdc3caa40f0b34321928f4d9af6067c6da795b270c415b91b6bedf5489"
+  },
+  "reviewed_at": "2026-10-24T21:21:50.291388+00:00",
+  "root_release_required": true,
+  "schema": "kpx8-ordinary-consolidation-source-review/v1",
+  "scope": "Only fresh LIVE owners ordinary mined-coinbase self-consolidation and the once-submit plumbing used for that ordinary transaction; no experimental pool funding/payment/exit release.",
+  "selected_funding_source02_sha256": "07e601772cbde91c228b139793fce66733942dd5b1cbad4a2d112fe7891c808a",
+  "source01_three_changed_file_preimages_match": true,
+  "source_files_independently_matched": [
+    {
+      "bytes": 5553,
+      "path": "poc/owner-private-lifecycle/bootstrap/FUNDING-PLAN.md",
+      "sha256": "c8b6cad5e21899df28d7fe7d601cdfb085eea6bec8e0706ef15667d8034d3326"
+    },
+    {
+      "bytes": 4773,
+      "path": "poc/owner-private-lifecycle/bootstrap/collect_funding.mjs",
+      "sha256": "be8dda39ce75d83d1a64742e25449ef98cc84eddf30af7c7c4c509ef965759c8"
+    },
+    {
+      "bytes": 4626,
+      "path": "poc/owner-private-lifecycle/bootstrap/consolidation_sdk.mjs",
+      "sha256": "e1a92b67ac3bdd1c30711cb4d667502bb79b7e68aca77d8c3ab047325b876f51"
+    },
+    {
+      "bytes": 8217,
+      "path": "poc/owner-private-lifecycle/bootstrap/fund_worker.py",
+      "sha256": "7a61c85da31abb0e016ec013b0e956b1a7d73b53d4ffeffe356530f14b2b047a"
+    },
+    {
+      "bytes": 3075,
+      "path": "poc/owner-private-lifecycle/bootstrap/funding_identity.py",
+      "sha256": "e2070ae1ffec04bc51097b3bfee2877071ae320a36016a5b40291cfc9157d38d"
+    },
+    {
+      "bytes": 13817,
+      "path": "poc/owner-private-lifecycle/bootstrap/miner.mjs",
+      "sha256": "0c0a0fb2a8cb78d55e91e9a09a38c5fc5ab82721490d2c54b200989159eb77df"
+    },
+    {
+      "bytes": 4172,
+      "path": "poc/owner-private-lifecycle/bootstrap/new_trial.py",
+      "sha256": "304a15dc0dcb12c0b23e392e68bf3cfee1a77a9697c9016b695db2ed5e7e1f2a"
+    },
+    {
+      "bytes": 7537,
+      "path": "poc/owner-private-lifecycle/bootstrap/run_consolidation.py",
+      "sha256": "73f97a73f0e248d8397b43c8596641b2f63cbaabce14ce96179a861ce47298ef"
+    },
+    {
+      "bytes": 6508,
+      "path": "poc/owner-private-lifecycle/bootstrap/run_miner.py",
+      "sha256": "c56f874c83608812eb7f78d8309dbdc764a0af82af71a1cdc03ef8e6087bcd51"
+    },
+    {
+      "bytes": 2605,
+      "path": "poc/owner-private-lifecycle/bootstrap/test_funding.py",
+      "sha256": "f36776726e0a77720d6f54571b750c003af0075f8a753e4259ebc6143b704fe7"
+    },
+    {
+      "bytes": 9180,
+      "path": "poc/owner-private-lifecycle/chain/preflight.py",
+      "sha256": "2e92a2f9db47ac357c006138dde5ff6070b0dd20f6d2fc0aa8ccf1d61eebff31"
+    },
+    {
+      "bytes": 2618,
+      "path": "poc/owner-private-lifecycle/chain/probe.mjs",
+      "sha256": "d7ad67244722118ea8fffb69fa79f0b09c481a72a22cb7500730f504eab4d585"
+    },
+    {
+      "bytes": 11507,
+      "path": "poc/owner-private-lifecycle/chain/submit.mjs",
+      "sha256": "1c53a7ab7b8a47600a740b65715efeb5555b0af7826b2986df4c630ca2c2950e"
+    },
+    {
+      "bytes": 2588,
+      "path": "poc/owner-private-lifecycle/chain/test_submit.mjs",
+      "sha256": "5cfd91c6f70e6a1f08b1f2b2f0bcd948badae35e0dabb44e26c8358225ce2f8c"
+    }
+  ],
+  "status": "ORDINARY_SELF_CONSOLIDATION_SOURCE_GATE_PASS_PENDING_ROOT_RELEASE",
+  "unresolved_source_findings_in_scope": []
+}

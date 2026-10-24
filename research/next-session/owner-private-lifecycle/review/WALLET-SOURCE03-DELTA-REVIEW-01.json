@@ -1,0 +1,18 @@
+{
+  "schema": "kpx8-owner-wallet-source03-delta-review/v1",
+  "verdict": "NO_BLOCKING_DELTA_DEFECT",
+  "previous_source_sha256": "ada8a2f51abbcceb7f70cb178028f6467f54e890ef2eb02574e14b2c19ea4552",
+  "source_sha256": "a7528e63df736558ee6ca7fb0dffa68e62eedb25afb67e71ecb335a48ae483c6",
+  "controls_sha256": "b5aa252b106fba49b086b2c6ae59069048544c2ac88f74a9dc9738f0b53d73f7",
+  "only_selected_file_changed": "poc/owner-private-lifecycle/wallet/test_wallet.py",
+  "all_six_runtime_sources_and_API_unchanged": true,
+  "reviewed_delta": [
+    "Private received-or-change selection prefers an eligible received note over larger change, and falls back for absent, spent or undersized received notes.",
+    "For all eight nonself destination assignments, kinds [received-or-change,change,received-or-change] choose three valid unspent notes with at least one received-note spend and one change spend."
+  ],
+  "public_READY_fields_or_proof_exports_changed": false,
+  "test_report_scope": "38 mocked public synthetic wallet controls; the reviewer read the source/report and did not rerun tests.",
+  "actual_recovery_native_acceptance_backing_or_privacy_claimed": false,
+  "reviewer_private_content_reads": 0,
+  "reviewer_private_hashes": 0
+}

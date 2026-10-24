@@ -1,0 +1,42 @@
+{
+  "checks": [
+    "externally_selected_manifest_and_domain",
+    "complete_declared_role_set_and_acyclic_reachable_dependency_graph",
+    "profile_selection_identity",
+    "existing_transport_source_authentication_before_execution",
+    "all_issuer_hosts_excluded",
+    "final_whole_object_reauthentication",
+    "incomplete_handoff_has_no_owner_role_paths",
+    "downloaded_programs_not_executed"
+  ],
+  "component": "recovery-closure",
+  "limits": [
+    "semantic_dependency_completeness_requires_actual_assets_and_external_review",
+    "owner_must_reauthenticate_runtime_keys_and_accepted_history_before_seed_use",
+    "independent_administration_and_retention_not_established",
+    "no_real_network_restore_or_restored_wallet_execution_yet"
+  ],
+  "observed_at_utc": "2026-10-24T20:24:04.817469+00:00",
+  "private_file_contents_opened": 0,
+  "review": "NO_BLOCKING_SOURCE_ISSUE_FOUND_FOR_DECLARED_OPAQUE_PUBLIC_BYTE_RESTORE",
+  "schema": "owner-private-lifecycle-root-source-review/v1",
+  "source_files_independently_reauthenticated": [
+    {
+      "bytes": 10669,
+      "path": "poc/owner-private-lifecycle/recovery/closure.py",
+      "sha256": "bafecc879de092e42f14fee7f25dd143888bfe9a58731916db664c2921fe605c"
+    },
+    {
+      "bytes": 11974,
+      "path": "poc/owner-private-lifecycle/recovery/test_closure.py",
+      "sha256": "f2c643d237b2f307cfb1cea27375f8461985a522eb437120217344dafd16a8bc"
+    },
+    {
+      "bytes": 4186,
+      "path": "poc/owner-private-lifecycle/recovery/README.md",
+      "sha256": "c3272c44a0b0c8c3f65936e7b948bf444c5be9c23525ae83b08e008d520ef290"
+    }
+  ],
+  "source_manifest_sha256": "4b7481d81436325e147cc056f2b603ded7e78e119457234ef15ffcd0becbf7d8",
+  "tests": "agent_retained_21_synthetic_controls_not_rerun_without_source_change"
+}

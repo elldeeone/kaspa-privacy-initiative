@@ -1,0 +1,24 @@
+{
+  "schema": "kpx8-bootstrap-chain-source02-relocation-delta-review/v1",
+  "verdict": "NO_BLOCKING_RELOCATION_DELTA_DEFECT",
+  "source02_manifest_sha256": "ab0b854ec0fc48e2189f7d4ee9967f438c452ddcbde5bb6bef746305c376f77a",
+  "previous_source_manifest_sha256": "dfdd9e6b830b018eb62b31d6ef5474bc39c5740b802c3210279cf7ccfcbadce2",
+  "changed_file": "poc/owner-private-lifecycle/chain/replay.py",
+  "changed_file_sha256": "1bb5c89fd64454aa79b081b659b232c55c881ae7cd8240a857539813d2528048",
+  "old_file_sha256": "82d6c3b513430574182f52cd030cad12b35557d69d31cf9ed7a3796910629ccb",
+  "retained_old_source": "poc/owner-private-lifecycle/chain/preimages/replay-source-01.py",
+  "unchanged_other_frozen_source_files": 16,
+  "checks": [
+    "Only explicit optional runtime_paths/sdk_directory selectors were added; no callbacks or financial predicate changes.",
+    "Runtime still authenticates the exact fixed crypto, Node and native-validator hashes and every SDK file hash. The constructor and these pins are unchanged.",
+    "The SDK verification subprocess receives runtime.sdk_dir instead of the old host cache path.",
+    "CLI metadata guards enumerate the actual chosen runtime and SDK paths before public reads, while default selectors remain unchanged.",
+    "GN3 strict backing/native approval, SDK retained-page verification, every-case Native Full and history/checkpoint joins are unchanged."
+  ],
+  "retained_author_relocation_control_sha256": "a04807ec6663e2f6aeaf0d60a2c420df71215a6ebef9b3d96fc37e4737d9919b",
+  "retained_control_scope": "Actual relocated fixed runtimes/SDK address smoke control plus wrong-Node rejection. Original host cache was not masked in that control; full cold restoration is separate.",
+  "reviewer_tests_run": 0,
+  "private_content_reads": 0,
+  "private_hashes": 0,
+  "complete_cold_recovery_or_live_chain_acceptance_claimed": false
+}

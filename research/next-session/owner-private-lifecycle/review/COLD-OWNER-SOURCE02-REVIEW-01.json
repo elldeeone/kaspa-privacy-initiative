@@ -1,0 +1,72 @@
+{
+  "schema": "kpx8-cold-owner-source02-review/v1",
+  "reviewed_at_utc": "2026-10-24",
+  "verdict": "NO_BLOCKING_COLD_OWNER_SOURCE_DEFECT_AFTER_PREFLIGHT_AND_EXECUTABLE_FIXES",
+  "source_manifest_sha256": "d738118be039bced6ba5f51e78520dce79298895c8898e7718070becaa42535a",
+  "cold_owner_sha256": "8b9724bab1265f0068c7890486788f74ab243bebd9864a753b8c48db759775fa",
+  "trusted_imports": {
+    "poc/owner-private-lifecycle/recovery/closure.py": "bafecc879de092e42f14fee7f25dd143888bfe9a58731916db664c2921fe605c",
+    "poc/owner-private-lifecycle/recovery/run_restore.py": "374c6596713a57ca2dbeda9e10c0dcaa950f800c120e1be8259d9de82aebf891",
+    "poc/four-wallet-storage/restore.py": "68a0d7ca0e5cdc7b3a6b5ca06e334d8abdf6545794e9522f36af76d39608a343"
+  },
+  "selected_financial_profile_sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+  "selected_worker_source04_sha256": "3cea87b1da6fcfa45a72daa2f9666ebd96887adc3c85d38b174badf93b759c62",
+  "checks": [
+    {
+      "property": "metadata exclusions precede public selectors and private ingress",
+      "evidence": "cold_owner.py:44-79,165-187",
+      "result": "All extant retained private parents must be covered. Own owner/MPC separation and original-backup coverage/type/mode/single-link metadata are checked before any inventory/helper content read, including on a new host with no historical fixture paths. PublicPolicy tracks private inodes; public reads reject private paths, aliases and mutation."
+    },
+    {
+      "property": "finite software authority and complete imports",
+      "evidence": "cold_owner.py:20-41,100-148,208-210",
+      "result": "An external whole-file inventory SHA authorizes the exact restored member bytes. All members are authenticated; all eight closed-worker source files are mandatory, including fixed recipient reference and the hash-selected construction/public-wire helpers. Only those eight source files enter the child, with their original relative layout."
+    },
+    {
+      "property": "financial role authentication before mounting an original",
+      "evidence": "cold_owner.py:121-147",
+      "result": "The fixed financial profile69a7 authorizes the component profile, relation binary and Spend/Output/Exit manifests and complete proving-key byte lengths/hashes. Crypto has its fixed known hash. All three PKs are streamed/authenticated before a backup is mounted, even though only Exit PK is needed in an exit child."
+    },
+    {
+      "property": "executable readiness independent of downloaded object mode",
+      "evidence": "cold_owner.py:211-216",
+      "result": "The already authenticated relation/crypto ELF bytes are reauthenticated and copied into fresh private controller files at mode0500 before launch. Opaque0400 downloads are not RO-bound as unusable executables."
+    },
+    {
+      "property": "narrow fixed child entry and original path absence",
+      "evidence": "cold_owner.py:151-162,204-246",
+      "result": "The child unshares namespaces, clears environment and invokes the fixed authenticated worker CLI for restore/scan/exit-ready/exit. It mounts only its own new runtime directories, selected public sources/parameters/history and, for restore only, one original RO backup leaf. No foreign owner directories, old fixtures, original home/repository/caches, network, GPU or R0 prover enter the namespace. The probe checks original path absence before worker execution."
+    },
+    {
+      "property": "private plans/logs and bounded public results",
+      "evidence": "cold_owner.py:198-201,247-263",
+      "result": "Operational plans and raw logs stay under a private excluded controller directory. Public output is separate, and operation-specific exact export schemas are checked after a successful child exit. Runtime public identity snapshots are checked again before launch."
+    },
+    {
+      "property": "recovery claims remain scoped",
+      "evidence": "cold_owner.py module purpose and fixed selected worker",
+      "result": "Byte restoration, authenticated worker execution, wallet recognition/proof production, native acceptance and actual chain payout remain separate evidence levels. This source pass establishes none of those runtime outcomes by itself."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "issue": "Own-backup coverage preflight was ordered after public selection in the initial WIP helper.",
+      "fix": "Source02 validates own private coverage and original metadata before the first inventory/helper content read, while retaining extant historical root exclusions."
+    },
+    {
+      "issue": "Directly mounting an authenticated opaque downloaded binary could preserve0400 mode and fail the selected worker's executable readiness check.",
+      "fix": "Source02 stages fixed authenticated ELF bytes at0500 before launching any owner child."
+    }
+  ],
+  "explicit_assumptions": [
+    "Trusted supervisor/system runtimes and externally chosen reviewed software inventory remain authority; this does not protect against malicious host administration.",
+    "Root must choose fresh restoration owner/MPC directories and the intended original own backup; restored-client execution does not establish independent human custody.",
+    "The original whole-public software inventory/assets/PK objects must be genuinely retrieved and authenticated; local staging alone is not a long-term independent-storage guarantee."
+  ],
+  "reviewer_tests_run": 0,
+  "reviewer_network_requests": 0,
+  "original_private_content_reads_by_reviewer": 0,
+  "original_private_hashes_by_reviewer": 0,
+  "actual_backup_mount_or_cold_owner_execution_by_reviewer": false,
+  "remaining_execution_gate": "Use this exact source closure with the root-selected restored inventory/assets, retain actual namespace absence and original-seed recovery/exit results, then validate native cases and confirm chain payouts separately."
+}

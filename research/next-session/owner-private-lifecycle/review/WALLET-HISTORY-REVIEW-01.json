@@ -1,0 +1,159 @@
+{
+  "conclusion": "Reviewed source and mock controls support genuine local integration; actual cryptographic/native/history/confirmation/availability results remain separate. Additional listed sources identify the observed working snapshot, not a claim that every imported dependency was independently audited.",
+  "findings_disposition": {
+    "H1_owned_delivery_errors": "SOURCE_CORRECTION_OBSERVED",
+    "H2_integer_initial_reserve": "SOURCE_CORRECTION_OBSERVED",
+    "H3_independent_exit_after_unsettled_authorization": "SOURCE_CORRECTION_OBSERVED",
+    "H4_fresh_seed_recoverable_payout_key": "SOURCE_CORRECTION_OBSERVED",
+    "H5_mandatory_GN3_admission_and_accepted_native_replay": "SOURCE_CORRECTION_OBSERVED",
+    "H6_terminal_empty_scan_and_historical_payout_keys": "SOURCE_CORRECTION_OBSERVED",
+    "H7_durable_parent_directories": "SOURCE_CORRECTION_OBSERVED"
+  },
+  "outstanding_source_findings": [],
+  "retained_control_log_hashes_independently_matched": true,
+  "review_narrative": "research/next-session/owner-private-lifecycle/review/WALLET-HISTORY-REVIEW-01.md",
+  "review_narrative_sha256": "b7d1134d8403a492b33b8a371078d3ff17061a383c3e4361c9464964f946ea2a",
+  "reviewed_at": "2026-10-24T20:46:16.866656+00:00",
+  "schema": "kpx8-wallet-history-source-review/v1",
+  "scope_boundary": {
+    "accepted_chain_confirmations_or_privacy_proven": false,
+    "completed_genuine_local_integration": false,
+    "cryptographic_attack_implementation": false,
+    "funding_authorized": false,
+    "genuine_crypto_or_native_executed_by_reviewer": false,
+    "original_backups_seeds_private_maps_or_controller_contents_read_or_hashed": false
+  },
+  "selected_mock_control_count": 36,
+  "selected_mock_controls": "PASS",
+  "selected_mock_controls_sha256": "758e0ad626a3a09e54e45a161745d5f7056bc2529958ec1c67986b503950528d",
+  "selected_wallet_source_manifest_sha256": "ada8a2f51abbcceb7f70cb178028f6467f54e890ef2eb02574e14b2c19ea4552",
+  "source_snapshot_files": [
+    {
+      "bytes": 6649,
+      "path": "poc/owner-private-lifecycle/wallet/paths.py",
+      "sha256": "bf4973905296695adcc1bd1c3ba47a2e9d7b651720d2a747bfba8bd1711009b2"
+    },
+    {
+      "bytes": 9596,
+      "path": "poc/owner-private-lifecycle/wallet/support.py",
+      "sha256": "e8a1b8103026232af5d88f3896ebb5768b5916e666d20df70c351c0bc031832b"
+    },
+    {
+      "bytes": 8578,
+      "path": "poc/owner-private-lifecycle/wallet/history.py",
+      "sha256": "a6e6e0439dcfb198472cd2d39e5f4a834ce9d6248cb72b3ea909ebf710fb7de9"
+    },
+    {
+      "bytes": 4645,
+      "path": "poc/owner-private-lifecycle/wallet/trees.py",
+      "sha256": "69e4b3c8a10738f96e9578482f3f781244c14c6f5656e9ba7f6607593481cc85"
+    },
+    {
+      "bytes": 28745,
+      "path": "poc/owner-private-lifecycle/wallet/worker.py",
+      "sha256": "7b002da841a75d1c4dae33e7aa4a4f6bbc4414b01bc9edfbb0af2093e54150bd"
+    },
+    {
+      "bytes": 13930,
+      "path": "poc/owner-private-lifecycle/wallet/run_owner.py",
+      "sha256": "afa5dbccc27dbdc2e53a4ab3f1f596cb1fc3a844d0499376e57b7ecee36276e2"
+    },
+    {
+      "bytes": 35337,
+      "path": "poc/owner-private-lifecycle/wallet/test_wallet.py",
+      "sha256": "b42f8efc8fdbad64b8b91ad871d6023f32ffe31d909cd78830135061740a0581"
+    },
+    {
+      "bytes": 7576,
+      "path": "poc/owner-private-lifecycle/wallet/API.md",
+      "sha256": "e465e4af4be47a33c680c4fa657aea1c26b40150e8008c738b51fa91a6d8fbdb"
+    },
+    {
+      "bytes": 10441,
+      "path": "poc/owner-private-lifecycle/bootstrap/gn3.py",
+      "sha256": "714a9af441e3997265b030cfc786a2be81b0baafa05709ef86e29bc49e32bf47"
+    },
+    {
+      "bytes": 5196,
+      "path": "poc/owner-private-lifecycle/bootstrap/gn3_common.py",
+      "sha256": "21cc320870b13675177818dfb94b93a491e06fe78a9c149dd2e609e09474236e"
+    },
+    {
+      "bytes": 8371,
+      "path": "poc/owner-private-lifecycle/bootstrap/gn3_entry.py",
+      "sha256": "184e7afcb8ce2a2b6c2e04427de22accf83743f8acf91d58b2f99b2bf9e241ed"
+    },
+    {
+      "bytes": 8892,
+      "path": "poc/owner-private-lifecycle/bootstrap/gn3_runtime.py",
+      "sha256": "cf27a3c4625f259df89fa5d1120b318b1d2926b524e0c6b74cf6d2c3b299adde"
+    },
+    {
+      "bytes": 1733,
+      "path": "poc/owner-private-lifecycle/bootstrap/gn3_selection.py",
+      "sha256": "f5365da63e9ca12f2d3b6135873ca6b2885cec1d929c01a4e910f03a788c603c"
+    },
+    {
+      "bytes": 5783,
+      "path": "poc/owner-private-lifecycle/bootstrap/sign_worker.py",
+      "sha256": "0da54a9f3377767c7cfee59ab35964848c2edc2b1a797717d8263197e6885016"
+    },
+    {
+      "bytes": 7696,
+      "path": "poc/owner-private-lifecycle/bootstrap/run_signer.py",
+      "sha256": "9c89e36fc277bfddc154d14a6f7b5bc52a531444659443c7195bb59d34e16357"
+    },
+    {
+      "bytes": 6649,
+      "path": "poc/owner-private-lifecycle/bootstrap/paths.py",
+      "sha256": "bf4973905296695adcc1bd1c3ba47a2e9d7b651720d2a747bfba8bd1711009b2"
+    },
+    {
+      "bytes": 5317,
+      "path": "poc/owner-private-lifecycle/bootstrap/sdk.mjs",
+      "sha256": "788d5a78595a8059fd4827e11787460ce7577eb82dee3ea161bd61b7632bae0c"
+    },
+    {
+      "bytes": 13783,
+      "path": "poc/owner-private-lifecycle/chain/replay.py",
+      "sha256": "82d6c3b513430574182f52cd030cad12b35557d69d31cf9ed7a3796910629ccb"
+    },
+    {
+      "bytes": 12707,
+      "path": "poc/owner-private-lifecycle/chain/verify_bundle.mjs",
+      "sha256": "f979b9ca6796613d701595ee22f898632bf192f4c3bf4bee88e413606a9e0f98"
+    },
+    {
+      "bytes": 17177,
+      "path": "poc/owner-private-lifecycle/chain/acquire.mjs",
+      "sha256": "7b7e148672b87a11c40cc6bbc7cb86571f40f4d371315b2a0ca39bff88a2d876"
+    },
+    {
+      "bytes": 4909,
+      "path": "poc/owner-private-lifecycle/chain/selection.mjs",
+      "sha256": "1210bba18e2a4d52b7f59de2e7ff8e600a36f3b178d7d27b258a0fc441ce5a32"
+    },
+    {
+      "bytes": 8011,
+      "path": "poc/owner-private-lifecycle/chain/wire.mjs",
+      "sha256": "4ab0b0f0b243ac0bf2f815f1ceb7ed0024fcd6e1c6f834d7b2bbe1d266d3f08f"
+    },
+    {
+      "bytes": 13288,
+      "path": "poc/owner-private-lifecycle/integration/public.py",
+      "sha256": "75ba2eeabe074376e930fe4f5cfa58dbeb879b9fd1837a92b323f1b591ae9366"
+    },
+    {
+      "bytes": 17256,
+      "path": "poc/owner-private-lifecycle/integration/driver.py",
+      "sha256": "40dbf368fba1e6f2a6b6332ef4308819d502083b5483d054f71556140089b5c5"
+    },
+    {
+      "bytes": 3926,
+      "path": "poc/owner-private-lifecycle/integration/ingress.py",
+      "sha256": "7a4f5fddbd7f66dda8c9690159051dd2ce918cb8a4f7a515e50f2ad312084377"
+    }
+  ],
+  "status": "CORRECTED_SOURCE_AND_SYNTHETIC_CONTROLS_REVIEWED",
+  "tests_rerun_by_reviewer": false
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "kpx8-static-publication-audit-source02-delta-review/v1",
+  "verdict": "NO_BLOCKING_TYPED_COUNT_AND_FRESH_IDENTITY_DELTA",
+  "source_manifest_sha256": "7030cff13b9785835a5e01bdc0c39936feace4d2d3afed0c3fb29d31d28a9bac",
+  "controller_sha256": "2ec9113267c5108f6a6fe3a3e19f8ee274775ec66388d66f5ff643fb85a27518",
+  "prior_controller_sha256": "71df0c5b4f4d9e3c4f5b1e172528eb11952798f2d22f9ecd009805f328ee1c03",
+  "retained_preimage": "poc/owner-private-lifecycle/wallet/preimages/static-publication-audit-source-01.py",
+  "selected_public_manifest_sha256": "ceae87dd75d64c2d04fececa5e6076e0fe9268c939cdecbd734fd7f072898071",
+  "actual_selected_member_comparison_count": 66,
+  "actual_selected_field_type": "int",
+  "fresh_controller_identity": "static-canary-02",
+  "unchanged_candidate_file_count": 84,
+  "unchanged_candidate_bytes": 1496603058,
+  "unchanged_original_count": 65,
+  "reviewed_delta": [
+    "The selected independent member-comparison field is a strict integer count66, not a boolean. The new controller checks type(value) is int and value==66, retaining rejection of bool and wrong counts.",
+    "A fresh private controller identity static-canary-02 is required; the old source and preflight failure remain retained.",
+    "Dataset SHA, candidate manifests, three reviewed checkers, all65 original paths, four-worker limit and namespace/private/public boundaries are unchanged."
+  ],
+  "retained_failure": "public/static-canary-preflight-01/FAILED-ATTEMPT-01.json; author reports failure before originals(), runtime creation, staging or any original worker.",
+  "reviewer_actual_original_scans": 0,
+  "reviewer_original_private_reads": 0,
+  "reviewer_original_private_hashes": 0,
+  "reviewer_new_tests": 0,
+  "scope": "Source and exact public selection check only. Prior source review missed the actual metadata field type; the selected public count was independently authenticated in this delta pass."
+}

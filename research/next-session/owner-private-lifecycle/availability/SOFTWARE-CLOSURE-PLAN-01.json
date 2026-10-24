@@ -1,0 +1,511 @@
+{
+  "OS_prerequisites": [
+    "Linux/bubblewrap",
+    "Python standard library",
+    "ELF loader/system shared libraries",
+    "zstd for strict public archive unpack",
+    "TLS/DNS for public retrieval only"
+  ],
+  "binary_SDK_candidate_manifest": "/var/tmp/kpi-owner-private-lifecycle-01/assets/recovery-software-candidate-01/RUNTIME-01.json",
+  "binary_SDK_candidate_manifest_sha256": "cfb36fc79602964f2ff4fd6736f7a1287c7fb1f0c5f59b471b4edba516b12481",
+  "classification": "DRAFT_PUBLIC_CLOSURE_NOT_UPLOAD_APPROVED",
+  "cold_worker_entry": "wallet/worker.py direct closed CLI; no run_owner or HostPolicy inside namespace; only own original backup mounted",
+  "excluded_dependencies": [
+    "originalrepository_or_home_or_cache",
+    "foreignwallet_backups_or_savedmaps",
+    "MPC_or_Docker_for_independentexit",
+    "sharedR0host_guestprover_GPU_compressionparameters_for_exit"
+  ],
+  "final_software_inventory_and_archive_pending_cold_entrypoint_and_selected_broadcaster_review": true,
+  "financial_profile_sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+  "public_replay_entry": "chain/replay.py fixed replay() closed function with actualrestoredRuntimepaths+SDK; supervisorCLI foreignfixturemetadata not used in namespace",
+  "relation_and_nativecodec_and_all3PKs_manifests_VKs": "SEPARATE_ROOT_SELECTED_PUBLIC_OBJECTS_NO_DUPLICATE_PKS_IN_ARCHIVE",
+  "schema": "owner-private-lifecycle-recovery-software-plan/v1",
+  "source_files": [
+    {
+      "bytes": 6649,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/wallet/paths.py",
+      "sha256": "bf4973905296695adcc1bd1c3ba47a2e9d7b651720d2a747bfba8bd1711009b2",
+      "source_path": "poc/owner-private-lifecycle/wallet/paths.py",
+      "static_imports": [
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "stat"
+      ]
+    },
+    {
+      "bytes": 9596,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/wallet/support.py",
+      "sha256": "e8a1b8103026232af5d88f3896ebb5768b5916e666d20df70c351c0bc031832b",
+      "source_path": "poc/owner-private-lifecycle/wallet/support.py",
+      "static_imports": [
+        "importlib.util",
+        "os",
+        "pathlib",
+        "paths",
+        "stat",
+        "subprocess",
+        "sys"
+      ]
+    },
+    {
+      "bytes": 8578,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/wallet/history.py",
+      "sha256": "a6e6e0439dcfb198472cd2d39e5f4a834ce9d6248cb72b3ea909ebf710fb7de9",
+      "source_path": "poc/owner-private-lifecycle/wallet/history.py",
+      "static_imports": [
+        "dataclasses",
+        "paths",
+        "support",
+        "trees"
+      ]
+    },
+    {
+      "bytes": 4645,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/wallet/trees.py",
+      "sha256": "69e4b3c8a10738f96e9578482f3f781244c14c6f5656e9ba7f6607593481cc85",
+      "source_path": "poc/owner-private-lifecycle/wallet/trees.py",
+      "static_imports": [
+        "hashlib"
+      ]
+    },
+    {
+      "bytes": 29028,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/wallet/worker.py",
+      "sha256": "8793a0e1d18f620645411c374ebad994cf4a04e4d29e153841b6b7c727122509",
+      "source_path": "poc/owner-private-lifecycle/wallet/worker.py",
+      "static_imports": [
+        "argparse",
+        "contextlib",
+        "fcntl",
+        "history",
+        "os",
+        "pathlib",
+        "paths",
+        "secrets",
+        "stat",
+        "support"
+      ]
+    },
+    {
+      "bytes": 14379,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/wallet/run_owner.py",
+      "sha256": "4b9b8538dfc308ecba4ea2b489716b6d2ef3027c16cf8ee2a6ba579815f49f6e",
+      "source_path": "poc/owner-private-lifecycle/wallet/run_owner.py",
+      "static_imports": [
+        "argparse",
+        "os",
+        "pathlib",
+        "paths",
+        "stat",
+        "subprocess",
+        "support"
+      ]
+    },
+    {
+      "bytes": 21564,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/future-recipient/v2/recipient.py",
+      "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2",
+      "source_path": "poc/future-recipient/v2/recipient.py",
+      "static_imports": [
+        "__future__",
+        "dataclasses",
+        "functools",
+        "hashlib",
+        "hmac",
+        "json",
+        "pathlib",
+        "struct",
+        "subprocess"
+      ]
+    },
+    {
+      "bytes": 8958,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/compact-batch-lifecycle/primitives.py",
+      "sha256": "184463d416a8e3c5605ce929bf2cead378c00e82d3827d30c83f8a6e19de5986",
+      "source_path": "poc/compact-batch-lifecycle/primitives.py",
+      "static_imports": [
+        "dataclasses",
+        "hashlib",
+        "hmac",
+        "json"
+      ]
+    },
+    {
+      "bytes": 5937,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/integration/trees.py",
+      "sha256": "5b7ef9df60005fcab42bc42191f082955114c7105942ed64e9d75c2b5ddc7a3e",
+      "source_path": "poc/owner-private-lifecycle/integration/trees.py",
+      "static_imports": [
+        "hashlib"
+      ]
+    },
+    {
+      "bytes": 13288,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/integration/public.py",
+      "sha256": "75ba2eeabe074376e930fe4f5cfa58dbeb879b9fd1837a92b323f1b591ae9366",
+      "source_path": "poc/owner-private-lifecycle/integration/public.py",
+      "static_imports": [
+        "construction.codec",
+        "copy",
+        "importlib.util",
+        "pathlib",
+        "re",
+        "struct",
+        "sys",
+        "trees"
+      ]
+    },
+    {
+      "bytes": 3869,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/integration/quote.py",
+      "sha256": "43ccfbe69aedafd66e49691c03a73f1f7ec3c5ed40e6bd90a5f1b2539c8afd64",
+      "source_path": "poc/owner-private-lifecycle/integration/quote.py",
+      "static_imports": [
+        "public",
+        "trees"
+      ]
+    },
+    {
+      "bytes": 5240,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/integration/construction/codec.py",
+      "sha256": "99148130508e20e5865e4ae14059a0a94e5c2203aedb651679514b9dbe08c724",
+      "source_path": "poc/owner-private-lifecycle/integration/construction/codec.py",
+      "static_imports": [
+        "hashlib",
+        "json",
+        "re"
+      ]
+    },
+    {
+      "bytes": 14547,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/verification/wire.py",
+      "sha256": "fa6df7b55af307ccbf2f0896a9e1fc9afa5c4c290d35019be002be5454f52cf9",
+      "source_path": "poc/owner-private-lifecycle/verification/wire.py",
+      "static_imports": [
+        "dataclasses",
+        "hashlib",
+        "struct"
+      ]
+    },
+    {
+      "bytes": 8428,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/verification/native_case.py",
+      "sha256": "25d83d5e95faf4bc5c1fae9a1f7d568ffd599997ee0727d59fb7ef20fa51e746",
+      "source_path": "poc/owner-private-lifecycle/verification/native_case.py",
+      "static_imports": [
+        "copy",
+        "dataclasses",
+        "hashlib",
+        "importlib.util",
+        "json",
+        "os",
+        "pathlib",
+        "stat",
+        "subprocess",
+        "sys"
+      ]
+    },
+    {
+      "bytes": 10441,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/bootstrap/gn3.py",
+      "sha256": "714a9af441e3997265b030cfc786a2be81b0baafa05709ef86e29bc49e32bf47",
+      "source_path": "poc/owner-private-lifecycle/bootstrap/gn3.py",
+      "static_imports": [
+        "copy",
+        "dataclasses",
+        "gn3_common",
+        "hashlib",
+        "uuid"
+      ]
+    },
+    {
+      "bytes": 5196,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/bootstrap/gn3_common.py",
+      "sha256": "21cc320870b13675177818dfb94b93a491e06fe78a9c149dd2e609e09474236e",
+      "source_path": "poc/owner-private-lifecycle/bootstrap/gn3_common.py",
+      "static_imports": [
+        "hashlib",
+        "importlib.util",
+        "json",
+        "os",
+        "pathlib",
+        "stat",
+        "subprocess",
+        "sys",
+        "uuid"
+      ]
+    },
+    {
+      "bytes": 8892,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/bootstrap/gn3_runtime.py",
+      "sha256": "cf27a3c4625f259df89fa5d1120b318b1d2926b524e0c6b74cf6d2c3b299adde",
+      "source_path": "poc/owner-private-lifecycle/bootstrap/gn3_runtime.py",
+      "static_imports": [
+        "copy",
+        "gn3_common",
+        "json",
+        "os",
+        "pathlib",
+        "stat",
+        "subprocess"
+      ]
+    },
+    {
+      "bytes": 1733,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/bootstrap/gn3_selection.py",
+      "sha256": "f5365da63e9ca12f2d3b6135873ca6b2885cec1d929c01a4e910f03a788c603c",
+      "source_path": "poc/owner-private-lifecycle/bootstrap/gn3_selection.py",
+      "static_imports": [
+        "gn3",
+        "gn3_common"
+      ]
+    },
+    {
+      "bytes": 6649,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/bootstrap/paths.py",
+      "sha256": "bf4973905296695adcc1bd1c3ba47a2e9d7b651720d2a747bfba8bd1711009b2",
+      "source_path": "poc/owner-private-lifecycle/bootstrap/paths.py",
+      "static_imports": [
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "stat"
+      ]
+    },
+    {
+      "bytes": 5317,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/bootstrap/sdk.mjs",
+      "sha256": "788d5a78595a8059fd4827e11787460ce7577eb82dee3ea161bd61b7632bae0c",
+      "source_path": "poc/owner-private-lifecycle/bootstrap/sdk.mjs"
+    },
+    {
+      "bytes": 8011,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/wire.mjs",
+      "sha256": "4ab0b0f0b243ac0bf2f815f1ceb7ed0024fcd6e1c6f834d7b2bbe1d266d3f08f",
+      "source_path": "poc/owner-private-lifecycle/chain/wire.mjs"
+    },
+    {
+      "bytes": 2202,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/json.mjs",
+      "sha256": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7",
+      "source_path": "poc/owner-private-lifecycle/chain/json.mjs"
+    },
+    {
+      "bytes": 4909,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/selection.mjs",
+      "sha256": "1210bba18e2a4d52b7f59de2e7ff8e600a36f3b178d7d27b258a0fc441ce5a32",
+      "source_path": "poc/owner-private-lifecycle/chain/selection.mjs"
+    },
+    {
+      "bytes": 17177,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/acquire.mjs",
+      "sha256": "7b7e148672b87a11c40cc6bbc7cb86571f40f4d371315b2a0ca39bff88a2d876",
+      "source_path": "poc/owner-private-lifecycle/chain/acquire.mjs"
+    },
+    {
+      "bytes": 12707,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/verify_bundle.mjs",
+      "sha256": "f979b9ca6796613d701595ee22f898632bf192f4c3bf4bee88e413606a9e0f98",
+      "source_path": "poc/owner-private-lifecycle/chain/verify_bundle.mjs"
+    },
+    {
+      "bytes": 6499,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/fetch.mjs",
+      "sha256": "626b8366b4a25b94aa3cd9ff872fb24d59fbeaff90f9253575e55ed8b3051e7d",
+      "source_path": "poc/owner-private-lifecycle/chain/fetch.mjs"
+    },
+    {
+      "bytes": 3064,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/anchor.mjs",
+      "sha256": "936e2e406568763d63b205a67802fa0525d2dfaf24afbdcae05b6b87cbdfdab4",
+      "source_path": "poc/owner-private-lifecycle/chain/anchor.mjs"
+    },
+    {
+      "bytes": 2618,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/probe.mjs",
+      "sha256": "d7ad67244722118ea8fffb69fa79f0b09c481a72a22cb7500730f504eab4d585",
+      "source_path": "poc/owner-private-lifecycle/chain/probe.mjs"
+    },
+    {
+      "bytes": 11507,
+      "freeze_pending": true,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/submit.mjs",
+      "sha256": "1c53a7ab7b8a47600a740b65715efeb5555b0af7826b2986df4c630ca2c2950e",
+      "source_path": "poc/owner-private-lifecycle/chain/submit.mjs"
+    },
+    {
+      "bytes": 14363,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/replay.py",
+      "sha256": "1bb5c89fd64454aa79b081b659b232c55c881ae7cd8240a857539813d2528048",
+      "source_path": "poc/owner-private-lifecycle/chain/replay.py",
+      "static_imports": [
+        "argparse",
+        "copy",
+        "gn3",
+        "gn3_common",
+        "gn3_runtime",
+        "gn3_selection",
+        "importlib.util",
+        "json",
+        "pathlib",
+        "paths",
+        "sys"
+      ]
+    },
+    {
+      "bytes": 9180,
+      "freeze_pending": true,
+      "kind": "source",
+      "placement": "poc/owner-private-lifecycle/chain/preflight.py",
+      "sha256": "2e92a2f9db47ac357c006138dde5ff6070b0dd20f6d2fc0aa8ccf1d61eebff31",
+      "source_path": "poc/owner-private-lifecycle/chain/preflight.py",
+      "static_imports": [
+        "argparse",
+        "gn3",
+        "gn3_common",
+        "gn3_runtime",
+        "gn3_selection",
+        "pathlib",
+        "paths",
+        "replay",
+        "sys",
+        "uuid"
+      ]
+    },
+    {
+      "bytes": 7620,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/recovery-coldbuild/software_bundle.py",
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705",
+      "source_path": "poc/recovery-coldbuild/software_bundle.py",
+      "static_imports": [
+        "__future__",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "stat"
+      ]
+    },
+    {
+      "bytes": 10176,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/recovery-coldbuild/unpack_bundle.py",
+      "sha256": "19c41c96b41c968a0ed0dfefe3a38fe855a323ce366b1f1aba46ef155a6d2a22",
+      "source_path": "poc/recovery-coldbuild/unpack_bundle.py",
+      "static_imports": [
+        "__future__",
+        "argparse",
+        "hashlib",
+        "json",
+        "pathlib",
+        "re",
+        "software_bundle",
+        "subprocess",
+        "tarfile",
+        "tempfile"
+      ]
+    },
+    {
+      "bytes": 3921,
+      "freeze_pending": false,
+      "kind": "source",
+      "placement": "poc/recovery-coldbuild/archive_bundle.py",
+      "sha256": "40d770057060f44b30abe3e1adb0224d4c6faf6c8e366d0c4438a812c0d3a69f",
+      "source_path": "poc/recovery-coldbuild/archive_bundle.py",
+      "static_imports": [
+        "argparse",
+        "hashlib",
+        "io",
+        "json",
+        "pathlib",
+        "software_bundle",
+        "subprocess",
+        "tarfile"
+      ]
+    },
+    {
+      "bytes": 2982,
+      "freeze_pending": false,
+      "kind": "public-metadata",
+      "placement": "poc/owner-private-lifecycle/financial-profile.json",
+      "sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+      "source_path": "poc/owner-private-lifecycle/financial-profile.json"
+    },
+    {
+      "bytes": 3461,
+      "freeze_pending": false,
+      "kind": "public-metadata",
+      "placement": "poc/owner-private-lifecycle/verification/component-profile.json",
+      "sha256": "a30fc71038685867ff832a384fc82d2654e0692c58f66667e77cb7e758f42554",
+      "source_path": "poc/owner-private-lifecycle/verification/component-profile.json"
+    }
+  ],
+  "wallet_source04_sha256": "3cea87b1da6fcfa45a72daa2f9666ebd96887adc3c85d38b174badf93b759c62"
+}

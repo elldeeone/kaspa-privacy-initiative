@@ -1,0 +1,32 @@
+{
+  "schema": "kpx8-owner-wallet-source04-delta-review/v1",
+  "verdict": "NO_BLOCKING_TYPED_EMPTY_DELTA_DEFECT",
+  "source_sha256": "3cea87b1da6fcfa45a72daa2f9666ebd96887adc3c85d38b174badf93b759c62",
+  "controls_sha256": "949d07638c1aca8b4285e34bcc603e55c98563c2b75c12ca3e8b72bc34930d1a",
+  "previous_source_sha256": "a7528e63df736558ee6ca7fb0dffa68e62eedb25afb67e71ecb335a48ae483c6",
+  "runtime_changed_files": {
+    "worker.py": "8793a0e1d18f620645411c374ebad994cf4a04e4d29e153841b6b7c727122509",
+    "run_owner.py": "4b9b8538dfc308ecba4ea2b489716b6d2ef3027c16cf8ee2a6ba579815f49f6e"
+  },
+  "runtime_unchanged_files": [
+    "paths.py",
+    "support.py",
+    "history.py",
+    "trees.py"
+  ],
+  "reviewed_behavior": [
+    "The worker authenticates selected assets and complete current history before opening its own original backup, reconciles accepted state, and completes owner-local note recognition.",
+    "Only the absence of every unspent owned claim yields kpx8-owner-no-unspent-claim/v1. Unavailable requested note kinds while other claims exist still fail normally.",
+    "The empty result has exactly schema/participant_id_hex32/history_sha256/empty. It exposes no NF, CM, position, amount or payout script.",
+    "The launcher accepts the empty schema only for exit-ready, checks exact fields, requires literal empty=True and the externally selected history hash, and validates participant ID encoding.",
+    "No broad exception becomes empty. Missing/pruned/conflicting history or malformed own delivery still propagates failure through unchanged history validation."
+  ],
+  "retained_prior_runtime_archive": "poc/owner-private-lifecycle/wallet/preimages/round-01-source-02/MANIFEST.json",
+  "retained_previous_tests": "poc/owner-private-lifecycle/wallet/preimages/controls-03-test_wallet.py",
+  "reported_test_groups": 41,
+  "reviewer_reran_tests": false,
+  "scope": "Source-only narrow delta after root-authorized idle boundary; previous genuine round evidence keeps its prior source identity. Financial relations, proof statements and public funding rules are unchanged.",
+  "actual_selected_profile_exit_native_or_confirmation_claimed_by_this_review": false,
+  "private_content_reads": 0,
+  "private_hashes": 0
+}

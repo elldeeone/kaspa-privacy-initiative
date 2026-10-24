@@ -1,0 +1,257 @@
+{
+  "actual_provider_urls": null,
+  "archive_member_inventory_sha256": "74d08130fe997890a44fb4b1cb85a85836107f69866f6f14b854a8a22afa61ce",
+  "archive_member_root_for_decompressed_canary_audit": "/var/tmp/kpi-owner-private-lifecycle-01/assets/recovery-software-candidate-01/unpacked-01",
+  "archive_typed_inventory_sha256": "24067398ebec6624c2e7bd677404c7c01523341b0ec2e5fdcb0e140516c09bca",
+  "classification": "EXACT_STATIC_PUBLIC_CANDIDATES_PENDING_ROOT_CANARY_AND_TAR_MEMBER_AUDIT_NO_UPLOAD",
+  "dependencies": {
+    "component-profile": [
+      "spend-manifest",
+      "output-manifest",
+      "exit-manifest"
+    ],
+    "exit-manifest": [
+      "exit-proving-key",
+      "exit-verification-key",
+      "relation-prover"
+    ],
+    "exit-proving-key": [],
+    "exit-verification-key": [],
+    "financial-profile": [
+      "component-profile",
+      "native-policy",
+      "native-codec"
+    ],
+    "native-codec": [
+      "component-profile",
+      "exit-verification-key"
+    ],
+    "native-policy": [
+      "component-profile",
+      "exit-verification-key"
+    ],
+    "output-manifest": [
+      "output-proving-key",
+      "output-verification-key",
+      "relation-prover"
+    ],
+    "output-proving-key": [],
+    "output-verification-key": [],
+    "relation-prover": [],
+    "software-archive": [
+      "software-inventory",
+      "software-members",
+      "financial-profile",
+      "component-profile",
+      "relation-prover",
+      "native-codec"
+    ],
+    "software-archive-metadata": [
+      "software-archive",
+      "software-inventory",
+      "software-members"
+    ],
+    "software-inventory": [],
+    "software-members": [],
+    "spend-manifest": [
+      "spend-proving-key",
+      "spend-verification-key",
+      "relation-prover"
+    ],
+    "spend-proving-key": [],
+    "spend-verification-key": []
+  },
+  "domain_hex32": "be2c62d1ca8714bcce51659dfe12c190acc42234c6b1c2ff3c0fa60cf653e480",
+  "financial_profile_sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+  "history_and_trial_specific_objects_not_yet_selected": true,
+  "independent_administration_established": false,
+  "objects": [
+    {
+      "bytes": 2982,
+      "id": "financial-profile",
+      "kind": "other_public_metadata",
+      "placement": "software/poc/owner-private-lifecycle/financial-profile.json",
+      "release_filename": "financial-profile-69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f.json",
+      "sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+      "source_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/owner-private-lifecycle/financial-profile.json"
+    },
+    {
+      "bytes": 3461,
+      "id": "component-profile",
+      "kind": "other_public_metadata",
+      "placement": "software/poc/owner-private-lifecycle/verification/component-profile.json",
+      "release_filename": "component-profile-a30fc71038685867ff832a384fc82d2654e0692c58f66667e77cb7e758f42554.json",
+      "sha256": "a30fc71038685867ff832a384fc82d2654e0692c58f66667e77cb7e758f42554",
+      "source_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/owner-private-lifecycle/verification/component-profile.json"
+    },
+    {
+      "bytes": 7543,
+      "id": "native-policy",
+      "kind": "other_public_metadata",
+      "placement": "metadata/immutable-tail.bin",
+      "release_filename": "native-policy-2e9e00aa4ba7d9a25db4aff5246d58213b336e7a0c7689de8cc36498bcd09bf6.json",
+      "sha256": "2e9e00aa4ba7d9a25db4aff5246d58213b336e7a0c7689de8cc36498bcd09bf6",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/native-selected-01/immutable-tail.bin"
+    },
+    {
+      "bytes": 4515664,
+      "id": "relation-prover",
+      "kind": "software_source",
+      "placement": "objects/relation-prover",
+      "release_filename": "relation-prover-b533fd6941e0b2eaf1db5c38b8d649b7d57d714698e78e4143f6ea552d638d87.bin",
+      "sha256": "b533fd6941e0b2eaf1db5c38b8d649b7d57d714698e78e4143f6ea552d638d87",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/relation"
+    },
+    {
+      "bytes": 1544152,
+      "id": "native-codec",
+      "kind": "software_source",
+      "placement": "objects/native-codec",
+      "release_filename": "native-codec-8f724750bb4cc849e2e4bde26fc8da2b5bc7f9a7e4ffd09153ee1af15858d208.bin",
+      "sha256": "8f724750bb4cc849e2e4bde26fc8da2b5bc7f9a7e4ffd09153ee1af15858d208",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/native-codec-stage-01/native-codec"
+    },
+    {
+      "bytes": 1439,
+      "id": "exit-manifest",
+      "kind": "parameter_manifest",
+      "placement": "parameters/exit/manifest.json",
+      "release_filename": "exit-manifest-07075af7b85ed68372afe8a1311329b67ef8688eddaff97a3f117bd645e10863.json",
+      "sha256": "07075af7b85ed68372afe8a1311329b67ef8688eddaff97a3f117bd645e10863",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/exit/manifest.json"
+    },
+    {
+      "bytes": 591206448,
+      "id": "exit-proving-key",
+      "kind": "public_parameters",
+      "placement": "parameters/exit/parameters.pk",
+      "release_filename": "exit-proving-key-b26ff0459b5561d5b5d1c61087f784b1d91ae5e91ffce58b33b21a92f8265a67.bin",
+      "sha256": "b26ff0459b5561d5b5d1c61087f784b1d91ae5e91ffce58b33b21a92f8265a67",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/exit/parameters.pk"
+    },
+    {
+      "bytes": 328,
+      "id": "exit-verification-key",
+      "kind": "public_parameters",
+      "placement": "parameters/exit/vk.bin",
+      "release_filename": "exit-verification-key-8eb5c7d9386a845c172e40827edf99d58ec781fb94b62f9874c6ad56853468f9.bin",
+      "sha256": "8eb5c7d9386a845c172e40827edf99d58ec781fb94b62f9874c6ad56853468f9",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/exit/vk.bin"
+    },
+    {
+      "bytes": 1438,
+      "id": "output-manifest",
+      "kind": "parameter_manifest",
+      "placement": "parameters/output/manifest.json",
+      "release_filename": "output-manifest-237764e6de62e589fbda64c6f5dda5b0d36bc96e46088a5c4fe8aa1594bd7cd4.json",
+      "sha256": "237764e6de62e589fbda64c6f5dda5b0d36bc96e46088a5c4fe8aa1594bd7cd4",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/output/manifest.json"
+    },
+    {
+      "bytes": 85578096,
+      "id": "output-proving-key",
+      "kind": "public_parameters",
+      "placement": "parameters/output/parameters.pk",
+      "release_filename": "output-proving-key-26550152c665f3668e6f67ff1079f5caef600cbbe4884f3b6f7248c03c391b6f.bin",
+      "sha256": "26550152c665f3668e6f67ff1079f5caef600cbbe4884f3b6f7248c03c391b6f",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/output/parameters.pk"
+    },
+    {
+      "bytes": 328,
+      "id": "output-verification-key",
+      "kind": "public_parameters",
+      "placement": "parameters/output/vk.bin",
+      "release_filename": "output-verification-key-c7e989ad033b67b14288d98cb77479db4f6b08339befeb9e74a0771fe6e1c04b.bin",
+      "sha256": "c7e989ad033b67b14288d98cb77479db4f6b08339befeb9e74a0771fe6e1c04b",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/output/vk.bin"
+    },
+    {
+      "bytes": 1440,
+      "id": "spend-manifest",
+      "kind": "parameter_manifest",
+      "placement": "parameters/spend/manifest.json",
+      "release_filename": "spend-manifest-51391c4b59ec4a8644e8ae31e7a7a6be3034d1a58e349dc141bc808c9d8d0364.json",
+      "sha256": "51391c4b59ec4a8644e8ae31e7a7a6be3034d1a58e349dc141bc808c9d8d0364",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/spend/manifest.json"
+    },
+    {
+      "bytes": 601785008,
+      "id": "spend-proving-key",
+      "kind": "public_parameters",
+      "placement": "parameters/spend/parameters.pk",
+      "release_filename": "spend-proving-key-ed88e12a0a55d998ed5973673f1d19965a11d18b9ba08caec071c0100666628e.bin",
+      "sha256": "ed88e12a0a55d998ed5973673f1d19965a11d18b9ba08caec071c0100666628e",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/spend/parameters.pk"
+    },
+    {
+      "bytes": 328,
+      "id": "spend-verification-key",
+      "kind": "public_parameters",
+      "placement": "parameters/spend/vk.bin",
+      "release_filename": "spend-verification-key-8945677f82a25c913aab25ddeb527d80c5203bf5e647f890211ea1d47b942a29.bin",
+      "sha256": "8945677f82a25c913aab25ddeb527d80c5203bf5e647f890211ea1d47b942a29",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/relation/spend/vk.bin"
+    },
+    {
+      "bytes": 52866973,
+      "id": "software-archive",
+      "kind": "software_archive",
+      "placement": "metadata/software-bundle.tar.zst",
+      "release_filename": "software-archive-6b5a60ddd37eefbff871c61a257aa0173899940df9faf3c042d932ad4de7a0fa.tar.zst",
+      "sha256": "6b5a60ddd37eefbff871c61a257aa0173899940df9faf3c042d932ad4de7a0fa",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/recovery-software-candidate-01/archive-01/software-bundle.tar.zst"
+    },
+    {
+      "bytes": 10510,
+      "id": "software-inventory",
+      "kind": "software_inventory",
+      "placement": "metadata/SOFTWARE-BUNDLE.json",
+      "release_filename": "software-inventory-24067398ebec6624c2e7bd677404c7c01523341b0ec2e5fdcb0e140516c09bca.json",
+      "sha256": "24067398ebec6624c2e7bd677404c7c01523341b0ec2e5fdcb0e140516c09bca",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/recovery-software-candidate-01/software/SOFTWARE-BUNDLE.json"
+    },
+    {
+      "bytes": 11061,
+      "id": "software-members",
+      "kind": "software_member_inventory",
+      "placement": "metadata/ARCHIVE-MEMBERS.json",
+      "release_filename": "software-members-74d08130fe997890a44fb4b1cb85a85836107f69866f6f14b854a8a22afa61ce.json",
+      "sha256": "74d08130fe997890a44fb4b1cb85a85836107f69866f6f14b854a8a22afa61ce",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/recovery-software-candidate-01/archive-01/ARCHIVE-MEMBERS.json"
+    },
+    {
+      "bytes": 547,
+      "id": "software-archive-metadata",
+      "kind": "other_public_metadata",
+      "placement": "metadata/ARCHIVE.json",
+      "release_filename": "software-archive-metadata-9bce84df5adac34bb3fd7827a44fcf94154e834e7803f1e1e427aa1509526890.json",
+      "sha256": "9bce84df5adac34bb3fd7827a44fcf94154e834e7803f1e1e427aa1509526890",
+      "source_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/recovery-software-candidate-01/archive-01/ARCHIVE.json"
+    }
+  ],
+  "owner_original_seeds_or_backups_or_controller_plans_selected": false,
+  "publications": 0,
+  "required_roles": {
+    "accepted-checkpoint": "PENDING_ACTUAL_ACCEPTED_CHECKPOINT",
+    "accepted-history-index": "PENDING_COMPLETE_HISTORY_INDEX",
+    "exit-manifest": "exit-manifest",
+    "exit-proving-key": "exit-proving-key",
+    "exit-verification-key": "exit-verification-key",
+    "founding-descriptor": "PENDING_ACTUAL_SELECTED_TRIAL_DESCRIPTOR",
+    "native-policy": "native-policy",
+    "output-manifest": "output-manifest",
+    "output-proving-key": "output-proving-key",
+    "output-verification-key": "output-verification-key",
+    "profile": "financial-profile",
+    "public-codec": "native-codec",
+    "relation-prover": "relation-prover",
+    "software-inventory": "software-inventory",
+    "spend-manifest": "spend-manifest",
+    "spend-proving-key": "spend-proving-key",
+    "spend-verification-key": "spend-verification-key",
+    "wallet-software": "software-archive"
+  },
+  "schema": "kpx8-public-recovery-static-selection/v1",
+  "total_object_bytes": 1337537746,
+  "whole_key_hash_receipt": "research/next-session/owner-private-lifecycle/availability/RELATION-ASSET-CLOSURE-01.json"
+}

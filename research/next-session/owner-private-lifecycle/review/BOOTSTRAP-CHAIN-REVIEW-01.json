@@ -1,0 +1,104 @@
+{
+  "schema": "kpx8-owner-private-lifecycle-bootstrap-chain-source-review/v1",
+  "reviewed_at_utc": "2026-10-24",
+  "baseline_commit": "760d27491b3a7ab28a14712ee41e107ebdc76b76",
+  "verdict": "NO_BLOCKING_BOOTSTRAP_OR_CHAIN_SOURCE_DEFECT_AFTER_SIGNER_FIX",
+  "source_freeze": {
+    "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/local-01/BOOTSTRAP-CHAIN-SOURCE-01.json",
+    "sha256": "dfdd9e6b830b018eb62b31d6ef5474bc39c5740b802c3210279cf7ccfcbadce2",
+    "sources": {
+      "poc/owner-private-lifecycle/bootstrap/gn3.py": "714a9af441e3997265b030cfc786a2be81b0baafa05709ef86e29bc49e32bf47",
+      "poc/owner-private-lifecycle/bootstrap/gn3_common.py": "21cc320870b13675177818dfb94b93a491e06fe78a9c149dd2e609e09474236e",
+      "poc/owner-private-lifecycle/bootstrap/gn3_entry.py": "184e7afcb8ce2a2b6c2e04427de22accf83743f8acf91d58b2f99b2bf9e241ed",
+      "poc/owner-private-lifecycle/bootstrap/gn3_runtime.py": "cf27a3c4625f259df89fa5d1120b318b1d2926b524e0c6b74cf6d2c3b299adde",
+      "poc/owner-private-lifecycle/bootstrap/gn3_selection.py": "f5365da63e9ca12f2d3b6135873ca6b2885cec1d929c01a4e910f03a788c603c",
+      "poc/owner-private-lifecycle/bootstrap/paths.py": "bf4973905296695adcc1bd1c3ba47a2e9d7b651720d2a747bfba8bd1711009b2",
+      "poc/owner-private-lifecycle/bootstrap/run_signer.py": "9c89e36fc277bfddc154d14a6f7b5bc52a531444659443c7195bb59d34e16357",
+      "poc/owner-private-lifecycle/bootstrap/sdk.mjs": "788d5a78595a8059fd4827e11787460ce7577eb82dee3ea161bd61b7632bae0c",
+      "poc/owner-private-lifecycle/bootstrap/sign_worker.py": "0da54a9f3377767c7cfee59ab35964848c2edc2b1a797717d8263197e6885016",
+      "poc/owner-private-lifecycle/chain/acquire.mjs": "7b7e148672b87a11c40cc6bbc7cb86571f40f4d371315b2a0ca39bff88a2d876",
+      "poc/owner-private-lifecycle/chain/anchor.mjs": "936e2e406568763d63b205a67802fa0525d2dfaf24afbdcae05b6b87cbdfdab4",
+      "poc/owner-private-lifecycle/chain/fetch.mjs": "626b8366b4a25b94aa3cd9ff872fb24d59fbeaff90f9253575e55ed8b3051e7d",
+      "poc/owner-private-lifecycle/chain/json.mjs": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7",
+      "poc/owner-private-lifecycle/chain/replay.py": "82d6c3b513430574182f52cd030cad12b35557d69d31cf9ed7a3796910629ccb",
+      "poc/owner-private-lifecycle/chain/selection.mjs": "1210bba18e2a4d52b7f59de2e7ff8e600a36f3b178d7d27b258a0fc441ce5a32",
+      "poc/owner-private-lifecycle/chain/verify_bundle.mjs": "f979b9ca6796613d701595ee22f898632bf192f4c3bf4bee88e413606a9e0f98",
+      "poc/owner-private-lifecycle/chain/wire.mjs": "4ab0b0f0b243ac0bf2f815f1ceb7ed0024fcd6e1c6f834d7b2bbe1d266d3f08f"
+    }
+  },
+  "additional_selected_replay_application_sources": {
+    "poc/owner-private-lifecycle/integration/construction/codec.py": "99148130508e20e5865e4ae14059a0a94e5c2203aedb651679514b9dbe08c724",
+    "poc/owner-private-lifecycle/integration/public.py": "75ba2eeabe074376e930fe4f5cfa58dbeb879b9fd1837a92b323f1b591ae9366",
+    "poc/owner-private-lifecycle/integration/trees.py": "5b7ef9df60005fcab42bc42191f082955114c7105942ed64e9d75c2b5ddc7a3e",
+    "poc/owner-private-lifecycle/verification/wire.py": "fa6df7b55af307ccbf2f0896a9e1fc9afa5c4c290d35019be002be5454f52cf9"
+  },
+  "checks": [
+    {
+      "property": "public native backing is tied to actual initial commitments",
+      "evidence": "bootstrap/gn3.py:41-69,94-177",
+      "result": "Each GN3 row discloses its complete Note168, commitment and ciphertext/hash. The parser recomputes the note commitment and value, derives the complete initial CM/NF snapshot, requires exact sum-of-note backing at P2SH(state||selected tail), and checks three exact funding allocations and canonical ALL signature frames. No asserted initial root or private founder witness is accepted as backing."
+    },
+    {
+      "property": "each owner authorizes its own admitted claim",
+      "evidence": "bootstrap/sign_worker.py:27-90; bootstrap/sdk.mjs:60-72",
+      "result": "The worker first authenticates the externally selected unsigned case, own exact initial record, native quote and SDK roundtrip. Only then it reads its original seed and decrypts/rederives the invoice0 note. It checks the reserved funding index0xffffffff and signs only its matching input with SIGHASH_ALL. The exported result contains the ordinary signature and public context, never the seed."
+    },
+    {
+      "property": "whole private parent is excluded before public ingress",
+      "evidence": "bootstrap/run_signer.py:22-45; chain/replay.py:211-226",
+      "result": "The signer omission gap identified during this review is fixed: the whole reserved private root must be in HostPolicy before public selectors are read. Source/selector/runtime metadata precedes public reads. Replay also enumerates retained page paths for metadata exclusion before SDK page reads."
+    },
+    {
+      "property": "accepted graph is rederived from retained Full pages",
+      "evidence": "chain/acquire.mjs:62-185; chain/verify_bundle.mjs:26-182",
+      "result": "The SDK stage recomputes header hashes, fixed-frontier path coverage, transaction IDs and exact witness/body/context locators, reconstructs physical reserve edges, checks selected new-domain layout and immutable successor tail, and verifies current-point queries plus post-query delta/requery. It remains a validating-node observation rather than an independent consensus proof."
+    },
+    {
+      "property": "financial/native replay is mandatory after SDK acquisition",
+      "evidence": "chain/replay.py:106-198",
+      "result": "Replay validates full public GN3 records and selected descriptor, requires the fixed native emitter to reproduce the exact initial redeem/tail, executes Native Full and every input engine on every accepted case, reconstructs each exact native projection, verifies physical outpoint/state/reserve continuity and independently rebuilds NF/CM history. Final checkpoint and terminal status must agree with the SDK graph."
+    },
+    {
+      "property": "canonical amounts cross the JS/Python boundary exactly",
+      "evidence": "chain/replay.py:43-65; chain/wire.mjs:31-37",
+      "result": "RPC decimal strings are canonical, range-checked and converted once to Python integers before comparisons. Booleans, floats, signs, leading zeros and non-ASCII decimal alternatives are rejected. No JavaScript floating amount comparison is introduced."
+    },
+    {
+      "property": "wallet history does not trust an asserted founding cache",
+      "evidence": "wallet/history.py:55-74,79-132",
+      "result": "The owner independently rederives initial commitments/ciphertext hashes/note-value sum and roots, verifies successive financial proofs and tree transitions, and requires exact agreement with the externally selected current checkpoint. Accepted-chain authority remains the separate fixed chain reader."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "GN3_SIGNER_PRIVATE_ROOT_EXCLUSION",
+      "location": "bootstrap/run_signer.py after HostPolicy construction",
+      "cause": "The owner was under the reserved private root, but an unrelated caller exclusion list could leave that owner outside the public-read inode guard.",
+      "fix": "Require the whole selected private root in HostPolicy.new_directories before owner/public processing.",
+      "verification": "Source checked; author retained a synthetic before-any-public-read refusal control. The reviewer accessed no private contents."
+    }
+  ],
+  "retained_author_controls": {
+    "GN3_pure_and_before_read_guard_tests": 8,
+    "SDK_Full_page_tests": 9,
+    "exact_integer_and_retained_page_tests": 3,
+    "genuine_combined_native_Full_inputs": 3,
+    "genuine_local_original_owner_SIGHASH_ALL_signers": 3
+  },
+  "retained_genuine_local_GN3_case_sha256": "036b7af9b2e45bf25245a3a203512a9f04e4cb671768f68aafcb13d4136553f7",
+  "remaining_gates": [
+    "Execute complete local genuine mixed rounds, seed-only payment/change recovery and every direct exit under the final selected profile before funding.",
+    "Acquire actual TN10 accepted Full pages and replay them through this fixed SDK plus financial/native path; current source review is not a live run.",
+    "Original coordinator/prover removal and replacement retrieval need actual execution evidence; separately administered storage remains a distinct external dependency.",
+    "Miner/consolidation/source-funding tools added later have their own selection and are outside this frozen bootstrap/replay source review.",
+    "Single trusted host/selected software and validating RPC remain assumptions; finite receipt checks do not establish independent consensus or general privacy."
+  ],
+  "actions": {
+    "implementation_edits": 0,
+    "tests_run": 0,
+    "network_requests": 0,
+    "private_file_content_reads": 0,
+    "private_file_hashes": 0
+  },
+  "security_or_privacy_qualification": false
+}

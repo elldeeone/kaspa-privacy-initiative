@@ -1,0 +1,24 @@
+{
+  "classification": "PUBLIC_SYNTHETIC_GENUINE_G16_CONTROLS_NOT_NATIVE_ACCEPTANCE",
+  "command": [
+    "/home/luke/.cargo/bin/cargo",
+    "test",
+    "--offline",
+    "--manifest-path",
+    "poc/owner-private-lifecycle/relation/Cargo.toml",
+    "--release",
+    "--test",
+    "genuine",
+    "--jobs",
+    "4",
+    "--target-dir",
+    "/var/tmp/kpi-owner-private-relation-build-01/target",
+    "--",
+    "--ignored",
+    "--test-threads=1"
+  ],
+  "exit_code": 0,
+  "original_owner_records_used": false,
+  "schema": "kpx8-genuine-three-role-controls/v1",
+  "wall_seconds": 13.636304214945994
+}

@@ -1,0 +1,39 @@
+{
+  "classification": "PUBLIC_SYNTHETIC_AND_SOURCE_CONTROLS_NOT_FINANCIAL_AUTHORITY",
+  "commands": [
+    {
+      "command": "cargo test --release --lib --jobs 4",
+      "rust_test_seconds": 19.87,
+      "test_groups_failed": 0,
+      "test_groups_passed": 19
+    },
+    {
+      "command": "cargo test --release --test exit_controls --jobs 4 -- --test-threads=1",
+      "rust_test_seconds": 169.95,
+      "test_groups_failed": 0,
+      "test_groups_passed": 8
+    },
+    {
+      "command": "cargo test --release --test relation_controls --jobs 4 -- --test-threads=1",
+      "rust_test_seconds": 83.11,
+      "test_groups_failed": 0,
+      "test_groups_passed": 8
+    },
+    {
+      "command": "cargo check --release --no-default-features --jobs 4",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo build --release --bin kpi-owner-private-lifecycle-relation --jobs 4",
+      "exit_code": 0
+    }
+  ],
+  "compiled_source_sha256": "99dbf035cc679ff8328561712880f33e6432392449a42eebb6b650fda6f80447",
+  "genuine_setup_and_proving_pending": true,
+  "native_current_state_and_indexed_nf_enforcement_required": true,
+  "old_or_new_owner_private_contents_read": false,
+  "schema": "kpx8-relation-correctness-controls/v1",
+  "source_manifest_sha256": "e5f7970aafd52f1ac63af29fce9459c4045e755d39f83f1f31b94808f83152d4",
+  "test_groups_failed": 0,
+  "test_groups_passed": 35
+}

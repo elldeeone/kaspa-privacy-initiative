@@ -1,0 +1,64 @@
+{
+  "schema": "kpx8-literal-seed-canary-source-review/v1",
+  "reviewed_at_utc": "2026-10-24",
+  "verdict": "NO_BLOCKING_SOURCE_BOUNDARY_DEFECT_FOUND",
+  "source_manifest_sha256": "c9abe34a04b7a6333ea820c7cf13e994815e0ebfc82b61528b75f2f43d7a34e1",
+  "worker_sha256": "64527cadcd85df584fd3c36b945c2c263978cdd6d055376631027d616c8e6711",
+  "launcher_sha256": "7d26d393623dc6d308f6bfdb0d18056f9952c7df2b4efdeec64c005a7dee68cf",
+  "controls_sha256": "7c13297572824ac736f969f5f406b34a4df78e8d7867e6981bb45cd070e788c0",
+  "selected_financial_runtime": "Outside this additive canary review. Current worker.py and run_owner.py differ from SOURCE03 while the selected canary closure and shared paths.py still match; final financial selection must be recorded separately.",
+  "observed_financial_source_deltas_from_SOURCE03": {
+    "poc/owner-private-lifecycle/wallet/worker.py": "8793a0e1d18f620645411c374ebad994cf4a04e4d29e153841b6b7c727122509",
+    "poc/owner-private-lifecycle/wallet/run_owner.py": "4b9b8538dfc308ecba4ea2b489716b6d2ef3027c16cf8ee2a6ba579815f49f6e"
+  },
+  "checks": [
+    {
+      "property": "one narrow private ingress",
+      "evidence": "export_seed_worker.py:65-71,74-86; run_export_seed.py:69-79",
+      "result": "The closed child receives exactly one original read-only BACKUP leaf and no original owner directory, maps, attempts, foreign backups, MPC state, host home or private source directory. Private ingress is one read_owner call after public authentication."
+    },
+    {
+      "property": "fixed seed-only format",
+      "evidence": "export_seed_worker.py:19-32,65-71",
+      "result": "Only the exact four-field kpx8-owner-seed-backup/v1 record in the selected lifecycle domain is accepted. Duplicate fields, noncanonical seed encodings, foreign domains and zero participant identifiers reject. No key derivation, decryption, private hashing or owner-map operation exists."
+    },
+    {
+      "property": "finite public selection before private read",
+      "evidence": "export_seed_worker.py:35-51,74-86; run_export_seed.py:56-68",
+      "result": "The externally hashed allowlist has exact fields, canonical unique relative paths, exact per-file lengths and whole-byte hashes. Every copied candidate is authenticated before opening the private original."
+    },
+    {
+      "property": "metadata exclusion and registered originals",
+      "evidence": "run_export_seed.py:17-47,56-68",
+      "result": "HostPolicy checks old originals and all supplied retained private parents/inodes. The whole current private root is mandatory. Two explicit trial labels derive exactly six distinct original leaves, and the selected owner must be one of those exact leaves. Host processing uses metadata, public bytes and one-leaf RO binding only."
+    },
+    {
+      "property": "literal patterns and count-only output",
+      "evidence": "export_seed_worker.py:87-103; run_export_seed.py:85-97",
+      "result": "The scan covers raw seed32, lower/uppercase hex64, raw allowlist and decoded filename metadata. A 63-byte overlap covers the longest 64-byte literal across chunks. Only status/counts and a fixed scope leave the worker; no seed, derived tag, matched filename, owner identifier or private path appears in its result."
+    },
+    {
+      "property": "closed execution and failure behavior",
+      "evidence": "run_export_seed.py:69-84; export_seed_worker.py:106-124",
+      "result": "Selected worker SHA is fixed; bwrap unshares namespaces, clears environment, closes stdin, mounts candidate/checker inputs read-only and exposes only a separate result output. Raw plans/logs remain private. Parse/authentication/namespace failures refuse generically and cannot become PASS."
+    }
+  ],
+  "retained_controls": {
+    "reported_tests": 6,
+    "result": "PASS",
+    "scope": "Public unsafe sentinels, including an actual bwrap child; reviewer read source/report without rerunning controls."
+  },
+  "actual_original_canary_scan_performed_by_reviewer": false,
+  "original_private_content_reads_by_reviewer": 0,
+  "original_private_hashes_by_reviewer": 0,
+  "network_requests_by_reviewer": 0,
+  "publication_preconditions": [
+    "Root must select the exact complete finite public manifest and expected SHA before any actual canary invocation.",
+    "Root must supply the complete retained-private exclusion list; same-host launcher/administration remains trusted.",
+    "Actual scans must cover all intended original backup leaves, retain count-only outcomes and block export on a completed FAIL."
+  ],
+  "limitations": [
+    "Literal canary only; no claim about base64, derived secrets, arbitrary transformations, protocol security or privacy.",
+    "Source review and six synthetic controls are not evidence that the actual final publication set contains no literal originals; that requires the separately authorized finite scans."
+  ]
+}

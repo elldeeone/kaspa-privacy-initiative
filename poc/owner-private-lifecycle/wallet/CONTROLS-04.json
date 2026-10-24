@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "poc/owner-private-lifecycle/wallet",
+    "-p",
+    "test_wallet.py",
+    "-v"
+  ],
+  "delta": [
+    "Disjoint typed empty after complete authenticated history and no unspent claim",
+    "Missing/pruned/conflicting history refuses before seed read rather than becoming empty",
+    "Unavailable requested note kind with other unspent claims refuses rather than claiming empty"
+  ],
+  "elapsed_seconds": 0.615168,
+  "result": "PASS",
+  "schema": "kpx8-owner-wallet-controls/v1",
+  "scope": "Public deterministic unsafe fixtures with mocked cryptography/proofs; no original private backup reads, real keys or funded/native acceptance claim",
+  "stderr_sha256": "ac3c421a5864c07b81ae7107d68bd66a33aa0ed2271ff9b3cfbf8bd10c2de74b",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tests": 41
+}

@@ -1,0 +1,25 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "poc/owner-private-lifecycle/wallet",
+    "-p",
+    "test_wallet.py",
+    "-v"
+  ],
+  "delta": [
+    "Received preference over larger change; missing/insufficient/spent received note falls back to change",
+    "All eight possible nonself three-sender recipient patterns support round-two private kinds received-or-change/change/received-or-change with at least one received-note spend and one change spend"
+  ],
+  "elapsed_seconds": 0.672062,
+  "result": "PASS",
+  "schema": "kpx8-owner-wallet-controls/v1",
+  "scope": "Public deterministic unsafe fixtures with mocked cryptography/proofs; no original private backup reads, real keys or funded/native acceptance claim",
+  "stderr_sha256": "b950aa7369b82ddbdc7853ae8d83f6fddb9002a0e8965e6789c6fe60620be60e",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tests": 38
+}

@@ -1,0 +1,74 @@
+{
+  "checks": [
+    "newdomain_and_selected_componentjournal_join_before_execution",
+    "complete_projection_hash_matches_selected104bytejournal",
+    "allretained_privateparents_and_metadataonly_inode_history_excluded_before_reads",
+    "public_singlelink_symlink_and_inodereadchecks",
+    "selectedhelper_compiledonly_after_exacthash",
+    "CPUworker_network_home_repo_private_GPU_absent",
+    "GPUdevices_only_prove_or_compress",
+    "compression_assets_fully_streamhashed_and_metadata_checked",
+    "stagedselectedfiles_reauthenticated_before_worker",
+    "subprocess_stdin_DEVNULL",
+    "selectedoperationpositiveflag_and_expectedproducedjournal_required",
+    "no_native_or_chainacceptance_inferred"
+  ],
+  "helper_sha256": "da559335c0e071d15b7daee5cd4d256776295c934d5db569c1e13c3d2bf83195",
+  "host_CLI_source_observed_sha256": "dcd9dd27b2d86a3f5a61b4115734f8d336cf8e4004fb3077551ade446003469c",
+  "limits": [
+    "Not a circuit/cryptographiccomposition/privacyreview",
+    "RealCPUguest/GPUproving/compression notexecuted byreviewer",
+    "Verify imageauthority comesfrom selectedcompiledhost, explicitreportcomparisonfalse",
+    "Host filesystem/OS and selectedsoftware remaintrusted",
+    "Separate nativeFull and actualacceptedchain confirmation remainrequired"
+  ],
+  "observed_at_utc": "2026-10-24T20:46:20.629419+00:00",
+  "original_wallet_backup_seed_map_or_privatecontents_read": false,
+  "resolved_findings": [
+    {
+      "financial_proof_or_native_checks_weakened": false,
+      "first_source_manifest_sha256": "7cc41406a2e42ab78c0bfe2c1ea24f128ff72822d5b3d8bd2db36c8ad2c975e6",
+      "id": "compression-report-journal-field",
+      "impact": "actual successful compression would be rejected after completion because its host report omits journal_sha256",
+      "resolution": "Source02 permits report-field absence only for compress; present hashes remain checked; produced journal is mandatory and complete104B must equal external expectedbytes; comparisonflag false explicitly"
+    }
+  ],
+  "result": "NO_BLOCKING_SOURCE_ISSUE_FOUND_AFTER_CONTRACT_FIX",
+  "reviewer": "separate_availability_lane",
+  "schema": "owner-private-lifecycle-focused-public-outer-review/v1",
+  "scope": [
+    "new_public_runner_guard_stage_CLI_mount_result_boundary",
+    "unchanged_helper_pin_and_minimal_bwrap_process_contract",
+    "selected_host_CLI_and_report_field_shapes"
+  ],
+  "source_files_authenticated": [
+    {
+      "bytes": 15704,
+      "path": "poc/owner-private-lifecycle/execution/outer.py",
+      "sha256": "dd4e01e3c4ae37649eae2307213dbf9fd5e26c66b13b6d6a19bdc6b4114c72dd"
+    },
+    {
+      "bytes": 11433,
+      "path": "poc/owner-private-lifecycle/execution/test_outer.py",
+      "sha256": "fc86bcad3e402c5f454fbae0944ccc5d5213d9837fc18c3d1bd3531c82506621"
+    },
+    {
+      "bytes": 3999,
+      "path": "poc/owner-private-lifecycle/execution/README.md",
+      "sha256": "8c7b04cff6a2f6d975f4e38deb373aa21bb45dc67b45a55a31af5652da740ada"
+    },
+    {
+      "bytes": 431,
+      "path": "poc/owner-private-lifecycle/execution/CONTROLS-01.json",
+      "sha256": "ffc4c022442333a2a72af87ee9280689156faa9f11679c52ee5bf8623206a06a"
+    },
+    {
+      "bytes": 662,
+      "path": "poc/owner-private-lifecycle/execution/CONTROLS-02.json",
+      "sha256": "314a41468d17e6684f7ba43eb3df604f90635f88355ea93dfaefe3322f50651a"
+    }
+  ],
+  "source_manifest": "poc/owner-private-lifecycle/execution/SOURCE-02.json",
+  "source_manifest_sha256": "c44c7aa2be4e042b362cdb388f583aac4e10a83fc59d795b66cf66b6e5173fd4",
+  "tests": "Agent retained11targetedgroups pass includingactual syntheticCPU bwrap isolation and compressionreport regression; notrerun withoutsourcechange"
+}

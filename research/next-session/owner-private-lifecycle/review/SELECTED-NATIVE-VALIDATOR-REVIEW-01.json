@@ -1,0 +1,58 @@
+{
+  "schema": "kpx8-selected-native-validation-additions-review/v1",
+  "reviewed_at_utc": "2026-10-24",
+  "verdict": "NO_BLOCKING_NEW_DRIVER_DEFECT_AFTER_SOURCE_PIN_FIX",
+  "selected_financial_profile_sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+  "reviewed_additions_manifest_sha256": "00745b1c5b202b252e9645236ad28e502ccafb9a8a5a576f90b6d246d684c6a1",
+  "superseded_additions_manifest_sha256": "c47e054ffa03e00ec122a5cb2439d3b7e14fc0f534d05cf0869c61cab1a2e8a2",
+  "worker_sha256": "2a8420764dd214a81503d3bde6bceed9bcdf14b232e1f63ce03db9a4c742726d",
+  "controller_sha256": "b9afa8e7d292c653678d23f11fbafa0ddae7843484740a4a1e53cbdf7db3ddda",
+  "retained_previous_controller_sha256": "7241a502c4856522a122ac9887027ee153489371589dd96fdd89bef5f7d6c47f",
+  "prior_financial_source_closure_sha256": "5311f2042a4ae01ca61ab17a3f1e63888f742dfef21f2ee7ed90159c4703b270",
+  "scope": "Only the additive public selected-case proof attachment/native validation worker and supervisor; prior financial core review is retained separately.",
+  "resolved_findings": [
+    {
+      "location": "supervisor staging source-pin resolution",
+      "cause": "The new worker had no explicit external pin and was absent from the older financial source closure, allowing the staging read to receive pin=None.",
+      "fix": "Pin the additive worker explicitly to its reviewed SHA256 and reject every unresolved fallback source pin before reading/staging.",
+      "verification": "Exact two-line controller delta and preserved source01 preimage reviewed; no selected-case invocation or private bytes were used by the reviewer."
+    }
+  ],
+  "checks": [
+    {
+      "property": "selected public input and code authentication",
+      "evidence": "validate_selected_case.py:25-31,60-87; fixed controller:21-51",
+      "result": "The supervisor verifies the selected financial profile, fixed native077 engine, native codec, new worker, original public helpers and selected component/outer records before closed execution. Exact CASE/projection/journal and optional native128 proof hashes are externally supplied and checked. Missing source pins now fail."
+    },
+    {
+      "property": "actual selected state and financial projection",
+      "evidence": "validate_selected_case.py:68-87",
+      "result": "The worker validates the selected component/domain/outer linkage and Exit VK hash, requires one actual input/context at B1800, and invokes the fixed codec to reproduce the source case and exact independently selected P/J. The codec checks selected current redeem/tail, image/component/Exit key and actual native effects."
+    },
+    {
+      "property": "mixed attachment changes only witness proof",
+      "evidence": "validate_selected_case.py:90-111",
+      "result": "Only a genuine nonzero128-byte native proof may replace the fresh zero128 slot. The final case must equal the source case with precisely that byte replacement. Transaction ID, current point, payload, output list, storage mass, metrics, financial projection and journal must remain identical."
+    },
+    {
+      "property": "direct exit uses its own selected native proof path",
+      "evidence": "validate_selected_case.py:101-111",
+      "result": "Direct exit accepts no external attachment argument, requires the selected Exit mode, validates the public exit projection and retains its original case/effects/proof. The same selected codec enforces its immutable current/successor tail and key identities."
+    },
+    {
+      "property": "success requires actual native execution",
+      "evidence": "validate_selected_case.py:113-126",
+      "result": "The selected engine is executed against the final exact case in a fresh output directory. Process success, isolation PASS, Native Full accepted, every input script accepted and matching exact fee are all required. A codec/host confirmation flag alone does not produce success."
+    },
+    {
+      "property": "public-only namespace and explicit evidence scope",
+      "evidence": "fixed controller:52-62; validate_selected_case.py:2-6,60,127-142",
+      "result": "Only selected public files, system runtimes and a separate output directory are mounted. The worker checks absence of home/var and supports no owner seed, wallet signer, PK, RPC, funding or broadcast. Its result explicitly states supplied-context native validation, not accepted backing or chain confirmation."
+    }
+  ],
+  "reviewer_tests_run": 0,
+  "reviewer_private_content_reads": 0,
+  "reviewer_private_hashes": 0,
+  "runtime_rehearsal_or_native_success_claimed_by_this_source_review": false,
+  "remaining_execution_gate": "Run this exact selected helper on actual compressed mixed proof handoff and all nine genuine direct Exit cases; retain its real Native Full/all-script outputs and later actual chain confirmations separately."
+}

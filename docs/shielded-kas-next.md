@@ -1,5 +1,28 @@
 # Next focus: shielded native KAS and financial privacy
 
+## Current execution — one owner-private native lifecycle
+
+The owner selects steps1,2,3,5 under
+[RFC-0027](rfc/0027-owner-private-native-kas-lifecycle.md) and
+[ADR-0064](adr/0064-owner-private-native-kas-lifecycle.md): create one new
+TN10-only GN3-backed profile, complete successive genuine three-owner private
+rounds and original-seed payment/change recovery, recover and exit after loss of
+the original coordinator/shared prover, and confirm all native payouts with a
+complete fee ledger. The
+[shared contract](../research/next-session/owner-private-lifecycle/CONTRACT.md)
+retains separate Spend/Output construction and adds direct one-owner no-append
+Exit152 proofs. The old deliberately unfunded profile remains unfunded.
+
+The [ADR-0063 prototype result](../research/next-session/owner-private-prototype/RESULTS.md)
+already completed genuine local component/outer/native verification and sixteen
+frozen grouping worlds. It removes an explicit grouping certificate; it does not
+establish financial privacy. Expanded privacy-study step4 is not part of the
+selected execution. Financial review, malformed/replay/unauthorized-effect
+checks and privacy-preserving owner APIs remain required. Actual separately
+administered recovery storage still needs real external control and retrieval.
+An implementation selection or complete local path is not confirmed testnet
+completion; prior profiles' payouts do not transfer to this new identity.
+
 ## Completed gate — four-wallet accepted testnet lifecycle
 
 The [four-wallet rehearsal](../research/next-session/four-wallet-testnet/RESULTS.md)
@@ -11,12 +34,14 @@ paths absent. Complete fees including ordinary acquisition are **4.521645%**
 of 20 useful net KAS; the unchanged 2% target fails. The earlier local result
 remains separate at 4.35123%.
 
-The next engineering gate is the reviewed selection of separate spend/output
-proofs and exact whole-body authority, followed by one genuine unfunded
-owner-private constructor; see [the decision question](../research/next-session/private-construction/full-tuple/NEXT-CONSTRUCTION.md).
-The existing exact-field MPC component passed its actual API controls but does
-not remove the current proof's output grouping. Actual separately administered
-storage and issuer-loss retrieval still require a destination and access.
+That checkpoint's construction question is now answered by the separate
+ADR-0063 prototype above: separate Spend/Output proofs and whole-effect
+authorization genuinely execute under a new unfunded relation. The original
+[decision question](../research/next-session/private-construction/full-tuple/NEXT-CONSTRUCTION.md)
+and exact-field component result remain historical evidence. The funded
+four-wallet profile still exposes its action/output groups; its own privacy
+failure is unchanged. Integration now follows ADR-0064, with real independent
+retention still requiring a destination and access.
 
 The owner authorizes the next three tracks to completion. Follow
 [RFC0025](rfc/0025-four-wallet-testnet-funding-and-accepted-recovery.md),

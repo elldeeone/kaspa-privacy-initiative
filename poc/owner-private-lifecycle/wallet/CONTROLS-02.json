@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "poc/owner-private-lifecycle/wallet",
+    "-p",
+    "test_wallet.py",
+    "-v"
+  ],
+  "elapsed_seconds": 0.5729,
+  "result": "PASS",
+  "schema": "kpx8-owner-wallet-controls/v1",
+  "scope": "Public deterministic unsafe fixtures with mocked cryptography/proofs; no original private backup reads, real keys or funded/native acceptance claim",
+  "stderr_sha256": "e347ff8b5ad14497b34f2e20dfdf641987873b47031e29cf03aa05239e94f756",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tests": 36
+}

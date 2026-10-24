@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "poc/owner-private-lifecycle/wallet",
+    "-p",
+    "test_export_seed.py",
+    "-v"
+  ],
+  "elapsed_seconds": 0.29203,
+  "result": "PASS",
+  "schema": "kpx8-literal-seed-canary-controls/v1",
+  "scope": "PUBLIC UNSAFE deterministic seed sentinels only; includes real bwrap child, no actual owner original read or audit",
+  "stderr_sha256": "b973a8bf1d24cbfae22349c7a75b5361b48e991a7abc98e15ff99fa21d274cd5",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tests": 6
+}

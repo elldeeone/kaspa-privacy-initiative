@@ -1,0 +1,413 @@
+{
+  "classification": "PUBLIC_SYNTHETIC_KNOWN_KEYS_SUPPLIED_CONTEXT_NOT_ACCEPTED_BACKING_OR_CONFIRMATION",
+  "control_codec_sha256": "c40805e74a93c7dffe7ed8f08836e54af99707593a078b0ddfe57da53b087168",
+  "engine_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+  "funding_or_broadcast": false,
+  "native_VM_executed": true,
+  "negative_count": 38,
+  "original_wallet_secrets_read": false,
+  "positive_count": 2,
+  "results": [
+    {
+      "case_sha256": "e3dd4561a772982ca4bea591787c6ba4baf46faf67a556a6dfa8b2b069013cc9",
+      "label": "genuine-baseline",
+      "mode": "continuing",
+      "native_Full_accepted": true,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": true,
+      "script_error": null,
+      "script_units": 14829516
+    },
+    {
+      "case_sha256": "cf2567749c94c4e5a70058b139e54b450edd7de22226727f1f9fc034c5af74b8",
+      "label": "changed-actual-head-and-matching-body",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "script_units": 14829515
+    },
+    {
+      "case_sha256": "43bb90a9bebd9f8e53147b3bf005b4c4c5d10832b1201e0132b5ae51a02f58f5",
+      "label": "changed-payout-destination-and-matching-body",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "script_units": 14829515
+    },
+    {
+      "case_sha256": "eed9383d5290c441cff7c09afc1b8f08a6c553a289c05d3b261bbc84f8ee5c5c",
+      "label": "changed-exit-session",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "script_units": 14829515
+    },
+    {
+      "case_sha256": "221762c897f44bfd0d5d488d41d5ed46347dad585f9de7bc6c436248b69c9dbd",
+      "label": "changed-old-state",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15808
+    },
+    {
+      "case_sha256": "871719cd9c10d4fe55153c4d85b5dc9b6880af0e6a6680d85dfb6e03351113dd",
+      "label": "changed-new-NF-root",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 37230
+    },
+    {
+      "case_sha256": "058729722fd1a22f2c8a7ea60bbcb34c3a371edb93810f49e396fed23a9be5de",
+      "label": "changed-new-CM-root",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 16301
+    },
+    {
+      "case_sha256": "a6ca428b8f6cc2c55db6480069d3a645e467961746d493ced1eabb9dd7a5b05b",
+      "label": "changed-NF",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 32038
+    },
+    {
+      "case_sha256": "af98faa77c73c5f614bb6df9e495feb0ba39969e373ce65312ff2348010b42d5",
+      "label": "changed-NF-predecessor-path",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 21698
+    },
+    {
+      "case_sha256": "df3b0111809d6631cf0145e8f4007941723aadea100999a73cce4ae75ff3cc0f",
+      "label": "changed-NF-empty-append-path",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 32038
+    },
+    {
+      "case_sha256": "7f454edcc448f8b1b0a65db23e7c6faec2e81d6bd0c1858f0b919336f3693ca0",
+      "label": "changed-fee",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 16149
+    },
+    {
+      "case_sha256": "0583589698bc3c1bd5b7052629f9e68ce9dcc53faa3ca8baa3ecb815c7d1143d",
+      "label": "changed-payout-amount",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 16149
+    },
+    {
+      "case_sha256": "f4209163ac68bf0071c45970a50b8aa58f4a06f56767ef12971831e5040918de",
+      "label": "changed-native-reserve",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15985
+    },
+    {
+      "case_sha256": "200c0273bf24abbb23c261d4a876a6f0f09419b9daf83cd877ccdaf2a5af74ca",
+      "label": "changed-domain",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15519
+    },
+    {
+      "case_sha256": "c15f28af20ea21d7b4766c86b0c9d402a5704762e2b981dfc838eab1ba4a27f7",
+      "label": "changed-mode",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15487
+    },
+    {
+      "case_sha256": "ce85ab3f903848dd796d4a9332bd570443d6f3323f1d95e13ce0f07421f2f9b2",
+      "label": "changed-sequence",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15380
+    },
+    {
+      "case_sha256": "9752b516ec69e4fb750a42488b86436a62aca57056235b44068adc65ecadcd64",
+      "label": "changed-locktime",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15353
+    },
+    {
+      "case_sha256": "1c4dab3070ed52f026150af9dac1eaa16b7002e63bdc1890188b4dc0407393c1",
+      "label": "extra-fee-preserving-output",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 37269
+    },
+    {
+      "case_sha256": "fa1d6253a6423319338b3457e58093a55d704b86730def4e19d3c83b49b9e81c",
+      "label": "valid-genesis-covenant-on-output-zero",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15412
+    },
+    {
+      "case_sha256": "e94631f07d3a5dc6d886a4d9b2e548884e04e279914de49ef932dc1d2cc9f804",
+      "label": "changed-continuing-tail",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 68173
+    },
+    {
+      "case_sha256": "ef6686f23aad150527ae2103b2ebec16253b4f4c288438acb5a8d4fd92b9414f",
+      "label": "valid-genesis-covenant-on-payout",
+      "mode": "continuing",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 68173
+    },
+    {
+      "case_sha256": "077ed586a1da2ad5fddde5ffee17ca0cefc37690ae71d21f09aee9fa87bcea5f",
+      "label": "genuine-baseline",
+      "mode": "terminal",
+      "native_Full_accepted": true,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": true,
+      "script_error": null,
+      "script_units": 14797545
+    },
+    {
+      "case_sha256": "0ed738bd4e7b88780a47f8257ecec1ba138707ef3753a27ad4f4a012467142f5",
+      "label": "changed-actual-head-and-matching-body",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "script_units": 14797544
+    },
+    {
+      "case_sha256": "1426f0f52e160d3b7080e93e5c400f431c04512e911fd2d5b1c481c31458d7d4",
+      "label": "changed-payout-destination-and-matching-body",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "script_units": 14797544
+    },
+    {
+      "case_sha256": "fd6d8552db0df58a70f0121dc4bef1e4e8b85000d9bae1fbec6cf3727d961c62",
+      "label": "changed-exit-session",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "ZkIntegrity(\"Groth16 verification failed\")",
+      "script_units": 14797544
+    },
+    {
+      "case_sha256": "2e90d7b8811e07fe5082c4ead92ec62fedd4ae5870eb131013da7d0c7ffe3282",
+      "label": "changed-old-state",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15808
+    },
+    {
+      "case_sha256": "820da43f991b518852a6dfce602e64a09d141e343cc755af57cb64007935a927",
+      "label": "changed-new-NF-root",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 37317
+    },
+    {
+      "case_sha256": "d96f6d032c4d0374bbbe490119d66406c4837dd3f37b931d0c1acb63f80f2a6b",
+      "label": "changed-new-CM-root",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 16280
+    },
+    {
+      "case_sha256": "6b57109f10a7acee7443e788f96d32b1780f88968628828877fec2ca679e1ce3",
+      "label": "changed-NF",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 32123
+    },
+    {
+      "case_sha256": "c2713042fe74eb725208fb577c6bf66e6f3dad677946692cc215ceca4020fad0",
+      "label": "changed-NF-predecessor-path",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 21696
+    },
+    {
+      "case_sha256": "9b2dd06a2fa63e7a9eb4d67f94d49a825bf462412d5c729a3ce18b09bd339593",
+      "label": "changed-NF-empty-append-path",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 32123
+    },
+    {
+      "case_sha256": "4bdcb6d37dd54d150a47e561d12cbe06abf7cf53f7078f88e6500ede8285afff",
+      "label": "changed-fee",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 16129
+    },
+    {
+      "case_sha256": "c2c95160a87c9a04e107c7341fa2a040cf32ec1e56bda2a20255a264de570735",
+      "label": "changed-payout-amount",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 16129
+    },
+    {
+      "case_sha256": "8aa2b94737c7cd9e8a4e0bbb74831089ae7ae9849af6842b7ec78619af430c69",
+      "label": "changed-native-reserve",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15984
+    },
+    {
+      "case_sha256": "3848abc67f2aa9eb6bfc3871856162298d53cfb8f8a4cd9bc57015b9a7d8a2b5",
+      "label": "changed-domain",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15519
+    },
+    {
+      "case_sha256": "4ab56fbf3dc77f5dec3591ac105d6cc942bd4245248c1319d8e10a8105a38e2c",
+      "label": "changed-mode",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15487
+    },
+    {
+      "case_sha256": "5b3ead1a29cf656f42d73885561ca6abafd843d9a9c856b9ddcf306b93dcb577",
+      "label": "changed-sequence",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15380
+    },
+    {
+      "case_sha256": "7e12400f991584f98776da55875eecddfc721b528b2dfcce57b739bf13c93490",
+      "label": "changed-locktime",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15353
+    },
+    {
+      "case_sha256": "88b8384d6f2e8e6110025556919a5690200300fba50fc2f1bbbe07efbe281b8b",
+      "label": "extra-fee-preserving-output",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 37327
+    },
+    {
+      "case_sha256": "a053ba619e16e716fa1d705fefb3b306d4002f755cd8613cc6c226b9fe0bba93",
+      "label": "valid-genesis-covenant-on-output-zero",
+      "mode": "terminal",
+      "native_Full_accepted": false,
+      "same_genuine_proof_preserved": true,
+      "script_accepted": false,
+      "script_error": "VerifyError",
+      "script_units": 15412
+    }
+  ],
+  "schema": "kpx8-direct-exit-genuine-native-controls/v1"
+}

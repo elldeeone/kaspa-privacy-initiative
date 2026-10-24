@@ -1,0 +1,161 @@
+{
+  "schema": "kpx8-owner-private-lifecycle-native-source-review/v1",
+  "reviewed_at_utc": "2026-10-24",
+  "baseline_commit": "760d27491b3a7ab28a14712ee41e107ebdc76b76",
+  "scope": "source-level second pass on the additive native dual-mode policy, fixed body codecs, mixed predicate and guest",
+  "verdict": "NO_BLOCKING_NATIVE_SOURCE_DEFECT_FOUND",
+  "domain_hex32": "be2c62d1ca8714bcce51659dfe12c190acc42234c6b1c2ff3c0fa60cf653e480",
+  "component_profile_sha256": "a30fc71038685867ff832a384fc82d2654e0692c58f66667e77cb7e758f42554",
+  "files": [
+    {
+      "path": "poc/owner-private-lifecycle/verification/native/Cargo.toml",
+      "sha256": "810423156bc29d80e50c3a300b5d86053547702bc91037be2da5dd3230f70302",
+      "bytes": 1213
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/native/Cargo.lock",
+      "sha256": "7db6e797442fb9426c439345df08fea2f0001ee79960780fbe8c5242e926e606",
+      "bytes": 102694
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/native/src/policy.rs",
+      "sha256": "870602f0217008e11b122948370341fe9e9921e6f1889b67eb4205377bafbd5d",
+      "bytes": 17172
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/native/src/main.rs",
+      "sha256": "d68ca011278f7c3f343c097ef9b718690ae2a1e283f15ed5cd02132594a7eff4",
+      "bytes": 21833
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/native/src/r0_fragment.rs",
+      "sha256": "093c378420f97a879717a241b6c7479122bec1d0e177aa5b74a4bf8a6bb2f49f",
+      "bytes": 11817
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/common/Cargo.toml",
+      "sha256": "1f4400506066327f728876cd1de6a9ced8a77633692ad2462ca5320ab7c95ac6",
+      "bytes": 1527
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/common/Cargo.lock",
+      "sha256": "e51b7b5f7d9e0a686ba219e8e785e16813bc9f6554d2095bd7f564d66a01a8cc",
+      "bytes": 60217
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/common/src/lib.rs",
+      "sha256": "b8b2ec98db2281128a79f80e00d9b42ce637c7018baa457259689b80d12e932d",
+      "bytes": 10593
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/common/src/wire.rs",
+      "sha256": "926c59464f292d29cda2722c5e32e98484a8ed0594c3ed3b7b32ed34ca46109c",
+      "bytes": 13873
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/common/src/g16.rs",
+      "sha256": "c6ce48be94c702858b6a9a7093ae835cf4d2afd7808e56eb2a9a762c1d21b36a",
+      "bytes": 3744
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/guest/Cargo.toml",
+      "sha256": "1e9e36a1e75e15b525435bd56f4ec3283c481ebe03a0137291bafa149b83fdeb",
+      "bytes": 495
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/guest/Cargo.lock",
+      "sha256": "88daae26014fe391f7656542d3184473178fe68597c169829a471eaa4c69f5bc",
+      "bytes": 60425
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/guest/src/main.rs",
+      "sha256": "04869c2cd4f4aec89aa2954041b38a7d1fafe70214bcf21547e8d7a2b9c47230",
+      "bytes": 482
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/component-profile.json",
+      "sha256": "a30fc71038685867ff832a384fc82d2654e0692c58f66667e77cb7e758f42554",
+      "bytes": 3461
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/wire.py",
+      "sha256": "fa6df7b55af307ccbf2f0896a9e1fc9afa5c4c290d35019be002be5454f52cf9",
+      "bytes": 14547
+    },
+    {
+      "path": "poc/owner-private-lifecycle/verification/native_case.py",
+      "sha256": "25d83d5e95faf4bc5c1fae9a1f7d568ffd599997ee0727d59fb7ef20fa51e746",
+      "bytes": 8428
+    }
+  ],
+  "checks": [
+    {
+      "property": "strict dual-mode dispatch and immutable authority",
+      "evidence": "native/src/policy.rs:194-313,596-625",
+      "result": "One 128-byte witness and one native input are required. Exact mixed or direct-exit headers select the path. The P2SH policy pins component profile, outer image and direct Exit VK; the same-tail successor copies the complete immutable tail."
+    },
+    {
+      "property": "actual native transaction binding",
+      "evidence": "native/src/policy.rs:126-192,219-258",
+      "result": "Native version, input index/count, native subnetwork, zero locktime/gas, max sequence, noncoinbase input, absent input covenant, canonical witness frame and state-domain metadata are checked. Projection bytes reconstruct actual point, amounts, SPKs, output count and full payload. Output covenant absence is checked for both possible outputs."
+    },
+    {
+      "property": "mixed financial predicate",
+      "evidence": "common/src/lib.rs:107-171,222-259; common/src/wire.rs:77-205,227-278",
+      "result": "The selected profile pins distinct fresh Spend/Output/Exit role keys and checked Pedersen parameters. The mixed guest verifies all nine proofs, exact group conservation, current indexed-NF updates and authenticated empty-slot CM appends, and journals the complete native projection."
+    },
+    {
+      "property": "full-note direct exit conservation and destination",
+      "evidence": "native/src/policy.rs:473-548; native/src/main.rs:299-365",
+      "result": "Reserve equals actual input; remaining equals reserve minus payout minus fee with strict positive fee/payout bounds. The actual payout script and amount are compared with the body. Positive remaining requires an exact same-tail reserve successor plus one payout; terminal zero requires only the payout."
+    },
+    {
+      "property": "native current state and single-spend checks",
+      "evidence": "native/src/policy.rs:318-460,483-519",
+      "result": "The old state is read from the spending redeem script and compared with the body; the current physical outpoint is checked. Exit preserves exact CM root/count and proves indexed-NF nonmembership/insertion natively using old root, canonical predecessor interval, authenticated empty append slot and exact new root/count."
+    },
+    {
+      "property": "direct Exit152 statement binding",
+      "evidence": "native/src/policy.rs:549-583; native/src/main.rs:380-402; common/src/wire.rs:281-430",
+      "result": "The direct statement binds new domain, current CM root, original NF, SHA256 of exact native effects plus the entire exit body, payout and fee. Two exact 128-bit little-endian digest limbs are passed to the pinned native Groth16 verifier; no shared outer proof or MPC is required."
+    },
+    {
+      "property": "projection representations agree structurally",
+      "evidence": "native/src/policy.rs:126-182; native/src/main.rs:216-248,380-402; common/src/wire.rs:353-430; wire.py",
+      "result": "Canonical fixed input SPK is 37 bytes. A mixed continuation has a 193-byte prefix; direct continuing exit 240; terminal P2PK payout 192. The exit body is 1632 bytes and the payout SPK is 36 bytes. Effects exclude witness proof bytes; the mixed journal includes all body proof bytes."
+    }
+  ],
+  "blocking_findings": [],
+  "runtime_validation": {
+    "reviewer_executed_tests": false,
+    "genuine_native_positive_receipt_independently_read_for_this_report": true,
+    "source_freeze_path": "poc/owner-private-lifecycle/verification/native/SOURCE-FREEZE-01.json",
+    "source_freeze_sha256": "e214e227344d3cd88aff505af7a25fbd1b0897a9a0e22b1cd06ceafc6ba4a3fc",
+    "selected_native_codec_sha256": "8f724750bb4cc849e2e4bde26fc8da2b5bc7f9a7e4ffd09153ee1af15858d208",
+    "selected_native_engine_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+    "positive_fixture_outer_image_and_component": "DELIBERATELY_SYNTHETIC_HASHES_WITH_GENUINE_FRESH_EXIT_VK; not the final selected mixed-lifecycle tail",
+    "positive_results_sha256": "74d14d3119bf301a1c7e1044345b692abc9943333b050d55644c4d09fba35239",
+    "retained_native_positive_modes": [
+      {"mode": "continuing", "Full_accepted": true, "all_input_engines_accepted": true, "units": 14829516, "fee_sompi": 19040500},
+      {"mode": "terminal", "Full_accepted": true, "all_input_engines_accepted": true, "units": 14797545, "fee_sompi": 18998200}
+    ],
+    "author_reported_genuine_continuing_and_terminal_exit_Full_pass": true,
+    "interpretation": "The source freeze and exact retained public result were authenticated and read through whole-private-parent exclusions. Both supplied-context Full/script positives are recorded, but the reviewer did not rerun a native verifier or independently regenerate the proofs. This is not actual chain backing or confirmation."
+  },
+  "remaining_gates": [
+    "Bind this exact source to the selected actual native codec binary and retain genuine continuing and terminal Native Full/all-engine positives.",
+    "Retain same-proof financial rejection cases for changed state/NF root and paths, stale point, payout/destination/fee, continuation tail, output counts and valid native covenant metadata.",
+    "Bind the compiled mixed guest image and component-profile SHA to the selected native policy and run genuine mixed receipt/native validation.",
+    "Complete strict GN3 native founding, accepted-prefix SDK and financial/native replay, owner-specific founding approval and full history/checkpoint joins.",
+    "Independent administrator/storage availability, cryptographic composition and general privacy are not established by this source report."
+  ],
+  "actions": {
+    "implementation_edits": 0,
+    "review_report_added": 1,
+    "tests_run": 0,
+    "network_requests": 0,
+    "private_file_content_reads": 0,
+    "private_file_hashes": 0
+  },
+  "security_or_privacy_qualification": false
+}

@@ -1,0 +1,43 @@
+test_authorize_complete_mixed_effects (test_wallet.AuthorizationControls.test_authorize_complete_mixed_effects) ... ok
+test_changed_fee_refused_before_barrier (test_wallet.AuthorizationControls.test_changed_fee_refused_before_barrier) ... ok
+test_changed_policy_refused (test_wallet.AuthorizationControls.test_changed_policy_refused) ... ok
+test_foreign_input_skeleton_cannot_authorize_own_note (test_wallet.AuthorizationControls.test_foreign_input_skeleton_cannot_authorize_own_note) ... ok
+test_missing_own_output_refused (test_wallet.AuthorizationControls.test_missing_own_output_refused) ... ok
+test_one_authorization_only_without_reconciliation (test_wallet.AuthorizationControls.test_one_authorization_only_without_reconciliation) ... ok
+test_public_history_rejects_changed_component_proof (test_wallet.AuthorizationControls.test_public_history_rejects_changed_component_proof) ... ok
+test_public_history_verifies_all_components_and_recovers_change (test_wallet.AuthorizationControls.test_public_history_verifies_all_components_and_recovers_change) ... ok
+test_ready_has_no_recovered_note_identity (test_wallet.AuthorizationControls.test_ready_has_no_recovered_note_identity) ... ok
+test_oversized_or_wrongly_typed_request_is_refused (test_wallet.ExactPaymentControls.test_oversized_or_wrongly_typed_request_is_refused) ... ok
+test_requested_payment_is_exact_and_not_in_ready (test_wallet.ExactPaymentControls.test_requested_payment_is_exact_and_not_in_ready) ... ok
+test_changed_payout_destination_refused (test_wallet.ExitControls.test_changed_payout_destination_refused) ... ok
+test_exit_proves_without_creator_blinding_or_MPC (test_wallet.ExitControls.test_exit_proves_without_creator_blinding_or_MPC) ... ok
+test_historical_payout_keys_rederive_after_terminal_head (test_wallet.ExitControls.test_historical_payout_keys_rederive_after_terminal_head) ... ok
+test_unsettled_mixed_authorization_does_not_block_current_exit (test_wallet.ExitControls.test_unsettled_mixed_authorization_does_not_block_current_exit) ... ok
+test_partial_private_exclusions_refused_before_source_read (test_wallet.LauncherControls.test_partial_private_exclusions_refused_before_source_read) ... ok
+test_private_alias_refused_before_first_byte (test_wallet.LauncherControls.test_private_alias_refused_before_first_byte) ... ok
+test_private_metadata_walk_opens_no_leaf (test_wallet.LauncherControls.test_private_metadata_walk_opens_no_leaf) ... ok
+test_restore_mounts_one_original_leaf_without_reading_it (test_wallet.LauncherControls.test_restore_mounts_one_original_leaf_without_reading_it) ... ok
+test_staging_has_no_network_and_no_foreign_owner_mounts (test_wallet.LauncherControls.test_staging_has_no_network_and_no_foreign_owner_mounts) ... ok
+test_all_eight_nonself_recipient_patterns_allow_received_and_change_spending (test_wallet.ReceivedChangePreferenceControls.test_all_eight_nonself_recipient_patterns_allow_received_and_change_spending) ... ok
+test_received_preferred_to_larger_change_and_missing_received_falls_back (test_wallet.ReceivedChangePreferenceControls.test_received_preferred_to_larger_change_and_missing_received_falls_back) ... ok
+test_authorization_barrier_is_checked_before_reopening_private_map (test_wallet.WalletControls.test_authorization_barrier_is_checked_before_reopening_private_map) ... ok
+test_backup_foreign_domain_and_extra_fields_refused (test_wallet.WalletControls.test_backup_foreign_domain_and_extra_fields_refused) ... ok
+test_broken_adapter_is_not_foreign_ciphertext (test_wallet.WalletControls.test_broken_adapter_is_not_foreign_ciphertext) ... ok
+test_decrypted_wrong_domain_and_descriptor_refused (test_wallet.WalletControls.test_decrypted_wrong_domain_and_descriptor_refused) ... ok
+test_float_and_boolean_amounts_refused (test_wallet.WalletControls.test_float_and_boolean_amounts_refused) ... ok
+test_foreign_ciphertexts_are_expected_but_owned_invalid_is_not (test_wallet.WalletControls.test_foreign_ciphertexts_are_expected_but_owned_invalid_is_not) ... ok
+test_fresh_exit_destination_rederives_from_backup_and_current_point (test_wallet.WalletControls.test_fresh_exit_destination_rederives_from_backup_and_current_point) ... ok
+test_init_backup_contains_only_seed_domain_participant (test_wallet.WalletControls.test_init_backup_contains_only_seed_domain_participant) ... ok
+test_invoice_indices_are_session_and_role_separated (test_wallet.WalletControls.test_invoice_indices_are_session_and_role_separated) ... ok
+test_missing_ciphertext_refused (test_wallet.WalletControls.test_missing_ciphertext_refused) ... ok
+test_pending_authorization_blocks_new_mix_but_not_fallback_exit (test_wallet.WalletControls.test_pending_authorization_blocks_new_mix_but_not_fallback_exit) ... ok
+test_restore_requires_only_one_original_seed_backup (test_wallet.WalletControls.test_restore_requires_only_one_original_seed_backup) ... ok
+test_spent_note_is_never_selected (test_wallet.WalletControls.test_spent_note_is_never_selected) ... ok
+test_three_records_reconstruct_selected_checkpoint (test_wallet.WalletControls.test_three_records_reconstruct_selected_checkpoint) ... ok
+test_wrong_checkpoint_refused (test_wallet.WalletControls.test_wrong_checkpoint_refused) ... ok
+test_wrong_domain_and_duplicate_records_refused (test_wallet.WalletControls.test_wrong_domain_and_duplicate_records_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.541s
+
+OK

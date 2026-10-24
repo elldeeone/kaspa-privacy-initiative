@@ -1,0 +1,24 @@
+{
+  "schema": "kpx8-docs-check/v1",
+  "documents": 11,
+  "relative_links": 463,
+  "errors": [],
+  "result": "PASS",
+  "scope": [
+    "docs/adr/0064-owner-private-native-kas-lifecycle.md",
+    "docs/rfc/0027-owner-private-native-kas-lifecycle.md",
+    "research/next-session/owner-private-lifecycle/CONTRACT.md",
+    "research/next-session/owner-private-lifecycle/SOURCE-REFRESH-01.md",
+    "docs/ARCHITECTURE.md",
+    "THREAT-MODEL.md",
+    "QUESTIONS.md",
+    "docs/shielded-kas-next.md",
+    "docs/rfc/0026-owner-private-multiparty-construction.md",
+    "docs/rfc/README.md",
+    "docs/adr/README.md"
+  ],
+  "method": "Apply the existing scripts/check_docs.py LINK/FENCE rules to the eleven named documents only; resolve local targets and closed code fences; no network or heading-anchor validation.",
+  "whitespace": "git diff --check passed for the selected tracked documentation changes",
+  "global_check": "The attempted repository-wide scripts/check_docs.py run still fails on historical missing or escaping snapshot links. This scoped result is not a full repository documentation pass.",
+  "security_boundary": "Documentation syntax/path evidence only; no financial, cryptographic, privacy, native or accepted-chain execution result."
+}

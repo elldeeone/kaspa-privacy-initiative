@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/public/exit_native_controls.py", line 145, in <module>
+    main()
+    ~~~~^^
+  File "/public/exit_native_controls.py", line 131, in main
+    need('ZkIntegrity' in engine.get('error', ''), 'effect-mutation-must-reach-ZK-integrity')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/public/exit_native_controls.py", line 18, in need
+    raise ValueError(code)
+ValueError: effect-mutation-must-reach-ZK-integrity

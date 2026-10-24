@@ -3,7 +3,30 @@
 **Status:** the four-wallet native-KAS lifecycle and all four original-backup
 payouts are confirmed on TN10. Financial privacy remains unqualified and
 production architecture remains unselected. A separate unfunded owner-private
-construction prototype is in progress.
+prototype completed its bounded local financial and grouping experiments; the
+new integrated profile below remains to be executed.
+
+[ADR-0064](adr/0064-owner-private-native-kas-lifecycle.md) now selects the next
+owner-directed integration: one **new TN10-only** profile combines three-owner
+GN3 backing, genuine repeated three-spend/six-output rounds, original-seed
+payment/change recovery and direct one-owner no-append exits. The
+[shared contract](../research/next-session/owner-private-lifecycle/CONTRACT.md)
+uses a fresh KPX8 domain and separate Spend/Output/Exit keys. Exit152 proves
+hidden membership, ownership, original NF and `value=payout+fee`; native code
+authenticates current indexed NF insertion, unchanged CM state and exact
+reserve/payout/destination/continuation without another MPC round or the shared
+outer prover. GN3 publishes the complete initial note records at the transparent
+deposit boundary. Public funding-key derivation reserves seed index
+`0xffffffff`; payment/exit keys must use other fresh indices.
+
+This is an implementation selection, not execution evidence. Complete genuine
+local admission/payments/recovery/exits precede live funding. Actual accepted
+history, infrastructure-loss recovery, confirmed payouts and the full fee ledger
+are completion requirements. The new profile does not inherit old confirmed
+payouts or the old prototype's bounded grouping result. Expanded privacy-study
+step4 is outside the selected batch; normal correctness/review remains required.
+Separately administered storage still requires actual external control and
+retrieval. No previous invariant, fee target or privacy failure is changed.
 
 [ADR-0063](adr/0063-owner-private-payments-prototype.md) selects a **new,
 unfunded** three-owner/six-output design under a distinct domain, setup and
