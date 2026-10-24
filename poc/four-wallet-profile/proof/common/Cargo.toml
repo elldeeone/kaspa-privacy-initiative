@@ -1,0 +1,30 @@
+[package]
+name = "kpi-shared-settlement-public"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+kpi-accelerated-bn254 = { path = "../../../accelerated-bn254/common" }
+ark-bn254 = { version = "=0.5.0", default-features = false, features = ["curve", "std"] }
+ark-ec = { version = "=0.5.0", default-features = false, features = ["std"] }
+ark-ff = { version = "=0.5.0", default-features = false, features = ["std"] }
+ark-groth16 = { version = "=0.5.0", default-features = false, features = ["std"] }
+ark-serialize = { version = "=0.5.0", default-features = false, features = ["std"] }
+sha2 = "=0.10.9"
+blake3 = "=1.8.3"
+blake2b_simd = "=1.0.4"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.145"
+hex = "=0.4.3"
+# Preserve the already proved SDK3.0.3 receipt dependency graph. A top-level
+# zkVM pin alone otherwise floats these compatible-version components.
+risc0-binfmt = { version = "=3.0.4", default-features = false }
+risc0-zkp = { version = "=3.0.4", default-features = false }
+risc0-circuit-recursion = { version = "=4.0.4", default-features = false }
+risc0-circuit-rv32im = { version = "=4.0.4", default-features = false }
+risc0-circuit-keccak = { version = "=4.0.5", default-features = false }
+risc0-groth16 = { version = "=3.0.4", default-features = false }
+risc0-zkos-v1compat = { version = "=2.2.2", default-features = false }

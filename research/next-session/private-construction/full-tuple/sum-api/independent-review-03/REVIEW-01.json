@@ -1,0 +1,35 @@
+{
+  "schema": "kpx6-private-sum-final-compiler-caller-delta-review/v1",
+  "source_label": 9,
+  "source_freeze_sha256": "00da83a1286abc45408172caab846a48f273c1bafd272efc57419e5dd1742ae9",
+  "review_status": "ACK_SOURCE_DELTA_FOR_BOUNDED_PUBLIC_SYNTHETIC_GATE",
+  "blocking_findings_remaining": [],
+  "official_compiler_only_gmpy2": {
+    "wheel_sha256": "debbece10ebf1ed74a92cf8aedbe557f6bc6365b21ee6a346944f28a24bb4d19",
+    "regular_members_verified": 17,
+    "primary_metadata_and_host_cp314_GIL_ABI_verified": true,
+    "safe_exact_finite_ZIP_closure": true,
+    "PYTHONPATH_scope": "compiler subprocess only; not global or any engine party"
+  },
+  "fixed_compiler_option": {
+    "usable_integer_bits": 250,
+    "reason": "stock Program.py maximum is bit_length(q)-2",
+    "prime_decimal_unchanged": "6554484396890773809930967563523245729705921265872317281365359162392183254199",
+    "secret_field_inputs_at_q_minus_one_unchanged": true,
+    "stock_engine_mpc_program_and_existing_curve_relation_unchanged": true
+  },
+  "runtime_warning_boundary": {
+    "stdout_and_stderr_scanned_before_gate": true,
+    "case_insensitive_INSECURE_stops_without_acceptance": true,
+    "final_post_exit_log_rescan_closes_poll_race": true,
+    "stop_and_cleanup_receipts_retained": true
+  },
+  "prior_operational_review": "independent-review-02/REVIEW-01.json",
+  "prior_arithmetic_review": "independent-review-01/REVIEW-01.json",
+  "wheel_import_compiler_engine_curve_native_or_financial_private_file_execution_by_reviewer": false,
+  "root_execution_gates": [
+    "Exact newly staged installation and actual compiled schedule/bytecode/prime identity",
+    "Root scheduled actual engine cases and actual MPC result to existing curve consumer join"
+  ],
+  "no_KAS_authorization_privacy_or_soundness_inference": true
+}

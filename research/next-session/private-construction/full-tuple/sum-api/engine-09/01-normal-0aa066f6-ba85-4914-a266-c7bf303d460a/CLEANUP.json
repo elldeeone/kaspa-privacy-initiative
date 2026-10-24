@@ -1,0 +1,77 @@
+{
+  "cleanup_errors": [],
+  "images_or_unrelated_containers_changed": false,
+  "owned_containers_before_removal": [
+    {
+      "PID": 1773763,
+      "cgroup_counters_observed": {
+        "cpu.stat": "usage_usec 28637\nuser_usec 16356\nsystem_usec 12281\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 4\nnr_throttled 2\nthrottled_usec 114398\nnr_bursts 0\nburst_usec 0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.peak": "5431296",
+        "memory.swap.peak": "0"
+      },
+      "configured_limits": {
+        "Memory": 33554432,
+        "MemorySwap": 33554432,
+        "NanoCpus": 100000000,
+        "PidsLimit": 256
+      },
+      "container_id": "aa68409263d0ae8805f02bc513e7eefb4ce27f95ed763e42573c3bc0e0eb8e61",
+      "container_name": "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-anchor",
+      "exit_code": 0,
+      "running": true,
+      "timestamp_monotonic": 512243.176126718
+    },
+    {
+      "PID": 0,
+      "cgroup_counters_observed": null,
+      "configured_limits": {
+        "Memory": 1073741824,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 900000000,
+        "PidsLimit": 256
+      },
+      "container_id": "b2167389b7e5190e9ed2c3d09da063f9491ec0c08c3cc5e0ae79220f0659c662",
+      "container_name": "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-p0",
+      "exit_code": 0,
+      "running": false,
+      "timestamp_monotonic": 512243.300474652
+    },
+    {
+      "PID": 0,
+      "cgroup_counters_observed": null,
+      "configured_limits": {
+        "Memory": 1073741824,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 900000000,
+        "PidsLimit": 256
+      },
+      "container_id": "d3b9e32b0ed7be7c97bcaef1ac74fdcb95e3803a549bb57d116d46b7245d9fb0",
+      "container_name": "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-p1",
+      "exit_code": 0,
+      "running": false,
+      "timestamp_monotonic": 512243.392166196
+    },
+    {
+      "PID": 0,
+      "cgroup_counters_observed": null,
+      "configured_limits": {
+        "Memory": 1073741824,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 900000000,
+        "PidsLimit": 256
+      },
+      "container_id": "a40ef14d5986b297fc854c4c0344cec8d91d4aa092a0ab5e6f8608d0290c407f",
+      "container_name": "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-p2",
+      "exit_code": 0,
+      "running": false,
+      "timestamp_monotonic": 512243.486951592
+    }
+  ],
+  "owned_containers_verified_absent": [
+    "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-anchor",
+    "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-p0",
+    "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-p1",
+    "kpi-sum-0aa066f6-ba85-4914-a266-c7bf303d460a-p2"
+  ]
+}

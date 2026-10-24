@@ -1,0 +1,46 @@
+{
+  "classification": "SYNTHETIC_TRANSPORT_COUNTEREXAMPLE_NOT_LIVE_CHAIN",
+  "exit_code": 1,
+  "native_VM_proof_private_key_PK_backup_or_live_RPC": false,
+  "new_negative_test_with_old_implementation": true,
+  "schema": "kpx5-near-tip-query-race-red/v1",
+  "scope": "Old source accepted a mocked payout spend after the first exact UTXO query while it was still inside the confirmation window and absent from confirmed delta. The new test correctly rejects that old behavior.",
+  "selected_old_control_result_sha256": "950ce4cb225b0213f3dd469a15a685713bf42b8c7141752fc85201f49a09e5fa",
+  "sources": [
+    {
+      "bytes": 16598,
+      "path": "research/next-session/four-wallet-testnet/chain/controls-race-red-01/source/acquire.mjs",
+      "sha256": "065565defec860ae52dbd435f939cd0ce224fa34ca60629e9ff319899eaedb24"
+    },
+    {
+      "bytes": 5999,
+      "path": "research/next-session/four-wallet-testnet/chain/controls-race-red-01/source/fetch.mjs",
+      "sha256": "2c7d007cb0337f55fb21c01e71df02139ccd99736c4846953c4ae170dc71372d"
+    },
+    {
+      "bytes": 2202,
+      "path": "research/next-session/four-wallet-testnet/chain/controls-race-red-01/source/json.mjs",
+      "sha256": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7"
+    },
+    {
+      "bytes": 8442,
+      "path": "research/next-session/four-wallet-testnet/chain/controls-race-red-01/source/selection.mjs",
+      "sha256": "9f7494edcd0dd214941b50bd2007fec5fd1b622bb372bae794ddda3dd510d378"
+    },
+    {
+      "bytes": 15925,
+      "path": "research/next-session/four-wallet-testnet/chain/controls-race-red-01/source/test_chain.mjs",
+      "sha256": "ce492070e07f90ec45cfdd454ebbca24268760ecf58a0dceec37e3be9387f6f1"
+    },
+    {
+      "bytes": 12269,
+      "path": "research/next-session/four-wallet-testnet/chain/controls-race-red-01/source/verify_bundle.mjs",
+      "sha256": "f85f64bbbe72dbd816a6b81f202de60ff9cd0a31f6e0fbb1395f3579e04b9b40"
+    },
+    {
+      "bytes": 8011,
+      "path": "research/next-session/four-wallet-testnet/chain/controls-race-red-01/source/wire.mjs",
+      "sha256": "b3f51020e0a06d8a7ef725b13205a259b6a6a221b3a161820ee0c30b84384923"
+    }
+  ]
+}

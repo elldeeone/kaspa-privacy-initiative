@@ -1,0 +1,54 @@
+{
+  "schema": "kpx6-TN10-ordinary-mining-results/v1",
+  "recorded_utc": "2026-10-24T06:07:29.017457+00:00",
+  "classification": "ACTUAL_TESTNET_MINING_REWARD_OBSERVATION_NO_ORDINARY_CONSOLIDATION_OR_PRIVACY_PAYOUT",
+  "mining_source_sha256": "ea111e81c540f80399d729e77b9289e9c69902e711d22b9e96bc766c199d213a",
+  "root_review_sha256": "93c1d917e7e49ec4de58565554d5a7e7bf455fac2b54ea3d289205ff59213af0",
+  "selected_runtime_inventory_sha256": "a4442e933608f8cca58943846a25fb9c06c03c5128ce1044504329cbffbfc100",
+  "all_eight_metadata_exclusions_before_public_staging_and_capture": true,
+  "network": "testnet-10",
+  "actual_result": {
+    "schema": "kpx6-ordinary-TN10-mining-result/v1",
+    "status": "OWN_REWARDS_OBSERVED_AWAIT_MATURITY_AND_CONSOLIDATION",
+    "submitted_unique_hashes": 16,
+    "RPC_acknowledgements_only": 16,
+    "unknown_response_hash_observations": 0,
+    "coinbase_sompi": "4662340004",
+    "mature_coinbase_sompi": "1748114106",
+    "last_observed_virtual_daa": "604885932",
+    "elapsed_seconds": 154.44947215000002,
+    "ordinary_consolidation_required": true,
+    "privacy_trial_funding_or_payout_confirmation_claimed": false,
+    "private_key_or_wallet_read": false
+  },
+  "journal_unique_intents": 16,
+  "journal_responses": 16,
+  "duplicate_block_hashes": 0,
+  "rpc_success_reports": 16,
+  "rpc_unknown_or_rejected_reports": 0,
+  "journal_block_body_hashes_recomputed": true,
+  "per_block_status_audit_retained_privately": true,
+  "per_block_status_audit_sha256": "4c938613ed5b2d814125bef88adf942182806eaf8891425feab6a30c3da02667",
+  "raw_body_argv_addresses_or_owner_correspondence_exported": false,
+  "resources": {
+    "worker_count": 14,
+    "cpu_quota_percent": 1400,
+    "memory_max_bytes": 8589934592,
+    "memory_peak_bytes": 752730112,
+    "cpu_seconds": 1715.988801,
+    "swap_peak_bytes": 0
+  },
+  "cleanup": {
+    "before_stop_process_exit_status": 0,
+    "all_worker_processes_terminated": true,
+    "owned_unit_active_state_after_stop": "inactive",
+    "owned_unit_sub_state_after_stop": "dead",
+    "owned_unit_main_pid_after_stop": 0,
+    "launcher_exit_status": 0
+  },
+  "limits": [
+    "Selected public validating-node template/network/UTXO trust remains.",
+    "RPC success is not itself an accepted reward; exact own coinbase UTXOs were separately observed.",
+    "Coinbase maturity, ordinary consolidation and complete privacy payout rehearsal remain separate."
+  ]
+}

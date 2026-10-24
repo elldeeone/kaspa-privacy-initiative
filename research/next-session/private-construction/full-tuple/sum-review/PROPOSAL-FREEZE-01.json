@@ -1,0 +1,123 @@
+{
+  "schema": "kpx6-private-sum-existing-engine-proposal/v1",
+  "classification": "FROZEN_PROPOSAL_NOT_ADR_OR_EXECUTION",
+  "date_UTC": "2026-10-24",
+  "engine_commit": "113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+  "release_tag": "v0.4.4",
+  "distribution": {
+    "url": "https://github.com/data61/MP-SPDZ/releases/download/v0.4.4/mp-spdz-0.4.4.tar.xz",
+    "bytes": 78428724,
+    "sha256": "73d6473526101b4433999fc4f7521fdfdc53ddf018e5f64480518d6293f62760"
+  },
+  "native_binary": {
+    "path": "bin/Linux-adx/mascot-party.x",
+    "bytes": 10621536,
+    "sha256": "47d9ae6f52003825946a4abb6cf9dc62f62a4e2fc2c19a5e3ee6f59a6889b07e"
+  },
+  "field": {
+    "name": "Jubjub Fr",
+    "prime_decimal": "6554484396890773809930967563523245729705921265872317281365359162392183254199",
+    "prime_hex": "0e7db4ea6533afa906673b0101343b00a6682093ccc81082d0970e5ed6f72cb7",
+    "canonical_bytes": 32,
+    "endianness": "little",
+    "reject_value_at_or_above_prime": true
+  },
+  "party_count": 3,
+  "fixed_public_vectors": [
+    {
+      "inputs_decimal": [
+        "6554484396890773809930967563523245729705921265872317281365359162392183254198",
+        "6554484396890773809930967563523245729705921265872317281365359162392183254197",
+        "6"
+      ],
+      "expected_decimal": "3"
+    },
+    {
+      "inputs_decimal": [
+        "0",
+        "0",
+        "0"
+      ],
+      "expected_decimal": "0"
+    },
+    {
+      "inputs_decimal": [
+        "6554484396890773809930967563523245729705921265872317281365359162392183254198",
+        "1",
+        "0"
+      ],
+      "expected_decimal": "0"
+    },
+    {
+      "inputs_decimal": [
+        "5",
+        "11",
+        "17"
+      ],
+      "expected_decimal": "33"
+    }
+  ],
+  "api": {
+    "input": "sint.get_input_from(party)",
+    "combine": "field addition",
+    "output": "delta.reveal(check=True)"
+  },
+  "resource_allocation_not_measurement": {
+    "CPU_cores_max": 4,
+    "memory_bytes_max": 4294967296,
+    "GPU": false,
+    "financial_rehearsal_priority": true
+  },
+  "additional_cases": [
+    "runtime_prime_mismatch_must_reject",
+    "canonical_q_must_reject_at_boundary",
+    "wrong_Delta_binding_must_reject",
+    "wrong_digest_binding_must_reject",
+    "wrong_fee_binding_must_reject",
+    "party_lost_before_input_is_INCOMPLETE",
+    "party_lost_after_input_before_completion_is_INCOMPLETE"
+  ],
+  "forbidden_shortcuts": [
+    "reduced_membership_after_dropout",
+    "unchecked_open",
+    "fake_preprocessing",
+    "semi_honest_backend",
+    "INSECURE_build",
+    "shared_plaintext_owner_input_mount",
+    "wallet_backup_or_financial_parameter_mount",
+    "KAS_relation_or_authorization_change"
+  ],
+  "unverified": [
+    "binary_execution_compatibility",
+    "runtime_resources_and_duration",
+    "arbitrary_malicious_wire_share_injection",
+    "adaptive_party_corruption",
+    "fair_simultaneous_output",
+    "anonymous_output_carriage",
+    "safe_abort_unlinkability",
+    "native_KAS_financial_composition",
+    "privacy_qualification"
+  ],
+  "source_documents": [
+    {
+      "path": "DECISION.md",
+      "bytes": 12044,
+      "sha256": "a67d02525eca34e4044b88c722dea12ad7ac098da22594a917469969a98d00d1"
+    },
+    {
+      "path": "BUILD-RECIPE.md",
+      "bytes": 7659,
+      "sha256": "3babed43ee96dfab3b69db468c9ccfeeeb3b33f771770dfee4e407fc44f64bcb"
+    },
+    {
+      "path": "INDEPENDENT-SOURCES.md",
+      "bytes": 11182,
+      "sha256": "8ec23823aa083cf15f78d227b8b79895b7176f3667b23acb878b3e7a2a2efa7f"
+    },
+    {
+      "path": "PRIMARY-SOURCES-01.json",
+      "bytes": 2720,
+      "sha256": "fadaffdb8cfe2222061f714bc015c1d34a7177ce482c4ab0db26356535b5058d"
+    }
+  ]
+}

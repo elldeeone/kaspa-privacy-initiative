@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/software/worker.py", line 320, in <module>
+    main()
+    ~~~~^^
+  File "/software/worker.py", line 266, in main
+    elif op == 'compile': compile_program()
+                          ~~~~~~~~~~~~~~~^^
+  File "/software/worker.py", line 81, in compile_program
+    need(process.returncode == 0, 'compiler-see-retained-stderr')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/software/worker.py", line 27, in need
+    raise ValueError(reason)
+ValueError: compiler-see-retained-stderr

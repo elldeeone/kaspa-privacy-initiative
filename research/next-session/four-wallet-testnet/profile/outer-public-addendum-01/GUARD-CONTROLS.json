@@ -1,0 +1,61 @@
+{
+  "schema": "kpx6-public-outer-guard-controls/v1",
+  "source_sha256": "da559335c0e071d15b7daee5cd4d256776295c934d5db569c1e13c3d2bf83195",
+  "classification": "PUBLIC_SYNTHETIC_FIXTURES_ONLY",
+  "passed": 10,
+  "controls": [
+    {
+      "control": "original-owner-0",
+      "rejected": true,
+      "reason": "public-candidate-inside-original-owner-directory"
+    },
+    {
+      "control": "original-owner-1",
+      "rejected": true,
+      "reason": "public-candidate-inside-original-owner-directory"
+    },
+    {
+      "control": "original-owner-2",
+      "rejected": true,
+      "reason": "public-candidate-inside-original-owner-directory"
+    },
+    {
+      "control": "original-owner-3",
+      "rejected": true,
+      "reason": "public-candidate-inside-original-owner-directory"
+    },
+    {
+      "control": "fourth-owner-hardlink-alias",
+      "rejected": true,
+      "reason": "public-file-aliases-original-backup-or-is-not-regular"
+    },
+    {
+      "control": "whole-private-directory",
+      "rejected": true,
+      "reason": "public-candidate-inside-original-owner-directory"
+    },
+    {
+      "control": "public-symlink-to-original",
+      "rejected": true,
+      "reason": "canonical-nonsymlink-public-path"
+    },
+    {
+      "control": "duplicate-JSON-key",
+      "rejected": true,
+      "reason": "duplicate-JSON-key"
+    },
+    {
+      "control": "missing-external-pin",
+      "rejected": true,
+      "reason": "explicit-external-SHA256-pin"
+    },
+    {
+      "control": "late-member-alias-before-first-staging-read",
+      "rejected": true,
+      "reason": "public-file-aliases-original-backup-or-is-not-regular",
+      "selected_member_reads": 0,
+      "output_created": false
+    }
+  ],
+  "actual_original_backup_PK_native_guest_proof_or_GPU_reads_or_execution": false
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "kpx6-ordinary-TN10-miner-source/v1",
+  "classification": "SOURCE_AND_LOCAL_BENCHMARK_ONLY_NO_MINING_OR_BLOCK_SUBMISSION",
+  "files": [
+    {
+      "path": "research/next-session/four-wallet-testnet/funding/mining-feasibility-01/miner.mjs",
+      "bytes": 12849,
+      "sha256": "ea111e81c540f80399d729e77b9289e9c69902e711d22b9e96bc766c199d213a"
+    }
+  ],
+  "selected_runtime_inventory_sha256": "a4442e933608f8cca58943846a25fb9c06c03c5128ce1044504329cbffbfc100",
+  "selected_public_funding_wallets_sha256": "190d5d9d6b8b48561d432c638c8d18a7798548c5514d7d882902bbf3812744a1",
+  "default_mode": "plan",
+  "actual_mining_requires": "--mode mine --execute plus root source ACK",
+  "workers": 14,
+  "target_observed_own_coinbase_sompi": "4500000000",
+  "coinbase_maturity_daa": 1000,
+  "network": "testnet-10",
+  "expected_genesis": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "genesis_or_consensus_independently_proven": false,
+  "source_syntax_check_passed": true,
+  "host_staging_requirements": "All8 metadata exclusions before read/hash/copy; stage only source,selectedNode,SDK3,exactpublicwallets; no originalbackups/keys/PK; freshout and persistentonce-onlyjournal outsideGit; network-shared one-levelbwrap with no hosthome; source/SDK/wallet readonly",
+  "genuine_mining_or_reward_or_funding_execution": false
+}

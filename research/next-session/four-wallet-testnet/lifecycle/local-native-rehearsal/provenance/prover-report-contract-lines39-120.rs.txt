@@ -1,0 +1,82 @@
+        .create(path)
+        .map_err(|_| "output_create")
+}
+fn save_report(path: &Path, value: &Value) -> Result<()> {
+    write_new(
+        path,
+        &serde_json::to_vec_pretty(value).map_err(|_| "public_output_encode")?,
+    )
+}
+fn report(loaded: &parameters::Loaded) -> Value {
+    json!({"schema":"kpx4-own-prover-public-report/v1",
+        "domain_hex32":hex::encode(payment::DOMAIN),
+        "actual_rayon_workers":rayon::current_num_threads(),
+        "role":loaded.selected.manifest.role,"output_arity":loaded.selected.manifest.output_arity,
+        "parameter_manifest_sha256":loaded.selected.manifest_sha256,
+        "vk_sha256":loaded.selected.manifest.vk_sha256,
+        "pk_sha256":loaded.selected.manifest.pk_sha256,"pk_bytes":loaded.selected.manifest.pk_bytes,
+        "source_identity":parameters::source_identity_value(),
+        "compiled_build_identity_sha256":parameters::build_identity_sha256(),
+        "parameter_phase_seconds":loaded.phase_seconds,
+        "network_or_broadcast_performed":false,"hosted_prover":false})
+}
+fn prove(role: Role, pk_path: &Path, fd: &str, output: &Path) -> Result<()> {
+    // Only public argument syntax is touched before authentication. In
+    // particular no File/reader for the inherited witness descriptor exists.
+    let number: u32 = fd.parse().map_err(|_| "witness_fd_invalid")?;
+    let loaded = parameters::load(role, pk_path).map_err(|e| e.0)?;
+    emit(&loaded.ready())?;
+    // Linux procfs reopens the inherited descriptor without a caller-supplied
+    // private path or unsafe ownership conversion. No read precedes ready.
+    let mut witness =
+        fs::File::open(format!("/proc/self/fd/{number}")).map_err(|_| "private_request_io")?;
+    let circuit = payment::request::read_for_role(&mut witness, role).map_err(|e| e.code())?;
+    drop(witness);
+    let auth = circuit.authorization.clone();
+    let began = Instant::now();
+    let proof = payment::prove(&loaded.pk, circuit, &mut rand::rngs::OsRng)
+        .map_err(|_| "private_proof_failed")?;
+    let vk = payment::verification_key(&loaded.pk).map_err(|_| "selected_vk_invalid")?;
+    if vk.as_slice() != parameters::selected_vk(role).map_err(|e| e.0)?
+        || !payment::Verifier::new(&vk, role)
+            .map_err(|_| "selected_vk_invalid")?
+            .verify(&auth, &proof)
+            .map_err(|_| "private_verification_failed")?
+    {
+        return Err("private_verification_failed");
+    }
+    let seconds = began.elapsed().as_secs_f64();
+    // No output artifact is created until proof verification succeeds. This
+    // allowlist contains public statement/proof/parameter data only.
+    new_private_dir(output)?;
+    write_new(&output.join("proof128.bin"), &proof)?;
+    write_new(&output.join("authorization528.bin"), &auth.bytes())?;
+    write_new(&output.join("verification-key.bin"), &vk)?;
+    let mut r = report(&loaded);
+    r["genuine_Groth16_verified"] = true.into();
+    r["proof_sha256"] = parameters::digest(&proof).into();
+    r["authorization_sha256"] = parameters::digest(&auth.bytes()).into();
+    r["prove_and_checked_verification_seconds"] = seconds.into();
+    save_report(&output.join("report.json"), &r)?;
+    fs::File::open(output)
+        .and_then(|f| f.sync_all())
+        .map_err(|_| "output_io")?;
+    emit(
+        &json!({"event":"proof-complete","role":role.name(),"genuine_Groth16_verified":true,
+        "proof_sha256":parameters::digest(&proof),"authorization_sha256":parameters::digest(&auth.bytes()),
+        "vk_sha256":parameters::digest(&vk)}),
+    )
+}
+fn role(value: &str) -> Result<Role> {
+    Role::parse(value).map_err(|_| "role_invalid")
+}
+
+/// Development-only shape command. It never loads parameters, makes a proof,
+/// prints assignments, hashes a witness, or claims accepted-chain state.
+fn shape(role: Role, input: &Path, output: &Path) -> Result<()> {
+    parameters::trial_identity().map_err(|e| e.0)?;
+    let mut file = fs::File::open(input).map_err(|_| "shape_request_io")?;
+    let circuit = payment::request::read_for_role(&mut file, role).map_err(|e| e.code())?;
+    drop(file);
+    let began = Instant::now();
+    let cs = ConstraintSystem::<Fr>::new_ref();

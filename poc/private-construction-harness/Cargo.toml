@@ -1,0 +1,14 @@
+[package]
+name = "private-construction-harness"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+sapling = { package = "sapling-crypto", git = "https://github.com/zcash/sapling-crypto.git", rev = "88a7946b4a3066787776e11f0a502654167e022d", default-features = false, features = ["circuit"] }
+jubjub = "0.11"
+bls12_381 = { version = "0.9", default-features = false }
+redjubjub = { version = "0.9", default-features = false, features = ["std"] }
+rand = { version = "0.10", default-features = false, features = ["std_rng"] }
+rand_core = "0.10"
+serde_json = "1"

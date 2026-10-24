@@ -1,0 +1,40 @@
+{
+  "classification": "BOUNDED_PUBLIC_SOURCE_ONLY_NOT_TERMINAL_OR_RETENTION_QUALIFICATION",
+  "copy_evidence_boundary": "Full source streams are authenticated while successfully copied. A separate destination readback is not performed or required for this scoped local-copy receipt; destination durability and independent retention are not established.",
+  "execution_conditions": [
+    "use exact root-selected canonical project and original LOCAL/LIVE metadata-root paths",
+    "use root-selected actual final terminal descriptor/fetch/pages/verification receipts; no LOCAL history substitute",
+    "final actual selection and resulting index metadata join remains pending"
+  ],
+  "existing_guard_sha256": "da559335c0e071d15b7daee5cd4d256776295c934d5db569c1e13c3d2bf83195",
+  "existing_helper_sha256": "5b4596050e976e7e45f94e75fe6a134f793c36e23424f593be5d01724d1f1a79",
+  "immutable_base_index_sha256": "c6a706e05653aa1da1196fbc05668d46e4138f3fadd1e816e10b439e12009ece",
+  "result": "NO_SOURCE_BLOCKER_FOR_ROOT_SELECTED_CANONICAL_PATHS",
+  "reviewer_actions": {
+    "PK_or_archive_blob_read_or_rehashed": false,
+    "all_eight_original_file_and_directory_metadata_exclusions_before_content_reads": true,
+    "existing_packets_modified": false,
+    "new_runtime_crypto_or_network_executed": false,
+    "original_backup_contents_or_hashes_read": false,
+    "reviewed_sources_imported": false,
+    "stable_NOFOLLOW_opened_file_checks": true
+  },
+  "schema": "kpx6-terminal-public-recovery-source-review/v1",
+  "selected_builder": {
+    "bytes": 9236,
+    "path": "research/next-session/four-wallet-testnet/recovery-history-01/build.py",
+    "sha256": "69b8b159861d15b83c145f891df1117cdbd841c7e3b630be603c1e3836660427"
+  },
+  "selected_freeze_sha256": "b05172619dd38f57057b93051e2cd6b8dd2f4fa946ab0439ee97d187b72d8cdf",
+  "source_checks": [
+    "only original metadata precedes stable authenticated public-guard source read",
+    "caller externally selects builder and finite public selection SHA digests",
+    "fixed base index retains exactly seven selected public assets",
+    "descriptor and finite fetch are externally authenticated and network/profile/descriptor/coverage fields joined",
+    "only explicitly referenced retained gzip Full pages and externally selected public receipts are added",
+    "canonical unique relative object names, original metadata exclusions and source sizes checked before first copy",
+    "existing stable whole-source stream SHA/size checks run during copy to fresh exclusively created readonly files",
+    "new index preserves old object pins and explicitly scopes accepted history to retained public bytes plus separately selected replay receipts",
+    "no archive rebuild, payload or semantic replay, wallet, prover, Native, signing, network, upload or storage-retention operation"
+  ]
+}

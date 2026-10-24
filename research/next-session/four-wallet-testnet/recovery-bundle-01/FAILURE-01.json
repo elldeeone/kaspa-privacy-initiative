@@ -1,0 +1,13 @@
+{
+  "schema": "kpx6-public-recovery-build-operational-failure/v1",
+  "failed_source_sha256": "5d8a729756fbbfd2bacbf70f0a9d6e7c6b81e4cb40b9d32fc341f1b07e357a5b",
+  "actual_failure": "existing strict unpack refused required-archive-metadata",
+  "cause": "Builder used DEPENDENCIES.json, while fixed helper requires DEPENDENCY-ACQUISITION.json",
+  "correction": "Rename only the public dependency sidecar and archive member, retaining exact strict helper and selected source/parameter bytes",
+  "actual_compiler_wallet_prover_SDK_native_or_network_execution": false,
+  "original_backup_contents_or_hashes_read": false,
+  "CPUUsageNSec": 3899580000,
+  "MemoryPeak": 1711247360,
+  "MemorySwapPeak": 0,
+  "MainPID": 0
+}

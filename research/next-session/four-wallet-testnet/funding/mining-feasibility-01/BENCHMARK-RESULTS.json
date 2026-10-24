@@ -1,0 +1,128 @@
+{
+  "schema": "kpx6-local-SDK-PoW-benchmark/v1",
+  "header_sha256": "4d26793ed82a566e3bfae9b906a99e267a02ae768244319cbfa5b36d0ca186a4",
+  "known_header_hash": "bfb7b30484921bc74c28255bd179f034a5a783ed1b4bc159a9ba7849f1a3191d",
+  "known_accepted_nonce_passed": true,
+  "target_decode_matches_SDK": true,
+  "node_version": "v24.15.0",
+  "SDK_pins": {
+    "kaspa.js": "6d92cb305d0cc2eb26de9e305b7f7a8c17daa130ad478f0b340b50490557dbcf",
+    "kaspa_bg.wasm": "c9657568610ae1d305bc2e1cf85208ceba0d1a7893c4057b38caa8add2ffb0f5",
+    "package.json": "8b61fefaba842c41b805291d95b2f9e81778ec590813a6c34eddcd316659b8d0"
+  },
+  "cases": [
+    {
+      "workers": 1,
+      "hashes_per_worker": 100000,
+      "total_hashes": 100000,
+      "wall_seconds_excluding_load_and_matrix_setup": 0.410321131,
+      "aggregate_hashes_per_second": 243711.55284225417,
+      "worker_results": [
+        {
+          "hashes": 100000,
+          "elapsed_ms": 409.02537299999995,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        }
+      ],
+      "all_worker_exits_zero": true
+    },
+    {
+      "workers": 14,
+      "hashes_per_worker": 100000,
+      "total_hashes": 1400000,
+      "wall_seconds_excluding_load_and_matrix_setup": 0.782724231,
+      "aggregate_hashes_per_second": 1788624.8368871566,
+      "worker_results": [
+        {
+          "hashes": 100000,
+          "elapsed_ms": 757.2169789999999,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 745.5343679999999,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 715.66598,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 494.837947,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 720.9509449999999,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 778.592872,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 435.152837,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 639.393356,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 714.4189829999999,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 746.7427000000001,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 651.548897,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 632.0936919999999,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 653.663015,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        },
+        {
+          "hashes": 100000,
+          "elapsed_ms": 717.941083,
+          "matching_nonce_count": 0,
+          "winning_nonce_or_hash_exported": false
+        }
+      ],
+      "all_worker_exits_zero": true
+    }
+  ],
+  "no_RPC_or_network_mining_signing_or_submission_interface": true,
+  "original_backup_or_private_key_or_wallet_read": false,
+  "scope": "LOCAL_KNOWN_PUBLIC_HEADER_THROUGHPUT_NOT_ACCEPTED_MINING_REWARD"
+}

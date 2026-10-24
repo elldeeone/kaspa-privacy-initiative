@@ -1,0 +1,92 @@
+{
+  "actual_aggregate_binding_controls": {
+    "Groth16_or_native_financial_proof_verified": false,
+    "KAS_or_Sapling_transaction_validated": false,
+    "actual_received_scalar_hex32": "0300000000000000000000000000000000000000000000000000000000000000",
+    "correct_actual_delta_verifies": true,
+    "schema": "kpx6-existing-curve-binding-consumer-result/v1",
+    "synthetic_global_commitment_difference": "3*R",
+    "wrong_delta_rejected": true,
+    "wrong_digest_rejected": true,
+    "wrong_fee_rejected": true
+  },
+  "all_28_owned_engine_phase_containers_independently_verified_absent": true,
+  "classification": "ACTUAL_PUBLIC_SYNTHETIC_API_AND_BINDING_COMPONENT_NOT_KAS_OR_PRIVACY_QUALIFICATION",
+  "counter_snapshots_are_not_complete_lifetime_CPU_totals": true,
+  "curve_results_sha256": "b9563dbbac07a5add5000ea397b46a8ed8f89efbb9aeaa9956e64bd4bd5d3284",
+  "engine_results_sha256": "6660f6a8e30006124215c3813b8adc1949238bbef7787c08380180eec3237c8e",
+  "full_private_construction_adaptive_corruption_retry_unlinkability_or_privacy_qualification": false,
+  "installation_sha256": "5d0def4ae617f6365fccb5f243922088faaf7a6148aa0938c3a3f9520c4ff594",
+  "largest_observed_owned_container_memory_peak_bytes": 32407552,
+  "negative_cases": [
+    {
+      "kind": "lost-before-input",
+      "natural_exit_before_cleanup": [
+        1,
+        1,
+        137
+      ],
+      "no_sum_exported": true,
+      "reason": "declared-party-loss-before-engine-entry",
+      "status": "INCOMPLETE",
+      "wall_seconds": 61.162388185970485
+    },
+    {
+      "kind": "lost-after-input",
+      "natural_exit_before_cleanup": [
+        1,
+        1,
+        137
+      ],
+      "no_sum_exported": true,
+      "reason": "declared-party-loss-after-all-input-markers",
+      "status": "INCOMPLETE",
+      "wall_seconds": 1.479209432960488
+    },
+    {
+      "kind": "wrong-runtime-prime",
+      "natural_exit_before_cleanup": [
+        1,
+        1,
+        1
+      ],
+      "no_sum_exported": true,
+      "reason": null,
+      "status": "INCOMPLETE",
+      "wall_seconds": 1.0544138890109025
+    }
+  ],
+  "no_financial_keys_PK_proof_generation_GPU_native_transaction_or_hidden_owner_truth_used": true,
+  "normal_cases": [
+    {
+      "actual_sum_decimal": "3",
+      "all_three_exit_zero": true,
+      "identity": "97c46b47-b9b1-496f-a7c4-31b50ba83878"
+    },
+    {
+      "actual_sum_decimal": "0",
+      "all_three_exit_zero": true,
+      "identity": "0aa066f6-ba85-4914-a266-c7bf303d460a"
+    },
+    {
+      "actual_sum_decimal": "0",
+      "all_three_exit_zero": true,
+      "identity": "66b0d677-cf5d-4a7e-bef7-57a0d3ceea68"
+    },
+    {
+      "actual_sum_decimal": "33",
+      "all_three_exit_zero": true,
+      "identity": "e347e39f-c881-4d5e-a125-98d71bda7652"
+    }
+  ],
+  "observed_backend_statistical_security_parameter": 40,
+  "owned_container_counter_snapshot_count": 27,
+  "schema": "kpx6-private-sum-component-final/v1",
+  "source_sha256": "00da83a1286abc45408172caab846a48f273c1bafd272efc57419e5dd1742ae9",
+  "trusted_controller_own_unit_counters": {
+    "cpu.stat": "usage_usec 50273981\nuser_usec 25349989\nsystem_usec 24923991\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 705\nnr_throttled 36\nthrottled_usec 1334979\nnr_bursts 0\nburst_usec 0",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.peak": "98766848",
+    "memory.swap.peak": "0"
+  }
+}

@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/software/Compiler/program.py", line 122, in __init__
+    import gmpy2
+ModuleNotFoundError: No module named 'gmpy2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/out/compiler/compile.py", line 41, in <module>
+    main(compiler)
+    ~~~~^^^^^^^^^^
+  File "/out/compiler/compile.py", line 28, in main
+    compiler.prep_compile()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/software/Compiler/compilerLib.py", line 469, in prep_compile
+    self.build(name=name)
+    ~~~~~~~~~~^^^^^^^^^^^
+  File "/software/Compiler/compilerLib.py", line 472, in build
+    self.build_program(name=name)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/software/Compiler/compilerLib.py", line 371, in build_program
+    self.prog = Program(self.args, self.options, name=name)
+                ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/software/Compiler/program.py", line 142, in __init__
+    self.prime = bad_prime
+                 ^^^^^^^^^
+UnboundLocalError: cannot access local variable 'bad_prime' where it is not associated with a value

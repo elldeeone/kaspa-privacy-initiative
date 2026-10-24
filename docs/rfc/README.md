@@ -8,6 +8,8 @@ When a durable architecture or design decision is reached, record its rationale 
 
 ## Proposals
 
+- [RFC-0026: Owner-private multiparty construction](0026-owner-private-multiparty-construction.md) — Open; exact builder/knowledge/binding feasibility under the public and assembler observer, with bounded API falsification under ADR0061.
+- [RFC-0025: Four-wallet testnet funding and accepted recovery](0025-four-wallet-testnet-funding-and-accepted-recovery.md) — Open; strict GN2, actual accepted heads and all four confirmed payouts under ADR0060, with separate privacy and independent-retention outcomes.
 - [RFC-0024: Independent private payments, settlement and recovery](0024-independent-private-payment-settlement-and-recovery.md) — Open; four parallel execution tracks, with separate settlement, privacy, availability and full-capacity exit gates.
 - [RFC-0001: State architecture for the first native-KAS privacy PoC](0001-state-architecture.md) — Open; no architecture selected.
 - [RFC-0006: Reusable private authorization](0006-reusable-private-authorization.md) — Bounded experiment completed; broader scale, privacy and liveness questions remain open.

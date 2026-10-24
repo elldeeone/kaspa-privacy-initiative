@@ -1,0 +1,121 @@
+{
+  "schema": "kpx6-private-sum-independent-Docker-operational-review/v1",
+  "source_freeze_sha256": "9f5e63c157faa4f8ea67c738c79c852f9b93a227c738ba15caa9d05023aa6173",
+  "source_review_status": "ACK_FOR_BOUNDED_PUBLIC_SYNTHETIC_COMPONENT_GATE",
+  "scope": "SOURCE_OPERATIONAL_DELTA_ONLY_NOT_DOCKER_OR_ENGINE_EXECUTION_RELEASE_OR_BRANCH_SECURITY_SCAN",
+  "unresolved_blocking_source_findings": [],
+  "prior_arithmetic_review": "independent-review-01/REVIEW-01.json",
+  "arithmetic_engine_and_curve_payloads_unchanged_from_source02": [
+    "worker.py",
+    "kpi_delta.mpc",
+    "Cargo.toml",
+    "Cargo.lock",
+    "src/main.rs",
+    "DISTRIBUTION-MEMBERS.json"
+  ],
+  "operational_boundary": {
+    "trusted_controller": "host process uses explicit local Docker daemon socket with fresh HOME/DOCKER_CONFIG; daemon remains trusted",
+    "selected_image": "sha256:561618e2c15bf2397621dd04f96926663a3b5616c189cf7e38db7e82f5c538ea",
+    "network": "fresh network=none anchor, three parties join only that owned network namespace, no host networking or published ports",
+    "party_identity_and_capabilities": "numeric caller UID/GID, read-only root, all caps dropped, no-new-privileges, no socket/home/global-output mount",
+    "private_and_program_mounts": "only own fresh Player-Data; own input/TLS private leaves read-only; selected finite compiled program files read-only; selected engine read-only; public certificates and trusted installed /usr",
+    "finite_ingress": "all externally authenticated listed compiled files pass original backup inode/private-dir guards before fresh selected-compiled snapshot; driver never copies unlisted producer trees"
+  },
+  "dropout_semantics": {
+    "before_input": "declared loss wrapper before engine entry, not malicious wire-share injection",
+    "after_input": "all three ordered input markers observed; actual victim container stopped before surviving gates released; victim gate never released",
+    "survivors": "observed until natural exit, unexpected SUM retained as FAIL, or explicit sixty-second operational controller cancellation",
+    "truthful_statuses": "natural statuses and observation end captured before forced cleanup; cancelled/incomplete is not reported as an engine abort"
+  },
+  "cleanup_and_resources": {
+    "ownership": "only freshly generated UUID names; exact selected image+owned label checked before removal; no image/unrelated container mutation",
+    "absence": "successful authoritative exact-name list must show no result; daemon or ambiguous list failure is UNKNOWN, never verified absence",
+    "optional_metrics_failure": "null/unavailable counters do not block identity-checked cleanup of other owned containers",
+    "cleanup_errors": "stop/wait/counter faults retained; every owned name gets final removal/absence attempt; unresolved state fails receipt",
+    "budget": "parties+anchor 2.8 CPU/3104 MiB; externally enforced controller at most1 CPU/512 MiB; total at most3.8CPU/3616MiB",
+    "measurement_scope": "sampled actual owned container counters and configured limits; no guaranteed full-lifetime total inferred when unavailable"
+  },
+  "fixed_blockers": [
+    {
+      "issue": "Host copytree expanded beyond guarded compiled-file list",
+      "resolution": "finite guarded selected-compiled snapshot plus finite driver copies"
+    },
+    {
+      "issue": "Immediate survivor cleanup did not exercise post-loss engine liveness",
+      "resolution": "natural survivor observation with separate operational cancellation and FAIL on SUM"
+    },
+    {
+      "issue": "Optional counter/stop failure could skip remaining owned cleanup",
+      "resolution": "independent identity-checked cleanup and retained errors"
+    },
+    {
+      "issue": "Failed inspect incorrectly counted daemon failure as container absence",
+      "resolution": "authoritative exact-name presence API with explicit UNKNOWN"
+    }
+  ],
+  "evidence_limits": [
+    "Source01/02 installed-tool namespace failures and source01-06 preimages retained",
+    "Earliest selected harness freeze is source01; no source00 harness invented",
+    "Reviewer executed only owned Python pure/mocked public controls; no Docker daemon or downloaded compiler/engine/curve consumer",
+    "No new mathematical primitive, financial authorization, native KAS composition, privacy, adaptive-corruption, fairness or soundness conclusion",
+    "Root retains explicit compiler/engine/curve execution release and actual field/program/result join gates"
+  ],
+  "reviewer_modified_closed_financial300_outer85_or_privacy52": false,
+  "reviewed_source_files": [
+    {
+      "bytes": 12553,
+      "path": "harness.py",
+      "sha256": "5b0979d55fb41530cd15ef314966f6b1d4147baefa5527b24945ad5c0956a5e6"
+    },
+    {
+      "bytes": 17501,
+      "path": "worker.py",
+      "sha256": "8c08b53efc18a7cd2c87eb9675c2fa041e434eb5f4d6a0a1dffd998cdbad0225"
+    },
+    {
+      "bytes": 718,
+      "path": "kpi_delta.mpc",
+      "sha256": "75f25db95854721dc2970f886e1a576af52d6976763b62f42dc93a9333adf480"
+    },
+    {
+      "bytes": 571,
+      "path": "Cargo.toml",
+      "sha256": "342fc090553e4acb4e06f886527f5c626f4480d95c2d7d67814db3a38db42efc"
+    },
+    {
+      "bytes": 20205,
+      "path": "Cargo.lock",
+      "sha256": "33e0db6a0c048e3837c40a5cad8c4878c010b8b4a2b9baede00b86eaa8ee5f44"
+    },
+    {
+      "bytes": 3389,
+      "path": "src/main.rs",
+      "sha256": "17435fffcb60c3632734d97fe9b5859e4d88ef5ba4a693ca51802ce731e4f8c1"
+    },
+    {
+      "bytes": 7383,
+      "path": "DESIGN.md",
+      "sha256": "6a9f95751085ea73c4e731a40a656f6a2bd6552369e723fe8ed0f61d95875b03"
+    },
+    {
+      "bytes": 6099,
+      "path": "DISTRIBUTION-MEMBERS.json",
+      "sha256": "eea2fbe1919ce84cbdc4f9ce7c22dbbd4e9af459f22ecaf8ab7bd1da6b73c869"
+    },
+    {
+      "bytes": 17545,
+      "path": "docker_worker.py",
+      "sha256": "4ce624278d637735084ab4a15910036246c9aced4a14535f105b94c75c7769b8"
+    }
+  ],
+  "actual_source06_calibration": {
+    "calibration_sha256": "768cbe5fc3700f609ccd7de7f6a9e7954e1bf06268de8037e6049efa47833b35",
+    "phase_sha256": "26c68528b0b3e515847d3792e771fb1c57df17f407a9a95eb14974f927f86f1a",
+    "installation_sha256": "25e7a39d056202deb1d790a23cc33fa07ea56d001781c9478eccc9eca1fb27ec",
+    "installation_member_bytes_independently_verified": 47,
+    "cleanup_sha256": "a256c41d4dfeb3ef8e676a08e8153e17589097ca98bf4f3f7a539babb84395c3",
+    "three_party_FSandTCP": true,
+    "four_owned_containers_authoritatively_absent": true,
+    "downloaded_compiler_engine_consumer_executed": false
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "kpx6-stock-private-input-field-source/v1",
+  "classification": "SOURCE_INSPECTION_BEFORE_ENGINE_EXECUTION",
+  "commit": "113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+  "files": [
+    {
+      "path": "Compiler/instructions.py",
+      "bytes": 88834,
+      "sha256": "3a9383327460798fe1874d030a1c24fed9e1155570e69f4607735636d19fadde",
+      "git_blob": "317b1857e7d9c9b74ab25e02131ca12149895071",
+      "url": "https://github.com/data61/MP-SPDZ/blob/113c4e47dd94bca9ecab029d2f0abe649bea5c52/Compiler/instructions.py"
+    },
+    {
+      "path": "Processor/Input.hpp",
+      "bytes": 8906,
+      "sha256": "1ec72252d1fd02afcf17eb0d1bdfd94b5c20253de051bf963ffbf924a2a93d9d",
+      "git_blob": "4f639f02b464ce6b0fd8ebe55f8052027272db22",
+      "url": "https://github.com/data61/MP-SPDZ/blob/113c4e47dd94bca9ecab029d2f0abe649bea5c52/Processor/Input.hpp"
+    },
+    {
+      "path": "Processor/IntInput.h",
+      "bytes": 436,
+      "sha256": "2e798d10352afa88589b136fc7bc4a75975cdd88b5ff8bf5551fcffc1a9c6ca0",
+      "git_blob": "bea76368acad245d692973b143d0a1e7df4f6253",
+      "url": "https://github.com/data61/MP-SPDZ/blob/113c4e47dd94bca9ecab029d2f0abe649bea5c52/Processor/IntInput.h"
+    },
+    {
+      "path": "Processor/IntInput.hpp",
+      "bytes": 298,
+      "sha256": "ab4485e56a9c6e1ea491fa28a7eb4f9af8b62372107a2ee04969cc25f4bd1fdb",
+      "git_blob": "8b562ab88d0c9981df36bbaa2607ffaf90ea15e5",
+      "url": "https://github.com/data61/MP-SPDZ/blob/113c4e47dd94bca9ecab029d2f0abe649bea5c52/Processor/IntInput.hpp"
+    },
+    {
+      "path": "Math/gfp.h",
+      "bytes": 11257,
+      "sha256": "3b9af0a4a83abeda72d8e48a5c90f88b2497368d964b829d50f6ef8e0092e912",
+      "git_blob": "65477f847cfa920231adcd96881bc4d57a7e57b0",
+      "url": "https://github.com/data61/MP-SPDZ/blob/113c4e47dd94bca9ecab029d2f0abe649bea5c52/Math/gfp.h"
+    }
+  ],
+  "facts": [
+    "INPUTMIXED int type has zero precision parameters",
+    "input_mixed dispatches IntInput of the clear field",
+    "IntInput stream extraction reads its field item without integer workspace parameter",
+    "gfp stream extraction uses initialized ZpD field modulus"
+  ],
+  "inference": "F250 workspace does not truncate raw full-field scalar input; unchanged q-1 fixtures must still pass actual execution",
+  "actual_engine_q_minus_one_input_executed_at_this_freeze": false
+}

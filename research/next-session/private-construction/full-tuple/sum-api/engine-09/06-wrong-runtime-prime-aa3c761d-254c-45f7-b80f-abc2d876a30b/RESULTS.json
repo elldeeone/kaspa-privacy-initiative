@@ -1,0 +1,80 @@
+{
+  "actual_malicious_wire_injection": false,
+  "all_owned_containers_removed": true,
+  "all_three_input_instruction_markers_observed": false,
+  "counters_are_actual_observations_not_guaranteed_complete_lifetime_totals": true,
+  "expected_decimal": "3",
+  "financial_authorization_or_KAS_interface": false,
+  "identity": "aa3c761d-254c-45f7-b80f-abc2d876a30b",
+  "kind": "wrong-runtime-prime",
+  "natural_statuses_before_controller_cleanup": [
+    1,
+    1,
+    1
+  ],
+  "operational_reason": null,
+  "owned_container_samples": [
+    {
+      "PID": 1809709,
+      "cgroup_counters_observed": {
+        "cpu.stat": "usage_usec 27330\nuser_usec 18220\nsystem_usec 9110\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 4\nnr_throttled 2\nthrottled_usec 132555\nnr_bursts 0\nburst_usec 0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.peak": "5750784",
+        "memory.swap.peak": "0"
+      },
+      "configured_limits": {
+        "Memory": 33554432,
+        "MemorySwap": 33554432,
+        "NanoCpus": 100000000,
+        "PidsLimit": 256
+      },
+      "container_id": "22865215d53dcbc0e08e54e9557894aeed58dbe5d6c4434491c6c40d6dc63901",
+      "container_name": "kpi-sum-aa3c761d-254c-45f7-b80f-abc2d876a30b-anchor",
+      "exit_code": 0,
+      "running": true,
+      "timestamp_monotonic": 512310.37863167
+    },
+    {
+      "PID": 0,
+      "cgroup_counters_observed": null,
+      "configured_limits": {
+        "Memory": 1073741824,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 900000000,
+        "PidsLimit": 256
+      },
+      "container_id": "5470527e162463fc6bf44294b6a3ee93624c861afe496fd3303b5a52ec8ea5d5",
+      "container_name": "kpi-sum-aa3c761d-254c-45f7-b80f-abc2d876a30b-p1",
+      "exit_code": 1,
+      "running": false,
+      "timestamp_monotonic": 512310.391797557
+    },
+    {
+      "PID": 0,
+      "cgroup_counters_observed": null,
+      "configured_limits": {
+        "Memory": 1073741824,
+        "MemorySwap": 1073741824,
+        "NanoCpus": 900000000,
+        "PidsLimit": 256
+      },
+      "container_id": "99532fa4b400929e3799e2e532886de5348c8d09812e3eca9e6fea319782ef2b",
+      "container_name": "kpi-sum-aa3c761d-254c-45f7-b80f-abc2d876a30b-p2",
+      "exit_code": 1,
+      "running": false,
+      "timestamp_monotonic": 512310.405407932
+    }
+  ],
+  "party_returncodes": [
+    1,
+    1,
+    1
+  ],
+  "public_gate_released": false,
+  "runtime_prime_decimal": "6554484396890773809930967563523245729705921265872317281365359162392183254201",
+  "schema": "kpx6-existing-engine-sum-case/v1",
+  "status": "INCOMPLETE",
+  "sum_decimal": null,
+  "survivor_observation_seconds_after_declared_loss": null,
+  "wall_seconds": 1.0544138890109025
+}

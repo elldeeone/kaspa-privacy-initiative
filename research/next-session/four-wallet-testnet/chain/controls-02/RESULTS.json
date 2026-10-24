@@ -1,0 +1,55 @@
+{
+  "calibrated_red": "../controls-race-red-01/RESULTS.json",
+  "classification": "SYNTHETIC_ACCEPTED_ASSIGNMENTS_NOT_NATIVE_OR_CHAIN_QUALIFICATION",
+  "executed_sources": [
+    {
+      "bytes": 16598,
+      "path": "poc/four-wallet-chain/acquire.mjs",
+      "sha256": "065565defec860ae52dbd435f939cd0ce224fa34ca60629e9ff319899eaedb24",
+      "snapshot": "research/next-session/four-wallet-testnet/chain/controls-02/source/acquire.mjs"
+    },
+    {
+      "bytes": 6387,
+      "path": "poc/four-wallet-chain/fetch.mjs",
+      "sha256": "dc9c2ab8ea6e40239e14d9c0d22c7d31719258fc8dfb028d7e8aa56097d697d5",
+      "snapshot": "research/next-session/four-wallet-testnet/chain/controls-02/source/fetch.mjs"
+    },
+    {
+      "bytes": 2202,
+      "path": "poc/four-wallet-chain/json.mjs",
+      "sha256": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7",
+      "snapshot": "research/next-session/four-wallet-testnet/chain/controls-02/source/json.mjs"
+    },
+    {
+      "bytes": 8442,
+      "path": "poc/four-wallet-chain/selection.mjs",
+      "sha256": "9f7494edcd0dd214941b50bd2007fec5fd1b622bb372bae794ddda3dd510d378",
+      "snapshot": "research/next-session/four-wallet-testnet/chain/controls-02/source/selection.mjs"
+    },
+    {
+      "bytes": 15925,
+      "path": "poc/four-wallet-chain/test_chain.mjs",
+      "sha256": "ce492070e07f90ec45cfdd454ebbca24268760ecf58a0dceec37e3be9387f6f1",
+      "snapshot": "research/next-session/four-wallet-testnet/chain/controls-02/source/test_chain.mjs"
+    },
+    {
+      "bytes": 12581,
+      "path": "poc/four-wallet-chain/verify_bundle.mjs",
+      "sha256": "601ea1e437aff10f61976cffecc9ee3772760269fe25a309737e6ff6ecf4a001",
+      "snapshot": "research/next-session/four-wallet-testnet/chain/controls-02/source/verify_bundle.mjs"
+    },
+    {
+      "bytes": 8011,
+      "path": "poc/four-wallet-chain/wire.mjs",
+      "sha256": "b3f51020e0a06d8a7ef725b13205a259b6a6a221b3a161820ee0c30b84384923",
+      "snapshot": "research/next-session/four-wallet-testnet/chain/controls-02/source/wire.mjs"
+    }
+  ],
+  "failed_groups": 0,
+  "fix": "Final exact UTXO requery after confirmed delta rejects near-tip payout/ordinary-change races. Non-atomic scope and pre-broadcast recheck remain.",
+  "native_VM_proof_private_key_PK_backup_or_live_RPC": false,
+  "passed_groups": 9,
+  "reported_node_test_duration_ms": "276.248331",
+  "schema": "kpx5-gn2-chain-public-controls/v2",
+  "test_groups": 9
+}

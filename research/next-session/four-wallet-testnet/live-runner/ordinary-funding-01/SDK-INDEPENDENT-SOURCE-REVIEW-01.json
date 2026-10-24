@@ -1,0 +1,42 @@
+{
+  "classification": "SCOPED_SOURCE_API_REVIEW_ONLY_NO_EXECUTION_OR_BROADCAST_APPROVAL",
+  "enclosing_source_freeze_sha256": "8ec16d3e8b7c501c61e38b787daa111f736168fc357c1a6bf94d0a3f82b1ff0e",
+  "executed": {
+    "Git_mutation": false,
+    "Native_or_prover": false,
+    "SDK_or_Node": false,
+    "network_or_broadcast": false,
+    "private_worker_or_signing": false,
+    "reviewed_source_import": false
+  },
+  "integration_requirements": [
+    "trusted launcher supplies externally selected receipt digest and authenticated SDK namespace",
+    "observed DAA, UTXO backing and reference Native mining mass must be independently obtained and verified by caller",
+    "source-level API agreement is not an executed SDK signature or Native Full result"
+  ],
+  "metadata_guards": {
+    "all8_original_backup_file_identities_and_complete_owner_directories_excluded_before_source_read": true,
+    "original_backup_contents_or_hashes_read": false,
+    "stable_opened_file_identity_checked": true
+  },
+  "result": "NO_HELPER_SOURCE_BLOCKER_FOUND",
+  "reviewed_source": {
+    "bytes": 15471,
+    "path": "poc/four-wallet-live/ordinary_sdk.mjs",
+    "sha256": "3d5534c8c2c56f6f8b3674f92746b14e489208d1cf2258ff837b7aab3bb23fda"
+  },
+  "schema": "kpx6-ordinary-funding-sdk-independent-source-review/v1",
+  "scope_excludes": "Other four controller files were independently reviewed separately; this receipt does not repeat or extend that review.",
+  "verified_by_direct_source_read": [
+    "fixed TN10 genesis and externally selected fresh receipt join to fixed financial profile",
+    "all distinct contexts require original A P2PK coinbases and observed maturity at least 1000 DAA",
+    "canonical integer sompi with bounded source and output sums",
+    "only first A21 and second C21 outputs plus optional A-only refund; no arbitrary recipient/covenant/pool script",
+    "fixed native V1 header, budget10, maximum sequence and66-byte ALL signature script shape",
+    "complete SDK canonical body and transaction ID equality and SafeJSON body roundtrip",
+    "selected A private key must derive exact source script before signing one input with SighashType.All",
+    "signature operation must not mutate body; returned object contains public signature only",
+    "three exact selected readonly SDK member identities are checked before require",
+    "private sign request enters stdin and refusal does not echo request, scalar or exception data"
+  ]
+}

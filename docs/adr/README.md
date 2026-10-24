@@ -36,6 +36,9 @@ Use [0000-template.md](0000-template.md).
 
 ## Records
 
+- [ADR-0062: exercise an existing checked private field-sum API](0062-existing-engine-private-field-sum.md) — Public synthetic component gate; no KAS construction or privacy qualification.
+- [ADR-0061: Construction API and partition falsification](0061-construction-api-and-partition-falsification.md) — Accepted bounded existing-API/curve controls; no new KAS relation, setup, proof or privacy qualification.
+- [ADR-0060: Four-wallet GN2 testnet rehearsal](0060-four-wallet-gn2-testnet-rehearsal.md) — Accepted bounded contract; fresh testnet profile, owner-local two-input funding, strict accepted-history recovery and four independent exits.
 - [ADR-0059: Scheduled private actions with public settlement proofs](0059-scheduled-private-actions-with-public-settlement-proofs.md) — Accepted for a new unfunded two-action R0/native prototype; exact fee/body semantics and direct private fallback remain required gates.
 - [ADR-0058: Private full-note exits without commitment appends](0058-private-full-note-exits-without-commitment-appends.md) — Accepted for a separate unfunded capacity experiment; fresh parameters and proof/native validation required, old instances unchanged.
 - [ADR-0002: A0 terminal reserve-release experiment](0002-a0-reserve-release-experiment.md)

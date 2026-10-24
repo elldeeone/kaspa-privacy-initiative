@@ -1,0 +1,115 @@
+{
+  "schema": "kpx6-private-sum-independent-source-review/v1",
+  "source_freeze_sha256": "63963d1c5ca0ea4719e755f49f78c7924ed5e11ab6da2b00eedf026b4244f263",
+  "previous_source_freeze_sha256": "0ec7356550cb26f92b534150d12a34662d32827382b0a9ef5eb00f43352cb641",
+  "scope": "PUBLIC_SYNTHETIC_SOURCE_AND_ARITHMETIC_ONLY_NOT_BRANCH_SECURITY_SCAN_OR_EXECUTION_RELEASE",
+  "source_review_status": "ACK_FOR_BOUNDED_COMPONENT_GATE",
+  "unresolved_blocking_source_findings": [],
+  "fixed_before_freeze": [
+    {
+      "issue": "Party Programs symlinks pointed to an unmounted /programs namespace path",
+      "resolution": "Selected actual bytecode and schedules copied into each isolated Programs root"
+    },
+    {
+      "issue": "After-input victim could race through an all-party gate release while kill was queued",
+      "resolution": "Victim is killed/reaped before release; victim gate is never released"
+    },
+    {
+      "issue": "First wrong-prime refusal caused cleanup to kill other parties before their natural refusal",
+      "resolution": "Wrong-prime case waits for every engine to exit and requires all three exact engine refusal messages"
+    },
+    {
+      "issue": "Result bridge should preserve actual output provenance directly",
+      "resolution": "sum_decimal is taken from parsed actual sums[0][0] after equality of all three checked results"
+    }
+  ],
+  "arithmetic": {
+    "prime_decimal": "6554484396890773809930967563523245729705921265872317281365359162392183254199",
+    "prime_bits": 252,
+    "matches_locked_jubjub_version": "0.11.1",
+    "locked_jubjub_fr_source_sha256": "2f8e5e7a61f6092d510b7ecc2bd7a573001281c113ba7b0ae49cfddb3ddfd4d8",
+    "fixed_sums_mod_q": [
+      3,
+      0,
+      0,
+      33
+    ],
+    "wire": "exact bytes32 little endian, scalar strictly less than q",
+    "engine_operation": "stock sint inputs, field addition, reveal(check=True)",
+    "stock_checked_open_source": "Processor/Processor.hpp478-495 checks before and after opening exchange"
+  },
+  "isolation": {
+    "outer_network": "fresh unshare-all loopback-only namespace; no added network admin capability",
+    "inner_party": "own input/stdin/TLS key and public certificates/program only; share outer isolated network",
+    "after_input_barrier": "all three ordered, flushed instruction markers precede gated opening; victim gate stays closed",
+    "original_backup_boundary": "all declared original backup inodes/private directories excluded before reads and actual opened inode checked"
+  },
+  "curve_consumer": {
+    "input": "actual externally pinned complete primary MPC result converted to canonical Fr bytes",
+    "commitment_derived_key": "sum CV(100;-1,-2,6) minus three CV(99;0) minus value balance3 equals 3*R",
+    "correct_delta": "actual received scalar signs; independent commitment-derived Binding verification must succeed",
+    "negative_controls": [
+      "changed Delta",
+      "changed body digest",
+      "changed fee/value balance"
+    ],
+    "old_dependencies": "all85 nonroot packages unchanged from closed existing curve fixture",
+    "new_cryptographic_primitive_or_KAS_relation": false
+  },
+  "source02_delta": "Remove redundant ip/CAP_NET_ADMIN and add installed-Python actual TCP request/reply calibration; math/program/consumer/dependency pins unchanged",
+  "root_execution_gates_remaining": [
+    "Review actual source02 namespace/TLS/filesystem/TCP calibration receipt and exact staged installation pin",
+    "Explicitly schedule compiler/engine/consumer execution within ADR0062 budget",
+    "Join actual compiled bytecode/schedule/prime, genuine checked engine results, wrong-prime refusal, dropout failures and real-curve consumer outcomes"
+  ],
+  "unverified": [
+    "Official binary execution compatibility and actual exact-prime support",
+    "Actual checked MAC execution or malformed-wire-share rejection",
+    "Actual engine dropouts/prime mismatch and actual curve consumer outcome",
+    "Privacy, adaptive corruption, fairness, anonymity, retry unlinkability or native KAS composition"
+  ],
+  "financial_PK_original_backup_contents_owner_witness_new_native_proof_engine_compiler_or_curve_consumer_execution_by_reviewer": false,
+  "reviewed_source_files": [
+    {
+      "bytes": 10983,
+      "path": "harness.py",
+      "sha256": "621989ef3ad6ec70ef10170f679de8fdf6ef633032a2d2ff19d62d19183fe525"
+    },
+    {
+      "bytes": 17501,
+      "path": "worker.py",
+      "sha256": "8c08b53efc18a7cd2c87eb9675c2fa041e434eb5f4d6a0a1dffd998cdbad0225"
+    },
+    {
+      "bytes": 718,
+      "path": "kpi_delta.mpc",
+      "sha256": "75f25db95854721dc2970f886e1a576af52d6976763b62f42dc93a9333adf480"
+    },
+    {
+      "bytes": 571,
+      "path": "Cargo.toml",
+      "sha256": "342fc090553e4acb4e06f886527f5c626f4480d95c2d7d67814db3a38db42efc"
+    },
+    {
+      "bytes": 20205,
+      "path": "Cargo.lock",
+      "sha256": "33e0db6a0c048e3837c40a5cad8c4878c010b8b4a2b9baede00b86eaa8ee5f44"
+    },
+    {
+      "bytes": 3389,
+      "path": "src/main.rs",
+      "sha256": "17435fffcb60c3632734d97fe9b5859e4d88ef5ba4a693ca51802ce731e4f8c1"
+    },
+    {
+      "bytes": 5317,
+      "path": "DESIGN.md",
+      "sha256": "6df9186aed16213226d3c45de497c8973ed18dd102daea6a194c3549cf58bcf9"
+    },
+    {
+      "bytes": 6099,
+      "path": "DISTRIBUTION-MEMBERS.json",
+      "sha256": "eea2fbe1919ce84cbdc4f9ce7c22dbbd4e9af459f22ecaf8ab7bd1da6b73c869"
+    }
+  ],
+  "reviewer_modified_any_closed_financial300_outer85_or_privacy52_packet": false
+}

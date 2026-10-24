@@ -1,0 +1,178 @@
+{
+  "actual_network_RPC_native_VM_proof_setup_funding_or_submission": false,
+  "checks": [
+    {
+      "boundary": "External financial selection to GN2 descriptor",
+      "evidence": "Raw SHA pin, strict UTF8/duplicate JSON and exact identity fields; selected profile/domain/compact VK/tails/image/budgets/executable metadata; real nonzero trial/funding/birth identity; initial W prefix n2/m1 and exact tail. Mirror/status JSON cannot select a different financial profile.",
+      "result": "ACK_FOR_INSPECTED_SOURCE"
+    },
+    {
+      "boundary": "Retained Full pages and complete selected body/context binding",
+      "evidence": "Gzip and decoded SHA pins, strict relative paths, full populated contexts and official SDK canonical-ID recomputation. Offline retainedScan reconstructs locators and discover rows, then compares COMPLETE selected rows. Witness, compute-budget and context mutations cannot be hidden behind equal v1 txids.",
+      "result": "ACK_WITH_EXPLICIT_TRUSTED_NODE_PREMISE"
+    },
+    {
+      "boundary": "Coverage, confirmation, removals and pruning",
+      "evidence": "Fixed confirmed frontier, checked header hashes/path predecessors, nonempty aligned Full groups, cursor/cycle checks and required founding transaction. Removed, malformed, missing/pruned or truncated data becomes INCOMPLETE. This is not an independently verified selected-chain/PoW/inclusion proof.",
+      "result": "ACK_FOR_FINITE_TRUSTED_RPC_PREFIX"
+    },
+    {
+      "boundary": "Graph and selected W suffix index",
+      "evidence": "Founding explicitly located. Complete accepted pages retained; in-memory edge index limits to founding/current point or selected literal W tail. All inputs are inspected; only an actual discovered W head may continue, input0/one-input shape required, physical IDs followed, competing successors and cycles refuse. Semantic W validity is deferred to fixed native replay rather than inferred from suffix alone.",
+      "result": "ACK_FOR_SELECTED_PROFILE"
+    },
+    {
+      "boundary": "Current exact point coverage and all-input post-query watches",
+      "evidence": "Expected funding inputs and all discovered outputs have exact point queries; consumed inputs must be absent, nonterminal W head must be live. Post-query scan indexes all input positions of all accepted transactions for every live watched point, including ordinary changes/payouts. Final actual exact-point requery catches changes within the confirmation window.",
+      "result": "ACK_AFTER_NEAR_TIP_REQUERY_FIX"
+    },
+    {
+      "boundary": "Parent-output financial authority versus populated RPC context",
+      "evidence": "JS expected-point maps can replace earlier output metadata with later Full input contexts. Lifecycle main reviewer separately confirmed Runtime.replay_cases compares each case point, input amount and script against derived actual head/reserve/W state; this auxiliary review does not substitute the JS map for that financial check.",
+      "result": "CROSS_MODULE_OBLIGATION_CONFIRMED_BY_MAIN_REVIEWER"
+    },
+    {
+      "boundary": "Python GN2/native composition and public alias boundary",
+      "evidence": "Inspected Python source52bc7d6a has exact financial/GN2 source pins, no input-supplied semantic callback, lossless integer/native boundary, fresh selected Node verification before strict GN2/native/W replay, then semantic physical-head/current-query binding. bundle_public_files returns a checked tuple for launcher exclusion guards before page reads; the owner launcher must enforce private-backup inode exclusion and installed-source closure.",
+      "result": "SOURCE_ACK_ONLY_NOT_EXECUTED_HERE"
+    },
+    {
+      "boundary": "Currentness and permission to broadcast",
+      "evidence": "RPC observations remain non-atomic. Consistency/native semantic checks do not prove perpetual currentness, independent consensus or spend permission. Python explicitly scopes currentness to the recorded trusted-node checkpoint, sets spend_authorized=false and requires fresh root acquisition plus broadcaster recheck.",
+      "result": "BOUNDED_CHECKPOINT_ONLY"
+    }
+  ],
+  "independent_focused_body_binding_execution": {
+    "failures": 0,
+    "output": "\u2714 complete Full-page body/context joins reject same-txid budget and witness substitution (22.324014ms)\n\u2139 tests 1\n\u2139 suites 0\n\u2139 pass 1\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 124.381052\n",
+    "output_sha256": "e6b3e56b74a1f5e403ef6dcfce1d82797c535ebaacf784610febe5cbe25b966e",
+    "passes": 1,
+    "source": "research/next-session/four-wallet-testnet/chain/controls-02/source/test_chain.mjs",
+    "test_name": "complete Full-page body/context joins reject same-txid budget and witness substitution",
+    "tests_reported": 1
+  },
+  "inspected_Python_composition": {
+    "bytes": 14432,
+    "native_or_GN2_composition_executed_by_auxiliary_reviewer": false,
+    "path": "poc/four-wallet-chain/chain_replay.py",
+    "sha256": "52bc7d6a2c6d57efac72624a59e11acfbb600a253f4dfa5b37438cba0862c653"
+  },
+  "private_key_backup_store_PK_controller_or_wallet_files_read": false,
+  "remaining_required_work": [
+    "Actual full GN2/W financial/native integration and accepted testnet rehearsal are separate gates; mocked accepted assignments establish none of them.",
+    "Trusted validating-node and immutable installed-runtime premises remain.",
+    "Owner launcher must guard every referenced page inode before seed/backup access; broadcaster must freshly requery live points."
+  ],
+  "resolved_finding": {
+    "base_public_fixture_source": "research/next-session/four-wallet-testnet/chain/controls-01/source/test_chain.mjs",
+    "fix": "Second actual currentView exact-point query after confirmed delta, exact query equality before fetch success, and offline SDK final_requery binding",
+    "fixture": "Actual pinnedSDK codecs and mocked RPC; original sink100, confirmed frontier79, later sink101; watched point spent after first UTXO query while confirmed frontier stays fixed",
+    "green_failure_receipts_have_no_coverage_fields": "Only failure status/categories are reported; absent coverage fields are not interpreted as frontier observations",
+    "green_fixed_controls02": [
+      {
+        "SDK_consistency_status": null,
+        "UTXO_query_calls": 2,
+        "acquisition_status": "INCOMPLETE",
+        "failure_categories": [
+          "MISSING_CURRENT_HEAD"
+        ],
+        "mode": "funded",
+        "target": {
+          "index": 0,
+          "transactionId": "7c9880d4d904fe8692b5d0e5d17f4469ef0a5c213c5146e7a0aa66be21e59747"
+        }
+      },
+      {
+        "SDK_consistency_status": null,
+        "UTXO_query_calls": 2,
+        "acquisition_status": "INCOMPLETE",
+        "failure_categories": [
+          "STALE_CURRENT_VIEW"
+        ],
+        "mode": "terminal",
+        "target": {
+          "index": 0,
+          "transactionId": "2d4f75159b6b5ee96dc6c9354ecd0b946f7320eced431ec6cadf3603dbfe1b16"
+        }
+      }
+    ],
+    "name": "Near-tip accepted spend missing from confirmed-only post-query delta",
+    "red_old_controls01": [
+      {
+        "SDK_consistency_status": "PUBLIC_EVIDENCE_CONSISTENCY_PASS",
+        "UTXO_query_calls": 1,
+        "acquisition_status": "FETCHED_PENDING_REPLAY",
+        "mode": "funded",
+        "original_confirmed_frontier_unchanged": true,
+        "post_query_sink_advanced": true,
+        "target": {
+          "index": 0,
+          "transactionId": "7c9880d4d904fe8692b5d0e5d17f4469ef0a5c213c5146e7a0aa66be21e59747"
+        }
+      },
+      {
+        "SDK_consistency_status": "PUBLIC_EVIDENCE_CONSISTENCY_PASS",
+        "UTXO_query_calls": 1,
+        "acquisition_status": "FETCHED_PENDING_REPLAY",
+        "mode": "terminal",
+        "original_confirmed_frontier_unchanged": true,
+        "post_query_sink_advanced": true,
+        "target": {
+          "index": 0,
+          "transactionId": "2d4f75159b6b5ee96dc6c9354ecd0b946f7320eced431ec6cadf3603dbfe1b16"
+        }
+      }
+    ],
+    "reproducer_fixed_sha256": "c22dd332c75aa6dea819ca5b7e4cf3e6e9cf9e3929a5add5ea4fd3855052cec2",
+    "reproducer_old_sha256": "9e375c4cbbe163e3a1fe7fce66d69b835ac21b8990b717f01154998c590e8e0e",
+    "scope": "Currentness evidence/liveness; no theft or authorization bypass demonstrated; fresh broadcast checks remain mandatory"
+  },
+  "reviewed_JS_sources": [
+    {
+      "bytes": 16598,
+      "path": "poc/four-wallet-chain/acquire.mjs",
+      "sha256": "065565defec860ae52dbd435f939cd0ce224fa34ca60629e9ff319899eaedb24"
+    },
+    {
+      "bytes": 6387,
+      "path": "poc/four-wallet-chain/fetch.mjs",
+      "sha256": "dc9c2ab8ea6e40239e14d9c0d22c7d31719258fc8dfb028d7e8aa56097d697d5"
+    },
+    {
+      "bytes": 2202,
+      "path": "poc/four-wallet-chain/json.mjs",
+      "sha256": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7"
+    },
+    {
+      "bytes": 8442,
+      "path": "poc/four-wallet-chain/selection.mjs",
+      "sha256": "9f7494edcd0dd214941b50bd2007fec5fd1b622bb372bae794ddda3dd510d378"
+    },
+    {
+      "bytes": 15925,
+      "path": "poc/four-wallet-chain/test_chain.mjs",
+      "sha256": "ce492070e07f90ec45cfdd454ebbca24268760ecf58a0dceec37e3be9387f6f1"
+    },
+    {
+      "bytes": 12581,
+      "path": "poc/four-wallet-chain/verify_bundle.mjs",
+      "sha256": "601ea1e437aff10f61976cffecc9ee3772760269fe25a309737e6ff6ecf4a001"
+    },
+    {
+      "bytes": 8011,
+      "path": "poc/four-wallet-chain/wire.mjs",
+      "sha256": "b3f51020e0a06d8a7ef725b13205a259b6a6a221b3a161820ee0c30b84384923"
+    }
+  ],
+  "reviewed_author_controls": {
+    "actual_acceptance_or_native_qualification": false,
+    "author_mocked_transport_groups_passed": 9,
+    "path": "research/next-session/four-wallet-testnet/chain/controls-02/RESULTS.json",
+    "sha256": "aade1fc72f6c24df3f649379c4041f5edf6f37b645083a0ad40a7112f55e48dc"
+  },
+  "schema": "four-wallet-chain-independent-auxiliary-review/v1",
+  "source_authorship_or_existing_packets_modified": false,
+  "source_parent_commit": "b7b41ab066807d7859499b3491a663ab110fedf9",
+  "status": "ACK_FOR_INSPECTED_ACQUISITION_AND_EVIDENCE_SOURCE_AFTER_NEAR_TIP_FIX",
+  "storage81_and_funding15_packets_modified": false
+}

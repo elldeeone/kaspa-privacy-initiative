@@ -1,6 +1,35 @@
 # Next focus: shielded native KAS and financial privacy
 
-## Active work — independent payments and recovery
+## Completed gate — four-wallet accepted testnet lifecycle
+
+The [four-wallet rehearsal](../research/next-session/four-wallet-testnet/RESULTS.md)
+now completes on actual accepted TN10 history: two genuine payments, a real
+combined GPU proof, four independent original-backup withdrawals, four
+confirmed native payouts, four final recovery scans and zero reserve. One exit
+uses restored software and the complete copied proving key with original host
+paths absent. Complete fees including ordinary acquisition are **4.521645%**
+of 20 useful net KAS; the unchanged 2% target fails. The earlier local result
+remains separate at 4.35123%.
+
+The next engineering gate is the reviewed selection of separate spend/output
+proofs and exact whole-body authority, followed by one genuine unfunded
+owner-private constructor; see [the decision question](../research/next-session/private-construction/full-tuple/NEXT-CONSTRUCTION.md).
+The existing exact-field MPC component passed its actual API controls but does
+not remove the current proof's output grouping. Actual separately administered
+storage and issuer-loss retrieval still require a destination and access.
+
+The owner authorizes the next three tracks to completion. Follow
+[RFC0025](rfc/0025-four-wallet-testnet-funding-and-accepted-recovery.md),
+[ADR0060](adr/0060-four-wallet-gn2-testnet-rehearsal.md) and the
+[execution plan](../research/next-session/four-wallet-testnet/PLAN.md): strict
+two-owner GN2 funding, fresh financial assets, accepted actual W heads, A→B and
+C→D, coordinator/prover loss, four original backups and all confirmed payouts.
+Separate privacy construction and actual independently controlled public storage
+continue in parallel. The old public profile stays DO NOT FUND; all prior fee/
+privacy failures stand. The accepted lifecycle result closes this bounded
+rehearsal, without closing privacy, fee or independent-retention gates.
+
+## Earlier checkpoint — independent payments and recovery
 
 The owner authorizes all four tracks in
 [RFC-0024](rfc/0024-independent-private-payment-settlement-and-recovery.md):

@@ -1,0 +1,48 @@
+{
+  "SDK_written_by_same_helper_and_requires_parent_review": {
+    "bytes": 15471,
+    "path": "poc/four-wallet-live/ordinary_sdk.mjs",
+    "sha256": "3d5534c8c2c56f6f8b3674f92746b14e489208d1cf2258ff837b7aab3bb23fda"
+  },
+  "cryptographic_correctness_production_safety_or_complete_live_readiness_approved": false,
+  "functions_tests_SDK_Native_private_signing_network_or_submission_executed": false,
+  "independent_reviewed_files": [
+    {
+      "bytes": 10033,
+      "path": "poc/four-wallet-live/ordinary_common.py",
+      "sha256": "d8bdb06100a72bc545f27baa3011d231734801d6e3749a553f2a1d1f2f505238"
+    },
+    {
+      "bytes": 10201,
+      "path": "poc/four-wallet-live/ordinary_worker.py",
+      "sha256": "8c3cda9cf146fd93ba65eae17cb2fb57db2209013f805f8c957d3ab4a680f98a"
+    },
+    {
+      "bytes": 8078,
+      "path": "poc/four-wallet-live/ordinary_rpc.mjs",
+      "sha256": "bd3924ad7dc2ccd9c2d5e649a5723bad4b0f69f28d9ba7ca60ad2eebdfcd93e2"
+    },
+    {
+      "bytes": 16819,
+      "path": "poc/four-wallet-live/ordinary_funding.py",
+      "sha256": "47c7fd5cd346cfd4ff6a37c110fa7a6bb5e398620592f58543fa953ec101e6ab"
+    }
+  ],
+  "resolved_findings": [
+    "intent namespace joined to externally selected constructor public trial before used-intent check",
+    "RPC child cleanup bounded and valid reply preserved"
+  ],
+  "schema": "kpx6-ordinary-funding-independent-source-review/v1",
+  "scope": [
+    "destinations and own refund",
+    "integer conservation and Native reference100 fee",
+    "coinbase1000DAA and immediate exact live input queries",
+    "exact SDK Native body correspondence",
+    "all8 metadata guards and fixed software closure",
+    "one original A backup after public checks",
+    "exclusive durable intent before ACK and one submission",
+    "unknown response query only",
+    "ordinary output UTXO observation is not complete accepted history"
+  ],
+  "verdict": "NO_REMAINING_CONCRETE_BLOCKER_IDENTIFIED_SOURCE_ONLY"
+}

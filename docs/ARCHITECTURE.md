@@ -1,8 +1,34 @@
 # Candidate Architecture
 
-**Status:** earlier native-KAS lifecycles are confirmed on TN10. The matched
-batch and two-owner shared settlement/private drainage are validated locally.
-Production architecture remains unselected.
+**Status:** the four-wallet native-KAS lifecycle and all four original-backup
+payouts are confirmed on TN10. Financial privacy remains unqualified and
+production architecture remains unselected.
+
+The new [four-wallet result](../research/next-session/four-wallet-testnet/RESULTS.md)
+now completes the actual accepted TN10 two-sender/two-recipient lifecycle:
+genuine combined proof, four independent original-backup private withdrawals,
+four confirmed native payouts, final recovery scans and zero reserve. One exit
+uses restored software and a complete copied proving key with original paths
+absent. Complete fees including acquisition are 4.521645% of 20 useful net KAS,
+failing the unchanged 2% target. The earlier supplied-context result remains
+separate at 4.35123%. Separately controlled recovery storage still needs an
+external destination and access.
+[ADR-0062](adr/0062-existing-engine-private-field-sum.md) now has four actual
+exact-field sums, wrong-field rejection, two participant-loss runs and a real
+RedJubjub binding consumer. These establish a bounded component API; full
+owner-private construction and its KAS relations remain open.
+
+[ADR-0060](adr/0060-four-wallet-gn2-testnet-rehearsal.md) now selects a fresh
+four-wallet TN10 rehearsal: two ordinary funding inputs create strictly checked
+GN2 liabilities, A pays B and C pays D, accepted physical W history drives four
+independent original-backup exits, and every payout must confirm with zero
+reserve. The new financial profile is acyclic and distinct from the public
+benchmark. Initial ciphertexts are signed GN2 data; State112 has CM/NF roots,
+not a separate CF root. Profile/setup is separate from routine one-command
+fresh trial identity. Implementation and execution gates are recorded in the
+[new plan](../research/next-session/four-wallet-testnet/PLAN.md). The bounded
+accepted lifecycle is now complete; the privacy-construction and independently
+controlled storage questions remain open without changing old failures.
 
 [RFC-0024](rfc/0024-independent-private-payment-settlement-and-recovery.md)
 now coordinates independent-sender settlement fees, the demonstrated financial

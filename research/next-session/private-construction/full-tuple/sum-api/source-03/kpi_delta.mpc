@@ -1,0 +1,15 @@
+# ADR0062: public synthetic fixture; stock input/add/checked-open only.
+from Compiler.types import sint
+from Compiler.library import break_point, print_ln_to, public_input
+
+delta = sint.get_input_from(0) + sint.get_input_from(1) + sint.get_input_from(2)
+break_point('all-secret-input-instructions-completed')
+for party in range(3):
+    print_ln_to(party, 'KPX6_INPUTS_COMPLETE')
+break_point('public-test-scheduling-gate')
+# Each isolated process receives public 1, after all input markers are visible.
+# This existing public-input API is a test scheduling barrier, not a new MPC.
+gate = public_input()
+opened = (delta + gate - 1).reveal(check=True)
+for party in range(3):
+    print_ln_to(party, 'KPX6_SUM %s', opened)

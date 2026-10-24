@@ -1,0 +1,40 @@
+{
+  "design_effect": "Single-input ordinary ALL signing is available without collecting both keys. Exact body/budget/context checks remain application requirements; no extra approval-signature subsystem is required.",
+  "review_scope": "Connected GitHub primary-source excerpts read independently; no signer, private key, PK, witness or network submission used.",
+  "schema": "four-wallet-independent-primary-api-review/v1",
+  "sources": [
+    {
+      "blob_sha1": "420659bf1ed2c567b4b12429e55bcf3c686a8cfa",
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "excerpt_lines": [
+        140,
+        280
+      ],
+      "observations": [
+        "ALL hashes ordered previous outpoints, sequences, outputs, payload, tx version, locktime, subnetwork and gas.",
+        "Each input signing message includes that input own populated source amount and script.",
+        "compute-commit sig-op hashing is conditional on version<1; version1 budgets are absent.",
+        "This is source verification of coverage, not a new cryptographic signing experiment."
+      ],
+      "path": "consensus/core/src/hashing/sighash.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/hashing/sighash.rs"
+    },
+    {
+      "blob_sha1": "bcafefdd9bb90af3c36c5a16548e7d172f20023a",
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "excerpt_lines": [
+        34,
+        95
+      ],
+      "observations": [
+        "createInputSignature accepts transaction, own input index, one PrivateKey and explicit optional SighashType; default is All.",
+        "It populates transaction contexts before calling sign_input; the new application must independently constrain the selected owner index/key.",
+        "signTransaction can leave a transaction partially signed; verify_sig=true verifies all populated inputs and therefore cannot serve as a successful first-half verification when the other input is unsigned."
+      ],
+      "path": "wallet/core/src/wasm/signer.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/wallet/core/src/wasm/signer.rs"
+    }
+  ]
+}

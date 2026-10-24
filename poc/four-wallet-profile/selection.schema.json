@@ -1,0 +1,319 @@
+{
+  "$id": "kpx6-four-wallet-financial-profile/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "W": {
+      "additionalProperties": false,
+      "properties": {
+        "immutable_tail_hex": {
+          "maxLength": 130842,
+          "minLength": 228,
+          "pattern": "^(?:[0-9a-f]{2})+$",
+          "type": "string"
+        },
+        "immutable_tail_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "immutable_tail_hex",
+        "immutable_tail_sha256"
+      ],
+      "type": "object"
+    },
+    "child_domain_hex32": {
+      "const": "2630ed4a338afa60d3e1747a0d8875ba05f4b6694eefc345a977def800c4b89e"
+    },
+    "classification": {
+      "const": "TESTNET_REHEARSAL_ONLY_ADR0060"
+    },
+    "compact": {
+      "additionalProperties": false,
+      "properties": {
+        "compiled_build_identity_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "output_arity": {
+          "const": 2
+        },
+        "parameter_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "pk_bytes": {
+          "maximum": 34359738368,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "pk_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "role": {
+          "const": "compact2"
+        },
+        "vk_hex328": {
+          "maxLength": 656,
+          "minLength": 656,
+          "pattern": "^(?:[0-9a-f]{2})+$",
+          "type": "string"
+        },
+        "vk_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "output_arity",
+        "parameter_manifest_sha256",
+        "vk_hex328",
+        "vk_sha256",
+        "pk_sha256",
+        "pk_bytes",
+        "compiled_build_identity_sha256"
+      ],
+      "type": "object"
+    },
+    "executables": {
+      "additionalProperties": false,
+      "properties": {
+        "crypto": {
+          "additionalProperties": false,
+          "properties": {
+            "basename": {
+              "const": "crypto"
+            },
+            "bytes": {
+              "maximum": 9223372036854775807,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "basename",
+            "bytes",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "native-validator": {
+          "additionalProperties": false,
+          "properties": {
+            "basename": {
+              "const": "native-validator"
+            },
+            "bytes": {
+              "maximum": 9223372036854775807,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "basename",
+            "bytes",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "node": {
+          "additionalProperties": false,
+          "properties": {
+            "basename": {
+              "const": "node"
+            },
+            "bytes": {
+              "maximum": 9223372036854775807,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "basename",
+            "bytes",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "prover": {
+          "additionalProperties": false,
+          "properties": {
+            "basename": {
+              "const": "prover"
+            },
+            "bytes": {
+              "maximum": 9223372036854775807,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "basename",
+            "bytes",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "w-codec": {
+          "additionalProperties": false,
+          "properties": {
+            "basename": {
+              "const": "w-codec"
+            },
+            "bytes": {
+              "maximum": 9223372036854775807,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "basename",
+            "bytes",
+            "sha256"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "prover",
+        "w-codec",
+        "native-validator",
+        "node",
+        "crypto"
+      ],
+      "type": "object"
+    },
+    "financial_profile_id": {
+      "const": "68312927-f203-4317-9816-c47c020eed16"
+    },
+    "genesis_hash_hex": {
+      "const": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370"
+    },
+    "network_id": {
+      "const": "testnet-10"
+    },
+    "private": {
+      "additionalProperties": false,
+      "properties": {
+        "bound_result_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "budget": {
+          "const": 1500
+        },
+        "complete_input_bound_units": {
+          "maximum": 15009999,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "budget",
+        "complete_input_bound_units",
+        "bound_result_sha256"
+      ],
+      "type": "object"
+    },
+    "schema": {
+      "const": "kpx6-four-wallet-financial-profile/v1"
+    },
+    "settlement": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregate_budget": {
+          "const": 1600
+        },
+        "child_count": {
+          "const": 2
+        },
+        "child_mode": {
+          "const": 2
+        },
+        "child_profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "child_template_tail_hex": {
+          "maxLength": 130842,
+          "minLength": 2,
+          "pattern": "^(?:[0-9a-f]{2})+$",
+          "type": "string"
+        },
+        "child_template_tail_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "image_id_hex32": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "journal_bytes": {
+          "const": 424
+        },
+        "payload_bytes": {
+          "const": 8108
+        },
+        "program_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "child_profile_sha256",
+        "child_template_tail_hex",
+        "child_template_tail_sha256",
+        "image_id_hex32",
+        "program_sha256",
+        "child_count",
+        "child_mode",
+        "journal_bytes",
+        "payload_bytes",
+        "aggregate_budget"
+      ],
+      "type": "object"
+    },
+    "wrapper_domain_hex32": {
+      "const": "de8ccd620d2957ec9df7ddc45c5acb0222322a4539aa7f2437cc9effccc52734"
+    }
+  },
+  "required": [
+    "schema",
+    "financial_profile_id",
+    "classification",
+    "network_id",
+    "genesis_hash_hex",
+    "child_domain_hex32",
+    "wrapper_domain_hex32",
+    "compact",
+    "settlement",
+    "W",
+    "private",
+    "executables"
+  ],
+  "type": "object",
+  "x-authoritative-validation": "selection.py load(raw, externally_selected_sha256) additionally enforces raw Python integer types, cross-field hashes, exact W metadata and unique virtual-key slots; JSON Schema is structural documentation."
+}

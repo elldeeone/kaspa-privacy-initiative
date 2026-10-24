@@ -1,0 +1,18 @@
+RTNETLINK answers: Operation not permitted
+Traceback (most recent call last):
+  File "/software/worker.py", line 305, in <module>
+    main()
+    ~~~~^^
+  File "/software/worker.py", line 250, in main
+    if op == 'calibrate': calibrate()
+                          ~~~~~~~~~^^
+  File "/software/worker.py", line 225, in calibrate
+    loopback(); case = OUT / 'calibration'; case.mkdir(); private = certificates(case)
+    ~~~~~~~~^^
+  File "/software/worker.py", line 58, in loopback
+    subprocess.run(['/usr/sbin/ip', 'link', 'set', 'lo', 'up'], check=True, env=CLEAN)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/usr/sbin/ip', 'link', 'set', 'lo', 'up']' returned non-zero exit status 2.

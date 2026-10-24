@@ -1,0 +1,60 @@
+{
+  "boundaries": [
+    "Source and metadata consistency only; actual builder copy/unpack observations are authored evidence, not reexecuted here.",
+    "No independent provider administration, retention, issuer-loss retrieval, accepted history, current backing or funded recovery qualification.",
+    "Compatible host/system dependencies and externally selected financial/object digests remain required.",
+    "Existing sealed recovery packet and all older financial/outer/privacy packets were not modified by this review."
+  ],
+  "classification": "PUBLIC_SOURCE_AND_METADATA_CONSISTENCY_ONLY",
+  "independent_metadata_checks": {
+    "RESULTS_profile_manifest_VK_size_and_hash_joins": true,
+    "actual_standalone_VK_bytes_hashed": 328,
+    "archive_members": 74,
+    "archive_sidecars": [
+      "DEPENDENCY-ACQUISITION.json",
+      "EXTERNAL-SELECTION.json",
+      "SOFTWARE-BUNDLE.json"
+    ],
+    "base68_reconstructed_exact_sha256": "a4442e933608f8cca58943846a25fb9c06c03c5128ce1044504329cbffbfc100",
+    "member_inventory_sha256": "456ea56ffd614e32fb8aff50288b15fa2559bcfb976a76a8da4aa8cc42bff4c4",
+    "object_index_sha256": "c6a706e05653aa1da1196fbc05668d46e4138f3fadd1e816e10b439e12009ece",
+    "only_three_additions": [
+      "runtime-source/poc/four-wallet-lifecycle/run_owner.py",
+      "runtime-source/poc/four-wallet-lifecycle/installation.py",
+      "runtime-source/poc/current-wrapper-runtime/vendor/unpack_bundle.py"
+    ],
+    "seven_asset_declared_total_bytes": 1362043926,
+    "software_inventory_sha256": "2837d0d8d02533f9d38c4afe8a9898c37ecc3df88a068d31568311b5c07881af",
+    "typed_files": 71
+  },
+  "result": "NO_SCOPED_SOURCE_OR_METADATA_BLOCKER_FOUND",
+  "retained_source01": {
+    "builder_sha256": "5d8a729756fbbfd2bacbf70f0a9d6e7c6b81e4cb40b9d32fc341f1b07e357a5b",
+    "freeze_sha256": "77ac023f38be0aba216b3ad2ca7f5504a2241e44fa3fa641ec4dec71f6b9104b",
+    "operational_change_verified": "Only two occurrences of public sidecar name DEPENDENCIES.json changed to required DEPENDENCY-ACQUISITION.json; original source and failed result retained."
+  },
+  "reviewed_source": {
+    "bytes": 14870,
+    "path": "research/next-session/four-wallet-testnet/recovery-bundle-01/build.py",
+    "sha256": "5b4596050e976e7e45f94e75fe6a134f793c36e23424f593be5d01724d1f1a79",
+    "source_freeze_sha256": "7e238bccc8a5292ab84dcbe2fec20b2addc2d9958e87a9e14f588d3f4b057ea1"
+  },
+  "reviewer_access": {
+    "PK_or_archive_blob": false,
+    "all8_original_metadata_guards_before_read": true,
+    "large_object_rehash": false,
+    "original_backup_contents_or_hashes": false,
+    "runtime_payload_or_SDK_or_native_or_network_execution": false,
+    "selected_helpers_imported": false,
+    "stable_opened_file_checks": true
+  },
+  "schema": "kpx6-public-recovery-packaging-independent-review/v1",
+  "source_checks": [
+    "all eight original backup file identities and full owner directories excluded before public guard source reads",
+    "all selected public member metadata checked before staging; stable opened-inode and whole SHA/size checks before accepting",
+    "whole public PK copied and hashed in bounded chunks, then copied object rehashed; no PK interpreted as owner input",
+    "pinned existing byte verifier and strict unpack helper are the only loaded selected helpers; restored payloads remain opaque",
+    "no wallet, prover, SDK, Native, VM, signing, broadcast or network operation in builder",
+    "new object index does not select its own authority and contains no accepted or LOCAL history substitute"
+  ]
+}

@@ -1,5 +1,38 @@
 # Threat Model
 
+[ADR-0062](docs/adr/0062-existing-engine-private-field-sum.md) adds only a
+public synthetic existing-MASCOT/Jubjub-field API experiment. Checked MPC
+addition does not validate an owner's financial input or authorize reserve
+KAS. All-but-one collusion reveals the remaining input from the global sum;
+adaptive corruption, tuple anonymity, fair output and post-authorization
+retry/disclosure composition remain unqualified. Its isolated host, official
+prebuilt engine and compatible software remain experiment trust assumptions.
+No MPC process becomes a required exit authority or a production service.
+
+[ADR-0060](docs/adr/0060-four-wallet-gn2-testnet-rehearsal.md) adds a fresh
+four-wallet GN2/accepted-W rehearsal. Native-valid funding executes its ordinary
+inputs and does not validate the newly created W liabilities: both owners must
+independently check all initial Note/CM/CF/range/NF/state/reserve/allocation
+properties and their own immutable receipt recovery before signing. Ordinary
+ALL authorizes the body; auxiliary receipt ACKs are not cryptographic authority.
+V1 budgets require explicit body/quote checks because sighash/txid omit them.
+Compound original backups contain separate shielded and ordinary funding keys;
+only each owner may read its own, and the prover receives no funding/root key.
+Profile/image/software pinning must remain acyclic. Accepted replay must follow
+actual heads, real contexts and removals/races, failing INCOMPLETE on missing or
+pruned state. Pending recipient preflight can detect bad delivery, but creates
+no settled claim and does not prove encryption correctness inside the circuit.
+Four distinct owners require all sender-change and recipient claims to drain;
+retained change is no fee discount. Public RPC, development setup and host trust
+remain explicit. Real separate storage control/retention is not established by
+a fixture, personal Drive or repeated same-administrator downloads.
+
+The fresh mining route funds both ordinary contributors from a common visible
+ancestor. Separate signing keys do not remove that ancestry or the current
+action-to-output grouping. The accepted lifecycle experiment does not qualify
+financial privacy. The next relation question is recorded in
+[the construction gate](research/next-session/private-construction/full-tuple/NEXT-CONSTRUCTION.md).
+
 [RFC-0024](docs/rfc/0024-independent-private-payment-settlement-and-recovery.md)
 adds a combined settlement/recovery investigation. Verifying several owner
 proofs cannot authorize an aggregate body's state, payouts or fees by itself.
