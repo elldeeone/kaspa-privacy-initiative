@@ -1,0 +1,13 @@
+{
+  "Full_typed_error": "SpendTooHigh(11961335400, 6000000000)",
+  "case_sha256": "3f35c066187348ab35394b9b89ebb1b3469857069c80ba788ebe249144a2ee32",
+  "classification": "RETAINED_TEST_FIXTURE_AND_REPORTING_FAILURE_NO_POLICY_WEAKENING",
+  "fixture_correction": "V2 instead splits the output into value-60000000 and60000000, preserving total output value and fee. All success/rejection assertions remain unchanged.",
+  "input_engine_typed_error": "VerifyError",
+  "metrics_absent_reason": "The duplicated entire output made actual fee negative. NativeFull and ScriptEngine reports were written; the later metrics routine refused negative fee.",
+  "native_report_sha256": "53050b471b6672decb1aa52c2d4acb9eecb1843d4b8e0473ad9b5b88a76e62c9",
+  "original_failed_run_retained_outside_Git": true,
+  "replaced_by_weaker_financial_check": false,
+  "schema": "kpx7-retained-native-negative/v1",
+  "stderr_text": "Error: \"negative fee\""
+}

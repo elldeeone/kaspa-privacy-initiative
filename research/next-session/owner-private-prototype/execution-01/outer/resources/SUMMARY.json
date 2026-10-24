@@ -1,0 +1,73 @@
+{
+  "classification": "UNFUNDED_RESEARCH_ONLY_ADR0063",
+  "operational_runtime_abort_seconds": null,
+  "private_financial_input_contents_read": false,
+  "resource_scope": "owned service cgroup including controller/staging/host/worker; not supervisor-only rusage",
+  "schema": "kpx7-public-outer-owned-resources/v1",
+  "stages": [
+    {
+      "CPU_seconds": 1856.268008,
+      "GPU_scope": "one-second samples restricted to contemporaneous owned cgroup PIDs; no guaranteed lifetime peak",
+      "all_observed_original_process_identities_gone": true,
+      "cgroup_memory_peak_bytes": 1151381504,
+      "cgroup_memory_swap_peak_bytes": 0,
+      "monitor_elapsed_seconds": 1848.308405363001,
+      "owned_GPU_sample_count": 1796,
+      "owned_GPU_sample_max_MiB": 6096,
+      "owned_unit_exit_status": 0,
+      "owned_unit_result": "success",
+      "owned_unit_stopped_MainPID0": true,
+      "raw_observation_sha256": "ce2c1d9be39bb1e2e19d14dbaeaacf381aee766b94e755ffb11efd10411873be",
+      "samples": 1800,
+      "stage": "prove"
+    },
+    {
+      "CPU_seconds": 8.563517,
+      "GPU_scope": "one-second samples restricted to contemporaneous owned cgroup PIDs; no guaranteed lifetime peak",
+      "all_observed_original_process_identities_gone": true,
+      "cgroup_memory_peak_bytes": 6158659584,
+      "cgroup_memory_swap_peak_bytes": 0,
+      "monitor_elapsed_seconds": 2.088893973035738,
+      "owned_GPU_sample_count": 2,
+      "owned_GPU_sample_max_MiB": 5332,
+      "owned_unit_exit_status": 0,
+      "owned_unit_result": "success",
+      "owned_unit_stopped_MainPID0": true,
+      "raw_observation_sha256": "4037e6b7e86c886f3d20c7ecdc7a1c10795264c66c8550b078d13b47ce679baa",
+      "samples": 3,
+      "stage": "compress"
+    },
+    {
+      "CPU_seconds": 0.169745,
+      "GPU_scope": "one-second samples restricted to contemporaneous owned cgroup PIDs; no guaranteed lifetime peak",
+      "all_observed_original_process_identities_gone": true,
+      "cgroup_memory_peak_bytes": 260841472,
+      "cgroup_memory_swap_peak_bytes": 0,
+      "monitor_elapsed_seconds": 0.036638846970163286,
+      "owned_GPU_sample_count": 0,
+      "owned_GPU_sample_max_MiB": null,
+      "owned_unit_exit_status": 0,
+      "owned_unit_result": "success",
+      "owned_unit_stopped_MainPID0": true,
+      "raw_observation_sha256": "8607c451226914214c424f6f1122c26aeefa9247c7fd2ea9a87d51bd9f7efa65",
+      "samples": 1,
+      "stage": "verify"
+    },
+    {
+      "CPU_seconds": 0.179284,
+      "GPU_scope": "one-second samples restricted to contemporaneous owned cgroup PIDs; no guaranteed lifetime peak",
+      "all_observed_original_process_identities_gone": true,
+      "cgroup_memory_peak_bytes": 241254400,
+      "cgroup_memory_swap_peak_bytes": 0,
+      "monitor_elapsed_seconds": 0.0370018589310348,
+      "owned_GPU_sample_count": 0,
+      "owned_GPU_sample_max_MiB": null,
+      "owned_unit_exit_status": 0,
+      "owned_unit_result": "success",
+      "owned_unit_stopped_MainPID0": true,
+      "raw_observation_sha256": "a062d1cfa95aa410c90fe8b91f2efc85e57c5bbdc8dc7fd8ebc1590f50081e2d",
+      "samples": 1,
+      "stage": "native128"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "kpx7-finite-publication-review/v1",
+  "primary_candidate_file_count": 681,
+  "primary_candidate_bytes": 7202097,
+  "old_original_two_key_workers_passed": 8,
+  "new_original_seed_workers_passed": 51,
+  "private_original_bytes_read_or_hashed_by_supervisor": false,
+  "private_originals_read_only_in_single_leaf_offline_namespaces": true,
+  "secret_values_owner_hashes_or_match_locations_exported": false,
+  "scope": "LITERAL_RAW_HEX_OLD_BASE64_CANARIES_ONLY_NOT_SECURITY_OR_PRIVACY_PROOF",
+  "finite_allowlist_is_primary_boundary": true,
+  "general_transformed_secret_absence_proven": false,
+  "worker_source_pins": {
+    "old_checker": "dd80662b7bd26fc9d32adb18a1661df98ad5b4b1453b7d2a5489d3b83e728da0",
+    "old_archived_contract": "b00cf22e66dbda5b3f2083c36529319d32997879b6ef24ab78e96e55ffaf0938",
+    "new_seed_checker": "1c6c4c007849181b57bf62c5ba552999dd7cda73f081040cc7302a3d71ea8236"
+  },
+  "retained_preflight_failure": {
+    "private_scans_started": false,
+    "cause": "current contracts source a4835d... differs from pinned archived b00cf...",
+    "fix": "stage exact previously tested source-compat-local-01 contract, retain original pin",
+    "checks_weakened": false
+  },
+  "actual_closed_audit_resources": {
+    "wall_milliseconds": 3779,
+    "cpu_milliseconds": 8337,
+    "memory_peak_human": "95.9M",
+    "swap_bytes": 0,
+    "exit_status": 0
+  },
+  "supplemental_receipts": "Strict count-only summary and public allowlist metadata; no private values, owner-derived hashes, invocation handles or match locations. These derived receipts are additional to the681 primary scanned candidates.",
+  "retained_whitespace_exception": {
+    "path": "poc/owner-private-payments/relation/Cargo.toml",
+    "rule": "blank-at-eof",
+    "source_sha256": "e709af19d069fd9d9bceec41169417934a36be2b95e643db1e9e468263f5d3f1",
+    "reason": "Preserve exact executed source/key-generation input bytes pinned by relation SOURCE-01; no code or parameter mutation for a formatting-only check. All other staged paths receive the normal whitespace check."
+  }
+}

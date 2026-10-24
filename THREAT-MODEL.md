@@ -1,5 +1,56 @@
 # Threat Model
 
+[ADR-0063](docs/adr/0063-owner-private-payments-prototype.md) adds a **new,
+unfunded** three-owner/six-output construction experiment, not a migration or
+qualification of the funded profile. Separate Spend/Output proofs and stock
+malicious MASCOT sorting aim to hide unrelated owner-to-output groupings;
+the coordinator must receive neither a public output subset nor individual
+beta/beta-point contributions. Input-owner NF/CV labels, endpoints, counts,
+timing and final public components remain visible. The declared adversary is
+the coordinator plus one participant with at least two eligible honest owners;
+all-but-one collusion is outside that privacy premise. Its same-host launcher,
+daemon and selected software are trusted and excluded from that adversary.
+Namespaces/read-only mounts do not establish independent operators or defend
+against malicious host administration. Selected Pedersen generators, canonical
+scalar/subgroup checks, coherent separate Groth16 setups, discrete-log hardness
+and the stock MPC engine/preprocessing remain explicit assumptions; composition
+does not inherit a mature protocol's security proof.
+
+MPC success cannot authorize reserve KAS. Each owner must independently check
+the complete financial effects, all six Output proofs, its own exact output
+inclusion, current state and direct group balance before creating its Spend
+proof. [EffectsDigest](poc/owner-private-payments/verification/DESIGN.md) binds
+Output proof bytes and omits Spend proof bytes; valid same-statement Spend
+proof changes are allowed, while changed financial effects are not. The new
+outer journal separately binds the complete prototype body, its component-proof
+bytes and defined native financial projection. That projection excludes the
+outer-proof witness, compute budget and a network/genesis attestation.
+Six genuine Output proofs, actual Source04 stock-sort MPC, all three postmix
+Spends, independent nine-proof verification and the new CPU guest have passed.
+Genuine outer proving/compression, separate receipt verification and local
+Native Full validation also passed; twelve same-proof native mutations were
+rejected. This is an unfunded supplied-context experiment, not chain acceptance.
+The frozen sixteen-world grouping comparison completed with four successful
+full-group guesses and no excess against its declared idealized chance model;
+it covers one bounded strategy and does not establish financial privacy.
+The P0 experiment has zero native payout and implements no independent exit.
+Its initial supplied roots/reserve assert context, not accepted backing or a
+current canonical chain head.
+
+Retry preserves original positioned NFs and note authority but uses fresh
+session/MPC material, input CV blindings and complete output material. A timeout
+cannot revoke a valid previously authorized body. Missing/ambiguous accepted
+state must remain INCOMPLETE; no post-authorization error or blame path may
+disclose an honest owner's output map. No fairness, adaptive-corruption,
+anonymous-transport or robust-termination claim follows. Output CF hashes bind
+bytes, not encryption correctness: recipient decryption, invoice/note/CM
+reconstruction and the genuine Output proof are required before credit.
+Receiver recovery and repeat spending remain unqualified in this new domain.
+The earlier amount/prior, ancestry, invoice/collusion and transparent entry/exit
+limitations remain; removing an explicit partition is not a financial-privacy
+result. Independent operators, exits, accepted-chain/currentness and durable
+availability require separate evidence.
+
 [ADR-0062](docs/adr/0062-existing-engine-private-field-sum.md) adds only a
 public synthetic existing-MASCOT/Jubjub-field API experiment. Checked MPC
 addition does not validate an owner's financial input or authorize reserve

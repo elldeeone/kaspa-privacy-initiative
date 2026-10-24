@@ -1,0 +1,25 @@
+{
+  "schema": "kpx7-native-output-covenant-binding-source/v1",
+  "classification": "PINNED_PRIMARY_SOURCE_LEMMA_NOT_NATIVE_EXECUTION",
+  "upstream_commit": "01b532e8b553523216471682649693af92f0fd16",
+  "conclusion": "The script independently binds actual output covenant absence through OpOutputAuthorizingInput == -1 before reconstructing the journal prefix's zero byte.",
+  "ordinary_none_input_can_create_genesis_covenant": true,
+  "output_authorizing_input_semantics": {
+    "None": -1,
+    "Some": "authorizing_input is u16, therefore 0 through 65535"
+  },
+  "production_script_check": "output index 0, OpOutputAuthorizingInput, numeric equal verify -1",
+  "valid_genesis_mutant": "tx.populate_genesis_covenants(&[GenesisCovenantGroup::new(0, vec![0])]); canonical storage mass; tx.finalize()",
+  "input_covenant_limitation": "OpInputCovenantId maps both None and Some(ZERO_HASH) to zero. Exact input enum absence relies on ordinary admission and accepted history; it is not independently proved by that opcode or supplied UTXO contexts.",
+  "sources": [
+    {"path":"consensus/core/src/tx.rs","sha256":"bec0ba712a976e227a184ee3130bc0fd1222a452dade5820af92173ca5961656","lines":"335-385","fact":"Canonical helper populates genesis covenant groups without changing output value or SPK."},
+    {"path":"consensus/core/src/hashing/covenant_id.rs","sha256":"fd175de39395670f97e9d58bf35e4066cbfd086c0b03f7a09eef7c8111dcce95","lines":"16-29","fact":"Genesis ID commits authorizing outpoint and ordered output index/value/SPK group."},
+    {"path":"crypto/txscript/src/covenants.rs","sha256":"152ff055a603aa50cc24fdf8a8ae281b944892e1c0a55631425652cd54c08ec0","lines":"124-159","fact":"Ordinary input None permits genesis and consensus checks derived covenant ID."},
+    {"path":"crypto/txscript/src/opcodes/mod.rs","sha256":"201d69b5a8de3db27b94b3e850a7ee62c4920532886c1d19544baed7fd163731","lines":"1318-1325,1421-1430","fact":"Input zero sentinel is ambiguous; output authorizing-input -1 uniquely identifies absence."},
+    {"path":"consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs","sha256":"8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786","lines":"58-62,176-177","fact":"Contextual validator checks covenant constraints before running scripts."},
+    {"path":"consensus/core/src/hashing/tx.rs","sha256":"965772f8daf6a941625c1c3b4601c1ee2dc4031d402bae98339064113c0ac5f1","lines":"123-135,225-235","fact":"Canonical v1 transaction hashing includes covenant presence and Some binding fields."}
+  ],
+  "native_executed_by_this_source_review": false,
+  "production_source_changed": false,
+  "accepted_backing_or_currentness": false
+}

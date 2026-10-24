@@ -1,0 +1,44 @@
+{
+  "actual_state_zero_proof_measured_units": 15548274,
+  "both_crypto_prices_charged_before_proof_deserialization": true,
+  "classification": "SOURCE_PRICE_AND_NEGATIVE_VM_OBSERVATION_NOT_GENUINE_PROOF_VERIFICATION",
+  "gamma_abc_units_each": 250000,
+  "headroom_over_observation_plus_success_push": 2461724,
+  "native_G16_fixed_price_units": 15500000,
+  "native_G16_tag_grams": 140000,
+  "native_G16_tag_units": 14000000,
+  "native_validator_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+  "note": "The observed negative reaches ZkIntegrity only after full fixed pricing. It is not genuine proof or positive native acceptance; final genuine run remains required.",
+  "schema": "kpx7-native-fixed-precompile-cost/v1",
+  "script_units_per_gram": 100,
+  "selected_allowance_units": 18009999,
+  "selected_mining_mass": 193323,
+  "selected_new_compute_budget": 1800,
+  "selected_rate100_fee_sompi": 19332300,
+  "source_files": [
+    {
+      "bytes": 6857,
+      "path": "consensus/core/src/mass/units.rs",
+      "sha256": "0a47b4dda868da1df5064a9745c4f1278d9b3fd388db7416f5fb05068fef12ab"
+    },
+    {
+      "bytes": 2497,
+      "path": "crypto/txscript/src/zk_precompiles/tags.rs",
+      "sha256": "b3288d447e0ea09447e6564c921389bd6d5668d6d302c8d409ded7895919ef03"
+    },
+    {
+      "bytes": 12801,
+      "path": "crypto/txscript/src/zk_precompiles/groth16/mod.rs",
+      "sha256": "cb9fa14115d445c727cb8639ba384bde37d9a01f6c6f7fd1c92f77861f8a388d"
+    },
+    {
+      "bytes": 222781,
+      "path": "crypto/txscript/src/opcodes/mod.rs",
+      "sha256": "201d69b5a8de3db27b94b3e850a7ee62c4920532886c1d19544baed7fd163731"
+    }
+  ],
+  "standard_R0_gamma_abc_count": 6,
+  "standard_R0_public_input_count": 5,
+  "success_true_push_additional_units": 1,
+  "upstream_commit": "01b532e8b553523216471682649693af92f0fd16"
+}

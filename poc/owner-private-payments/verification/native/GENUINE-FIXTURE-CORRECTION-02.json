@@ -1,0 +1,19 @@
+{
+  "classification": "ADDITIVE_TEST_FIXTURE_ONLY_NO_PRODUCTION_OR_FINANCIAL_CHECK_CHANGE",
+  "delta": "Only changed-output-count mutation splits original output into value-60000000 and60000000 instead of duplicating its entire amount. Both outputs meet the60000000 floor. Total outputvalue and actualfee remain unchanged. All Full/ScriptEngine/typederror/metrics assertions unchanged.",
+  "frozen_source01_payloads_unchanged": true,
+  "new_native_VM_execution": false,
+  "new_source_sha256": "1de1c72d898a2e70f5991b599f059e875b0f5723c48065c9f14d176a830a8a9c",
+  "prior_source_sha256": "ddb00340179ba6c6a1deab06d48c7977116e6ab55ff2bad8e75bab12568dc5cb",
+  "pure_fixture_checks": {
+    "mutation_count": 12,
+    "same_outer_witness_for_all_mutants": true,
+    "split_values_fixture": [
+      60000100,
+      60000000
+    ],
+    "total_output_value_unchanged": true
+  },
+  "reason": "Phase01 correctly rejected duplicatedoutput via SpendTooHigh and ScriptVerifyError, then metrics generation refused negativefee. Exactfailedphase01 retained.",
+  "schema": "kpx7-genuine-native-fixture-correction/v1"
+}

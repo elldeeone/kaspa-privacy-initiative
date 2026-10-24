@@ -1,0 +1,84 @@
+{
+  "cleanup": {
+    "original_observed_processes_still_alive": [],
+    "owned_GPU_sampling_scope": "only contemporaneous owned cgroup PIDs; sampled maximum is not guaranteed lifetime peak",
+    "owned_unit_inactive_MainPID0": true,
+    "properties_after_stop": {
+      "ActiveState": "inactive",
+      "CPUQuotaPerSecUSec": "infinity",
+      "CPUUsageNSec": "[not set]",
+      "ControlGroup": "",
+      "ExecMainStatus": "0",
+      "LoadState": "not-found",
+      "MainPID": "0",
+      "MemoryMax": "infinity",
+      "MemoryPeak": "[not set]",
+      "MemorySwapMax": "infinity",
+      "MemorySwapPeak": "[not set]",
+      "Result": "success",
+      "SubState": "dead"
+    },
+    "stop_returncode": 0
+  },
+  "elapsed_seconds": 0.0370018589310348,
+  "final_before_stop": {
+    "ActiveState": "active",
+    "CPUQuotaPerSecUSec": "14s",
+    "CPUUsageNSec": "179284000",
+    "ControlGroup": "",
+    "ExecMainStatus": "0",
+    "LoadState": "loaded",
+    "MainPID": "0",
+    "MemoryMax": "21474836480",
+    "MemoryPeak": "241254400",
+    "MemorySwapMax": "0",
+    "MemorySwapPeak": "0",
+    "Result": "success",
+    "SubState": "exited"
+  },
+  "initial": {
+    "ActiveState": "active",
+    "CPUQuotaPerSecUSec": "14s",
+    "CPUUsageNSec": "179284000",
+    "ControlGroup": "",
+    "ExecMainStatus": "0",
+    "LoadState": "loaded",
+    "MainPID": "0",
+    "MemoryMax": "21474836480",
+    "MemoryPeak": "241254400",
+    "MemorySwapMax": "0",
+    "MemorySwapPeak": "0",
+    "Result": "success",
+    "SubState": "exited"
+  },
+  "observed_process_identities": [],
+  "private_financial_input_bytes_read_by_monitor": false,
+  "samples": [
+    {
+      "cgroup_PIDs": [],
+      "elapsed_seconds": 0.006585626979358494,
+      "memory_current": null,
+      "memory_peak": null,
+      "memory_swap_current": null,
+      "owned_GPU_compute_apps": [],
+      "properties": {
+        "ActiveState": "active",
+        "CPUQuotaPerSecUSec": "14s",
+        "CPUUsageNSec": "179284000",
+        "ControlGroup": "",
+        "ExecMainStatus": "0",
+        "LoadState": "loaded",
+        "MainPID": "0",
+        "MemoryMax": "21474836480",
+        "MemoryPeak": "241254400",
+        "MemorySwapMax": "0",
+        "MemorySwapPeak": "0",
+        "Result": "success",
+        "SubState": "exited"
+      }
+    }
+  ],
+  "sampling_seconds": 1,
+  "schema": "kpx6-public-R0-owned-unit-observation/v1",
+  "unit": "kpi-owner-private-public-r0-native128-01"
+}

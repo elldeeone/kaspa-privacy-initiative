@@ -2,6 +2,38 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+[RFC-0026](docs/rfc/0026-owner-private-multiparty-construction.md) and
+[ADR-0063](docs/adr/0063-owner-private-payments-prototype.md) now select the
+[new unfunded three-owner/six-output contract](research/next-session/owner-private-prototype/CONTRACT.md):
+separate Spend/Output relations, stock malicious MPC over complete tuples and
+aggregate Delta, then effects-bound owner authorization without public output
+subsets or per-owner beta. Six genuine Output proofs, actual Source04 stock-sort
+MPC, all three effects-bound Spends, independent nine-proof verification and the
+new CPU guest have passed. Genuine outer proving/compression, separate receipt
+verification and local Native Full validation also passed, including twelve
+same-proof native mutations rejected. Can this new relation complete a funded
+testnet lifecycle with independent recovery and useful financial privacy?
+Supplied-context acceptance and old KPX2/four-wallet evidence do not answer that.
+
+Does its actual coordinator transcript hide unrelated owner-to-output mappings
+against one colluding participant when at least two eligible owners are honest?
+The frozen sixteen-world comparison completed without detected excess success
+for its one declared strategy; it does not answer the general question.
+The same-host trusted launcher/daemon is outside that adversary; isolated
+workers are not independent operators. Public endpoints/counts/timing, input
+labels, invoice facts, all-but-one collusion and previous amount/ancestry/entry/
+exit failures remain in scope. The selected stock-sort path replaces a retained
+source-level shuffle counterexample, not a demonstrated financial exploit.
+Neither genuine outputs nor a successful MPC run is privacy qualification.
+
+What additional new-domain evidence can establish recipient delivery/recovery,
+repeat spending, service-independent exits, durable public data and accepted
+current state? P0 only continues a supplied reserve with exact fee and zero
+native payout. Output proofs bind ciphertext hashes without proving encryption
+correctness, and post-authorization timeout cannot revoke an old valid body.
+The existing funded exits and receiver implementation do not automatically
+qualify these obligations for the new relation.
+
 [RFC-0022](docs/rfc/0022-private-cashout-and-independent-recovery.md) asks whether
 normal proof-private withdrawals with change can remove the measured direct
 CM/note-opening channel while resisting amount/prior/collusion attacks through

@@ -2,7 +2,58 @@
 
 **Status:** the four-wallet native-KAS lifecycle and all four original-backup
 payouts are confirmed on TN10. Financial privacy remains unqualified and
-production architecture remains unselected.
+production architecture remains unselected. A separate unfunded owner-private
+construction prototype is in progress.
+
+[ADR-0063](adr/0063-owner-private-payments-prototype.md) selects a **new,
+unfunded** three-owner/six-output design under a distinct domain, setup and
+verification profile. Its [contract](../research/next-session/owner-private-prototype/CONTRACT.md)
+separates Spend200 from Output168 proofs: each owner proves its own hidden
+input value/authority and creates two independently proved complete output
+tuples. No public action/output subset, individual blinding contribution
+`beta_i` or `beta_i*R` is published. Input NF/CV records may still identify
+input owners. Stock malicious MASCOT over the BabyJubjub scalar field privately
+sorts the six complete tuples with secret random keys using its Batcher
+network; on success it reveals the mixed tuples and aggregate Delta.
+Collision/abort status is public; collisions abort before tuple opening. The selected
+[Source04 boundary](../poc/owner-private-payments/construction/BOUNDARY-04.md)
+supersedes the earlier stock-shuffle selection and retains its source-level
+counterexample.
+
+After independently checking every output proof, its own payment/change
+inclusion, state transition and global group balance, each owner authorizes
+the same recomputed financial EffectsDigest through its Spend proof. Effects
+include complete Output tuples and their proof bytes, but omit Spend proofs;
+valid same-statement Spend-proof malleability is explicitly allowed. The new
+[verifier/native contract](../poc/owner-private-payments/verification/DESIGN.md)
+requires all nine proofs, current NF/CM updates, direct commitment balance and
+an outer journal binding the complete prototype body, component-proof bytes
+and defined native financial projection. P0 has
+one reserve input, one immutable continuation, exact fee and **zero payout**.
+Six genuine Output proofs, actual Source04 stock-sort MPC, all three postmix
+Spend authorizations, independent nine-proof verification and the new CPU guest
+have passed. Genuine outer proving/compression, separate receipt verification
+and local Native Full validation have also passed, with all twelve same-proof
+native mutations rejected. These are unfunded supplied-context results, not
+accepted backing or a live payment rehearsal. The earlier KPX2 and four-wallet
+results do not qualify this new relation's privacy or lifecycle.
+
+The [new result](../research/next-session/owner-private-prototype/RESULTS.md)
+also records sixteen fresh genuine financial worlds. A frozen colluder strategy
+guessed both unknown groups in four; no excess success was detected against
+its explicit idealized chance model. This is a bounded strategy comparison,
+not a privacy qualification or a substitute for a composition review.
+
+The prototype trusts its same-host launcher, daemon and selected software;
+they are excluded from the coordinator adversary. Isolated workers do not
+establish independent operators. Its intended coordinator-plus-one-participant
+model requires at least two eligible honest owners and still exposes endpoints,
+counts, timing and final public components. Recipient decryption and Output-proof
+checks remain necessary: a ciphertext hash does not prove correct encryption.
+No new-domain receiver recovery/repeated spending, independent exit, accepted
+chain/currentness, durable availability or financial-privacy qualification is
+established. Existing amount/prior, funding-ancestry and entry/exit limitations
+and all adopted targets remain unchanged.
 
 The new [four-wallet result](../research/next-session/four-wallet-testnet/RESULTS.md)
 now completes the actual accepted TN10 two-sender/two-recipient lifecycle:
@@ -16,7 +67,8 @@ external destination and access.
 [ADR-0062](adr/0062-existing-engine-private-field-sum.md) now has four actual
 exact-field sums, wrong-field rejection, two participant-loss runs and a real
 RedJubjub binding consumer. These establish a bounded component API; full
-owner-private construction and its KAS relations remain open.
+owner-private financial acceptance remains open in the separate ADR-0063
+prototype above.
 
 [ADR-0060](adr/0060-four-wallet-gn2-testnet-rehearsal.md) now selects a fresh
 four-wallet TN10 rehearsal: two ordinary funding inputs create strictly checked

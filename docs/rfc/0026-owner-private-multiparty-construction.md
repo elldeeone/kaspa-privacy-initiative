@@ -75,12 +75,33 @@ financial/privacy obligations remain open even if the sum API works.
 
 The [actual component gate](../../research/next-session/private-construction/full-tuple/sum-api/RESULTS.md)
 passed: stock MASCOT returned the exact field sums, and its actual first result
-verified with the commitment-derived Binding API. **The owner-private protocol
-is not built.** The installed action proof still binds each owner's inputs to
+verified with the commitment-derived Binding API. At that component checkpoint,
+the owner-private protocol was not built: the installed action proof bound each owner's inputs to
 its ordered output group. The [next construction decision question](../../research/next-session/private-construction/full-tuple/NEXT-CONSTRUCTION.md)
 therefore calls for a second-pass design review and an ADR selecting separate
 spend/output statements, global commitment conservation, exact-effect authority
-and safe disclosure/retry rules before implementation. The proposed next useful
-execution is one genuine unfunded assembled financial body, not another
-standalone sum or byte-carriage benchmark. No new relation, setup or adaptation
-is accepted by this open question.
+and safe disclosure/retry rules before implementation. The assembled financial
+experiment selected below now supersedes that component-only checkpoint.
+
+The owner now requests an actual constructor and attacks against its coordinator
+transcript. [Accepted prototype ADR0063](../adr/0063-owner-private-payments-prototype.md)
+and its [shared contract](../../research/next-session/owner-private-prototype/CONTRACT.md)
+select a new unfunded three-owner/six-output research prototype: separate BN254
+Spend/Output proofs, established BabyJubjub Pedersen commitments, stock malicious
+MPC with random-key oblivious sorting of complete rows plus global balance, and
+post-mix Spend proofs authorizing exact financial effects. No native spend key
+or per-owner blinding certificate is published. Effects-only authorization
+deliberately permits valid Spend-proof witness malleability; it is not a seal
+over literal proof bytes. The fixed first mode has zero native payout and
+preserves existing funded profiles/exit paths.
+
+The [executed prototype](../../research/next-session/owner-private-prototype/RESULTS.md)
+now passes all nine genuine component proofs, independent host verification,
+new guest execution, genuine outer proving/compression and local Native Full
+acceptance. All twelve same-proof native mutations were rejected. A frozen
+16-world cohort completed with four successful honest-group guesses and no
+excess over its declared idealized chance model. This bounded result does not
+qualify privacy. Active composition, recipient-key privacy, larger useful
+anonymity sets, new-domain repeated spending/recovery and independent exits
+remain open. No funding, accepted backing or complete testnet lifecycle is
+established for this explicitly unfunded domain.

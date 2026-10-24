@@ -1,0 +1,39 @@
+{
+  "schema": "kpx7-owner-private-checkpoint/v1",
+  "classification": "UNFUNDED_RESEARCH_ONLY_ADR0063",
+  "domain_hex32": "32b4f31a58cc52d22862c20a923c59cdd0127785e9998f632eae2b3bb319919d",
+  "completed": {
+    "genuine_owner_local_output_proofs": 6,
+    "actual_malicious_MPC_parties": 3,
+    "MPC_agreement": true,
+    "genuine_postmix_effects_bound_spend_proofs": 3,
+    "independent_nine_proof_host_crosscheck": true,
+    "tampered_delta_rejected_before_authorization": true,
+    "host_positive_control_count": 1,
+    "host_changed_or_malformed_rejections": 42
+  },
+  "pins": {
+    "session_sha256": "51731a3efdc6543ddeb77310b975587d82e3f3bafb9828f4797dae9be30e7b9c",
+    "mixed_sha256": "f37bdc94d41b37453df0dec4e11b316a6e183f31991100be8d6fbff37ad8249c",
+    "projection_sha256": "d971317a4b17d1ef0f0967155cb412360924f1fcc165298942103e33c3f30e55",
+    "effects_digest_hex32": "0a1d2fbb02b6e4a65304a717f9e8da6d2b06e6822d6757e27965490ab9c1fe08",
+    "journal_sha256": "9253d67b3cc2f81f3f6f2a1c52985cbd1e4e8fa8428cdc033c308bcaa0c3a6e1",
+    "nine_proof_receipt_sha256": "c36355309d184379ed6b4070522b568e3f9b5fbf3ebf669160971c8af177fa58",
+    "public_negative_results_sha256": "7524453ffc31914e28c2d68330b0ce81d582ed65e4075d416ff0a836dc6199d6"
+  },
+  "at_this_checkpoint_pending": [
+    "genuine new guest CPU execution",
+    "genuine outer proof and compression",
+    "new native predicate acceptance",
+    "actual sealed coordinator and one-colluder count-only observation"
+  ],
+  "not_claimed": [
+    "funding or accepted backing",
+    "new-domain independent exits or repeated spending",
+    "chain currentness or confirmation",
+    "financial privacy qualification",
+    "malicious-host protection",
+    "independent operators",
+    "production security"
+  ]
+}

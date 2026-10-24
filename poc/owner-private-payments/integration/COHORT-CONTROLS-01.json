@@ -1,0 +1,47 @@
+{
+  "actual_installed_controller": {
+    "downloaded_engine_or_proof_executed": false,
+    "exit_code": 0,
+    "installed_python_only": true,
+    "owner_init_count": 0,
+    "resource": {
+      "all_children_succeeded": true,
+      "child_count": 1,
+      "observed_own_cgroup": {
+        "cpu.max": "100000 100000",
+        "cpu.stat": "usage_usec 74260\nuser_usec 57757\nsystem_usec 16503\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.max": "268435456",
+        "memory.peak": "18993152",
+        "memory.swap.max": "0"
+      },
+      "schema": "kpx7-cohort-resource/v1",
+      "wall_seconds": 0.010295136016793549
+    },
+    "resource_sha256": "423010e09967fb5c80c7c37d5062bd4f56c67ed2f83ea81c6c3aea6a58ffa046",
+    "schema": "kpx7-cohort-installed-controller-control/v1",
+    "status": "PASS"
+  },
+  "classification": "SOURCE_AND_SYNTHETIC_CONTROLLER_CONTROLS_ONLY",
+  "cohort_runtime_root_exists": false,
+  "contract_sha256": "28a3b29edff91634e193d28ed7b4914b1216d84bf6200c210899e967870016c2",
+  "financial_or_privacy_qualification": false,
+  "independent_statistics_gold_controls": 28,
+  "owner_init_count": 0,
+  "owner_truth_or_input_read_count": 0,
+  "retained_negative": {
+    "fix": "PRODUCER_SAME_SHA_READONLY_NLINK1_COPY",
+    "kind": "PUBLIC_RELATION_ELF_ORIGINAL_NLINK2_REFUSED_BEFORE_READ",
+    "original_bytes_unchanged": true,
+    "selected_relation_sha256": "1c64df4c91ed1d14165975cc4f28fc212cc8ccc291da9373bbf61055dde87271"
+  },
+  "schema": "kpx7-cohort-source-controls/v1",
+  "selected_financial_mpc_scorer_sources_byte_verified_unchanged": true,
+  "source_preflight": {
+    "owner_init_count": 0,
+    "registered_world_count": 16,
+    "status": "SOURCE_PREFLIGHT_ONLY"
+  },
+  "spec_sha256": "b941a6a8346aade2fba80ed14073a8de4346a8b69fdb671ac9ac84c2330d3583",
+  "synthetic_tests_passed": 22
+}

@@ -1,0 +1,110 @@
+{
+  "baseline_codec_metrics": {
+    "actual_fee_sompi": 10000000,
+    "allowed_script_units": 30009999,
+    "compute_mass": 313323,
+    "mining_mass": 313323,
+    "native_estimated_serialized_bytes": 12953,
+    "storage_mass": 2,
+    "transient_mass": 51812
+  },
+  "case_count": 8,
+  "classification": "PUBLIC_SYNTHETIC_ZERO_OUTER_PROOF_TYPED_REJECTIONS_ONLY",
+  "genuine_component_or_outer_G16_verified": false,
+  "host_home_and_var_unmounted": true,
+  "native_VM_executed": true,
+  "outcomes": [
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 15548264,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "baseline-zero-outer-proof",
+      "mining_mass": 313323,
+      "typed_error": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")"
+    },
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 3745,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "changed-sequence",
+      "mining_mass": 313323,
+      "typed_error": "VerifyError"
+    },
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 4375,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "changed-declared-fee",
+      "mining_mass": 313323,
+      "typed_error": "VerifyError"
+    },
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 4149,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "changed-prior-state",
+      "mining_mass": 313323,
+      "typed_error": "VerifyError"
+    },
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 3925,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "changed-payout",
+      "mining_mass": 313323,
+      "typed_error": "VerifyError"
+    },
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 4266,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "changed-previous-index",
+      "mining_mass": 313323,
+      "typed_error": "VerifyError"
+    },
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 12073,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "changed-successor-SPK",
+      "mining_mass": 313323,
+      "typed_error": "VerifyError"
+    },
+    {
+      "Full_accepted": false,
+      "actual_fee_sompi": 10000000,
+      "engine_returncode": 0,
+      "engine_units": 32,
+      "input_engine_accepted": false,
+      "isolation": "PASS",
+      "label": "extra-witness-byte",
+      "mining_mass": 313324,
+      "typed_error": "EvalFalse"
+    }
+  ],
+  "positive_native_acceptance_or_backing_claimed": false,
+  "schema": "kpx7-negative-native-smoke/v1",
+  "temporary_budget_is_final_financial_selection": false,
+  "temporary_compute_budget": 3000
+}

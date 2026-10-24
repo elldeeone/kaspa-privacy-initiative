@@ -1,0 +1,47 @@
+# ADR0063 amendment candidate: stock random-key oblivious sorting network.
+from Compiler.types import sint
+from Compiler.library import break_point, print_ln_to, runtime_error_if
+
+assert len(program.args) == 2
+session_sha = program.args[1]
+assert len(session_sha) == 64 and all(c in '0123456789abcdef' for c in session_sha)
+rows = sint.Matrix(6, 18)
+delta = sint(0)
+for owner in range(3):
+    for slot in range(2):
+        for limb in range(17):
+            rows[2 * owner + slot][1 + limb] = sint.get_input_from(owner)
+    delta += sint.get_input_from(owner)
+break_point('all-complete-private-field-inputs-before-joint-random-keys')
+
+# This documented API changes only nonlinear integer/comparison bounds.
+# Tuple limbs and beta remain untruncated raw field values in exact Q.
+program.set_bit_length(128)
+for row in range(6):
+    rows[row][0] = sint.get_random_int(128)
+collision = sint(0)
+for left in range(6):
+    for right in range(left + 1, 6):
+        equal = rows[left][0].equal(rows[right][0], bit_length=128)
+        collision = 1 - (1 - collision) * (1 - equal)
+collision_public = collision.reveal(check=True)
+break_point('checked-global-key-collision-condition-before-abort')
+runtime_error_if(collision_public, 'KPX7_KEY_COLLISION_NEW_SESSION_REQUIRED')
+break_point('collision-abort-completed-before-sorting-or-tuple-opening')
+
+# Explicit Batcher branch: public compare/swap network, no radix_sort,
+# reveal_sort, quicksort, secure_shuffle or uploader-selected switch bits.
+rows.sort(key_indices=(0,), batcher=True)
+break_point('whole-eighteen-column-network-before-checked-public-output')
+public_rows = sint.Matrix(6, 17)
+for row in range(6):
+    for limb in range(17):
+        public_rows[row][limb] = rows[row][1 + limb]
+opened = public_rows.get_vector().reveal(check=True)
+aggregate = delta.reveal(check=True)
+for party in range(3):
+    print_ln_to(party, 'KPX7_SESSION ' + session_sha)
+    for row in range(6):
+        print_ln_to(party, 'KPX7_ROW ' + str(row) + ' ' + ' '.join(['%s'] * 17),
+                    *[opened[row * 17 + limb] for limb in range(17)])
+    print_ln_to(party, 'KPX7_DELTA %s', aggregate)
