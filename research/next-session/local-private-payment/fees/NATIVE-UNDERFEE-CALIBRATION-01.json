@@ -1,0 +1,69 @@
+{
+  "actual_fee_sompi": 100000,
+  "classification": "SUPPLIED_CONTEXT_ONLY_NOT_RELAY_OR_CHAIN_ADMISSION",
+  "engine_exit_code": 0,
+  "funding_or_broadcast": false,
+  "meets_selected_fee_quote": false,
+  "native_metrics": {
+    "P2SH_sigop_counts": [
+      0
+    ],
+    "actual_fee_sompi": 100000,
+    "compute_mass": 160444,
+    "estimated_bytes": 9714,
+    "mining_mass": 160444,
+    "quotes": [
+      {
+        "actual_sompi": 100000,
+        "passes": false,
+        "rate": 100,
+        "required_sompi": 16044400
+      },
+      {
+        "actual_sompi": 100000,
+        "passes": false,
+        "rate": 200,
+        "required_sompi": 32088800
+      },
+      {
+        "actual_sompi": 100000,
+        "passes": false,
+        "rate": 500,
+        "required_sompi": 80222000
+      }
+    ],
+    "relay_mass": 160444,
+    "source_adapted_block_mass_caps": true,
+    "source_adapted_default_relay_fee": false,
+    "source_adapted_sigop_policy": true,
+    "standard_script_classes": true,
+    "storage_mass": 5015,
+    "transient_mass": 38856
+  },
+  "native_validation": {
+    "Full": {
+      "accepted": true,
+      "fee_sompi": 100000
+    },
+    "ScriptEngine": {
+      "accepted": true,
+      "allowed_script_units": 15009999,
+      "input_index": 0,
+      "units": 14829859
+    },
+    "all_input_engines_accepted": true,
+    "isolation": "PASS",
+    "per_input_ScriptEngine": [
+      {
+        "accepted": true,
+        "allowed_script_units": 15009999,
+        "input_index": 0,
+        "units": 14829859
+      }
+    ]
+  },
+  "outer_prover_host_program_or_network_mounted": false,
+  "schema": "kpxa-underfee-exit-VM-calibration/v1",
+  "selected_quote_minimum_fee_sompi": 16044400,
+  "selected_rate_sompi_per_mass": 100
+}

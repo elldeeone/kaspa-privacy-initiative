@@ -1,0 +1,41 @@
+{
+  "schema": "kpxa-fee-policy-tor-observations/v1",
+  "classification": "READ_ONLY_RPC_ESTIMATES_NOT_ADMISSION_OR_SETTLEMENT",
+  "observations": [
+    {
+      "path": "research/next-session/local-private-payment/fees/TOR-TN10-FEE-ESTIMATE-vector-01.json",
+      "sha256": "b80c4b97bc81599eb6d459cbc09054c4564c02d46adf0e5e1163db761ac78222",
+      "source_path": "/var/tmp/kpi-local-private-payment-01/results/public/fee-policy-read-01/vector.json",
+      "observed_at": "2026-10-25T20:53:24.117Z",
+      "upstream": "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh",
+      "network": "testnet-10",
+      "virtual_daa_score": "606281378",
+      "all_bucket_feerates_sompi_per_gram": [
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    {
+      "path": "research/next-session/local-private-payment/fees/TOR-TN10-FEE-ESTIMATE-electron-01.json",
+      "sha256": "96d759caa17710de2018ea413275270999f292804dfce29059cf9b887818e65e",
+      "source_path": "/var/tmp/kpi-local-private-payment-01/results/public/fee-policy-read-01/electron.json",
+      "observed_at": "2026-10-25T20:53:27.616Z",
+      "upstream": "wss://electron-10.kaspa.blue/kaspa/testnet-10/wrpc/borsh",
+      "network": "testnet-10",
+      "virtual_daa_score": "606281420",
+      "all_bucket_feerates_sompi_per_gram": [
+        100,
+        100,
+        100,
+        100
+      ]
+    }
+  ],
+  "units": "RPCfeerate:f64 sompi/gram, not sompi/kilogram or transaction fee",
+  "operators_independently_administered": null,
+  "remote_binary_commit_authenticated": false,
+  "remote_mempool_config_authenticated": false,
+  "funding_mining_broadcast": false
+}

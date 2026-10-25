@@ -1,0 +1,196 @@
+{
+  "schema": "kpxa-independent-public-host-negatives/v1",
+  "classification": "KNOWN_PUBLIC_FIXTURE_COMPONENT_HOST_ONLY_NOT_NATIVE_OR_CHAIN",
+  "host_sha256": "7f60b3bbc04f3a350b28c3960765e4e77e26db9b7647d81efc94530fecfb6baf",
+  "fixture_sha256": "34066b48b32971a06fe60e264a4a60e7be3ed2643c5159258c271c9ddef8cf4a",
+  "cases": [
+    {
+      "case": "baseline",
+      "expected_acceptance": true,
+      "exit_code": 0,
+      "matched": true,
+      "diagnostic": "",
+      "input_sha256": "34066b48b32971a06fe60e264a4a60e7be3ed2643c5159258c271c9ddef8cf4a"
+    },
+    {
+      "case": "changed_nonzero_action_bound_by_Spend",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: g16_invalid\"",
+      "input_sha256": "b139fa88f3da0f51e0b4830a2d1edb07719e2f37805fb500bad54b967dfe5e64"
+    },
+    {
+      "case": "changed_outpoint_bound_by_Spend",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: projection_effects\"",
+      "input_sha256": "b2986cae312534b33a12c691d2d921b14b8f270fae930fe4644c5a02594e2f38"
+    },
+    {
+      "case": "changed_matching_outpoint_bound_by_Spend",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: g16_invalid\"",
+      "input_sha256": "7407afe7284540b43b76e32b3507b96422aa946fcf5e973ba14d51ca07bb3d10"
+    },
+    {
+      "case": "wrong_old_CM_anchor",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: cm_empty_append\"",
+      "input_sha256": "a2d8679d07948398923e26eeda88e1dc62e84365b5b8bda2cee50d10106933d4"
+    },
+    {
+      "case": "wrong_NF",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: nf_empty_append\"",
+      "input_sha256": "38794df456bed56ced03ff6b7853033b763707c9970d81ccd9d22cf22f93fad5"
+    },
+    {
+      "case": "changed_output_CM",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: cm_empty_append\"",
+      "input_sha256": "b8b9d1f885e9859068937a8862a84b7d54fb62d980a5f9711e1983b6064b27b5"
+    },
+    {
+      "case": "changed_CF_and_recomputed_CFH_genuine_Output_reject",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: g16_invalid\"",
+      "input_sha256": "21bdd36b8aa909efb455d74f5baaef921c4583cf1d76fdf02f8a21a44db0d902"
+    },
+    {
+      "case": "valid_other_role_proof_as_Spend",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: g16_invalid\"",
+      "input_sha256": "6b37d34195224bd63109f2b5ac04274ea073f13193b57f0d47c9706deaaaebd1"
+    },
+    {
+      "case": "valid_other_role_proof_as_Output",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: g16_invalid\"",
+      "input_sha256": "7e523e2c420dad71c41ca6be89faded10cc8479810f2835925166542393d13e3"
+    },
+    {
+      "case": "noncanonical_Delta_Q",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: curve_scalar_or_balance_encoding\"",
+      "input_sha256": "889918e138886fdc7e0bc258f11ab9481431b0be6eed9ec90537ae850622aaeb"
+    },
+    {
+      "case": "CV_zero_point",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: curve_scalar_or_balance_encoding\"",
+      "input_sha256": "f3f3c50c6ae371898d0840b8876908017bdfc8037ca859e1e1f9ecaedc32efaf"
+    },
+    {
+      "case": "CV_order_two_outside_prime_subgroup",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: curve_scalar_or_balance_encoding\"",
+      "input_sha256": "732d4f2bbb0edf3183c6bc8e09e6a7c2eba082abce63b2db7383b4756bad9974"
+    },
+    {
+      "case": "zero_Spend_proof",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: g16_decode\"",
+      "input_sha256": "ed1d7b9edc16d3aeb15ae6a3833c1ae3056e9a5da4501b826a293cfdc773ff89"
+    },
+    {
+      "case": "wrong_body_domain",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: body_identity\"",
+      "input_sha256": "f1ff799a1968d891abe97467f1d88c6aec9e3eec164c49fcf6d069a33996c52e"
+    },
+    {
+      "case": "wrong_state_tag",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: state_identity\"",
+      "input_sha256": "a8c287de0652d215e7d1c385bb4a46f6d6d7f211a1cd4208765edbcccd993a5b"
+    },
+    {
+      "case": "nonzero_reserved_owner_field",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: body_context\"",
+      "input_sha256": "b3f4016d974141ccd2f8d6c3e03fa3d2cc2b7b02a4ea4eedd2744036b522bafe"
+    },
+    {
+      "case": "fee_desynchronization",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: body_money_or_payout\"",
+      "input_sha256": "2ce7fa0f1b6abfa6334ef5ee9c54a20e5dca02efd049bc104e17975a5bba97fa"
+    },
+    {
+      "case": "CM_append_wrong_path",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: cm_empty_append\"",
+      "input_sha256": "cfe69c706babdbe118c6fd00f80387198df1f45fe92afc59b4b9dc414f9fc8c8"
+    },
+    {
+      "case": "NF_insertion_wrong_path",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: nf_predecessor_root\"",
+      "input_sha256": "9bf50be5a1654302c855882aa5a3bd6dc53cfa109b6168e1f8c8018ff7bfd8b2"
+    },
+    {
+      "case": "altered_successor_policy_bound_by_Spend",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: g16_invalid\"",
+      "input_sha256": "0bd3d3a8e557fa193d435802e5815903b8c263c3308f93a0ea5a9b8a29a8e99f"
+    },
+    {
+      "case": "truncated_projection",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public predicate: projection_width\"",
+      "input_sha256": "9889662be72bba9da26ac8de1e11de630f3272d0cc3107287ffbe305a668bc8d"
+    },
+    {
+      "case": "trailing_projection_bytes",
+      "expected_acceptance": false,
+      "exit_code": 1,
+      "matched": true,
+      "diagnostic": "Error: \"public input size\"",
+      "input_sha256": "6fa300f1cdd9de05d19a31b83aa223686081bb37e2ef5f3d3575aed5a4cdd579"
+    }
+  ],
+  "passed": 23,
+  "expected": 23,
+  "native_or_outer_proof_generation": false,
+  "private_contents_read_or_hashed": false
+}

@@ -1,5 +1,39 @@
 # Next focus: shielded native KAS and financial privacy
 
+## Current execution: independent-wallet payments
+
+The owner authorizes all four [RFC-0029](rfc/0029-local-native-kas-private-transfer.md)
+workstreams under [ADR-0066](adr/0066-local-native-kas-payment-prototype.md):
+freeze privacy/consent requirements; implement genuine local one-input/two-output
+payments; restore, spend received/change notes and independently exit; then
+measure privacy/cost and complete a fresh confirmed testnet lifecycle. Fresh
+domain, keys, codec, guest and native policy preserve existing pools and frozen
+study bytes. No other live spending owner is required.
+
+Native Full and actual payouts are required before claiming native completion.
+Public-fixture recovery is distinct from off-host recovery. Tor transport is
+distinct from global traffic privacy; two-output grouping and shared-head
+contention remain. Retain all negative fee/privacy results and the old 21-KAS
+denominator. The earlier passive study remains a separately identified baseline.
+
+## Active batch — sender privacy, fees and external recovery
+
+The owner authorizes [RFC-0028](rfc/0028-sender-private-native-kas.md) and
+[ADR-0065](adr/0065-sender-private-admission.md): remove direct public/coordinator
+input associations through private admission and private authorization mixing,
+freeze and run the attack study, measure genuinely cheaper independent exits,
+then complete a fresh native testnet lifecycle with all payouts confirmed.
+Retain the existing financial relation and exact-effects/native checks under
+fresh trial, pool, seeds and sessions. Privacy measurements precede the expensive
+full rehearsal. The [active abort/intersection diagnostic](../research/next-session/sender-private-lifecycle/review/ACTIVE-RETRY-EXPERIMENT-RECORD.md)
+measured a bounded wire-fixture failure; its mitigation remains unresolved.
+Bounded passive-view improvement cannot close that gate.
+
+Actual seed recovery on another physical machine and separately administered
+public history/parameter storage require identified external destinations.
+Forge isolation and same-administrator GitHub replay are retained evidence,
+without being substituted for either external result.
+
 ## Current checkpoint — integrated financial lifecycle complete
 
 The owner-selected steps 1, 2, 3, 5 under

@@ -2,6 +2,43 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+## Independent-wallet candidate
+
+[ADR-0066](docs/adr/0066-local-native-kas-payment-prototype.md) and
+[RFC-0029](docs/rfc/0029-local-native-kas-private-transfer.md) select research,
+not a privacy pass. Does removal of live co-owners improve the declared observer
+model despite one-NF/two-output grouping? Which invoice, Tor, timing and host
+assumptions survive an independent review? Can original-seed received/change
+spends and independent exits complete under actual accepted history and head
+conflicts? What are measured proving latency and actual matched-workload fees,
+including the explicitly selected relay-fee policy? The old 21-KAS/2% failure
+remains unchanged. Genuine native/chain completion and off-host/public-data
+availability require separate evidence.
+
+## Current sender-privacy questions
+
+[RFC-0028](docs/rfc/0028-sender-private-native-kas.md) and
+[ADR-0065](docs/adr/0065-sender-private-admission.md) ask whether privately
+mixing inputs and subsequent whole-effects authorization removes direct public
+and coordinator attribution without changing financial authorization or
+original-seed recovery. Does a prospectively frozen observer study demonstrate
+an improvement with at least two honest owners? Can active abort/retry
+intersection be addressed without depending on unpublished attempt journals?
+What genuine exit-cost reduction is possible at the fixed workload and native
+verification pricing? Which separate machine and independently administered
+public data provider can demonstrate external recovery?
+
+The [active MPC wire diagnostic](research/next-session/sender-private-lifecycle/review/ACTIVE-RETRY-EXPERIMENT-RECORD.md)
+found the expected changed-cohort input-ownership failure; the mitigation
+question remains open.
+
+The bounded ADR-0064 financial integration below is now complete: two rounds,
+nine confirmed payouts, zero reserve and three fresh seed restorations. Its
+2% fee target failed and sender privacy remains unqualified. Earlier question
+statements below are retained as historical design context.
+
+## Earlier lifecycle and construction questions
+
 [RFC-0027](docs/rfc/0027-owner-private-native-kas-lifecycle.md) and
 [ADR-0064](docs/adr/0064-owner-private-native-kas-lifecycle.md) now select a
 fresh TN10-only integration, under the

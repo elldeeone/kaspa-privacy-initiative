@@ -1,0 +1,37 @@
+{
+  "schema": "kpxa-independent-fee-composition-check/v1",
+  "classification": "PUBLIC_COMPONENT_FIXTURE_01_NOT_NATIVE_QUALIFIED",
+  "source_quote_sha256": "95f96de465c74190fe2fbbcd096c3e2c03ff2a49da4224cd88bcf30f9ac375c4",
+  "checks": [
+    {
+      "case": "01-PAYMENT",
+      "projection_fee": 100000,
+      "metrics_fee": 100000,
+      "selected_rate_times_mass": 19228400,
+      "quote_fee": 19228400,
+      "exact_agreement": true,
+      "under_selected_rate": true
+    },
+    {
+      "case": "EXIT-01",
+      "projection_fee": 100000,
+      "metrics_fee": 100000,
+      "selected_rate_times_mass": 16044400,
+      "quote_fee": 16044400,
+      "exact_agreement": true,
+      "under_selected_rate": true
+    },
+    {
+      "case": "EXIT-05",
+      "projection_fee": 100000,
+      "metrics_fee": 100000,
+      "selected_rate_times_mass": 16002100,
+      "quote_fee": 16002100,
+      "exact_agreement": true,
+      "under_selected_rate": true
+    }
+  ],
+  "all_agree_and_fail_selected_rate": true,
+  "old_fixture_modified": false,
+  "native_Full_or_testnet_accepted": false
+}

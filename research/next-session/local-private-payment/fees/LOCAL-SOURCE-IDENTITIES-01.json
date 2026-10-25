@@ -1,0 +1,51 @@
+{
+  "schema": "kpxa-read-only-fee-local-source-identities/v1",
+  "classification": "PUBLIC_SOURCES_AND_QUOTES_ONLY",
+  "source_identity_evidence": "Exact guarded source bytes and externally selected executable bytes; no new rebuild or binary-to-source attestation is claimed.",
+  "files": [
+    {
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/verification/native-engine",
+      "bytes": 13440808,
+      "sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061"
+    },
+    {
+      "path": "poc/private-exit-native/src/native.rs",
+      "bytes": 21893,
+      "sha256": "0a5a535b6baaa86e719d0becacf611129da7a825e3190f632baa9b0cf58f7857"
+    },
+    {
+      "path": "poc/private-exit-native/Cargo.toml",
+      "bytes": 1089,
+      "sha256": "5ed93b24de86a41f565009d5bb516edebc684f77a5a6ff70e9076bf6933e267c"
+    },
+    {
+      "path": "poc/local-private-payment/verification/native/src/main.rs",
+      "bytes": 21887,
+      "sha256": "a43724c3f8a139d58db79b54c81719f1f3c2d53abff10209e48a47332aa9f52e"
+    },
+    {
+      "path": "poc/local-private-payment/verification/native/validate_selected_case.py",
+      "bytes": 9400,
+      "sha256": "dc9f42e193bb3abcee5e4224ed229f6e6c4ba5634370446146df10b6077b0b29"
+    },
+    {
+      "path": "/var/tmp/kpi-local-private-payment-01/results/public/outer-first-01/NATIVE-FEE-QUOTE-01.json",
+      "bytes": 2011,
+      "sha256": "95f96de465c74190fe2fbbcd096c3e2c03ff2a49da4224cd88bcf30f9ac375c4"
+    },
+    {
+      "path": "/var/tmp/kpi-local-private-payment-01/results/public/native-underfee-exit-calibration-01/public-output/RESULT.json",
+      "bytes": 1725,
+      "sha256": "db4fcedd99dcbe4d58f03dacfa7ffa82647d14f858121a45134cde5e5a9b47f0",
+      "retained_copy": "research/next-session/local-private-payment/fees/NATIVE-UNDERFEE-CALIBRATION-01.json"
+    }
+  ],
+  "compute_fraction": {
+    "budget_mass": 180000,
+    "total_compute_mass": 192284,
+    "percentage": 93.61153294085831
+  },
+  "old_frozen_policy_workload_verdict_changed": false,
+  "completed_relation_changed": false,
+  "funding_or_broadcast": false
+}

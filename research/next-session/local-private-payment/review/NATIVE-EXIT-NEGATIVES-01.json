@@ -1,0 +1,424 @@
+{
+  "schema": "kpxa-independent-native-negative-controls/v1",
+  "classification": "KNOWN_PUBLIC_FIXTURE_SUPPLIED_CONTEXT_NATIVE_FULL_ONLY",
+  "cases": [
+    {
+      "case": "baseline",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 16044400
+      },
+      "all_input_engines_accepted": true,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": true,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "units": 14830170
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": true,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "changed_actual_payout_only",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 68956
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "changed_matching_fee_and_payout",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14830169
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "changed_matching_payout_destination",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14830169
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "changed_matching_reserve_outpoint",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 14830169
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "corrupt_direct_Exit_proof",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+          "units": 14830169
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "corrupt_witness_push_frame",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(MalformedPush(53888, 7826))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "MalformedPush(53888, 7826)",
+          "units": 0
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "extra_input",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "isolation:Some(TxDuplicateInputs)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 15430
+        },
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 1,
+          "typed_error": "VerifyError",
+          "units": 15430
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "extra_output",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 37762
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": false,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "insufficient_compute_budget",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ExceededCommittedScriptUnits { used: 20062, limit: 19999 })"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 19999,
+          "input_index": 0,
+          "typed_error": "ExceededCommittedScriptUnits { used: 20062, limit: 19999 }",
+          "units": 19990
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "wrong_Exit_VK_in_redeem",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(EvalFalse)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "EvalFalse",
+          "units": 15424
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "wrong_body_D",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 15597
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "wrong_new_NF_state",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 37720
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "wrong_old_state",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 15886
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    },
+    {
+      "case": "wrong_selected_tail",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(EvalFalse)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 15009999,
+          "input_index": 0,
+          "typed_error": "EvalFalse",
+          "units": 15424
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true
+    }
+  ],
+  "no_wallet_private_or_PK_mounts": true,
+  "network_funding_broadcast": false,
+  "passed": 15,
+  "expected": 15,
+  "engine_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+  "baseline_case_sha256": "6e0689bbe076f3c762efbd6367ccbb1540beee604eddc1015b4d14f5a0c308bb",
+  "private_original_contents_read_or_hashed": false
+}

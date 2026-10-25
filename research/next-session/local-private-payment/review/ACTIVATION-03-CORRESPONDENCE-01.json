@@ -1,0 +1,81 @@
+{
+  "schema": "kpxa-activation03-source-correspondence-review/v1",
+  "source_closure_sha256": "60cf0c8c77849df6471a946e4f5f5f95f97526ef0dc03ab1862c64f9db41201a",
+  "profile_sha256": "405e45abc5a2d1534e8274d38783de9ed9c35debf2cdb3080c14f6099f64741c",
+  "selection_sha256": "18f35dff19ada629b2f46163bc95c66183971ee594a2e575a437f2ae22985504",
+  "source_count": 55,
+  "profile_binds_sources": true,
+  "selection_binds_profile": true,
+  "critical_sources": [
+    {
+      "path": "poc/local-private-payment/bootstrap/activate.py",
+      "sha256": "8e90155c557963f0fed6d0d050916723152c0541a03d8b49f394b07211399a60",
+      "matched": true
+    },
+    {
+      "path": "poc/local-private-payment/chain/roundtrip.mjs",
+      "sha256": "fb7624a9b5b4c928279123c31425bde6f263ec7d68098e55ff04e4273bdacf56",
+      "matched": true
+    },
+    {
+      "path": "poc/local-private-payment/wallet/payment.py",
+      "sha256": "5ff0774fd1bb67ebc5ed5ec246ce2434082bfc4ce82dad9e58047b34232d2bda",
+      "matched": true
+    },
+    {
+      "path": "poc/local-private-payment/wallet/worker.py",
+      "sha256": "4707057d33ca1a5154017c9bdff5f75c14fccf6398f8c5cdf9812461a6239785",
+      "matched": true
+    }
+  ],
+  "public_controls": {
+    "actual_Tor_read_only_peers": 2,
+    "actual_native_Full_and_general_SDK_roundtrip_input_counts": [
+      1,
+      3
+    ],
+    "actual_terminal_payout_rehearsal_performed": false,
+    "chain_live_context_and_once_only_controls_passed": 10,
+    "classification": "GENUINE_PROOFS_AND_NATIVE_FULL_ON_SYNTHETIC_SUPPLIED_UTXOS_NOT_ACCEPTED_BACKING",
+    "controls_total": 24,
+    "funding_or_broadcast_performed": false,
+    "genesis_negatives_rejected": 14,
+    "isolated_Tor_miner_plan_only_passed": true,
+    "members": [
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/GENESIS-CONTROLS.json",
+        "sha256": "19145a9a3d2c0bcee432409dc7b2fd19753b7af3b9f4d9c26e6c90cff200a638"
+      },
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/CHAIN-SUBMIT-CONTROLS.tap",
+        "sha256": "0692aaa7b9fcf0f78aca2e8c741932fdac8a93db6ff86276a30031c57ab7c44e"
+      },
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/consolidate-preflight-01/native-Full/native/native-validation.json",
+        "sha256": "404321097de79cf52cc34961174c97145ee923325a741edb91b6adbac3933252"
+      },
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/genesis-preflight-01/native-Full/native/native-validation.json",
+        "sha256": "f03372353cdcd1293f47e819c6420c5e02eee16e381abcb46ea215a3f11f4c71"
+      },
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/consolidate-preflight-01/SDK-CANDIDATE.json",
+        "sha256": "99d68c31564f7d8da7b43cb8537362de24b85f62d016da53bbd7b79ebc2407bb"
+      },
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/genesis-preflight-01/SDK-CANDIDATE.json",
+        "sha256": "4662ec64923c5ab2ee9ce7c8fbdd00196b206a95b65c74e411ab47d38d00ccff"
+      },
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/TOR-NODE-PROBE.json",
+        "sha256": "878191de8f4911fc47baf7f0a39313f789264bcbffeb5dfc0a0460eddb77a396"
+      },
+      {
+        "path": "/var/tmp/kpi-local-private-payment-01/bootstrap-fixture-01/miner-plan-03/TEMPLATE-PLAN.json",
+        "sha256": "acc02f449ef596b2319b0f9e99674cb00000d0f5b4f48ff502e6192ebff725c2"
+      }
+    ],
+    "schema": "kpxa-bootstrap-and-chain-controls/v1"
+  },
+  "reviewer_network_mining_funding_broadcast_or_private_contents": false
+}

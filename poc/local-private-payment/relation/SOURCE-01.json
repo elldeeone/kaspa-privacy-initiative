@@ -1,0 +1,253 @@
+{
+  "checks": {
+    "adversarial_second_pass": "No runtime blocker found; strengthened CLI test uses valid statements so early parse refusal cannot mask parameter ordering.",
+    "default_controls_passed": 38,
+    "final_strengthened_profile_boundary_tests_passed": 2,
+    "format_check": true,
+    "genuine_component_proofs_verified": [
+      "spend",
+      "output",
+      "exit"
+    ],
+    "genuine_test_functions_passed": 2,
+    "malformed_and_old_manifest_refusals_before_stdin": 6,
+    "old_same_role_vk_rejections": [
+      "spend",
+      "output",
+      "exit"
+    ],
+    "rebuilt_foreign_domain_cs_rejections": [
+      "spend",
+      "output",
+      "exit"
+    ],
+    "release_locked_offline_build": true,
+    "strict_canonical_scalar_point_proof_and_vk_controls": true,
+    "strict_domain_and_tag_codec": true,
+    "strict_proof_vk_identity_and_encoding_boundary_tests_passed": 2,
+    "total_distinct_test_functions_passed": 42,
+    "wrong_root_path_authority_position_and_integer_range_controls": true
+  },
+  "classification": "RESEARCH_PUBLIC_FIXTURES_ONLY_NO_FUNDING_OR_BROADCAST",
+  "compiled_source_order": [
+    "Cargo.toml",
+    "Cargo.lock",
+    "src/lib.rs",
+    "src/cv.rs",
+    "src/statements.rs",
+    "src/wire.rs",
+    "src/circuit.rs",
+    "src/exact_sha256.rs",
+    "src/request.rs",
+    "src/keys.rs",
+    "src/main.rs"
+  ],
+  "compiled_source_sha256": "82cf9c59c17c006f79faf2b7689d09690ad505b776f9ce6409f4d1f9ccc79e5c",
+  "curve_parameters_sha256": "401abafb0b375aa71159c6f4fff4002985f02a29acf0dfe03d89991734d3eeef",
+  "domain_hex32": "b8623a6244a81ed42c43f95aac77eccd927fa584db02a1a829faa3c857fed38c",
+  "evidence_limits": [
+    "Public synthetic fixture components only",
+    "No full local-payment outer/native/lifecycle or payout claim",
+    "No original wallet secrets, logs, plans, backups or truth read",
+    "Passing tests are not proof of cryptographic correctness, composed privacy, production safety, off-host recovery or independent retention"
+  ],
+  "files": [
+    {
+      "bytes": 1401,
+      "path": "poc/local-private-payment/relation/Cargo.toml",
+      "sha256": "32665070753ad63b5787923360586952af3af50a06f711503d9d2a5db694386f"
+    },
+    {
+      "bytes": 37110,
+      "path": "poc/local-private-payment/relation/Cargo.lock",
+      "sha256": "26af87b0b440cbe138a6d619982e2e8e19b262cfc5cb149cf1c9e7655a1d1e9e"
+    },
+    {
+      "bytes": 1046,
+      "path": "poc/local-private-payment/relation/LICENSE-MIT",
+      "sha256": "8f71659370c5268d9a1dc962a46232540e8fca63462586d8efaa95aab492a208"
+    },
+    {
+      "bytes": 3915,
+      "path": "poc/local-private-payment/relation/API.md",
+      "sha256": "bcac66b326f1c6ea761b9ae028ba9fd0f555a4786e04b6a6378f5e9be932c8bd"
+    },
+    {
+      "bytes": 3408,
+      "path": "poc/local-private-payment/relation/ORIGIN-01.json",
+      "sha256": "33f42df19c3c1a9d9737928fab5010a226758a19f870d365d186cbc8bd3714e9"
+    },
+    {
+      "bytes": 14225,
+      "path": "poc/local-private-payment/relation/src/circuit.rs",
+      "sha256": "e13fa9bd6ba33bd01b71e824d10944b3d8561854b3c026f997b282cf57fde4b0"
+    },
+    {
+      "bytes": 13720,
+      "path": "poc/local-private-payment/relation/src/cv.rs",
+      "sha256": "350153426d8ff86905a7956a76311726812151bbe301b319ee254336b33c2f05"
+    },
+    {
+      "bytes": 12532,
+      "path": "poc/local-private-payment/relation/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "bytes": 8656,
+      "path": "poc/local-private-payment/relation/src/keys.rs",
+      "sha256": "84095f2c53342f869e8bc833b6af44694e847bd55484454d103e01e93177b955"
+    },
+    {
+      "bytes": 5119,
+      "path": "poc/local-private-payment/relation/src/lib.rs",
+      "sha256": "f93c2593444acd3936595e4e0d07cc680ff8ada05ce9f9c7dd5a47a387245b9e"
+    },
+    {
+      "bytes": 8923,
+      "path": "poc/local-private-payment/relation/src/main.rs",
+      "sha256": "6ebe6f3a132c60199c71436a9c5a593817abe749109d9c7e859f3148d573aeda"
+    },
+    {
+      "bytes": 16921,
+      "path": "poc/local-private-payment/relation/src/request.rs",
+      "sha256": "c8d7e9f16adac9c7115def6d638d881d2c9ecc47eb31de73ae2e7cf64cdeb827"
+    },
+    {
+      "bytes": 5486,
+      "path": "poc/local-private-payment/relation/src/statements.rs",
+      "sha256": "bcd3f5f947904fe6fecc4e747b93e0f85a5c611390d0331651e3a1884004e123"
+    },
+    {
+      "bytes": 3846,
+      "path": "poc/local-private-payment/relation/src/wire.rs",
+      "sha256": "e47fc2e3e033b644f6099a2b2753c89d67eae7d999c975acf21475d92a32a3ef"
+    },
+    {
+      "bytes": 2520,
+      "path": "poc/local-private-payment/relation/tests/codec_boundary.rs",
+      "sha256": "cc58911ff4fd3b205845e0aac333c595f8890f454f1bb857c180d3d550d87963"
+    },
+    {
+      "bytes": 7382,
+      "path": "poc/local-private-payment/relation/tests/exit_controls.rs",
+      "sha256": "1321c6e3a80f08c921468c4c5e7b9d7a4c59723cbaa1356226204eec2f59c937"
+    },
+    {
+      "bytes": 6876,
+      "path": "poc/local-private-payment/relation/tests/genuine.rs",
+      "sha256": "ccf025d385a97601162838341aa5c429f77d39ca8698b0f8e7a43075e8ec7dcb"
+    },
+    {
+      "bytes": 4246,
+      "path": "poc/local-private-payment/relation/tests/profile_boundary.rs",
+      "sha256": "95363a3ba75e292e4314ce23f37b813b4df00bb53ecf206740bb9b1a5a405d7a"
+    },
+    {
+      "bytes": 8722,
+      "path": "poc/local-private-payment/relation/tests/relation_controls.rs",
+      "sha256": "ebe39abd898fc958eb1df980144406e138a03bba4c1be114288285a2f25e5cbd"
+    }
+  ],
+  "public_evidence": [
+    {
+      "bytes": 5377,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/SELECTED.json",
+      "sha256": "713554f69e328d9462f62fd4a30207f7ff1f6f5ef2db40449f7daf172e79f4e8"
+    },
+    {
+      "bytes": 3577,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/BUILD-01.json",
+      "sha256": "c733523cc7ffd62dd9ca1e47fe967a4e8e04b589c359cadca5c2f2d9400d8843"
+    },
+    {
+      "bytes": 369,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/SETUP-PROGRESS.json",
+      "sha256": "8da64fe50f6a5f8a5835dbf7414c3b031a8204d4e89eaed5042e35680105238b"
+    },
+    {
+      "bytes": 302,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/TEST-PROGRESS.json",
+      "sha256": "82e3d04f1426193fdb08cb99a3be45f702fe388711095651c415228f475609f4"
+    },
+    {
+      "bytes": 1729,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/CLI-BEFORE-STDIN-02.json",
+      "sha256": "8792318dfbbaec5ab3fa706e1869f526fe6fddabdd2949443880394606835e19"
+    },
+    {
+      "bytes": 4053,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/controls-01.stdout.log",
+      "sha256": "39619e6412a19fbeb5085ce9c486f34790446b4ea4ee43091de68c5ad37506a0"
+    },
+    {
+      "bytes": 967,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/controls-01.stderr.log",
+      "sha256": "18d55ef00ad4dcf735983b5af36a109b9f1bf5a37bce9c86c04af766ebc23583"
+    },
+    {
+      "bytes": 269,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/genuine-01.stdout.log",
+      "sha256": "15f2ee337b4cfcb900726537fc3662b0d81e523354f7d1868c81ef32bcc3de19"
+    },
+    {
+      "bytes": 186,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/genuine-01.stderr.log",
+      "sha256": "2fdc05a40a3619d384054a5107388c01b55ce7abe17ba09eda732195e3777a37"
+    },
+    {
+      "bytes": 685,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/TARGETED-BOUNDARIES-01.json",
+      "sha256": "dfdbf540a00df876c64c3d4756093617751f3c09373c4090a3138bb376674ff9"
+    },
+    {
+      "bytes": 512,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/targeted-boundaries-01.stdout.log",
+      "sha256": "391d5a3180f022afdd2770d810dcaa9d292b7e118cded63f63b5c2921df54d90"
+    },
+    {
+      "bytes": 342,
+      "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/targeted-boundaries-01.stderr.log",
+      "sha256": "288e1fbd80ae52d150eb9a79270bbfad4ec172058a8f3b5f0675a52d4e2ae170"
+    }
+  ],
+  "roles": {
+    "exit": {
+      "constraints": 1443195,
+      "instances": 3,
+      "manifest_sha256": "168557a99840a2519fc2f5973d35606975ed805144f5eb396441169984bc77a5",
+      "matrix_sha256": "f2b247846c9cde1f7abfa2e92186a8a69c32f80bb8fed40085cf21a51d49c261",
+      "pk_bytes": 591206448,
+      "pk_sha256": "fc531fcdb192dba2123bb13a02f78aa019cd5299e6905ad7ab4a5c6afdf481b1",
+      "vk_sha256": "e8580b7309391270b4977298ea15c7a996a745b8f3d4d8cc03c73ee76df47c9a",
+      "witnesses": 1428085
+    },
+    "output": {
+      "constraints": 217807,
+      "instances": 3,
+      "manifest_sha256": "c400914d0b68c8f7846c198fd462210b35212f3e893f1f7801c457ad0069d729",
+      "matrix_sha256": "21e21c057dc22d0100d2dd46a6867acba2f89ef1481b8046b4b8c29d8521c116",
+      "pk_bytes": 85578096,
+      "pk_sha256": "887573cf53559e969007857cd50284db9948204390389fc6e85dd75644b1241d",
+      "vk_sha256": "2839d491047edd5664db65af3fa92a7194d959e7f94f723eac982aa918c785e6",
+      "witnesses": 214998
+    },
+    "spend": {
+      "constraints": 1476992,
+      "instances": 3,
+      "manifest_sha256": "4d28ba947357debb486e623c82ef03e778d3b986be9891696eca022926a08464",
+      "matrix_sha256": "7f8dc3d387ce01995dda783e74b415658e45b8f6ece0fd9fabee155b5863d0a7",
+      "pk_bytes": 601785008,
+      "pk_sha256": "45ae6cd5110b09466c19de8c1f0cf89ec93f6c0d853f232773801e19bd0d62bd",
+      "vk_sha256": "b02bbf6a31a57c6132ae1ecaa680e1e955946fc1076fbe4f7e58142407b57203",
+      "witnesses": 1461143
+    }
+  },
+  "schema": "kpxa-local-private-payment-relation-source/v1",
+  "selected_executable": {
+    "bytes": 4515240,
+    "mode": "0500",
+    "path": "/var/tmp/kpi-local-private-payment-01/assets/relation/relation",
+    "sha256": "e516b30b18d057c48fc68aefcd3268715f1cb622d94fb9b0fca9c5119ec2e463"
+  },
+  "setup_trust": "Fresh local private OS RNG, no independent ceremony; toxic-waste destruction and dependency correctness remain assumptions. PK decode is unchecked only after complete externally selected pinned bytes. CLI separately pins executable before stdin; library keys::load does not enforce executable identity."
+}

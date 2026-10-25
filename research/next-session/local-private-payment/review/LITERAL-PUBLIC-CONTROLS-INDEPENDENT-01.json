@@ -1,0 +1,44 @@
+{
+  "schema": "kpxa-public-literal-canary-controls/v1",
+  "explicitly_public_seed_hex32": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "all_passed": true,
+  "controls": [
+    {
+      "control": "miss",
+      "passed": true,
+      "exit_status": 0
+    },
+    {
+      "control": "raw-hit-boundary",
+      "passed": true,
+      "exit_status": 0
+    },
+    {
+      "control": "lowerhex-hit",
+      "passed": true,
+      "exit_status": 0
+    },
+    {
+      "control": "upperhex-hit",
+      "passed": true,
+      "exit_status": 0
+    },
+    {
+      "control": "wrong-domain",
+      "passed": true,
+      "exit_status": 2
+    },
+    {
+      "control": "sibling-unmounted",
+      "passed": true,
+      "exit_status": 2
+    },
+    {
+      "control": "no-root-or-sibling-mount",
+      "passed": true,
+      "exit_status": 0
+    }
+  ],
+  "actual_originals_selected_read_or_hashed": false,
+  "private_namespace_root_or_sibling_mounted": false
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "kpxa-independent-mining-delivery-regressions/v1",
+  "classification": "PUBLIC_QUEUE_MODULE_ONLY_NO_SDK_OR_NETWORK_OR_MINING",
+  "sources": [
+    {
+      "path": "mining_jobs.mjs",
+      "sha256": "850ca98c31358178a4e17bd650f8cfddd57722f9f4fec57aa5ef8ec942b3006d"
+    },
+    {
+      "path": "test_mining_jobs.mjs",
+      "sha256": "32311150ea9905a124bf146a11863e44dbadf47e81753ba137b5643d800e4173"
+    }
+  ],
+  "node_sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c",
+  "miner_sha256": "178f4ae6e481c7e5bfb3ab7a26b84aa3cfb86cfaa2a2516bfac03425c9520333",
+  "old_preimage_sha256": "3e58b6b875e46aa207347cb7afdecc77e9ec6966a23d849f87f1aabea1add868",
+  "exit_code": 0,
+  "stdout": "\u2714 slow RPC replacement preserves queued work against its original exact template (51.546678ms)\n\u2714 pending found work drains before another remote request starts (0.234647ms)\n\u2714 duplicate candidate and repeated template identity cannot reset consumed work (0.277369ms)\n\u2139 tests 3\n\u2139 suites 0\n\u2139 pass 3\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 92.322573\n",
+  "stderr": "",
+  "private_original_or_trial01_runtime_reads": false,
+  "network_mining_or_broadcast": false,
+  "initial_environment_issue": "/usr/bin/node absent; tests rerun with exact selected pinned Node"
+}

@@ -1,5 +1,48 @@
 # Candidate Architecture
 
+## Independent-wallet payment candidate
+
+[ADR-0066](adr/0066-local-native-kas-payment-prototype.md) selects the
+[RFC-0029](rfc/0029-local-native-kas-private-transfer.md) research implementation:
+one owned note becomes a recipient note and recoverable change without other
+live owners. A fresh domain, three refreshed component key sets, KPXA codec,
+outer guest and native policy keep this candidate separate from existing pools.
+The wallet checks its entire consent/effects boundary locally; a direct full-note
+exit remains independent of the outer prover. Public genesis has authenticated
+encrypted outputs and transparent fixed-value deposit commitments.
+
+Established Tor/TLS transport carries public RPC data without direct fallback.
+It does not establish global traffic privacy. The ledger still groups one NF
+with two outputs; proof latency, shared-head conflicts, invoice linkage and
+independent public-data availability remain explicit limitations. Genuine native
+execution and confirmed testnet payouts require their own retained evidence.
+The frozen ADR-0065 study continues independently under its original criteria.
+
+## Active sender-privacy experiment
+
+[ADR-0065](adr/0065-sender-private-admission.md) and
+[RFC-0028](rfc/0028-sender-private-native-kas.md) select a new off-chain client
+protocol under the existing financial domain, keys, guest and native policy.
+Fresh pools, seeds and sessions keep the completed experiment unchanged.
+Existing complete-effects authorization binds the actual reserve outpoint,
+session, state, inputs, outputs and fees; changing input order requires new
+authorization, not a weaker financial predicate.
+
+The candidate privately mixes input NF/CV rows and output tuples independently,
+then privately mixes complete Spend authorization rows after owners validate
+the exact effects. Public assembly receives only the mixed lists and performs
+a strict input/authorization bijection. Fresh round aliases replace persistent
+wallet labels, and seed-only recovery scans every public candidate invoice slot.
+Implementation, genuine execution and privacy measurements are pending.
+
+This targets direct input attribution under passive observation and honest
+scheduling with at least two honest owners. An active coordinator can still
+abort overlapping cohorts and intersect their exposed stable nullifiers.
+That known failure must be measured. Host-administrator access, traffic,
+amount/timing correlation and independent recovery-data custody remain separate.
+
+## Completed financial baseline
+
 **Status:** the integrated owner-private profile completed actual TN10 GN3,
 both genuine private-payment rounds, nine independent native payouts and three
 further fresh original-seed terminal scans. Reserve and owned claims reconcile

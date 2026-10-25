@@ -1,5 +1,55 @@
 # Threat Model
 
+## Independent-wallet payment research
+
+[ADR-0066](docs/adr/0066-local-native-kas-payment-prototype.md) removes mandatory
+multi-owner admission for a local one-input/two-output payment. The exact fresh
+domain/profile, proof keys, accepted state/outpoint, recipient invoice, change,
+fee, ciphertexts and native effects must agree before authorization. Direct exits
+and seed-only discovery must not require another owner, a saved roster, attempt
+journal, hosted prover or privileged release.
+
+The ledger exposes NF/two-output grouping, state/reserve movement, fees, timing
+and transparent payouts. Hidden commitment ownership, values and descriptors
+depend on the established unreviewed proof/encryption composition. A recognizable
+submission origin identifies its NF owner. Tor with remote DNS, TLS and fresh
+session isolation must fail closed; it does not rule out timing correlation,
+invoice/counterparty linkage, malicious hosts or global observers. Shared-head
+conflicts and reorgs can leave an exposed NF unspent; reconciliation must never
+weaken state binding or silently reuse stale authority. Frozen old privacy and
+fee failures are retained, not reinterpreted for the candidate.
+
+## Sender-private admission experiment
+
+[ADR-0065](docs/adr/0065-sender-private-admission.md) selects two independent
+uses of the existing malicious-secure MASCOT sorting construction. Neither
+owner-associated NF/CV readiness nor owner-associated Spend proof exports may
+reach the coordinator. Both phases bind the selected program, session and
+stage; authorization additionally binds the exact final effects. Missing,
+duplicate, substituted, wrong-session or malformed rows must halt. All native
+backing, single-spend, state and unilateral-exit checks remain unchanged.
+
+The declared coordinator sees membership, endpoints, completion metadata and
+all actual public messages. One colluding participant is allowed in the bounded
+three-owner passive study; two colluders identify the last owner by elimination.
+The trusted launcher/host administrator can inspect private process memory and
+is outside that process-isolation claim. Fresh aliases do not provide network
+anonymity or conceal cohort membership from this coordinator.
+
+Active abort/retry intersection is a measured bounded admission-channel failure:
+the [three-attempt MPC wire diagnostic](research/next-session/sender-private-lifecycle/review/ACTIVE-RETRY-EXPERIMENT-RECORD.md)
+gave 3/3 owner-verified unique predictions after a changed known cohort and 0/2
+for the same-cohort control. Exposed stable nullifiers can recur before
+settlement; two honest owners per round do not prevent cross-round
+intersection. An unpublished local attempt lock is lost during seed-only
+recovery. This is not a financial or network-anonymity result, and no mitigation
+has been established. Preserve it as an explicit negative result rather than
+qualifying active-coordinator anonymity.
+Amount, timing, fee remainders, ancestry and repeated-use linkage are measured
+separately. A missing transcript or recovery dependency is incomplete evidence.
+
+## Completed ADR-0064 baseline and retained assumptions
+
 [ADR-0064](docs/adr/0064-owner-private-native-kas-lifecycle.md) selects one new
 TN10-only integrated lifecycle. The
 [contract](research/next-session/owner-private-lifecycle/CONTRACT.md) requires

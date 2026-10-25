@@ -1,0 +1,734 @@
+{
+  "schema": "kpxa-independent-mixed-native-negative-controls/v1",
+  "classification": "KNOWN_PUBLIC_FIXTURE_SUPPLIED_CONTEXT_NATIVE_FULL_ONLY",
+  "cases": [
+    {
+      "case": "baseline",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": true,
+        "fee_sompi": 19228400
+      },
+      "all_input_engines_accepted": true,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": true,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "units": 15562777
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": true,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "changed_Output_component_proof",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 15562776
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "changed_effects_action_id",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 15562776
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "changed_final_Spend_component_proof",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 15562776
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "changed_matching_fee_and_reserve",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 15562776
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228401,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228401,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228401,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228401,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "changed_matching_reserve_outpoint",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+          "units": 15562776
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "corrupt_outer_native_proof",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+          "units": 15562776
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "extra_input",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "isolation:Some(TxDuplicateInputs)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 15430
+        },
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 1,
+          "typed_error": "VerifyError",
+          "units": 15430
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 4019228400,
+        "compute_mass": 380167,
+        "transient_mass": 79188,
+        "storage_mass": 0,
+        "mining_mass": 380167,
+        "relay_mass": 380167,
+        "quotes": [
+          {
+            "actual_sompi": 4019228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 38016700
+          },
+          {
+            "actual_sompi": 4019228400,
+            "passes": true,
+            "rate": 200,
+            "required_sompi": 76033400
+          },
+          {
+            "actual_sompi": 4019228400,
+            "passes": true,
+            "rate": 500,
+            "required_sompi": 190083500
+          }
+        ]
+      }
+    },
+    {
+      "case": "extra_output",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(VerifyError)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "VerifyError",
+          "units": 15549
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": false,
+        "source_adapted_default_relay_fee": false,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228399,
+        "compute_mass": 192707,
+        "transient_mass": 47868,
+        "storage_mass": 1000000000001,
+        "mining_mass": 1000000000001,
+        "relay_mass": 192707,
+        "quotes": [
+          {
+            "actual_sompi": 19228399,
+            "passes": false,
+            "rate": 100,
+            "required_sompi": 100000000000100
+          },
+          {
+            "actual_sompi": 19228399,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 200000000000200
+          },
+          {
+            "actual_sompi": 19228399,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 500000000000500
+          }
+        ]
+      }
+    },
+    {
+      "case": "insufficient_compute_budget",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ExceededCommittedScriptUnits { used: 24034, limit: 19999 })"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 19999,
+          "input_index": 0,
+          "typed_error": "ExceededCommittedScriptUnits { used: 24034, limit: 19999 }",
+          "units": 16452
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 12384,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 23828,
+        "relay_mass": 23828,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 2382800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 200,
+            "required_sompi": 4765600
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 500,
+            "required_sompi": 11914000
+          }
+        ]
+      }
+    },
+    {
+      "case": "wrong_selected_image_in_redeem",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(EvalFalse)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "EvalFalse",
+          "units": 15424
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "wrong_selected_tail",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(EvalFalse)"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "EvalFalse",
+          "units": 15424
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    },
+    {
+      "case": "zero_outer_native_proof",
+      "normalization_exit": 0,
+      "validation_exit": 0,
+      "Full": {
+        "accepted": false,
+        "typed_error": "SignatureInvalid(ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\"))"
+      },
+      "all_input_engines_accepted": false,
+      "per_input_ScriptEngine": [
+        {
+          "accepted": false,
+          "allowed_script_units": 18009999,
+          "input_index": 0,
+          "typed_error": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+          "units": 15562776
+        }
+      ],
+      "policy_flags": {
+        "source_adapted_block_mass_caps": true,
+        "source_adapted_default_relay_fee": true,
+        "source_adapted_sigop_policy": true,
+        "standard_script_classes": true
+      },
+      "expected_acceptance": false,
+      "expected_outcome_matched": true,
+      "public_mass_and_fee_metrics": {
+        "actual_fee_sompi": 19228400,
+        "compute_mass": 192284,
+        "transient_mass": 47656,
+        "storage_mass": 1,
+        "mining_mass": 192284,
+        "relay_mass": 192284,
+        "quotes": [
+          {
+            "actual_sompi": 19228400,
+            "passes": true,
+            "rate": 100,
+            "required_sompi": 19228400
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 200,
+            "required_sompi": 38456800
+          },
+          {
+            "actual_sompi": 19228400,
+            "passes": false,
+            "rate": 500,
+            "required_sompi": 96142000
+          }
+        ]
+      }
+    }
+  ],
+  "no_wallet_private_or_PK_mounts": true,
+  "network_funding_broadcast": false,
+  "passed": 13,
+  "expected": 13,
+  "engine_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+  "baseline_case_sha256": "812d4d8ba16a50c5322faf03ccfd0e174fda8d8da25fc66c91c73242b45157ea",
+  "private_original_contents_read_or_hashed": false
+}
