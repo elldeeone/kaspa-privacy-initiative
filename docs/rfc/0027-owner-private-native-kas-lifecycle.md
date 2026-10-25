@@ -9,8 +9,10 @@ remain Open. **Date:** 2026-10-24 UTC.
 records actual TN10 GN3/both batches, fresh-seed R2 payment/change spending,
 nine confirmed independent payouts, zero reserve and three further fresh
 terminal seed reconciliations. The bounded financial execution question is
-answered. Complete fees fail 2%; final public CI HTTPS/native replay remains
-pending publication. Privacy and independently administered retention stay open.
+answered. Complete fees fail 2%; [fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed final HTTPS retrieval and unchanged twelve-case native replay at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`, without testing off-host seed
+recovery. Privacy and independently administered retention stay open.
 
 ## Question
 

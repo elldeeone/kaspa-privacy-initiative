@@ -15,9 +15,11 @@ software/history/keys with original paths absent. The
 [neutral final accounting](../research/next-session/owner-private-lifecycle/accounting/PUBLIC-LIVE-TERMINAL-01.json)
 keep these actual observations separate from earlier local/profile results.
 
-Initial complete 64-object recovery HTTPS/replay passed. The final terminal
-payload audit/publication and public CI HTTPS/native replay still await
-their actual receipts at this prepublication checkpoint. Same-host recovery and
+Initial complete 64-object recovery HTTPS/replay passed. Following terminal
+publication, [fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed HTTPS retrieval and unchanged twelve-case native replay at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`. This is public verification,
+not off-host seed recovery. Same-host recovery and
 same-admin hosting do not establish independent custody, administration or
 long-term retention. The old ADR-0063 prototype remains deliberately unfunded;
 its bounded grouping result does not qualify the integrated profile's privacy.

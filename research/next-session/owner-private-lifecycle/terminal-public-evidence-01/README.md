@@ -30,8 +30,12 @@ Raw compressed pages and decoded gigabytes stay outside Git. Their exact hashes,
 lengths and public placement remain in the metadata; the new-page decoded
 [audit map](GZIP-AUDIT-MAP.json) is not a payload archive. The
 [operator candidate](CANDIDATE-OBJECTS.json) records the truthful pending-audit/
-publication state at assembly. It is not proof of URL availability. Actual new
-public CI HTTPS/native replay receipts must be assessed separately.
+publication state at assembly. It is not proof of URL availability. Separate
+[actual public CI result](../availability/PUBLIC-CI-RUN-40163954168-RESULT.json)
+records [fresh hosted run 40163954168](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+at source `a4578ae994105620a62becdb5cef802fc43f49ae`: HTTPS retrieval and
+unchanged twelve-case native replay passed. This is public verification,
+not off-host seed recovery or a privacy/independent-retention qualification.
 
 `owner_client_associations_selected=False` means no **additional private
 recovery-client-to-note/NF/exit/payout association artifacts** were selected.

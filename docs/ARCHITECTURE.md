@@ -22,8 +22,11 @@ downloaded software/history/keys and direct proofs with original paths absent.
 Three further fresh backups replayed final history, required every owned claim
 spent and rederived historical payout keys. This is same-host isolated execution,
 not independent custody. Initial complete 64-object HTTPS recovery passed;
-final publication and public CI HTTPS/native replay remain pending their actual
-receipts at this prepublication checkpoint.
+after terminal publication, [fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed HTTPS retrieval and unchanged twelve-case native replay at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`. This verifies public evidence on
+another machine; it does not establish off-host seed recovery or independent
+administration, retention, consensus or anonymity.
 
 Complete actual fees are 2.156935 KAS / frozen 21 KAS = 10.2711190476%, failing 2%.
 The [fee audit](../research/next-session/owner-private-lifecycle/fees/FEE-RATE-FINDING-01.md)

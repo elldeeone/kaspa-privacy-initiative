@@ -106,7 +106,9 @@ outer-proof/native and actual settlement checks passed. All nine native payouts
 are now confirmed after original-service loss; reserve is zero. Three further
 fresh original-seed/full-prefix scans required all owned claims spent and
 rederived historical payout keys. Complete fees are 2.156935 KAS / frozen 21 KAS
-= 10.2711190476%, failing 2%. Final public CI HTTPS/native replay remains pending.
+= 10.2711190476%, failing 2%. [Fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed final HTTPS retrieval and unchanged twelve-case native replay at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`; off-host seed recovery was not tested.
 Earlier local results remain supplied-context evidence.
 
 The local handoff had 27 targeted synthetic controls; two later live-entry

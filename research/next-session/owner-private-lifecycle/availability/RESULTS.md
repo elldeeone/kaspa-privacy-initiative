@@ -15,9 +15,10 @@ writers and shared prover stopped. The final reserve is zero with no successor.
 Three further fresh seed-only restores, complete final-prefix replays and scans
 then recovered the historical native payout keys and found all owned claims
 spent. Financial accounting passed; the frozen fee target failed: total fees
-were 2.156935 test KAS for 21 test KAS of private payments (10.271119%). Final
-terminal HTTPS verification and off-host CI are still pending. The original
-source and release share an administrator; immediate
+were 2.156935 test KAS for 21 test KAS of private payments (10.271119%).
+[Fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed final HTTPS retrieval and unchanged twelve-case SDK/native replay. The
+original source and release share an administrator; immediate
 retrieval provides no long-term retention guarantee.
 
 The public recovery adapter's 21 synthetic controls, six runner guard controls
@@ -274,9 +275,17 @@ runtime/keys before each original own seed and used the reviewed replacement
 relay for all nine confirmed native exits. Every new accepted head was
 independently reverified cold; three fresh terminal seed-only scans reconciled
 all owned claims and payout keys. Final neutral accounting passed, with the fee
-target explicitly failed. The audited terminal public evidence publication,
-one real final HTTPS retrieval/replay and off-host CI remain pending. The
-initial round-two 64-object snapshot remains unchanged.
+target explicitly failed. After audited terminal publication, fresh GitHub-hosted
+[run 40163954168](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+at source `a4578ae994105620a62becdb5cef802fc43f49ae` checked 1,964,534,235
+public bytes and replayed all twelve whole native cases, with all native Full/
+input engines and exact final HISTORY/CHECKPOINT hashes matched.
+[Actual result](PUBLIC-CI-RUN-40163954168-RESULT.json), SHA
+`f5ca9b9cf0208c29e60e7c6046fc4d50d7ce521246496d4806e0f3766fc14819`,
+records financial replay with network and original Forge paths absent. This is
+public replay on another machine, not off-host seed recovery, independent
+administration/retention, independent consensus or anonymity. No separate Forge
+terminal HTTPS run was performed. The initial round-two 64-object snapshot remains unchanged.
 
 A same-administrator GitHub release or personal Drive replica can demonstrate
 replacement-client byte retrieval; it cannot demonstrate separate

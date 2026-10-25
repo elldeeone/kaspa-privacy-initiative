@@ -6,11 +6,14 @@ original-seed payment/change recovery, nine direct exits after original-service
 loss, and further fresh terminal recovery. All nine native payouts are confirmed;
 reserve and owned claims reconcile to zero.
 
-**Final public verification is still pending at this prepublication checkpoint:**
-the terminal payload/metadata audit, upload observation and public CI HTTPS/
-SDK/native replay have not yet supplied their actual execution receipts.
-Financial privacy, the 2% fee target and independently administered retention
-are separate verdicts below.
+**Final public verification passed on a fresh GitHub-hosted machine:**
+[run 40163954168](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168) at source
+`a4578ae994105620a62becdb5cef802fc43f49ae` retrieved and checked
+1,964,534,235 public bytes, then executed unchanged SDK/native replay with all
+twelve whole native cases and exact final HISTORY/CHECKPOINT hashes matched.
+Network and original Forge paths were absent during financial replay. This is
+public-evidence verification, not off-host seed recovery. Financial privacy,
+the 2% fee target and independently administered retention are separate verdicts below.
 
 ## Completed bounded lifecycle
 
@@ -86,13 +89,17 @@ terminal public metadata. Raw gzip/decoded gigabytes stay outside Git.
   `a530cdfd6dfd8b880b7c9d6818f3cd1e35734a1680aa1430d80258c5bd8fb650`,
   and [public transport selection](terminal-public-evidence-01/transport/SELECTION.json),
   SHA `bdee89b718aa10db629b8260dab0a4ca5af1e4652ef149f2ea5715475bea0b42`:
-  whole-byte references/placements, not availability proof before actual upload.
+  whole-byte references/placements authenticated by the fresh public CI retrieval below.
 - [Initial complete recovery HTTPS retrieval](availability/ACTUAL-FULL-HTTPS-01.json),
   SHA `a9aa0c700582075e25f3ce7d1a9ed01f56cb4e19c8d4b54cf72aac374472a294`,
   and [cold accepted-R2 replay](availability/ACTUAL-HTTPS-CLOSED-R2-REPLAY-01.json),
   SHA `3f2c4e7ae45f8e06599da125cc55e25cd99e285ab09a090d2a28661b021c1f5c`:
   actual 64-payload retrieval and unchanged native replay, separate from the
-  pending public CI terminal HTTPS/native replay.
+  completed fresh-host terminal verification.
+- [Fresh hosted terminal verification](availability/PUBLIC-CI-RUN-40163954168-RESULT.json),
+  SHA `f5ca9b9cf0208c29e60e7c6046fc4d50d7ce521246496d4806e0f3766fc14819`,
+  with [recorded GitHub run/job identity](availability/PUBLIC-CI-RUN-40163954168-RUN-IDENTITY.json):
+  all twelve whole cases and exact final state replayed; no owner seeds or proving keys supplied.
 - [Original-service outage aggregate](availability/OBSERVED-OUTAGE-AGGREGATE-01.json),
   SHA `11d361b4425f0bc877b429481d3bb1712c1845f0b9710c36826b8b573549aa84`.
 - [Complete earlier local integration](../../../poc/owner-private-lifecycle/integration/RESULTS-01.md)

@@ -1,9 +1,11 @@
 # Final public evidence packet plan
 
-**2026-10-25. Prepublication checkpoint.** Nine actual native payouts and three
-fresh terminal seed reconciliations are complete. The selected terminal public
-metadata/native-case snapshot exists. Its audit/publication and final public CI
-HTTPS/native replay remain pending; no new local terminal HTTPS pass is claimed.
+**2026-10-25. Completed public verification.** Nine actual native payouts and
+three fresh terminal seed reconciliations are complete. After terminal snapshot
+publication, [fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed HTTPS retrieval and unchanged twelve-case native replay at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`. No separate Forge terminal HTTPS
+run or off-host seed recovery is claimed. The assembly/audit plan below is retained.
 
 ## Reuse the existing immutable snapshot
 

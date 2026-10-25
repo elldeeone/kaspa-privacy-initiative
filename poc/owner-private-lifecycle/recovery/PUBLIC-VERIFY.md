@@ -5,11 +5,10 @@ HTTPS transport, strict archive unpacker and frozen `replay_closed.py`. It adds
 no financial parser, proving, signing, wallet recovery or chain RPC interface.
 
 The workflow is restricted to pushes on `research/shielded-kas-feasibility` that
-change its source, workflow or configuration. The committed configuration starts
-with `enabled: false`; there are no guessed future object hashes. Enable it only
-after the actual terminal objects pass publication checks, exist at their public
-URLs with exact observed release size/digest identities. The fresh hosted job is
-the final HTTPS download and financial replay.
+change its source, workflow or configuration. Enable its configuration only
+after the actual terminal objects pass publication checks and exist at their
+public URLs with exact observed release size/digest identities. The fresh hosted
+job is the final HTTPS download and financial replay.
 
 An enabled `kpx8-public-verification-config/v1` contains exactly:
 
@@ -59,7 +58,17 @@ python3 -B poc/owner-private-lifecycle/recovery/public_verify.py \
 
 Actual public verification requires explicit `--execute --output FRESH_PATH` on
 a fresh host. The operator refuses execution when original Forge paths exist.
-No actual off-host run is established by these source/metadata controls.
+The source/metadata controls alone do not establish an actual off-host run.
+
+Actual [run 40163954168](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed on a fresh GitHub-hosted Ubuntu24.04 machine at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`. It checked 1,964,534,235 public
+bytes, executed unchanged SDK/native replay and matched all twelve whole cases
+and exact terminal HISTORY/CHECKPOINT hashes. The retained
+[RESULT](../../../research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-RUN-40163954168-RESULT.json)
+has SHA `f5ca9b9cf0208c29e60e7c6046fc4d50d7ce521246496d4806e0f3766fc14819`;
+[run/job identity](../../../research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-RUN-40163954168-RUN-IDENTITY.json)
+is a recorded GitHub API observation, not a signed attestation.
 
 A successful hosted run demonstrates replay of the recorded public financial
 evidence on another machine. It does not demonstrate off-host seed recovery,

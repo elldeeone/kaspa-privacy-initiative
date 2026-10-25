@@ -12,7 +12,9 @@ requires confirmed terminal payouts. This is not a security or privacy approval.
 records actual TN10 GN3/both batches, fresh-seed payment/change spending,
 nine confirmed payouts, zero reserve and three further fresh terminal seed
 reconciliations. Complete fees are 2.156935 KAS / frozen 21 KAS = 10.2711190476%,
-failing 2%. Public CI's final HTTPS/native replay remains pending publication.
+failing 2%. [Fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed final HTTPS retrieval and unchanged twelve-case native replay at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`; it did not test off-host seed recovery.
 Privacy, setup, host, consensus and availability assumptions are unchanged.
 
 ## Problem and scope
