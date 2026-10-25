@@ -1,0 +1,253 @@
+{
+  "actual_confirmed_mixed_case": {
+    "actual_fee_sompi": 19914100,
+    "budget_mass": 180000,
+    "budget_mass_fraction_denominator": 199141,
+    "budget_mass_fraction_numerator": 180000,
+    "budget_mass_percent": 90.38821739370597,
+    "compute_budget": 1800,
+    "compute_mass": 199141,
+    "grams_per_budget_unit": 100,
+    "metrics_sha256": "f7f1e46fac9fca4252658a7ca3fa67d88c315ffd3990b4d2b28bb7ce9dac9a9a",
+    "metrics_source_path": "/var/tmp/kpi-owner-private-lifecycle-01/public/native-selected-live-round2-01/out/native/metrics.json",
+    "mining_mass": 199141,
+    "normalized_relay_mass": 199141,
+    "output_script_mass": 370,
+    "serialized_size_mass": 18771,
+    "storage_mass": 0,
+    "transient_mass": 75084
+  },
+  "distinctions": {
+    "chosen_frozen_reference_rate_sompi_per_mass": 100,
+    "consensus_universal_100_sompi_per_mass_minimum_found": false,
+    "estimate_is_not_inclusion_guarantee": true,
+    "exact_remote_admission_floor_empirically_established": false,
+    "pinned_default_relay_fee_sompi_per_kg": 100000,
+    "pinned_standard_relay_policy_sompi_per_gram": 100,
+    "source_fee_mass_formula": "max(compute_mass,normalized_transient_mass)",
+    "source_standard_policy_bypassed_if_accept_non_standard": true
+  },
+  "fee_lowered_candidate_new_trial_or_broadcast": false,
+  "native_verifier_dependency_commit": "01b532e8b553523216471682649693af92f0fd16",
+  "native_verifier_dependency_sources": [
+    {
+      "bytes": 7495,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "04bfd1aea5f4af348ce8175a55f57adffc0b84e7",
+      "path": "mining/src/mempool/config.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          17,
+          20
+        ],
+        [
+          123,
+          141
+        ]
+      ],
+      "sha256": "862f3161f6561c300de83a6d97f2b1ede25e7c2a30117f78737fb44502a23bf7",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/mining/src/mempool/config.rs"
+    },
+    {
+      "bytes": 20329,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "1b6d152d45ad6f8e1f57e75e1c34490c39b5c12f",
+      "path": "mining/src/mempool/check_transaction_standard.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          67,
+          104
+        ]
+      ],
+      "sha256": "9de15e3df1d932520c3051712c0a0cbcd66fd734b4727e82f7722d996656e571",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/mining/src/mempool/check_transaction_standard.rs"
+    },
+    {
+      "bytes": 13045,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "d286938c637aaf67e0be0775a5dfa68b5f607340",
+      "path": "mining/src/mempool/validate_and_insert_transaction.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          157,
+          168
+        ]
+      ],
+      "sha256": "a7b8a207f65dd2fd87b8c40e5ad2d2106f212ea39d74adc3989a640338638610",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/mining/src/mempool/validate_and_insert_transaction.rs"
+    },
+    {
+      "bytes": 50222,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "477101933095872c5fdee38806a00ea369a87056",
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          37,
+          66
+        ],
+        [
+          116,
+          123
+        ]
+      ],
+      "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs"
+    },
+    {
+      "bytes": 6857,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "cc0fafb1c03254b1b1132e645bd64ff23ac26049",
+      "path": "consensus/core/src/mass/units.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          4,
+          7
+        ]
+      ],
+      "sha256": "0a47b4dda868da1df5064a9745c4f1278d9b3fd388db7416f5fb05068fef12ab",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/mass/units.rs"
+    },
+    {
+      "bytes": 38856,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "61816a77efb28c59655ceb238d02a3770a4ab961",
+      "path": "consensus/core/src/mass/mod.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          340,
+          369
+        ]
+      ],
+      "sha256": "7e17c80810046525e7bf1a7147e6e8c6918dfe4c76ef64b6ca4078502d2a9fae",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/mass/mod.rs"
+    },
+    {
+      "bytes": 56398,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "4ecb1a178ff8800041fd7049aa2b69ab6d72730d",
+      "path": "mining/src/manager.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          64,
+          75
+        ],
+        [
+          220,
+          224
+        ]
+      ],
+      "sha256": "f144774379a4c5636f638bd17abd314fbfcc3dcf48552fcc8bfacbe64c346509",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/mining/src/manager.rs"
+    },
+    {
+      "bytes": 10984,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "bd637149cc2ea4b857bae9465050063ef749d5f6",
+      "path": "mining/src/feerate/mod.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          140,
+          161
+        ]
+      ],
+      "sha256": "4d2e46ad31c356e84a9e148dbf9d96cd4d4fa6c4e8f191321bafa853e3b2a443",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/mining/src/feerate/mod.rs"
+    },
+    {
+      "bytes": 32284,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "000973eabaf46a933c4a2f8030ae839e75b6baf3",
+      "path": "kaspad/src/daemon.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          648,
+          660
+        ]
+      ],
+      "sha256": "601fe2852a4f9f4f413a1319cd22a161415e380f2389bc974d64f0c6250c8ae5",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/kaspad/src/daemon.rs"
+    },
+    {
+      "bytes": 4900,
+      "commit": "01b532e8b553523216471682649693af92f0fd16",
+      "git_blob_sha1": "cf97a4b36e5b46d51bfba675406d804efc3289c4",
+      "path": "rpc/core/src/model/feerate_estimate.rs",
+      "repository": "https://github.com/kaspanet/rusty-kaspa",
+      "reviewed_line_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "sha256": "0a7d4251e8ebd54a7f5e6fce21d61958b6cfff1cd4f498d524dbb898e11bb161",
+      "tracked_bytes_equal_commit_blob": true,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/rpc/core/src/model/feerate_estimate.rs"
+    }
+  ],
+  "observed_at_utc": "2026-10-25T00:26:03.536173+00:00",
+  "official_default_branch_observation": {
+    "command": "git ls-remote https://github.com/kaspanet/rusty-kaspa refs/heads/master",
+    "commit": "4edcbbccb449f84832afb1ca157904b35f37d006",
+    "files": [
+      {
+        "bytes": 7495,
+        "commit": "4edcbbccb449f84832afb1ca157904b35f37d006",
+        "path": "mining/src/mempool/config.rs",
+        "repository": "https://github.com/kaspanet/rusty-kaspa",
+        "sha256": "862f3161f6561c300de83a6d97f2b1ede25e7c2a30117f78737fb44502a23bf7",
+        "url": "https://github.com/kaspanet/rusty-kaspa/blob/4edcbbccb449f84832afb1ca157904b35f37d006/mining/src/mempool/config.rs"
+      },
+      {
+        "bytes": 20329,
+        "commit": "4edcbbccb449f84832afb1ca157904b35f37d006",
+        "path": "mining/src/mempool/check_transaction_standard.rs",
+        "repository": "https://github.com/kaspanet/rusty-kaspa",
+        "sha256": "9de15e3df1d932520c3051712c0a0cbcd66fd734b4727e82f7722d996656e571",
+        "url": "https://github.com/kaspanet/rusty-kaspa/blob/4edcbbccb449f84832afb1ca157904b35f37d006/mining/src/mempool/check_transaction_standard.rs"
+      },
+      {
+        "bytes": 33829,
+        "commit": "4edcbbccb449f84832afb1ca157904b35f37d006",
+        "path": "kaspad/src/daemon.rs",
+        "repository": "https://github.com/kaspanet/rusty-kaspa",
+        "sha256": "afff35f5dcb28d07a4177a00686fb0121cda70c0f1b405f3526864e7e2cdf025",
+        "url": "https://github.com/kaspanet/rusty-kaspa/blob/4edcbbccb449f84832afb1ca157904b35f37d006/kaspad/src/daemon.rs"
+      }
+    ]
+  },
+  "private_wallet_or_proving_keys_read": false,
+  "schema": "kpx8-read-only-fee-source-evidence/v1",
+  "selected_financial_profile_sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+  "selected_remote_node_observation": {
+    "accept_non_standard_enabled": null,
+    "advertised_server_version": "2.1.0",
+    "all_returned_fee_buckets_sompi_per_gram": 100,
+    "authenticated_binary_commit": null,
+    "authenticated_operator_config": null,
+    "experimental_request_failed_missing_verbose": true,
+    "network_id": "testnet-10",
+    "observed_at": "2026-10-25T00:23:45.970Z",
+    "probe_sha256": "ad086f2db75432ad6b30aeae53550c930b5b5d8b47de4cf6e721b492254e7f82",
+    "probe_source_path": "/var/tmp/kpi-owner-private-lifecycle-01/public/live-01/NODE-FEE-PROBE-01.json"
+  },
+  "trial_profile_rate_candidate_or_ledger_changed": false
+}

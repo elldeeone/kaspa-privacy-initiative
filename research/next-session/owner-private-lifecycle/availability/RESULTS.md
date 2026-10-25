@@ -1,11 +1,24 @@
 # Integrated lifecycle recovery availability
 
-An actual original backup now restores and scans the historical local round-two
-state using a strictly unpacked, independently pinned software bundle. Both
-closed worker operations passed with original home/repository/private/cache
-paths absent, no foreign backups, and no network, GPU or shared prover in the
-client. This is local recovery evidence; actual HTTPS retrieval, accepted live
-backing/payouts and separately administered storage remain separate gates.
+A fresh isolated client has now retrieved the complete 64-object public
+payload set (1,712,656,346 bytes) from the GitHub release, with every whole
+hash/length checked and original repo/cache/private/PK paths absent. The
+unchanged transport completed in 112.577 seconds. A derived runtime contains
+exactly the authenticated 63 base files and seven separately reviewed sources.
+
+That downloaded runtime then executed actual native Full and every input
+engine for GN3 and both accepted mixed rounds, reconstructing the exact selected
+round-two history/checkpoint. The closed replay had no owner, seed, PK, network
+or GPU access. Fresh seed-only replacement clients have since completed all
+nine independently authorized, confirmed native payouts after the original
+writers and shared prover stopped. The final reserve is zero with no successor.
+Three further fresh seed-only restores, complete final-prefix replays and scans
+then recovered the historical native payout keys and found all owned claims
+spent. Financial accounting passed; the frozen fee target failed: total fees
+were 2.156935 test KAS for 21 test KAS of private payments (10.271119%). Final
+terminal HTTPS verification and off-host CI are still pending. The original
+source and release share an administrator; immediate
+retrieval provides no long-term retention guarantee.
 
 The public recovery adapter's 21 synthetic controls, six runner guard controls
 and five cold-owner preflight controls pass. An earlier network-disabled
@@ -85,11 +98,151 @@ three-file SDK/runtime relocation without fallback to original cache paths;
 it is no RPC, native VM, wallet-key or chain-acceptance result. The exact
 receipt is `ACTUAL-RESTORED-SDK-ISOLATION-01.json`.
 
-`PUBLIC-STATIC-SELECTION-01.json` now enumerates 18 exact static public objects,
-including all three whole parameter families and the complete software archive,
-totaling 1,337,537,746 bytes. Root canary and tar-member audits precede any
-upload. Actual trial descriptor/history/checkpoint objects and provider URLs
-are not yet selected by this static draft.
+`PUBLIC-STATIC-SELECTION-01.json` enumerates the 18 exact static objects,
+including all three whole parameter families and the complete software archive.
+After root's 65 original-leaf canaries returned zero matches and the 66-member
+canonical tar audit passed, root published the
+[public recovery release](https://github.com/elldeeone/kaspa-privacy-initiative/releases/tag/owner-private-kas-recovery-2026-10-24).
+`STATIC-HTTPS-SELECTION-01.json` retains the observed URLs and external hashes;
+`STATIC-HTTPS-RESTORE-01.json` retains every whole-object transport result.
+`ACTUAL-STATIC-HTTPS-01.json` records the real retrieval and strict unpack.
+
+The original issuer provider was excluded and its hosts denied. The fresh
+namespace had no original home/repository/cache/private/parameter paths; this
+models their unavailability to the client without shutting down Forge. No
+backup was mounted and no downloaded payload was executed or imported. The
+static selection has no trial founding descriptor, accepted-history index or
+checkpoint, so it cannot produce a complete financial recovery handoff.
+A wrong-external-digest wrapper control also returned `INCOMPLETE` without a
+selected object; its generic transport deliberately hides the specific failure
+cause, so that control is not claimed as a separately observed wire/hash fault.
+
+## Closed public native replay
+
+The separately selected standard-library bootstrap `replay_closed.py` now
+runs the unchanged downloaded native/financial replay with explicit restored
+crypto/Node/native-engine/SDK and codec paths. Its source gate caught and fixed
+a missing fixed-profile label check before execution; Source02 and nine
+synthetic metadata/page/profile controls retain the final source and outcome.
+No source in the static 63-file software archive changed.
+
+A genuine recorded confirmed GN3 prefix then replayed successfully with all
+original paths absent, no owner/PK/seed mounts and network/GPU unavailable.
+The selected native Full and every input engine executed; the reconstructed
+history/checkpoint exactly matched their external pins. Total launch time was
+11.272 seconds, including complete software authentication/staging; the inner
+replay took 0.657 seconds wall and 0.804 CPU seconds.
+`ACTUAL-CLOSED-GN3-REPLAY-01.json` records the neutral result. The static runtime
+came from actual HTTPS retrieval, while this control's public GN3 data and
+explicit trusted bootstrap were locally selected. It is not full off-host
+accepted-R2 history retrieval, continuous consensus/currentness, or a payout.
+
+## Complete actual HTTPS closure and accepted round-two replay
+
+The complete experiment downloaded all 64 selected objects once into a fresh
+store, including the already published static18. The two measurements do not
+represent 82 unique objects. Root independently rehashed all actual payloads;
+`ACTUAL-FULL-HTTPS-01.json` binds the exact selection, closure, 18-role handoff,
+81 private exclusions and strict runtime assembly.
+
+The 46 newly published objects include genuine accepted GN3/two-round history,
+checkpoint, actual current-entry context, all 24 full compressed main/post-query
+pages, the stopped-writer/resolved-six-stage relay handover and reviewed source
+overlays. Root's finite 98-file publication scope also included the exact
+1,607,688,476 decoded audit bytes and provenance; all 65 isolated original-leaf
+canaries returned zero matches. Per-owner exports and schedules are excluded.
+
+A separate original-path-absent namespace then replayed all three actual
+transactions using only downloaded runtime/data. Its history SHA is
+`69e7bb2570c1f1cc89373fdbb40921f8c17a60952b4e195dbd96246457e0efc4`;
+checkpoint SHA is
+`affed7bd8cf7c57987c78c2a0bd6b2effc16f5b13c53ccf94bc92c245399cc37`.
+`ACTUAL-HTTPS-CLOSED-R2-REPLAY-01.json` records actual native checks, a 38.354-second
+launch and 23.994-second inner replay (27.636 CPU seconds). The raw archive tree
+remains unchanged; derived source/ASSETS/observation paths were rebound without
+an original-repository or first-download dependency.
+
+The tiny top-level transport/closure manifests remain explicitly local,
+externally pinned trusted bootstrap inputs until their final audited
+publication. All 64 payload URLs are observed real public HTTPS URLs. This
+phase mounts no original backup and generates no owner proof or payout. The
+approved raw selected-node observer supplies bytes; each subsequent owner and
+replacement relay must independently reverify the complete accepted prefix.
+
+## First confirmed replacement exit
+
+Three fresh clients were restored through the authenticated downloaded worker,
+each mounting only its own original backup. The selected client independently
+replayed the complete current prefix, proved its own exit and constructed and
+validated the public native case with downloaded helpers. The replacement
+relay repeated the unchanged complete replay/native preflight, joined the
+actual current UTXO including birth DAA, then performed two input queries around
+a durable reservation and exactly one submission. Original repo/cache/assets,
+owner paths and the original once registry were absent inside the relay.
+
+The first transaction is
+`489be2ffbc947ed54f9c1b1bee117b3e7d710c5e608f14fe540d2f037254b22e`.
+The read-only observer subsequently confirmed its exact accepted case,
+including witness, budget and contexts, and observed the native payout of
+1,267,683,434 sompi. The accepted successor reserve is 4,673,447,866 sompi.
+The typed relay receipt SHA is
+`831117189a144913f76bad21d41797943ccd2287e6d22459f1fbae11f1419a9a`;
+the actual confirmation handoff SHA is
+`54c224e9d0a9f4c857784312b73341cc45149f4fe6303aa6f9c067a6a4c65c3c`.
+The next owner consumes all 44 retained main/post-query pages and independently
+reconstructs that accepted history before another exit. Submission ACK alone
+is never counted as a confirmed payout, and UNKNOWN never permits resubmission.
+
+Client selection, READY/restore/scan outputs and owner-to-exit associations
+remain private. The public receipt identifies only protocol transactions and
+aggregate progress. This is testnet evidence on the same physical host with
+closed replacement namespaces, not a separate-administrator recovery claim.
+
+## All nine exits and fresh terminal recovery
+
+The replacement relay submitted exactly nine selected candidates, each after
+the unchanged complete downloaded SDK/native replay and current-input joins.
+After every acknowledged submission, the read-only observer confirmed the
+exact accepted case, including witness, budget, gas and entries, and observed
+every payout before the next owner independently replayed the new full prefix.
+No stage10 or automatic transaction resend is permitted.
+
+The final transaction is
+`c0561fd7a124484476d746a9fbfdc5f8c47e7da43a02c7aa021d2b0dd5c158dd`.
+The final recorded prefix has 12 accepted pool transactions: GN3, two mixed
+rounds and nine individual exits. All nine native payout UTXOs were observed
+with exact values and scripts, and the terminal checkpoint has reserve0,
+current null and no successor. Its confirmation handoff SHA is
+`8b3188822050fcaee2ffb69870184420da5cc47e91831757c3487e9ae84d3e6c`;
+the final exact-case receipt SHA is
+`2d76278601030dac072c858748251e1eea69ebdc02f5d160b629e9e47d7741e3`.
+
+Three further original-seed restores each independently replayed the complete
+terminal prefix and ran the unchanged SOURCE04 scan. The neutral aggregate
+SHA `1873565f1ad27b9e600a187f39a59a384527f301f3561f6e699f57c1302ed6f9`
+records that all owned claims were spent and the native payout keys were
+rederived. The final accounting closure passed in
+`../accounting/PUBLIC-LIVE-TERMINAL-01.json` (SHA
+`20171bc5474dff30a70575c5153d04bcff5824f50b675276dc3a175843436079`).
+Total fees were 215,693,500
+sompi for 2,100,000,000 sompi of private payments, so the frozen fee target
+failed at 10.271119%. Functional completion does not imply the cost target was
+met. No per-client IDs, scan selectors or ownership associations are selected
+for release.
+
+The run retained two operational failures. The original observer prepared its
+cache synchronously after opening a WebSocket, then encountered disconnected
+RPCs; cache preparation now precedes connection and fallback opens a fresh
+connection. A later timing float
+was correctly rejected by the frozen integer-only cold parser before the sixth
+candidate. Root selected a separately recorded integer-millisecond derivation
+of that metadata field; all other fields and types and all 63 compressed page
+files stayed unchanged. A fresh downloaded closed replay reproduced the exact history and
+checkpoint and generated new SDK/replay reports bound to the derived fetch
+hash. The original capture, reports, handoff and prior five durable submission
+markers remain unchanged. Future captures use the reviewed integer producer;
+the financial parser, profile, source63, proofs, rate and payment workload did
+not change. The repaired path subsequently completed payouts six through nine.
 
 ## Selected relation assets
 
@@ -98,8 +251,7 @@ the selected Spend, Output and Exit manifests, their three whole proving keys,
 their verification keys and the new relation executable. The keys total
 1,278,569,552 bytes. This used the root guard's metadata exclusion before each
 public stream and made no additional key copies. It is a local byte check;
-final native/profile/software/history selection and actual replica retrieval
-remain separate.
+financial history/currentness and actual owner recovery remain separate.
 
 ## Refreshed destination discovery
 
@@ -116,12 +268,15 @@ The Google Drive skill used for this metadata discovery is
 
 ## Remaining experiment
 
-After root selects/audits the actual software, complete parameters, founding
-descriptor and all accepted history, instantiate the closure and replica
-selection. Fresh clients must deny original issuer access and restore every
-object. The owner lane then independently authenticates runtime/keys before
-seed access, replays/reconciles accepted state, scans from original backup and
-proves exits with the original coordinator/shared prover unavailable.
+The complete accepted round-two payloads have now been audited, published,
+restored and replayed. Fresh clients authenticate the shared downloaded
+runtime/keys before each original own seed and used the reviewed replacement
+relay for all nine confirmed native exits. Every new accepted head was
+independently reverified cold; three fresh terminal seed-only scans reconciled
+all owned claims and payout keys. Final neutral accounting passed, with the fee
+target explicitly failed. The audited terminal public evidence publication,
+one real final HTTPS retrieval/replay and off-host CI remain pending. The
+initial round-two 64-object snapshot remains unchanged.
 
 A same-administrator GitHub release or personal Drive replica can demonstrate
 replacement-client byte retrieval; it cannot demonstrate separate

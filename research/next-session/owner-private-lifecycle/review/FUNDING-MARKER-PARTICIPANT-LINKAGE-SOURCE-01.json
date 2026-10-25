@@ -1,0 +1,296 @@
+{
+  "assumptions_to_keep_explicit": [
+    "Public participant/cohort metadata and input-owner labels are visible; overall sender anonymity is not established by hiding owner-to-output grouping.",
+    "Output confidentiality continues to rely on the declared MPC/eligible-honest-participant premises, secret wallet custody and unavailable private openings; endpoint/host administration and timing remain separate observers.",
+    "Original-seed recovery retains the participant label and uses public sessions; changing labels in a saved backup is not a safe retroactive unlinking fix.",
+    "Root/private host isolation is a research boundary, not protection against the host administrator."
+  ],
+  "bounded_inferences": [
+    "For an ordinary transaction actually emitted by this helper, its public marker labels its funding transaction/output with the trial and persistent participant pseudonym. Root reports this marker was already broadcast in the current testnet acquisition; this reviewer did not inspect actual payload values.",
+    "With the authentic public session roster and the selected ordered assembly source, participant i is associated with mixed spend NF/CV slot i. Consequently the marker can extend transparent funding attribution to that party input slot. This is an implementation/source-observer association, not recovery of identity from a nullifier in isolation.",
+    "Keeping READY/acquisition-case/local ledger copies out of a release avoids additional private association artifacts but cannot erase a marker already public on chain or the ordered public session/input linkage.",
+    "The ordinary funding marker is harness metadata, not a required commitment/nullifier/authorization/backing field of the selected GN3/mixed/exit financial protocol. A future harness can avoid it, but altering already signed/broadcast transactions or the current frozen run is not proposed.",
+    "The existing threat model already declares input-owner NF/CV labels visible for the output-grouping target. The newly identified funding marker makes a transparent-funding link to those reused public labels explicit; it does not demonstrate failure of the MPC output shuffle or encryption."
+  ],
+  "created_at_utc": "2026-10-25T02:26:36.570099+00:00",
+  "final_packet_flag_calibration": {
+    "does_not_mean": "No public protocol pseudonyms, input-party associations or inferable funding links exist.",
+    "field": "owner_client_associations_selected",
+    "intended_false_meaning": "No additional private recovery-client-to-note/NF/exit/payout association artifacts are selected.",
+    "recommendation": "Precise documentation/interface scope beside the manifest and final results suffices for the current artifact-selection flag. Do not describe that flag as an anonymity or unlinkability result; explicitly disclose the public roster-to-input label and already-public funding marker. No financial source change is requested."
+  },
+  "implementation_or_frozen_profile_changes": false,
+  "independent_second_pass": "A separate source-only reviewer confirmed roster/READY/input serialization order and found no intervening input shuffle in the inspected selected path.",
+  "not_established_by_this_review": [
+    "No actual identifier-to-nullifier, initial-note, receiver, change, terminal-exit or payout-owner mapping was constructed or scored.",
+    "This trace alone does not identify which shuffled output belongs to a participant, which output is payment versus change, or which terminal nullifier/payout belongs to an owner.",
+    "No real-world legal identity is established by a pseudonymous participant label unless outside information associates the funding wallet or label with that identity.",
+    "No broader privacy experiment, statistical amount/timing correlation analysis, expanded cohort, malicious-party run or cryptographic attack was performed."
+  ],
+  "recommended_current_action": "Document the source-level funding marker and ordered-input linkage, preserve failed/limited evidence, and exclude the three raw acquisition cases and owner-labelled acquisition ledger from publication as Root directed. Continue the unchanged authorized testnet lifecycle; privacy redesign belongs to a separately scoped future design decision.",
+  "review_actions": {
+    "actual_owner_identifier_or_NF_values_read": false,
+    "network_requests": 0,
+    "private_contents_read": false,
+    "private_maps_or_logs_read": false,
+    "tests_or_privacy_experiments": 0,
+    "transactions_sent": 0
+  },
+  "schema": "kpx8-symbolic-funding-marker-privacy-source-finding/v1",
+  "scope": "Symbolic public-source trace only. No actual participant identifiers, nullifiers, payout-owner associations, private maps, original backups or logs were read or constructed.",
+  "source_facts": [
+    {
+      "fact": "The ordinary consolidation helper constructs an88-byte payload from8-byte KPX8MF01,32-byte selected domain,16-byte trial UUID and32-byte original participant identifier. It is assigned to the ordinary self-consolidation transaction before signing.",
+      "source": "bootstrap/fund_worker.py:62-76"
+    },
+    {
+      "fact": "The participant identifier is supplied separately from the randomly generated wallet seed, saved in its backup/initial-public record, retained on restore, and checked unchanged by the funding helper. It is a pseudonymous client label, not a spending or nullifier secret.",
+      "source": "wallet/worker.py:173-198; bootstrap/fund_worker.py:62-66"
+    },
+    {
+      "fact": "The harness reuses each owner participant identifier in an ordered public session roster. The session hash and roster digest are bound into the mixed body, and accepted public history carries the session specification.",
+      "source": "integration/rounds.py:46-68; integration/driver.py:149-159; integration/public.py:147-162"
+    },
+    {
+      "fact": "READY rows are validated against roster[i] and passed to body construction in the same index order. Body construction serializes the NF/CV inputs in that order. The inspected selected path has no input permutation.",
+      "source": "integration/rounds.py:70-84,114-138; integration/driver.py:84-92,169-177; integration/public.py:219-240"
+    },
+    {
+      "fact": "The MPC inputs contain two complete confidential output tuples per party and its blinding aggregate. The MPC random-key sort opens only the six shuffled output tuples and aggregate, not original party-to-output assignments. This output shuffle does not shuffle the separately assembled NF/CV input list.",
+      "source": "integration/construction/codec.py:63-67; integration/construction/kpx7_mix.mpc:8-47"
+    },
+    {
+      "fact": "The construction coordinator receives the public session/roster and identical mixed projections. The separate public financial assembler receives ordered NF/CV skeletons plus roster. Neither selected coordinator interface receives the wallet seed or hidden note openings.",
+      "source": "integration/construction/coordinator.py:10-32; integration/driver.py:174-177; integration/coordinator.py:18-28"
+    },
+    {
+      "fact": "GN3 payload encoding includes the selected profile/domain/trial and three complete initial note records, with no participant-identifier field. Its entry validator checks actual input points/scripts/value and note/CM/reserve/change/fee allocation; it does not require or parse KPX8MF01 in ordinary source-parent payloads.",
+      "source": "bootstrap/gn3.py:41-78,111-167; bootstrap/gn3_entry.py:33-67"
+    },
+    {
+      "fact": "Positioned nullifiers are keyed with the owner-derived nullifier secret; exposing the participant label alone does not disclose that secret or supply note-spend authorization.",
+      "source": "poc/future-recipient/v2/recipient.py:243-249; wallet/worker.py:330-335"
+    }
+  ],
+  "sources": [
+    {
+      "bytes": 8217,
+      "path": "poc/owner-private-lifecycle/bootstrap/fund_worker.py",
+      "reviewed_line_spans": [
+        [
+          55,
+          76
+        ],
+        [
+          89,
+          94
+        ]
+      ],
+      "sha256": "7a61c85da31abb0e016ec013b0e956b1a7d73b53d4ffeffe356530f14b2b047a"
+    },
+    {
+      "bytes": 10441,
+      "path": "poc/owner-private-lifecycle/bootstrap/gn3.py",
+      "reviewed_line_spans": [
+        [
+          41,
+          78
+        ],
+        [
+          111,
+          138
+        ],
+        [
+          146,
+          167
+        ]
+      ],
+      "sha256": "714a9af441e3997265b030cfc786a2be81b0baafa05709ef86e29bc49e32bf47"
+    },
+    {
+      "bytes": 8371,
+      "path": "poc/owner-private-lifecycle/bootstrap/gn3_entry.py",
+      "reviewed_line_spans": [
+        [
+          33,
+          67
+        ]
+      ],
+      "sha256": "184e7afcb8ce2a2b6c2e04427de22accf83743f8acf91d58b2f99b2bf9e241ed"
+    },
+    {
+      "bytes": 5783,
+      "path": "poc/owner-private-lifecycle/bootstrap/sign_worker.py",
+      "reviewed_line_spans": [
+        [
+          44,
+          56
+        ],
+        [
+          65,
+          74
+        ]
+      ],
+      "sha256": "0da54a9f3377767c7cfee59ab35964848c2edc2b1a797717d8263197e6885016"
+    },
+    {
+      "bytes": 29028,
+      "path": "poc/owner-private-lifecycle/wallet/worker.py",
+      "reviewed_line_spans": [
+        [
+          34,
+          45
+        ],
+        [
+          173,
+          198
+        ],
+        [
+          204,
+          215
+        ],
+        [
+          218,
+          272
+        ],
+        [
+          297,
+          335
+        ]
+      ],
+      "sha256": "8793a0e1d18f620645411c374ebad994cf4a04e4d29e153841b6b7c727122509"
+    },
+    {
+      "bytes": 9887,
+      "path": "poc/owner-private-lifecycle/integration/rounds.py",
+      "reviewed_line_spans": [
+        [
+          46,
+          68
+        ],
+        [
+          70,
+          92
+        ],
+        [
+          114,
+          138
+        ]
+      ],
+      "sha256": "aedf1b6e647549adf86b22430d7fba9b17ebfddfbbd93b0857274d88edf6b5da"
+    },
+    {
+      "bytes": 17256,
+      "path": "poc/owner-private-lifecycle/integration/driver.py",
+      "reviewed_line_spans": [
+        [
+          84,
+          107
+        ],
+        [
+          149,
+          177
+        ]
+      ],
+      "sha256": "40dbf368fba1e6f2a6b6332ef4308819d502083b5483d054f71556140089b5c5"
+    },
+    {
+      "bytes": 14693,
+      "path": "poc/owner-private-lifecycle/integration/public.py",
+      "reviewed_line_spans": [
+        [
+          50,
+          53
+        ],
+        [
+          147,
+          162
+        ],
+        [
+          219,
+          240
+        ]
+      ],
+      "sha256": "de660523bf8381cc5a3bb198ac4a0930a190d90b22f63d9a9510599c2d28db4c"
+    },
+    {
+      "bytes": 2677,
+      "path": "poc/owner-private-lifecycle/integration/coordinator.py",
+      "reviewed_line_spans": [
+        [
+          18,
+          28
+        ]
+      ],
+      "sha256": "5132a2a77ec03f3937f646a4edf0f3193d22a958a4a6fb4252d9e1451955eb4b"
+    },
+    {
+      "bytes": 5240,
+      "path": "poc/owner-private-lifecycle/integration/construction/codec.py",
+      "reviewed_line_spans": [
+        [
+          63,
+          87
+        ],
+        [
+          90,
+          117
+        ]
+      ],
+      "sha256": "99148130508e20e5865e4ae14059a0a94e5c2203aedb651679514b9dbe08c724"
+    },
+    {
+      "bytes": 3131,
+      "path": "poc/owner-private-lifecycle/integration/construction/coordinator.py",
+      "reviewed_line_spans": [
+        [
+          10,
+          32
+        ]
+      ],
+      "sha256": "e59ccf9dd50ac3c49b9e15939eecb0bb637c392da8a5a190c5d558e6bc8f69ae"
+    },
+    {
+      "bytes": 3293,
+      "path": "poc/owner-private-lifecycle/integration/construction/party.py",
+      "reviewed_line_spans": [
+        [
+          11,
+          43
+        ],
+        [
+          46,
+          53
+        ]
+      ],
+      "sha256": "5d1fd360b14b7e8fc9a3b938c54b17e4dd19dcad6895b52eac27ab73ebeb6b12"
+    },
+    {
+      "bytes": 2129,
+      "path": "poc/owner-private-lifecycle/integration/construction/kpx7_mix.mpc",
+      "reviewed_line_spans": [
+        [
+          8,
+          15
+        ],
+        [
+          20,
+          47
+        ]
+      ],
+      "sha256": "1c58bd18990198e7d44d3cd9d79200f24a7c6a6364f7eff6bc66cd27623fa42a"
+    },
+    {
+      "bytes": 21564,
+      "path": "poc/future-recipient/v2/recipient.py",
+      "reviewed_line_spans": [
+        [
+          243,
+          249
+        ]
+      ],
+      "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2"
+    }
+  ],
+  "status": "CONFIRMED_SOURCE_LEVEL_HARNESS_METADATA_LINKAGE"
+}

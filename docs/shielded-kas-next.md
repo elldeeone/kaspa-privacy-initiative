@@ -1,27 +1,54 @@
 # Next focus: shielded native KAS and financial privacy
 
-## Current execution — one owner-private native lifecycle
+## Current checkpoint — integrated financial lifecycle complete
 
-The owner selects steps1,2,3,5 under
+The owner-selected steps 1, 2, 3, 5 under
 [RFC-0027](rfc/0027-owner-private-native-kas-lifecycle.md) and
-[ADR-0064](adr/0064-owner-private-native-kas-lifecycle.md): create one new
-TN10-only GN3-backed profile, complete successive genuine three-owner private
-rounds and original-seed payment/change recovery, recover and exit after loss of
-the original coordinator/shared prover, and confirm all native payouts with a
-complete fee ledger. The
-[shared contract](../research/next-session/owner-private-lifecycle/CONTRACT.md)
-retains separate Spend/Output construction and adds direct one-owner no-append
-Exit152 proofs. The old deliberately unfunded profile remains unfunded.
+[ADR-0064](adr/0064-owner-private-native-kas-lifecycle.md) now have a complete
+actual TN10 result: 60 KAS GN3, both genuine 3-spend/6-output rounds, recovered
+received-payment/private-change spending, nine direct native exits and zero
+reserve. Three further fresh original-seed restores/full-prefix scans reconciled
+all owned claims and historical payout keys. Original coordinator/shared R0/
+writers were unavailable; replacement clients used downloaded public
+software/history/keys with original paths absent. The
+[result index](../research/next-session/owner-private-lifecycle/RESULTS.md) and
+[neutral final accounting](../research/next-session/owner-private-lifecycle/accounting/PUBLIC-LIVE-TERMINAL-01.json)
+keep these actual observations separate from earlier local/profile results.
 
-The [ADR-0063 prototype result](../research/next-session/owner-private-prototype/RESULTS.md)
-already completed genuine local component/outer/native verification and sixteen
-frozen grouping worlds. It removes an explicit grouping certificate; it does not
-establish financial privacy. Expanded privacy-study step4 is not part of the
-selected execution. Financial review, malformed/replay/unauthorized-effect
-checks and privacy-preserving owner APIs remain required. Actual separately
-administered recovery storage still needs real external control and retrieval.
-An implementation selection or complete local path is not confirmed testnet
-completion; prior profiles' payouts do not transfer to this new identity.
+Initial complete 64-object recovery HTTPS/replay passed. The final terminal
+payload audit/publication and public CI HTTPS/native replay still await
+their actual receipts at this prepublication checkpoint. Same-host recovery and
+same-admin hosting do not establish independent custody, administration or
+long-term retention. The old ADR-0063 prototype remains deliberately unfunded;
+its bounded grouping result does not qualify the integrated profile's privacy.
+Expanded privacy-study step4 was not selected in this execution batch.
+
+Complete fees are 2.156935 KAS / frozen 21 KAS = 10.2711190476%; the unchanged 2%
+target fails. The [fee finding](../research/next-session/owner-private-lifecycle/fees/FEE-RATE-FINDING-01.md)
+points to native verification/withdrawal cost rather than demonstrated rate
+padding. The [eleven confirmed proof cases](../research/next-session/owner-private-lifecycle/fees/CONFIRMED-ENGINE-BUDGET-01.json)
+use roughly 82–87% of the selected allowance. No safe lower-budget/rate candidate
+was tested; headroom trimming has limited potential. Preserve the fixed useful
+payment denominator and independent exit requirement in the next fee design.
+
+## Next privacy design question
+
+Hide public funding/session-pseudonym-to-mixed-spend NF/CV ordering and the
+coordinator's separate READY-admission pairing while retaining sound Spend
+proofs, complete-effects authorization and native settlement. The existing
+88-byte acquisition marker exposes a caller-supplied pseudonym; the same roster
+order survives into public mixed inputs. Removing the harness marker alone
+cannot close that ordering channel. The
+[source-only trace](../research/next-session/owner-private-lifecycle/review/FUNDING-MARKER-PARTICIPANT-LINKAGE-SOURCE-01.json)
+constructs no actual participant/NF/payout map and does not by itself map shuffled
+outputs/change/receivers or terminal payout owners. It is not civil identity.
+
+Keep the narrower output-grouping assumptions, one-sompi fee-remainder channel,
+timing/amount/endpoint/ancestry leakage and trusted-host/setup limits separate.
+Financial privacy remains unqualified. This is an open design/source follow-up,
+not a new architecture decision, cryptographic implementation, privacy attack
+cohort or retuning of the completed trial. Separately administered public
+history/parameter retention also remains an external availability gate.
 
 ## Completed gate — four-wallet accepted testnet lifecycle
 

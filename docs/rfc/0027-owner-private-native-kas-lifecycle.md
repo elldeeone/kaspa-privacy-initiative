@@ -1,7 +1,16 @@
 # RFC-0027: One owner-private native KAS lifecycle
 
-**Status:** Open. **Date:** 2026-10-24 UTC.
+**Status:** Bounded financial experiment complete; privacy/availability questions
+remain Open. **Date:** 2026-10-24 UTC.
 **Baseline:** `760d27491b3a7ab28a14712ee41e107ebdc76b76`.
+
+**Execution checkpoint:** the
+[dated result index](../../research/next-session/owner-private-lifecycle/RESULTS.md)
+records actual TN10 GN3/both batches, fresh-seed R2 payment/change spending,
+nine confirmed independent payouts, zero reserve and three further fresh
+terminal seed reconciliations. The bounded financial execution question is
+answered. Complete fees fail 2%; final public CI HTTPS/native replay remains
+pending publication. Privacy and independently administered retention stay open.
 
 ## Question
 
@@ -61,6 +70,23 @@ verified consensus; durable public history/parameters under pruning and provider
 loss; practical fee spikes; low-demand liveness and full-tree private change
 remain separate questions. A content hash, two same-administrator downloads or
 replacement software running on the original trusted host cannot answer them.
+
+One concrete open channel is deterministic integer fee allocation under the
+frozen equal-value workload: a one-sompi remainder can persist in change and
+become visible at native exits. This arithmetic finding is not a measured
+attack, and the frozen run is not retuned after observing it.
+
+The next concrete sender-privacy question is how to hide the public
+funding/session-pseudonym-to-mixed-spend NF/CV ordering and the coordinator's
+separate READY-admission pairing while preserving sound Spend proofs,
+complete-effect authorization and native settlement. The harness's public
+participant marker strengthens the funding link; removing it alone leaves the
+ordered public session/input channel. Source tracing establishes that channel
+without actual participant/NF/payout map construction. This does not establish
+a shuffled-output/receiver/payout-owner mapping or a failure of the narrower
+output-grouping mechanism. Fee-remainder, amount/timing and trusted-host limits
+remain separate. Resolve this as an open design/source follow-up before any
+new cryptographic implementation or fresh privacy experiment.
 
 Retain exact source/proof/body/accepted-history identities, genuine negative
 results and separate financial, recovery, privacy, fee and availability verdicts.

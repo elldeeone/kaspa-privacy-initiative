@@ -1,0 +1,138 @@
+{
+  "conclusion": "CONDITIONAL_IMMUTABLE_WHOLE_MAIN_PAGE_PREFIX_REUSE_IS_SUPPORTED_BY_PINNED_NODE_IMPLEMENTATION",
+  "facts": [
+    "The V2 response describes a path from supplied start to a sampled current sink; removed hashes are not filtered by minConfirmationCount.",
+    "Removed hashes walk the old start branch toward a common ancestor. Added hashes advance from after that common ancestor; a selected-chain start is excluded from added results.",
+    "The minConfirmationCount20 predicate retains added tail blocks only at sink.blueScore minus block.blueScore strictly greater than20. This is depth filtering, not irreversible finalization.",
+    "Added response length is further truncated to the number of complete acceptance groups returned under merged-block batching. Acceptance data are not intentionally split within an accepting-chain block.",
+    "A fixed validated accepting block uses insert-once acceptance/UTXO data; its populated Full transaction contexts derive from fixed accepting block data and DAA rather than later wallet UTXOs.",
+    "The RPC session prevents pruning during its operations; chain/virtual observations are not promised to be an atomic immutable currentness snapshot."
+  ],
+  "interpretation": "Conditional reuse avoids retransferring immutable historical block acceptance groups; it does not omit financial history or confer new chain/finality authority.",
+  "limits": [
+    "Source-only review at the exact01b532e commit; the alternative4edcbbcc commit was not needed or claimed verified.",
+    "No node RPC, tests, private-data reads or node/financial source edits. One official-primary-source web lookup supplied context; all substantive semantics were verified in the clean pinned public checkout.",
+    "This report addresses node semantics only. Parent separately reviews incremental adapter implementation and exact consumed-group seam behavior."
+  ],
+  "operation": {
+    "dataVerbosityLevel": "Full",
+    "method": "getVirtualChainFromBlockV2",
+    "minConfirmationCount": 20
+  },
+  "safe_collector_conditions": [
+    "Reuse only exact previously authenticated immutable raw MAIN page objects, preserving their request/response bytes, hashes and full group boundaries.",
+    "The reused prefix must end at the last added hash of a whole old page strictly before the prior fixed frontier. Do not reuse an old page whose response contains the old frontier or groups beyond it, since the previous scanner may have consumed only a prefix of that raw response.",
+    "Derive the reuse cursor from all consumed complete response groups and verify exact parent/cursor continuity. A cached metadata cursor must not substitute for the actual raw page end.",
+    "Freshly verify old fixed frontier selectedness and fetch new Full pages from the retained whole-page cursor. Any removed hashes, selectedness failure, hash/group mismatch, ancestry gap, malformed/truncated response or retained-byte inconsistency discards incremental reuse and falls back to the unchanged full collector.",
+    "Retain fresh fixed frontier/sink/depth checks and all unchanged post-query delta plus final exact UTXO requery logic. Old frontier selectedness is a sampled observation, not an atomic no-reorg certificate.",
+    "Never reuse post-query delta/current UTXO observations. Run the unchanged full SDK verification, actual native verification and complete accepted-prefix/cold replay over the reconstructed full history before deriving or submitting financial state."
+  ],
+  "schema": "owner-private-lifecycle-pinned-source-semantics/v1",
+  "source_checkout": "/home/luke/.cargo/git/checkouts/rusty-kaspa-410e06d1fde91a92/01b532e",
+  "source_commit": "01b532e8b553523216471682649693af92f0fd16",
+  "source_repository": "https://github.com/kaspanet/rusty-kaspa",
+  "sources": [
+    {
+      "lines": [
+        1367,
+        1417
+      ],
+      "meaning": "V2 path-to-current-sink, full verbosity, strict >min blue-score tail filter and whole acceptance-group hash truncation.",
+      "path": "rpc/service/src/service.rs",
+      "sha256": "1bd23aedce198ce3f7d4731c37008e98ad7d7ef7119361a25572b94c157ac33d",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/rpc/service/src/service.rs#L1367-L1417"
+    },
+    {
+      "lines": [
+        34,
+        59
+      ],
+      "meaning": "Removed start-to-common-ancestor branch and added successor path excluding the common ancestor/start.",
+      "path": "consensus/src/processes/traversal_manager.rs",
+      "sha256": "f7aa688f5e1dfe13200656849754dfbf05dd4c5fe5502b9f78acf84fe61f21ae",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/processes/traversal_manager.rs#L34-L59"
+    },
+    {
+      "lines": [
+        846,
+        866
+      ],
+      "meaning": "Chain-path lookup validates start existence and retention-root ancestry, then targets current sink.",
+      "path": "consensus/src/consensus/mod.rs",
+      "sha256": "872789901907ed220378bc2ef1a068a1c22734bce82515f24d33a8d8b0b34b5f",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/consensus/mod.rs#L846-L866"
+    },
+    {
+      "lines": [
+        1472,
+        1502
+      ],
+      "meaning": "Acceptance lookup is keyed by accepting hash and applies limits at whole accepting-block data boundaries.",
+      "path": "consensus/src/consensus/mod.rs",
+      "sha256": "872789901907ed220378bc2ef1a068a1c22734bce82515f24d33a8d8b0b34b5f",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/consensus/mod.rs#L1472-L1502"
+    },
+    {
+      "lines": [
+        18,
+        22
+      ],
+      "meaning": "Per-block relative-selected-parent diff is permanent once computed and accompanies UTXOValid acceptance state.",
+      "path": "consensus/src/model/stores/utxo_diffs.rs",
+      "sha256": "342ad26db18c48b983f90e702b40f3b167cda331d517d54542c1ebc444d8d97c",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/model/stores/utxo_diffs.rs#L18-L22"
+    },
+    {
+      "lines": [
+        56,
+        62
+      ],
+      "meaning": "Duplicate acceptance-hash insertion is rejected.",
+      "path": "consensus/src/model/stores/acceptance_data.rs",
+      "sha256": "1767cc485003f71a56f09a1fdda6b273f11bc0e7599262d864d1dde3f3cba65d",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/model/stores/acceptance_data.rs#L56-L62"
+    },
+    {
+      "lines": [
+        510,
+        531
+      ],
+      "meaning": "Diff, multiset, acceptance and validated status are committed together in one DB batch.",
+      "path": "consensus/src/pipeline/virtual_processor/processor.rs",
+      "sha256": "0a5ff09656cf03d2d1ee7469225f6d82029c3e8400805c40e8591dce2072f69a",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/pipeline/virtual_processor/processor.rs#L510-L531"
+    },
+    {
+      "lines": [
+        153,
+        211
+      ],
+      "meaning": "Full populated contexts derive from the fixed accepting block diff/DAA and stored acceptance, including intra-mergeset spends.",
+      "path": "consensus/src/pipeline/virtual_processor/utxo_inquirer.rs",
+      "sha256": "42182c9c8799a95a7f1ef7e730adb882416cfcd9be5e3d7c71bf9c5979a6d690",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/src/pipeline/virtual_processor/utxo_inquirer.rs#L153-L211"
+    },
+    {
+      "lines": [
+        637,
+        695
+      ],
+      "meaning": "Each added hash converts one complete accepting-chain-header and accepted-transactions group.",
+      "path": "rpc/service/src/converter/consensus.rs",
+      "sha256": "41a57123b5c616dc2cf724a6c2316a07ad5582a5351f675fb7f6bd6e39fcadbe",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/rpc/service/src/converter/consensus.rs#L637-L695"
+    },
+    {
+      "lines": [
+        112,
+        118
+      ],
+      "meaning": "Consensus session holds pruning consistency; it is not a snapshot/finality guarantee for all later chain observations.",
+      "path": "components/consensusmanager/src/session.rs",
+      "sha256": "7535b89e4a6c0f4026e5a98722ae936545c8986ab27150fd3fb5bec0ee11ac88",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/components/consensusmanager/src/session.rs#L112-L118"
+    }
+  ],
+  "verified_HEAD_matches_commit": true,
+  "verified_tracked_worktree_clean": true
+}

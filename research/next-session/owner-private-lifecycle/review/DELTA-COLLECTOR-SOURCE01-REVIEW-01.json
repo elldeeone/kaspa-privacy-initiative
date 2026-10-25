@@ -1,0 +1,113 @@
+{
+  "additional_unchanged_source": {
+    "path": "poc/owner-private-lifecycle/wallet/worker.py",
+    "sha256": "8793a0e1d18f620645411c374ebad994cf4a04e4d29e153841b6b7c727122509"
+  },
+  "blocking_source_findings": [],
+  "checked_contracts": [
+    "Externally pinned prior confirmed handoff binds same selected descriptor/profile, fetch bytes and each MAIN page compressed hash/length.",
+    "Each reused response authenticates compressed and decoded SHA256/length and traversed exact original Full cursor requests and header/predecessor chain.",
+    "Reuse ends at an actually fully consumed confirmed page; entire raw partial last page is dropped and refetched from previous complete-page cursor; no raw response truncation/projection or post-query-page promotion.",
+    "Fresh new fixed frontier must advance with same depth policy; original birth, seam and prior frontier get fresh exact header and selected-chain checks, with seam/frontier rechecked after current/post/repeat operations.",
+    "Fresh Full delta rejects removals and gaps via unchanged scan and must actually cover prior fixed frontier before new fixed frontier.",
+    "All merged prefix graph edges/locators and exact consumed row count are reconstructed; output remains FETCHED_PENDING_REPLAY and requires unchanged complete-prefix SDK/native replay.",
+    "Fresh exact all-input/current-head/payout queries, fresh post-query scan and final exact query repeat use unchanged acquisition functions; no old current view is reused.",
+    "Cache uncertainty, mismatch, missing data, stale frontier or scan error triggers original complete fetchOne acquisition in a separate fresh output subtree.",
+    "Collector provenance names and hashes new delta producer; it does not claim old fetch producer identity.",
+    "No signer, submit API, wallet/circuit/profile/rate change or acceptance shortcut is introduced."
+  ],
+  "controls": {
+    "author_reported_synthetic_transport_groups": 8,
+    "genuine_same_exit1_control": "PENDING: complete unchanged SDK/native replay must reproduce exact original HISTORY and CHECKPOINT bytes before use for later confirmations.",
+    "reviewer_reruns": 0
+  },
+  "created_at_utc": "2026-10-25T01:15:38.249008+00:00",
+  "fixed_during_review": [
+    {
+      "final_source_sha256": "488daa0ddb7ecbe1c5a01c2893960ede7e513f6986f05de3174a5e519925763c",
+      "fix": "Track consumedGroups explicitly and retain only when equal to exact raw group count; author added trailing repeated-frontier regression.",
+      "location": "chain/delta.mjs cachePlan whole-page decision",
+      "problem": "Comparing cursor to final raw hash did not establish that every raw group had been consumed; a repeated frontier in unconsumed trailing groups could falsely mark a partial page whole."
+    }
+  ],
+  "limits": [
+    "Source correctness review only; no independent consensus proof, continuous currentness, broader privacy qualification or production-safety claim.",
+    "Every owner and replacement relay must still independently cold replay the complete joined prefix.",
+    "Host exclusion policy must guard source, SDK, selector, cache and retained-page metadata before collector public-content reads.",
+    "No original private contents, node RPC, proof jobs, transactions or broadcasts were used by this reviewer."
+  ],
+  "reviewer": "independent-contract-review",
+  "schema": "kpx8-source-second-pass-review/v1",
+  "scope": "Read-only incremental public raw Full RPC collector; no financial implementation or execution changes.",
+  "source_freeze": {
+    "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/live-01/DELTA-SOURCE-FREEZE-01.json",
+    "sha256": "6d55dcc0d3cf02c6256ffd24cdf0f92af0ba7f5d9dd9e75267bc32b76a49e730"
+  },
+  "sources_authenticated": [
+    {
+      "bytes": 3939,
+      "path": "poc/owner-private-lifecycle/chain/DELTA-OBSERVER.md",
+      "sha256": "d2a71b7da67d5a3f079c718e2677d4e804466e948b816b82a093aa70f915ba9a"
+    },
+    {
+      "bytes": 17177,
+      "path": "poc/owner-private-lifecycle/chain/acquire.mjs",
+      "sha256": "7b7e148672b87a11c40cc6bbc7cb86571f40f4d371315b2a0ca39bff88a2d876"
+    },
+    {
+      "bytes": 18257,
+      "path": "poc/owner-private-lifecycle/chain/delta.mjs",
+      "sha256": "488daa0ddb7ecbe1c5a01c2893960ede7e513f6986f05de3174a5e519925763c"
+    },
+    {
+      "bytes": 6507,
+      "path": "poc/owner-private-lifecycle/chain/delta.test.mjs",
+      "sha256": "164c7f1fe3fc46fe69219bdc94355ae4e44665be1f3edc15c040d1e1d84e120f"
+    },
+    {
+      "bytes": 6499,
+      "path": "poc/owner-private-lifecycle/chain/fetch.mjs",
+      "sha256": "626b8366b4a25b94aa3cd9ff872fb24d59fbeaff90f9253575e55ed8b3051e7d"
+    },
+    {
+      "bytes": 2202,
+      "path": "poc/owner-private-lifecycle/chain/json.mjs",
+      "sha256": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7"
+    },
+    {
+      "bytes": 9180,
+      "path": "poc/owner-private-lifecycle/chain/preflight.py",
+      "sha256": "2e92a2f9db47ac357c006138dde5ff6070b0dd20f6d2fc0aa8ccf1d61eebff31"
+    },
+    {
+      "bytes": 14363,
+      "path": "poc/owner-private-lifecycle/chain/replay.py",
+      "sha256": "1bb5c89fd64454aa79b081b659b232c55c881ae7cd8240a857539813d2528048"
+    },
+    {
+      "bytes": 4909,
+      "path": "poc/owner-private-lifecycle/chain/selection.mjs",
+      "sha256": "1210bba18e2a4d52b7f59de2e7ff8e600a36f3b178d7d27b258a0fc441ce5a32"
+    },
+    {
+      "bytes": 12707,
+      "path": "poc/owner-private-lifecycle/chain/verify_bundle.mjs",
+      "sha256": "f979b9ca6796613d701595ee22f898632bf192f4c3bf4bee88e413606a9e0f98"
+    },
+    {
+      "bytes": 8011,
+      "path": "poc/owner-private-lifecycle/chain/wire.mjs",
+      "sha256": "4ab0b0f0b243ac0bf2f815f1ceb7ed0024fcd6e1c6f834d7b2bbe1d266d3f08f"
+    }
+  ],
+  "status": "SOURCE_PASS_GENUINE_SAME_EXIT1_CONTROL_PENDING",
+  "upstream_semantics_boundary": {
+    "independently_traced_node_commit": "01b532e8b553523216471682649693af92f0fd16",
+    "meaning": "Reuse relies on deterministic per-accepting-block data while retained selected-chain membership remains valid. Strict blue-score depth greater than20 is a confirmation policy, not irrevocable finality. Remote deployed build/config remain unauthenticated.",
+    "official_reference_commit": "4edcbbccb449f84832afb1ca157904b35f37d006",
+    "reference_urls": [
+      "https://github.com/kaspanet/rusty-kaspa/blob/4edcbbccb449f84832afb1ca157904b35f37d006/rpc/service/src/service.rs#L1479-L1529",
+      "https://github.com/kaspanet/rusty-kaspa/blob/4edcbbccb449f84832afb1ca157904b35f37d006/consensus/src/processes/traversal_manager.rs#L34-L59"
+    ]
+  }
+}

@@ -175,3 +175,75 @@ use the restored native binary; its fixed SHA remains
 All validation runs in a public-only networkless namespace. Restored wallet
 ASSETS paths may change only to independently authenticated byte-identical
 programs/parameters; the component/profile/image/Exit-VK identities do not.
+
+## Accepted-prefix campaign and restored Exit clients
+
+`campaign.confirmed` consumes a caller-selected `chain/confirm.py` handoff.
+It authenticates its complete replay/history/checkpoint/fetch/input selectors
+and every retained Full page. The expected transaction, exact prepared
+projection, prior accepted prefix, selected public sessions and newly queried
+head entry must agree. This is a recorded validating-node observation. It does
+not replace the reviewed acquisition/native replay or promise continuous
+currentness while the next proof runs.
+
+`campaign.py round2` requires that actual R1 handoff before restoring three
+fresh clients from their own original backup leaves. It runs the fixed 2 KAS
+payment workload and carries the actual accepted entry birth DAA into every
+quote and final case. The received/change policy has a finite guarantee across
+all eight possible three-owner nonself recipient topologies; individual note
+kinds, positions and ownership mappings stay inside their owner workers.
+
+For the outage rehearsal, use `closed_exits` with `recovery/cold_owner.py` and
+`recovery/cold_case.py`. Both authenticate the selected downloaded software and
+assets. Owner operations execute the downloaded wallet worker directly.
+Public context, quote, genuine proof attachment and actual Native Full execute
+the downloaded financial helpers under `/work`, with original repository,
+cache, assets, private wallets, network and shared prover absent from that
+public builder. The host scheduler constructs no financial transaction bytes.
+
+The call order is `ExitSequence(accepted_round2)`, `restore_clients`, then one
+`prepare_next` at a time. The caller submits the exact candidate through the
+reviewed once-only relay. It runs fresh confirmation/replay and
+`campaign.confirmed` with the selected predecessor and candidate projection,
+then calls `ExitSequence.advance`. A pending candidate prevents preparation of
+another. UNKNOWN submission status permits read-only reconciliation only.
+Only typed owner emptiness tied to the latest accepted history permits owner
+rotation; missing data, proof failure or malformed output halts the operation.
+Each candidate uses a fresh OS-random client permutation retained only in the
+private controller. Public paths use neutral attempt labels; association-bearing
+READY, empty and producer-isolation outputs are validated and archived privately.
+The public quote input omits participant identity. This removes deterministic
+schedule disclosure; it does not qualify amount, timing or broader privacy.
+
+The selected cold worker creates its own fresh `owner`/`mpc` directories.
+The generic scheduler precreates these empty leaves. The actual operator uses
+a `ClosedStageRunner` initialization override that calls the original init,
+then `rmdir()` on only those six just-created empty leaves under the new
+runtime. This preserves the worker's strict fresh-directory check; nonempty
+directories and symlinks are refused, and original backup directories are never
+removed. The same override applies to the separate final-scan runtime.
+
+After nine exact accepted exits, `terminal_scans` checks the final zero reserve
+and absent pool outpoint, replays the final history for all three seed-derived
+wallets, requires every owned claim spent, and rederives all historical native
+payout keys. Its read-context placeholder fee is never a ledger charge.
+The final rehearsal restores a separate fresh set of three clients from the
+original backups before these scans; exit-client caches are not copied.
+Exact closed terminal scan values remain in a LOCAL bookkeeping directory for
+the selected accountant. Neither those files nor their selectors/hashes belong
+in shared repository/release reports; shared completion is aggregate only.
+Publication of the authenticated post-R2 recovery closure precedes the first
+exit. Same-administrator HTTPS retrieval and absent original processes are
+separate observations from independently administered long-term availability.
+
+The campaign's additional finite controls are:
+
+```text
+python3 -B -m unittest -v test_campaign.py test_exit_sequence.py
+```
+
+They cover selector/page tampering, wrong predecessor/candidate/current entry,
+retry flags, stale emptiness, outstanding candidates and the complete synthetic
+nine-confirmation terminal sequence. Actual restored context/quote/finalization
+with a retained genuine LOCAL Exit proof and real Native Full passed separately;
+those retained controls do not establish a LIVE outage or payout confirmation.

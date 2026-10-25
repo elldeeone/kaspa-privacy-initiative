@@ -1,0 +1,17 @@
+{
+  "all24_path_length_and_hash_joins_pass": true,
+  "cause": "Public campaign metadata requires compressed paths relative to fetch.json parent; initial relocation used inputs/fetch.json while complete pages were placed at data root. Closed financial replay used its explicit data root correctly and already passed.",
+  "corrected_config_path": "/var/tmp/kpi-owner-private-lifecycle-01/assets/recovery-full-runtime-01/CONFIG-02.json",
+  "corrected_config_sha256": "45c9c7e7c399e346b28ff7c2e113a5e1925439119147ca170e185a30ecc2bda3",
+  "corrected_handoff_sha256": "b7035ac6acfdfa282babf9f2b18ddd90c1a1b5dff25d1def2faef6cbb73e68a0",
+  "fetch_bytes_sha256": "cdf73d030bda9f7f58c7a3064ab3cacf8c56c94d5152769b9d820bfe3ae0c85a",
+  "financial_or_network_mutation": false,
+  "fix": "Added a fresh single-link byte-identical data/fetch.json alias; new immutable handoff points there. Original replay packet inputs/fetch remains unchanged.",
+  "original_config_sha256": "390a3b486565f60107c1d53007207b661f8c033725e75a6bed163f1dd9ff39d1",
+  "original_controls_preserved": true,
+  "original_private_content_or_owner_seed_access": false,
+  "original_relocated_handoff_sha256": "fd694ae5fe227f7c290648bbc877b06dbc2cd7741add603551c705ddbbd6caa3",
+  "schema": "kpx8-runtime-observation-path-relocation-control/v1",
+  "source71_assets_protocol_objects_and_replay_packet_changed": false,
+  "status": "CORRECTED_BEFORE_ANY_OWNER_CLIENT_OR_SEED_OR_SUBMISSION"
+}

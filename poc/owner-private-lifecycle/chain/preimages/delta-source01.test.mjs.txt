@@ -1,0 +1,112 @@
+// Synthetic transport controls only. These do not establish chain acceptance.
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import zlib from 'node:zlib';
+import test from 'node:test';
+import {authenticatedPage,cachePlan,fetchIncremental} from './delta.mjs';
+import {GENESIS,loadSdk,sha,stringify} from './wire.mjs';
+
+const k=loadSdk();
+function header(score,parent='00'.repeat(32)) {
+  const raw={hash:'00'.repeat(32),version:2,parentsByLevel:[[parent]],
+    hashMerkleRoot:'00'.repeat(32),acceptedIdMerkleRoot:'00'.repeat(32),utxoCommitment:'00'.repeat(32),
+    timestamp:String(score),bits:1,nonce:'0',daaScore:String(score),blueScore:String(score),
+    blueWork:BigInt(score).toString(16).padStart(48,'0'),pruningPoint:'00'.repeat(32)};
+  const value=new k.Header({...raw,timestamp:BigInt(score),nonce:0n,daaScore:BigInt(score),
+    blueScore:BigInt(score),blueWork:BigInt(score)});
+  try {raw.hash=value.finalize();}finally {value.free();}
+  return raw;
+}
+function store(root,index,start,groups,min=20,removed=[]) {
+  const data={removedChainBlockHashes:removed,addedChainBlockHashes:groups.map(g=>g.chainBlockHeader.hash),
+    chainBlockAcceptedTransactions:groups};
+  const raw=Buffer.from(stringify(data)+'\n'),compressed=zlib.gzipSync(raw);
+  const file=`${index}.json.gz`;fs.writeFileSync(path.join(root,file),compressed,{flag:'wx'});
+  return {path:file,request:{startHash:start,dataVerbosityLevel:'Full',minConfirmationCount:min},
+    gzip_sha256:sha(compressed),gzip_bytes:compressed.length,decoded_sha256:sha(raw),decoded_bytes:raw.length,
+    encoding:'synthetic Full response fixture'};
+}
+function fixture(options={}) {
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),'kpi-delta-control-'));
+  const headers=[header(0)];for(let n=1;n<=5;n++)headers.push(header(n,headers.at(-1).hash));
+  if(options.gap)headers[2]=header(2,'ff'.repeat(32));
+  const groups=headers.slice(1).map((h,index)=>({chainBlockHeader:h,
+    acceptedTransactions:[{verboseData:{transactionId:sha(`synthetic-transaction-${index}`)},inputs:[]}]}));
+  const d={birth_start_hash:headers[0].hash,founding_outpoint:{transactionId:groups[0].acceptedTransactions[0].verboseData.transactionId,index:0},
+    initial_redeem_hex:'aa'.repeat(115)};
+  const pages=[store(root,0,headers[0].hash,groups.slice(0,2),20,options.removals?['ff'.repeat(32)]:[]),
+    store(root,1,headers[2].hash,groups.slice(2))];
+  const old={schema:'kpx8-gn3-network-fetch/v1',status:'FETCHED_PENDING_REPLAY',network_id:'testnet-10',genesis_hash_hex:GENESIS,
+    descriptor:d,pages,coverage:{complete:true,frontier_seen:true,pruned:false,start_hash:d.birth_start_hash,
+      end_cursor:headers[4].hash,frontier:headers[4],anchor_header:headers[0],initial_sink:header(100),
+      removed_chain_block_hashes:[],missing:[],min_confirmation_count:20,accepted_transaction_rows_scanned:4}};
+  return {root,d,old,headers};
+}
+function rejects(category,fn) {assert.throws(fn,error=>error.category===category);}
+
+test('reuse only exact whole MAIN pages before a partial confirmed frontier',()=>{
+  const f=fixture(),copies=[];
+  try {
+    const plan=cachePlan(k,f.d,f.old,f.root,(record,raw,index)=>{
+      assert.deepEqual(raw,fs.readFileSync(path.join(f.root,record.path)));copies.push(index);return record;
+    });
+    assert.deepEqual(copies,[0]);assert.equal(plan.pages.length,1);
+    assert.equal(plan.cursor,f.headers[2].hash);assert.equal(plan.old_frontier.hash,f.headers[4].hash);
+    assert.equal(plan.founding.page,0);
+  }finally {fs.rmSync(f.root,{recursive:true});}
+});
+
+test('reject cache gzip tamper before interpreting bytes',()=>{
+  const f=fixture();try {
+    fs.appendFileSync(path.join(f.root,f.old.pages[0].path),'tamper');
+    rejects('SOURCE_IDENTITY',()=>cachePlan(k,f.d,f.old,f.root));
+  }finally {fs.rmSync(f.root,{recursive:true});}
+});
+
+test('never promote an unconsumed trailing repeated-frontier group',()=>{
+  const f=fixture();try {
+    const data=authenticatedPage(f.root,f.old.pages[1]).data;
+    data.chainBlockAcceptedTransactions[2]=data.chainBlockAcceptedTransactions[1];
+    f.old.pages[1]=store(f.root,2,f.headers[2].hash,data.chainBlockAcceptedTransactions);
+    const plan=cachePlan(k,f.d,f.old,f.root);
+    assert.equal(plan.pages.length,1);assert.equal(plan.cursor,f.headers[2].hash);
+  }finally {fs.rmSync(f.root,{recursive:true});}
+});
+
+test('reject compressed and decoded length or hash mismatch',()=>{
+  const f=fixture();try {
+    const p=f.old.pages[0];
+    rejects('CACHE_INTEGRITY',()=>authenticatedPage(f.root,{...p,gzip_bytes:p.gzip_bytes+1}));
+    rejects('CACHE_INTEGRITY',()=>authenticatedPage(f.root,{...p,decoded_bytes:p.decoded_bytes+1}));
+    rejects('CACHE_INTEGRITY',()=>authenticatedPage(f.root,{...p,decoded_sha256:'ff'.repeat(32)}));
+  }finally {fs.rmSync(f.root,{recursive:true});}
+});
+
+test('reject a retained removal even with authentic page bytes',()=>{
+  const f=fixture({removals:true});try {rejects('REORG',()=>cachePlan(k,f.d,f.old,f.root));}
+  finally {fs.rmSync(f.root,{recursive:true});}
+});
+
+test('reject a real header with a broken predecessor join',()=>{
+  const f=fixture({gap:true});try {rejects('CACHE_GAP',()=>cachePlan(k,f.d,f.old,f.root));}
+  finally {fs.rmSync(f.root,{recursive:true});}
+});
+
+test('reject a stale or nonadvancing fresh confirmed frontier',async()=>{
+  const f=fixture(),headers=[header(0)];for(let i=1;i<=25;i++)headers.push(header(i,headers.at(-1).hash));
+  const blocks=new Map(headers.map(h=>[h.hash,{header:h,verboseData:{isChainBlock:true,selectedParentHash:h.parentsByLevel[0][0]}}]));
+  const rpc={getServerInfo:async()=>({networkId:'testnet-10',serverVersion:'2.1.0',isSynced:true,hasUtxoIndex:true}),
+    getBlockDagInfo:async()=>({network:'testnet-10',sink:headers.at(-1).hash}),getBlock:async({hash})=>({block:blocks.get(hash)})};
+  try {await assert.rejects(fetchIncremental(k,rpc,{},'00'.repeat(32),f.d,'00'.repeat(32),{old:f.old},f.root),
+    error=>error.category==='STALE_FRONTIER');}
+  finally {fs.rmSync(f.root,{recursive:true});}
+});
+
+test('reject missing page and wrong page request without inferring a balance',()=>{
+  const f=fixture();try {
+    rejects('CACHE_JOIN',()=>cachePlan(k,f.d,{...f.old,pages:[{...f.old.pages[0],request:{...f.old.pages[0].request,startHash:'ff'.repeat(32)}}]},f.root));
+    assert.throws(()=>authenticatedPage(f.root,{...f.old.pages[0],path:'missing.json.gz'}),{code:'ENOENT'});
+  }finally {fs.rmSync(f.root,{recursive:true});}
+});

@@ -1,0 +1,56 @@
+{
+  "financial_verifiers_or_gates_changed": false,
+  "limits": [
+    "Synthetic controls establish connection order and fresh-client fallback only",
+    "Source01 same-Exit1 full SDK/native control remains attributed exclusively to Source01",
+    "Every future actual joined prefix still requires unchanged complete SDK/native replay and exact-case/payout gates"
+  ],
+  "network_used_for_these_controls": false,
+  "new_targeted_controls": [
+    "The actual execute path copies/authenticates its selected complete cache before the first RPC connection",
+    "A disconnected incremental client is replaced by a new client/connection before unchanged full fallback"
+  ],
+  "observed_at_utc": "2026-10-25T02:04:58.224502+00:00",
+  "observed_exit04_metadata": [
+    {
+      "cache_write_span_seconds": 60.519747105,
+      "cached_pages": 51,
+      "endpoint": "vector-10",
+      "fresh_delta_pages": 0,
+      "last_write_to_fallback_seconds": 0.595017177
+    },
+    {
+      "cache_write_span_seconds": 61.776783394,
+      "cached_pages": 51,
+      "endpoint": "electron-10",
+      "fresh_delta_pages": 0,
+      "last_write_to_fallback_seconds": 0.588016975
+    }
+  ],
+  "observed_failure": "Both retained attempts report WebSocket disconnected, then full fallback on the same client reports WebSocket is not connected",
+  "original_transport_cache_controls_still_pass": 8,
+  "private_inputs_read": false,
+  "remote_heartbeat_causation_proven": false,
+  "schema": "kpx8-delta-transport-source02-controls/v1",
+  "source01_expected_red_failures": 2,
+  "source01_red_receipt": {
+    "path": "/var/tmp/kpi-delta-transport-source01-red-control-01.json",
+    "sha256": "85c62f4c66a6b4dadb844ea79fafed20fe93e98efc123fb03c852d15b50db5f0"
+  },
+  "source01_sha256": "488daa0ddb7ecbe1c5a01c2893960ede7e513f6986f05de3174a5e519925763c",
+  "source02_failures": 0,
+  "source02_passes": 10,
+  "source02_sha256": "9006cb70accfcb8cf8e0bb35336e2b51daec151983670b45044f7c8fc1c43f7b",
+  "source02_test_pins": {
+    "delta.test.mjs": {
+      "bytes": 6564,
+      "sha256": "a0cb654d4fcfe0bc081e8b17e07e0f8ece95b3810eca11f1bd93a4cda73accb3"
+    },
+    "delta.transport.test.mjs": {
+      "bytes": 5725,
+      "sha256": "21fefd50d74f531cd6af17dc451f8d9f92d18fdfa372407681fd350bb0f3873f"
+    }
+  },
+  "status": "SOURCE01_TWO_TARGETED_FAILURES_SOURCE02_TEN_TARGETED_PASSES",
+  "transactions_submitted": false
+}

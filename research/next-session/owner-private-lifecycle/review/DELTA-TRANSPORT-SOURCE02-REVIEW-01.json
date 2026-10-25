@@ -1,0 +1,116 @@
+{
+  "adoption_boundary": "Root authorized Source02 for next actual05 after04 confirms on this narrow independent diff plus targeted lifecycle controls. No duplicate global-history/same-case execution gate is introduced. Actual05 must still pass unchanged complete joined SDK/native replay and exact accepted-case/payout/current-entry checks.",
+  "authenticated_sources": {
+    "DELTA-OBSERVER.md": {
+      "bytes": 4862,
+      "sha256": "d33f9216b74abe1a3fc02954dd21a78bc0162c99dd6ee015c9b890094d658fe8"
+    },
+    "acquire.mjs": {
+      "bytes": 17177,
+      "sha256": "7b7e148672b87a11c40cc6bbc7cb86571f40f4d371315b2a0ca39bff88a2d876"
+    },
+    "delta.mjs": {
+      "bytes": 19648,
+      "sha256": "9006cb70accfcb8cf8e0bb35336e2b51daec151983670b45044f7c8fc1c43f7b"
+    },
+    "delta.test.mjs": {
+      "bytes": 6564,
+      "sha256": "a0cb654d4fcfe0bc081e8b17e07e0f8ece95b3810eca11f1bd93a4cda73accb3"
+    },
+    "delta.transport.test.mjs": {
+      "bytes": 5725,
+      "sha256": "21fefd50d74f531cd6af17dc451f8d9f92d18fdfa372407681fd350bb0f3873f"
+    },
+    "fetch.mjs": {
+      "bytes": 6499,
+      "sha256": "626b8366b4a25b94aa3cd9ff872fb24d59fbeaff90f9253575e55ed8b3051e7d"
+    },
+    "json.mjs": {
+      "bytes": 2202,
+      "sha256": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7"
+    },
+    "preflight.py": {
+      "bytes": 9180,
+      "sha256": "2e92a2f9db47ac357c006138dde5ff6070b0dd20f6d2fc0aa8ccf1d61eebff31"
+    },
+    "preimages/DELTA-OBSERVER-source01.md": {
+      "bytes": 3939,
+      "sha256": "d2a71b7da67d5a3f079c718e2677d4e804466e948b816b82a093aa70f915ba9a"
+    },
+    "preimages/delta-source01.mjs": {
+      "bytes": 18257,
+      "sha256": "488daa0ddb7ecbe1c5a01c2893960ede7e513f6986f05de3174a5e519925763c"
+    },
+    "preimages/delta-source01.test.mjs": {
+      "bytes": 6507,
+      "sha256": "164c7f1fe3fc46fe69219bdc94355ae4e44665be1f3edc15c040d1e1d84e120f"
+    },
+    "replay.py": {
+      "bytes": 14363,
+      "sha256": "1bb5c89fd64454aa79b081b659b232c55c881ae7cd8240a857539813d2528048"
+    },
+    "selection.mjs": {
+      "bytes": 4909,
+      "sha256": "1210bba18e2a4d52b7f59de2e7ff8e600a36f3b178d7d27b258a0fc441ce5a32"
+    },
+    "verify_bundle.mjs": {
+      "bytes": 12707,
+      "sha256": "f979b9ca6796613d701595ee22f898632bf192f4c3bf4bee88e413606a9e0f98"
+    },
+    "wire.mjs": {
+      "bytes": 8011,
+      "sha256": "4ab0b0f0b243ac0bf2f815f1ceb7ed0024fcd6e1c6f834d7b2bbe1d266d3f08f"
+    }
+  },
+  "blocking_findings": [],
+  "checked_diff": [
+    "Exact Source01 collector488daa0d, original tests164c7f1f and docs d2a71b7d retained as immutable preimages.",
+    "Authenticated compressed/decoded page hash+length, header/row/index work and exact whole-page copying extracted unchanged into prepareCache, which finishes before any RpcClient construction or connect.",
+    "Fresh frontier selection and original policy match/advancement checks still run after connection; fresh exact birth/seam/old-frontier checks and delta encounter remain unchanged.",
+    "Whole-page seam selection, discarded raw partial-last response, merge locators/counts, fresh Full scan, currentView/postQuery/final repeat and final selectedness checks remain unchanged.",
+    "Every full fallback creates and connects a fresh client/socket after attempting to disconnect the failed incremental client; cache-preparation failure also gets a fresh full client.",
+    "Producer changes honestly to whole-main-page-delta/v2 with explicit transport diagnostics; it does not retain old producer identity for the operational fix.",
+    "Existing stale-frontier test only receives the same precomputed cache to adapt the function seam; new synthetic tests invoke the actual execute path and detect before-connect cache preparation and distinct fallback client identities.",
+    "Frozen acquire/fetch/wire/selection/json/verify_bundle/replay/preflight dependencies authenticate to their original exact source hashes."
+  ],
+  "controls": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/owner-private-lifecycle/availability/DELTA-TRANSPORT-CONTROLS-02.json",
+    "reviewer_reruns": 0,
+    "scope": "Original8 raw cache controls plus2 new actual-execute connection-lifecycle controls; no network or financial acceptance.",
+    "sha256": "af985d8d65266ac16af25aa44c93ed32905f6507fdae5384bc7791eef61bdf05",
+    "source01_expected_failures": 2,
+    "source02_failures": 0,
+    "source02_passes": 10
+  },
+  "created_at_utc": "2026-10-25T02:06:01.045703+00:00",
+  "limits": [
+    "This review does not prove the remote disconnect mechanism or promise future transport availability.",
+    "Failed/uncertain collection remains incomplete until strict unchanged complete replay passes; it never authorizes a spend or transaction resend.",
+    "All prior privacy, same-host, validating-node, currentness and retention limitations remain unchanged."
+  ],
+  "observed_failure_boundary": {
+    "metadata_only_observation": "Both original endpoint attempts retained51 cache files over60\u201362 seconds, zero fresh delta files, and disconnected then not-connected errors from fallback on the same client.",
+    "remote_heartbeat_causation_proven": false
+  },
+  "prior_execution_evidence_scope": {
+    "executes_source02": false,
+    "source01_collector_sha256": "488daa0ddb7ecbe1c5a01c2893960ede7e513f6986f05de3174a5e519925763c",
+    "source01_same_exit1_control_sha256": "f576cdc63a58ccc0a2c9bd774943eefad5110892baeee7a90d89dd5fabe35d97",
+    "source02_actual_capture_claimed_by_this_review": false
+  },
+  "private_or_financial_actions_by_reviewer": {
+    "implementation_edits": false,
+    "network_requests": 0,
+    "private_backup_plan_map_or_log_reads": false,
+    "raw_page_payload_reads": false,
+    "tests_rerun": 0,
+    "transactions_or_resends": false
+  },
+  "schema": "kpx8-delta-transport-source02-second-pass/v1",
+  "scope": "Narrow operational ordering/fresh-connection diff only; no financial, proof, cohort, native SDK or acceptance-policy changes.",
+  "source_freeze": {
+    "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/live-01/DELTA-SOURCE-FREEZE-02.json",
+    "sha256": "bc81aa376fe62e25e6ae7c3c7f3c078ee7ecee46c2c7a705cef6b7ff547c095c"
+  },
+  "status": "SOURCE_AND_TARGETED_TRANSPORT_CONTROLS_PASS"
+}

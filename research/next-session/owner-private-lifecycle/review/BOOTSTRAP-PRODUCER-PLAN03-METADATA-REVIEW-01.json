@@ -1,0 +1,49 @@
+{
+  "authenticated_source_bytes": 107580,
+  "authenticated_source_objects": 7,
+  "blocking_findings": [],
+  "checks": [
+    "All seven source objects exactly authenticate against reviewed path/length/hash pins. All IDs, logical overlay placements and content-addressed release names are unique.",
+    "Overlay placements are canonical relative paths under overlay/poc with no parent traversal; dropping overlay/ preserves the required source hierarchy and import relationships. None of the seven object paths overwrites an immutable base63 file.",
+    "All31 declared supervisor base dependencies match exact immutable inventory hashes/sizes and current public source bytes. All4 additional runtime dependencies match selected overlay hashes/sizes.",
+    "The two remaining supervisor rows are explicitly test-only test_campaign source and regenerated ASSETS path metadata; neither is represented as a missing runtime source object.",
+    "Public static selection hash and fixed D/profile match the plan. Source relocation explicitly regenerates local path metadata/ASSETS hashes while preserving source bytes and original audited raw66-member archive.",
+    "Selected objects are seven reviewed public source files, not per-client READY/restore/scan results, private maps, owner/output associations or visit-order data. Dynamic accepted history/checkpoint/pages and future optional observer adapters remain unselected in this plan."
+  ],
+  "fixed_domain_hex32": "be2c62d1ca8714bcce51659dfe12c190acc42234c6b1c2ff3c0fa60cf653e480",
+  "fixed_financial_profile_sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+  "immutable_base_inventory_sha256": "24067398ebec6624c2e7bd677404c7c01523341b0ec2e5fdcb0e140516c09bca",
+  "limits": [
+    "Reversible public source/metadata selection check only; no new financial execution gate, cryptographic/privacy qualification or actual candidate coverage claim.",
+    "This additive review report is outside earlier frozen source/publication snapshots."
+  ],
+  "not_a_financial_execution_gate": true,
+  "remaining_publication_contracts": [
+    "Root separately selects the exact actualR2 data/source byte map, including all necessary new public source artifacts, and runs the reviewed65 literal canaries before upload.",
+    "Assembler implementation and actual generated candidate/map provenance are reviewed separately by parent; this check covers the pinned plan and source dependency classification only.",
+    "Materialization must use a fresh derived source tree and preserve canonical hierarchy; original immutable static archive/unpacked candidate are unchanged."
+  ],
+  "reviewer_execution_performed": {
+    "assembler": false,
+    "data_generation": false,
+    "network": false,
+    "private_contents": false,
+    "source_scripts": false,
+    "tests": false
+  },
+  "schema": "owner-private-lifecycle-publication-metadata-review/v1",
+  "selected_plan": {
+    "bytes": 9378,
+    "path": "research/next-session/owner-private-lifecycle/availability/BOOTSTRAP-PRODUCER-PLAN-03.json",
+    "sha256": "1d32d778bd0e0db73c35bd2421952df8f217e293aa69e22a0cfd1956efa8d458"
+  },
+  "static_selection_sha256": "f163bff74e538ad553ffcb7b942586c5871df172c40139f0d087c7b7ad1f0af7",
+  "supervisor_selection": {
+    "equal_base63_runtime_rows": 31,
+    "explicit_non_runtime_rows": 2,
+    "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/live-01/SOURCE-CLOSED-SUPERVISOR-02.json",
+    "selected_overlay_runtime_rows": 4,
+    "sha256": "1ba38c8112c5ae4852f147848cfc9eecda84f17e6ed5d319e3dfd6321a1d37bc"
+  },
+  "verdict": "NO_BLOCKING_SELECTED_PUBLIC_SOURCE_PLAN_ISSUE"
+}

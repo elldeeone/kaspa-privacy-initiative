@@ -1,0 +1,23 @@
+{
+  "actual_runtime_GN3_control": "ACTUAL-CLOSED-GN3-REPLAY-01.json",
+  "coherent_other_profile_rejected_before_namespace": true,
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "poc/owner-private-lifecycle/recovery",
+    "-p",
+    "test_replay_closed.py",
+    "-v"
+  ],
+  "observed_control_groups_passed": 9,
+  "observed_unittest_elapsed_seconds": 0.008,
+  "original_backup_or_PK_content_read": false,
+  "schema": "kpx8-closed-replay-source02-targeted-controls/v1",
+  "source_manifest_sha256": "d61a7bd3b2aac86e5a71bb8785a44267c5aa1735f3916f69316d36257c8cfe87",
+  "synthetic_public_fixtures_only": true,
+  "test_source_sha256": "3e8bd30715e6067732f12cf922f4ac5a930dac7293d9ca005a5634482d8aff6c"
+}

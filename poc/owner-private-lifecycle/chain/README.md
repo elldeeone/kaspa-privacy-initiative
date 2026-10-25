@@ -71,6 +71,100 @@ mode0500 file at `assets/replay-codec-01/native-codec`, preserving the original
 shared file and fixed runtime check. The second replay passed. Both the failed
 public run and copy receipt are retained; no transaction was resent.
 
+## Confirmed transition handoff
+
+`confirm.py` is the read-only continuation adapter. It calls the unchanged
+fresh Full acquisition and fixed SDK/native/financial replay before producing
+`HANDOFF.json`. It accepts the same selected public inputs as replay, plus
+`--expected-transaction-id`; it acquires the prefix itself rather than accepting
+an asserted confirmation. No transaction submission method exists in it.
+
+The expected transaction must be the last accepted pool transition. Every
+accepted input must now be spent, and every native payout must be observed at
+its exact point, amount and script. The current reserve entry comes from the
+newly queried UTXO and must match the replayed point, roots, reserve and selected
+policy. Its actual birth DAA is carried as an integer. A terminal replay has
+zero reserve and an explicit JSON `null` current entry.
+
+The immutable handoff binds the raw Full prefix and every retained compressed
+page, history, checkpoint, native replay result, current entry, public session
+set, selector, descriptor, parameters and source pins. It also records measured
+acquisition time. An ambiguous submission uses this same read-only path with
+the same expected transaction ID; absent or incomplete evidence produces no
+handoff and never authorizes retransmission. Subsequent construction consumes
+only a handoff whose expected transition and count agree with the campaign.
+
+## Completed TN10 lifecycle observation
+
+The fresh trial `2a93ba31-0220-47d8-a845-369adadd0c95` completed its actual
+native-KAS path: three ordinary funding inputs established the 60 KAS pool,
+two genuine private-payment batches were confirmed, and nine independently
+authorized direct exits paid native test KAS. Each payment batch used the
+selected genuine outer proof and actual Native Full execution. The second
+batch followed seed-only restoration against the confirmed first batch.
+
+After the second batch, the original coordinator, shared prover and original
+writers were stopped. Fresh seed-only clients used the downloaded public
+software and accepted data inside closed namespaces to make their direct
+exit proofs. A replacement relay submitted each exact candidate once. The
+approved public observer retained raw protocol data; the clients and relay
+independently replayed it with the downloaded fixed software. This separates
+the original-service outage result from any claim of independent RPC
+administration or permanent data availability.
+
+The final confirmed transaction is
+`c0561fd7a124484476d746a9fbfdc5f8c47e7da43a02c7aa021d2b0dd5c158dd`.
+Its handoff, `public/live-01/confirm-exit-09/HANDOFF.json`, has SHA256
+`8b3188822050fcaee2ffb69870184420da5cc47e91831757c3487e9ae84d3e6c`.
+The complete twelve-transaction pool prefix passed the unchanged SDK,
+financial and Native Full checks. All nine payout UTXOs were observed with
+their exact amounts and scripts, unspent at that observation. Reserve is zero,
+current entry is explicitly `null`, and there is no successor pool output.
+The sibling `EXACT-CASE.json`, SHA256
+`2d76278601030dac072c858748251e1eea69ebdc02f5d160b629e9e47d7741e3`,
+also binds the last accepted case to the exact submitted witness, budget,
+gas and populated input entries.
+
+Three further fresh clients then restored the original seed-only backups,
+replayed the complete final prefix and passed all three final wallet scans.
+They recognized all claims as spent and rederived the native payout keys.
+The neutral terminal receipt has SHA256
+`1873565f1ad27b9e600a187f39a59a384527f301f3561f6e699f57c1302ed6f9`.
+The campaign operator and all 45 owned child jobs completed; no further send
+is pending.
+
+Final actual accounting balances 96.15864283 KAS mined into 36.11321183 KAS
+ordinary change, 57.888496 KAS native payouts and 2.156935 KAS total fees.
+Those fees include ordinary acquisition, founding, both batches and all nine
+exits. Against the preselected 21 KAS useful-payment workload, fees are
+10.271119%; the 2% target failed.
+
+## Read-only acquisition revisions
+
+The initial full observer retained about 1.59 GB for the first exit. The
+reviewed incremental collector reuses only authenticated, completely consumed
+MAIN pages and refetches the boundary page. It acquires fresh Full overlap,
+current input/payout queries, post-query reconciliation and repeated queries.
+Removed blocks, cache substitution, gaps or incompatible coverage require
+fresh full acquisition. Every resulting complete prefix still goes through
+the same SDK/native/financial replay and exact accepted-case comparison.
+
+Transport failures during exits three and four are retained. A fresh read-only
+retry completed exit three; the unchanged full collector on fresh sockets
+completed exit four. The next transport revision moved cache preparation
+before connection and opened a fresh client for fallback. Its fifth-exit
+capture succeeded, but a fractional timing diagnostic was refused by the
+frozen integer-only recovery parser before any sixth candidate or send.
+
+The original fifth capture remains unchanged. A reviewed derived copy replaced
+only that diagnostic with integer milliseconds, and the downloaded closed
+replay reproduced the exact fifth-exit history, checkpoint, native cases and
+payouts before fresh clients resumed. Collector Source03 then emitted integer
+milliseconds directly for exits six through nine. Neither repair changed a
+financial verifier, proof, transaction, fee, workload or once-only reservation;
+no transaction was retransmitted. Source freezes, negative runs, the original
+and derived captures, and their provenance are retained separately.
+
 ## Evidence boundary
 
 These are observations of the selected validating node with retained public

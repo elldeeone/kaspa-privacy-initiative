@@ -1,0 +1,61 @@
+{
+  "blocking_findings": [],
+  "independently_checked": [
+    "All 140 retained payload hashes and byte lengths, exact 1052012-byte total, canonical unique packet paths.",
+    "Both mixed and all nine exit projection framing, integer conservation, indexed-NF insertions and CM transitions recomputed with the authenticated pure public codec.",
+    "Across all 11 cases, exact previous transaction ID/index, native input entry/SPK/amount, old/new state bytes, reserve and successor SPK continuity.",
+    "Every input redeem recomputes to its native P2SH; state112 equals projection old state; the identical tail contains exact selected image, component and complete Exit VK. Every continuing output recomputes from new state plus that tail.",
+    "All 11 result/native-validation/metrics joins report actual Native Full and all scripts accepted, correct native engine/codec/profile identities, B1800 and script allowance18009999, and exact independent fee equality.",
+    "Case, projection and journal hashes join every result; journal is exact KPX8JR01 + fixed D + selected component + SHA256(projection). Case payload, point, actual output amounts/SPKs and covenant metadata match the public projection.",
+    "Both mixed native proof slots contain exactly the selected nonzero 128-byte retained proof; reviewed attachment code allows only that witness replacement.",
+    "Six mixed and nine exit NFs are globally distinct; CM count3->9->15 then unchanged; NF count1->4->7->16. Eight exits continue and the ninth has only the authorized payout and zero reserve.",
+    "All 16 retained mixed negative CASE witnesses preserve the exact genuine R1 proof; corresponding actual native reports reject both Full and scripts. Eight typed ZkIntegrity rejections and eight VerifyError rejections match summaries."
+  ],
+  "limits": [
+    "Local supplied contexts only. This review does not establish actual native backing, testnet acceptance, broadcast, confirmation or accepted-chain currentness.",
+    "No Native Full, Groth16 or outer CPU proof verification rerun by reviewer; retained exact native result files are authenticated and reconciled against the already reviewed validator.",
+    "Original source-case P/J immutability is enforced by the reviewed selected validator; this report checks packet joins and actual financial structure, not private wallet records.",
+    "Wallet claim inventory, seed recovery, independent cold availability and accepted GN3 founding evidence remain separate modules.",
+    "Fees exclude ordinary funding acquisition and GN3.",
+    "No private backup, seed, map, controller plan or raw private log read or hashed. No cryptographic or general privacy qualification.",
+    "This additive review report is outside the separately frozen 450-file repository publication snapshot."
+  ],
+  "packet": {
+    "authenticated_payload_bytes": 1052012,
+    "authenticated_payload_count": 140,
+    "path": "poc/owner-private-lifecycle/verification/native/selected-local-result-01/MANIFEST.json",
+    "sha256": "fdb09d49d03418d0c259bdf36164f3e1cc4cb1fcffcee269f143090c5cba18dc"
+  },
+  "reconciled_local_values_sompi": {
+    "equation": "6000000000 = 211150400 + 5788849600 + 0",
+    "exit_fees": 171322200,
+    "final_reserve": 0,
+    "initial_reserve": 6000000000,
+    "mixed_round_fees": 39828200,
+    "native_payouts": 5788849600,
+    "total_mixed_and_exit_fees": 211150400
+  },
+  "retained_native_results": {
+    "VerifyError_rejections": 8,
+    "ZkIntegrity_rejections": 8,
+    "direct_exits": 9,
+    "mixed_rounds": 2,
+    "positive_cases": 11,
+    "same_genuine_R1_proof_negative_rejections": 16
+  },
+  "reviewed_validator_closure": {
+    "controller_sha256": "b9afa8e7d292c653678d23f11fbafa0ddae7843484740a4a1e53cbdf7db3ddda",
+    "source_manifest_sha256": "00745b1c5b202b252e9645236ad28e502ccafb9a8a5a576f90b6d246d684c6a1",
+    "worker_sha256": "2a8420764dd214a81503d3bde6bceed9bcdf14b232e1f63ce03db9a4c742726d"
+  },
+  "schema": "owner-private-lifecycle-public-evidence-review/v1",
+  "selected_identities": {
+    "authenticated_public_wire_sha256": "fa6df7b55af307ccbf2f0896a9e1fc9afa5c4c290d35019be002be5454f52cf9",
+    "codec_sha256": "8f724750bb4cc849e2e4bde26fc8da2b5bc7f9a7e4ffd09153ee1af15858d208",
+    "component_profile_sha256": "a30fc71038685867ff832a384fc82d2654e0692c58f66667e77cb7e758f42554",
+    "financial_profile_sha256": "69a7adc46fc96b6a0368c48d4252290140ee500a5558749af7908624be9b923f",
+    "native_engine_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+    "outer_image_hex32": "d4b2d4e2c195533457bbb34a80cca286e489f9bb3624c5767d53ccc525db7784"
+  },
+  "verdict": "NO_BLOCKING_SELECTED_LOCAL_NATIVE_PACKET_INCONSISTENCY"
+}

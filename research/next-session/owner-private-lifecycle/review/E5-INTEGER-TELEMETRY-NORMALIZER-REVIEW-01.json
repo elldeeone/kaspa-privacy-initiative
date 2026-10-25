@@ -1,0 +1,61 @@
+{
+  "actual_readonly_control": {
+    "derived_output_written_by_author_control": false,
+    "path": "/var/tmp/kpi-normalize-e5-transport-CONTROLS-01.json",
+    "sha256": "13cc0c8f9be4c9be0f94dfc6a362b1415be72b30ad98a195028950d36f3c8560",
+    "status": "CHECK_ONLY_NO_WRITES"
+  },
+  "actual_selected_parser_control": {
+    "all_other_fields_projection_sha256": "06b16de9a070c929465b15426adb5a498f18407233d96b91f7f803965f60a563",
+    "derived_fetch": {
+      "bytes": 502648,
+      "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/live-01/confirm-exit-05/prefix/fetch-integer-telemetry-01.json",
+      "sha256": "aa10472848360d1b386c43a32fc2360acc0f11c5c2af1c8bd5d81e2745829d68"
+    },
+    "derived_parser_pass": true,
+    "frozen_parser_sha256": "eaf2fd951211faecefee7019f2fe1d7caaf908b18f71f6a4e00958b6cef8f863",
+    "milliseconds": 65038,
+    "original_fetch_sha256": "ab906cf89ea05f9c8dddecbf3c959a5daa4fb9b48101c1748b114ffc046a620e",
+    "original_handoff_sha256": "718e113ef39dd27cbbee2becfa2751d6cd00df509456aa112652d37ca12633e9",
+    "original_parser_rejection": "non-integer-public-JSON-number",
+    "original_seconds_decimal": "65.038",
+    "provenance_sha256": "bcec3ef41f81ab7ae1b0a8938d6f79f501dd1b195ad558924289deb5af4743bc"
+  },
+  "authorized_next_step": "Root may run this exact selected one-input write independently of Source03 work. AV must then reconstruct the packet/handoff and complete unchanged closed SDK/native replay of the derived fetch, matching the accepted Exit5 H/C/current-entry and deriving new report fetch hashes before resumed clients use it.",
+  "blocking_findings": [],
+  "checked_contracts": [
+    "Original handoff and fetch are fixed by exact Root-selected whole-file hashes and exact selector path. No other fetch or data set can be written by this normalizer.",
+    "The only parsed Decimal must occur at source.transport.cache_preparation_seconds. Duplicate keys, nonfinite numbers, additional decimal paths or preexisting milliseconds field refuse.",
+    "Seconds converts using exact Decimal.as_integer_ratio, integer multiplication by1000 and divisibility; no rounding or Decimal-context arithmetic is used.",
+    "Only that one key/value is replaced with cache_preparation_milliseconds; recursive typed equality after omitting old/new diagnostic paths requires all other values and types, including bool versus int, unchanged.",
+    "The exact frozen parser source is externally hash-pinned; only its Refused/need/parse definitions are extracted. Original must reproduce the precise non-integer-public-JSON-number refusal, and derived output must pass this unchanged parser with recursive typed equality.",
+    "Original actual collector remains whole-main-page-delta/v2 with exact9006cb70 source attribution. The normalizer has separate source and old/new/projection/provenance hashes; it never claims Source03 captured the accepted Exit5 bytes.",
+    "Write mode requires an externally selected exact normalizer source hash and creates only two fixed fresh sibling files O_EXCL/O_NOFOLLOW, fsyncs files and parent. Original fetch/reports/handoff/HEAD/advance remain untouched.",
+    "Sibling placement preserves every original relative page reference. No page payload, private backup/controller/map/log, network service or transaction method is opened or used."
+  ],
+  "created_at_utc": "2026-10-25T02:40:08.618423+00:00",
+  "independent_parser_second_pass": "A separate reviewer checked the fixed parser boundary, exact Decimal path and integer-ratio conversion, typed equality and preserved collector identity; no concrete blocker found.",
+  "limits": [
+    "Read-only parser control is not complete financial/cold replay evidence; that normal mandatory execution remains required.",
+    "No duplicate transaction, altered monetary value, proof/body/context/page, relaxed parser or rewritten old report is authorized.",
+    "Future Source03 collector review is separate; this report attributes original accepted data only to Source02."
+  ],
+  "reviewer_actions": {
+    "actual_fetch_or_handoff_contents_read": false,
+    "derived_files_written": false,
+    "implementation_changes": false,
+    "network_requests": 0,
+    "normalizer_executed": false,
+    "private_content_reads": false,
+    "raw_page_payload_reads": false,
+    "tests_rerun": 0
+  },
+  "schema": "kpx8-one-E5-integer-telemetry-normalizer-source-review/v1",
+  "scope": "One fixed externally selected accepted Exit5 public fetch, metadata-only representation repair. This gate is independent of future collector Source03.",
+  "source": {
+    "bytes": 8202,
+    "path": "/var/tmp/kpi-normalize-e5-transport-01.py",
+    "sha256": "2be1e915203a0b0be3970305a40f952cf5732f06667bea33890f2868eb8f704f"
+  },
+  "status": "SOURCE_AND_SELECTED_READONLY_PARSER_CONTROL_PASS"
+}

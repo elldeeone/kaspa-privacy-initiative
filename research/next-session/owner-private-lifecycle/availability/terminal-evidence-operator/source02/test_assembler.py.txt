@@ -1,0 +1,242 @@
+"""Synthetic public-metadata controls only; no trial data, private reads, network or payload copies."""
+import copy
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import runpy
+import unittest
+from unittest.mock import patch
+
+spec = importlib.util.spec_from_file_location('terminal_packet', '/var/tmp/kpi-prepare-terminal-evidence-01.py')
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+h = runpy.run_path('/var/tmp/kpi-root-guard-helper-09.py')
+CONVERTER = m.load_converter(h['read'](m.REPO / m.REPLAY_SOURCE, m.REPLAY_SHA))
+
+
+class Fixture:
+    def __init__(self):
+        self.raw = {}; self.counter = 0; self.page_metadata = []
+        self.trial = '12345678-1234-1234-1234-123456789abc'
+        self.ids = [hashlib.sha256(('public-case-%d' % i).encode()).hexdigest() for i in range(12)]
+        state = b'KPX8ST01' + bytes.fromhex(m.D) + bytes(32) + (15).to_bytes(4,'little') + bytes(32) + (16).to_bytes(4,'little')
+        self.checkpoint = {'outpoint_hex36':None,'reserve_sompi':0,'state_hex112':state.hex()}
+        self.history = {'schema':'kpx8-owner-private-history/v1','domain_hex32':m.D,'genesis':{},
+            'head':self.checkpoint,'transitions':[{'kind':k} for k in ['batch']*2+['exit']*9]}
+        self.rows, cases, native_reports, payouts, observations, queries = [], [], [], [], [], []
+        script = '000020' + '34'*32 + 'ac'
+        for i, txid in enumerate(self.ids):
+            previous = {'transactionId':'ff'*32 if i == 0 else self.ids[i-1],'index':0}
+            tag = b'KPX8GN01' if i == 0 else b'KPX8PB01' if i < 3 else b'KPX8XB01'
+            outputs = [{'value':'100000000','scriptPublicKey':script,'covenant':None}]
+            if i != 11: outputs.insert(0, {'value':'999','scriptPublicKey':script,'covenant':None})
+            row = {'transaction':{'id':txid,'storageMass':'0','lockTime':'0','gas':'0','version':1,
+                'subnetworkId':'00'*20,
+                'inputs':[{'previousOutpoint':previous,'sequence':'0','signatureScript':'4c80'+'ab'*128,'computeBudget':1800}],
+                'outputs':outputs,'payload':tag.hex()},
+                'accepted_input_contexts':[{'outpoint':previous,'amount_sompi':'100001000','script_public_key':script,
+                    'block_daa_score':'1','is_coinbase':False,'covenant_id':None}],
+                **{k:None for k in ['accepting_block_header','confirmation_policy','genesis_hash_hex','network_id',
+                    'sdk_transaction_id_recomputed','source_group_index','source_page_index','source_transaction_index']}}
+            self.rows.append(row)
+            metrics = {k:0 for k in ['P2SH_sigop_counts','actual_fee_sompi','compute_mass','estimated_bytes',
+                'mining_mass','quotes','relay_mass','source_adapted_block_mass_caps','source_adapted_default_relay_fee',
+                'source_adapted_sigop_policy','standard_script_classes','storage_mass','transient_mass']}
+            metrics['actual_fee_sompi'] = 10
+            engine = {'accepted':True,'allowed_script_units':100,'input_index':0,'units':10}
+            validation = {'Full':{'accepted':True,'fee_sompi':10},'ScriptEngine':engine,
+                'all_input_engines_accepted':True,'isolation':'PASS','per_input_ScriptEngine':[engine]}
+            cases.append({'case':self.put(CONVERTER(row)),'validation':self.put(validation),'metrics':self.put(metrics)})
+            native_reports.append({'transaction_id':txid,'metrics':metrics,'native_full_and_all_input_engines_passed':True})
+            queries.append({'outpoint':previous,'queried':True,'entry':None})
+            if i >= 3:
+                at = {'transactionId':txid,'index':0 if i == 11 else 1}
+                payout = {'output_index':at['index'],'payout_sompi':100000000,'script_public_key':script,'transaction_id':txid}
+                entry = {'amount':100000000,'scriptPublicKey':script,'blockDaaScore':10+i,'isCoinbase':False,'covenantId':None}
+                payouts.append(payout); observations.append({'outpoint':at,'entry':entry})
+                queries.append({'outpoint':at,'queried':True,'entry':{'outpoint':at,'amount_sompi':'100000000',
+                    'script_public_key':script,'block_daa_score':str(10+i),'is_coinbase':False,'covenant_id':None}})
+        # Input previous points and payout points are distinct (terminal output0 has no later input).
+        self.page1 = {'path':'main/000.json.gz','request':{},'decoded_sha256':'11'*32,'decoded_bytes':200,
+            'gzip_sha256':hashlib.sha256(b'public-existing-page').hexdigest(),'gzip_bytes':20,'encoding':'fixture'}
+        self.page2 = {'path':'post/000.json.gz','request':{},'decoded_sha256':'22'*32,'decoded_bytes':300,
+            'gzip_sha256':hashlib.sha256(b'new-public-page').hexdigest(),'gzip_bytes':15,'encoding':'fixture'}
+        self.fetch = {k:None for k in m.FETCH_FIELDS}
+        self.fetch.update({'schema':'kpx8-gn3-network-fetch/v1','financial_profile_sha256':m.PROFILE,'transactions':self.rows,
+            'terminal_candidate_not_yet_replay_verified':True,'coverage':{'complete':True,'frontier_seen':True,'missing':[],'pruned':False},
+            'pages':[self.page1],'current_view':{'queries':queries,'post_query_delta':{'pages':[self.page2]},
+                'final_requery':{'queries':copy.deepcopy(queries)}}})
+        selectors = {}
+        for key, value in [('selection',{}),('descriptor',{}),('parameters',{}),('sessions',[]),('source_pins',{}),
+            ('fetch.json',self.fetch),('HISTORY.json',self.history),('CHECKPOINT.json',self.checkpoint),('CURRENT-ENTRY.json',None)]:
+            row = self.put(value, name='prefix/fetch.json' if key=='fetch.json' else None)
+            selectors[key] = {'path':row['path'],'sha256':row['sha256']}
+        self.report = {k:None for k in m.REPLAY_FIELDS}
+        self.report.update(schema='kpx8-accepted-native-replay/v1',financial_profile_sha256=m.PROFILE,
+            status='RECORDED_VALIDATING_NODE_PREFIX_FINANCIAL_AND_NATIVE_PASS',current_checkpoint=self.checkpoint,
+            all_native_Full_and_input_engines_executed=True,genesis_rederived_from_public_notes_and_native_backing=True,
+            spend_authorized=False,independent_consensus_or_continuous_currentness=False,
+            history_sha256=selectors['HISTORY.json']['sha256'],fetch_sha256=selectors['fetch.json']['sha256'],
+            selection_file_sha256=selectors['selection']['sha256'],descriptor_sha256=selectors['descriptor']['sha256'],
+            transactions=native_reports,payouts=payouts,observed_total_fee_sompi=120,trust='fixture')
+        rr = self.put(self.report);selectors['RESULTS.json']={'path':rr['path'],'sha256':rr['sha256']}
+        pages = [{'path':'/synthetic-public/prefix/'+p['path'],'bytes':p['gzip_bytes'],'sha256':p['gzip_sha256']}
+                 for p in [self.page1,self.page2]]
+        self.handoff = {k:None for k in m.HANDOFF_FIELDS}
+        self.handoff.update(schema='kpx8-confirmed-transition-handoff/v1',trial_id=self.trial,financial_profile_sha256=m.PROFILE,
+            accepted_transactions=12,terminal=True,status=self.report['status'],automatic_resubmission_permitted=False,
+            submission_performed=False,independent_consensus_or_continuous_currentness=False,checkpoint=self.checkpoint,
+            selectors=selectors,expected_transaction_id=self.ids[-1],full_prefix_pages=pages,
+            observed_total_fee_sompi=120,native_payouts_observed=observations,fetch_wall_seconds=1,total_wall_seconds=1)
+        sdk = {k:None for k in m.SDK_FIELDS};sdk.update(schema='kpx8-gn3-public-sdk-verification/v1',
+            status='PUBLIC_EVIDENCE_CONSISTENCY_PASS',financial_profile_sha256=m.PROFILE,selected_transaction_ids=self.ids,
+            discovered_head=None,terminal_candidate=True,transaction_ids_and_full_body_context_locators_recomputed=True,
+            header_hashes_and_prefix_paths_recomputed=True,current_view_and_delta_consistent=True,
+            chain_inclusion_pow_or_independent_consensus_verified=False,
+            no_GN3_or_W_semantic_native_verification_in_this_SDK_stage=True,
+            selection_file_sha256=selectors['selection']['sha256'],descriptor_file_sha256=selectors['descriptor']['sha256'],
+            fetch_file_sha256=selectors['fetch.json']['sha256'],sdk_pins={})
+        account={k:0 for k in m.ACCOUNT_INTS};account.update({k:True for k in m.ACCOUNT_BOOLS})
+        account.update(schema='kpx8-neutral-recorded-live-accounting/v1',auditor_sha256=m.AUDITOR_SHA,scope='fixture',
+            accepted_pool_transaction_count=12,accepted_payment_round_count=2,confirmed_payout_count=9,
+            native_payout_sompi=900000000,pool_fees_sompi=120,acquisition_fees_sompi=1,complete_fee_sompi_so_far=121,
+            fixed_useful_payment_sompi=2100000000,fee_ratio_numerator=121,fee_ratio_denominator=2100000000,
+            independent_consensus_or_crypto_proof_verified=False,privacy_or_separate_administration_qualified=False,
+            accepted_prefix_evidence_sha256={'fetch':selectors['fetch.json']['sha256'],'replay':rr['sha256'],
+                'history':selectors['HISTORY.json']['sha256'],'checkpoint':selectors['CHECKPOINT.json']['sha256'],
+                'native-tail':m.TAIL_SHA},two_percent_target_verdict='PASS')
+        terminal={'schema':'kpx8-confirmed-terminal-seed-reconciliation/v1',
+            'accepted_history':[selectors['HISTORY.json']['path'],selectors['HISTORY.json']['sha256']],
+            'all_three_terminal_seed_scans_passed':True,'all_historical_native_payout_keys_rederived':True,
+            'reserve_sompi':0,'terminal_seed_scans_completed':3,'client_associations_exported':False,
+            'read_context_placeholder_fee_is_a_ledger_charge':False}
+        outage={k:False for k in m.OUTAGE_FIELDS};outage.update(schema='kpx8-observed-original-service-outage-aggregate/v1',
+            trial_id=self.trial,financial_profile_sha256=m.PROFILE,accepted_R2_handoff_sha256='bb'*32,
+            all_recorded_owned_prover_process_identities_gone=True,
+            all_six_original_submission_processes_and_last_confirmation_exited=True,
+            all_three_original_MPC_parties_and_coordinator_completed=True,original_pool_writer_authority_relinquished=True,
+            public_read_only_chain_observer_remains_available=True,same_physical_host_isolated_replacement_namespaces=True,
+            owned_shared_prover_units_stopped=20,owned_MPC_containers_or_integration_units_running=0,
+            owned_prover_GPU_processes_sockets_or_construction_containers_running=0,
+            source_receipt_sha256={k:'cc'*32 for k in ['coordinator_mpc','original_writer','shared_prover']},scope='fixture',summarized_at_utc='fixture')
+        self.static_objects=[]; self.assets=[]
+        for i, identity in enumerate(sorted(m.STATIC_VERIFY_IDS|{'closed-replay-bootstrap'})):
+            raw=('public-'+identity).encode(); pin=m.digest(raw)
+            self.static_objects.append({'id':identity,'source_path':'/synthetic-public/'+identity,'bytes':len(raw),
+                'sha256':pin,'placement':'public/'+identity,'kind':'software_source'})
+            self.assets.append(self.observed(identity,pin,len(raw)))
+        self.assets.append(self.observed('different-page-label',self.page1['gzip_sha256'],20))
+        while len(self.assets)<64:
+            i=len(self.assets);self.assets.append(self.observed('existing-%d'%i,hashlib.sha256(str(i).encode()).hexdigest(),i))
+        initial_protocol=[]
+        for role in ['selection','descriptor','parameters','sessions','source_pins']:
+            chosen=selectors[role]
+            initial_protocol.append({'id':m.SELECTORS[role][0],'sha256':chosen['sha256'],
+                'bytes':len(self.raw[chosen['path']]),'source_path':chosen['path'],'placement':'unused','kind':'public_history'})
+        static = {'objects':self.static_objects}
+        r2 = {'objects':initial_protocol,'handoff_sha256':'bb'*32}
+        top_selection = {'schema':'fixture'};top_select_row=self.put(top_selection)
+        top_closure = {'transport_selection_sha256':top_select_row['sha256'],'profile_reference_sha256':m.PROFILE}
+        self.selection={'schema':'kpx8-root-terminal-evidence-inputs/v1','domain_hex32':m.D,
+            'financial_profile_sha256':m.PROFILE,'trial_id':self.trial,'cases':cases,'files':{
+                'handoff':self.put(self.handoff),'sdk':self.put(sdk),'accounting':self.put(account),
+                'terminal':self.put(terminal),'outage':self.put(outage),'observed':self.put({'objects':self.assets}),
+                'static':self.put(static),'r2':self.put(r2),'top-selection':top_select_row,'top-closure':self.put(top_closure)}}
+
+    def put(self,value,name=None):
+        self.counter+=1;path='/synthetic-public/'+(name or 'metadata-%03d.json'%self.counter);raw=m.encoded(value)
+        self.raw[path]=raw;return {'path':path,'bytes':len(raw),'sha256':m.digest(raw)}
+
+    def observed(self,identity,pin,size):
+        name=identity+'-'+pin+'.json'
+        return {'id':identity,'bytes':size,'github_reported_digest':'sha256:'+pin,'name':name,
+            'url':'https://github.com/elldeeone/kaspa-privacy-initiative/releases/download/tag/'+name}
+
+    def read(self,path,pin):
+        raw=self.raw[str(path)];m.need(m.digest(raw)==pin,'fixture-sha');return raw
+
+    def meta(self,path,size):
+        self.page_metadata.append((str(path),size))
+
+    def change_file(self,role,change):
+        row=self.selection['files'][role];value=json.loads(self.raw[row['path']]);change(value)
+        self.selection['files'][role]=self.put(value)
+
+    def run(self):
+        with patch.object(m,'STATIC_SHA',self.selection['files']['static']['sha256']),\
+             patch.object(m,'R2_SHA',self.selection['files']['r2']['sha256']),\
+             patch.object(m,'TOP_SELECTION_SHA',self.selection['files']['top-selection']['sha256']),\
+             patch.object(m,'TOP_CLOSURE_SHA',self.selection['files']['top-closure']['sha256']):
+            obj=m.Assembler(self.read,self.meta,CONVERTER,'/synthetic-output')
+            result=obj.plan(self.selection);return result,obj
+
+
+class Controls(unittest.TestCase):
+    def test_complete_neutral_plan_and_exact_content_reuse(self):
+        f=Fixture();r,a=f.run();self.assertEqual(len(a.generated),6)
+        page=next(x for x in r['objects'] if x['id']=='terminal-prefix-page-00000')
+        self.assertFalse(page['upload_required']);self.assertIn('different-page-label',page['existing_public_urls'][0])
+        self.assertEqual(len(json.loads(a.generated['GZIP-AUDIT-MAP.json'])['pages']),1)
+        self.assertEqual(len(f.page_metadata),2)
+        self.assertTrue(all(x['public_urls'] and all(u.startswith('https://github.com/') for u in x['public_urls'])
+                            for x in json.loads(a.generated['INDEX.json'])['objects']))
+        for raw in a.generated.values():
+            self.assertNotIn(b'participant_id',raw);self.assertNotIn(b'scan-attempt',raw)
+
+    def reject(self,role,change):
+        f=Fixture();f.change_file(role,change)
+        with self.assertRaises((ValueError,KeyError,IndexError)):f.run()
+
+    def test_partial_handoff(self): self.reject('handoff',lambda d:d.update(accepted_transactions=11))
+    def test_nonterminal(self): self.reject('handoff',lambda d:d.update(terminal=False))
+    def test_boolean_count(self): self.reject('handoff',lambda d:d.update(accepted_transactions=True))
+    def test_owner_handoff_field(self): self.reject('handoff',lambda d:d.update(owner_to_exit=[]))
+    def test_missing_payout(self): self.reject('handoff',lambda d:d['native_payouts_observed'].pop())
+    def test_ownership_terminal_field(self): self.reject('terminal',lambda d:d.update(participant_id_hex32='aa'*32))
+    def test_terminal_missing_scan(self): self.reject('terminal',lambda d:d.update(terminal_seed_scans_completed=2))
+    def test_terminal_wrong_history(self): self.reject('terminal',lambda d:d['accepted_history'].__setitem__(1,'00'*32))
+    def test_unstopped_outage(self): self.reject('outage',lambda d:d.update(original_pool_writer_authority_relinquished=False))
+    def test_private_outage_extra(self): self.reject('outage',lambda d:d.update(argv=[]))
+    def test_accounting_incomplete(self): self.reject('accounting',lambda d:d.update(complete_requested_lifecycle=False))
+    def test_wrong_fee_ratio(self): self.reject('accounting',lambda d:d.update(fee_ratio_numerator=122))
+    def test_unqualified_privacy(self): self.reject('accounting',lambda d:d.update(privacy_or_separate_administration_qualified=True))
+    def test_sdk_wrong_full_body_flag(self): self.reject('sdk',lambda d:d.update(transaction_ids_and_full_body_context_locators_recomputed=False))
+    def test_modified_proof_same_id_rejected(self):
+        f=Fixture();r=f.selection['cases'][3]['case'];d=json.loads(f.raw[r['path']]);d['transaction']['inputs'][0]['signatureScript']='00'
+        f.selection['cases'][3]['case']=f.put(d)
+        with self.assertRaisesRegex(ValueError,'witness-budget-and-context'):f.run()
+    def test_modified_budget_same_id_rejected(self):
+        f=Fixture();r=f.selection['cases'][3]['case'];d=json.loads(f.raw[r['path']]);d['transaction']['inputs'][0]['computeBudget']=1801
+        f.selection['cases'][3]['case']=f.put(d)
+        with self.assertRaisesRegex(ValueError,'witness-budget-and-context'):f.run()
+    def test_modified_context_same_id_rejected(self):
+        f=Fixture();r=f.selection['cases'][3]['case'];d=json.loads(f.raw[r['path']]);d['entries'][0]['blockDaaScore']=2
+        f.selection['cases'][3]['case']=f.put(d)
+        with self.assertRaisesRegex(ValueError,'witness-budget-and-context'):f.run()
+    def test_private_path_rejected_before_reader(self):
+        f=Fixture();f.selection['files']['terminal']['path']='/synthetic-public/private/TERMINAL.json'
+        with self.assertRaisesRegex(ValueError,'private-path'):f.run()
+    def test_missing_case(self):
+        f=Fixture();f.selection['cases'].pop()
+        with self.assertRaises(ValueError):f.run()
+    def test_wrong_selected_whole_sha(self):
+        f=Fixture();f.selection['files']['terminal']['sha256']='00'*32
+        with self.assertRaises(ValueError):f.run()
+    def test_logical_page_traversal(self):
+        with self.assertRaises(ValueError):m.logical('../private/page.gz')
+    def test_conversion_uses_fixed_source(self):
+        with self.assertRaisesRegex(ValueError,'fixed-replay'):m.load_converter(b'def native_case(row):return row')
+    def test_duplicate_JSON_key_rejected(self):
+        with self.assertRaisesRegex(ValueError,'duplicate'):m.parse(b'{"schema":"x","schema":"y"}')
+    def test_nonfinite_JSON_rejected(self):
+        with self.assertRaisesRegex(ValueError,'nonfinite'):m.parse(b'{"value":NaN}')
+    def test_pruned_array_is_not_producer_boolean(self):
+        f=Fixture();h=copy.deepcopy(f.handoff);fetch=copy.deepcopy(f.fetch);fetch['coverage']['pruned']=[]
+        fr=f.put(fetch,name='prefix/fetch.json');h['selectors']['fetch.json']={'path':fr['path'],'sha256':fr['sha256']}
+        report=copy.deepcopy(f.report);report['fetch_sha256']=fr['sha256'];rr=f.put(report)
+        h['selectors']['RESULTS.json']={'path':rr['path'],'sha256':rr['sha256']}
+        f.selection['files']['handoff']=f.put(h)
+        with self.assertRaisesRegex(ValueError,'complete-selected-observer-prefix'):f.run()
+
+
+if __name__=='__main__':unittest.main(verbosity=2)

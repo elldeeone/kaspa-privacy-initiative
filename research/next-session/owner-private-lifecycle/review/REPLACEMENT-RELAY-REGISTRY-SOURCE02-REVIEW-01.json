@@ -1,0 +1,59 @@
+{
+  "author_reported_synthetic_controls": 9,
+  "blocking_findings": [],
+  "checks": [
+    "Externally pinned complete Buffer handover is strict UTF8/duplicate-key JSON with exact fields, fixed D/profile, UUID4 trial, exact selected H/C/current-entry pins, six unique confirmed prior stages and three accepted pool TXIDs in genesis/R1/R2 order.",
+    "SOURCE02 only adds mandatory current_entry_sha256 to exact handover field and canonical SHA validation sets. Reversing those two insertions reproduces the exact reviewed SOURCE01 SHA; durability/API code is unchanged.",
+    "Canonical absolute nonsymlink registry path, mode0700 directories, single-link mode0400 immutable files and descriptor/path identity checks; all exclusive writes and containing directories are fsynced.",
+    "INITIALIZING/HANDOVER/three directories/SEALED must form the exact root-name set. A nonempty partial/ambiguous initialization cannot become a new registry, while identical complete initialization rechecks data and durability.",
+    "Record binds exact trial, nonzero transaction ID and predecessor outpoint, case/candidate hashes, and canonical decimal u64 latest checked DAA.",
+    "All six prior stage or transaction identities are rejected before new reservations. Every existing marker is strictly parsed and bound to its filename, handover, trial and reserved status.",
+    "Each valid surviving marker consumes stage, transaction and predecessor regardless of missing sibling markers. Malformed/truncated surviving markers fail the entire scan closed.",
+    "Exclusive predecessor then transaction then stage marker creation prevents concurrent overlapping proposals from both returning. A later collision deliberately leaves prior markers consumed; no rollback or resend permission is returned.",
+    "Module performs registry bookkeeping only and has no RPC/submission method. No selected financial circuit, verifier or accepted-prefix replay source is modified."
+  ],
+  "handover_schema_selection": {
+    "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/live-01/RELAY-HANDOVER-SCHEMA-01.json",
+    "sha256": "6ec447c9a1490874b867b12071e17bed5d2baa49b308f3dd9925976da5ccf701"
+  },
+  "limits": [
+    "Source-only normal correctness review; exact source/receipt bytes authenticated through public guard09. No actual registry, handover contents or private data were read.",
+    "An empty unmarked directory remains eligible for first initialization; no sealed reservation or RPC grant can have existed in that state. Observable partial nonempty initialization fails closed.",
+    "Filesystem durability relies on the trusted local filesystem and successful exclusive create/fsync semantics. No cryptographic, consensus, privacy or separate-administration qualification.",
+    "This additive review report is outside the earlier frozen450-file repository snapshot."
+  ],
+  "reference_source01_sha256": "9dca5b979816c59af51a939b45cbf875b696482dc0b6212a147ed773a62235d2",
+  "remaining_caller_contracts": [
+    "Trusted closed wrapper must reconstruct actual accepted R2 history/checkpoint and authenticate the handover current_entry_sha256 against the historical actual R2 query or accepted first-exit input context, including birth DAA. The registry validates the digest field, not the underlying chain data.",
+    "Closed wrapper must bind the one Root-approved host registry to its fixed /work/registry path and call reserve successfully before its single RPC; a new registry path or deletion cannot be treated as reset authority.",
+    "Handover truth about all prior submissions resolved and original writers/prover/coordinator stopped must be independently established by the selected execution controller. Structural true fields alone do not stop processes or prove chain acceptance.",
+    "New candidate currentness and input contexts must come from the newest accepted state/query. The frozen historical R2 entry is a handover anchor and must not supply stale DAA to later head spends."
+  ],
+  "reviewer_execution_performed": {
+    "network": false,
+    "private_backup_or_map_content_reads": false,
+    "real_registry_read": false,
+    "registry_initialization_or_mutation": false,
+    "tests": false
+  },
+  "schema": "owner-private-lifecycle-focused-source-review/v1",
+  "source_manifest": {
+    "path": "/var/tmp/kpi-owner-private-lifecycle-01/public/live-01/RELAY-REGISTRY-SOURCE-02.json",
+    "sha256": "602da3f96f00328bc339b7129ce51650cd0343e818d1504610e987fd58452103"
+  },
+  "sources": {
+    "poc/owner-private-lifecycle/chain/json.mjs": {
+      "bytes": 2202,
+      "sha256": "59e7b579ddd3a62e5af404b38051376044e3ae1e26c25bdb6e6c6cfd969da1f7"
+    },
+    "poc/owner-private-lifecycle/recovery/relay_registry.mjs": {
+      "bytes": 10007,
+      "sha256": "2e393021757e00b6c6a267e58a2ba6936fa0d2052846435d6a26272692f666e5"
+    },
+    "poc/owner-private-lifecycle/recovery/test_relay_registry.mjs": {
+      "bytes": 9495,
+      "sha256": "556124248c37e0074e6ad13ffcd75571dc9b932f9d6232a1ea1db020866b9a03"
+    }
+  },
+  "verdict": "NO_BLOCKING_DURABLE_REPLACEMENT_REGISTRY_SOURCE_ISSUE"
+}

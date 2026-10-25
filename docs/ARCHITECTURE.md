@@ -1,32 +1,46 @@
 # Candidate Architecture
 
-**Status:** the four-wallet native-KAS lifecycle and all four original-backup
-payouts are confirmed on TN10. Financial privacy remains unqualified and
-production architecture remains unselected. A separate unfunded owner-private
-prototype completed its bounded local financial and grouping experiments; the
-new integrated profile below remains to be executed.
+**Status:** the integrated owner-private profile completed actual TN10 GN3,
+both genuine private-payment rounds, nine independent native payouts and three
+further fresh original-seed terminal scans. Reserve and owned claims reconcile
+to zero. Financial privacy remains unqualified and production architecture
+remains unselected. See the [result index](../research/next-session/owner-private-lifecycle/RESULTS.md).
 
-[ADR-0064](adr/0064-owner-private-native-kas-lifecycle.md) now selects the next
-owner-directed integration: one **new TN10-only** profile combines three-owner
-GN3 backing, genuine repeated three-spend/six-output rounds, original-seed
-payment/change recovery and direct one-owner no-append exits. The
-[shared contract](../research/next-session/owner-private-lifecycle/CONTRACT.md)
-uses a fresh KPX8 domain and separate Spend/Output/Exit keys. Exit152 proves
-hidden membership, ownership, original NF and `value=payout+fee`; native code
-authenticates current indexed NF insertion, unchanged CM state and exact
-reserve/payout/destination/continuation without another MPC round or the shared
-outer prover. GN3 publishes the complete initial note records at the transparent
-deposit boundary. Public funding-key derivation reserves seed index
-`0xffffffff`; payment/exit keys must use other fresh indices.
+[ADR-0064](adr/0064-owner-private-native-kas-lifecycle.md) selects one new
+TN10-only profile combining three-owner GN3 backing, repeated 3-spend/6-output
+rounds, original-seed payment/change recovery and direct no-append Exit152.
+The [contract](../research/next-session/owner-private-lifecycle/CONTRACT.md)
+binds the new domain, Spend/Output/Exit keys, current state/NF insertion and exact
+native effects. GN3's initial note records are public deposit-boundary data;
+funding index `0xffffffff` is excluded from payment/exit keys.
 
-This is an implementation selection, not execution evidence. Complete genuine
-local admission/payments/recovery/exits precede live funding. Actual accepted
-history, infrastructure-loss recovery, confirmed payouts and the full fee ledger
-are completion requirements. The new profile does not inherit old confirmed
-payouts or the old prototype's bounded grouping result. Expanded privacy-study
-step4 is outside the selected batch; normal correctness/review remains required.
-Separately administered storage still requires actual external control and
-retrieval. No previous invariant, fee target or privacy failure is changed.
+The complete supplied-context route passed before live funding. The actual
+run then confirmed twelve pool transactions and 57.888496 KAS in nine payouts,
+including spending recovered payments/change in R2. Original coordinator/MPC,
+shared R0 and writer processes quiesced; replacement clients used authenticated
+downloaded software/history/keys and direct proofs with original paths absent.
+Three further fresh backups replayed final history, required every owned claim
+spent and rederived historical payout keys. This is same-host isolated execution,
+not independent custody. Initial complete 64-object HTTPS recovery passed;
+final publication and public CI HTTPS/native replay remain pending their actual
+receipts at this prepublication checkpoint.
+
+Complete actual fees are 2.156935 KAS / frozen 21 KAS = 10.2711190476%, failing 2%.
+The [fee audit](../research/next-session/owner-private-lifecycle/fees/FEE-RATE-FINDING-01.md)
+finds a rate of 100 consistent with observed estimates/pinned standard policy, while
+remote admission configuration is unknown. [Confirmed proof cases](../research/next-session/owner-private-lifecycle/fees/CONFIRMED-ENGINE-BUDGET-01.json)
+already use roughly 82–87% of B1800's allowance; trimming headroom alone offers
+limited savings. No lowered-budget/rate candidate or workload retuning occurred.
+
+The source-established funding-marker→pseudonym→ordered mixed NF/CV channel
+leaves sender anonymity unresolved; coordinator READY-admission pairing is a
+separate problem. This does not itself map shuffled outputs/change/receivers or
+terminal payout owners. Deterministic fee remainders can leave one-sompi change
+fingerprints; amounts, timing, endpoints, ancestry and trusted-host/setup limits
+also remain. Excluding additional private recovery association artifacts does
+not remove public protocol identifiers or existing chain linkage. No new
+privacy-study step4 was run; earlier failures and invariants are unchanged.
+Separately administered storage and durable retention remain unconfigured.
 
 [ADR-0063](adr/0063-owner-private-payments-prototype.md) selects a **new,
 unfunded** three-owner/six-output design under a distinct domain, setup and

@@ -28,6 +28,33 @@ evidence is required for this domain. Expanded privacy-study step4 is not part
 of the requested execution; known amount, ancestry, endpoint, collusion and
 transparent exit limitations and the previous privacy failures remain unchanged.
 
+The frozen equal-value workload also permits arithmetic linkage through
+deterministic fee allocation. The actual 19,914,100-sompi mixed fee divides into
+6,638,033/6,638,033/6,638,034 shares; a one-sompi change distinction can become
+visible at transparent exits. This is a source/arithmetic limitation, not an
+empirical attack result or inspection of private owner maps. No amount-linkage
+resistance is claimed, and the frozen workload is not retuned after this finding.
+
+The acquisition harness's public 88-byte `KPX8MF01|domain32|trialUUID16|participantID32`
+marker links ordinary funding to a pseudonym. The same ID is in the public
+session roster, and READY validation/construction preserves that order in the
+public mixed NF/CV rows. For the selected honest harness, source establishes funding-to-pseudonym-to-
+mixed-input linkage without reading private maps. This is consistent with the
+inherited output-grouping experiment's visible input-owner NF/CV labels; it
+does not by itself map shuffled outputs/change/receivers or terminal payout
+owners. Removing the harness marker alone leaves ordered session/input labels
+and coordinator READY-admission pairing unresolved. No actual mapping was
+constructed and the frozen trial is not retuned.
+
+The participant ID is a caller-supplied pseudonym separate from the random
+wallet seed. It does not certify civil identity or establish that arbitrary
+same-label transactions belong to one person. See the
+[source-only trace](research/next-session/owner-private-lifecycle/review/FUNDING-MARKER-PARTICIPANT-LINKAGE-SOURCE-01.json).
+
+Publication's `owner_client_associations_selected=False` excludes additional
+private recovery-client-to-note/NF/exit/payout association artifacts. It is not
+a claim that public protocol IDs or source-established linkage are absent.
+
 [ADR-0063](docs/adr/0063-owner-private-payments-prototype.md) adds a **new,
 unfunded** three-owner/six-output construction experiment, not a migration or
 qualification of the funded profile. Separate Spend/Output proofs and stock

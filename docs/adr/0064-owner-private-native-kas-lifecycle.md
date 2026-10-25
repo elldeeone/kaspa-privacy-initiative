@@ -7,6 +7,14 @@ requires confirmed terminal payouts. This is not a security or privacy approval.
 `760d27491b3a7ab28a14712ee41e107ebdc76b76`.
 **Origin:** [RFC-0027](../rfc/0027-owner-private-native-kas-lifecycle.md).
 
+**Execution checkpoint:** the dated
+[result index](../../research/next-session/owner-private-lifecycle/RESULTS.md)
+records actual TN10 GN3/both batches, fresh-seed payment/change spending,
+nine confirmed payouts, zero reserve and three further fresh terminal seed
+reconciliations. Complete fees are 2.156935 KAS / frozen 21 KAS = 10.2711190476%,
+failing 2%. Public CI's final HTTPS/native replay remains pending publication.
+Privacy, setup, host, consensus and availability assumptions are unchanged.
+
 ## Problem and scope
 
 The ADR-0063 prototype removes an explicit output-grouping certificate, verifies
@@ -157,6 +165,22 @@ participants; endpoints, participation, timing, native entry/exit amounts,
 invoice knowledge and sparse ancestry remain visible. Recipient delivery checks
 remain necessary because Output proofs bind ciphertext hashes, not encryption
 correctness. Timeout cannot revoke already valid owner authorization.
+
+The frozen equal-value workload and deterministic integer fee remainders also
+leave a potential arithmetic linkage channel at transparent exits: the actual
+19,914,100-sompi mixed fee has shares 6,638,033/6,638,033/6,638,034, so change can
+retain a one-sompi distinction. This source/arithmetic finding is not an attack
+measurement or a private ownership-map observation. It does not justify changing
+the frozen workload or claiming resistance to amount inference.
+
+The testnet acquisition marker additionally publishes domain/trial/participant
+pseudonym. That participant ID enters the public session roster and the same
+input order is retained through NF/CV serialization. The inherited grouping
+experiment permits visible input-owner labels; this source finding makes the
+funding-to-pseudonym-to-mixed-input channel explicit. It does not itself map
+shuffled outputs, receivers or terminal payout owners. Hiding that channel and
+coordinator READY-admission pairing is an open design question, not a change to
+the selected financial decision or current trial.
 
 Public recovery objects require authenticated complete bytes and actual
 availability. Two locations under one administrator, personal Drive or a local

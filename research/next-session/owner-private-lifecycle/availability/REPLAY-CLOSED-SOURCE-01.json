@@ -1,0 +1,27 @@
+{
+  "accepted_history_checkpoint_required_as_external_exact_hashes": true,
+  "codec_sha256": "8f724750bb4cc849e2e4bde26fc8da2b5bc7f9a7e4ffd09153ee1af15858d208",
+  "downloaded_financial_software_inventory_sha256": "24067398ebec6624c2e7bd677404c7c01523341b0ec2e5fdcb0e140516c09bca",
+  "files": [
+    {
+      "bytes": 16606,
+      "path": "poc/owner-private-lifecycle/recovery/replay_closed.py",
+      "sha256": "3b87d7b3ac5204bdb4eb056be25085fb4c38bcf7be933feb6894698b33f4706e"
+    },
+    {
+      "bytes": 6444,
+      "path": "poc/owner-private-lifecycle/recovery/test_replay_closed.py",
+      "sha256": "fc052d467bf5b8f78ba9392944fbd561bf159e9827b924f95bb8e68b9e6f9dee"
+    }
+  ],
+  "host_imports": "Python standard library only; no original repository/helper imports",
+  "original_backup_or_PK_or_owner_mounts": false,
+  "schema": "kpx8-closed-public-replay-source/v1",
+  "separately_published_reviewed_bootstrap_required": true,
+  "static63_software_unchanged": true,
+  "tests": {
+    "command": "python3 -B -m unittest discover -s poc/owner-private-lifecycle/recovery -p test_replay_closed.py -v",
+    "observation_scope": "synthetic metadata/packet controls; actual accepted GN3 masked replay follows source review",
+    "observed_groups_passed": 8
+  }
+}

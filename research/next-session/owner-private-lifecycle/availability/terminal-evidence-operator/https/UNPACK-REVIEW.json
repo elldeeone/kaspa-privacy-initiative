@@ -1,0 +1,63 @@
+{
+  "schema": "kpx8-terminal-https-strict-unpack-source-review/v1",
+  "result": "PASS_NO_NEW_SOURCE_BLOCKER",
+  "scope": "Optional source-only comparison; no financial execution or pipeline gate.",
+  "source": {
+    "path": "/var/tmp/kpi-unpack-terminal-https-01.py",
+    "bytes": 5196,
+    "sha256": "9ea8eaaeec7487e399ae763082b53962482be9f0c38faf3e606342dbb1f4749e"
+  },
+  "prior_source": {
+    "path": "/var/tmp/kpi-unpack-static-https-01.py",
+    "bytes": 5287,
+    "sha256": "dada64e71af9e51b99f7576cc046c06e4daa77f629466c6764bfe2cd80c79e51"
+  },
+  "authenticated_helpers": [
+    {
+      "path": "poc/recovery-coldbuild/unpack_bundle.py",
+      "bytes": 10176,
+      "sha256": "19c41c96b41c968a0ed0dfefe3a38fe855a323ce366b1f1aba46ef155a6d2a22"
+    },
+    {
+      "path": "poc/recovery-coldbuild/software_bundle.py",
+      "bytes": 7620,
+      "sha256": "b3e933ca76cfad21e70b50568824b6f9fff3034c58c4cbf5d8d36d7932e1a705"
+    }
+  ],
+  "unchanged_public_input_authority": {
+    "software_archive": {
+      "bytes": 52866973,
+      "sha256": "6b5a60ddd37eefbff871c61a257aa0173899940df9faf3c042d932ad4de7a0fa"
+    },
+    "software_members": {
+      "bytes": 11061,
+      "sha256": "74d08130fe997890a44fb4b1cb85a85836107f69866f6f14b854a8a22afa61ce"
+    },
+    "software_inventory": {
+      "bytes": 10510,
+      "sha256": "24067398ebec6624c2e7bd677404c7c01523341b0ec2e5fdcb0e140516c09bca"
+    }
+  },
+  "complete_source_delta": [
+    "BASE selects assets/terminal-verification-HTTPS-01.",
+    "Restored-object count must equal the preceding transport result required_objects field instead of the static-only literal18.",
+    "Result schemas and payload labels become terminal and newly_fetched variants.",
+    "Outer execution receipt omits the child_CPU_seconds metric."
+  ],
+  "source_findings": [
+    "Restored transport metadata is descriptive; archive, member list and software inventory identities remain fixed outside downloaded contents and are rechecked before unpacking.",
+    "The child imports only the two authenticated trusted helpers. Downloaded archive members are restored and verified as bytes; none is imported or executed.",
+    "Fresh --unshare-all namespace exposes fixed system runtime, trusted helpers, exactly three read-only public inputs and fresh output. Original home, repository, lifecycle/private roots and GPU device remain absent; stdin is closed.",
+    "Strict unpack retains exact USTAR headers, member allowlist, regular-file-only rules, path checks, hashes, sizes, modes, padding and typed-inventory equality. Selected executable members are restored0500, ordinary files0400.",
+    "Claim labels distinguish newly fetched payload from the fixed trusted bootstrap code that does execute during a real run."
+  ],
+  "limitations": [
+    "No launcher, transport, archive unpack, downloaded payload, test or network operation was executed by this reviewer.",
+    "No private backup, seed, map, registry or raw-log content was read.",
+    "This source result does not establish actual HTTPS restoration, financial replay, currentness, spend authorization, independent hosting or cryptographic correctness."
+  ],
+  "public_read_guard": {
+    "path": "/var/tmp/kpi-root-guard-helper-09.py",
+    "sha256": "0f8ff562a4364c1db7729d98d7daf57f75ff5e882936e06e9907a4e936bd82fd"
+  }
+}

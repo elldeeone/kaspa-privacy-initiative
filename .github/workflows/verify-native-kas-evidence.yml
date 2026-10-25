@@ -1,0 +1,45 @@
+name: Verify published native KAS evidence
+
+on:
+  push:
+    branches: [research/shielded-kas-feasibility]
+    paths:
+      - '.github/workflows/verify-native-kas-evidence.yml'
+      - 'poc/owner-private-lifecycle/recovery/public_verify.py'
+      - 'research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-VERIFICATION.json'
+
+permissions:
+  contents: read
+
+jobs:
+  public-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - id: config
+        name: Check explicit published-evidence selection
+        run: |
+          python3 -B poc/owner-private-lifecycle/recovery/public_verify.py --config research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-VERIFICATION.json --check-config >> "$GITHUB_OUTPUT"
+      - name: Install namespace and archive tools on this disposable runner
+        if: steps.config.outputs.enabled == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bubblewrap zstd
+      - name: Fetch exact public bytes and run unchanged isolated replay
+        if: steps.config.outputs.enabled == 'true'
+        # Root on this disposable VM avoids Ubuntu's unprivileged-userns policy
+        # without altering kernel/AppArmor settings. No wallet or secret exists
+        # here; the financial runtime still runs in the frozen closed namespace.
+        run: |
+          sudo --preserve-env=GITHUB_RUN_ID,GITHUB_SHA /usr/bin/python3 -B poc/owner-private-lifecycle/recovery/public_verify.py --config research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-VERIFICATION.json --execute --output "$RUNNER_TEMP/native-kas-public-verification"
+      - name: Retain only the small public result
+        if: always() && steps.config.outputs.enabled == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-kas-public-verification-${{ github.run_id }}
+          path: ${{ runner.temp }}/native-kas-public-verification/RESULT.json
+          if-no-files-found: warn
+          retention-days: 7

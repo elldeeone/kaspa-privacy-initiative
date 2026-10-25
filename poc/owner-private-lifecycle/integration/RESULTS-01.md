@@ -82,11 +82,14 @@ Public runtime evidence is under
 - `COMPLETE-LOCAL-LEDGER-01.json` and `FINAL-SCANS-01.json` retain the separate
   arithmetic/fresh-recognition results.
 
-The root-owned GPU lane must still supply both genuine mixed outer receipts,
-compression/independent verification/native128 conversion and actual native
-Full checks. Attaching their outer witnesses must preserve these exact
-projections, transaction IDs, states and fees. Until those joins pass, this
-report is not a complete local native-proof rehearsal.
+Both genuine mixed outer receipts, compression, independent CPU verification,
+native128 conversion and selected-tail native Full/every-script checks now
+passed. Proof attachment preserved the exact projections, transaction IDs,
+states and fees. The independent
+[selected native packet](../verification/native/selected-local-result-01/MANIFEST.json)
+has SHA `fdb09d49d03418d0c259bdf36164f3e1cc4cb1fcffcee269f143090c5cba18dc`:
+two mixed rounds, nine exits and 16 unchanged-proof native rejections. This
+completes the supplied-context native-proof rehearsal.
 
 No actual TN10 deposits, accepted history, confirmed payouts, independently
 administered storage, literal shared-prover shutdown, broader privacy attack
@@ -94,6 +97,17 @@ experiment, cryptographic audit or production claim follows from these local
 results. The exact privacy composition obligations remain open. Root retains
 publication/seed-canary review; no private maps/seed contents/hashes were read
 by the integration supervisor.
+
+The [separate live checkpoint](../../../research/next-session/owner-private-lifecycle/RESULTS.md)
+now has actual confirmed GN3 and both rounds with complete accepted
+SDK/native/financial replay. Three fresh original-seed clients recovered accepted R1 history and
+spent received payments/private change in genuine R2; all component, MPC,
+outer-proof/native and actual settlement checks passed. All nine native payouts
+are now confirmed after original-service loss; reserve is zero. Three further
+fresh original-seed/full-prefix scans required all owned claims spent and
+rederived historical payout keys. Complete fees are 2.156935 KAS / frozen 21 KAS
+= 10.2711190476%, failing 2%. Final public CI HTTPS/native replay remains pending.
+Earlier local results remain supplied-context evidence.
 
 The local handoff had 27 targeted synthetic controls; two later live-entry
 boundary controls bring the current count to 29. These include a real public-only
