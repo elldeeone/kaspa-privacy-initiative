@@ -7,6 +7,7 @@ import io
 import json
 import os
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -172,6 +173,110 @@ class Controls(unittest.TestCase):
                     verify.main()
             self.assertEqual(stopped.exception.code, 2)
             self.assertEqual(list(destination.iterdir()), [])
+
+    def test_failed_command_retains_bounded_actual_stdout_and_stderr(self):
+        result = subprocess.CompletedProcess(['omitted'], 2,
+            b'public prefix' + b'x' * 9000, b'loader: missing-library\xff\n')
+        with patch.object(verify.subprocess, 'run', return_value=result):
+            with self.assertRaises(verify.PublicCommandFailure) as failure:
+                verify.command('isolated-public-runtime', ['not-recorded'])
+        detail = failure.exception.detail
+        self.assertEqual(detail['returncode'], 2)
+        self.assertEqual(detail['stdout']['bytes'], len(result.stdout))
+        self.assertTrue(detail['stdout']['truncated'])
+        self.assertEqual(len(detail['stdout']['tail']), verify.DIAGNOSTIC_TAIL_BYTES)
+        self.assertIn('missing-library', detail['stderr']['tail'])
+        self.assertNotIn('not-recorded', json.dumps(detail))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ('replay/stage/software', 'replay/stage/data', 'replay/public/replayed'):
+                (root / name).mkdir(parents=True)
+            for name in ('selection', 'descriptor', 'fetch'):
+                (root / 'replay/public/replayed' / (name + '.json')).write_bytes(b'{}')
+            packet = {'inputs': {name: {'sha256': str(i) * 64}
+                                for i, name in enumerate(('selection', 'descriptor', 'fetch'), 1)}}
+            with patch.object(verify.subprocess, 'run', return_value=result) as invoked:
+                probe = verify.diagnostic_probe(root, packet, closed)
+            self.assertFalse(probe['financial_acceptance'])
+            self.assertEqual(probe['stage'], 'SDK')
+            self.assertIn('missing-library', probe['stderr']['tail'])
+            args, kwargs = invoked.call_args
+            self.assertIn('--unshare-all', args[0]); self.assertIn('--clearenv', args[0])
+            self.assertEqual(kwargs['env'], verify.CLEAN)
+            self.assertEqual(args[0][-9:], ['/out/replayed/selection.json', '1' * 64,
+                '/out/replayed/descriptor.json', '2' * 64, '/out/replayed/fetch.json', '3' * 64,
+                '/data', '/diagnostic/SDK-VERIFICATION.json', '/work/sdk/kaspa'])
+            (root / 'replay/public/replayed/SDK-VERIFICATION.json').write_bytes(b'{}')
+            with patch.object(verify.subprocess, 'run') as not_invoked:
+                self.assertEqual(verify.diagnostic_probe(root, packet, closed)['status'], 'SDK-report-already-exists')
+            not_invoked.assert_not_called()
+
+    def test_diagnostics_select_known_bounded_public_logs_and_reject_aliases(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); replay = root / 'replay'; replay.mkdir()
+            stderr = replay / 'stderr.log'
+            stderr.write_bytes(b'prefix' + b'e' * 9000 + b'actual nested failure')
+            unselected = replay / 'unselected.log'; unselected.write_bytes(b'unselected')
+            stdout = replay / 'stdout.log'; stdout.symlink_to(unselected)
+            native = replay / 'public/replayed/native-0000/native'; native.mkdir(parents=True)
+            metrics = native / 'metrics.json'; os.link(unselected, metrics)
+            result = verify.retained_diagnostics(root)
+            self.assertEqual(set(result), {'replay/stderr.log', 'replay/stdout.log',
+                'replay/public/replayed/native-0000/native/metrics.json'})
+            self.assertTrue(result['replay/stderr.log']['truncated'])
+            self.assertTrue(result['replay/stderr.log']['tail'].endswith('actual nested failure'))
+            self.assertEqual(result['replay/stdout.log'], {'unavailable': 'ValueError'})
+            self.assertEqual(result['replay/public/replayed/native-0000/native/metrics.json'],
+                             {'unavailable': 'ValueError'})
+
+    def test_actual_failure_details_and_nested_logs_reach_small_artifacts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); destination = root / 'new'
+            selected = root / 'config.json'
+            selected.write_bytes(encoded({'schema': 'kpx8-public-verification-config/v1', 'enabled': True,
+                'transport_selection': {'url': verify.RELEASE + 'selection.json', 'bytes': 1, 'sha256': '11' * 32},
+                'terminal_index': {'bytes': 1, 'sha256': '22' * 32}}))
+
+            def failed_run(value, output, closed_module, report):
+                output.mkdir(); (output / 'replay').mkdir()
+                (output / 'replay/stderr.log').write_bytes(b'public nested SDK traceback')
+                report.update(fresh_output_created=True, phase='unchanged-complete-financial-replay',
+                    diagnostic_probe={'status': 'diagnostic-only', 'returncode': 0, 'financial_acceptance': False})
+                raise verify.PublicCommandFailure('unchanged-replay',
+                    subprocess.CompletedProcess(['omitted'], 2, b'', b'outer real stderr'))
+
+            with (patch.object(verify, 'module', return_value=closed),
+                  patch.object(verify, 'run', side_effect=failed_run),
+                  patch('sys.argv', ['public_verify.py', '--config', str(selected), '--execute', '--output', str(destination)]),
+                  contextlib.redirect_stdout(io.StringIO())):
+                with self.assertRaises(SystemExit) as stopped:
+                    verify.main()
+            self.assertEqual(stopped.exception.code, 2)
+            report = json.loads((destination / 'RESULT.json').read_bytes())
+            diagnostic = json.loads((destination / 'DIAGNOSTICS.json').read_bytes())
+            self.assertEqual(report['status'], 'INCOMPLETE')
+            self.assertEqual(report['failure_detail']['stderr']['tail'], 'outer real stderr')
+            self.assertEqual(diagnostic['public_output_tails']['replay/stderr.log']['tail'],
+                             'public nested SDK traceback')
+            self.assertFalse(report['diagnostic_probe']['financial_acceptance'])
+
+    def test_loader_diagnostics_authenticate_only_fixed_runtime_roles_before_execution(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result = subprocess.CompletedProcess(['omitted'], 1, b'CXXABI version missing', b'')
+            with (patch.object(verify, 'read', return_value=b'public authenticated ELF') as checked,
+                  patch.object(verify.subprocess, 'run', return_value=result) as invoked):
+                diagnostics = verify.loader_diagnostics(root)
+            self.assertEqual(set(diagnostics), set(verify.STAGED_EXECUTABLES))
+            self.assertEqual([row.args[1] for row in checked.call_args_list], list(verify.STAGED_EXECUTABLES.values()))
+            self.assertEqual(invoked.call_count, 4)
+            for row in invoked.call_args_list:
+                self.assertEqual(row.args[0][0], '/usr/bin/ldd')
+                self.assertEqual(row.kwargs['env'], verify.CLEAN)
+            with (patch.object(verify, 'read', side_effect=ValueError('whole-public-identity')),
+                  patch.object(verify.subprocess, 'run') as rejected):
+                verify.loader_diagnostics(root)
+            rejected.assert_not_called()
 
 
 if __name__ == '__main__':

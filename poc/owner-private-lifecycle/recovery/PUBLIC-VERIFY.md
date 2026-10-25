@@ -8,7 +8,8 @@ The workflow is restricted to pushes on `research/shielded-kas-feasibility` that
 change its source, workflow or configuration. The committed configuration starts
 with `enabled: false`; there are no guessed future object hashes. Enable it only
 after the actual terminal objects pass publication checks, exist at their public
-URLs and pass the local HTTPS verification.
+URLs with exact observed release size/digest identities. The fresh hosted job is
+the final HTTPS download and financial replay.
 
 An enabled `kpx8-public-verification-config/v1` contains exactly:
 
@@ -38,8 +39,13 @@ downloads. Only public source/data is supplied; child commands receive a clean
 environment. Neither Forge packages nor kernel/AppArmor settings are changed.
 
 Disk availability and an estimate for staging copies are recorded, rather than
-being a new arbitrary trial-abort cap. The job retains only its small `RESULT.json`
-and an aggregate log line. The compressed history and restored runtime are not
+being a new arbitrary trial-abort cap. The job retains its small `RESULT.json`
+and, on failure, `DIAGNOSTICS.json`: bounded stdout/stderr tails and exact
+allowlisted public SDK/native report tails. A failed SDK stage may repeat the
+existing SDK CLI in a separate closed namespace solely to expose its captured
+stderr; its result never changes financial acceptance. Loader reports are limited
+to the four authenticated public runtime ELFs. No argv, environment or arbitrary
+file tree is retained. The compressed history and restored runtime are not
 uploaded as Actions artifacts. The 120-minute job budget is operational headroom,
 not a verification claim or a change to the financial trial.
 

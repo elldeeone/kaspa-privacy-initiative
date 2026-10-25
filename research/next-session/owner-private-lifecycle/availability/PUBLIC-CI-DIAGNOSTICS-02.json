@@ -1,0 +1,53 @@
+{
+  "actual_first_hosted_run": {
+    "cause_unresolved": true,
+    "financial_replay_returncode": 2,
+    "namespace_smoke": true,
+    "objects_downloaded_and_hash_checked": 148,
+    "run_id": "40162664897",
+    "selected_bytes": 1964534235,
+    "status": "INCOMPLETE",
+    "strict_unpack": true
+  },
+  "actual_new_CI_or_network_or_namespace_execution": false,
+  "controls": {
+    "command": "python3 -B -m unittest discover -s poc/owner-private-lifecycle/recovery -p test_public_verify.py -v",
+    "failed": 0,
+    "new_coverage": [
+      "bounded actual command stdout/stderr including invalid UTF8",
+      "exact known output tails only; symlink/hardlink refusal",
+      "fixed existing SDK CLI and namespace/cleanenv, SDK-present no-probe",
+      "actual failure RESULT+DIAGNOSTICS retention; diagnostic success never accepts",
+      "ldd only four authenticated ELF roles; wrong hash prevents execution"
+    ],
+    "passed": 14,
+    "total": 14
+  },
+  "diagnostic_only_never_financial_acceptance": true,
+  "financial_sources_or_evidence_payload_changed": false,
+  "private_input_or_owner_or_PK_access": false,
+  "schema": "kpx8-public-CI-diagnostics-controls/v1",
+  "source_files": [
+    {
+      "bytes": 25589,
+      "path": "poc/owner-private-lifecycle/recovery/public_verify.py",
+      "sha256": "933091ac58a96c13d010f64372e7b2055f8cdb3fddb0f8a9fe98140ada06701e"
+    },
+    {
+      "bytes": 17056,
+      "path": "poc/owner-private-lifecycle/recovery/test_public_verify.py",
+      "sha256": "4dc3d2f1334a5f0839357fcbf46a1d6040a7d877fcc0be732817394c19077863"
+    },
+    {
+      "bytes": 2297,
+      "path": ".github/workflows/verify-native-kas-evidence.yml",
+      "sha256": "48b5e35371ee103ad8ffc289222db4852a3d09058e261bce0159bde4cfcbb01b"
+    },
+    {
+      "bytes": 4148,
+      "path": "poc/owner-private-lifecycle/recovery/PUBLIC-VERIFY.md",
+      "sha256": "e2db3e0d1423064559a6d3bf1aa68cd7dba9eed9d58554d9120e6955aea5202e"
+    }
+  ],
+  "status": "PASS"
+}

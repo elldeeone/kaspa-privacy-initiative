@@ -47,6 +47,117 @@ ROLES = {'financial-profile', 'component-profile', 'native-policy', 'native-code
     'initial-recovery-closure', 'terminal-observer-handoff', 'terminal-replay-packet',
     'terminal-payout-observations', 'terminal-seed-aggregate'}
 CASES = {f'accepted-case-{i:02d}-{kind}' for i in range(12) for kind in ('case', 'validation', 'metrics')}
+DIAGNOSTIC_TAIL_BYTES = 8192
+STAGED_EXECUTABLES = {
+    'software/runtime/crypto': '6f65ec202a2d634d0cf8c5ba3034fd591790374da0ea9ea1a144470eec3143ff',
+    'software/runtime/node': 'd1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c',
+    'software/runtime/native-validator': '077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061',
+    'native-codec': '8f724750bb4cc849e2e4bde26fc8da2b5bc7f9a7e4ffd09153ee1af15858d208',
+}
+
+
+def tail(raw):
+    return {'bytes': len(raw), 'truncated': len(raw) > DIAGNOSTIC_TAIL_BYTES,
+            'tail': raw[-DIAGNOSTIC_TAIL_BYTES:].decode('utf-8', errors='replace')}
+
+
+class PublicCommandFailure(ValueError):
+    def __init__(self, phase, result):
+        super().__init__(phase + '-returncode-' + str(result.returncode))
+        # No argv, environment, request bodies or unrestricted file trees.
+        self.detail = {'phase': phase, 'returncode': result.returncode,
+                       'stdout': tail(result.stdout), 'stderr': tail(result.stderr)}
+
+
+def diagnostic_tail(path):
+    """Bounded read from an exact public-output filename; never follow aliases."""
+    path = Path(path).absolute()
+    need(not any(p.is_symlink() for p in (path, *path.parents)), 'diagnostic-path-symlink')
+    before = path.stat()
+    need(stat.S_ISREG(before.st_mode) and before.st_nlink == 1, 'diagnostic-regular-single-link')
+    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    try:
+        attributes = lambda v: (v.st_dev, v.st_ino, v.st_size, v.st_mtime_ns, v.st_ctime_ns)
+        need(attributes(os.fstat(fd)) == attributes(before), 'diagnostic-before-first-byte')
+        os.lseek(fd, max(0, before.st_size - DIAGNOSTIC_TAIL_BYTES), os.SEEK_SET)
+        raw = os.read(fd, DIAGNOSTIC_TAIL_BYTES)
+        need(attributes(os.fstat(fd)) == attributes(before) == attributes(path.stat()), 'diagnostic-file-changed')
+    finally:
+        os.close(fd)
+    return {'bytes': before.st_size, 'truncated': before.st_size > len(raw),
+            'tail': raw.decode('utf-8', errors='replace')}
+
+
+def retained_diagnostics(output):
+    """Select only known logs/reports from the already public-only replay."""
+    names = ['replay/stdout.log', 'replay/stderr.log', 'replay/public/replayed/SDK-VERIFICATION.json',
+             'probe-public/SDK-VERIFICATION.json']
+    names += [f'replay/public/replayed/native-{i:04d}/native/{name}'
+              for i in range(12) for name in ('native-validation.json', 'metrics.json')]
+    result = {}
+    for name in names:
+        try:
+            result[name] = diagnostic_tail(output / name)
+        except FileNotFoundError:
+            continue
+        except (OSError, ValueError) as error:
+            result[name] = {'unavailable': type(error).__name__}
+    return result
+
+
+def diagnostic_probe(output, packet, closed):
+    """Repeat only the failed existing SDK CLI for stderr, never acceptance.
+
+    The frozen runtime intentionally discards nested subprocess stderr. This
+    separate post-failure probe leaves that runtime and its output untouched.
+    Only the same public staging mounts exist, in another closed namespace.
+    """
+    replay = output / 'replay'
+    staged = closed.checked(str(replay / 'stage/software'))
+    data = closed.checked(str(replay / 'stage/data'))
+    public = closed.checked(str(replay / 'public'))
+    if not (staged.is_dir() and data.is_dir() and public.is_dir()):
+        return {'status': 'not-reached', 'financial_acceptance': False}
+    generated = public / 'replayed'
+    if (generated / 'SDK-VERIFICATION.json').exists():
+        return {'status': 'SDK-report-already-exists', 'financial_acceptance': False}
+    if not all((generated / (name + '.json')).is_file() for name in ('selection', 'descriptor', 'fetch')):
+        return {'status': 'SDK-inputs-not-created', 'financial_acceptance': False}
+    args = ['/work/runtime/node', '/work/poc/owner-private-lifecycle/chain/verify_bundle.mjs']
+    for name in ('selection', 'descriptor', 'fetch'):
+        args.extend(('/out/replayed/' + name + '.json', packet['inputs'][name]['sha256']))
+    args.extend(('/data', '/diagnostic/SDK-VERIFICATION.json', '/work/sdk/kaspa'))
+    destination = output / 'probe-public'
+    destination.mkdir(mode=0o700)
+    args_prefix = ['/usr/bin/bwrap', '--unshare-all', '--die-with-parent', '--new-session', '--clearenv']
+    for system in ('/usr', '/lib', '/lib64'):
+        if Path(system).exists():
+            args_prefix.extend(('--ro-bind', system, system))
+    args_prefix.extend(('--proc', '/proc', '--dev', '/dev', '--tmpfs', '/tmp', '--dir', '/home',
+        '--ro-bind', str(staged), '/work', '--ro-bind', str(data), '/data',
+        '--ro-bind', str(public), '/out', '--bind', str(destination), '/diagnostic',
+        '--setenv', 'PATH', '/usr/bin:/bin', '--setenv', 'LANG', 'C.UTF-8', '--chdir', '/work'))
+    result = subprocess.run([*args_prefix, *args], stdin=subprocess.DEVNULL,
+                            capture_output=True, env=CLEAN, timeout=600)
+    return {'status': 'diagnostic-only', 'stage': 'SDK', 'returncode': result.returncode,
+            'financial_acceptance': False, 'stdout': tail(result.stdout), 'stderr': tail(result.stderr)}
+
+
+def loader_diagnostics(output):
+    result = {}
+    for name, pin in STAGED_EXECUTABLES.items():
+        try:
+            path = output / 'replay/stage' / name
+            read(path, pin)  # Only the four already hash-selected public ELFs.
+            process = subprocess.run(['/usr/bin/ldd', str(path)], stdin=subprocess.DEVNULL,
+                                     capture_output=True, env=CLEAN, timeout=60)
+            result[name] = {'returncode': process.returncode,
+                           'stdout': tail(process.stdout), 'stderr': tail(process.stderr)}
+        except FileNotFoundError:
+            continue
+        except (OSError, ValueError, subprocess.TimeoutExpired) as error:
+            result[name] = {'unavailable': type(error).__name__}
+    return result
 
 
 def need(condition, reason):
@@ -148,7 +259,8 @@ def index(raw, selected, expected, closed):
 def command(phase, args):
     print('Public evidence: ' + phase, flush=True)
     result = subprocess.run(args, stdin=subprocess.DEVNULL, capture_output=True, env=CLEAN)
-    need(result.returncode == 0, phase + '-returncode-' + str(result.returncode))
+    if result.returncode:
+        raise PublicCommandFailure(phase, result)
     return result.stdout
 
 
@@ -222,11 +334,22 @@ def run(value, output, closed, report):
         str(placed('software-archive')), str(placed('software-members')), STATIC['software-archive'][1], str(STATIC['software-archive'][0]),
         STATIC['software-members'][1], STATIC['software-inventory'][1], str(output / 'software')])
     report['phase'] = 'unchanged-complete-financial-replay'
-    command('unchanged-isolated-SDK-native-replay', ['/usr/bin/python3', '-B', str(placed('closed-replay-bootstrap')),
-        '--software-root', str(output / 'software'), '--software-inventory', str(placed('software-inventory')),
-        '--data-root', str(layout / 'data'), '--packet', str(placed('terminal-replay-packet')),
-        '--packet-sha256', objects['terminal-replay-packet']['sha256'], '--codec', str(placed('native-codec')),
-        '--output', str(output / 'replay'), '--exclude-private-directory', '/var/tmp/kpi-owner-private-lifecycle-01/private'])
+    try:
+        command('unchanged-isolated-SDK-native-replay', ['/usr/bin/python3', '-B', str(placed('closed-replay-bootstrap')),
+            '--software-root', str(output / 'software'), '--software-inventory', str(placed('software-inventory')),
+            '--data-root', str(layout / 'data'), '--packet', str(placed('terminal-replay-packet')),
+            '--packet-sha256', objects['terminal-replay-packet']['sha256'], '--codec', str(placed('native-codec')),
+            '--output', str(output / 'replay'), '--exclude-private-directory', '/var/tmp/kpi-owner-private-lifecycle-01/private'])
+    except PublicCommandFailure:
+        try:
+            report['diagnostic_probe'] = diagnostic_probe(output, packet, closed)
+        except subprocess.TimeoutExpired as error:
+            report['diagnostic_probe'] = {'status': 'timed-out', 'financial_acceptance': False,
+                'stdout': tail(error.stdout or b''), 'stderr': tail(error.stderr or b'')}
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            report['diagnostic_probe'] = {'unavailable': type(error).__name__, 'financial_acceptance': False}
+        report['runtime_loader_diagnostics'] = loader_diagnostics(output)
+        raise
     replay = json.loads(read(output / 'replay/RESULT.json'))
     need(replay['schema'] == 'kpx8-closed-public-replay-run/v1'
          and replay['result']['all_original_paths_absent'] is True and replay['result']['network_unshared'] is True
@@ -264,7 +387,17 @@ def main():
         run(value, args.output, closed, report)
     except (OSError, ValueError, KeyError, TypeError) as error:
         report['failure'] = str(error) if type(error) is ValueError else type(error).__name__
+        if isinstance(error, PublicCommandFailure):
+            report['failure'] = str(error)
+            report['failure_detail'] = error.detail
     if report.get('fresh_output_created') is True:
+        if report['status'] != 'PASS':
+            diagnostics = {'schema': 'kpx8-public-replay-failure-diagnostics/v1',
+                'phase': report['phase'], 'failure_detail': report.get('failure_detail'),
+                'diagnostic_probe': report.get('diagnostic_probe'),
+                'runtime_loader_diagnostics': report.get('runtime_loader_diagnostics'),
+                'public_output_tails': retained_diagnostics(args.output)}
+            closed.write(args.output / 'DIAGNOSTICS.json', (json.dumps(diagnostics, sort_keys=True, indent=2) + '\n').encode(), 0o644)
         closed.write(args.output / 'RESULT.json', (json.dumps(report, sort_keys=True, indent=2) + '\n').encode(), 0o644)
     print('KAS_PUBLIC_REPLAY_RESULT=' + json.dumps(report, sort_keys=True))
     raise SystemExit(0 if report['status'] == 'PASS' else 2)

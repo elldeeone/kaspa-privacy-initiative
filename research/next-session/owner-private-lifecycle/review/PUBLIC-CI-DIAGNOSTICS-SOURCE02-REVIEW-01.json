@@ -1,0 +1,97 @@
+{
+  "blocking_findings": [],
+  "boundaries": {
+    "all_content_reads_guard09": true,
+    "financial_source_or_parser_or_static63_changes": false,
+    "implementation_modified_by_reviewer": false,
+    "reviewer_network_or_CI_dispatch": false,
+    "reviewer_private_input_or_plan_or_log_reads": false,
+    "reviewer_runtime_or_native_or_bulk_test_execution": false
+  },
+  "controls_evidence": {
+    "author_reported_failed": 0,
+    "author_reported_passed": 14,
+    "coverage": [
+      "bounded invalid-UTF8 command tails",
+      "fixed log allowlist and alias refusal",
+      "exact existing SDK arguments and closed mounts",
+      "SDK-present no-probe",
+      "persistent failure artifacts and diagnostic-success remains INCOMPLETE",
+      "only four hash-authenticated ldd roles"
+    ],
+    "receipt_sha256": "2fabe89745c623c5c55c70332a09c3ad5244592236dba1001d8339ccd1c9bbbd",
+    "source_and_assertions_independently_read": true,
+    "tests_rerun_by_reviewer": false
+  },
+  "failure_milestones": [
+    "No replay logs: pre-child validation/staging or OS boundary.",
+    "Child stderr but no SDK report: import, Runtime authentication or first Node/SDK execution.",
+    "SDK report but no first native CASE: codec/source/genesis preparation.",
+    "Native CASE but missing native reports: native execution or validation boundary."
+  ],
+  "limitations": [
+    "Source/metadata/mock controls do not establish a successful hosted replay.",
+    "Original hosted failure cause remains unresolved until actual public diagnostics arrive.",
+    "SDK-only diagnostic repetition is not a replacement replay; native runtime failure may still require its retained report/loader detail.",
+    "No privacy, off-host seed recovery, retention, independent administration or independent consensus claim follows."
+  ],
+  "portability_fact": {
+    "assumption": "Selected ELF byte hashes do not package host interpreter/shared-library closure. Fresh host /usr,/lib,/lib64 must satisfy required versions.",
+    "cause_of_first_CI_failure_confirmed": false,
+    "interpreter": "/lib64/ld-linux-x86-64.so.2",
+    "method": "Guarded exact public ELF bytes; parsed ELF64 .gnu.version_r and .interp without executing it.",
+    "native_ELF_sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061",
+    "notable_required_symbol_versions": [
+      "GLIBC_2.38",
+      "GLIBCXX_3.4.30",
+      "CXXABI_1.3.15"
+    ]
+  },
+  "reviewer": "independent contract review",
+  "schema": "kpx8-public-CI-diagnostics-source-second-pass/v1",
+  "scope": "Bounded public diagnostics after already-failed unchanged off-host replay; no acceptance, runtime or evidence change.",
+  "source_facts": [
+    "Frozen replay_closed main collapses selected exceptions to exit2; if child launched, exact stdout.log and stderr.log are retained before refusal.",
+    "Frozen Runtime.Executable.run captures nested stdout/stderr but replaces nonzero exit with selected-offline-runtime-refused. First executable in replay is selected Node verify_bundle.mjs, preceding native case validation.",
+    "New command failure preserves numeric returncode and at most8192 bytes per stdout/stderr tail. Exact fixed output filenames alone are inspected; symlink, hardlink, nonregular and changed-file aliases reject.",
+    "Only after unchanged financial command fails, an absent SDK report permits one fixed existing SDK CLI in separate unshare-all namespace, clean environment, staged software/data/public output read-only and fresh diagnostic output writable. SDK-present path does not repeat native validation.",
+    "Probe returncode zero cannot reach financial success: original failure is always re-raised; only unchanged replay plus exact H/C and all12 whole native CASE file hashes can yield PASS.",
+    "Timeout partial SDK stdout/stderr are retained with bounded tails. Missing pre-child stage reports not-reached; no guessed financial result is created.",
+    "Loader diagnostics run only system ldd against four exact hash-authenticated selected public ELFs on disposable public CI host; they are outside the financial namespace and provide no acceptance authority.",
+    "Workflow always retains only RESULT.json and DIAGNOSTICS.json on enabled runs, including failure; no arbitrary output tree, argv, environment, raw pages, owner data or keys selected."
+  ],
+  "source_files": [
+    {
+      "bytes": 25589,
+      "path": "poc/owner-private-lifecycle/recovery/public_verify.py",
+      "sha256": "933091ac58a96c13d010f64372e7b2055f8cdb3fddb0f8a9fe98140ada06701e"
+    },
+    {
+      "bytes": 17056,
+      "path": "poc/owner-private-lifecycle/recovery/test_public_verify.py",
+      "sha256": "4dc3d2f1334a5f0839357fcbf46a1d6040a7d877fcc0be732817394c19077863"
+    },
+    {
+      "bytes": 2297,
+      "path": ".github/workflows/verify-native-kas-evidence.yml",
+      "sha256": "48b5e35371ee103ad8ffc289222db4852a3d09058e261bce0159bde4cfcbb01b"
+    },
+    {
+      "bytes": 4148,
+      "path": "poc/owner-private-lifecycle/recovery/PUBLIC-VERIFY.md",
+      "sha256": "e2db3e0d1423064559a6d3bf1aa68cd7dba9eed9d58554d9120e6955aea5202e"
+    },
+    {
+      "bytes": 1967,
+      "path": "research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-DIAGNOSTICS-02.json",
+      "sha256": "2fabe89745c623c5c55c70332a09c3ad5244592236dba1001d8339ccd1c9bbbd"
+    }
+  ],
+  "status": "PASS_SOURCE_ONLY",
+  "unchanged_sources_reauthenticated": {
+    "poc/owner-private-lifecycle/bootstrap/gn3_runtime.py": "cf27a3c4625f259df89fa5d1120b318b1d2926b524e0c6b74cf6d2c3b299adde",
+    "poc/owner-private-lifecycle/chain/replay.py": "1bb5c89fd64454aa79b081b659b232c55c881ae7cd8240a857539813d2528048",
+    "poc/owner-private-lifecycle/chain/verify_bundle.mjs": "f979b9ca6796613d701595ee22f898632bf192f4c3bf4bee88e413606a9e0f98",
+    "poc/owner-private-lifecycle/recovery/replay_closed.py": "eaf2fd951211faecefee7019f2fe1d7caaf908b18f71f6a4e00958b6cef8f863"
+  }
+}
