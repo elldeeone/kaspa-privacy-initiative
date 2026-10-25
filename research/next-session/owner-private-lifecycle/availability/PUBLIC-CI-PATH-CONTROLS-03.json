@@ -1,0 +1,50 @@
+{
+  "actual_new_CI_or_financial_runtime_execution": false,
+  "ancestor_DAC_mechanism": "inference; ancestor ownership/modes not captured",
+  "controls": {
+    "command": "python3 -B -m unittest discover -s poc/owner-private-lifecycle/recovery -p test_public_verify.py -v",
+    "failed": 0,
+    "new": [
+      "three identical job-unique fixed-parent paths",
+      "report modes0644 and output mode0755 permit nonroot artifact reads"
+    ],
+    "passed": 15,
+    "total": 15
+  },
+  "financial_sources_payload_config_or_host_policy_changed": false,
+  "fix": "Only workflow output and two report paths move together to fresh /var/tmp/native-kas-public-verification-${{ github.run_id }}",
+  "frozen_replay_unchanged_sha256": "eaf2fd951211faecefee7019f2fe1d7caaf908b18f71f6a4e00958b6cef8f863",
+  "observed_failure": "bwrap source-path Permission denied before SDK inputs were created",
+  "prior_hosted_run": {
+    "artifact_id": "12587691203",
+    "artifact_zip_sha256": "90700b3775f7ef8d36a6bc65ebe2062dc10a5707337ccab2b938486e957ce8ca",
+    "head_sha": "3fcfcd5e1edc7148e9f0bc14e871a89f3f7c87db",
+    "id": "40163533332",
+    "status": "INCOMPLETE"
+  },
+  "schema": "kpx8-public-CI-path-controls/v1",
+  "source_files": [
+    {
+      "bytes": 2492,
+      "path": ".github/workflows/verify-native-kas-evidence.yml",
+      "sha256": "38c25216cd54201e2e7c74dd928808be4c699ea80f8af062b18c03a9af796c7a"
+    },
+    {
+      "bytes": 17933,
+      "path": "poc/owner-private-lifecycle/recovery/test_public_verify.py",
+      "sha256": "7434dc15a6a93a4cfb105b8680f56b0a01552836e5871b177bc5098c323eb35f"
+    },
+    {
+      "bytes": 5031,
+      "path": "research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-RUN-40163533332-RESULT.json",
+      "sha256": "31df70a850875705b972a0d86458314a44ea224c349467d51bc7b6f6be46200a"
+    },
+    {
+      "bytes": 3409,
+      "path": "research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-RUN-40163533332-DIAGNOSTICS.json",
+      "sha256": "8d9231a40fa1b34e727ad713cbc8efa82f1eb83f7732ad2e055834f9a5d00c23"
+    }
+  ],
+  "status": "PASS",
+  "wrapper_unchanged_sha256": "933091ac58a96c13d010f64372e7b2055f8cdb3fddb0f8a9fe98140ada06701e"
+}

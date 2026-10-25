@@ -1,0 +1,66 @@
+{
+  "all_content_reads_guard09": true,
+  "blocking_findings": [],
+  "controls": {
+    "assertions_independently_read": true,
+    "author_reported_failed": 0,
+    "author_reported_passed": 15,
+    "receipt_sha256": "4ab33d88374ca90ffbc17a3c763e947b06cb3f426ae11caeba2173edcab8f34d",
+    "reviewer_reran_tests": false
+  },
+  "exact_diff_check": {
+    "method": "Reverse three path replacements and remove two explanatory comments; SHA256 reconstructs exact previously reviewed workflow.",
+    "prior_workflow_sha256": "48b5e35371ee103ad8ffc289222db4852a3d09058e261bce0159bde4cfcbb01b",
+    "reconstructed_prior_matches": true
+  },
+  "independent_child_corroboration": "Separate source reviewer independently confirmed exact reverse diff, canonical/fresh path checks, top0755/report0644 and aligned artifact paths.",
+  "inference_and_assumptions": [
+    "Runner-owned ancestor traversal after entering user namespace is consistent with observed permission error; exact original ancestor ownership/modes were not retained.",
+    "Using world-traversable /var/tmp with fresh root-owned output avoids that ancestor dependency without chmod or capability/namespace policy weakening.",
+    "Nonroot artifact readability uses normal runner umask022; source tests verify resulting top0755 and report0644 on the control host. Actual hosted retry remains decisive."
+  ],
+  "limitations": [
+    "No new hosted run or financial replay success is established by this source review.",
+    "No private input, wallet, proving key, broadcast, local namespace or runtime test was accessed or executed by reviewers.",
+    "No chmod, sysctl, AppArmor or financial acceptance change is introduced."
+  ],
+  "observed_facts": [
+    "Actual second hosted run40163533332 remains INCOMPLETE. Retained child stderr reports bwrap source-path Permission denied under /home/runner/work/_temp before SDK inputs were created.",
+    "All four exact selected ELF ldd reports return0 and show resolved host libraries; this run does not establish any SDK/native execution.",
+    "Workflow now uses identical job-unique /var/tmp/native-kas-public-verification-${{ github.run_id }} for output and the two explicit RESULT/DIAGNOSTICS artifact paths.",
+    "Existing wrapper requests top output0755, retains canonical absolute/no-symlink checks and rejects any existing output. Reports are exclusive O_NOFOLLOW writes requested0644; uploader does not need access to0700 replay internals.",
+    "Existing sudo invocation, namespace policy, frozen eaf2 CLI, financial sources, static63 inventory, evidence, parser, source pins and success conditions are unchanged."
+  ],
+  "schema": "kpx8-public-CI-workflow-path-second-pass/v1",
+  "scope": "Workflow-only public scratch/output/report path correction after actual pre-SDK bwrap permission refusal.",
+  "source_files": [
+    {
+      "bytes": 2492,
+      "path": ".github/workflows/verify-native-kas-evidence.yml",
+      "sha256": "38c25216cd54201e2e7c74dd928808be4c699ea80f8af062b18c03a9af796c7a"
+    },
+    {
+      "bytes": 17933,
+      "path": "poc/owner-private-lifecycle/recovery/test_public_verify.py",
+      "sha256": "7434dc15a6a93a4cfb105b8680f56b0a01552836e5871b177bc5098c323eb35f"
+    },
+    {
+      "bytes": 2185,
+      "path": "research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-PATH-CONTROLS-03.json",
+      "sha256": "4ab33d88374ca90ffbc17a3c763e947b06cb3f426ae11caeba2173edcab8f34d"
+    },
+    {
+      "bytes": 5031,
+      "path": "research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-RUN-40163533332-RESULT.json",
+      "sha256": "31df70a850875705b972a0d86458314a44ea224c349467d51bc7b6f6be46200a"
+    },
+    {
+      "bytes": 3409,
+      "path": "research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-RUN-40163533332-DIAGNOSTICS.json",
+      "sha256": "8d9231a40fa1b34e727ad713cbc8efa82f1eb83f7732ad2e055834f9a5d00c23"
+    }
+  ],
+  "status": "PASS_SOURCE_ONLY",
+  "unchanged_frozen_replay_sha256": "eaf2fd951211faecefee7019f2fe1d7caaf908b18f71f6a4e00958b6cef8f863",
+  "unchanged_wrapper_sha256": "933091ac58a96c13d010f64372e7b2055f8cdb3fddb0f8a9fe98140ada06701e"
+}

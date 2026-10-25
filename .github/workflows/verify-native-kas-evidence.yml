@@ -33,15 +33,17 @@ jobs:
         # Root on this disposable VM avoids Ubuntu's unprivileged-userns policy
         # without altering kernel/AppArmor settings. No wallet or secret exists
         # here; the financial runtime still runs in the frozen closed namespace.
+        # /var/tmp stays traversable after bwrap drops outer DAC privileges;
+        # runner-owned ancestors under RUNNER_TEMP can deny source bind paths.
         run: |
-          sudo --preserve-env=GITHUB_RUN_ID,GITHUB_SHA /usr/bin/python3 -B poc/owner-private-lifecycle/recovery/public_verify.py --config research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-VERIFICATION.json --execute --output "$RUNNER_TEMP/native-kas-public-verification"
+          sudo --preserve-env=GITHUB_RUN_ID,GITHUB_SHA /usr/bin/python3 -B poc/owner-private-lifecycle/recovery/public_verify.py --config research/next-session/owner-private-lifecycle/availability/PUBLIC-CI-VERIFICATION.json --execute --output "/var/tmp/native-kas-public-verification-${{ github.run_id }}"
       - name: Retain small public result and bounded failure diagnostics
         if: always() && steps.config.outputs.enabled == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: native-kas-public-verification-${{ github.run_id }}
           path: |
-            ${{ runner.temp }}/native-kas-public-verification/RESULT.json
-            ${{ runner.temp }}/native-kas-public-verification/DIAGNOSTICS.json
+            /var/tmp/native-kas-public-verification-${{ github.run_id }}/RESULT.json
+            /var/tmp/native-kas-public-verification-${{ github.run_id }}/DIAGNOSTICS.json
           if-no-files-found: warn
           retention-days: 7

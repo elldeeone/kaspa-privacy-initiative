@@ -238,7 +238,7 @@ class Controls(unittest.TestCase):
                 'terminal_index': {'bytes': 1, 'sha256': '22' * 32}}))
 
             def failed_run(value, output, closed_module, report):
-                output.mkdir(); (output / 'replay').mkdir()
+                output.mkdir(mode=0o755); (output / 'replay').mkdir()
                 (output / 'replay/stderr.log').write_bytes(b'public nested SDK traceback')
                 report.update(fresh_output_created=True, phase='unchanged-complete-financial-replay',
                     diagnostic_probe={'status': 'diagnostic-only', 'returncode': 0, 'financial_acceptance': False})
@@ -259,6 +259,9 @@ class Controls(unittest.TestCase):
             self.assertEqual(diagnostic['public_output_tails']['replay/stderr.log']['tail'],
                              'public nested SDK traceback')
             self.assertFalse(report['diagnostic_probe']['financial_acceptance'])
+            for name in ('RESULT.json', 'DIAGNOSTICS.json'):
+                self.assertEqual((destination / name).stat().st_mode & 0o777, 0o644)
+            self.assertEqual(destination.stat().st_mode & 0o777, 0o755)
 
     def test_loader_diagnostics_authenticate_only_fixed_runtime_roles_before_execution(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -277,6 +280,16 @@ class Controls(unittest.TestCase):
                   patch.object(verify.subprocess, 'run') as rejected):
                 verify.loader_diagnostics(root)
             rejected.assert_not_called()
+
+    def test_workflow_uses_one_job_unique_output_under_traversable_fixed_parent(self):
+        workflow = verify.read(verify.ROOT / '.github/workflows/verify-native-kas-evidence.yml').decode()
+        destination = '/var/tmp/native-kas-public-verification-${{ github.run_id }}'
+        self.assertIn('--output "' + destination + '"', workflow)
+        self.assertIn(destination + '/RESULT.json', workflow)
+        self.assertIn(destination + '/DIAGNOSTICS.json', workflow)
+        self.assertEqual(workflow.count(destination), 3)
+        self.assertNotIn('${{ runner.temp }}', workflow)
+        self.assertNotIn('--output "$RUNNER_TEMP', workflow)
 
 
 if __name__ == '__main__':

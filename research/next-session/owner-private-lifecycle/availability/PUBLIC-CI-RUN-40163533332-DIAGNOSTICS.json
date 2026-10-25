@@ -1,0 +1,88 @@
+{
+  "diagnostic_probe": {
+    "financial_acceptance": false,
+    "status": "SDK-inputs-not-created"
+  },
+  "failure_detail": {
+    "phase": "unchanged-isolated-SDK-native-replay",
+    "returncode": 2,
+    "stderr": {
+      "bytes": 64,
+      "tail": "closed public replay refused; inspect public-only retained logs\n",
+      "truncated": false
+    },
+    "stdout": {
+      "bytes": 0,
+      "tail": "",
+      "truncated": false
+    }
+  },
+  "phase": "unchanged-complete-financial-replay",
+  "public_output_tails": {
+    "replay/stderr.log": {
+      "bytes": 126,
+      "tail": "bwrap: Can't find source path /home/runner/work/_temp/native-kas-public-verification/replay/stage/software: Permission denied\n",
+      "truncated": false
+    },
+    "replay/stdout.log": {
+      "bytes": 0,
+      "tail": "",
+      "truncated": false
+    }
+  },
+  "runtime_loader_diagnostics": {
+    "native-codec": {
+      "returncode": 0,
+      "stderr": {
+        "bytes": 0,
+        "tail": "",
+        "truncated": false
+      },
+      "stdout": {
+        "bytes": 297,
+        "tail": "\tlinux-vdso.so.1 (0x00007f4b90187000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f4b90030000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f4b8ff47000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f4b8fc00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f4b90189000)\n",
+        "truncated": false
+      }
+    },
+    "software/runtime/crypto": {
+      "returncode": 0,
+      "stderr": {
+        "bytes": 0,
+        "tail": "",
+        "truncated": false
+      },
+      "stdout": {
+        "bytes": 230,
+        "tail": "\tlinux-vdso.so.1 (0x00007ff9e779a000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff9e7400000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ff9e779c000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007ff9e73d2000)\n",
+        "truncated": false
+      }
+    },
+    "software/runtime/native-validator": {
+      "returncode": 0,
+      "stderr": {
+        "bytes": 0,
+        "tail": "",
+        "truncated": false
+      },
+      "stdout": {
+        "bytes": 374,
+        "tail": "\tlinux-vdso.so.1 (0x00007f0710cbd000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f070fe00000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f07101d2000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f07100e9000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f070fa00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f0710cbf000)\n",
+        "truncated": false
+      }
+    },
+    "software/runtime/node": {
+      "returncode": 0,
+      "stderr": {
+        "bytes": 0,
+        "tail": "",
+        "truncated": false
+      },
+      "stdout": {
+        "bytes": 522,
+        "tail": "\tlinux-vdso.so.1 (0x00007fa635795000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007fa63577e000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fa635400000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fa635695000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fa6353d2000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fa635690000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fa635000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007fa635797000)\n",
+        "truncated": false
+      }
+    }
+  },
+  "schema": "kpx8-public-replay-failure-diagnostics/v1"
+}
