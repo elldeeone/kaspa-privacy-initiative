@@ -1,0 +1,26 @@
+{
+  "schema": "kpxa-network-rpc-sdk-selection/v1",
+  "source_commit": "01b532e8b553523216471682649693af92f0fd16",
+  "request_timeout_ms": 900000,
+  "directory": "/dev/shm/kpi-borsh-deadline-build-01/network-sdk",
+  "files": [
+    {
+      "name": "kaspa_rpc.js",
+      "bytes": 203489,
+      "sha256": "0f78bcb262d9e6cebf13191ed8f4380da26264953850356dd9bbc1087709ab1d"
+    },
+    {
+      "name": "kaspa_rpc_bg.wasm",
+      "bytes": 3450222,
+      "sha256": "47a2e5522dcd2511339f0f1efd22cd17b0aebf07aa274cac165386fb70ae3ffa"
+    },
+    {
+      "name": "kaspa_rpc.d.ts",
+      "bytes": 90001,
+      "sha256": "7c27d4b4af2ef85d3be89f669cd6e5d6b220133a09bf26bcd80361805dc23e80"
+    }
+  ],
+  "build_freeze_sha256": "3a892ac9eaa8cd5683de9842f219192f88fe12b6f92cbf66d78fe3dbeab91749",
+  "build_record_sha256": "ece03ed22df9b2074ea766f4a044d306d996a91cc879afbc79d8cba7200ace11",
+  "scope": "Network RPC only. Original financial/header/transaction/native verification SDK is unchanged. This SDK exports additional operations; the separate worker restricts usage to five read-only methods."
+}

@@ -23,6 +23,42 @@ class RecordingRNG:
 
 
 class Controls(unittest.TestCase):
+    def test_submission_journal_matches_frozen_controller_contract_before_proof(self):
+        private = campaign.PRIVATE / 'known-public-fixture-caller'
+        journal = campaign.submission_journal(private)
+        self.assertEqual(journal, private / 'controller/submission-journal')
+        self.assertIn('controller', journal.parts)
+        with self.assertRaisesRegex(ValueError, 'declared-private-submit-controller'):
+            campaign.submission_journal(Path('/outside-authorized-private-prefix'))
+
+    def test_actual_reserve_birth_DAA_and_all_context_fields_are_preserved(self):
+        point = 'aa' * 32 + '00000000'
+        script = '0000aa20' + 'bb' * 32 + '87'
+        checkpoint = {'state_hex112': 'cc' * 112, 'reserve_sompi': 6_000_000_000, 'outpoint_hex36': point}
+        entry = {'outpoint': {'transactionId': 'aa' * 32, 'index': 0}, 'amount_sompi': '6000000000',
+            'script_public_key': script, 'block_daa_score': '606339508', 'is_coinbase': False, 'covenant_id': None}
+        actual = campaign.canonical_reserve_entry(entry, checkpoint, script)
+        self.assertEqual(actual, {'amount': 6_000_000_000, 'scriptPublicKey': script,
+            'blockDaaScore': 606339508, 'isCoinbase': False, 'covenantId': None})
+        for changed in ('point', 'amount', 'script', 'coinbase', 'covenant'):
+            bad = copy.deepcopy(entry)
+            if changed == 'point':
+                bad['outpoint']['transactionId'] = 'dd' * 32
+            elif changed == 'amount':
+                bad['amount_sompi'] = '6000000001'
+            elif changed == 'script':
+                bad['script_public_key'] = '0000aa20' + 'ee' * 32 + '87'
+            elif changed == 'coinbase':
+                bad['is_coinbase'] = True
+            else:
+                bad['covenant_id'] = 'ff' * 32
+            with self.assertRaisesRegex(ValueError, 'current-entry-must-match'):
+                campaign.canonical_reserve_entry(bad, checkpoint, script)
+        for bad_daa in (True, 606339508.0, '0606339508', '-1', str(1 << 64)):
+            bad = dict(entry, block_daa_score=bad_daa)
+            with self.assertRaises(ValueError):
+                campaign.canonical_reserve_entry(bad, checkpoint, script)
+
     def test_each_round_and_all_nine_exits_use_private_shuffle(self):
         rng = RecordingRNG()
         plan = campaign.make_plan(['/known-public-fixture/one', '/known-public-fixture/two',
@@ -53,7 +89,7 @@ class Controls(unittest.TestCase):
         caller.selection = {'trial_id': 'KNOWN-PUBLIC-TRIAL', 'scripts': {
             'submit': selected('submit'), 'confirm': selected('confirm')}, 'node': selected('node')}
         caller.activation = {name: selected(name) for name in ('selection', 'descriptor', 'assets', 'parameters', 'codec')}
-        caller.private = Path('/known-public-fixture-private-caller')
+        caller.private = campaign.PRIVATE / 'known-public-fixture-private-caller'
         case = selected('CASE.json')
         case_value = {'transaction': {'id': '22' * 32}}
         caller.row = lambda row: campaign.encoded(case_value) if row == case else b'KNOWN PUBLIC SELECTED SOURCE'

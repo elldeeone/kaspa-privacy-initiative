@@ -1,0 +1,226 @@
+{
+  "schema": "two-owner-aggregate-finite-fixture/v1",
+  "classification": "PUBLIC_FICTIONAL_NON_PRIVATE_RELATION_WIRING_ONLY",
+  "planSHA256": "458451f62e00bade1a7207b312ded0081ae05ac526c9c46318d54f6c5ddb2bc1",
+  "handoffSHA256": "284aef4352a57132a289dc81a8067290a0b15e6dc66e8735c5da71e73ae7f218",
+  "handoffBytes": 173104,
+  "authoritySourceSHA256": "e5b158ec4cc88afa8be35ca8758140bb9c1e7899c31d83572ed20f30b824b68b",
+  "publicFields": [
+    "anchor",
+    "evaluationHeight",
+    "testTag",
+    "chainId",
+    "poolId",
+    "profileId",
+    "roleId",
+    "assetTag",
+    "NF",
+    "tuple",
+    "feeTotal"
+  ],
+  "expectedPublicFieldCount": 2091,
+  "expectedOutputs": 0,
+  "staticInputs": {
+    "fieldPrime": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+    "sharedFields": [
+      "anchor",
+      "evaluationHeight",
+      "testTag",
+      "chainId",
+      "poolId",
+      "profileId",
+      "roleId",
+      "assetTag"
+    ],
+    "ownerCount": 2,
+    "outputCount": 4,
+    "tupleBytes": 520,
+    "feeTotalBits": 65,
+    "expectedRows": 29,
+    "expectedAccepts": 7,
+    "expectedRejects": 22
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true,
+      "mutation": "Default A/B baseline; publicNF[A,B], tuples[A0,A1,B0,B1]."
+    },
+    {
+      "id": "P02",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true,
+      "mutation": "Reverse public NF order only."
+    },
+    {
+      "id": "P03",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true,
+      "mutation": "Public tuples[A0,B0,A1,B1] only."
+    },
+    {
+      "id": "P04",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true,
+      "mutation": "Reverse NF order; public tuples[B1,B0,A1,A0]."
+    },
+    {
+      "id": "P05",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true,
+      "mutation": "Swap private A/B component slots and selector labels; public bytes exactly P03."
+    },
+    {
+      "id": "P06",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true,
+      "mutation": "Existing signed A alternative plus B baseline; corresponding complete tuples/selectors updated."
+    },
+    {
+      "id": "P07",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true,
+      "mutation": "Exact repeat of P03 at evaluationHeight150; ACCEPT documents no historical replay state."
+    },
+    {
+      "id": "N01",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Duplicate public NF, leave other baseline data."
+    },
+    {
+      "id": "N02",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Valid A baseline in both private slots; duplicated public NF and tuple arrays."
+    },
+    {
+      "id": "N03",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Replace one complete public tuple with another, omitting its original."
+    },
+    {
+      "id": "N04",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Two private rows choose the same public column in U; other baseline data unchanged."
+    },
+    {
+      "id": "N05",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Two private rows choose the same public column in V; other baseline data unchanged."
+    },
+    {
+      "id": "N06",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "U=[[2,Fr-1],[Fr-1,2]] and publicNF its field-linear combination; row/column sums still one."
+    },
+    {
+      "id": "N07",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Swap only A/B R8 and S signatures; retain original PKs and all other record fields."
+    },
+    {
+      "id": "N08",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Swap only first32 CM bytes of two public tuples; remaining488 bytes stay put."
+    },
+    {
+      "id": "N09",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Flip public A0 CF byte96 only."
+    },
+    {
+      "id": "N10",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Flip private A0 and corresponding public CF byte96, retaining old signature."
+    },
+    {
+      "id": "N11",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public feeTotal +1."
+    },
+    {
+      "id": "N12",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "A fee+1/change-1; B fee-1/change+1; recompute CMs/CM bytes/public tuples; old signatures; unchanged feeTotal."
+    },
+    {
+      "id": "N13",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public chainId+1 propagated to both children; old signatures."
+    },
+    {
+      "id": "N14",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public poolId+1 propagated to both children; old signatures."
+    },
+    {
+      "id": "N15",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public profileId+1 propagated to both children; old signatures."
+    },
+    {
+      "id": "N16",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public roleId+1 propagated to both children; old signatures."
+    },
+    {
+      "id": "N17",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public anchor+1 for both children; old signatures/siblings."
+    },
+    {
+      "id": "N18",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public evaluationHeight99, below signed interval."
+    },
+    {
+      "id": "N19",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public evaluationHeight201, above signed interval."
+    },
+    {
+      "id": "N20",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Private A0 and corresponding public CF byte96 set256; old signature."
+    },
+    {
+      "id": "N21",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "A fee=2^64; update public feeTotal to that fee+B fee; other fields unchanged."
+    },
+    {
+      "id": "N22",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Public testTag+1 propagated to both children; old signatures."
+    }
+  ],
+  "coverageLimits": [
+    "All fixture values and owner-index-derived tuple bytes are public; no anonymity or hidden-map evidence.",
+    "N06 targets boolean selectors; other negative checks may overlap.",
+    "No independently signed duplicate-CM fixture; no isolated CM-distinctness coverage claim.",
+    "P07 exact same-state replay accepts; no historical spent state or cancellation.",
+    "No CVin, CV algebra, Delta, output encryption/proof validity, native effects/profile/state/recovery or fee qualification."
+  ]
+}

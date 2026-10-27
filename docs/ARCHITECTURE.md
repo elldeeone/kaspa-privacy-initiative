@@ -2,23 +2,25 @@
 
 ## Independent-wallet payment candidate
 
-[ADR-0066](adr/0066-local-native-kas-payment-prototype.md) selects the
-[RFC-0029](rfc/0029-local-native-kas-private-transfer.md) research implementation:
-one owned note becomes a recipient note and recoverable change without other
-live owners. A fresh domain, three refreshed component key sets, KPXA codec,
-outer guest and native policy keep this candidate separate from existing pools.
-The wallet checks its entire consent/effects boundary locally; a direct full-note
-exit remains independent of the outer prover. Public genesis has authenticated
-encrypted outputs and transparent fixed-value deposit commitments.
+[ADR-0066](adr/0066-local-native-kas-payment-prototype.md) implements the
+[RFC-0029](rfc/0029-local-native-kas-private-transfer.md) fresh domain 1/2 payment
+profile: a recipient note and recoverable change without other live owners,
+with local consent/effects checks and a direct full-note exit independent of
+the outer prover. Existing pools and prior profiles remain separate.
 
-Established Tor/TLS transport carries public RPC data without direct fallback.
-It does not establish global traffic privacy. The ledger still groups one NF
-with two outputs; proof latency, shared-head conflicts, invoice linkage and
-independent public-data availability remain explicit limitations. Genuine native
-execution and confirmed testnet payouts require their own retained evidence.
-The frozen ADR-0065 study continues independently under its original criteria.
+The [current TN 10 result](checkpoints/2026-10-27.md)
+completed six payments, nine independent payouts, zero reserve/null outpoint
+and three Original terminal cold scans using downloaded finite recovery software.
+Independent accounting passed 19 Native Full cases (16 pool/3 ordinary), 15 commitments/16 nullifiers.
+Paid fees 264,166,000 sompi/21 useful KAS fail the unchanged 2% target.
 
-## Active sender-privacy experiment
+The ledger still groups one NF with two outputs and the ordinary constructor
+sees its witness/map. Tor/TLS, selected-node financial success and bounded
+observer/component results do not establish general privacy or production safety.
+Shared-head conflicts, invoice/origin linkage and independent public-data
+retention remain explicit limits. No successor architecture is selected.
+
+## Earlier sender-privacy experiment
 
 [ADR-0065](adr/0065-sender-private-admission.md) and
 [RFC-0028](rfc/0028-sender-private-native-kas.md) select a new off-chain client
@@ -1185,3 +1187,51 @@ externally watched process group covers all four proofs, compression and local
 CPU/native checks. B independently re-verifies returned data using trusted local
 executables. A new immutable image identifies this workload separately from PR47.
 Software preparation does not establish new receipt or TN10 acceptance evidence.
+
+
+### Authenticated local history reuse (2026-10-26)
+
+[ADR-0073](adr/0073-shared-baseline-peer-acquisition.md) also completed actual
+shared-baseline acquisition: one prepared prefix, lawful boundary recompression,
+seven-source binding and 13 financial sources unchanged. These ordinary host bytes do
+not grant external cache authority or qualify independent retention.
+
+[ADR-0067](adr/0067-authenticated-local-prefix-reuse.md) selects a bounded cache experiment after the first ADR-0066 payment was confirmed on TN10. A controller may reuse only its own admitted, byte-identical verified prefix, fetch a fresh fixed-frontier delta, verify all new headers/edges, and replay every selected pool transaction with native Full and the existing financial rules. Local admission is a performance/evidence assumption; public receipt fields are not authority. External imports require full verification, and reorg/current-UTXO checks remain mandatory. The native domain, keys, policy, amounts, fees and once-only submission rules are unchanged. Activation still requires independent controls and an actual cached/full comparison.
+
+The actual second-payment cached/full comparison passed. The bounded extension
+in the same ADR stages host-guard-admitted public bytes into an immutable,
+offline namespace for the original replay and preflight code. A genuine full
+replay produced all five financial/SDK files byte-identically twice; measured
+warm replay took about 76–80 seconds after separate admission work. New wrappers
+require an explicit outer source profile and their own qualification. Tor
+acquisition, live queries, private intent journals and single submission remain
+outside that public worker. No new key, native domain or release authority is
+introduced. The six-payment/nine-payout rehearsal is now complete; final DATA
+publication verification remains separate.
+
+
+### Owner-consent, proving components and RPC acquisition (2026-10-27)
+
+[ADR-0068](adr/0068-offline-owner-consent-aggregation.md) retains 49 authority and 29
+aggregate actual R1CS checks. The 42 canonical field-encoding controls do not
+verify a complete 128-byte proof/curve/subgroup relation. The qualified one-Output
+matrix gate matched 15 controls (2 SAT,6 residual UNSAT,4 assignment and 3 matrix
+refusals), preserving one actual NativeOutput matrix plus two digest equalities.
+Multiple circuits, setup/proofs, malicious MPC, native batch and fee/privacy
+qualification remain unbuilt. 119 MB of raw matrix/assignment outputs stays local.
+
+The [one-Output contract](../research/next-session/local-private-payment/privacy-next/native-batch-exception-contract-01/ONE-OUTPUT-QUALIFICATION-CONTRACT-01.md)
+and [direct Native Arkworks 0.6 assessment](../research/next-session/local-private-payment/privacy-next/direct-native-composition-01/SOURCE-ASSESSMENT-01.md)
+compare source options without selecting architecture. Required gnark commitment/
+PoK checks cannot be dropped; signature-gadget, full-witness private-prover,
+delivery and authority gaps remain explicit. Same-state synthetic replay and a
+plaintext constructor do not supply privacy. New note/KDF/Spend/Exit, complete
+validity, state/replay and recovery rules need their own review.
+
+[ADR-0069](adr/0069-separate-read-only-rpc-client.md) and the shared-prefix family
+successfully acquired the final confirmed history. The seven-source sidecar
+remains separate from unchanged financial SDK/runtime/admission/submission
+checks. The [19-case/three-observer result](checkpoints/2026-10-27.md)
+is bounded validating-node/public-model evidence. FinalDATA 9-Original audits
+and Tor readback remain pending at this source freeze; independent administration,
+off-host recovery and long-term retention remain unproven.

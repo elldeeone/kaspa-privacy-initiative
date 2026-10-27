@@ -9,6 +9,12 @@ fee, ciphertexts and native effects must agree before authorization. Direct exit
 and seed-only discovery must not require another owner, a saved roster, attempt
 journal, hosted prover or privileged release.
 
+The [current TN 10 result](docs/checkpoints/2026-10-27.md)
+records six payments, nine independent payouts, zero reserve/null outpoint,
+three Original terminal cold scans and an independent 19-case Native Full pass.
+These are selected-node financial/recovery observations; the economic analysis
+does not establish seed/download provenance, consensus or general privacy.
+
 The ledger exposes NF/two-output grouping, state/reserve movement, fees, timing
 and transparent payouts. Hidden commitment ownership, values and descriptors
 depend on the established unreviewed proof/encryption composition. A recognizable
@@ -1239,3 +1245,59 @@ retains independent expected identities and excludes GPU-supplied executables fr
 CPU/B verification. Its aggregate external process watchdog survives service loss;
 partial outputs cannot become full qualification. Existing B-root trust, lease,
 backup, confirmed-stop and storage-preservation boundaries remain unchanged.
+
+
+### Local verification-cache integrity (2026-10-26)
+
+The live shared-prefix family prepared one authenticated common baseline, with
+lawful boundary clipping/recompression and a seven-source sidecar. The 13 financial sources
+and full native/current-state/import/reorg checks remain unchanged. Ordinary
+host files are not sealed attestations; safe full fallback and data retention
+remain necessary.
+
+[ADR-0067](docs/adr/0067-authenticated-local-prefix-reuse.md) makes controller/cache integrity an explicit performance and evidence assumption. Fast admission is rooted in this controller's already full-verified handoff and protected STATE-held selector hashes; a downloaded/public `PASS` cannot grant it. Bind network/genesis, descriptor, domain/profile, SDK/runtime sources and all retained bytes. Reject tampering, cursor gaps/overlap and incompatible admission. Verify every new header/input edge, replay all pool native/financial transitions, and retain fresh reorg/anchor/current-UTXO checks. Missing/untrusted admission uses full verification; stale/reorged caches require safe full fallback. This adds no reserve-release key or consensus proof and does not establish hostile-host safety.
+
+The immutable public-worker extension admits each selected source/input identity
+through unchanged host helper09 before sealing its bytes. The application sees
+no real originals, private controller state, host directory mounts, inherited
+nonstandard descriptors or network. Eight empty synthetic metadata files satisfy
+legacy helper imports; they confer no backup authority. Fixed replay/preflight
+roles, strict output exports, explicit new-source provenance and unchanged
+financial checks are required. Host integrity during admission remains an
+assumption; filesystem isolation is not a cryptographic or general anonymity
+proof. Missing workers must halt or use the original full path.
+
+A historical inode blacklist can falsely reject newly created public files after
+inode reuse. The narrow known-public writer fix hashes its own exclusively
+written, fully flushed buffer without reading it again. It neither clears the
+blacklist nor changes later financial input authentication. The actual
+post-payment-three halt is source-consistent with the reproduced dummy-file
+mechanism; its caught private exception was not exported.
+
+
+### Component, observer and RPC boundaries (2026-10-27)
+
+[ADR-0068](docs/adr/0068-offline-owner-consent-aggregation.md) retains 49+29 actual
+R1CS outcomes. The 42 canonical-encoding controls and 15 one-Output matrix controls
+are separately bounded: the latter includes 6 actual residual rejections and
+7 assignment/mapping refusals. No complete private Native batch, setup/proof,
+malicious MPC or fee improvement follows. Today's owner secret must not be
+shared or relabelled as a substitute for a sound financial predicate. The
+plaintext constructor still sees its map and Native 1 NF/two-output grouping remains.
+
+The [three frozen observer results](docs/checkpoints/2026-10-27.md)
+use public history/accounting only. Exact economics leaves 68,040 asset forests/24
+partitions; known workload leaves 6,480/24, with no new forced ancestry relation
+in either comparator. Selected-source policy supports exits 4/5 predictions only
+under honest-source/input-order assumptions. Counts are not posteriors, asset
+ancestry is not ownership, and owner-truth accuracy was not tested. The original
+GEN3 adapter failure and unchanged policies are retained.
+
+[ADR-0069](docs/adr/0069-separate-read-only-rpc-client.md) and the live shared family
+keep five read-only RPCs/source-bound sidecars separate from financial authority.
+The current terminal rehearsal completed; the older retained-response/CASE 11
+qualification remains historical evidence. Its no->60-second limitation is not
+a blanket statement about later live reads, nor a qualification of 900 seconds.
+The source-only JSON fallback remains held. FinalDATA 9-Original canaries and
+public Tor readback remain pending at this source freeze; same-host/same-origin
+availability and independent retention remain different claims.

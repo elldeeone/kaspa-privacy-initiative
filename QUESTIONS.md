@@ -4,16 +4,17 @@ The initiative should treat these as questions to answer, not conclusions to def
 
 ## Independent-wallet candidate
 
-[ADR-0066](docs/adr/0066-local-native-kas-payment-prototype.md) and
-[RFC-0029](docs/rfc/0029-local-native-kas-private-transfer.md) select research,
-not a privacy pass. Does removal of live co-owners improve the declared observer
-model despite one-NF/two-output grouping? Which invoice, Tor, timing and host
-assumptions survive an independent review? Can original-seed received/change
-spends and independent exits complete under actual accepted history and head
-conflicts? What are measured proving latency and actual matched-workload fees,
-including the explicitly selected relay-fee policy? The old 21-KAS/2% failure
-remains unchanged. Genuine native/chain completion and off-host/public-data
-availability require separate evidence.
+[ADR-0066](docs/adr/0066-local-native-kas-payment-prototype.md) now has a bounded
+TN 10 result: six payments, nine independent native payouts, zero reserve/null
+outpoint and three Original terminal cold scans using downloaded finite recovery
+software. Independent accounting passed all 19 Native Full cases. See the
+[financial and observer result](docs/checkpoints/2026-10-27.md).
+
+Privacy remains open: Native 1 NF/two-output grouping and the constructor map
+persist. The three frozen public observers narrow feasible models without an
+owner-verified privacy verdict. Fees are 264,166,000 sompi on the unchanged 21 KAS
+workload; the 2% target remains FAIL. How can privacy and exit cost improve while
+preserving independent fallback and externally available recovery data?
 
 ## Current sender-privacy questions
 
@@ -32,7 +33,7 @@ The [active MPC wire diagnostic](research/next-session/sender-private-lifecycle/
 found the expected changed-cohort input-ownership failure; the mitigation
 question remains open.
 
-The bounded ADR-0064 financial integration below is now complete: two rounds,
+The earlier bounded ADR-64 financial integration below is complete: two rounds,
 nine confirmed payouts, zero reserve and three fresh seed restorations. Its
 2% fee target failed and sender privacy remains unqualified. Earlier question
 statements below are retained as historical design context.
@@ -467,6 +468,10 @@ What remains observable?
 
 ## 10. State availability and recovery
 
+Three terminal cold scans/downloaded finite recovery completed in the current
+rehearsal; final DATA audits/readback and independent long-term retention remain
+separate gates. See the [current result](docs/checkpoints/2026-10-27.md).
+
 - What data must remain available forever?
 - What data may be pruned?
 - Which data must a user back up?
@@ -484,6 +489,10 @@ What remains observable?
 - Can hardware wallets safely support spending?
 
 ## 12. Economics
+
+The current matched 21 KAS rehearsal paid 264,166,000 sompi and failed 2%. Even free
+payments leave 148,795,600 sompi for exits/GEN3/prefunding, above the 42,000,000 budget.
+How can independent exits become cheaper while preserving fallback?
 
 - What costs exist for L1 transactions, proving, storage, execution, relays, audits, and maintenance?
 - Should shielding/unshielding carry a development fee?
@@ -553,3 +562,38 @@ mass limits; and how every supported funded deposit gets an authenticated credit
 or recovery path. The ideal model and real small composition test are different
 evidence layers. Complete note/ownership/nullifier/encryption constraints,
 permissionless fees, migration and independent recovery remain open.
+
+
+### Verified history reuse and current results (2026-10-27)
+
+[ADR-0067](docs/adr/0067-authenticated-local-prefix-reuse.md) and
+[ADR-0073](docs/adr/0073-shared-baseline-peer-acquisition.md) now have cached/full
+comparison and successful terminal acquisition evidence. One authenticated
+common baseline, lawful boundary recompression and a seven-source sidecar
+preserve 13 financial sources and full verification of external imports. This closes
+the current rehearsal's acquisition blocker, not independent long-term retention.
+
+### Remaining privacy, proving and recovery questions (2026-10-27)
+
+The [current result](docs/checkpoints/2026-10-27.md)
+separates completedsix-payment/nine-payout/zero-reserve settlement and 19-case accounting from privacy and
+publication. 49/29 consent/aggregate checks,42 encoding checks and 15 one-Output
+matrix controls are bounded components, not a complete private Native batch.
+
+- Which reviewed relation/prover hides the constructor map while binding complete
+  output/CV/delivery validity, current state, replay and authorized Spend/Exit?
+- Which recursive or direct Native Arkworks 0.6 path closes signature-gadget, complete
+  witness/MPC and authority gaps? The reviewed source notes select no architecture.
+- How can exits become cheaper while retaining independent fallback? Even free
+  payments leave 148,795,600 sompi of current exit/GEN3/prefunding cost, above the
+  unchanged 42,000,000 sompi 2% budget.
+- Can a separate physical client and independently administered public provider
+  demonstrate recovery and retention? FinalDATA 9-Original audits/Tor readback
+  remain pending at this source freeze.
+
+The first adapter's GEN3-layout failure is preserved; its reviewed sibling and
+21 controls leave all three observer policies unchanged. Source-policy exit
+predictions are conditional, not owner-truth accuracy or posterior probabilities.
+Historical offline RPC qualifications did not demonstrate a>60-second response;
+separately retained live delayed reads do not qualify the full 900-second limit.
+The held JSON fallback and old fee/privacy failures are not reinterpreted.

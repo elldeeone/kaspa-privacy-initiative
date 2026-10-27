@@ -1,0 +1,21 @@
+[package]
+name = "kpi-output-matrix-binding-gate"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+ark-bn254 = "=0.6.0"
+ark-ff = "=0.6.0"
+ark-relations = "=0.6.0"
+ark-serialize = "=0.6.0"
+hex = "=0.4.3"
+serde_json = "=1.0.145"
+sha2 = "=0.10.9"
+kpi-local-private-payment-relation = { path = "../../../../../../poc/local-private-payment/relation", default-features = false, features = ["prover"] }
+
+[profile.release]
+debug = 0
+

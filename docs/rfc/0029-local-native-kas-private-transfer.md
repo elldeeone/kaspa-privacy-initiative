@@ -1,6 +1,6 @@
 # RFC-0029: Local one-input, two-output native KAS private transfer
 
-**Status:** Selected for bounded research implementation by [ADR-0066](../adr/0066-local-native-kas-payment-prototype.md); privacy and lifecycle qualification remain pending.
+**Status:** [ADR-0066](../adr/0066-local-native-kas-payment-prototype.md) completed the bounded TN 10 financial lifecycle; the 2% fee target failed and financial privacy/external availability remain unqualified.
 **Date:** 2026-10-25 UTC.
 **Reference:** [RFC-0028](0028-sender-private-native-kas.md) and
 [ADR-0065](../adr/0065-sender-private-admission.md), baseline
@@ -30,6 +30,10 @@ leaving disclosed honest NFs unspent. No new active experiment is proposed here.
 The proposal removes mandatory multi-owner admission/authorization from an
 ordinary payment. It does **not** hide a submission endpoint or eliminate shared
 reserve contention. A public transaction still groups one NF with two outputs.
+
+The [actual result](../checkpoints/2026-10-27.md)
+answers the functional lifecycle question withsix payments, nine payouts, zero reserve and three cold scans and 19-case Native
+accounting. It does not remove the grouping or constructor privacy limits.
 
 ## Existing work and alternatives
 
@@ -97,15 +101,14 @@ change, a dummy note or smaller note floors under the existing component keys.
 
 ## Domain, proof identity and recovery compatibility
 
-The arity change requires a **new aggregate profile, guest/image and native
-policy**, even if per-note predicates are retained. The fresh candidate financial
-domain is an unresolved selection, not a value assigned here. D is a compiled
-constant in [relation::DOMAIN](../../poc/owner-private-lifecycle/relation/src/lib.rs#L28)
-and is constrained by SpendCircuit. A new D therefore requires corresponding
-Spend, Output and Exit circuit/key/manifest refresh; changing a JSON domain
-alone is invalid. If review instead retains D and identical per-note predicates,
-component-key reuse needs explicit equivalence evidence. No funded old notes or
-backups are silently migrated. Use a fresh unfunded trial for initial work.
+ADR-66 implemented the fresh domain/profile, refreshed Spend/Output/Exit keys,
+KPXA 1/2 codec, outer guest and direct-exit policy. The
+[current terminal/public evidence](../checkpoints/2026-10-27.md)
+records its selected identity and accepted history; old funded notes/backups
+were not migrated. D remains a compiled constant in the
+[selected relation](../../poc/local-private-payment/relation/src/lib.rs). A future
+D/predicate change requires corresponding circuit/key/manifest review; changing
+JSON alone is invalid and per-note key reuse is never inferred silently.
 
 Keep the established Receipt216/Note168 and sealed-box adapter. The
 [receiver](../../poc/future-recipient/v2/recipient.py#L202) derives indexed owner/NF
@@ -164,6 +167,9 @@ submission is unlinkable, guarantee inclusion or make cached authorizations
 valid for a new outpoint. Do not solve this with a permanent private note lock
 or a privileged delay of independent exits.
 
+The source-only [current alternatives](../../research/next-session/local-private-payment/privacy-next/direct-native-composition-01/SOURCE-ASSESSMENT-01.md)
+retain signature-gadget/MPC/authority gaps and choose no architecture.
+
 Two proving options remain open: first adapt the existing outer guest for
 reuse/equivalence; later compare one established Groth16 relation expressing
 Spend+two Outputs+state update+balance directly, avoiding in-guest component-proof
@@ -181,7 +187,7 @@ and nine exits; six singleton payments can require more native proofs than two
 three-owner batches. The native Groth16 verification cost floor remains even if
 proving is faster. Fee feasibility and privacy feasibility are separate verdicts.
 
-## Smallest prospective experiment and stop criteria
+## Original prospective experiment and stop criteria
 
 Before implementation, resolve domain/profile, exact codec, consent and exit
 compatibility in review/ADR. Then prospectively freeze **public synthetic
@@ -221,13 +227,54 @@ it would not qualify privacy or authorize mainnet use.
 1. Is this local transaction's explicit 1-to-2 public grouping acceptable under
    the required ledger observer, and which anonymous submission assumptions are
    realistically supportable?
-2. Select a fresh D with component refresh, or justify fixed-D per-note reuse;
-   select exact versioned codec, action/index convention and native exit policy.
+2. The implemented ADR-66 profile uses its selected freshD/keys/codec/exit
+   policy. A successor or migration requires its own reviewed identity decision.
 3. Can shared-head contention and proof latency support useful repeated payments
    without weakening current-state binding or independent recovery? Compare the
    adapted outer guest against a reviewed direct relation before making a cost
    claim; reusable intents/historical anchors need their own authorization RFC.
 
 **Outcome:** ADR-0066 selects the bounded candidate for research implementation.
-Privacy, cost, native settlement and recovery verdicts require the corresponding
-retained execution evidence; selection does not resolve those gates.
+Current native settlement/recovery and fee outcomes are linked below. Privacy
+and successor cost/authority decisions remain open; selection alone resolves none.
+
+
+### Actual operational outcome (2026-10-27)
+
+[ADR-0067](../adr/0067-authenticated-local-prefix-reuse.md) cached/full comparison
+and [ADR-0073](../adr/0073-shared-baseline-peer-acquisition.md) shared-baseline
+acquisition succeeded through the final exact CASE 15 confirmation. One prepared
+common prefix and lawful boundary clipping/recompression preserve the 13 financial
+sources and full import/reorg/current-UTXO/native checks. The seven-source
+sidecar grants no reserve-release or external cache authority.
+
+The [current result](../checkpoints/2026-10-27.md)
+contains six payments, nine confirmed native exits, zero reserve/null outpoint,
+three Original cold scans and 19-case independent Native Full accounting. All-in
+fees are 264,166,000 sompi on 2,100,000,000 useful sompi (about 12.5793%);2% FAIL remains.
+Even free payments leave 148,795,600 sompi for exits/GEN3/prefunding, so payment
+proof savings alone cannot meet the 42,000,000 sompi lifecycle budget.
+
+The same frozen public ledger/policies yield 68,040 exact-economic forests/24
+partitions,6480 known-workload forests/24, and 72 source-policy schedules/3 actor
+masks with conditional exits 4/5 predictions. Neither economic comparator adds a
+forced ancestry relation. There is no owner-truth accuracy, posterior or privacy
+PASS; honest selected-source execution/input-order is an assumption. The old
+singleton-GEN3 adapter failure is preserved before the reviewed 21-control fix.
+
+### Bounded successor work and publication (2026-10-27)
+
+49/29 consent/aggregate checks,42 canonical-encoding controls and 15 one-Output
+matrix controls preserve their narrow scopes. The matrix gate checks one actual
+NativeOutput relation plus two digest links, not multiple-circuit aggregation,
+setup/proofs, MPC, native batch acceptance or cheaper/private payments.
+The [recursive qualification contract](../../research/next-session/local-private-payment/privacy-next/native-batch-exception-contract-01/ONE-OUTPUT-QUALIFICATION-CONTRACT-01.md)
+and [direct Native alternative](../../research/next-session/local-private-payment/privacy-next/direct-native-composition-01/SOURCE-ASSESSMENT-01.md)
+select no architecture. Keep signature-gadget/full-witness/authority and delivery
+gaps explicit; do not weaken funds checks through secret-sharing substitutions.
+
+The old offline RPC qualification is historical; later actual terminal evidence
+is separate. The JSON fallback remains held. FinalDATA all 9 Original canaries,
+global supplemental completion and public Tor readback remain pending at this
+source freeze. Same-host recovery and one-admin hosting do not establish off-host
+seed recovery, independent retention or a second public origin.

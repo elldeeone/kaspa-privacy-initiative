@@ -1,0 +1,447 @@
+{
+  "schema": "signature-authority-finite-fixture-recipe/v1",
+  "status": "FROZEN_SOURCE_RECIPE_NOT_EXECUTED",
+  "classification": "PUBLIC_SYNTHETIC_NON_PRIVATE_AUTHORIZATION_ONLY",
+  "planSHA256": "42900a915b5e61078597cef42ad351819605276db20bd4f96e661816af757ac2",
+  "rootImplementationReviewSHA256": "8a43a526ce5c1f8907bc13c1435468145a98950a22ba414733ed951d95463691",
+  "staticInputs": {
+    "owners": [
+      0,
+      1
+    ],
+    "outputTagASCII": "KPIAUT01",
+    "tags": {
+      "testTag": "1",
+      "chainId": "101001",
+      "poolId": "201001",
+      "profileId": "301001",
+      "roleId": "401001",
+      "assetTag": "601001"
+    },
+    "inputSompi": "2000000000",
+    "outputSompi": [
+      "100000000",
+      "1890000000"
+    ],
+    "feeSompi": "10000000",
+    "nullifyingKeyBase": "800001",
+    "inputRandomBase": "700001",
+    "outputNPKBase": "900001",
+    "nonceBase": "501001",
+    "validFrom": "100",
+    "validUntil": "200",
+    "evaluationHeight": "150",
+    "tupleLinearCoefficients": [
+      17,
+      29,
+      41
+    ],
+    "tupleBytes": 520,
+    "tupleFieldOffsets": {
+      "CM32": [
+        0,
+        32
+      ],
+      "CV64": [
+        32,
+        96
+      ],
+      "CF264": [
+        96,
+        360
+      ],
+      "ciphertextHash32": [
+        360,
+        392
+      ],
+      "consistencyProof128": [
+        392,
+        520
+      ]
+    },
+    "hashGoldenBytes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "hashGoldenPrefixLengths": [
+      55,
+      56,
+      63,
+      64
+    ],
+    "authorizedAlternative": {
+      "paymentNPKDelta": "10000",
+      "paymentCFRelativeByte": 0,
+      "xor": 1,
+      "valuesUnchanged": true
+    }
+  },
+  "keyRecipe": {
+    "entropy": "Each owner child obtains crypto.randomBytes(32) once. No prepublished or persistent signing seed.",
+    "signer": "Circomlibjs0.1.7 buildEddsa.prv2pub/signPoseidon.",
+    "schedule": "Children publish only PK and inputCM; parent forms common anchor; one fixed IPC request triggers baseline/exactalt/changedNK/replacementPeer signatures; each child exits before witness phase.",
+    "overlapLimit": "Owner children overlap idle during fictional fixture construction, not an asynchronous wallet attendance or liveness qualification.",
+    "ipc": "Exact request, ready, bundle and circuit-input field allowlists. No general signing endpoint. Owner stdout/stderr discarded; errors generic.",
+    "secretBoundary": "Seed remains child-local and best-effort overwritten. No host memory erasure/unforgeability claim; no actual Original/KDF material."
+  },
+  "finiteRows": {
+    "total": 49,
+    "authorityInputCases": 46,
+    "staleDerivedLimbCases": 2,
+    "hashGoldenRelationRows": 1,
+    "hashGoldenVectors": 4,
+    "expectedAcceptedRows": 5,
+    "expectedRejectedRows": 44
+  },
+  "authorityCases": [
+    {
+      "id": "owner-0-unchanged-after-exit",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "owner-0-new-exact-consent",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "owner-1-unchanged-after-exit",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "owner-1-new-exact-consent",
+      "expectedAccepted": true,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "payment-npk-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "payment-value-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "nf-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "fee-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "testTag-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "chainId-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "poolId-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "profileId-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "roleId-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "nonce-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "anchor-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "cv-byte-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "cf-byte-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "ciphertextHash-byte-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "consistencyProof-byte-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "output-order-old-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "byte-256",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "missing-signature-zero",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "wrong-owner-signature",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "replacement-key-valid-signature-original-leaf",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "changed-nullifying-key-valid-signature-original-leaf",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "leaf-index-changed",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "sibling-cm-changed",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "height-before-signed-interval",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "height-after-signed-interval",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "conservation-fails",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "publicKeyBytes-identity",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "publicKeyBytes-offcurve",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "publicKeyBytes-smallorder",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "publicKeyBytes-mixedorder",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "publicKeyBytes-p-alias",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "publicKeyBytes-topbit",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "signatureR8Bytes-identity",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "signatureR8Bytes-offcurve",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "signatureR8Bytes-smallorder",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "signatureR8Bytes-mixedorder",
+      "expectedAccepted": false,
+      "actualCheckerRequired": false
+    },
+    {
+      "id": "signatureR8Bytes-p-alias",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "signatureR8Bytes-topbit",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "S-equals-Q",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "S-plus-Q",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "S-topbit",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    },
+    {
+      "id": "CM-p-alias",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true
+    }
+  ],
+  "staleLimbCases": [
+    {
+      "id": "stale-derived-digest-limb-slot-33",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Copy positive owner0 baseline witness; add1modP at field slot33 only, preserving every other byte."
+    },
+    {
+      "id": "stale-derived-digest-limb-slot-34",
+      "expectedAccepted": false,
+      "actualCheckerRequired": true,
+      "mutation": "Copy positive owner0 baseline witness; add1modP at field slot34 only, preserving every other byte."
+    }
+  ],
+  "hashGoldenCase": {
+    "id": "hash-golden-padding-55-56-63-64",
+    "expectedAccepted": true,
+    "actualCheckerRequired": true,
+    "sharedR1CSCheck": true,
+    "comparison": "One checked four-relation witness, outputs row-major slots1..136; each length55/56/63/64 has all32 digest bytes and both LE128 limbs checked against Node crypto."
+  },
+  "abcGolden": {
+    "digestHex": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+    "lowLE128Hex": "2322ae5dde404141eacf018fbf1678ba",
+    "highLE128Hex": "ad1500f261ff10b49c7a1796a36103b0",
+    "scope": "Host packing golden; actual circuit checks use full1048B tuples and separate55/56/63/64B relation."
+  },
+  "stopRules": [
+    "No crypto import/keygen/signing/compiler/witness/check before Root source/tool review.",
+    "One fresh run directory; no result/run-record overwrites or reruns.",
+    "Stop first failed positive, unexpectedly accepted negative, missing required actual-check rejection, byte/digest/message differential, integrity/schema/parse failure or resource overrun; preserve partial rows/failure without retuning or key searching.",
+    "GENERATION_ONLY_REJECTION may match only actualCheckerRequired=false rows and is never R1CS-check evidence.",
+    "No added variants, setup/proving/PK, network submissions or native work."
+  ],
+  "resources": {
+    "toolsBytes": 201326592,
+    "scratchBytes": 2147483648,
+    "RAMBytes": 4294967296,
+    "CPUSeconds": 1800,
+    "serial": true,
+    "scratchParent": "/dev/shm/kpi-signature-predicate-scratch-01",
+    "scope": "Driver checks own CPU/RSS and scratch size; Root envelope must cover compiler and combined owner-process peaks."
+  },
+  "compiledEvidence": "Actual R1CS and WASM guard-read/hash recorded before calls; source pins alone are not build identity.",
+  "checker": "check-serial.mjs derives selected Snarkjs0.7.6 checker. Rebased imports; both curve allocations explicitly singleThread=true; handle termination in finally; arithmetic unchanged.",
+  "blakeHashBoundary": {
+    "path": "tools/node_modules/blake-hash/prebuilds/linux-x64/node.napi.node",
+    "bytes": 117680,
+    "sha256": "7ad88c48b10b72df6c910a5cce06f93eb1aba70800850582cface0038abe004f",
+    "meaning": "Selected archive tries bundled native NAPI prebuild first, JS fallback on error. Unreviewed binary; not loaded during preparation."
+  },
+  "limits": [
+    "Plain prover sees NF-owner-output/value map and all note/nullifier proving material.",
+    "Authorization of exact tuple bytes does not validate ciphertexts/encryption, CF hash consistency, consistency proofs, receipts or current financial profile.",
+    "No Groth16/native/privacy proof, MPC/malicious proving, chain-currentness, replay database, independent exit or liveness qualification.",
+    "Current2percent fee FAIL, active retry/output intersection FAIL and final25file model closure unchanged."
+  ]
+}

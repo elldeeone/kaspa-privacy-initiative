@@ -51,6 +51,14 @@ def backup_metadata(path):
     return path, (info.st_dev, info.st_ino)
 
 
+def submission_journal(private):
+    """Match the frozen submitter's literal controller namespace before proof."""
+    journal = checked(private) / 'controller' / 'submission-journal'
+    need(journal.is_relative_to(PRIVATE) and journal != PRIVATE
+         and 'controller' in journal.parts, 'declared-private-submit-controller-directory')
+    return checked(journal)
+
+
 def make_plan(backups, *, rng=None):
     """SystemRandom order stays private; no schedule or schedule hash export."""
     rng = random.SystemRandom() if rng is None else rng
@@ -102,6 +110,36 @@ def validate_plan(plan):
     return plan
 
 
+def canonical_reserve_entry(value, checkpoint, expected_spk):
+    """Convert only the selected reserve UTXO's canonical SDK boundary fields.
+
+    In particular this is the UTXO birth DAA, never the latest virtual tip DAA.
+    This public context is shared by payment and downloaded cold-exit builders.
+    """
+    fields(value, ('outpoint', 'amount_sompi', 'script_public_key', 'block_daa_score',
+                   'is_coinbase', 'covenant_id'), 'selected-current-reserve-entry-fields')
+    fields(value['outpoint'], ('transactionId', 'index'), 'selected-current-reserve-outpoint-fields')
+    fields(checkpoint, ('state_hex112', 'reserve_sompi', 'outpoint_hex36'), 'selected-reserve-checkpoint-fields')
+
+    def decimal(text):
+        need(type(text) is str and text.isascii() and text.isdecimal()
+             and str(int(text)) == text, 'canonical-current-entry-u64-boundary')
+        return uint(int(text))
+
+    amount = decimal(value['amount_sompi'])
+    birth = decimal(value['block_daa_score'])
+    point = hx(value['outpoint']['transactionId'], 32) + uint(value['outpoint']['index'], 32).to_bytes(4, 'little')
+    script = hx(value['script_public_key'], 37)
+    need(point == hx(checkpoint['outpoint_hex36'], 36)
+         and amount == uint(checkpoint['reserve_sompi'])
+         and value['script_public_key'] == expected_spk
+         and script[:4] == b'\0\0\xaa\x20' and script[-1:] == b'\x87'
+         and value['is_coinbase'] is False and value['covenant_id'] is None,
+         'current-entry-must-match-exact-checkpoint-point-amount-policy-and-kind')
+    return {'amount': amount, 'scriptPublicKey': value['script_public_key'],
+            'blockDaaScore': birth, 'isCoinbase': False, 'covenantId': None}
+
+
 class Campaign:
     def __init__(self, selection, selection_sha256, private, output):
         self.h = runpy.run_path(HELPER)
@@ -110,6 +148,7 @@ class Campaign:
         self.private, self.output = checked(private), checked(output)
         need(self.private.is_relative_to(PRIVATE) and not self.output.is_relative_to(PRIVATE),
              'separate-new-private-caller-and-public-artifacts')
+        submission_journal(self.private)
         self.selection_raw = self.public_read(str(selection), selection_sha256)
         self.selection = parse(self.selection_raw)
         fields(self.selection, ('schema', 'domain_hex32', 'trial_id', 'activation', 'wallet_assets',
@@ -403,6 +442,15 @@ class Campaign:
         return self._cold_tools
 
     def build(self, directory, head, action, plan, *, invoice=None):
+        native_module, codec, exit_vk = (self.native_module, self.codec, self.exit_vk) if action['operation'] == 'payment' else self.cold_case_tools()
+        context = parse(self.row(head['CONTEXT.json']))
+        need(context['domain_hex32'] == DOMAIN.hex(), 'current-reserve-context-domain')
+        checkpoint = context['checkpoint']
+        state = hx(checkpoint['state_hex112'], 112)
+        emitted = native_module.emit(codec, state, self.image, self.profile, exit_vk)
+        # Bind the actual current UTXO before asking any owner for authority.
+        expected_entry = canonical_reserve_entry(parse(self.row(head['CURRENT-ENTRY.json'])),
+                                                 checkpoint, emitted['script_public_key'])
         backup = plan['owner_backups'][action['owner']]
         component = directory / 'component'
         if action['operation'] == 'payment':
@@ -417,13 +465,17 @@ class Campaign:
             self.owner(backup, 'recovery-exit', head, output=component, request=request, cold=True)
         projection = self.file(component / 'PROJECTION.bin')
         raw = self.row(projection)
-        native_module, codec, exit_vk = (self.native_module, self.codec, self.exit_vk) if action['operation'] == 'payment' else self.cold_case_tools()
         wire = native_module._wire
         body = (wire.parse_projection(raw).body if action['operation'] == 'payment'
                 else wire.parse_exit_projection(raw).body)
         budget = 1800 if action['operation'] == 'payment' else 1500
+        need(body.point == hx(checkpoint['outpoint_hex36'], 36)
+             and body.old_state.raw == state and body.old_reserve == checkpoint['reserve_sompi'],
+             'owner-projection-must-use-exact-selected-current-reserve')
         case, independent, journal, report = native_module.make_case(
-            codec, body.raw, self.image, self.profile, exit_vk, budget)
+            codec, body.raw, self.image, self.profile, exit_vk, budget,
+            block_daa_score=expected_entry['blockDaaScore'])
+        need(case['entries'] == [expected_entry], 'whole-CASE-entry-must-equal-selected-actual-UTXO-context')
         need(independent == raw and report['metrics']['actual_fee_sompi']
              >= report['metrics']['mining_mass'] * 100, 'actual-current-case-native-fee-and-projection')
         if action['operation'] == 'exit':
@@ -459,7 +511,7 @@ class Campaign:
             private_save(self.private / 'STATE.json', state)
             argv = [node['path'], submit['path'], '--mode', 'lifecycle', '--stage', action_label,
                 '--trial-id', self.selection['trial_id'], '--case', case['path'], '--case-sha256', case['sha256'],
-                '--output', directory / 'submission', '--journal', self.private / 'submission-journal',
+                '--output', directory / 'submission', '--journal', submission_journal(self.private),
                 '--fetch', fetch['path'], '--fetch-sha256', fetch['sha256'],
                 '--bundle-directory', str(Path(fetch['path']).parent), '--execute']
             for name, row in chain.items():

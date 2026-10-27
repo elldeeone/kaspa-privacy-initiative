@@ -1,22 +1,27 @@
 # Next focus: shielded native KAS and financial privacy
 
-## Current execution: independent-wallet payments
+## Current checkpoint: six payments and nine payouts
 
-The owner authorizes all four [RFC-0029](rfc/0029-local-native-kas-private-transfer.md)
-workstreams under [ADR-0066](adr/0066-local-native-kas-payment-prototype.md):
-freeze privacy/consent requirements; implement genuine local one-input/two-output
-payments; restore, spend received/change notes and independently exit; then
-measure privacy/cost and complete a fresh confirmed testnet lifecycle. Fresh
-domain, keys, codec, guest and native policy preserve existing pools and frozen
-study bytes. No other live spending owner is required.
+The owner-selected [RFC-0029](rfc/0029-local-native-kas-private-transfer.md)/
+[ADR-0066](adr/0066-local-native-kas-payment-prototype.md) rehearsal completed six
+payments, nine independent native payouts, zero reserve/null outpoint and three
+Original terminal cold scans using downloaded finite recovery software.
+[Independent accounting](checkpoints/2026-10-27.md)
+passed 19 Native Full cases (16 pool/3 ordinary), 15 commitments/16 nullifiers. See the
+[financial, fee and three-observer result](checkpoints/2026-10-27.md).
 
-Native Full and actual payouts are required before claiming native completion.
-Public-fixture recovery is distinct from off-host recovery. Tor transport is
-distinct from global traffic privacy; two-output grouping and shared-head
-contention remain. Retain all negative fee/privacy results and the old 21-KAS
-denominator. The earlier passive study remains a separately identified baseline.
+Financial privacy remains unqualified: Native 1 NF/two-output grouping and the
+constructor map persist. The three frozen public observers narrow feasible
+models, with conditional source-policy predictions rather than measured owner
+accuracy. Paid fees are 2.64166 test KAS/21 useful test KAS (about 12.5793%);2% FAIL remains.
+Even free payments leave 1.487956 test KAS of current exit/GEN3/prefunding costs,
+so independent exits also need cheaper handling. No new architecture is selected.
 
-## Active batch — sender privacy, fees and external recovery
+At this source freeze, final DATA 9-Original canaries and Tor readback remain
+pending. Three wallet cold scans, same-host isolation and one-admin GitHub
+hosting do not establish independent long-term availability or off-host recovery.
+
+## Earlier batch — sender privacy, fees and external recovery
 
 The owner authorizes [RFC-0028](rfc/0028-sender-private-native-kas.md) and
 [ADR-0065](adr/0065-sender-private-admission.md): remove direct public/coordinator
@@ -34,7 +39,7 @@ public history/parameter storage require identified external destinations.
 Forge isolation and same-administrator GitHub replay are retained evidence,
 without being substituted for either external result.
 
-## Current checkpoint — integrated financial lifecycle complete
+## Prior ADR-64 checkpoint — integrated financial lifecycle complete
 
 The owner-selected steps 1, 2, 3, 5 under
 [RFC-0027](rfc/0027-owner-private-native-kas-lifecycle.md) and
@@ -67,7 +72,7 @@ use roughly 82–87% of the selected allowance. No safe lower-budget/rate candid
 was tested; headroom trimming has limited potential. Preserve the fixed useful
 payment denominator and independent exit requirement in the next fee design.
 
-## Next privacy design question
+## Retained multiparty privacy question
 
 Hide public funding/session-pseudonym-to-mixed-spend NF/CV ordering and the
 coordinator's separate READY-admission pairing while retaining sound Spend
@@ -410,9 +415,38 @@ not satisfy it, and private transfers do not excuse an unavailable exit.
 
 ## What counts as progress now
 
-The immediate artifact is the reviewed statement, threat/data table, reuse map
-and adversarial model linked to P04/P05/P06/P07/P08/P10/P12/P13. Only then build
-the smallest testnet private lifecycle that can falsify those requirements.
+The immediate gate is complete private construction and authority with a hidden
+constructor map, lower measured lifecycle fees and independently available
+recovery data. The completed functional rehearsal and component checks do not
+close those privacy/availability questions.
 Further public-account runtime expansion is secondary to a demonstrated private
 protocol requirement. Existing issues remain open until their own acceptance
 criteria are met; completing the Based App milestone closes none by implication.
+
+
+### Completed rehearsal and next integration (2026-10-27)
+
+The financial rehearsal and 19-case accounting are complete. Successful shared
+prefix acquisition closes the prior first-payment/cache bottleneck; it preserves
+13 financial sources, lawful boundary recompression, seven-source sidecars and full
+verification of external imports. [Final results](checkpoints/2026-10-27.md)
+retain the original adapter failure, reviewed 21-control sibling and all three
+unchanged observer policies.
+
+1. Build and falsify a complete private-construction/authority relation that removes
+   public grouping and hides the constructor map while preserving delivery,
+   current-state/replay rules, original-seed recovery and independent exits.
+  49/29 consent/aggregate,42 encoding and 15 one-Output matrix controls are bounded
+   components. Recursive and direct Native Arkworks 0.6 paths remain source options,
+   with signature-gadget/full-witness MPC/authority gaps; no architecture is chosen.
+2. Reduce actual full-lifecycle cost, including exits. Preserve the 21 KAS useful
+   denominator and 2% FAIL; payment proof savings alone cannot meet that target.
+3. Finish the frozen 9-Original publication audits and public Tor readback, then
+   obtain separate physical recovery and independently administered retention
+   evidence. Later completion belongs in separately selected generated records;
+   do not silently alter source bytes after the final canary freeze.
+
+Keep the changed-cohort retry counterexample and all old fee/privacy failures.
+Source-policy exits 4/5 predictions remain conditional, without owner-truth or
+posterior claims. No component result substitutes for native private batching,
+independent availability, cryptographic review or production safety.
