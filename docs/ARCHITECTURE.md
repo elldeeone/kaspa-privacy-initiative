@@ -1284,3 +1284,26 @@ checks. The [19-case/three-observer result](checkpoints/2026-10-27.md)
 is bounded validating-node/public-model evidence. FinalDATA 9-Original audits
 and Tor readback remain pending at this source freeze; independent administration,
 off-host recovery and long-term retention remain unproven.
+
+## Current wallet privacy repair
+
+[ADR-0080](adr/0080-fresh-owner-derived-exit-destinations.md) removes a concrete
+invoice-to-withdrawal address join. The wallet derives fresh self-controlled
+Exit destinations from the Original and public Exit identity, keeping exact
+AK-signed destination/amount/fee/state binding. The existing AuthExit relation
+and native policy already permit this; their D/Profile, keys and ABI remain
+unchanged. Twenty-seven focused checks and two genuine existing-key AuthExit
+proofs passed, including independent Arkworks verification, actual NativeFull
+execution and malformed authorization controls. These use public synthetic
+inputs; private Original linkage measurement and accepted-chain recovery remain
+unqualified. Common invoice delivery and anonymous submission are separate work;
+publishing old Invoice208 records would expose their native payout markers.
+
+[ADR-0081](adr/0081-fixed-width-private-owner-records.md) replaces the
+value-dependent decimal owner handoff with a strict fixed-width Fr32 file.
+The selected financial count produces exactly 84,333,120 bytes per owner.
+The strict producer/reader passed 31 controls and a genuine small three-party
+MPC proof with independent valid/changed-statement checks. The canonical producer
+build, writer unit check and seventeen integrated receipt, metadata and routing
+controls also passed; no complete financial result is claimed.
+The network input protocol, relation and keys are unchanged.

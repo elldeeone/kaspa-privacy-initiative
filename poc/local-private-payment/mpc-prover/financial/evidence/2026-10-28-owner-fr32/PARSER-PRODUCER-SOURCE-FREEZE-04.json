@@ -1,0 +1,21 @@
+{
+  "schema": "kpi-owner-fr32-precontrol-source-freeze/v1",
+  "ADR0081_sha256": "a808f2a894448ae53953c9c9b3c9877e13abd62435325b78b7d0b0f25f908d0e",
+  "candidate_source_sha256": {
+    "cpp-source/financial/owner_file_format.hpp": "0f045f6d7c695f2b420837c8070d3bca7a038676154ba5ac0148580c31320e15",
+    "cpp-source/financial/owner_file_client.cpp": "5eef71742f7a9300812502714e0c7a91d15d2b26e605ee762af66862e9c04045",
+    "producer/owner_aux.rs": "6a9d6503a835b3d4d48b7dcc8d95e6b866d8b0f6dffa7a3199064cccb779cdbe",
+    "producer/owner_file_fr32/mod.rs": "d70105096cfe3b683b0df8d405c3503e01c742650e300a420df301f056031000",
+    "producer/public_fixture.rs": "5059d0629bad9d9a8fd2f8533e22a59ef7692e005d831954ce9364fd97183d8b",
+    "producer/Cargo.toml": "7e09d5d77d72eb94bc0f17a7960f891d5e5db554a3d73debdf5ea72d4ba0292a"
+  },
+  "expected_format": "KPB_OWNER_FR32V2 +u64LE(owner)+u64LE(count)+count*canonicalFr32LE",
+  "expected_actual_count": 2635409,
+  "expected_actual_file_bytes": 84333120,
+  "source05_modified": false,
+  "network_or_proof_semantics_changed": false,
+  "controls": "Before first execution: old/new field vector equality incl0/1/P-1, old variable vsnewfixed sizes, all3actualcountlarge lengths, FrP/P+1/header/count/trailing/truncated/path/mutation refusals; genuine3partyMPC proof throughnewreader required.",
+  "source_correction": "Explicit direct alias to the unchanged existing auth dependency used by owner_aux signature verification. All original Cargo dependency versions retained; C++ exact global bigint conversion compiled.",
+  "producer_lock_sha256": "43674a9749c52d76f9636f1e98acc39ef7968e83f99cb400cb47f687f72982b3",
+  "fixture_selection": "Adds explicit PUBLIC toy values3/5, count1, roles0/1 for the already authorized genuine tinyMPCproof; no criterion change."
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "kpi-owner-fr32-public-controls-run/v1",
+  "selection_sha256": "e5457b0718bed229976c74b03d9f46f8ed1ad608c9a9c2df14e0bdc62199c544",
+  "results": [
+    {
+      "argv": [
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-candidate-01/runtime/fr32_public_fixture-final",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-candidate-01/PUBLIC-FIXTURES"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.22806723101530224,
+      "result": {
+        "schema": "kpi-public-owner-fr32-producer-fixtures/v1",
+        "small_count": 3,
+        "large_count": 2635409,
+        "large_file_bytes_each": 84333120,
+        "roles": 3,
+        "private_records_read_or_hashed": false
+      },
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-candidate-01/fr32-controls",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-candidate-01/PUBLIC-FIXTURES",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-candidate-01/PUBLIC-MALFORMED-FIXTURES"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.7885734129231423,
+      "result": {
+        "schema": "kpi-owner-fr32-public-parser-controls/v1",
+        "status": "PASS",
+        "controls": 31,
+        "old_new_same_fields": true,
+        "old_small_bytes": [
+          133,
+          285
+        ],
+        "new_small_bytes": [
+          128,
+          128
+        ],
+        "old_size_only_template_candidates": 1,
+        "new_size_only_template_candidates": 2,
+        "large_owner_count": 3,
+        "large_values_each": 2635409,
+        "large_bytes_each": 84333120,
+        "private_bodies_read_or_hashed": false,
+        "MPC_or_financial_privacy_claim": false
+      },
+      "stderr": ""
+    }
+  ],
+  "status": "PASS",
+  "private_bodies_read_or_hashed": false
+}

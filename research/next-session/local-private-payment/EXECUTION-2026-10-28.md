@@ -60,6 +60,39 @@ now uses a separately reviewed controller that durably saves preparation records
 before Original intake and checkpoints whole completed batches. The scanner,
 guard, archive and Original selection remain unchanged.
 
+## Privacy priority and implemented repairs (2026-10-28)
+
+The owner redirected foreground work to concrete privacy improvements. Two
+repairs are implemented without changing the financial relation, native policy,
+keys or profile:
+
+1. [ADR-0080](../../../docs/adr/0080-fresh-owner-derived-exit-destinations.md)
+   derives fresh self-controlled payout keys instead of reusing the native key
+   disclosed in an invoice. Twenty-seven focused authorization/recovery checks
+   passed. Two genuine existing-key AuthExit proofs passed independent Arkworks
+   verification and actual NativeFull execution; six changed-destination, fee
+   or head native controls and two stale-signature matrix controls refused.
+   These are public-synthetic, unfunded controls, not accepted-chain recovery
+   or a measured private-wallet anonymity result. The exact
+   [receipt](../../../evidence/2026-10-28-fresh-payout-native/ACTUAL-CONTROL-RECEIPT-03.json)
+   retains the original failed preparations and result boundaries.
+2. [ADR-0081](../../../docs/adr/0081-fixed-width-private-owner-records.md)
+   replaces value-dependent decimal owner files with canonical Fr32 records.
+   The format fixes each selected owner's file at exactly 84,333,120 bytes;
+   controls parsed three full-size public fixtures. The canonical producer
+   build, writer unit check, 31 parser/producer controls, 17 integrated
+   receipt/metadata/routing controls and a genuine small three-party MPC proof
+   passed. This removes a file-size dependency, not timing or route disclosure.
+
+The next decisive measurement is the separately frozen
+[paired private Original payout study](private-batch-2026-10-28/PRIVACY-PAYOUT-LINKAGE-METHOD-02-FREEZE.md).
+It compares invoice-key payouts with fresh destinations while retaining amounts,
+timing, workload and legitimate counterparty knowledge. Predictions must be
+sealed before truth. Dispatcher routing still identifies owner submissions; the
+union view and complete corrupt-server view remain unqualified. An automated
+security filter blocked the full corrupt-server recorder, so it is not executed.
+The old cyclic H1 failure and changed-cohort counterexample remain unchanged.
+
 ## Work still required
 
 1. Run the complete three-owner private construction and financial prover with

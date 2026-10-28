@@ -339,3 +339,25 @@ openings; generic private SHA/EdDSA/state witness generation; matching native ba
 and independent AuthExit; usable privacy after cohort disruption; externally
 available recovery data; independently administered retention and off-host scans.
 No production security, general anonymity or fee improvement is claimed here.
+
+## Wallet privacy repair after source review
+
+[ADR-0080](../adr/0080-fresh-owner-derived-exit-destinations.md) selects fresh
+Original-derived self-controlled native Exit destinations. Invoice208 currently
+reveals the key that the wallet later uses for payout; publishing those invoices
+as a common feed would create an owner-to-payout lookup. The existing AuthExit
+signature/proof/native contract already binds an independently selected exact
+destination, so this repair changes wallet derivation and authorization policy,
+not D/Profile, note commitments, keys or the public ABI. New authorization must
+check the internally derived fresh script and exact amount/fee/head/NF.
+Historical scans retain valid old payouts and rederive fresh keys from the
+Original and public Exit identity. Actual proof/native/recovery and observer
+comparison remain required. The old frozen workload and privacy failures remain
+unchanged.
+
+[ADR-0081](../adr/0081-fixed-width-private-owner-records.md) selects a canonical
+Fr32 owner-local file handoff to remove value-dependent decimal file lengths.
+The selected public field count and owner role are checked exactly, followed by
+strict canonical little-endian Fr values and EOF. This does not change the
+network V2 contract, private assignment, proof relation or keys. Both producer
+and reader must be selected together and exercised through the actual MPC path.

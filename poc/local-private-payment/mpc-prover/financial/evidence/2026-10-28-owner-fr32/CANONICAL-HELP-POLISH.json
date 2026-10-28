@@ -1,0 +1,23 @@
+{
+  "schema": "kpi-owner-fr32-final-help-polish/v1",
+  "file": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private-batch-relation/src/bin/owner_aux.rs",
+  "before_sha256": "6a9d6503a835b3d4d48b7dcc8d95e6b866d8b0f6dffa7a3199064cccb779cdbe",
+  "after_sha256": "715a74dee3b495f45ddece72cfd5f9aefe56c2247e97c62fb102990c3958047c",
+  "only_change": "Usage output leaf now explicitly namesV2 binary file; codec and all private math unchanged.",
+  "build": {
+    "argv": [
+      "cargo",
+      "build",
+      "--offline",
+      "--release",
+      "-j",
+      "1",
+      "--bin",
+      "owner_aux"
+    ],
+    "exit": 0,
+    "wall_seconds": 1.2033869370352477,
+    "stdout": "",
+    "stderr": "warning: unused import: `ToBytesGadget`\n --> /home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/native-authority/native-core/src/exact_sha256.rs:9:29\n  |\n9 |     convert::{ToBitsGadget, ToBytesGadget},\n  |                             ^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\nwarning: unused imports: `ConstraintSystem` and `OptimizationGoal`\n  --> /home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/native-authority/native-core/src/circuit.rs:17:28\n   |\n17 |     ConstraintSynthesizer, ConstraintSystem, ConstraintSystemRef, OptimizationGoal, SynthesisError,\n   |                            ^^^^^^^^^^^^^^^^                       ^^^^^^^^^^^^^^^^\n\nwarning: associated function `digest_padded_hmac_inner` is never used\n   --> /home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/native-authority/native-core/src/exact_sha256.rs:243:19\n    |\n104 | impl<ConstraintF: PrimeField> Sha256Gadget<ConstraintF> {\n    | ------------------------------------------------------- associated function in this implementation\n...\n243 |     pub(crate) fn digest_padded_hmac_inner(\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: `kpi-nativeauthspend-seam` (lib) generated 3 warnings (run `cargo fix --lib -p kpi-nativeauthspend-seam` to apply 2 suggestions)\nwarning: unused import: `ToBytesGadget`\n --> src/exact_sha256.rs:9:29\n  |\n9 |     convert::{ToBitsGadget, ToBytesGadget},\n  |                             ^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\nwarning: associated function `digest_padded_hmac_inner` is never used\n   --> src/exact_sha256.rs:243:19\n    |\n104 | impl<ConstraintF: PrimeField> Sha256Gadget<ConstraintF> {\n    | ------------------------------------------------------- associated function in this implementation\n...\n243 |     pub(crate) fn digest_padded_hmac_inner(\n    |                   ^^^^^^^^^^^^^^^^^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nwarning: function `bounded_fee_sum` is never used\n  --> src/gadgets.rs:56:8\n   |\n56 | pub fn bounded_fee_sum(sum: &FpVar<Fr>) -> R<()> {\n   |        ^^^^^^^^^^^^^^^\n\nwarning: function `scalar_field` is never used\n  --> src/gadgets.rs:83:8\n   |\n83 | pub fn scalar_field(bytes: &[B]) -> R<FpVar<Fr>> {\n   |        ^^^^^^^^^^^^\n\nwarning: function `bind_delta_sum` is never used\n  --> src/gadgets.rs:86:8\n   |\n86 | pub fn bind_delta_sum(cs: ConstraintSystemRef<Fr>, private: &[FpVar<Fr>], public: &[B], quotient: u8) -> R<()> {\n   |        ^^^^^^^^^^^^^^\n\nwarning: function `permutation` is never used\n   --> src/gadgets.rs:161:8\n    |\n161 | pub fn permutation<const N: usize>(\n    |        ^^^^^^^^^^^\n\nwarning: function `route` is never used\n   --> src/gadgets.rs:188:8\n    |\n188 | pub fn route(rows: &[Vec<B>], public: &[Vec<B>], selector: &[Vec<FpVar<Fr>>]) -> R<()> {\n    |        ^^^^^\n\nwarning: `kpi-private-batch-relation` (lib) generated 7 warnings (run `cargo fix --lib -p kpi-private-batch-relation` to apply 1 suggestion)\n   Compiling kpi-private-batch-relation v0.1.0 (/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private-batch-relation)\n    Finished `release` profile [optimized] target(s) in 1.18s\n"
+  }
+}

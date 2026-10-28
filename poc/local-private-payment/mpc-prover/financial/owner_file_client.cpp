@@ -22,9 +22,9 @@ int main(int argc, char** argv) {
         // Parse completely BEFORE TLS/masks. Wrong jobs are independently
         // refused by all three authenticated V2 contract/TLS acknowledgements
         // in the unchanged send_private_inputs_active protocol.
-        const auto values = kpi::mpc::financial::load_owner_input_file(argv[6],
+        const auto values = kpi::mpc::financial::load_owner_fr32_input_file(argv[6],
             contract.owner_id, contract.input_count,
-            [](const std::string& value) { return kpi::mpc::parse_fr(value); });
+            [](const ::bigint& canonical) { return kpi::mpc::Fr(canonical); });
         kpi::mpc::send_private_inputs_active({argv[3], argv[4], argv[5]}, port, contract, values);
         std::cout << "{\"owner_input_status\":\"submitted\"}\n";
         return 0;

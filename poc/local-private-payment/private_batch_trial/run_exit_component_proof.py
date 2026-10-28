@@ -118,7 +118,8 @@ class ProbeRun(component_run.Run):
                            + (3).to_bytes(4, 'little'))
         raw_terminal = exit_wire.body(terminal, bytes([5]) * 32, original.new_nf_root,
             original.new_nf_count, 0, self.terminal_fee, 200_000_000 - self.terminal_fee,
-            original.payout_spk, original.nf, original.witness)
+            self.receiver.fresh_payout(terminal, original.nf, bytes([5]) * 32).script_public_key,
+            original.nf, original.witness)
         results = [self.prove_projection('terminal-200M', claim, raw_terminal, terminal, self.terminal_fee)]
         # Separate hypothetical UTXO/context. The excess60M reserve is explicit;
         # there is no claim of an accepted liability/deposit ledger for it.
@@ -127,7 +128,8 @@ class ProbeRun(component_run.Run):
             reserve=260_000_000)
         raw_continuing = exit_wire.body(continuing, bytes([7]) * 32, original.new_nf_root,
             original.new_nf_count, 60_000_000, self.continuing_fee, 200_000_000 - self.continuing_fee,
-            original.payout_spk, original.nf, original.witness)
+            self.receiver.fresh_payout(continuing, original.nf, bytes([7]) * 32).script_public_key,
+            original.nf, original.witness)
         results.append(self.prove_projection('continuing-260M', claim, raw_continuing, continuing, self.continuing_fee))
         result = {'schema': 'kpb-real-exit-native-probe-proofs-result/v1', 'classification': CLASSIFICATION,
                   'cases': results, 'fresh_setup': False, 'funding_or_broadcast': False,

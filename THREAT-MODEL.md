@@ -1347,3 +1347,25 @@ a blanket statement about later live reads, nor a qualification of 900 seconds.
 The source-only JSON fallback remains held. FinalDATA 9-Original canaries and
 public Tor readback remain pending at this source freeze; same-host/same-origin
 availability and independent retention remain different claims.
+
+## Invoice-known withdrawal addresses
+
+An invoice counterparty learns `Invoice.native_pk`. The existing wallet forces
+a later payout to that same key, allowing an exact public address lookup. A
+public owner-labelled Invoice208 catalog would extend that linkage to its
+readers. This is a wallet disclosure, independent of proof confidentiality.
+[ADR-0080](docs/adr/0080-fresh-owner-derived-exit-destinations.md) selects fresh
+Original-derived self-controlled payout keys, with the existing complete signed
+Exit statement and native output checks unchanged. The implementation passed
+twenty-seven focused checks and two genuine existing-key proof/native controls
+with public synthetic inputs. Private Original linkage measurement and
+accepted-chain recovery remain unqualified. Public payout amounts, timing,
+known counterparties, cohort intersections and dispatcher routing may still
+identify owners; removing this join does not establish terminal anonymity.
+
+Private owner-record file lengths are also dispatcher observations. Unpadded
+decimal Fr values make those lengths value-dependent even though the network
+messages have fixed widths. [ADR-0081](docs/adr/0081-fixed-width-private-owner-records.md)
+implements a canonical fixed-width local encoding. Producer, parser, integrated
+caller and genuine small three-party MPC controls passed. This removes a size dependency;
+it does not hide cohort, timing, access patterns or the corrupt-server view.

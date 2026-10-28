@@ -624,3 +624,19 @@ predictions are conditional, not owner-truth accuracy or posterior probabilities
 Historical offline RPC qualifications did not demonstrate a>60-second response;
 separately retained live delayed reads do not qualify the full 900-second limit.
 The held JSON fallback and old fee/privacy failures are not reinterpreted.
+
+## Active privacy improvements
+
+- Measure [ADR-0080](docs/adr/0080-fresh-owner-derived-exit-destinations.md) with
+  private Original wallets and frozen observer views. Fresh destinations passed
+  focused authorization/recovery checks and genuine public-synthetic proof/native
+  controls. Does the gain survive public economics, timing and routing facts?
+- Replace targeted invoice delivery without exposing invoice-known native
+  payout markers or the private recipient selector. Measure the actual routes,
+  public workload implications and legitimate counterparty knowledge.
+- Collect a genuine complete corrupt-server view and measure terminal amount,
+  timing and cross-round inference. Preserve the old frozen H1 failure and
+  changed-cohort counterexample; use separately frozen experiments for repairs.
+- Extend [ADR-0081](docs/adr/0081-fixed-width-private-owner-records.md) from the
+  passing canonical producer/parser, integrated caller and small three-party MPC
+  controls to the complete financial job, preserving witness and proof checks.

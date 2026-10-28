@@ -1,0 +1,108 @@
+{
+  "schema": "kpi-owner-fr32-integrated-public-controls/v1",
+  "status": "PASS",
+  "selection_sha256": "b4f4fa635f3de05423008cb56a079a4d99ffef1f134ff8a08893da8cf033dfcb",
+  "commands": [
+    {
+      "argv": [
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-integrated-controls-01/public-fixture-generator",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-integrated-controls-01/PUBLIC-FIXTURES"
+      ],
+      "exit": 0,
+      "wall_seconds": 0.23369229992385954,
+      "public_stdout": "{\"schema\":\"kpi-public-owner-fr32-producer-fixtures/v1\",\"small_count\":3,\"large_count\":2635409,\"large_file_bytes_each\":84333120,\"roles\":3,\"private_records_read_or_hashed\":false}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-integrated-controls-01/parser-controls",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-integrated-controls-01/PUBLIC-FIXTURES",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-integrated-controls-01/PUBLIC-MALFORMED-FIXTURES"
+      ],
+      "exit": 0,
+      "wall_seconds": 1.8159324700245634,
+      "public_stdout": "{\"schema\":\"kpi-owner-fr32-public-parser-controls/v1\",\"status\":\"PASS\",\"controls\":31,\"old_new_same_fields\":true,\"old_small_bytes\":[133,285],\"new_small_bytes\":[128,128],\"old_size_only_template_candidates\":1,\"new_size_only_template_candidates\":2,\"large_owner_count\":3,\"large_values_each\":2635409,\"large_bytes_each\":84333120,\"private_bodies_read_or_hashed\":false,\"MPC_or_financial_privacy_claim\":false}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-fr32-integrated-controls-01/check_routing.py"
+      ],
+      "exit": 0,
+      "wall_seconds": 11.292077280930243,
+      "public_stdout": "{\"status\": \"PASS\", \"controls\": 17, \"producer_sha256\": \"86ea977e07afaddc4156870ae667734e6e3f0df631d3c8f3f671546402c61e74\"}\n",
+      "stderr": ""
+    }
+  ],
+  "canonical_source_pins": [
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/financial/owner_file_format.hpp",
+      "sha256": "0f045f6d7c695f2b420837c8070d3bca7a038676154ba5ac0148580c31320e15",
+      "bytes": 5535
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/financial/owner_file_client.cpp",
+      "sha256": "5eef71742f7a9300812502714e0c7a91d15d2b26e605ee762af66862e9c04045",
+      "bytes": 1802
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private-batch-relation/src/bin/owner_aux.rs",
+      "sha256": "715a74dee3b495f45ddece72cfd5f9aefe56c2247e97c62fb102990c3958047c",
+      "bytes": 13916
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private-batch-relation/src/bin/owner_file_fr32/mod.rs",
+      "sha256": "d70105096cfe3b683b0df8d405c3503e01c742650e300a420df301f056031000",
+      "bytes": 2323
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/financial/run_financial.py",
+      "sha256": "3d6b81ec28b5984125a09ebb8e70a18bdc26d527a87aff48274d824df7ddd4ff",
+      "bytes": 28262
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_batch_trial/private_lifecycle.py",
+      "sha256": "0afd2116048af0e5fcc3368ba7d36c396ca495351541f87642c0c0f74d569be5",
+      "bytes": 21055
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_batch_trial/lifecycle_worker.py",
+      "sha256": "b834a6eaa305524c92da5e406f17e97d18f76846240be035d9c9d2edc6baae8e",
+      "bytes": 18558
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_batch_trial/prepare_unfunded_batch.py",
+      "sha256": "29cde6937cd01528f1bf5ad4051ddd90eeaa19d15f34b142ae9b146edec5525a",
+      "bytes": 24633
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/financial/controls/historical/owner_file_format_v1.hpp",
+      "sha256": "45920e8d45e6402f99dfc17cf3d2d1dd0a4a5fe659b026d0cbb581d5340b0413",
+      "bytes": 4830
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/financial/controls/historical/owner_file_format_test_v1.cpp",
+      "sha256": "28317c69c48390c92d68982e11fa3f5c1261c0386356a3d0e5756e288d6a3760",
+      "bytes": 5893
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/financial/controls/owner_file_format_test.cpp",
+      "sha256": "8afcfb7031b20812e2a443bd00da03f22e27d60e51e13addb00833a8e5d4b67f",
+      "bytes": 5643
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private-batch-relation/examples/export_owner_fr32_public_fixture.rs",
+      "sha256": "8353193131eff3ab6213c10a407faf0033b80b299dffaf3ea8380dc985be9e26",
+      "bytes": 1953
+    },
+    {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/financial/README.md",
+      "sha256": "268775692bae0c347662cc3164276b111a1dd61936b04142317925f083d701e6",
+      "bytes": 3606
+    }
+  ],
+  "source05_or_active_run_changed": false,
+  "private_owner_body_read_or_hash": false,
+  "fullfinancialproof_or_paymentprivacy_qualified": false
+}

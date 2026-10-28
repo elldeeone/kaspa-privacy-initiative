@@ -155,6 +155,8 @@ def prepare_payment(receiver, prover, history, config):
     import privacy_owner
     privacy_owner.write_truth(config['privacy_binding'], component, round_number,
                               head.encode(), claim.nf, [item.row for item in created])
+    need(config['owner_input_encoding'] == 'KPB_OWNER_FR32V2'
+         and config['owner_private_file_bytes'] == 84_333_120, 'selected-owner-file-v2-shape')
     request = {'schema': 'kpi-owner-local-aux-request/v1', 'owner_component': component,
         'context_hex': head.encode().hex(), 'owner_record_path': 'OWNER-LOCAL-RECORD.json',
         'signature_matrix_path': 'SIGNATURE-MATRIX.json', 'signature_witness_path': 'SIGNATURE-WITNESS.json',
@@ -162,15 +164,18 @@ def prepare_payment(receiver, prover, history, config):
         'expected_witness_sha256': normalized['witness_sha256']}
     write('/owner/OWNER-AUX-REQUEST.json', request)
     private_call(['/runtime/owner-aux', '/owner/OWNER-AUX-REQUEST.json',
-                  '/owner/OWNER-PRIVATE-INPUT.txt', '/owner/OWNER-AUX-PUBLIC.json'])
+                  '/owner/OWNER-PRIVATE-INPUT-V2.bin', '/owner/OWNER-AUX-PUBLIC.json'])
     auxiliary = parse(read('/owner/OWNER-AUX-PUBLIC.json'))
-    need(auxiliary['schema'] == 'kpi-owner-local-aux-public-receipt/v1'
+    need(auxiliary['schema'] == 'kpi-owner-local-aux-public-receipt/v2'
          and auxiliary['owner_component'] == component and auxiliary['ordered_private_values'] == 2_635_409
+         and auxiliary['owner_file_encoding'] == 'KPB_OWNER_FR32V2'
+         and auxiliary['owner_file_bytes'] == 84_333_120
          and auxiliary['native_edges'] == 66 and auxiliary['signature_rows_checked'] is True
          and auxiliary['combined_dealer'] is False, 'owner-complete-actual-auxiliary')
     return {'actual_output_proofs': 2, 'actual_restricted_intent_signature': True,
             'actual_signature_normalization': True, 'owner_private_auxiliary_values': 2_635_409,
-            'original_seed_recovered_input': True, 'input_kind_exported': False,
+            'owner_input_encoding': 'KPB_OWNER_FR32V2', 'owner_private_file_bytes': 84_333_120,
+             'original_seed_recovered_input': True, 'input_kind_exported': False,
             'creator_output_correspondence_exported': False}
 
 
@@ -184,9 +189,11 @@ def prepare_exit(receiver, history, config, tail):
     payout = claim.receipt.value_sompi - fee
     following = history.state.copy()
     witness = following.insert(claim.nf)
-    raw_body = exit_wire.body(history.head, secrets.token_bytes(32), following.nf.root(),
+    action = secrets.token_bytes(32)
+    fresh_payout = receiver.fresh_payout(history.head, claim.nf, action)
+    raw_body = exit_wire.body(history.head, action, following.nf.root(),
         len(following.entries), history.reserve - claim.receipt.value_sompi, fee, payout,
-        b'\0\0\x20' + receiver.keys(claim.receipt.index).invoice.native_pk + b'\xac', claim.nf, witness)
+        fresh_payout.script_public_key, claim.nf, witness)
     projection = exit_wire.projection(raw_body, tail)
     approved = wallet.authorize_exit(receiver, claim, projection, history.head, tail, approved_fee_sompi=fee)
     normalized = normalize(receiver.authority.signature_inputs(approved.statement, approved.authorization))
@@ -248,11 +255,16 @@ def run(operation):
             else:
                 claims = history.recover(receiver)
                 by_nf = {claim.nf: claim for claim in claims}
-                for nf, script, payout, fee in history.exits:
-                    if nf in by_nf:
-                        claim = by_nf[nf]
-                        need(script == b'\0\0\x20' + receiver.keys(claim.receipt.index).invoice.native_pk + b'\xac'
-                             and payout + fee == claim.receipt.value_sompi, 'owner-original-historical-payout')
+                import fresh_self_payout
+                for event in value['transitions']:
+                    if event['kind'] == 'exit':
+                        raw_exit = bytes.fromhex(event['projection_hex'])
+                        effect = exit_wire.validate_public(raw_exit)
+                        if effect.nf in by_nf:
+                            # Old invoice-key and other protocol-authorized
+                            # destinations do not make accepted history invalid.
+                            # Fresh keys rederive with no sender state/journal.
+                            fresh_self_payout.classify_history(receiver, by_nf[effect.nf], raw_exit, tail)
                 need(history.reserve != 0 or all(claim.spent for claim in claims), 'owner-terminal-no-unspent-claim')
                 result = {'original_only_scan_complete': True, 'private_claims_exported': False,
                           'terminal_reconciled': history.reserve == 0,

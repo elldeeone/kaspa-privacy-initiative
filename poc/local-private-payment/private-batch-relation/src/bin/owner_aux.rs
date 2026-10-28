@@ -1,5 +1,8 @@
 //! Isolated ONE-owner input preparation. No controller/combined witness mode.
 //! Private material is never printed; the sole private output is create-new0600.
+#![forbid(unsafe_code)]
+#[path = "owner_file_fr32/mod.rs"]
+mod owner_file_fr32;
 use ark_bn254::Fr;
 use ark_ff::{AdditiveGroup, PrimeField};
 use kpi_private_batch_relation::{
@@ -344,19 +347,10 @@ fn run(request: &Path, private_output: &Path, public_receipt: &Path) -> R<()> {
         .ordered_inputs_with_signature(&signature, n)
         .map_err(|_| "SIGNATURE_NATIVE_EDGES")?;
     let mut out = BufWriter::new(fresh(private_output, true)?);
-    writeln!(
-        out,
-        "KPB_OWNER_INPUT_V1\nOWNER owner{role}\nCOUNT {}\nVALUES",
-        ordered.len()
-    )
-    .map_err(|_| "PRIVATE_OUTPUT")?;
-    for value in &ordered {
-        writeln!(out, "{value}").map_err(|_| "PRIVATE_OUTPUT")?;
-    }
-    writeln!(out, "END").map_err(|_| "PRIVATE_OUTPUT")?;
+    owner_file_fr32::write_owner_file(&mut out, role as u64, ordered.len() as u64, &ordered)?;
     out.flush().map_err(|_| "PRIVATE_OUTPUT")?;
     let range = auxiliary.layout.owner_local_columns[role];
-    let receipt = json!({"schema":"kpi-owner-local-aux-public-receipt/v1","owner_component":role,"context_sha256":hex::encode(Sha256::digest(ctx.bytes())),"core_variables":auxiliary.core_variables,"native_edges":66,"native_auxiliary":auxiliary.native_auxiliary().len(),"native_auxiliary_range":{"start":range.start,"end":range.end},"signature_variables":n,"signature_rows":matrix.constraints(),"signature_rows_checked":true,"signature_matrix_sha256":matrix_sha,"signature_mapping_sha256":map_sha,"ordered_private_values":ordered.len(),"private_values_output":true,"combined_dealer":false,"proof_or_mpc_claim":false});
+    let receipt = json!({"schema":"kpi-owner-local-aux-public-receipt/v2","owner_component":role,"owner_file_encoding":"KPB_OWNER_FR32V2","owner_file_bytes":owner_file_fr32::encoded_bytes(ordered.len() as u64)?,"context_sha256":hex::encode(Sha256::digest(ctx.bytes())),"core_variables":auxiliary.core_variables,"native_edges":66,"native_auxiliary":auxiliary.native_auxiliary().len(),"native_auxiliary_range":{"start":range.start,"end":range.end},"signature_variables":n,"signature_rows":matrix.constraints(),"signature_rows_checked":true,"signature_matrix_sha256":matrix_sha,"signature_mapping_sha256":map_sha,"ordered_private_values":ordered.len(),"private_values_output":true,"combined_dealer":false,"proof_or_mpc_claim":false});
     serde_json::to_writer_pretty(fresh(public_receipt, false)?, &receipt)
         .map_err(|_| "PUBLIC_RECEIPT")?;
     Ok(())
@@ -364,7 +358,7 @@ fn run(request: &Path, private_output: &Path, public_receipt: &Path) -> R<()> {
 fn main() {
     let args = std::env::args_os().skip(1).collect::<Vec<_>>();
     if args.len() != 3 {
-        eprintln!("usage: owner_aux REQUEST.json OWNER-PRIVATE-INPUT.txt PUBLIC-RECEIPT.json");
+        eprintln!("usage: owner_aux REQUEST.json OWNER-PRIVATE-INPUT-V2.bin PUBLIC-RECEIPT.json");
         std::process::exit(2)
     }
     match run(

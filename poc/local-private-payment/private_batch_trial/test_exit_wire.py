@@ -34,8 +34,10 @@ class ExitWireControls(unittest.TestCase):
         receipt=self.receiver.open(delivery.ciphertext)
         claim=wallet.RecoveredOpening(0,receipt,self.receiver.nullifier(receipt,0),tuple(state.cm.path(0)[at:at+32] for at in range(0,512,32)),False)
         witness=state.insert(claim.nf)
-        raw=wire.body(context,bytes([5])*32,state.nf.root(),len(state.entries),0 if terminal else 300_000_000,
-            1_000_000,199_000_000,b'\0\0\x20'+receipt.native_pk+b'\xac',claim.nf,witness)
+        action=bytes([5])*32
+        destination=self.receiver.fresh_payout(context,claim.nf,action).script_public_key
+        raw=wire.body(context,action,state.nf.root(),len(state.entries),0 if terminal else 300_000_000,
+            1_000_000,199_000_000,destination,claim.nf,witness)
         tail=b'public synthetic policy bytes; no native execution claim'
         return context,claim,raw,wire.projection(raw,tail),tail
 
@@ -64,7 +66,7 @@ class ExitWireControls(unittest.TestCase):
         changed=bytearray(raw);changed[379]^=1
         diverted=wire.projection(bytes(changed),tail)
         self.assertFalse(self.authority.verify(wire.statement(diverted),original.authorization))
-        with self.assertRaisesRegex(wallet.Invalid,'exit-owner-selected-native-destination'):
+        with self.assertRaisesRegex(wallet.Invalid,'exit-owner-selected-fresh-self-destination'):
             wallet.authorize_exit(self.receiver,claim,diverted,context,tail,approved_fee_sompi=1_000_000)
         changed=bytearray(raw)
         changed[360:368]=(1_000_001).to_bytes(8,'little');changed[368:376]=(198_999_999).to_bytes(8,'little')

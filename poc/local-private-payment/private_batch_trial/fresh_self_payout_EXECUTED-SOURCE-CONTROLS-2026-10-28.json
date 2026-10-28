@@ -1,0 +1,54 @@
+{
+  "schema": "kpb-fresh-self-payout-source-controls/v1",
+  "status": "WALLET_CONTROLS_PASS_AND_PUBLIC_SYNTHETIC_NATIVE_QUALIFIED",
+  "adr": "docs/adr/0080-fresh-owner-derived-exit-destinations.md",
+  "source_pins": {
+    "fresh_self_payout.py": "886fed167f177fd1781bddf090ca2b5fd01dd2df7d10f5a664016f6aee46d456",
+    "wallet_profile.py": "4991baef65d13a91a7944f21bc7750b77c5776dc6f7c4d2c6844ca5b8f39e289",
+    "test_fresh_self_payout.py": "08142b59e5fc90846ed3e816bcae25425d0603e2cb9e2bad8c7b850a1925a279",
+    "test_exit_wire.py": "1550421a145c44960e094370c1ee68fb6add8cb909b5464171213c62a22dd429",
+    "run_exit_component_proof.py": "dfceaeafde3bcf7ebaef619c4fb9acb2ef385e595ecf9a79627c31cab2a74b8d"
+  },
+  "author_executed_tests": {
+    "fresh_KDF_authorization_history_and_nonexport_controls": 11,
+    "real_selected_secp_and_EdDSA_implementations_used": true,
+    "fresh_controls_final_command": "python3 -B -m unittest -v test_fresh_self_payout",
+    "fresh_controls_exit_code": 0,
+    "fresh_controls_wall_seconds": 2.166,
+    "Exit_framing_and_stale_replay_controls": 5,
+    "wallet_history_controller_boundaries_tested_before_ADR81_pay_only_delta": 11,
+    "original_fresh_worker_test_identity": "d9489728492a52858bc6b5aa9ec47437d3d949a5d5e8ced6f509df65695b90e7",
+    "original_fresh_controller_test_identity": "955987fdaa085e953ba603d5d0110f0ad6308b90c666182f4d3a79338bfee071"
+  },
+  "current_coordinated_pay_format_delta": {
+    "lifecycle_worker_sha256": "b834a6eaa305524c92da5e406f17e97d18f76846240be035d9c9d2edc6baae8e",
+    "private_lifecycle_sha256": "0afd2116048af0e5fcc3368ba7d36c396ca495351541f87642c0c0f74d569be5",
+    "scope": "Separately reviewed ADR81 pay-only binary input routing; fresh Exit, history scan and helper mount hunks preserved. See ADR81 evidence for its integrated validation."
+  },
+  "independent_source_review": {
+    "reviewer": "/root/public_native_recovery/history_review",
+    "status": "GO_FOR_FROZEN_FRESH_PAYOUT_CORE",
+    "scope": "Original-derived self-control, exact authorized destination, stateless historical restoration, legacy/external compatibility, no secret export",
+    "reviewer_executed_runtime_or_private_workload": false,
+    "root_review": "FRESH-PAYOUT-ROOT-REVIEW-2026-10-28.json"
+  },
+  "actual_public_synthetic_crypto_native_evidence": {
+    "qualification_owned_by": "/root/public_native_recovery/settlement_adapter",
+    "attempt": "fresh03",
+    "genuine_existing_key_proofs_and_independent_Ark_positives": 2,
+    "actual_NativeFull_all_input_engine_positives": 2,
+    "coherent_destination_fee_head_native_negatives": 6,
+    "stale_AK_signature_negatives": 2,
+    "joined_matrix_rows": 1483816,
+    "same_domain_profile_PK_VK_native_ABI": true,
+    "new_setup": false,
+    "real_Original_or_private_privacy_dataset": false,
+    "full_qualification_receipts_selected_in_parent_native_checkpoint": true
+  },
+  "privacy_effect": "Fresh self destinations remove the exact Invoice208.native_pk to terminal SPK lookup; public amount/time/social and actual owner-labelled release routing remain.",
+  "historical_recovery": "Fresh native keys restore from Original plus public Context276/NF/action only. Legacy owned keys and other protocol-authorized destinations retain valid spent history. No private journal or creation fallback.",
+  "private_Original_paired_measurement": "Separate frozen METHOD02; not an outcome of these public known-seed controls.",
+  "Original_invoice_owner_receipt_key_truth_or_raw_log_read_by_controller": false,
+  "accepted_GEN3_backing_chain_or_full_financial_readiness": false,
+  "general_privacy_or_production_safety_claim": false
+}

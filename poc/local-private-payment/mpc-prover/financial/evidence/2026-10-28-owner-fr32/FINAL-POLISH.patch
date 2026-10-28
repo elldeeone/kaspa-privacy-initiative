@@ -1,0 +1,24 @@
+--- a/poc/local-private-payment/private_batch_trial/private_lifecycle.py
++++ b/poc/local-private-payment/private_batch_trial/private_lifecycle.py
+@@ -28,8 +28,8 @@
+ HERE = Path(__file__).absolute().parent
+ ROOT = HERE.parents[2]
+ PUBLIC = Path('/var/tmp/kpi-private-batch-lifecycle-20261028')
+-OWNER_AUX = ROOT / '.local/private-batch-owner-aux-binary-fr32-02/owner_aux'
+-OWNER_AUX_SHA = '35c3be5ab6d50cd183b94b1b5b0e94a57d550b9279ab9049d903a870d25eddd1'
++OWNER_AUX = ROOT / '.local/private-batch-owner-aux-binary-fr32-03/owner_aux'
++OWNER_AUX_SHA = '86ea977e07afaddc4156870ae667734e6e3f0df631d3c8f3f671546402c61e74'
+ EXIT_PARAMETERS = ROOT / '.local/private-batch-component-parameters/auth-exit-01'
+ EXIT_MANIFEST_SHA = 'bc41c97e06f07a06ee9ab2af59ef1ba8c5190a126dfb0eb120d586667aaddd8f'
+ REHEARSAL = ROOT / 'research/next-session/local-private-payment/private-batch-2026-10-28/UNFUNDED-REHEARSAL.json'
+--- a/poc/local-private-payment/private-batch-relation/src/bin/owner_aux.rs
++++ b/poc/local-private-payment/private-batch-relation/src/bin/owner_aux.rs
+@@ -358,7 +358,7 @@
+ fn main() {
+     let args = std::env::args_os().skip(1).collect::<Vec<_>>();
+     if args.len() != 3 {
+-        eprintln!("usage: owner_aux REQUEST.json OWNER-PRIVATE-INPUT.txt PUBLIC-RECEIPT.json");
++        eprintln!("usage: owner_aux REQUEST.json OWNER-PRIVATE-INPUT-V2.bin PUBLIC-RECEIPT.json");
+         std::process::exit(2)
+     }
+     match run(

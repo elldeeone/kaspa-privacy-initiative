@@ -28,8 +28,8 @@ import wallet_history
 HERE = Path(__file__).absolute().parent
 ROOT = HERE.parents[2]
 PUBLIC = Path('/var/tmp/kpi-private-batch-lifecycle-20261028')
-OWNER_AUX = ROOT / '.local/private-batch-owner-aux-binary-01/owner_aux'
-OWNER_AUX_SHA = '065a10ebadf53c9be082301eaf2dc6e1935d85bf37d6aead3f8ed3a742ea5a4c'
+OWNER_AUX = ROOT / '.local/private-batch-owner-aux-binary-fr32-03/owner_aux'
+OWNER_AUX_SHA = '86ea977e07afaddc4156870ae667734e6e3f0df631d3c8f3f671546402c61e74'
 EXIT_PARAMETERS = ROOT / '.local/private-batch-component-parameters/auth-exit-01'
 EXIT_MANIFEST_SHA = 'bc41c97e06f07a06ee9ab2af59ef1ba8c5190a126dfb0eb120d586667aaddd8f'
 REHEARSAL = ROOT / 'research/next-session/local-private-payment/private-batch-2026-10-28/UNFUNDED-REHEARSAL.json'
@@ -59,7 +59,8 @@ def public_receipt(value, operation):
         'invoice': {'authenticated_private_invoice_ready': True, 'invoice_exported_publicly': False},
         'pay': {'actual_output_proofs': 2, 'actual_restricted_intent_signature': True,
             'actual_signature_normalization': True, 'owner_private_auxiliary_values': 2_635_409,
-            'original_seed_recovered_input': True, 'input_kind_exported': False,
+            'owner_input_encoding': 'KPB_OWNER_FR32V2', 'owner_private_file_bytes': 84_333_120,
+             'original_seed_recovered_input': True, 'input_kind_exported': False,
             'creator_output_correspondence_exported': False},
         'exit': {'actual_AuthExit_proof': True, 'original_only_recovered_claim': True,
             'service_or_other_owner_dependency': False, 'candidate_exported': False},
@@ -85,6 +86,8 @@ def source_selection(shared, read, operation):
         HERE.parent / 'verification/wire.py', HERE.parents[1] / 'future-recipient/v2/recipient.py']
     if operation == 'pay':
         paths += [HERE / 'privacy_owner.py', HERE / 'privacy_codec.py']
+    if operation in ('scan', 'exit'):
+        paths += [HERE / 'fresh_self_payout.py']
     rows = []
     for index, path in enumerate(paths):
         raw = read(path)
@@ -188,9 +191,9 @@ def execute(slot, operation, original_parent, private, public, shared, config, r
             and commitment['round'] == config['round'] and commitment['truth_or_identifiers_exported'] is False,
             'actual-owner-local-truth-commitment-only')
         codec.word(commitment['salted_commitment_sha256'])
-    leaf = {'invoice': 'INVOICE208.bin', 'pay': 'OWNER-PRIVATE-INPUT.txt', 'exit': 'EXIT-CANDIDATE.json'}.get(operation)
+    leaf = {'invoice': 'INVOICE208.bin', 'pay': 'OWNER-PRIVATE-INPUT-V2.bin', 'exit': 'EXIT-CANDIDATE.json'}.get(operation)
     if leaf:
-        private_leaf(own / leaf, 208 if operation == 'invoice' else None)
+        private_leaf(own / leaf, 208 if operation == 'invoice' else (84_333_120 if operation == 'pay' else None))
     return {'owner_component': slot, 'private_output_directory': str(own),
             'public_receipt': str(out / 'PUBLIC.json'), 'status': receipt}
 
@@ -254,6 +257,8 @@ def run(args):
         need(bound['trial_id'] == trial['trial_id'] and bound['method_sha256'] == hashlib.sha256(read(method)).hexdigest(),
              'same-Original-trial-and-frozen-privacy-method')
         config['privacy_binding'] = bound
+        config['owner_input_encoding'] = 'KPB_OWNER_FR32V2'
+        config['owner_private_file_bytes'] = 84_333_120
         need(args.invoices is not None and args.invoices_sha256 is not None, 'authenticated-counterparty-invoice-manifest')
         invoices = parse(read(checked(args.invoices), args.invoices_sha256))
         need(invoices['schema'] == 'kpb-original-lifecycle-controller-result/v1'

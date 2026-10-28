@@ -69,10 +69,13 @@ def owner_auxiliary(config, directory, read):
     argv = component_run.Run.isolation(None) + [
         '--ro-bind', str(binary), '/public/owner-aux', '--bind', str(directory), '/work',
         '--chdir', '/work', '/public/owner-aux', '/work/OWNER-AUX-REQUEST.json',
-        '/work/OWNER-PRIVATE-INPUT.txt', '/work/PUBLIC-OWNER-AUX.json']
+        '/work/OWNER-PRIVATE-INPUT-V2.bin', '/work/PUBLIC-OWNER-AUX.json']
     run_private(argv)
     receipt = json.loads((directory / 'PUBLIC-OWNER-AUX.json').read_bytes())
-    need(receipt['schema'] == 'kpi-owner-local-aux-public-receipt/v1'
+    need(receipt['schema'] == 'kpi-owner-local-aux-public-receipt/v2'
+         and receipt['ordered_private_values'] == 2_635_409
+         and receipt['owner_file_encoding'] == 'KPB_OWNER_FR32V2'
+         and receipt['owner_file_bytes'] == 84_333_120
          and receipt['native_edges'] == 66 and receipt['native_auxiliary'] == 2_625_295
          and receipt['signature_rows'] == 10_065 and receipt['signature_rows_checked'] is True
          and receipt['signature_matrix_sha256'] == component_run.MATRIX_SHA

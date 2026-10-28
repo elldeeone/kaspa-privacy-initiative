@@ -1,0 +1,103 @@
+{
+  "D_Profile_or_VK_changed": false,
+  "actual_genuine_proofs": 2,
+  "actual_original_read": false,
+  "additional_public_reports": {
+    "020-terminal-destination-actual-old-signature-matrix.stdout": {
+      "result": {
+        "constraints": 1483816,
+        "counts": {
+          "link_residual_failures": 0,
+          "native_residual_failures": 0,
+          "signature_relation_checked": true,
+          "signature_residual_failures": 2
+        },
+        "instances": 3,
+        "matrix_sha256": "9fbedc0628a6afb592f03a0ceda9825924f7d8bd76fe49785b6252237affc149",
+        "native_component_only": false,
+        "proof_or_native_acceptance_established": false,
+        "role": "new-auth-exit",
+        "schema": "kpb-new-wallet-actual-matrix-check/v1",
+        "witnesses": 1468311
+      },
+      "sha256": "a74a0716c7f878c7ec09668c3a34313a01695b26e5a93704744474115cde3e03"
+    },
+    "037-continuing-independent-public-proof-verify.stdout": {
+      "result": {
+        "accepted": true,
+        "native_acceptance_or_currentness_established": false,
+        "role": "new-auth-exit",
+        "schema": "kpb-new-wallet-proof-verification/v1"
+      },
+      "sha256": "9315e41585a2ce1d2d30ecad7f6e319638f57266b2521c41b2327085aedee624"
+    },
+    "047-continuing-destination-actual-old-signature-matrix.stdout": {
+      "result": {
+        "constraints": 1483816,
+        "counts": {
+          "link_residual_failures": 0,
+          "native_residual_failures": 0,
+          "signature_relation_checked": true,
+          "signature_residual_failures": 2
+        },
+        "instances": 3,
+        "matrix_sha256": "9fbedc0628a6afb592f03a0ceda9825924f7d8bd76fe49785b6252237affc149",
+        "native_component_only": false,
+        "proof_or_native_acceptance_established": false,
+        "role": "new-auth-exit",
+        "schema": "kpb-new-wallet-actual-matrix-check/v1",
+        "witnesses": 1468311
+      },
+      "sha256": "a74a0716c7f878c7ec09668c3a34313a01695b26e5a93704744474115cde3e03"
+    }
+  },
+  "cases": [
+    {
+      "case_sha256": "aef62df16f3d6221f25d90b960f7e6e7cdcdfe7941df39216b5d7e29d8fd8c01",
+      "fee_sompi": 19050800,
+      "matrix_constraints": 1483816,
+      "mode": "terminal",
+      "native_report_sha256": "6a6476b35d78ac76e7109a8b6489c1a8998ff89e0cc5fc5081460a3e89143b6d",
+      "native_units": [
+        14798703
+      ],
+      "negative_control_count": 3
+    },
+    {
+      "case_sha256": "93f9321fd69d8536753c77012184d01443b63512fbb81ee051593acf6255bae1",
+      "fee_sompi": 19093100,
+      "matrix_constraints": 1483816,
+      "mode": "continuing",
+      "native_report_sha256": "cc4d8e900ea7b09e83ed0b49f231c1637ebd9fbfa4f994eb9bc49a35ea762bed",
+      "native_units": [
+        14833360
+      ],
+      "negative_control_count": 3
+    }
+  ],
+  "chain_backing_privacy_or_readiness_established": false,
+  "classification": "PUBLIC_SYNTHETIC_UNFUNDED_FRESH_DESTINATION_NO_ACCEPTED_LEDGER",
+  "events_sha256": "bdad64c0407b240e2743edc19278842978ae82a7a080ee62e189ec41d9fbe9fc",
+  "fresh_setup": false,
+  "funding_or_broadcast": false,
+  "native_positives": 2,
+  "native_script_rejections": 6,
+  "plan_sha256": "0b9695b0cc494f76eeb99adef2fcb8d885371cbbca2fcb7d1ad415f2b42017cf",
+  "public_cache_check_sha256": "12dd5720bee1a3272153d15bff34bcdb3f927fb4d334ce359c702a81a91fb2c8",
+  "recorded_utc": "2026-10-28T10:59:50.690909+00:00",
+  "result": "PASS",
+  "result_sha256": "35a1dfcac3a929eb316b9474665dc2d9da8f794e35aa9411954a7c5224fd950d",
+  "retained_prekey_refusals_sha256": "8ae43485b5b2b3e3f49d96030a26bbd772a773e5bb13b423f435497bff5756cb",
+  "schema": "kpb-public-synthetic-fresh-destination-receipt/v1",
+  "service": {
+    "cpu_seconds": 288.758,
+    "exit_code": 0,
+    "invocation_id": "c16ef1c358da4fc68e2284a382a2f860",
+    "main_pid": 1065173,
+    "reported_peak_GiB": 3.7,
+    "swap_bytes": 0,
+    "unit": "kpb-fresh-exit-destination-20261028-03.service",
+    "wall_seconds": 265.085
+  },
+  "stale_signature_region_rejections": 2
+}

@@ -219,6 +219,11 @@ class Receiver:
     def invoice(self,index):
         return self.keys(index).invoice
 
+    def fresh_payout(self,head,nf,action):
+        """Owner-only ADR80 key; reproducible from Original and public Exit."""
+        import fresh_self_payout
+        return fresh_self_payout.derive(self,head,nf,action)
+
     def open(self,ciphertext):
         key=derive(self._seed,self.profile,b'DELIVERY',0)
         receipt=Receipt.parse(self.crypto.unseal(key,ciphertext))
@@ -313,7 +318,9 @@ def authorize_exit(receiver,claim,raw_projection,expected_head,immutable_tail,*,
     need(claim.receipt.invoice(keys.invoice.delivery_pk)==keys.invoice,'exit-owned-receipt')
     need(receiver.nullifier(claim.receipt,claim.position)==claim.nf==body.nf,'exit-exact-original-NF')
     need(claim.receipt.value_sompi==body.payout+body.fee,'exit-exact-owned-value')
-    need(body.payout_spk==b'\0\0\x20'+keys.invoice.native_pk+b'\xac','exit-owner-selected-native-destination')
+    need(body.payout_spk!=b'\0\0\x20'+keys.invoice.native_pk+b'\xac','exit-invoice-linked-destination-refused')
+    need(body.payout_spk==receiver.fresh_payout(body.context,body.nf,body.action).script_public_key,
+        'exit-owner-selected-fresh-self-destination')
     need(len(claim.path)==legacy.CM_DEPTH,'exit-membership-depth')
     root=exit_wire.old.fold(claim.receipt.commitment(),claim.position,b''.join(claim.path),legacy.CM_NODE,legacy.CM_DEPTH)
     need(root==body.context.cm_root,'exit-exact-current-CM-anchor')

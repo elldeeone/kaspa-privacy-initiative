@@ -1,0 +1,50 @@
+{
+  "schema": "kpi-fresh-payout-independent-root-source-review/v1",
+  "status": "SOURCE_GO_FOR_ACTUAL_UNFUNDED_PROOF_NATIVE_RECOVERY_AND_LINKAGE_CONTROLS",
+  "files": [
+    {
+      "path": "poc/local-private-payment/private_batch_trial/fresh_self_payout.py",
+      "bytes": 4600,
+      "sha256": "886fed167f177fd1781bddf090ca2b5fd01dd2df7d10f5a664016f6aee46d456"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/wallet_profile.py",
+      "bytes": 15114,
+      "sha256": "4991baef65d13a91a7944f21bc7750b77c5776dc6f7c4d2c6844ca5b8f39e289"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/lifecycle_worker.py",
+      "bytes": 18176,
+      "sha256": "d9489728492a52858bc6b5aa9ec47437d3d949a5d5e8ced6f509df65695b90e7"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/private_lifecycle.py",
+      "bytes": 20794,
+      "sha256": "955987fdaa085e953ba603d5d0110f0ad6308b90c666182f4d3a79338bfee071"
+    }
+  ],
+  "basis": [
+    "Root inspected exact helper and diffs against641c0811; rechecked all4 source pins",
+    "Existing AuthExit circuit104-107 and independently reviewed signature/native join bind actual destination through complete effects digest; no note-native-key equality",
+    "New wallet rejects invoice-known and arbitrary caller destinations; requires internally derived fresh self script before exact AK authorization",
+    "Original-only public-projection recovery uses exact historical Context276/NF/action, canonical nonzero secp scalar and purpose-separated existing KDF/HMAC",
+    "Existing nonzero action/NF and integer fee/value/currenthead checks retained; historical legacy/authorizedexternal destinations remain valid classified history",
+    "New helper mounted in finite scan/Exit namespace source closure; private key objects lack secret repr/JSON export"
+  ],
+  "adversarial_review": {
+    "inflation": "Existing note-value=payout+fee and native reserve checks unchanged",
+    "double_spend": "Canonical original NF, membership and native NF transition unchanged",
+    "unauthorized_exit": "Exact owner AK signature still required; newself destination recomputed internally, no caller approvalflag or fallback",
+    "privacy": "Removes exact invoice-native-address equality only; owner-labelled release and amount/timing/cohort/counterparty facts remain leaks",
+    "dependency_failure": "Existing crypto/derivation/verification failure halts; no invoice-key fallback",
+    "reorg_or_stale_state": "Actual historical public projection drives key recovery; exact selected head drives new authorization",
+    "hidden_trust": "No new service/secretjournal/keysetup/primitive; existing HMAC/nativekey/proof assumptions remain"
+  },
+  "reported_focused_tests": {
+    "count": 27,
+    "by": "wallet_lifecycle",
+    "Root_reran": false
+  },
+  "actual_genuine_proof_native_confirmation_or_full_privacy_claim": false,
+  "controller_private_bodies_read_or_hashed": false
+}
