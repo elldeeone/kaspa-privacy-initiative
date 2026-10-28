@@ -1295,8 +1295,11 @@ and native policy already permit this; their D/Profile, keys and ABI remain
 unchanged. Twenty-seven focused checks and two genuine existing-key AuthExit
 proofs passed, including independent Arkworks verification, actual NativeFull
 execution and malformed authorization controls. These use public synthetic
-inputs; private Original linkage measurement and accepted-chain recovery remain
-unqualified. Common invoice delivery and anonymous submission are separate work;
+inputs. The separate private Original paired study completed six genuine
+proof/native checks and fresh-key recovery. Direct invoice matches fell 3 to 0,
+but retained source-order/dispatcher facts still identified all three owners;
+there was no combined-view candidate gain and the incomplete model remains
+UNQUALIFIED. Accepted-chain recovery is separate. Common invoice delivery and anonymous submission are separate work;
 publishing old Invoice208 records would expose their native payout markers.
 
 [ADR-0081](adr/0081-fixed-width-private-owner-records.md) replaces the

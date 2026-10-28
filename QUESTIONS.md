@@ -627,10 +627,10 @@ The held JSON fallback and old fee/privacy failures are not reinterpreted.
 
 ## Active privacy improvements
 
-- Measure [ADR-0080](docs/adr/0080-fresh-owner-derived-exit-destinations.md) with
-  private Original wallets and frozen observer views. Fresh destinations passed
-  focused authorization/recovery checks and genuine public-synthetic proof/native
-  controls. Does the gain survive public economics, timing and routing facts?
+- Remove the source-order and actual owner-labelled routing joins retained by
+  [ADR-0080's completed private Original comparison](poc/local-private-payment/private_batch_trial/PAYOUT-LINKAGE-METHOD02-RESULTS-2026-10-28.md).
+  Six proof/native checks passed and direct invoice matches fell 3 to 0, but all
+  three owners stayed identifiable after combining the permitted facts.
 - Replace targeted invoice delivery without exposing invoice-known native
   payout markers or the private recipient selector. Measure the actual routes,
   public workload implications and legitimate counterparty knowledge.
@@ -648,5 +648,6 @@ The held JSON fallback and old fee/privacy failures are not reinterpreted.
 The [public source-order counterexample](research/next-session/local-private-payment/private-batch-2026-10-28/PRIVACY-PAYOUT-LINKAGE-SOURCE-ORDER-COUNTEREXAMPLE-02.json)
 already shows why separate-arm address counts are insufficient: direct invoice
 matches fall from three to zero, but the published shared order leaves one
-candidate per owner in both arms. This is a public synthetic control; the actual
-private-wallet study remains separate, and the old H1 failure is unchanged.
+candidate per owner in both arms. The separate actual private-wallet study
+confirmed the same no-gain outcome. Its incomplete model remains UNQUALIFIED;
+the old H1 failure is unchanged.

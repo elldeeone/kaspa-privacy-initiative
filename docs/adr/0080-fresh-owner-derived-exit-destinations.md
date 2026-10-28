@@ -6,8 +6,12 @@ Status: Implemented. Twenty-seven focused wallet, authorization and recovery
 checks passed. Two genuine existing-key AuthExit proofs passed independent
 Arkworks verification and actual NativeFull execution, with changed destination,
 fee, head and stale-signature controls rejected. Those controls use public
-synthetic inputs; private Original linkage measurement and accepted-chain
-recovery remain separate, unqualified requirements.
+synthetic inputs. The separate private Original paired study also completed:
+all six baseline/fresh AuthExit proofs and NativeFull checks passed. Direct
+invoice-key matches fell from three to zero, but shared publication order and
+dispatcher routes still identified every owner. There was no combined-view
+candidate gain; the incomplete observer model remains UNQUALIFIED. Accepted-chain
+recovery, backing and relay-fee adequacy are not established.
 
 ## Concrete privacy failure
 
@@ -94,6 +98,28 @@ one direct invoice-address join; it does not hide public amounts, times, cohorts
 known social counterparties or all terminal inference. Complete corrupt-server
 and terminal views remain required for broader privacy claims. Passing these
 bounded controls is not a proof of cryptographic privacy or production safety.
+
+## Actual paired result
+
+The [completed private Original study](../../poc/local-private-payment/private_batch_trial/PAYOUT-LINKAGE-METHOD02-RESULTS-2026-10-28.md)
+retained the frozen amounts, fees, source-known order and actual labelled release
+routes. All six genuine AuthExit proofs passed independent public verification
+and NativeFull/all input ScriptEngines in separate supplied, unfunded contexts.
+Fresh self-key recovery ran inside the three fresh-arm owner roles.
+
+Direct invoice matching was 3 versus 0. Before the cross-arm source-order join,
+the honest owners each had two candidates in the fresh arm. Including that
+legitimate join left one candidate per owner in both arms, with all three owners
+correctly identified in CONTACT, DISPATCHER and UNION. Predictions were sealed
+before post-seal truth intake; every true assignment remained in the model.
+Opaque cryptographic, blinding, full-server and timing semantics remain
+unmodeled, so the result is UNQUALIFIED with no combined-view gain. The fixed
+one-sompi fee is a privacy fixture, not relay-fee or lifecycle cost evidence.
+
+The initial relative-path invocation refused before any observer/view intake.
+The retained absolute-path continuation used the same frozen source and data,
+without regenerating proofs or resetting query state. No source or observation
+was changed to obtain a positive result.
 
 I-1 through I-16 remain unchanged. In particular, the exact authorized payout
 binding, single spend, native backing, independent Exit and recoverability stay

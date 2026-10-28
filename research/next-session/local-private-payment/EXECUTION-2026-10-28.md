@@ -49,8 +49,15 @@ observed exit codes, without reading raw diagnostics. The repair replaces only
 the empty-queue timeout with an unbounded condition wait. All three real MPC
 roles then survived a deliberate 65-second idle period and completed the small
 TLS/DDNNT/full-proof control with independent verification. A fresh full
-financial run uses immutable Source05 and the reviewed public-point decoder
-optimization. It remains an unfunded qualification attempt until it finishes.
+financial run used immutable Source05 and the reviewed public-point decoder
+optimization. Its old launcher and three party PIDs are now absent, and its
+unit/cgroup are gone. No checked public completion/failure result exists. The
+strengthened guard refused protected stage-body reads, so the final phase,
+intake and failure cause remain unknown; OOM is not verified. The active marker
+is stale. Do not reset or resume this identity. A later fresh, unregistered
+unfunded qualification must use its own history/TLS/identity and the unchanged
+Source05 text inputs, separately from the canonical Fr32 repair. A complete
+financial proof remains unqualified.
 
 The original recovery audit completed 108 of 180 primary scanner cells before
 disk exhaustion during D6 preparation, before D6 Original intake. Those results
@@ -58,7 +65,9 @@ are preserved as partial evidence. Complete preparation provenance had not been
 serialized, so they cannot be imported into a complete aggregate. A fresh audit
 now uses a separately reviewed controller that durably saves preparation records
 before Original intake and checkpoints whole completed batches. The scanner,
-guard, archive and Original selection remain unchanged.
+guard, archive and Original selection remain unchanged. That fresh audit has now
+completed all 180 PRIMARY cells. Descriptor, Supplemental, wallet-positive and
+global publication/readback stages remain incomplete and deferred for privacy.
 
 ## Privacy priority and implemented repairs (2026-10-28)
 
@@ -91,12 +100,19 @@ colluder fixture passed with unchanged CF/NF facts. The actual stock normalizer
 reproduced the same 10,049-variable witness and left the host-bound owner directory
 empty. Frozen prior source/evidence and the active Source05 run remain unchanged.
 
-The next decisive measurement is the separately frozen
+The completed decisive measurement is the separately frozen
 [paired private Original payout study](private-batch-2026-10-28/PRIVACY-PAYOUT-LINKAGE-METHOD-02-FREEZE.md).
-It compares invoice-key payouts with fresh destinations while retaining amounts,
-timing, workload and legitimate counterparty knowledge. Predictions must be
-sealed before truth. Dispatcher routing still identifies owner submissions; the
-union view and complete corrupt-server view remain unqualified. An automated
+It retained amounts, timing, workload, source-known order and legitimate
+counterparty knowledge. All six genuine proofs and native checks passed; fresh
+self-key recovery ran inside the fresh-arm owners. Direct invoice matches fell
+from three to zero, but source-order and dispatcher facts identified all three
+owners in both arms. All predictions were sealed before post-seal truth, with
+all true assignments retained. There was no combined-view candidate increase;
+the incomplete model remains UNQUALIFIED. See the
+[actual results](../../../poc/local-private-payment/private_batch_trial/PAYOUT-LINKAGE-METHOD02-RESULTS-2026-10-28.md).
+The initial relative-path scorer invocation refused before observer intake; the
+absolute continuation preserved source, data and query state. The union view and
+complete corrupt-server view remain unqualified. An automated
 security filter blocked the full corrupt-server recorder, so it is not executed.
 The old cyclic H1 failure and changed-cohort counterexample remain unchanged.
 

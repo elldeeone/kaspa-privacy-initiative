@@ -1358,8 +1358,12 @@ readers. This is a wallet disclosure, independent of proof confidentiality.
 Original-derived self-controlled payout keys, with the existing complete signed
 Exit statement and native output checks unchanged. The implementation passed
 twenty-seven focused checks and two genuine existing-key proof/native controls
-with public synthetic inputs. Private Original linkage measurement and
-accepted-chain recovery remain unqualified. Public payout amounts, timing,
+with public synthetic inputs. The completed private Original comparison passed
+all six proof/native checks and removed direct invoice-key matches (3 to 0).
+Source-known cross-arm order and actual dispatcher routes still identified all
+three owners in both arms. There was no combined-view gain; the incomplete
+cryptographic/server/timing model remains UNQUALIFIED, as does accepted-chain
+recovery. Public payout amounts, timing,
 known counterparties, cohort intersections and dispatcher routing may still
 identify owners; removing this join does not establish terminal anonymity.
 
