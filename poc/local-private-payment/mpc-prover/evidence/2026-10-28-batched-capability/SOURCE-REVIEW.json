@@ -1,0 +1,26 @@
+{
+  "schema": "kpi-batched-capability-source-review/v1",
+  "status": "GO_PENDING_ACTUAL_RUNTIME",
+  "test_cases": 28,
+  "reviewed_sources_sha256": {
+    "tests/batched_capability_gate.cpp": "3737a458ab4c1dc7403a8e4bbbf510a9d231ef80019d88d9d92df7cc302b2d1e",
+    "tests/build_batched_capability.py": "5f03ed097cf1c570054d52672c229254e1b4b6b7ca52b585059f519125e0a98e",
+    "tests/run_batched_capability.py": "a91cda9332bd27342bf47c1064275fc21fab5b68ac44ce7a216086213594d3bb"
+  },
+  "reviewer": "/root/prover_runtime_recovery/batched_runtime_controls/review_harness",
+  "source_review_findings": [],
+  "scope": [
+    "exact expected refusal and no H-map/proof-event credit",
+    "one independently verified first proof before reuse refusal",
+    "live caller mutation versus sealed assignment/model storage",
+    "same-address context generation and post-validation MAC poison",
+    "stock checked coin component malformed contribution and commitment mismatch on two honest roles",
+    "same-attempt and invalid-attempt retry reject without a second coin"
+  ],
+  "limits": [
+    "No MPC or proof execution yet",
+    "Coin fault controls exercise the stock coin component, not fault injection through the full validator",
+    "Freeze-time assertion-vector alias ownership remains also a production-source-review obligation",
+    "Public synthetic fixture; no owner-input or financial qualification"
+  ]
+}

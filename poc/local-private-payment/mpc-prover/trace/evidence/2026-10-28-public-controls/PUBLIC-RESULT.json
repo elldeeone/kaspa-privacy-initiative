@@ -1,0 +1,384 @@
+{
+  "schema": "public-trace-controls/v1",
+  "scope": "PUBLIC_PARSER_AND_ARITHMETIC_ONLY",
+  "parser_cases_passed": 40,
+  "arithmetic_cases_passed": 1123,
+  "scheduler_cases_passed": 8,
+  "schedule_records": [
+    {
+      "window": 1,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 11 3\n",
+      "pass": true
+    },
+    {
+      "window": 2,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 11 3\n",
+      "pass": true
+    },
+    {
+      "window": 3,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 11 3\n",
+      "pass": true
+    },
+    {
+      "window": 17,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 11 3\n",
+      "pass": true
+    },
+    {
+      "window": 4096,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 11 3\n",
+      "pass": true
+    },
+    {
+      "fixture": "actual-rust-sha3",
+      "window": 1,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 28542 0\n",
+      "pass": true
+    },
+    {
+      "fixture": "actual-rust-sha3",
+      "window": 17,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 28542 0\n",
+      "pass": true
+    },
+    {
+      "fixture": "actual-rust-sha3",
+      "window": 4096,
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 28542 0\n",
+      "pass": true
+    }
+  ],
+  "records": [
+    {
+      "name": "complete-derived-prefix",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_INSPECT_PASS 5 2\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "bad-trace-pin",
+      "expected": "trace-file-digest",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-file-digest\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "bad-layout-pin",
+      "expected": "trace-layout-file-digest",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-layout-file-digest\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "changed-source",
+      "expected": "trace-binding-or-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-binding-or-shape\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "changed-model",
+      "expected": "trace-binding-or-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-binding-or-shape\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "owner-alias",
+      "expected": "trace-layout-owner-role",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-layout-owner-role\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "wrong-owner-role",
+      "expected": "trace-layout-owner-role",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-layout-owner-role\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "unsorted-expected-owners",
+      "expected": "trace-expected-owner-roles",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-expected-owner-roles\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "overlapping-owner-columns",
+      "expected": "trace-layout-owner-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-layout-owner-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "owner-input-is-derived-instance",
+      "expected": "trace-layout-owner-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-layout-owner-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "owner-input-is-scratch",
+      "expected": "trace-layout-owner-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-layout-owner-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "unsorted-owner-columns",
+      "expected": "trace-layout-owner-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-layout-owner-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "changed-input-union",
+      "expected": "trace-input-layout-union",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-input-layout-union\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "duplicate-input",
+      "expected": "trace-input-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-input-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "input-overwrites-one",
+      "expected": "trace-input-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-input-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "unknown-operation",
+      "expected": "trace-unknown-operation",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-unknown-operation\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "overwrite-one",
+      "expected": "trace-output-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-output-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "write-outside-shape",
+      "expected": "trace-output-column",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-output-column\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "undefined-read",
+      "expected": "trace-undefined-reference",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-undefined-reference\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "duplicate-write",
+      "expected": "trace-duplicate-assignment",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-duplicate-assignment\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "incomplete-assignment",
+      "expected": "trace-incomplete-assignment-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-incomplete-assignment-shape\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "field-alias",
+      "expected": "Fr-alias-or-range",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED Fr-alias-or-range\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "coefficient-leading-zero",
+      "expected": "noncanonical-Fr",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED noncanonical-Fr\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "zero-coefficient",
+      "expected": "trace-linear-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-linear-canonicality\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "unsorted-linear-terms",
+      "expected": "trace-linear-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-linear-canonicality\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "trailing-data",
+      "expected": "trace-trailing-data",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-trailing-data\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "missing-end",
+      "expected": "trace-unexpected-end",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-unexpected-end\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "integer-leading-zero",
+      "expected": "trace-noncanonical-integer",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-noncanonical-integer\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "add-truncates-carry",
+      "expected": "trace-add-overflow-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-add-overflow-shape\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "add-nonbit-constant",
+      "expected": "trace-nonbit-constant",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-nonbit-constant\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "add-duplicate-target",
+      "expected": "trace-duplicate-assignment",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-duplicate-assignment\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "add-undefined-self-read",
+      "expected": "trace-undefined-reference",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-undefined-reference\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "add-zero-width",
+      "expected": "trace-add-width",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-add-width\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "add-excess-width",
+      "expected": "trace-add-width",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-add-width\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "enormous-linear-count",
+      "expected": "trace-linear-arity",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-linear-arity\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "enormous-word-count",
+      "expected": "trace-add-arity",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-add-arity\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "random-must-be-scratch",
+      "expected": "trace-random-bit-not-scratch",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-random-bit-not-scratch\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "random-scratch-shape",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_INSPECT_PASS 6 3\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "full-carry-width",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_INSPECT_PASS 6 2\n",
+      "stderr": "",
+      "pass": true
+    },
+    {
+      "name": "actual-rust-sha3-trace",
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_INSPECT_PASS 28542 18488\n",
+      "pass": true,
+      "trace_sha256": "a52231996ca7a1d309d220ecbc20e2213cf856756e294d1266f0765d94085d4b",
+      "actual_R1CS_rows": 28849,
+      "actual_model_variables": 28542
+    }
+  ],
+  "MPC_or_private_input_executed": false
+}

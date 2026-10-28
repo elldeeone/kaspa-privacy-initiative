@@ -32,8 +32,14 @@ the direct stock circuit: 13,093,029 rows, 12,949,821 variables and three public
 slots. Its fingerprint is
 `c02320f82593d16f347e22a7b14cbe5ae394027a260b6af8a4a247b1c6c756ab`.
 Stock parameter generation succeeded, but the first serialization hit a tmpfs
-user quota. That attempt remains retained; a fresh disk-backed attempt is the
-next parameter step. A matrix or setup result is not a financial proof.
+user quota. That attempt remains retained. Fresh disk-backed setup02 completed
+in 97.5 seconds at 9.90 GiB peak, and independent PK/VK readback passed. Its
+2,608,842,576-byte canonical proving key is retained as a 1,749,414,110-byte gzip;
+the VK SHA256 is
+`2ca01e24f64b764e0470e67ff4fe183ed9e6d4a2d0b17e77887499c7ed0de102`.
+The complete 15,474,590-operation financial trace was subsequently exported
+with actual model/key/layout/prefix bindings. These are source/setup results,
+not a financial proof.
 
 ## Work still required
 

@@ -1,0 +1,128 @@
+{
+  "schema": "kpi-mascot-fullproof-source-dependencies/v1",
+  "mpspdz": {
+    "commit": "113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+    "url": "https://codeload.github.com/data61/MP-SPDZ/tar.gz/113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+    "archive_sha256": "6ee404ce90be5acc9fb8222a5c92f358b1a4f78a4a50dc8d5419824cb2d39dc6",
+    "archive_bytes": 1189628,
+    "matching_release_files": 920,
+    "missing_from_commit": [],
+    "different_from_commit": []
+  },
+  "mcl": {
+    "url": "https://codeload.github.com/herumi/mcl/tar.gz/9f49ba06593e2d426ab6fb9b0e17bc125a6f720c",
+    "commit": "9f49ba06593e2d426ab6fb9b0e17bc125a6f720c",
+    "archive_sha256": "0a910a6c22935a73f537d3b1d95f08554ece7ccd5b2c04ff2e8ad4b19ca06de1",
+    "archive_bytes": 969405,
+    "regularfiles": 308
+  },
+  "simplestot": {
+    "parent_commit": "113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+    "gitlink": {
+      "path": "deps/SimplestOT_C",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "7ef7666909e493a18c99efe56f97cc4d13723005"
+    },
+    "archive_url": "https://codeload.github.com/mkskeller/SimplestOT_C/tar.gz/7ef7666909e493a18c99efe56f97cc4d13723005",
+    "archive_bytes": 525740,
+    "archive_sha256": "e2001b6fa78ca0f51777050642bd86103e68473c5b75e1ab5f2cccac492251ec",
+    "files": 159
+  },
+  "local_development_packages": [
+    {
+      "package": "libgmp-dev",
+      "version": "2:6.3.0+dfsg-5ubuntu2",
+      "apt_sha256": "b43e38f2d5ae4aa38471e1b3f90ed63e96c2ce614ffe496cdcd72f9944e87a4a",
+      "archive": "libgmp-dev_2%3a6.3.0+dfsg-5ubuntu2_amd64.deb"
+    },
+    {
+      "package": "libgmpxx4ldbl",
+      "version": "2:6.3.0+dfsg-5ubuntu2",
+      "apt_sha256": "07bd53c587140613b3d551bdbd4a15a37002c1fe971962ab49e2c2c896cf7dda",
+      "archive": "libgmpxx4ldbl_2%3a6.3.0+dfsg-5ubuntu2_amd64.deb"
+    },
+    {
+      "package": "libsodium-dev",
+      "version": "1.0.18-2",
+      "apt_sha256": "34e8337b30160458f44bada750c9e94ec18ec5ac087e2428043ddb04625226cc",
+      "archive": "libsodium-dev_1.0.18-2_amd64.deb"
+    }
+  ],
+  "configuration": {
+    "MASCOT": true,
+    "USE_KOS": 0,
+    "USE_LIBOTE2": 1,
+    "AVX_OT": 0,
+    "NO_MIXED_CIRCUITS": true,
+    "mcl_curve": "BN_SNARK1",
+    "mcl_assertions_enabled": true,
+    "INSECURE": false,
+    "NDEBUG": false,
+    "USE_TUNGSTEN": 0,
+    "libote_protocol": "stock malicious SoftSpoken",
+    "SODIUM_MONTGOMERY": false,
+    "SODIUM_MONTGOMERY_scope": "Use standard Ristretto SimplestOT; custom libsodium Montgomery noclamp extension is unavailable and unused."
+  },
+  "patches": [
+    {
+      "preimage_sha256": "640a71dd4cf012c8864010bf9690b2a6a8cd758807c90650aa03cd0599054832",
+      "patched_sha256": "49c2ec7c16b79206f48e6183529f40a06e7b2eb86d689eca763e987f8943320a",
+      "patch_sha256": "7aaa89ca401c66f2d228dd7bf2d6a8d9a2e169ce33258dc648175394222ab2d3",
+      "scope": "Require certificate presence in the stock server handshake in addition to existing chain/name verification; explicit owner pins remain mandatory.",
+      "patch": "vendor-patches/mp-spdz-mutual-tls.patch"
+    }
+  ],
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "scope": "Public synthetic functional prover. The operating-system shared-library closure is separately selected by the launcher; dependency pins are not a cryptographic qualification.",
+  "libote": {
+    "repository": "https://github.com/mkskeller/libOTe",
+    "commit": "fe6b2ff82a976a5332b3a2efe325831588b1324a",
+    "archive_url": "https://codeload.github.com/mkskeller/libOTe/tar.gz/fe6b2ff82a976a5332b3a2efe325831588b1324a",
+    "archive_sha256": "f057ae31d5a28f1946fda6d002620af996cefa1e904d3abf98e789393cd31578",
+    "archive_bytes": 1247348,
+    "source": "MP-SPDZ113c4e47 pinned gitlink deps/libOTe2",
+    "unsafe_KOS_guard_bypassed": false
+  },
+  "cryptotools": {
+    "repository": "mkskeller/cryptotools",
+    "commit": "f70175e0cbd36b808475c0c1bbf585304e43d3d0",
+    "archive_url": "https://codeload.github.com/mkskeller/cryptotools/tar.gz/f70175e0cbd36b808475c0c1bbf585304e43d3d0",
+    "archive_sha256": "cac991e7317db7287b924f66c3ff041b9f3533e44e11c4d1f3f02ff56863495c",
+    "archive_bytes": 331956
+  },
+  "transitive_pins": [
+    {
+      "repository": "ladnir/coproto",
+      "commit": "8dce3918b06c80dbcd65baeb899f1a694433f926"
+    },
+    {
+      "repository": "ladnir/macoro",
+      "commit": "ee5fa61a9bc2e4cd4cdddea8d4a6485332e8d58e"
+    },
+    {
+      "repository": "Naios/function2",
+      "commit": "02ca99831de59c7c3a4b834789260253cace0ced"
+    }
+  ],
+  "libdivide": {
+    "url": "https://raw.githubusercontent.com/ridiculousfish/libdivide/v5.2.0/libdivide.h",
+    "tag": "v5.2.0",
+    "sha256": "4accff7eb5f817c63c7cfe340bf53bcd3aa12012ca1490cd079c51b3d23ec903",
+    "bytes": 130497
+  },
+  "historical_rejected_configuration": {
+    "USE_KOS": 1,
+    "USE_LIBOTE2": 0,
+    "runtime_qualified": false,
+    "reason": "Pinned upstream OTExtension::check_correlation calls insecure(); README requires INSECURE for KOS benchmarking. Guard was not bypassed. Earlier caught startup runtime_error was separate and its cause not established.",
+    "patch": {
+      "preimage_sha256": "229e22315d8e002e9ce2fb216e8318e9e447fd5908ce32d7d51986a71979ce44",
+      "patched_sha256": "22ff2ef61f0f4471fd7898dcad12d756e318895180cf74aff7d70b0a2f071e82",
+      "patch_sha256": "8cfb5ad5013394795e74fee6d9c2d69423bbae2954541e20205088f4feb21c3c",
+      "scope": "Compile-only guarding of unreachable SoftSpoken classes under USE_KOS; no KOS/check arithmetic modified",
+      "patch": "vendor-patches/mp-spdz-kos-build.patch",
+      "status": "historical failed KOS compile-only patch; NOT applied to qualified SoftSpoken source"
+    }
+  }
+}

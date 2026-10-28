@@ -1,0 +1,55 @@
+--- a/OT/OTExtensionWithMatrix.cpp
++++ b/OT/OTExtensionWithMatrix.cpp
+@@ -32,6 +32,7 @@
+ class Channel;
+ }
+ 
++#ifndef USE_KOS
+ class SoftState
+ {
+ #ifdef USE_LIBOTE1
+@@ -65,6 +66,9 @@
+             bool just_bits);
+ };
+ 
++// The SoftSpoken class is not needed by the stock KOS path.
++#endif
++
+ OTExtensionWithMatrix OTExtensionWithMatrix::setup(TwoPartyPlayer& player,
+         int128 delta, OT_ROLE role, bool passive)
+ {
+@@ -103,12 +107,15 @@
+ 
+ OTExtensionWithMatrix::~OTExtensionWithMatrix()
+ {
++#ifndef USE_KOS
+     if (state)
+         delete state;
++#endif
+     if (delete_player)
+         delete player;
+ }
+ 
++#ifndef USE_KOS
+ SoftState::SoftState(OTExtensionWithMatrix& ext) : ext(ext)
+ {
+     assert(ext.player);
+@@ -159,6 +166,8 @@
+     }
+ }
+ 
++#endif
++
+ bool OTExtensionWithMatrix::use_kos()
+ {
+ #ifdef USE_KOS
+@@ -252,6 +261,9 @@
+         const BitVector& newReceiverInput, bool hash, bool just_bits)
+ {
+     CODE_LOCATION
++#ifdef USE_KOS
++    (void) just_bits;
++#endif
+     protocol_agreement();
+ 
+     if (use_kos())

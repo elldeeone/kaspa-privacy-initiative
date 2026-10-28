@@ -1,0 +1,47 @@
+{
+  "schema": "kpi-batched-capability-runtime-qualification/v1",
+  "status": "BOUNDED_PUBLIC_FIXTURE_PASS",
+  "actual_three_party_cases_passed": 28,
+  "fresh_run_identities": 28,
+  "typed_party_results_passed": 84,
+  "core_build": "mpc-prover-build-13",
+  "control_build": "mpc-batched-capability-build-03",
+  "control_binary_sha256": "c4102d360a29fd64b38dc85e60c6b9e066bc0598835c5326ac9743ba4a45dafe",
+  "source_files_preserved": 25,
+  "two_nonempty_trace_assertions_in_positive_case": true,
+  "nonzero_assertion_refused": true,
+  "independent_proof_cases": [
+    {
+      "case": "valid",
+      "sha256": "650d5419f55c196eedd84b01d6a5eee34f8f7902c6224e9784965dbe27a8a78a",
+      "bytes": 128
+    },
+    {
+      "case": "caller-mutation",
+      "sha256": "9ace1e46e84011b3ef6c51c48aa5478f7502888062e1ff11fff4baf1babf5c40",
+      "bytes": 128
+    },
+    {
+      "case": "reuse",
+      "sha256": "cef8f982f8373174572b9b09d467bafc9d496e68478f6408299522c606533faa",
+      "bytes": 128
+    }
+  ],
+  "same_assignment_model_mutation_control_passed": true,
+  "changed_binding_fields_refused": 12,
+  "context_storage_address_reused_with_new_generation_refused": true,
+  "actual_post_validation_MAC_failure_poisoned_capability": true,
+  "capability_reuse_refused_after_one_verified_proof": true,
+  "same_attempt_and_invalid_attempt_second_coin_refused": true,
+  "honest_stock_coin_roles_refused_malformed_contribution_and_bad_commitment": true,
+  "coin_fault_scope": "stock checked-coin component with test-only corrupt role0; not fault injection through the full validation factory",
+  "wall_seconds_sum": 45.61772518407088,
+  "wall_seconds_min": 0.6114655180135742,
+  "wall_seconds_max": 1.9159688600338995,
+  "max_observed_cgroup_memory_peak_bytes": 1982291968,
+  "peak_measurement_limit": "Cgroups collected on completion; numbers are last observed memory.peak, not a successful post-exit final peak read.",
+  "selected_source_artifact_checks_before_after_each_case": true,
+  "raw_worker_diagnostics_or_TLS_private_keys_read_or_hashed": false,
+  "external_owner_input_or_financial_prefix_or_durable_history_qualified": false,
+  "cryptographic_correctness_or_payment_privacy_or_native_settlement_claim": false
+}

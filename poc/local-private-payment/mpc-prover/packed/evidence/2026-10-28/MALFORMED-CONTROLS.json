@@ -1,0 +1,252 @@
+{
+  "schema": "kpi-packed-public-model-controls/v1",
+  "controls": [
+    {
+      "case": "full-exact-row-and-query-equivalence",
+      "passed": true,
+      "reused_passing_receipt_sha256": "a33b74f96e4ddf8aa7063973a233b6a2ec24371551416a5c7191f1fe510e282f",
+      "selected_reader_sha256": "3df12df23c46779c8571e81aa140cf3b9a6320a2f4f3887293b5484d3a07a517",
+      "public_reader_result": {
+        "schema": "kpi-packed-public-admission/v1",
+        "status": "PASS",
+        "admitted": true,
+        "full_original_equivalence": true,
+        "packed_model_sha256": "5f1b27c6707b0fa399eeadbe55479ccf99ec0c53f28bde0b6682343db43994ad",
+        "matrix_fingerprint": "618a9ece68a0379faba6c31c59cc0ecc4eeffa368d8aea4eae4972f6f3ee8e48",
+        "prefix_mode": 1,
+        "known_prefix_values": 3,
+        "derived_output_count": 0,
+        "admitted_rows": 86547,
+        "admitted_terms": 157082,
+        "admitted_G1": 118396,
+        "admitted_G2": 28545,
+        "mapped_public_bytes": 6152641,
+        "maximum_row_terms": 164,
+        "max_rss_KiB": 19352,
+        "legacy_model_compared": true,
+        "compared_rows": 86547,
+        "compared_terms": 157082,
+        "compared_queries": 146932,
+        "compared_bases": 5,
+        "private_input_MPC_or_setup_executed": false
+      }
+    },
+    {
+      "case": "wrong-selected-root",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.005060906987637281
+    },
+    {
+      "case": "axis-label-mismatch",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.00721243501175195
+    },
+    {
+      "case": "axis-field-mismatch",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.007666579098440707
+    },
+    {
+      "case": "axis-slot-count-mismatch",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.00720295705832541
+    },
+    {
+      "case": "row-arity-overflow",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.007090230938047171
+    },
+    {
+      "case": "coefficient-Fr-alias",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.006938752951100469
+    },
+    {
+      "case": "column-outside-model",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.006943883025087416
+    },
+    {
+      "case": "extra-decoded-row-byte",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.0435996949672699
+    },
+    {
+      "case": "truncated-decoded-rows",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.04416084394324571
+    },
+    {
+      "case": "concatenated-gzip-member",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.04378263303078711
+    },
+    {
+      "case": "gzip-trailing-garbage",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.044346087030135095
+    },
+    {
+      "case": "gzip-invalid-CRC",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.04426971101202071
+    },
+    {
+      "case": "wrong-matrix-fingerprint",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.07870978501159698
+    },
+    {
+      "case": "unknown-metadata-policy",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.003416395979002118
+    },
+    {
+      "case": "metadata-trailing-byte",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.0034614719916135073
+    },
+    {
+      "case": "public-prefix-Fr-alias",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.0033453110372647643
+    },
+    {
+      "case": "public-prefix-ONE-mismatch",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.00332301901653409
+    },
+    {
+      "case": "PK-query-count-mismatch",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.007013414986431599
+    },
+    {
+      "case": "PK-trailing-byte",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.00787010695785284
+    },
+    {
+      "case": "VK-prefix-mismatch",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.006767056067474186
+    },
+    {
+      "case": "base-identity-policy",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.0796099390136078
+    },
+    {
+      "case": "sign-plus-infinity",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.08451322501059622
+    },
+    {
+      "case": "base-Fq-alias",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.07993302401155233
+    },
+    {
+      "case": "base-nonsquare-curve",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.08087216108106077
+    },
+    {
+      "case": "derived-policy-values-absent-structural-only",
+      "expected_accepted": true,
+      "exit": 0,
+      "passed": true,
+      "seconds": 33.810628658975475,
+      "public_reader_result": {
+        "schema": "kpi-packed-public-admission/v1",
+        "status": "PASS",
+        "admitted": true,
+        "full_original_equivalence": false,
+        "packed_model_sha256": "2727c6060b10707b2ba1cb5824c0fa42fdb1093dc7da6fb74c2a64dbdbd08d45",
+        "matrix_fingerprint": "618a9ece68a0379faba6c31c59cc0ecc4eeffa368d8aea4eae4972f6f3ee8e48",
+        "prefix_mode": 2,
+        "known_prefix_values": 0,
+        "derived_output_count": 2,
+        "admitted_rows": 86547,
+        "admitted_terms": 157082,
+        "admitted_G1": 118396,
+        "admitted_G2": 28545,
+        "mapped_public_bytes": 6152617,
+        "maximum_row_terms": 164,
+        "max_rss_KiB": 42960,
+        "legacy_model_compared": false,
+        "compared_rows": 0,
+        "compared_terms": 0,
+        "compared_queries": 0,
+        "compared_bases": 0,
+        "private_input_MPC_or_setup_executed": false
+      }
+    },
+    {
+      "case": "derived-policy-recipe-missing",
+      "expected_accepted": false,
+      "exit": 1,
+      "passed": true,
+      "seconds": 0.004272616934031248
+    }
+  ],
+  "passed": true,
+  "control_count": 27,
+  "reader_sha256": "3df12df23c46779c8571e81aa140cf3b9a6320a2f4f3887293b5484d3a07a517",
+  "resources": {
+    "memory_max_bytes": 2147483648,
+    "cpu_max": "100000 100000"
+  },
+  "packed_model_sha256": "5f1b27c6707b0fa399eeadbe55479ccf99ec0c53f28bde0b6682343db43994ad",
+  "maximum_child_rss_KiB": 42960,
+  "private_input_or_MPC_or_setup_executed": false,
+  "financial_or_privacy_qualification": false
+}

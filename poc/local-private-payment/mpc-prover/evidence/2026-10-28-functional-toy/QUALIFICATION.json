@@ -1,0 +1,25 @@
+{
+  "schema": "kpi-mascot-toy-functional-qualification/v1",
+  "runs": {
+    "positive": "dac26d520e5919d2febae2e795c665acbff0b032ca64cf06f3d2634b29e07762",
+    "invalid-assignment": "2177bc86f73be75365227a9913a5ace43c1c815dc57e9c265ccca5059dc988ca",
+    "tamper-mac": "dd86f46ab58770e53b5ea1f38a56747f18a31fd3d0a43fbe8ba3d0cd069e7d20"
+  },
+  "status": "BOUNDED_FUNCTIONAL_PASS",
+  "parties": 3,
+  "owners": 2,
+  "matching_complete_proofs": 3,
+  "proof_bytes": 128,
+  "proof_sha256": "b9cd4904889eadefe3e9549679825dba7e6cc74b62831e6961ad5eeee4eab994",
+  "independent_verifier": {
+    "128": "ACCEPT",
+    "129": "REJECT"
+  },
+  "preinput_controls_passed": 12,
+  "actual_invalid_assignment_refused": true,
+  "actual_MAC_corruption_refused": true,
+  "negative_proof_candidates_absent": true,
+  "raw_worker_diagnostics_or_TLS_private_keys_read_or_hashed": false,
+  "payment_relation_or_privacy_or_native_settlement_qualified": false,
+  "group_MAC_lifecycle": "stock per-type coordinator setup and teardown; one proof per isolated role; concurrent/nested proof calls are outside this qualification"
+}

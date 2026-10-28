@@ -1,0 +1,46 @@
+{
+  "schema": "kpi-active-sha-trace-qualification/v1",
+  "scope": "PUBLIC_UNFUNDED_SAME_HOST_FUNCTIONAL_SHARED_SHA_GROTH16_ONLY",
+  "runs": {
+    "positive": {
+      "run_id": "f57fb26c3fb1a9d3edc4741baabdd4307789d3f54c7c5fc228ef1cc1d0df84b9",
+      "status": "VERIFIED",
+      "result_sha256": "e40abde1d947ffa1cdf3a353fc9a8e30f8a0da5388558ce6ccbf84ae0c49bd93",
+      "elapsed_seconds": 333.718
+    },
+    "invalid-assignment": {
+      "run_id": "f2dd52ba592d1f2e7320d21b866325ea2cae6f7fd01e8dee2e8ee6b009110199",
+      "status": "EXPECTED_REFUSAL",
+      "result_sha256": "7ef8254187f0f94cd8a2f16bff621ec1937e7892ce7bc6b2b099821d00f03e30",
+      "elapsed_seconds": 259.431
+    },
+    "tamper-mac": {
+      "run_id": "837baae2f31df10ad08ca548e8205fefcae6c1f4665abd140e35a4b693299b4d",
+      "status": "EXPECTED_REFUSAL",
+      "result_sha256": "b3012ae4287022c649aa99443a2192c313d0774ccc3f6c99e87343a3d0e4a8a6",
+      "elapsed_seconds": 261.14
+    }
+  },
+  "parties": 3,
+  "external_owner_roles": 2,
+  "owner_input_fields_each": 12,
+  "actual_model_columns": 28542,
+  "actual_R1CS_rows_computed": 28849,
+  "private_residual_count_including_ONE_and_public_prefix": 28852,
+  "validation_policy": "ADR0076_STOCK_FR_COMMIT_REVEAL_POLYNOMIAL_EXACT_FERMAT_SEALED_ONE_USE_CAPABILITY",
+  "trace_authenticated_multiplications": 224886,
+  "trace_explicit_ASSERT_ZERO_count": 0,
+  "trace_RANDOM_BIT_count": 0,
+  "same_128_byte_proof_all_parties": true,
+  "independent_Ark_correct_digest_accepts_changed_digest_rejects": true,
+  "field_G1_G2_MAC_checks_complete": true,
+  "invalid_and_bad_MAC_all_three_typed_refusals_before_proof": true,
+  "large_public_artifacts": "RETAINED-PUBLIC-ARTIFACTS.json",
+  "exact_runtime_source_closure": "qualified-source",
+  "private_wallet_or_TLS_key_bodies_or_raw_MPC_logs_read_or_hashed": false,
+  "financial_trace_executed": false,
+  "nonempty_private_trace_assertion_active_runtime_qualified": false,
+  "hidden_random_permutation_active_runtime_qualified": false,
+  "financial_derived_prefix_or_durable_history_release_qualified": false,
+  "payment_or_privacy_or_native_settlement_qualified": false
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "public-sealed-trace-build/v1",
+  "argv": [
+    "g++",
+    "-std=c++20",
+    "-O1",
+    "-g0",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-DKPI_TRACE_ZLIB_BINARY_SHA256=\"27fa6c6cb94fb5b099ead61758a300dbc392d1dbf307fff6c16a9b8e57fdc9de\"",
+    "-DKPI_TRACE_ZLIB_HEADERS_SHA256=\"088e164cdd52e61ab1b0c60351dc7a6911a7ff8466ffb87c14098485006e7c6c\"",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/trace/sealed_trace.cpp",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/trace/sealed_controls.cpp",
+    "-o",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/sealed-trace-controls-build-02/sealed-controls",
+    "-lcrypto",
+    "-lz",
+    "-ldl"
+  ],
+  "exit_code": 0,
+  "source_before": {
+    "sealed_trace.hpp": "7ce692560aa6b75c393f62471e1b7cd5a77fd1a7e8e5439b5c522ec37a4149de",
+    "sealed_trace.cpp": "68577165716d6312cf1279fd2cd48fafac60d3deafbbbb8fe00c179d491fb876",
+    "sealed_controls.cpp": "1ec0d3fb7ce2ba990f5d4bb98cef7c4b91086c83105e83da62b29cbb061744db",
+    "run_sealed_controls.py": "4136e0e7e65eb2efeeb8bb1c4de7dc2ebd964fb91c3155d15de53a60d50b7e73"
+  },
+  "source_after": {
+    "sealed_trace.hpp": "7ce692560aa6b75c393f62471e1b7cd5a77fd1a7e8e5439b5c522ec37a4149de",
+    "sealed_trace.cpp": "68577165716d6312cf1279fd2cd48fafac60d3deafbbbb8fe00c179d491fb876",
+    "sealed_controls.cpp": "1ec0d3fb7ce2ba990f5d4bb98cef7c4b91086c83105e83da62b29cbb061744db",
+    "run_sealed_controls.py": "4136e0e7e65eb2efeeb8bb1c4de7dc2ebd964fb91c3155d15de53a60d50b7e73"
+  },
+  "zlib_binary": {
+    "path": "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+    "sha256": "27fa6c6cb94fb5b099ead61758a300dbc392d1dbf307fff6c16a9b8e57fdc9de"
+  },
+  "zlib_headers": {
+    "zlib.h": "8a5579af72ea4f427ff00a4150f0ccb3fc5c1e4379f726e101133b1ab9fc600c",
+    "zconf.h": "44e543ff4514c7a9a01d648019c2c9a81d1105cbfa3c77f1faf6cd86eafa8abd"
+  },
+  "zlib_headers_sha256": "088e164cdd52e61ab1b0c60351dc7a6911a7ff8466ffb87c14098485006e7c6c",
+  "success": true,
+  "private_input_executed": false,
+  "binary_sha256": "b1f130ba92aaaf13f8518f95cb9ebe259d7eeca502c22cf04c5bddce840a7047"
+}
