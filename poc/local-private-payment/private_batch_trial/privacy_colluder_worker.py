@@ -7,6 +7,7 @@ import private_worker as boundary
 import privacy_codec as codec
 import privacy_observer as observer
 import wallet_profile as wallet
+import owner_record
 
 
 def write_new(path, value, mode):
@@ -25,7 +26,7 @@ def run():
         '/truth', '/counts', '/corrupt-server', '/home/luke/.codex', '/home/luke/.ssh', '/etc/ssl/private',
         '/var/tmp/kpi-owner-private-lifecycle-01/private')), 'privacy-one-colluder-no-honest-or-host-private-mounts')
     codec.need(sorted(path.name for path in Path('/original').iterdir()) == ['BACKUP.json']
-         and sorted(path.name for path in Path('/own').iterdir()) == ['OWNER-LOCAL-RECORD.json'],
+         and sorted(path.name for path in Path('/own').iterdir()) == [owner_record.LEAF],
          'privacy-exact-one-original-and-own-record-leaves')
     config = codec.parse(boundary.read('/CONFIG.json'))
     codec.fields(config, ('schema', 'binding', 'round', 'owner_component', 'domain_hex32', 'profile_id_hex32',
@@ -47,7 +48,7 @@ def run():
     # nested bwrap or host Authority path is used.
     with boundary.NamespaceAuthority('/runtime/node', modules) as authority:
         receiver = wallet.Receiver(boundary.load_backup('/original/BACKUP.json', profile), profile, crypto, authority)
-        own = codec.parse(boundary.read('/own/OWNER-LOCAL-RECORD.json', private=True))
+        own = owner_record.decode(boundary.read('/own/' + owner_record.LEAF, private=True), 1)
         facts = observer.colluder_facts(receiver, own, config['round'], raw_projection, routes)
     context = observer.batch_from_projection(config['round'], raw_projection)['context_sha256']
     write_new('/private-output/COLLUDER-CONSTRAINTS.json', {'schema': 'kpb-private-colluder-constraints/v1',

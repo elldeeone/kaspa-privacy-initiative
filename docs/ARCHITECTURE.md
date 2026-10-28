@@ -1307,3 +1307,19 @@ MPC proof with independent valid/changed-statement checks. The canonical produce
 build, writer unit check and seventeen integrated receipt, metadata and routing
 controls also passed; no complete financial result is claimed.
 The network input protocol, relation and keys are unchanged.
+
+The same ADR keeps signature normalization intermediates and immediate auxiliary
+requests on private namespace tmpfs. Later colluder diagnostics retain the full
+original record through a strict 32,768-byte padded frame, preserving genuine
+CF/NF facts. Focused framing/colluder controls passed; the real public-seed
+normalizer reproduced identical witness bytes without host-bound temporary files.
+This reduces directory metadata exposure, not host-administrator visibility.
+
+[RFC-0031](rfc/0031-owner-origin-exit-submission.md) and
+[ADR-0082](adr/0082-optional-owner-origin-exit-submission.md) select an isolated
+receive/verify-only transport experiment. A network-off owner would feed a
+private pipe to a no-Original Tor transport role, avoiding the current explicit
+owner-labelled clear candidate handoff. A common receiver retains actual arrival
+order and timing and has no signing or withdrawal authority. The current
+workload is unchanged; same-host and traffic-correlation anonymity remain
+unqualified, and independent direct Exit remains available.

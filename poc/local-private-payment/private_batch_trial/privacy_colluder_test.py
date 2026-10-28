@@ -7,6 +7,7 @@ import tempfile
 import unittest
 
 import privacy_codec as codec
+import owner_record
 import privacy_colluder as producer
 import privacy_launch as launch
 import privacy_launch_test as launcher_test
@@ -70,7 +71,7 @@ class ActualColluderNamespace(unittest.TestCase):
             selected['rounds'][r - 1]['projection'] = control.save(control.base / ('PUBLIC-ACTUAL-CF-PROJECTION-' + str(r) + '.bin'),
                 (generated / ('PROJECTION-' + str(r) + '.bin')).read_bytes())
             own = control.private / 'operations' / ('public-pay-r' + str(r)) / 'owner-1'
-            control.save(own / 'OWNER-LOCAL-RECORD.json', (generated / ('RECORD-' + str(r) + '.json')).read_bytes(), 0o600)
+            control.save(own / owner_record.LEAF, (generated / ('RECORD-' + str(r) + '-V2.bin')).read_bytes(), 0o600)
             (own / 'COLLUDER-CONSTRAINTS.json').unlink()  # discard only the unexecuted PUBLIC setup model
         diagnostic = control.save(control.base / 'PUBLIC-ACTUAL-CF-DIAGNOSTIC.json', selected)
         producer_selection = control.save(control.base / 'PUBLIC-PRODUCER-SELECTION.json', {

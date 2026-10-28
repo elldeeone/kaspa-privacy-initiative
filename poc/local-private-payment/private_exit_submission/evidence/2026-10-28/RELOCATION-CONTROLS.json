@@ -1,0 +1,21 @@
+{
+  "anonymity_claim": false,
+  "command": [
+    "/usr/bin/python3.14",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_transport.py"
+  ],
+  "cwd": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_exit_submission",
+  "elapsed_seconds": 2.087786484975368,
+  "exit_code": 0,
+  "files_identical_before_and_after": true,
+  "output": "test_accept_order_survives_reverse_body_completion (test_transport.ActualPublicSocket.test_accept_order_survives_reverse_body_completion) ... ok\ntest_actual_arrival_record_and_fixed_ack (test_transport.ActualPublicSocket.test_actual_arrival_record_and_fixed_ack) ... ok\ntest_ambiguous_lengths_and_owner_headers_refuse (test_transport.ActualPublicSocket.test_ambiguous_lengths_and_owner_headers_refuse) ... ok\ntest_noncanonical_singleton_and_other_parser_outcomes_retained (test_transport.ActualPublicSocket.test_noncanonical_singleton_and_other_parser_outcomes_retained) ... ok\ntest_first_memfd_closed_if_second_allocation_fails (test_transport.Framing.test_first_memfd_closed_if_second_allocation_fails) ... ok\ntest_invalid_exact_frame (test_transport.Framing.test_invalid_exact_frame) ... ok\ntest_invalid_payload_width (test_transport.Framing.test_invalid_payload_width) ... ok\ntest_namespace_only_onion_endpoint (test_transport.Framing.test_namespace_only_onion_endpoint) ... ok\ntest_terminal_and_continuing_roundtrip (test_transport.Framing.test_terminal_and_continuing_roundtrip) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 2.019s\n\nOK\n",
+  "recorded_utc": "2026-10-28T12:06:37.292722+00:00",
+  "relocated_manifest_sha256": "e3939b799c48c553b5ac0ef4e5fcd92da4fc70e0231a0c54a677e9f4063d6832",
+  "schema": "kpb-exit-submission-relocation-controls/v1",
+  "scope": "PUBLIC_SYNTHETIC_FRAMING_LOOPBACK_ONLY",
+  "tor_or_private_or_native_or_financial_execution": false
+}

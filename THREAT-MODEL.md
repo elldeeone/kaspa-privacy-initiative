@@ -1369,3 +1369,20 @@ messages have fixed widths. [ADR-0081](docs/adr/0081-fixed-width-private-owner-r
 implements a canonical fixed-width local encoding. Producer, parser, integrated
 caller and genuine small three-party MPC controls passed. This removes a size dependency;
 it does not hide cohort, timing, access patterns or the corrupt-server view.
+
+The follow-up repair keeps variable-length signature intermediates on private
+namespace tmpfs and retains the full later colluder record in a constant
+32,768-byte frame. The colluder still receives its genuine CF/NF knowledge.
+Focused malformed/roundtrip and actual public-fixture colluder controls passed;
+the stock normalizer reproduced identical witness bytes with an empty host-bound
+owner directory. This changes the declared directory metadata view, not the
+capabilities of a host administrator or a timing observer.
+
+The existing owner-labelled clear Exit release and the paired publisher's
+source-known shared owner order are separate exact joins. Fresh payout keys
+cannot remove them. [ADR-0082](docs/adr/0082-optional-owner-origin-exit-submission.md)
+selects a receive/verify-only experiment with a private owner pipe, no-Original
+Tor transport and common receiver. All actual launch, pipe, arrival, timing and
+volume facts remain observations; a host or network observer able to correlate
+both ends can still identify the route. Relay receipts confer no state,
+settlement or withdrawal authority. Current frozen counterexamples remain.

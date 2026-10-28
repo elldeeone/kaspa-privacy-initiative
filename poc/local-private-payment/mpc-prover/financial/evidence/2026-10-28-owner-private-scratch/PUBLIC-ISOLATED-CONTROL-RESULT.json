@@ -1,0 +1,33 @@
+{
+  "schema": "kpi-owner-private-scratch-public-controls/v1",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "owner_record_test"
+      ],
+      "exit": 0,
+      "wall_seconds": 0.05175470397807658,
+      "PUBLIC_test_stdout": "",
+      "PUBLIC_test_stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.008s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "privacy_colluder_test.ActualColluderNamespace.test_actual_known_seed_CF_derivation_and_original_leaf_routing"
+      ],
+      "exit": 0,
+      "wall_seconds": 84.98939763195813,
+      "PUBLIC_test_stdout": "",
+      "PUBLIC_test_stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 84.883s\n\nOK\n"
+    }
+  ],
+  "status": "PASS",
+  "no_actual_private_or_recorder_use": true
+}

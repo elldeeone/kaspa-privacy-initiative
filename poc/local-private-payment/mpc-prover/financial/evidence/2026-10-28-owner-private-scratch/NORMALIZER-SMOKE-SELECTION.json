@@ -1,0 +1,254 @@
+{
+  "schema": "kpi-PUBLIC-real-signature-tmpfs-smoke-selection/v1",
+  "argv": [
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--die-with-parent",
+    "--new-session",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/source-03",
+    "/source",
+    "--ro-bind",
+    "/run/user/1000/kpb-fresh-exit-destination-candidate-01/execution-03/terminal-fresh-owner-authorization.signature-input.json",
+    "/public/SIGNATURE-INPUT.json",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/normalizer-smoke-02/public/CONFIG.json",
+    "/public/CONFIG.json",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/normalize_smoke_worker-02.py",
+    "/public/normalize_smoke_worker.py",
+    "--bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/normalizer-smoke-02/owner",
+    "/owner",
+    "--bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/normalizer-smoke-02/public",
+    "/out",
+    "--ro-bind",
+    "/var/tmp/kpi-nativeauthspend-work-01/build-03/cpp0/private_authorization_cpp/private_authorization",
+    "/generator/private_authorization",
+    "--ro-bind",
+    "/var/tmp/kpi-nativeauthspend-work-01/build-03/cpp0/private_authorization_cpp/private_authorization.dat",
+    "/generator/private_authorization.dat",
+    "--ro-bind",
+    "/var/tmp/kpi-nativeauthspend-work-01/build-03/ordinary/private_authorization.r1cs",
+    "/signature/ordinary.r1cs",
+    "--ro-bind",
+    "/var/tmp/kpi-nativeauthspend-work-01/build-03/cpp0/private_authorization.r1cs",
+    "/signature/cpp0.r1cs",
+    "--ro-bind",
+    "/var/tmp/kpi-nativeauthspend-work-01/build-03/ordinary/private_authorization.sym",
+    "/signature/ordinary.sym",
+    "--ro-bind",
+    "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/node",
+    "/runtime/node",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/native-authority/harness/worker.mjs",
+    "/src/harness/worker.mjs",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/native-authority/source-bridge/signature-component-adapter-selected.mjs",
+    "/src/source-bridge/signature-component-adapter-selected.mjs",
+    "--ro-bind",
+    "/run/user/1000/kpi-nativeauthspend-resume-20261028-03/JS-INSTALLED-LEAF-MAP.json",
+    "/runtime/JS-INSTALLED-LEAF-MAP.json",
+    "--ro-bind",
+    "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules",
+    "/src/node_modules",
+    "--ro-bind",
+    "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules",
+    "/runtime/js/node_modules",
+    "--chdir",
+    "/owner",
+    "--setenv",
+    "PATH",
+    "/usr/bin:/bin",
+    "--setenv",
+    "LANG",
+    "C.UTF-8",
+    "/usr/bin/python3",
+    "-B",
+    "/public/normalize_smoke_worker.py"
+  ],
+  "worker_sha256": "73a973bb4b988ffb1699502f21412aa1b2ca67cd35e9ecff3d30c28e20d8cabd",
+  "public_known_seed_fixture": "00..1f; existing qualified control03 signature input",
+  "public_input_sha256": "1805e485da8bb3628626c6fe588afab511b2b8b63cfd6309669a7ca92ebe40b3",
+  "public_reference_witness_sha256": "1e5d5ec465a481abc5860c81d2e880a8ce36e01a0dcdc09b363ce416fc2dcc06",
+  "source_members": [
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/owner_record.py",
+      "sha256": "4ca23ca7a36ecddf5a3eb65b3aed45ef3bd2b7b8253e18b877d3aaee2b1168f3"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/lifecycle_worker.py",
+      "sha256": "6e15c7a0c463227e8fddb0787697c0d91becb73406f2269355b4dc5ef1365bce"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/private_lifecycle.py",
+      "sha256": "b49bfda5c5f423b47d64e07ebe755a2ce7484614b299923317283e7cf5e71b79"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_colluder.py",
+      "sha256": "19e2060d1cd0ceec6e7abc529ab04a570a8f0cc80b99214f03f4e846075e3636"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_colluder_worker.py",
+      "sha256": "f677262950b7f951d04a6d5e4b64086eb9fed6475bab85129995f80618e17a8c"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_colluder_fixture.py",
+      "sha256": "457a1bd6e178b21d8f1aee49ff9f3c9eb82bd91a92c6d286548cff83e3076ce0"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_colluder_test.py",
+      "sha256": "f9ec3a62ab1c54ed330f1424dc0ffb4dd01c03b319850f7e035ab54c3ff269d4"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/owner_record_test.py",
+      "sha256": "a8e1cf43dc2146a1ae04e2620b37f6649d13371295514c58b7e36833d91220cf"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_launch_test.py",
+      "sha256": "4cac273718dc5af007eae662c38a2c26d19c8bf007d86629ae4905fad78de026"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_codec.py",
+      "sha256": "9523699d392f7d2c53a47f9ae96a2ce95099e6a26e3d47d27a0f4908a55455f4"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/exit_wire.py",
+      "sha256": "fabf7361f030e25ec4a52a72691fef4bcfe03f6fef369ff33b8fa55dd01ccb6a"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/output_producer.py",
+      "sha256": "e074f3a1f3cf68381c5809cc343c796810e3139c6b0e35ab8e683968712677e6"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/output_verifier.py",
+      "sha256": "e422f79bf188b2157c38df0940805c882b6f96e93b9bf19ee64e15d94245dbdd"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/private_worker.py",
+      "sha256": "11404a50c434931dc4408f5a60e76792e212195b5566749abd96af6753cc8be7"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/wallet_history.py",
+      "sha256": "609850ab3df16d4936d2a0ac07bf06be7c865b31a1bb619bd32924f78035a20f"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/wallet_profile.py",
+      "sha256": "4991baef65d13a91a7944f21bc7750b77c5776dc6f7c4d2c6844ca5b8f39e289"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_owner.py",
+      "sha256": "cbc19629d7328ba1e416b62720d5edfe8d0e7be3a98a7c71ecaddcda68cc4198"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/fresh_self_payout.py",
+      "sha256": "886fed167f177fd1781bddf090ca2b5fd01dd2df7d10f5a664016f6aee46d456"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/component_run.py",
+      "sha256": "77730831655c37745a4fef9bab683a266605af28c4a8282f6e549e7acc267149"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/new_private_trial.py",
+      "sha256": "0fb3ca17a6ae244c105750bd8f1b2438664b872c92f0de74c816f49251571d1d"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_launch.py",
+      "sha256": "b9df78ecedcd21fa51490b5bc8636e592230676368de27c1df900b6e886df24a"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_observer.py",
+      "sha256": "f152b5745a0382de59f472885eba58c6eff910426016e3c7281437ee7967c3bd"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_test.py",
+      "sha256": "aac7c55d3530d15887d98cbc12d4a74133b6326e90e0bcdc8ce063ef559d74ca"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/owner_authority.mjs",
+      "sha256": "f7badf17d1da44a685682857473a60062636e8029fd7c238d99bbc4220139597"
+    },
+    {
+      "path": "/source/poc/future-recipient/v2/recipient.py",
+      "sha256": "93a3d01b99e6c8f0ac6f3d682d41f65d2cc2d40489d1fbd4226f1fb351edd1d2"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch_trial/privacy_roles.py",
+      "sha256": "835d1c92e7ec9436c31423adef0d24adb2f400cac4e479e99cb26fc39af7bed8"
+    },
+    {
+      "path": "/source/poc/local-private-payment/private_batch/intent.py",
+      "sha256": "0e38ab30d79ff670025d4b399e44f9ab4773796d7b22d4c9efc11b56a4e5dcee"
+    },
+    {
+      "path": "/source/poc/local-private-payment/verification/wire.py",
+      "sha256": "6727e00a143596dbd31abf06c7fd5a2ceafa07082d6e3e6de47fa389a826def8"
+    },
+    {
+      "path": "/source/poc/local-private-payment/integration/trees.py",
+      "sha256": "4936a7b571187469755b9aafae275c61ac589eb70ecd6a8efbced862d8c3bd3b"
+    }
+  ],
+  "runtime_members": [
+    {
+      "path": "/generator/private_authorization",
+      "sha256": "ae4afbca91cc9dc21e987ec680f5a494f8a7c104b2cb83d510869cc50e718a08"
+    },
+    {
+      "path": "/generator/private_authorization.dat",
+      "sha256": "61735c1ae6ac1e04c9c82307f217f8853d6d47ba00849027598edfd9b787c4f9"
+    },
+    {
+      "path": "/signature/ordinary.r1cs",
+      "sha256": "808fa904af765ed3e39186269ca347b273fafd861a7579a321fa444b75d08a35"
+    },
+    {
+      "path": "/signature/cpp0.r1cs",
+      "sha256": "808fa904af765ed3e39186269ca347b273fafd861a7579a321fa444b75d08a35"
+    },
+    {
+      "path": "/signature/ordinary.sym",
+      "sha256": "288da5195c07905f560ea06730d645c1c40db0dfacd5dd9f608b5688792f32a4"
+    },
+    {
+      "path": "/runtime/node",
+      "sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c"
+    },
+    {
+      "path": "/src/harness/worker.mjs",
+      "sha256": "d5d8ecb41fc14a487501938bae6668c16a5250367f24c71755fbc0ad8fe2e863"
+    },
+    {
+      "path": "/src/source-bridge/signature-component-adapter-selected.mjs",
+      "sha256": "7cb1579791fe61d2675ebd0f88c923362d6d5632226fcc8f5cb13fe9a7a70161"
+    },
+    {
+      "path": "/runtime/JS-INSTALLED-LEAF-MAP.json",
+      "sha256": "00b536cab3799984c2a2f9895329bc410daa0f11f5093f10aa48d92f3abdca50"
+    }
+  ],
+  "no_Original_or_private_owner_record": true,
+  "new_proof_not_claimed": true,
+  "prior_failure_preserved": "normalizer-smoke-01/RESULT.json",
+  "only_bootstrap_correction": "Add unchanged dynamically imported integration/trees.py; worker/functions/runtime/real input/reference unchanged"
+}

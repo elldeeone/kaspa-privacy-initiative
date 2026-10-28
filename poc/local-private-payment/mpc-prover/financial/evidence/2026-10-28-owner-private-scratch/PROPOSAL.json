@@ -1,0 +1,62 @@
+{
+  "schema": "kpi-owner-private-scratch-record-proposal/v1",
+  "files": [
+    {
+      "name": "owner_record.py",
+      "path": "poc/local-private-payment/private_batch_trial/owner_record.py",
+      "before_sha256": null,
+      "after_sha256": "4ca23ca7a36ecddf5a3eb65b3aed45ef3bd2b7b8253e18b877d3aaee2b1168f3"
+    },
+    {
+      "name": "lifecycle_worker.py",
+      "path": "poc/local-private-payment/private_batch_trial/lifecycle_worker.py",
+      "before_sha256": "b834a6eaa305524c92da5e406f17e97d18f76846240be035d9c9d2edc6baae8e",
+      "after_sha256": "6e15c7a0c463227e8fddb0787697c0d91becb73406f2269355b4dc5ef1365bce"
+    },
+    {
+      "name": "private_lifecycle.py",
+      "path": "poc/local-private-payment/private_batch_trial/private_lifecycle.py",
+      "before_sha256": "0afd2116048af0e5fcc3368ba7d36c396ca495351541f87642c0c0f74d569be5",
+      "after_sha256": "b49bfda5c5f423b47d64e07ebe755a2ce7484614b299923317283e7cf5e71b79"
+    },
+    {
+      "name": "privacy_colluder.py",
+      "path": "poc/local-private-payment/private_batch_trial/privacy_colluder.py",
+      "before_sha256": "14eede050f53c6215c5cabf0563fda1978b16ca27e9c9d8c62f7e8bb82677b54",
+      "after_sha256": "19e2060d1cd0ceec6e7abc529ab04a570a8f0cc80b99214f03f4e846075e3636"
+    },
+    {
+      "name": "privacy_colluder_worker.py",
+      "path": "poc/local-private-payment/private_batch_trial/privacy_colluder_worker.py",
+      "before_sha256": "b0dc18d02c7cf3fa3f49a4e16670dac1414e75a71babcc534e3adda17edaf351",
+      "after_sha256": "f677262950b7f951d04a6d5e4b64086eb9fed6475bab85129995f80618e17a8c"
+    },
+    {
+      "name": "privacy_colluder_fixture.py",
+      "path": "poc/local-private-payment/private_batch_trial/privacy_colluder_fixture.py",
+      "before_sha256": "03f07299b629c466413dca39ff50f21514803332db29a326f40dfe8df24b502a",
+      "after_sha256": "457a1bd6e178b21d8f1aee49ff9f3c9eb82bd91a92c6d286548cff83e3076ce0"
+    },
+    {
+      "name": "privacy_colluder_test.py",
+      "path": "poc/local-private-payment/private_batch_trial/privacy_colluder_test.py",
+      "before_sha256": "e196c77d46b5ecc67617021e25950112678b2fd2025db980ce96eee9db68883d",
+      "after_sha256": "f9ec3a62ab1c54ed330f1424dc0ffb4dd01c03b319850f7e035ab54c3ff269d4"
+    }
+  ],
+  "public_schema_max_JSON_bytes": 9823,
+  "fixed_retained_record_bytes": 32768,
+  "magic_ascii16": "KPB_OWNER_REC_V2",
+  "original_fullrecord_fields_preserved": true,
+  "private_tmpfs_scratch": "existing/tmp; unique subdirectory kept alive for pay/Exit child consumers",
+  "new_record_no_legacy_fallback_or_public_private_hash": true,
+  "canonical_installed": false,
+  "prechange_checkpoint": "b1a7df20c30c178a8c81a4f66d1ce89287f121d5",
+  "patch_sha256": "9efdd93dc4c6636430ca20f699cd1973f9551bcbcdb39ea6faecc14e6e4c1a65",
+  "focused_test_source": {
+    "path": "poc/local-private-payment/private_batch_trial/owner_record_test.py",
+    "sha256": "a8e1cf43dc2146a1ae04e2620b37f6649d13371295514c58b7e36833d91220cf",
+    "unit_methods": 5,
+    "PUBLIC_schema_only": true
+  }
+}

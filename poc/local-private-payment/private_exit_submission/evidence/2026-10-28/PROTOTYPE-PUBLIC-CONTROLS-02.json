@@ -1,0 +1,45 @@
+{
+  "broadcast": false,
+  "command": [
+    "/usr/bin/python3.14",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_transport.py"
+  ],
+  "evidence_mode": "observed exec_command result; stdout not separately retained",
+  "exit_code": 0,
+  "financial_acceptance": false,
+  "launch_boundary_qualified": false,
+  "meaningful_controls": [
+    "terminal/continuing exact bytes",
+    "malformed frame tag/size/length",
+    "reject non-onion destination",
+    "accept order retained across reverse body completion",
+    "canonical singleton headers and duplicate length/TE rejection",
+    "parser and unsupported method arrivals retained",
+    "first memfd closes if second allocation fails"
+  ],
+  "not_executed": [
+    "Tor network",
+    "Original owner role",
+    "proof verification",
+    "NativeFull",
+    "chain submission",
+    "broadcast"
+  ],
+  "privacy_claim": false,
+  "recorded_utc": "2026-10-28T11:47:36.134083+00:00",
+  "schema": "kpb-isolated-exit-transport-public-controls/v1",
+  "scope": "PUBLIC_SYNTHETIC_FRAMING_AND_LOOPBACK_HTTP_ONLY",
+  "source_sha256": {
+    "packet.py": "7c0ad5f630a94a1481384c8726d98ebcfbab7ff1f6ba5395b3d8da9fafda38a6",
+    "receiver.py": "0375401b3f3b2844c60e78bf4450cf1ad7f8e574462bc98b71395078d07601ac",
+    "test_transport.py": "0c0770d4ee425edc01fb1ea6bb6f56382a0e911f32ae4d7d4f7eba74aff8bc0c",
+    "transport.py": "88cb8d0c0eb7c8a533556f7323d30c115a56a97a53b45263b3f0932dbbeba4f4"
+  },
+  "tests_passed": 9,
+  "unittest_elapsed_seconds": 2.019,
+  "working_directory": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01/prototype"
+}

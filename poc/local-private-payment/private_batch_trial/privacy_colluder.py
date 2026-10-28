@@ -10,6 +10,7 @@ import runpy
 import subprocess
 
 import privacy_codec as codec
+import owner_record
 import privacy_launch as launch
 
 HERE = Path(__file__).absolute().parent
@@ -25,7 +26,7 @@ LEAF_MAP_PIN = '00b536cab3799984c2a2f9895329bc410daa0f11f5093f10aa48d92f3abdca50
 def sources():
     values = {name: HERE / name for name in ('privacy_colluder.py', 'privacy_colluder_worker.py',
         'privacy_launch.py', 'privacy_codec.py', 'privacy_observer.py', 'private_worker.py',
-        'wallet_profile.py', 'output_producer.py', 'owner_authority.mjs')}
+        'wallet_profile.py', 'output_producer.py', 'owner_authority.mjs', 'owner_record.py')}
     values['recipient.py'] = HERE.parents[1] / 'future-recipient/v2/recipient.py'
     return values
 
@@ -64,13 +65,14 @@ def run(selection_path, selection_sha256, round_number, execute=False):
     bound = diagnostic['binding']; part = rounds[round_number - 1]
     own = launch.owner_directory(private, part['payments']['owners'][1])
     original = private / 'owner-1' / 'BACKUP.json'
-    record = own / 'OWNER-LOCAL-RECORD.json'; destination = launch.checked(own / 'COLLUDER-CONSTRAINTS.json')
+    record = own / owner_record.LEAF; destination = launch.checked(own / 'COLLUDER-CONSTRAINTS.json')
     state = private / 'owner-1' / 'diagnostics' / ('private-batch-colluder-round-' + str(round_number))
     output = trial_public / 'privacy-diagnostics' / ('colluder-round-' + str(round_number))
     if not execute:
         return {'schema': 'kpb-colluder-view-producer-plan/v1', 'binding': bound, 'round': round_number,
                 'owner_component': 1, 'executed': False, 'private_bodies_read_or_hashed': False}
     launch.leaf_metadata(original, 0o600); launch.leaf_metadata(record, 0o600)
+    codec.need(record.lstat().st_size == owner_record.FRAME_BYTES, 'privacy-fixed-owner-record-size')
     codec.need(not destination.exists() and not output.exists(), 'privacy-original-colluder-view-once-only')
     # Only public software is read or hashed in the controller. The worker
     # independently checks all installed JS leaves inside the owner namespace.
@@ -106,7 +108,7 @@ def run(selection_path, selection_sha256, round_number, execute=False):
         '--ro-bind', str(NODE), '/runtime/node', '--ro-bind', str(CRYPTO), '/runtime/crypto',
         '--ro-bind', str(JS_ROOT / 'node_modules'), '/runtime/js/node_modules',
         '--ro-bind', str(LEAF_MAP), '/runtime/JS-INSTALLED-LEAF-MAP.json',
-        '--ro-bind', str(original), '/original/BACKUP.json', '--ro-bind', str(record), '/own/OWNER-LOCAL-RECORD.json',
+        '--ro-bind', str(original), '/original/BACKUP.json', '--ro-bind', str(record), '/own/' + owner_record.LEAF,
         '--ro-bind', str(config_path), '/CONFIG.json', '--ro-bind', str(marker), '/NAMESPACE.json',
         '--bind', str(private_output), '/private-output', '--bind', str(output), '/out',
         '/usr/bin/python3', '-B', '-S', str(HERE / 'privacy_colluder_worker.py')]

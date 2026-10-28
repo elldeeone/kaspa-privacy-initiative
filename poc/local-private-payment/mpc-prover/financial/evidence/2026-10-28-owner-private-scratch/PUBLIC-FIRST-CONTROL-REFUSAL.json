@@ -1,0 +1,33 @@
+{
+  "schema": "kpi-owner-private-scratch-public-controls/v1",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "owner_record_test"
+      ],
+      "exit": 0,
+      "wall_seconds": 0.05289872002322227,
+      "PUBLIC_test_stdout": "",
+      "PUBLIC_test_stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.008s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "privacy_colluder_test.ActualColluderNamespace.test_actual_known_seed_CF_derivation_and_original_leaf_routing"
+      ],
+      "exit": 1,
+      "wall_seconds": 7.975735120009631,
+      "PUBLIC_test_stdout": "",
+      "PUBLIC_test_stderr": "E\n======================================================================\nERROR: setUpClass (privacy_colluder_test.ActualColluderNamespace)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/source/poc/local-private-payment/private_batch_trial/privacy_colluder_test.py\", line 36, in setUpClass\n    def setUpClass(cls): launcher_test.LauncherControls.setUpClass()\n                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/source/poc/local-private-payment/private_batch_trial/privacy_launch_test.py\", line 26, in setUpClass\n    path = launch.HERE / name; cls.source_cache[path] = cls.real_read(path)\n                                                        ~~~~~~~~~~~~~^^^^^^\n  File \"/var/tmp/kpi-root-guard-helper-09.py\", line 31, in read\n    _, info = m.GUARD.metadata(p)\n              ~~~~~~~~~~~~~~~~^^^\n  File \"/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/four-wallet-profile/outer_run.py\", line 77, in metadata\n    info = path.stat()\n  File \"/usr/lib/python3.14/pathlib/__init__.py\", line 655, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/owner-scratch-record-candidate-01/source/poc/local-private-payment/private_batch_trial/privacy_roles.py'\n\n----------------------------------------------------------------------\nRan 0 tests in 7.881s\n\nFAILED (errors=1)\n"
+    }
+  ],
+  "status": "INCOMPLETE_OR_FAIL",
+  "no_actual_private_or_recorder_use": true
+}

@@ -9,6 +9,14 @@ Canonical producer build and writer unit checks passed, as did seventeen
 integrated receipt, metadata and routing controls. This does not qualify a
 complete financial batch. The active immutable Source05 run is unchanged.
 
+The follow-up local metadata repair is also implemented. Signature inputs,
+normalized witness, matrix, mapping and immediate auxiliary request/record stay
+on the owner's existing namespace-local `/tmp` tmpfs. Five focused record tests
+and the existing genuine public-known-seed colluder fixture passed. A real stock
+signature-generator/normalizer check reproduced the same 10,049-variable witness
+bytes while leaving the host-bound owner directory empty. These controls use
+public fixtures, not actual private owner data.
+
 ## Privacy problem
 
 The owner auxiliary producer writes one unpadded decimal integer per field
@@ -42,6 +50,28 @@ payload bytes and exactly 84,333,120 total bytes, independent of private values.
 Do not compress this file into a value-dependent container on the observed path.
 Only public format/count/size metadata may enter controller receipts; do not
 publish a private body hash.
+
+## Temporary material and retained colluder knowledge
+
+Fixing the final Fr32 file alone leaves variable-length signature JSON files in
+the host-bound owner directory. Keep those intermediates on private namespace
+tmpfs instead. The existing colluder diagnostic legitimately consumes the full
+owner-local record later; deleting it would weaken that observer.
+
+Retain every existing record field using `OWNER-LOCAL-RECORD-V2.bin`, exactly
+32,768 bytes: 16-byte `KPB_OWNER_REC_V2`, owner u64LE, private JSON length u64LE,
+the unchanged canonical full JSON, then zero padding. The existing public field
+widths and integer ranges bound that JSON at 9,823 bytes. The strict decoder
+checks the exact owner, frame size, field schema/ranges, canonical encoding and
+zero padding. It has no text fallback and exports no private-content hash.
+Only the isolated owner/colluder roles read that body. Persist it after the
+existing auxiliary checks succeed; keep the genuine CF/NF knowledge unchanged.
+
+Both pay and Exit normalization reuse the existing `/tmp` mount. Its namespace
+placement removes these host-bound directory entries from the declared metadata
+view; it does not protect against a host administrator inspecting process memory
+or namespaces. File-size statements concern the selected dense, uncompressed
+files. Timing, access patterns and the complete server view remain separate.
 
 Reuse the existing Fr semantics, owner auxiliary ordering, public job binding,
 TLS authentication, masked DDNNT input, private assignment and proof checks.

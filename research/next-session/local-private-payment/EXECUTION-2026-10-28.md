@@ -84,6 +84,13 @@ keys or profile:
    receipt/metadata/routing controls and a genuine small three-party MPC proof
    passed. This removes a file-size dependency, not timing or route disclosure.
 
+The follow-up ADR-0081 repair keeps signature intermediates and immediate
+auxiliary files on namespace tmpfs, retaining the full later colluder record in
+a strict 32,768-byte frame. Five focused record tests and the genuine public
+colluder fixture passed with unchanged CF/NF facts. The actual stock normalizer
+reproduced the same 10,049-variable witness and left the host-bound owner directory
+empty. Frozen prior source/evidence and the active Source05 run remain unchanged.
+
 The next decisive measurement is the separately frozen
 [paired private Original payout study](private-batch-2026-10-28/PRIVACY-PAYOUT-LINKAGE-METHOD-02-FREEZE.md).
 It compares invoice-key payouts with fresh destinations while retaining amounts,

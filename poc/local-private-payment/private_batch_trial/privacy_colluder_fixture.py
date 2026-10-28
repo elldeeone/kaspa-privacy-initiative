@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """PUBLIC KNOWN-SEED crypto fixture only; dummy CVs/proofs, no financial claim."""
+import owner_record
 import hashlib
 import os
 from pathlib import Path
@@ -41,9 +42,14 @@ def run():
             for index, nf in enumerate(nfs): projection[193 + 404 + index * 96:193 + 436 + index * 96] = nf
             for index, row in enumerate(rows): projection[193 + 692 + index * 520:193 + 692 + (index + 1) * 520] = row
             boundary.write('/out/PROJECTION-' + str(r) + '.bin', bytes(projection), 0o400)
-            boundary.write('/out/RECORD-' + str(r) + '.json', {'schema': 'kpb-private-original-owner-record/v1',
-                'owner_component': 1, 'input': {'nf_hex32': nfs[INPUT_OWNERS[r - 1].index(1)].hex()},
-                'outputs': [{'tuple_hex520': row.hex()} for row in own_rows]}, 0o600)
+            # Unused fields are PUBLIC schema-only boundary placeholders, not
+            # financial witness claims. The actual CF/NF creation facts stay exact.
+            record = owner_record._maximum(owner_record.RECORD)
+            record['owner_component'] = 1
+            record['input']['nf_hex32'] = nfs[INPUT_OWNERS[r - 1].index(1)].hex()
+            for item, row in zip(record['outputs'], own_rows):
+                item['tuple_hex520'] = row.hex()
+            boundary.write('/out/RECORD-' + str(r) + '-V2.bin', owner_record.encode(record, 1), 0o600)
     boundary.write('/out/PUBLIC.json', {'schema': 'kpb-PUBLIC-known-seed-crypto-fixture-result/v1',
         'actual_CF_crypto': True, 'dummy_CV_and_proofs': True, 'actual_private_Original_or_truth': False,
         'financial_or_privacy_claim': False}, 0o400)

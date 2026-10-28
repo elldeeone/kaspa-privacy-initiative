@@ -85,7 +85,7 @@ def source_selection(shared, read, operation):
     paths += [HERE.parent / 'private_batch/intent.py', HERE.parent / 'integration/trees.py',
         HERE.parent / 'verification/wire.py', HERE.parents[1] / 'future-recipient/v2/recipient.py']
     if operation == 'pay':
-        paths += [HERE / 'privacy_owner.py', HERE / 'privacy_codec.py']
+        paths += [HERE / 'privacy_owner.py', HERE / 'privacy_codec.py', HERE / 'owner_record.py']
     if operation in ('scan', 'exit'):
         paths += [HERE / 'fresh_self_payout.py']
     rows = []
@@ -191,6 +191,9 @@ def execute(slot, operation, original_parent, private, public, shared, config, r
             and commitment['round'] == config['round'] and commitment['truth_or_identifiers_exported'] is False,
             'actual-owner-local-truth-commitment-only')
         codec.word(commitment['salted_commitment_sha256'])
+    if operation == 'pay':
+        import owner_record
+        private_leaf(own / owner_record.LEAF, owner_record.FRAME_BYTES)
     leaf = {'invoice': 'INVOICE208.bin', 'pay': 'OWNER-PRIVATE-INPUT-V2.bin', 'exit': 'EXIT-CANDIDATE.json'}.get(operation)
     if leaf:
         private_leaf(own / leaf, 208 if operation == 'invoice' else (84_333_120 if operation == 'pay' else None))

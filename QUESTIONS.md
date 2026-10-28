@@ -640,3 +640,13 @@ The held JSON fallback and old fee/privacy failures are not reinterpreted.
 - Extend [ADR-0081](docs/adr/0081-fixed-width-private-owner-records.md) from the
   passing canonical producer/parser, integrated caller and small three-party MPC
   controls to the complete financial job, preserving witness and proof checks.
+- Can the optional [owner-origin submission experiment](docs/rfc/0031-owner-origin-exit-submission.md)
+  remove explicit owner-labelled clear handoff while retaining actual arrivals,
+  timing and independent direct Exit? Same-host/global timing privacy and any
+  full-view candidate gain remain unqualified.
+
+The [public source-order counterexample](research/next-session/local-private-payment/private-batch-2026-10-28/PRIVACY-PAYOUT-LINKAGE-SOURCE-ORDER-COUNTEREXAMPLE-02.json)
+already shows why separate-arm address counts are insufficient: direct invoice
+matches fall from three to zero, but the published shared order leaves one
+candidate per owner in both arms. This is a public synthetic control; the actual
+private-wallet study remains separate, and the old H1 failure is unchanged.

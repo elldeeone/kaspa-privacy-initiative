@@ -13,6 +13,7 @@ from pathlib import Path
 import secrets
 import subprocess
 import sys
+import tempfile
 
 import exit_wire
 import output_producer
@@ -60,26 +61,27 @@ def private_call(argv, value=None):
 
 
 def normalize(inputs):
-    """Run the pinned stock signature generator and normalizer in this sandbox."""
-    write('/owner/SIGNATURE-INPUT.json', inputs)
-    private_call(['/generator/private_authorization', '/owner/SIGNATURE-INPUT.json', '/owner/SIGNATURE.wtns'])
+    """Keep signature material on this owner namespace's existing /tmp tmpfs."""
+    scratch = Path(tempfile.mkdtemp(prefix='kpb-owner-signature-', dir='/tmp'))
+    write(scratch / 'SIGNATURE-INPUT.json', inputs)
+    private_call(['/generator/private_authorization', scratch / 'SIGNATURE-INPUT.json', scratch / 'SIGNATURE.wtns'])
     artifacts = {name: read('/signature/' + name) for name in ('ordinary.r1cs', 'cpp0.r1cs', 'ordinary.sym')}
     request = {'mode': 'witness', 'ordinaryR1csHex': artifacts['ordinary.r1cs'].hex(),
         'cpp0R1csHex': artifacts['cpp0.r1cs'].hex(), 'symHex': artifacts['ordinary.sym'].hex(),
-        'wtnsHex': read('/owner/SIGNATURE.wtns').hex(),
+        'wtnsHex': read(scratch / 'SIGNATURE.wtns').hex(),
         'frozen': {'mappingSha256': MAP_SHA, 'normalizedMatrixSha256': MATRIX_SHA}}
     normalized = parse(private_call(['/runtime/node', '/src/harness/worker.mjs'], request))
     for name, pin in (('matrix', MATRIX_SHA), ('mapping', MAP_SHA)):
         need(normalized[name]['sha256'] == pin, 'owner-selected-signature-layout')
         raw = bytes.fromhex(normalized[name]['hex'])
         need(hashlib.sha256(raw).hexdigest() == pin, 'owner-signature-layout-bytes')
-        write('/owner/SIGNATURE-' + name.upper() + '.json', raw)
+        write(scratch / ('SIGNATURE-' + name.upper() + '.json'), raw)
     witness = bytes.fromhex(normalized['witness']['hex'])
     witness_sha = hashlib.sha256(witness).hexdigest()
     need(witness_sha == normalized['witness']['sha256'], 'owner-signature-witness-bytes')
-    write('/owner/SIGNATURE-WITNESS.json', witness)
-    return {'matrix': '/owner/SIGNATURE-MATRIX.json', 'matrix_sha256': MATRIX_SHA,
-        'mapping_sha256': MAP_SHA, 'witness': '/owner/SIGNATURE-WITNESS.json', 'witness_sha256': witness_sha}
+    write(scratch / 'SIGNATURE-WITNESS.json', witness)
+    return {'matrix': str(scratch / 'SIGNATURE-MATRIX.json'), 'matrix_sha256': MATRIX_SHA,
+        'mapping_sha256': MAP_SHA, 'witness': str(scratch / 'SIGNATURE-WITNESS.json'), 'witness_sha256': witness_sha}
 
 
 def own_initial_cv(receiver, prover, history):
@@ -148,7 +150,8 @@ def prepare_payment(receiver, prover, history, config):
         'intent_hex1460': raw_intent.hex(),
         'signature': {key: signature[key] for key in ('owner_key_hex64', 'R8', 'S')},
         'signature_inputs': inputs}
-    write('/owner/OWNER-LOCAL-RECORD.json', record)
+    scratch = Path(normalized['witness']).parent
+    write(scratch / 'OWNER-LOCAL-RECORD.json', record)
     # The prospective method is fixed before this operation. Truth stays in
     # this owner role; only a fresh salted commitment leaves it. No controller
     # reads/hashes the truth body or learns the creator correspondence.
@@ -162,8 +165,8 @@ def prepare_payment(receiver, prover, history, config):
         'signature_matrix_path': 'SIGNATURE-MATRIX.json', 'signature_witness_path': 'SIGNATURE-WITNESS.json',
         'expected_matrix_sha256': MATRIX_SHA, 'expected_mapping_sha256': MAP_SHA,
         'expected_witness_sha256': normalized['witness_sha256']}
-    write('/owner/OWNER-AUX-REQUEST.json', request)
-    private_call(['/runtime/owner-aux', '/owner/OWNER-AUX-REQUEST.json',
+    write(scratch / 'OWNER-AUX-REQUEST.json', request)
+    private_call(['/runtime/owner-aux', scratch / 'OWNER-AUX-REQUEST.json',
                   '/owner/OWNER-PRIVATE-INPUT-V2.bin', '/owner/OWNER-AUX-PUBLIC.json'])
     auxiliary = parse(read('/owner/OWNER-AUX-PUBLIC.json'))
     need(auxiliary['schema'] == 'kpi-owner-local-aux-public-receipt/v2'
@@ -172,6 +175,9 @@ def prepare_payment(receiver, prover, history, config):
          and auxiliary['owner_file_bytes'] == 84_333_120
          and auxiliary['native_edges'] == 66 and auxiliary['signature_rows_checked'] is True
          and auxiliary['combined_dealer'] is False, 'owner-complete-actual-auxiliary')
+    # Preserve all genuine owner/colluder knowledge, with constant host file size.
+    import owner_record
+    write(Path('/owner') / owner_record.LEAF, owner_record.encode(record, component))
     return {'actual_output_proofs': 2, 'actual_restricted_intent_signature': True,
             'actual_signature_normalization': True, 'owner_private_auxiliary_values': 2_635_409,
             'owner_input_encoding': 'KPB_OWNER_FR32V2', 'owner_private_file_bytes': 84_333_120,

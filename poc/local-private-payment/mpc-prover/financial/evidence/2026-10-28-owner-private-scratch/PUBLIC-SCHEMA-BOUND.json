@@ -1,0 +1,159 @@
+{
+  "schema": "kpi-PUBLIC-owner-record-fieldwise-bound/v1",
+  "record_schema": {
+    "schema": {
+      "type": "literal",
+      "value": "kpb-private-original-owner-record/v1"
+    },
+    "owner_component": {
+      "type": "owner-integer",
+      "values": [
+        0,
+        1,
+        2
+      ]
+    },
+    "input": {
+      "note_hex168": {
+        "type": "lowerhex-string",
+        "bytes": 168
+      },
+      "nk_hex32": {
+        "type": "lowerhex-string",
+        "bytes": 32
+      },
+      "position": {
+        "type": "integer",
+        "bits": 32
+      },
+      "path_hex32": {
+        "type": "array",
+        "count": 16,
+        "element": {
+          "type": "lowerhex-string",
+          "bytes": 32
+        }
+      },
+      "cv_hex64": {
+        "type": "lowerhex-string",
+        "bytes": 64
+      },
+      "blind_hex32": {
+        "type": "lowerhex-string",
+        "bytes": 32
+      },
+      "ak_hex64": {
+        "type": "lowerhex-string",
+        "bytes": 64
+      },
+      "nf_hex32": {
+        "type": "lowerhex-string",
+        "bytes": 32
+      }
+    },
+    "fee_sompi": {
+      "type": "integer",
+      "bits": 64
+    },
+    "nonce_hex32": {
+      "type": "lowerhex-string",
+      "bytes": 32
+    },
+    "outputs": {
+      "type": "array",
+      "count": 2,
+      "element": {
+        "tuple_hex520": {
+          "type": "lowerhex-string",
+          "bytes": 520
+        },
+        "note_hex168": {
+          "type": "lowerhex-string",
+          "bytes": 168
+        },
+        "blind_hex32": {
+          "type": "lowerhex-string",
+          "bytes": 32
+        }
+      }
+    },
+    "private_delta_hex32": {
+      "type": "lowerhex-string",
+      "bytes": 32
+    },
+    "intent_hex1460": {
+      "type": "lowerhex-string",
+      "bytes": 1460
+    },
+    "signature": {
+      "owner_key_hex64": {
+        "type": "lowerhex-string",
+        "bytes": 64
+      },
+      "R8": {
+        "type": "array",
+        "count": 2,
+        "element": {
+          "type": "canonical-decimal-string",
+          "exclusive_maximum_decimal": "21888242871839275222246405745257275088548364400416034343698204186575808495617"
+        }
+      },
+      "S": {
+        "type": "canonical-decimal-string",
+        "exclusive_maximum_decimal": "2736030358979909402780800718157159386076813972158567259200215660948447373041"
+      }
+    },
+    "signature_inputs": {
+      "digestLimbs": {
+        "type": "array",
+        "count": 2,
+        "element": {
+          "type": "canonical-decimal-string",
+          "exclusive_maximum_decimal": "21888242871839275222246405745257275088548364400416034343698204186575808495617"
+        }
+      },
+      "ownerKeyBytes": {
+        "type": "array",
+        "count": 64,
+        "element": {
+          "type": "canonical-decimal-string",
+          "exclusive_maximum_decimal": "256"
+        }
+      },
+      "sigR8": {
+        "type": "array",
+        "count": 2,
+        "element": {
+          "type": "canonical-decimal-string",
+          "exclusive_maximum_decimal": "21888242871839275222246405745257275088548364400416034343698204186575808495617"
+        }
+      },
+      "sigS": {
+        "type": "canonical-decimal-string",
+        "exclusive_maximum_decimal": "2736030358979909402780800718157159386076813972158567259200215660948447373041"
+      },
+      "preimageA": {
+        "type": "array",
+        "count": 2,
+        "element": {
+          "type": "canonical-decimal-string",
+          "exclusive_maximum_decimal": "21888242871839275222246405745257275088548364400416034343698204186575808495617"
+        }
+      },
+      "preimageR8": {
+        "type": "array",
+        "count": 2,
+        "element": {
+          "type": "canonical-decimal-string",
+          "exclusive_maximum_decimal": "21888242871839275222246405745257275088548364400416034343698204186575808495617"
+        }
+      }
+    }
+  },
+  "maximum_canonical_JSON_bytes": 9823,
+  "header_bytes": 32,
+  "fixed_frame_bytes": 32768,
+  "zero_padding_bytes_at_schema_maximum": 22913,
+  "construction": "Fieldwise public maximum widths, canonical sorted compact JSON plusnewline. Not an actual private record and not a financial witness.",
+  "no_sampled_private_input": true
+}
