@@ -1,0 +1,177 @@
+{
+  "backend_required_contracts": [
+    "MAC-retaining scalar and G1/G2 representations",
+    "private alpha context for public constants",
+    "ordered network Beaver multiplication and stock authenticated randomness",
+    "all complete R1CS rows and predicate/dimension checks",
+    "linear FFT on both value and MAC lanes using exact admitted roots and coset",
+    "exact public PK/matrix/source/base agreement",
+    "LibSnark H length N with original Hquery N-1 plus exactly one public identity",
+    "group MAC checks before using opened A/B1 as secret-scalar bases",
+    "complete final checked A/B2/C and independent selected Ark verification"
+  ],
+  "commits": {
+    "MP_SPDZ": "113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+    "co_snarks": "436f63fa17f2f10ece38c6650df68da99fbc0307",
+    "mcl": "9f49ba06593e2d426ab6fb9b0e17bc125a6f720c"
+  },
+  "existing_actual_evidence": {
+    "qualifies_new_Cpp_group_client_FFT_or_prover": false,
+    "receipt": "/var/tmp/kpi-active-mpc-source-gap-ag94i2r1/ACTUAL-FR-SCALAR-REVIEW-01.json",
+    "sha256": "e6e608b62965a28bc19aede5e24ffe5bbb378f2e9ad6f3c6c8f2756e661b3232",
+    "type": "STOCK_MASCOT_FR_SCALAR_COMPATIBILITY_ONLY"
+  },
+  "fields": {
+    "Fq": "21888242871839275222246405745257275088696311157297823662689037894645226208583",
+    "Fr": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+    "Q_still_distinct_for_native_signature_blind_ranges": true,
+    "canonical_private_scalar_input_no_implicit_reduction": true,
+    "mcl_curve": "BN_SNARK1_EXPLICIT_NOT_DEFAULT_BN254"
+  },
+  "frozen_current_489_files_changed": false,
+  "fullproof_gate": {
+    "ABC_nonzero_counts": [
+      3,
+      3,
+      2
+    ],
+    "H_nonzero_for_fixture": true,
+    "a_b1_b2_queries": [
+      5,
+      5,
+      5
+    ],
+    "all_three_complete_identical_valid_proofs_required": true,
+    "clear_party0_combined_witness_cannot_pass_this_gate": true,
+    "constraints": [
+      "x*y=z",
+      "(z+1)*(x+y)=t"
+    ],
+    "derived_h_query": 4,
+    "domain_N": 4,
+    "external_owner_inputs": {
+      "X": 3,
+      "Y": 5
+    },
+    "future_model_key_domain_fixture_and_complete_build_closure_frozen_before_execution": true,
+    "global_columns": [
+      "ONE",
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "l_query": 3,
+    "num_constraints": 2,
+    "num_instance": 2,
+    "num_private": 3,
+    "num_total_variables": 5,
+    "original_h_query": 3,
+    "private_aux_inside_MPC": {
+      "z": 15
+    },
+    "public_instance": [
+      1,
+      128
+    ],
+    "public_synthetic_values_only": true,
+    "public_verifier_wrong_t129_refusal_required": true,
+    "status": "PLANNED_UNRUN",
+    "verifier_inputs": [
+      128
+    ]
+  },
+  "measured_resource_estimate_for_custom_build_or_full_prover": null,
+  "owner_external_input_contract": {
+    "MAC_components_retained_server_side": true,
+    "authenticated_server_input": "AuthConstant(m,private_alpha_i)-[a]",
+    "client_diagnostics_or_masks_exported_to_coordinator": false,
+    "client_pins_Fr_complete_job_model_keys_domain_and_shape": true,
+    "client_requires_active_3n_frames_no_one_mask_fallback": true,
+    "computing_servers": 3,
+    "external_owner_clients_for_first_gate": 2,
+    "fresh_checked_mask_triples_each_input_and_job": true,
+    "masked_value": "m=x+a",
+    "only_triple_VALUE_components_sent_to_client": true,
+    "owner_signing_seed_expanded_scalar_nonce_legacy_spend_secret_or_wallet_backup_ever_input_to_backend": false,
+    "party0_plain_witness_or_trusted_single_server_mode": false,
+    "real_native_profile_input_shape": "Only independently selected NativeAuth circuit witness/authorization fields; local signing authority never a shared witness variable",
+    "requires_all_server_authenticated_TLS": true,
+    "server_requires_present_valid_named_client_certificate": true,
+    "source_protocol": "MP-SPDZ DDNNT15 triple-masked external inputs"
+  },
+  "port_files": [
+    {
+      "file": "owner_inputs_active.hpp/.cpp",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "bn254_values.hpp/.cpp",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "public_model_export.rs",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "verify_public_proof.rs",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "auth_field.hpp",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "auth_fft.hpp/.cpp",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "auth_groth16.hpp/.cpp",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "proof_codec.hpp/.cpp",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    },
+    {
+      "file": "fullproof_gate_main.cpp",
+      "status": "REQUIRED_NOT_IMPLEMENTED"
+    }
+  ],
+  "privacy_dependencies": {
+    "clear_public_instance_timing": "CONDITIONAL_UNQUALIFIED_IF_FINAL_PUBLIC_VALUES_MUST_STAY_HIDDEN_UNTIL_READY_NEEDS_AUTHENTICATED_INSTANCE_AND_DELAYED_DECLASSIFICATION_CONTRACT",
+    "client_to_register_or_public_NF_slot_mapping": "UNQUALIFIED_KEEP_EXISTING_PRIVATE_PERMUTATION_THROUGH_FULL_PROTOCOL",
+    "colluding_server_augmented_transcript_privacy": "UNQUALIFIED_QUESTION_NOT_ASSUMED_DEFECT",
+    "current_NativeAuth_public_scalar_prefix": "TWO_128BIT_SHA256_STATEMENT_LIMBS_NOT_ASSERTED_RAW_NF",
+    "full_effects_binding_weakened_to_hide_NFs": false,
+    "masked_A_and_auxiliary_B1_open_to_computing_servers": "MUST_CHECK_BEFORE_SECRET_MAP_USE_AND_NOT_EXPORT_AUXILIARY_B1_TO_COORDINATOR",
+    "multi_owner_full_effects_consent_without_early_NF_mapping_or_abort_retry_leakage": "NOT_IMPLEMENTED_REQUIRES_SEPARATE_ADR_AND_QUALIFICATION",
+    "owner_current_complete_packet_bytes": 4077,
+    "owner_current_effects_body_bytes": 3756,
+    "owner_current_statement_bytes": 200,
+    "owner_signer_opaque_server_effects_hash_accepted": false
+  },
+  "runtime_or_installation_or_PK_or_private_body_or_attack_execution_for_this_plan": false,
+  "schema": "kpxa-mascot-groth16-implementation-contract/v1",
+  "selected_initial_route": "Small C++ MASCOT LibSnark prover port, mcl BN_SNARK1 authenticated group wrappers, explicit-root established linear FFT adapter, public Arkworks export/verification",
+  "selected_reading_order": [
+    "INTEGRATION-IMPLEMENTATION-PLAN-03.md",
+    "OWNER-PRIVATE-INPUT-CONTRACT-02.md",
+    "DRIVER-INTEGRATION-CONTRACT-01.md",
+    "METHOD-CONTRACT-02.json",
+    "API-CONTRACT-02.hpp",
+    "SERVER-TRANSCRIPT-BOUNDARY-02.md",
+    "PRIVATE-INSTANCE-AND-WITNESS-BOUNDARY-01.md"
+  ],
+  "status": "SOURCE_PLAN_ONLY_PORTS_NOT_IMPLEMENTED_OR_EXECUTED",
+  "unavailable": [
+    "compiled malicious-secure Groth16 backend",
+    "qualified BN254 group codec/client/FFT integration",
+    "functional fullproof gate result",
+    "NativeAuthSpend fullbatch composition and every-path Exit/recovery",
+    "active witness privacy mapping or abort retry qualification",
+    "native payment fee reduction production security claim",
+    "generic malicious-secure extended witness generation for NativeAuthSpend",
+    "qualified delayed public-instance declassification protocol"
+  ]
+}

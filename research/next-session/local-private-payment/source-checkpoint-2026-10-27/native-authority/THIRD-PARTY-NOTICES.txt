@@ -1,0 +1,41 @@
+Third-party source in this checkpoint
+
+The finite source snapshots retain their original upstream terms. Inclusion
+does not relicense upstream code under this repository's root license.
+Per-file notices take precedence over this summary.
+
+vendor/circomlib/circuits:
+  iden3/circomlib 2.0.5; source pin
+  35e54ea21da3e8762557234298dbb553c175ea8d.
+  package.json declares GPL-3.0; retained circuit headers include
+  Copyright 2018 0KIMS association and GPL version 3 or later.
+  Provenance: CIRCOM-TRANSITIVE-SOURCE-01.json.
+
+qualified-host-sources:
+  Selected iden3/circomlibjs 0.1.7 source excerpts.
+  vendor/circomlibjs/package.json declares GPL-3.0.
+  Provenance: tool-provenance/TOOL-ARCHIVE-CLOSURE-01.json.
+
+source-bridge/qualified-sources:
+  Selected fastfile 0.0.20 and ffjavascript 0.3.0 excerpts.
+  Their package declarations specify GPL-3.0.
+  Provenance: source-bridge/API-SOURCE-PINS-01.json.
+
+source-bridge/sym-review-02:
+  Selected iden3/circom compiler source excerpts at
+  ad44e915a12bb047b05745c2884aad9cc8326bc6.
+  Provenance: source-bridge/INDEPENDENT-SOURCE-REVIEW-02.json.
+  The captured official repository tree identifies upstream COPYING;
+  this checkpoint supplies GNU GPL version 3 text in licenses/GPL-3.0.txt.
+  That license text is copied from the selected fastfile distribution;
+  byte identity with Circom's upstream COPYING is not claimed.
+
+native-core:
+  Retains its included LICENSE-MIT.
+
+vendor/native-relation:
+  Retains the included upstream REPOSITORY-LICENSE.
+
+These are finite source snapshots, not a vendored executable toolchain or
+complete dependency closure. Runtime packages and generated artifacts remain
+outside this source checkpoint.

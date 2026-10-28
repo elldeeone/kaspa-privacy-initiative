@@ -1,0 +1,354 @@
+#!/usr/bin/env python3
+"""Finite terminal selector recipe; no Original read, stat, mount or worker.
+
+All nine metadata routes are supplied by Root, including current ctime_ns.
+Selectors/context/recipe/execution-plan artifacts stay LOCAL and unpublished.
+Only explicit public dataset and candidate rows enter the reviewed producer.
+"""
+import argparse
+import copy
+import json
+from pathlib import Path
+import re
+import runpy
+
+import publication_batch_audit as a
+from publication_batch_controller import selected_module
+
+HERE=Path('/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/recovery')
+PUBLIC=Path('/var/tmp/kpi-local-private-payment-01')
+ROLES=('terminalhandoff','activation','history','context','currententry','replayresults',
+       'fetch','selection','descriptor','assets','parameters','accounting')
+# Exact provenance-exempt setup PK identities from report3a82e7d0.
+EXEMPT_PK_SHAS=frozenset((
+ '45ae6cd5110b09466c19de8c1f0cf89ec93f6c0d853f232773801e19bd0d62bd',
+ '887573cf53559e969007857cd50284db9948204390389fc6e85dd75644b1241d',
+ 'fc531fcdb192dba2123bb13a02f78aa019cd5299e6905ad7ab4a5c6afdf481b1'))
+
+PINS={
+ 'core':('publication_batch_audit.py','3e989a03efeeef6054aff924cd007ffb3b669c3e1d1760882c935dc173979d4c'),
+ 'controller':('publication_batch_controller.py','0d972cbb114c3c922183d76a5fcf16d9b2909b3e05336dbcb0476f9f238078b7'),
+ 'producer':('prepare_data_packet_batched.py',a.PRODUCER),
+ 'launcher':('final_publication_launch_large.py',a.LAUNCHER),
+ 'prepared_launcher':('final_publication_launch_prepared.py','80bc8027ccda4ae8178254413e92de27980581d9e9cc43d77482563c518f8953'),
+ 'positive_worker':('optional_volume_final.py',a.POSITIVE)}
+
+
+def code_rows():
+    rows={k:{'path':str(HERE/name),'sha256':pin} for k,(name,pin) in PINS.items()}
+    for row in rows.values():a.guarded(row)
+    raw=runpy.run_path('/var/tmp/kpi-root-guard-helper-09.py')['read'](str(Path(__file__).absolute()))
+    rows['bridge']={'path':str(Path(__file__).absolute()),'sha256':a.sha(raw)}
+    return rows
+
+
+def public_read(file,base):
+    base['public_source'](file['source'])
+    raw=a.guarded({'path':file['source'],'sha256':file['sha256']})
+    a.need(len(raw)==file['bytes'],'exact-public-metadata-byte-length')
+    return raw
+
+
+def scanned_candidate(value):
+    a.need(not value['path'].lower().endswith('.pk')
+        and value['sha256'] not in EXEMPT_PK_SHAS,'exact-setup-PK-exemption-not-a-scanned-candidate')
+
+
+def data_file(value,base):
+    a.fields(value,('source','path','bytes','sha256','kind'),'explicit-dataset-file-row')
+    a.file_row({k:value[k] for k in ('source','path','bytes','sha256')});scanned_candidate(value)
+    a.need(value['kind'] in ('public-metadata','public-source','public-evidence','full-source-page'),'public-file-kind')
+    base['public_source'](value['source'])
+    return value
+
+
+def selection_rows(roles,additional,fetch,base):
+    a.fields(roles,ROLES,'all-twelve-explicit-role-rows')
+    a.need(type(additional) is list,'explicit-additional-data-rows')
+    files=[]
+    for row in [*roles.values(),*additional]:
+        data_file(row,base);a.need(row['kind']!='full-source-page','pages-derived-only-from-selected-fetch')
+        files.append(dict(row))
+    a.need(roles['fetch']['path']=='chain/fetch.json','canonical-fetch-placement')
+    parent=Path(roles['fetch']['source']).parent
+    pages=[*fetch['pages'],*fetch['current_view']['post_query_delta']['pages']]
+    for record in pages:
+        relative=a.relative(record['path']);source=str(parent/relative)
+        row={'source':source,'path':'chain/'+relative,'bytes':a.uint(record['gzip_bytes'],True),
+             'sha256':a.pin(record['gzip_sha256']),'kind':'full-source-page'}
+        a.uint(record['decoded_bytes'],True)
+        a.need(a.pin(record['decoded_sha256']) not in EXEMPT_PK_SHAS,'exact-setup-PK-exemption-not-a-scanned-candidate')
+        data_file(row,base)
+        files.append(row)
+    a.need(len({r['path'] for r in files})==len(files),'unique-data-role-evidence-and-page-paths')
+    a.need(len({r['path'] for r in roles.values()})==len(ROLES),'distinct-twelve-role-paths')
+    files=sorted(files,key=lambda row:row['path'])
+    base['page_contract'](fetch,files)
+    return {'schema':'kpxa-root-public-recovery-data-selection/v1','domain_hex32':a.DOMAIN,
+            'roles':{k:roles[k]['path'] for k in ROLES},'files':files}
+
+
+def publication_extras(candidate,paths,prior,base):
+    a.need(candidate.get('schema')=='kpxa-second-source-candidate/v1'
+        and type(candidate.get('files')) is list,'selected-finite-publication-candidate')
+    a.need(type(paths) is list and paths and len(paths)==len(set(paths)),'explicit-unique-publication-paths')
+    lookup={}
+    for row in candidate['files']:
+        a.relative(row['path']);a.need(row['path'] not in lookup,'unique-source-candidate-path');lookup[row['path']]=row
+    a.need(set(paths)<=set(lookup),'no-unselected-publication-member')
+    a.need(type(prior) is list,'explicit-prior-public-assets')
+    rows=[]
+    for path in paths:
+        f=lookup[path]
+        rows.append({'source':f['source'],'path':'publication/'+path,'bytes':f['bytes'],'sha256':f['sha256']})
+    for f in prior:
+        a.file_row(f);rows.append(dict(f))
+    for f in rows:
+        a.file_row(f);scanned_candidate(f);base['public_source'](f['source'])
+    a.need(len({f['path'] for f in rows})==len(rows),'unique-publication-and-prior-asset-paths')
+    return {'schema':'kpxa-publication-base-extra-candidates/v1','domain_hex32':a.DOMAIN,
+            'files':sorted(rows,key=lambda row:row['path'])}
+
+
+def request_checked(value):
+    a.fields(value,('schema','domain_hex32','roles','additional_data_files','publication_candidate','publication_paths',
+        'prior_public_files','creation_template','canary_assets','originals','decoded_budget_bytes','run_label'),'terminal-bridge-request-fields')
+    a.need(value['schema']=='kpxa-terminal-public-audit-bridge-request/v1' and value['domain_hex32']==a.DOMAIN,'terminal-bridge-domain')
+    a.row(value['publication_candidate']);a.row(value['creation_template'])
+    a.fields(value['canary_assets'],('source','bytes','sha256'),'explicit-portable-canary-assets')
+    a.absolute(value['canary_assets']['source']);a.uint(value['canary_assets']['bytes']);a.pin(value['canary_assets']['sha256'])
+    a.originals_checked(value['originals'])
+    a.uint(value['decoded_budget_bytes'],True)
+    a.need(type(value['run_label']) is str and re.fullmatch('[a-z0-9-]{1,20}',value['run_label']),'fresh-neutral-run-label')
+    return value
+
+
+def fresh_output(path):
+    path=Path(path);a.absolute(str(path))
+    a.need(path.parent in (PUBLIC/'publication-release',PUBLIC/'publication-audits')
+        and not path.exists() and not any(p.is_symlink() for p in (path,*path.parents)),'fresh-exact-public-output-child')
+    path.mkdir(mode=0o700)
+    return path
+
+
+def role_target(role):
+    return '/public/'+role.upper()+'.json' if role in ('history','context') else '/public/final-provenance/'+role+'.json'
+
+
+def accepted_scope(roles):
+    return {'schema':'kpxa-canary-final-accepted-history-context/v1',
+        'classification':'CANARY_ONLY_ROOT_SELECTED_ACCEPTED_HISTORY_AND_OWN_PAYOUT_KEYS',
+        'original_cohort':'actual02','roles':{k:{'mount':role_target(k),'sha256':roles[k]['sha256']} for k in ROLES},
+        'candidate_manifest_sha256':a.sha(a.encoded([])),
+        'accepted_backing_or_recovery_authority':False,'own_historical_payout_keys_required':True,'future_material_covered':False}
+
+
+def accounting_join(value,documents,roles):
+    a.need(value['schema']=='kpxa-independent-public-final-accounting/v1'
+        and value['status']=='ACTUAL_TERMINAL_NATIVE_ACCOUNTING_PASS'
+        and value['trial_id']==documents['terminalhandoff']['trial_id']
+        and value['final_handoff_sha256']==roles['terminalhandoff']['sha256']
+        and value['history_sha256']==roles['history']['sha256'] and value['context_sha256']==roles['context']['sha256'],
+        'same-actual-terminal-accounting-context')
+    for key,expected in [('accepted_pool_transactions',16),('ordinary_funding_transactions',3),('unique_confirmed_actions',15),
+        ('private_payments',6),('direct_exit152_actions',9),('terminal_reserve_sompi',0),('terminal_cm_count',15),('terminal_nf_count',16)]:
+        a.need(a.uint(value[key])==expected,'complete-terminal-accounting-counts')
+    reports=value['actual_native_Full_reports'];a.need(type(reports) is list and len(reports)==19,'nineteen-selected-actual-native-reports')
+    a.need(len({a.pin(v['transaction_id']) for v in reports})==19,'unique-actual-native-report-IDs')
+    a.need(type(value['native_payouts']) is list and len(value['native_payouts'])==9,'nine-actual-accounting-payouts')
+
+
+def accounting_case_coverage(accounting,files):
+    """The already-selected nineteen CASE identities are explicit packet members.
+
+    No directory discovery or CASE reconstruction: Root supplies each byte
+    length/placement, and the reviewed producer authenticates the whole leaf.
+    """
+    reports=accounting['actual_native_Full_reports']
+    a.need(len({v['case_path'] for v in reports})==19,'nineteen-distinct-case-source-paths')
+    for report in reports:
+        a.absolute(report['case_path']);a.pin(report['case_sha256'])
+        matches=[f for f in files if f['source']==report['case_path'] and f['sha256']==report['case_sha256']]
+        a.need(len(matches)==1 and matches[0]['kind']=='public-evidence','every-actual-native-CASE-explicitly-retained')
+
+
+def metadata_documents(value,base,launcher):
+    a.fields(value['roles'],ROLES,'complete-terminal-role-inputs')
+    raw_roles={};documents={}
+    for name,row in value['roles'].items():
+        data_file(row,base);raw_roles[name]=public_read(row,base);documents[name]=a.parse_metadata(raw_roles[name])
+    # The same old public metadata gates run for selectors AND pinned recipes.
+    # A manually authored recipe never skips terminal/accounting/role checks.
+    base['terminal_shape'](documents,value['roles'])
+    accounting_join(documents['accounting'],documents,value['roles'])
+    scope=accepted_scope(value['roles'])
+    launcher.final_scope({**{role_target(k):v for k,v in raw_roles.items()},
+        '/public/CANARY-CONTEXT-SCOPE.json':a.encoded(scope)},a.sha(a.encoded([])))
+    return raw_roles,documents
+
+
+def selectors(request_selector,output):
+    code=code_rows();value=request_checked(a.parse_metadata(a.guarded(request_selector)))
+    producer=selected_module(code['producer'],'selected_terminal_packet_producer');base=producer.pinned_preimage()
+    launcher=selected_module(code['launcher'],'selected_terminal_scope_validator')
+    raw_roles,documents=metadata_documents(value,base,launcher)
+    dataset=selection_rows(value['roles'],value['additional_data_files'],documents['fetch'],base)
+    accounting_case_coverage(documents['accounting'],dataset['files'])
+    budget=value['decoded_budget_bytes']
+    a.need(all(v['decoded_bytes']<=budget for v in [*documents['fetch']['pages'],
+        *documents['fetch']['current_view']['post_query_delta']['pages']]),'whole-page-budget-fits-largest-page')
+    candidate=a.parse_metadata(a.guarded(value['publication_candidate']))
+    extras=publication_extras(candidate,value['publication_paths'],value['prior_public_files'],base)
+    creation=a.parse(a.guarded(value['creation_template']))
+    a.fields(creation,('schema','domain_hex32','files','sources'),'reviewed-creation-template-fields')
+    a.need(creation['schema']=='kpxa-publication-audit-release/v1' and creation['domain_hex32']==a.DOMAIN,'creation-template-domain')
+    mounts=a.sources_checked(creation['sources'])
+    a.need(all(mounts['/public/ASSETS.json'][k]==value['canary_assets'][k] for k in ('source','bytes','sha256')),'reuse-explicit-portable-assets')
+    static=[copy.deepcopy(v) for v in creation['sources'] if v['mount'] not in (
+        '/public/HISTORY.json','/public/CONTEXT.json','/public/CANARY-CONTEXT-SCOPE.json')]
+    creation_scope_row=mounts['/public/CANARY-CONTEXT-SCOPE.json']
+    creation_scope=a.parse(a.guarded({'path':creation_scope_row['source'],'sha256':creation_scope_row['sha256']}))
+    a.need(creation_scope['schema']=='kpxa-canary-nonchain-creation-context/v1','creation-scope-must-not-be-promoted')
+    known_creation={}
+    for mount in ('/public/HISTORY.json','/public/CONTEXT.json','/public/CANARY-CONTEXT-SCOPE.json'):
+        row=mounts[mount];raw=a.guarded({'path':row['source'],'sha256':row['sha256']})
+        a.need(len(raw)==row['bytes'],'creation-public-context-bytes');known_creation[mount]=raw
+    launcher.final_scope(known_creation,a.sha(a.encoded([])))
+    assets=public_read(value['canary_assets'],base);a.need(len(assets)==value['canary_assets']['bytes'],'portable-assets-bytes')
+    scope=accepted_scope(value['roles'])
+    output=fresh_output(output)
+    scope_row=a.save(output/'LOCAL-ACTUAL02-SCOPE.json',scope)
+    sources=static+[{'source':row['source'],'mount':role_target(name),'bytes':row['bytes'],'sha256':row['sha256'],'mode':'0400'}
+        for name,row in value['roles'].items()]
+    sources.append({'source':scope_row['path'],'mount':'/public/CANARY-CONTEXT-SCOPE.json',
+        'bytes':len(a.encoded(scope)),'sha256':scope_row['sha256'],'mode':'0400'})
+    context={'sources':sources,'scope_document':scope};a.context_checked(context)
+    ds_row=a.save(output/'LOCAL-ROOT-DATA-SELECTION.json',dataset)
+    a.actual_context_checked(context,{'selection':{'raw_hex':a.encoded(dataset).hex()}},value['canary_assets'])
+    actual=a.save(output/'LOCAL-ACTUAL02-TEMPLATE.json',{'schema':'kpxa-publication-audit-release/v1','domain_hex32':a.DOMAIN,'files':[],'sources':sources})
+    extras_row=a.save(output/'LOCAL-BASE-EXTRAS.json',extras)
+    recipe={'schema':'kpxa-terminal-public-audit-recipe/v1','request':request_selector,'code':code,
+        'root_selection':ds_row,'base_extras':extras_row,'context_templates':{'creation':value['creation_template'],'actual02':actual},
+        'canary_assets':value['canary_assets'],'originals':value['originals'],'decoded_budget_bytes':budget,'run_label':value['run_label']}
+    recipe_row=a.save(output/'LOCAL-RECIPE.json',recipe)
+    return {'status':'PUBLIC_SELECTORS_PREPARED_NOT_ORIGINAL_AUTHORIZATION','recipe':recipe_row,
+        'root_selection':ds_row,'base_extras':extras_row,'actual_Original_worker_executed':False,'bulk_packet_created':False}
+
+
+def recipe_checked(selector):
+    value=a.parse(a.guarded(selector))
+    a.fields(value,('schema','request','code','root_selection','base_extras','context_templates','canary_assets',
+        'originals','decoded_budget_bytes','run_label'),'terminal-recipe-fields')
+    a.need(value['schema']=='kpxa-terminal-public-audit-recipe/v1' and value['code']==code_rows(),'same-frozen-reviewed-recipe-code')
+    for key in ('request','root_selection','base_extras'):a.row(value[key])
+    a.originals_checked(value['originals']);a.uint(value['decoded_budget_bytes'],True)
+    request=request_checked(a.parse_metadata(a.guarded(value['request'])))
+    a.need(a.encoded(value['originals'])==a.encoded(request['originals'])
+        and value['canary_assets']==request['canary_assets']
+        and value['context_templates']['creation']==request['creation_template']
+        and value['decoded_budget_bytes']==request['decoded_budget_bytes']
+        and value['run_label']==request['run_label'],'same-Root-request-metadata-policy-and-assets')
+    producer=selected_module(value['code']['producer'],'recipe_public_schema_checks');base=producer.pinned_preimage()
+    launcher=selected_module(value['code']['launcher'],'recipe_terminal_scope_checks')
+    _,documents=metadata_documents(request,base,launcher)
+    expected=selection_rows(request['roles'],request['additional_data_files'],documents['fetch'],base)
+    accounting_case_coverage(documents['accounting'],expected['files'])
+    actual=a.parse_metadata(a.guarded(value['root_selection']))
+    a.need(a.encoded(actual)==a.encoded(expected),'same-exact-Root-request-dataset-and-pages')
+    candidate=a.parse_metadata(a.guarded(request['publication_candidate']))
+    extras=publication_extras(candidate,request['publication_paths'],request['prior_public_files'],base)
+    a.need(a.encoded(a.parse(a.guarded(value['base_extras'])))==a.encoded(extras),'same-exact-Root-request-publication-union')
+    original=a.parse(a.guarded(request['creation_template']))
+    expected_static=[r for r in original['sources'] if r['mount'] not in (
+        '/public/HISTORY.json','/public/CONTEXT.json','/public/CANARY-CONTEXT-SCOPE.json')]
+    actual_template=a.parse(a.guarded(value['context_templates']['actual02']))
+    a.fields(actual_template,('schema','domain_hex32','files','sources'),'exact-accepted-context-template')
+    a.need(actual_template['schema']=='kpxa-publication-audit-release/v1' and actual_template['domain_hex32']==a.DOMAIN
+        and actual_template['files']==[],'empty-template-candidates-not-an-audit-release')
+    context_mounts=a.sources_checked(actual_template['sources'])
+    role_mounts={role_target(k) for k in ROLES}
+    static=[r for r in actual_template['sources'] if r['mount'] not in role_mounts|{'/public/CANARY-CONTEXT-SCOPE.json'}]
+    a.need(static==expected_static,'unchanged-reviewed-context-source-closure')
+    scope=accepted_scope(request['roles']);scope_row=context_mounts['/public/CANARY-CONTEXT-SCOPE.json']
+    a.need(scope_row['sha256']==a.sha(a.encoded(scope)) and scope_row['bytes']==len(a.encoded(scope)),'same-exact-accepted-scope-template')
+    for k,row in request['roles'].items():
+        selected=context_mounts[role_target(k)]
+        a.need(all(selected[z]==row[z] for z in ('source','bytes','sha256')),'exact-request-role-source-context')
+    return value
+
+
+def packet(recipe_selector,output):
+    value=recipe_checked(recipe_selector)
+    producer=selected_module(value['code']['producer'],'selected_whole_page_packet_API')
+    result=producer.prepare(Path(value['root_selection']['path']),value['root_selection']['sha256'],Path(output),
+        value['decoded_budget_bytes'],Path(value['base_extras']['path']),value['base_extras']['sha256'])
+    # Complete reviewed API output, identical data to the producer CLI stdout.
+    row=a.save(Path(output)/'LOCAL-COMPLETE-PREPARATION.json',result)
+    return {'status':'PUBLIC_PACKET_PREPARED_NOT_ORIGINAL_AUTHORIZATION','preparation':row,
+        'recipe':recipe_selector,'packet_directory':str(Path(output)),'actual_Original_worker_executed':False}
+
+
+def complete_preparation_checked(p,index,schedule):
+    a.fields(p,('schema','archive','global_index_sha256','batch_plan_sha256','base_batch_sha256','global_candidates',
+        'base_verification','whole_decoded_pages','decoded_batches','decoded_bytes_verified','decoded_bytes_retained',
+        'raw_member_physical_copies_created','public_descriptor_supplemental_audit_required',
+        'private_original_worker_network_or_publication_executed'),'complete-reviewed-producer-result-required')
+    for candidate in index['candidates']:scanned_candidate(candidate)
+    decoded=[v for v in index['candidates'] if v['kind']=='decoded']
+    a.need(p['schema']=='kpxa-public-recovery-data-batched-preparation/v1'
+        and p['archive']=={'path':'data.tar',**index['archive'],'members':sum(v['path'].startswith('members/') for v in index['candidates'])}
+        and p['global_index_sha256']==a.sha(a.encoded(index)) and p['batch_plan_sha256']==a.sha(a.encoded(schedule))
+        and p['base_batch_sha256']==p['base_verification']['descriptor']['sha256']
+        and a.uint(p['global_candidates'])==len(index['candidates'])
+        and a.uint(p['whole_decoded_pages'])==len(decoded) and a.uint(p['decoded_batches'])==len(schedule['batches'])-1
+        and a.uint(p['decoded_bytes_verified'])==sum(v['bytes'] for v in decoded)
+        and a.uint(p['decoded_bytes_retained'])==0 and a.uint(p['raw_member_physical_copies_created'])==0
+        and p['public_descriptor_supplemental_audit_required'] is True
+        and p['private_original_worker_network_or_publication_executed'] is False,'complete-producer-count-and-archive-join')
+
+
+def plan(recipe_selector,preparation_selector,output):
+    value=recipe_checked(recipe_selector);preparation=a.parse(a.guarded(preparation_selector))
+    root=Path(preparation['base_verification']['descriptor']['path']).parent
+    a.need(Path(preparation['base_verification']['descriptor']['path']).name=='BASE-BATCH.json','canonical-prepared-BASE-path')
+    index_path=root/'GLOBAL-CANDIDATE-INDEX.json';plan_path=root/'BATCH-PLAN.json'
+    index_raw=a.guarded({'path':str(index_path),'sha256':preparation['global_index_sha256']})
+    plan_raw=a.guarded({'path':str(plan_path),'sha256':preparation['batch_plan_sha256']})
+    index=a.index_checked(a.parse(index_raw));schedule=a.plan_checked(a.parse(plan_raw),index,preparation['global_index_sha256'])
+    complete_preparation_checked(preparation,index,schedule)
+    a.need(index['root_selection_sha256']==value['root_selection']['sha256']
+        and schedule['operator_decoded_budget_bytes']==value['decoded_budget_bytes'],'same-recipe-packet-and-budget')
+    descriptor=a.parse(a.guarded(preparation['base_verification']['descriptor']))
+    a.descriptor_checked(descriptor,schedule['batches'][0],index,preparation['global_index_sha256'],preparation['batch_plan_sha256'])
+    a.materialization_checked(preparation['base_verification'],schedule['batches'][0],descriptor,
+        preparation['base_verification']['descriptor'],preparation['global_index_sha256'],preparation['batch_plan_sha256'])
+    closed={'schema':'kpxa-publication-batch-execution-plan/v1','domain_hex32':a.DOMAIN,
+        'index':{'path':str(index_path),'sha256':preparation['global_index_sha256']},
+        'batch_plan':{'path':str(plan_path),'sha256':preparation['batch_plan_sha256']},
+        'root_selection':value['root_selection'],'canary_assets':value['canary_assets'],'extra_candidates':value['base_extras'],
+        **{k:value['code'][k] for k in ('producer','launcher','prepared_launcher','positive_worker')},
+        'context_templates':value['context_templates'],'originals':value['originals'],
+        'base_materialization':preparation_selector,'run_label':value['run_label']}
+    output=fresh_output(output);row=a.save(output/'LOCAL-EXECUTION-PLAN.json',closed)
+    controller=selected_module(value['code']['controller'],'selected_closed_batch_plan_validator')
+    controller.load_plan(row)  # Public-only; no execute/Original stat or worker.
+    return {'status':'PUBLIC_PLAN_VALIDATED_AWAITING_ROOT_ACTUAL_RELEASE','execution_plan':row,
+        'actual_Original_worker_executed':False,'Original_content_or_metadata_discovered':False}
+
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='op',required=True)
+    q=sub.add_parser('selectors');q.add_argument('--request',type=Path,required=True);q.add_argument('--request-sha256',required=True);q.add_argument('--output',type=Path,required=True)
+    for name in ('packet','plan'):
+        q=sub.add_parser(name);q.add_argument('--recipe',type=Path,required=True);q.add_argument('--recipe-sha256',required=True);q.add_argument('--output',type=Path,required=True)
+        if name=='plan':q.add_argument('--preparation',type=Path,required=True);q.add_argument('--preparation-sha256',required=True)
+    v=p.parse_args()
+    if v.op=='selectors':result=selectors({'path':str(v.request),'sha256':v.request_sha256},v.output)
+    elif v.op=='packet':result=packet({'path':str(v.recipe),'sha256':v.recipe_sha256},v.output)
+    else:result=plan({'path':str(v.recipe),'sha256':v.recipe_sha256},{'path':str(v.preparation),'sha256':v.preparation_sha256},v.output)
+    print(a.encoded(result).decode().strip())
+
+
+if __name__=='__main__':
+    try:main()
+    except Exception:raise SystemExit('Terminal public audit preparation refused; no Original operation performed.')

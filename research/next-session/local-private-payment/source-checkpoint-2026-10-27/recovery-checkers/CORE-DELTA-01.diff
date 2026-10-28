@@ -1,0 +1,11 @@
+--- preserved-preimage
++++ selected-corrected-sibling
+@@ -512,7 +512,7 @@
+         'raw_member_physical_copies_created','public_descriptor_supplemental_audit_required',
+         'private_original_worker_network_or_publication_executed'),'actual-producer-preparation-fields')
+     decoded=[c for c in index['candidates'] if c['kind']=='decoded']
+-    need(p['schema']=='kpxa-public-recovery-data-batched-preparation/v1' and p['archive']=={**index['archive'],
++    need(p['schema']=='kpxa-public-recovery-data-batched-preparation/v1' and p['archive']=={'path':'data.tar',**index['archive'],
+         'members':sum(c['path'].startswith('members/') for c in index['candidates'])}
+         and p['global_index_sha256']==index_sha and p['batch_plan_sha256']==plan_sha
+         and p['base_batch_sha256']==p['base_verification']['descriptor']['sha256']

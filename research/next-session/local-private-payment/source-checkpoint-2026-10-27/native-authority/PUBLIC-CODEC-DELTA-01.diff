@@ -1,0 +1,248 @@
+--- actual-public-wire-6727e00a.py
++++ source-only-research-wire.py
+@@ -1,3 +1,5 @@
++# NEW SOURCE-ONLY RESEARCH FRAME. Not a Native policy, accepted profile or genuine-proof verifier.
++# Transfer-prefix adaptation of exact public wire6727e00a. Exit deliberately omitted.
+ """ADR-0066 independent public codec and path verifier.
+ 
+ This module has no note openings, key material, prover, network, or acceptance
+@@ -9,10 +11,9 @@
+ import hashlib
+ import struct
+ 
+-DOMAIN = bytes.fromhex('b8623a6244a81ed42c43f95aac77eccd927fa584db02a1a829faa3c857fed38c')
++DOMAIN = bytes.fromhex('a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6')
+ BODY_LEN, BODY_CORE_LEN, PREFIX_LEN = 3884, 3756, 193
+ PROJECTION_LEN = PREFIX_LEN + BODY_LEN
+-EXIT_BODY_LEN, EXIT_CONTINUING_PREFIX_LEN, EXIT_TERMINAL_PREFIX_LEN = 1632, 240, 192
+ MAX_VALUE, NOTE_FLOOR, PAYOUT_FLOOR = 2_870_000_000_000_000_000, 60_000_000, 10_000_000
+ Q = 2736030358979909402780800718157159386076813972158567259200215660948447373041
+ CM_DEPTH, NF_DEPTH = 16, 17
+@@ -155,7 +156,7 @@
+ 
+ def parse_state(raw):
+     exact(raw, 112, 'state-width')
+-    need(raw[:8] == b'KPXAST01' and raw[8:40] == DOMAIN, 'state-identity')
++    need(raw[:8] == b'KPBPST01' and raw[8:40] == DOMAIN, 'state-identity')
+     cm_count, nf_count = u32(raw[72:76]), u32(raw[108:112])
+     integer(cm_count, 1, 1 << CM_DEPTH, 'state-CM-count-range')
+     integer(nf_count, 1, 1 << NF_DEPTH, 'state-NF-count-range')
+@@ -167,7 +168,7 @@
+     exact(nf_root, 32, 'state-NF-root-width')
+     integer(cm_count, 1, 1 << CM_DEPTH, 'state-CM-count-range')
+     integer(nf_count, 1, 1 << NF_DEPTH, 'state-NF-count-range')
+-    return b'KPXAST01' + DOMAIN + cm_root + cm_count.to_bytes(4, 'little') + nf_root + nf_count.to_bytes(4, 'little')
++    return b'KPBPST01' + DOMAIN + cm_root + cm_count.to_bytes(4, 'little') + nf_root + nf_count.to_bytes(4, 'little')
+ 
+ 
+ def state_redeem(state112, immutable_tail_bytes):
+@@ -197,7 +198,7 @@
+ 
+ def parse_body(raw):
+     exact(raw, BODY_LEN, 'body-width')
+-    need(raw[:8] == b'KPXAPB01' and raw[8:16] == struct.pack('<4H', 1, 1, 2, 0)
++    need(raw[:8] == b'KPBPBD01' and raw[8:16] == struct.pack('<4H', 1, 1, 2, 0)
+          and raw[16:48] == DOMAIN, 'body-domain-version-shape')
+     need(raw[48:80] != ZERO and raw[80:112] == ZERO and raw[112:144] != ZERO,
+          'body-action-reserved-or-point')
+@@ -223,7 +224,7 @@
+ def parse_projection(raw):
+     exact(raw, PROJECTION_LEN, 'projection-width')
+     prefix, body = raw[:PREFIX_LEN], parse_body(raw[PREFIX_LEN:])
+-    need(prefix[:8] == b'KPXAFX01' and prefix[8:12] == b'\x01\0\x01\0'
++    need(prefix[:8] == b'KPBPFX01' and prefix[8:12] == b'\x01\0\x01\0'
+          and prefix[48:56] == b'\xff' * 8 and prefix[64:66] == b'\x25\0'
+          and prefix[103:105] == b'\x01\0' and prefix[113:115] == b'\x25\0'
+          and prefix[152:189] == bytes(37) and u32(prefix[189:193]) == BODY_LEN,
+@@ -239,23 +240,23 @@
+ 
+ def effects_digest(raw_projection):
+     p = parse_projection(raw_projection)
+-    return sha(b'KPXAEF01', p.prefix, p.body.raw[:BODY_CORE_LEN])
++    return sha(b'KPBPEF01', p.prefix, p.body.raw[:BODY_CORE_LEN])
+ 
+ 
+ def spend_statement(raw_projection):
+     p = parse_projection(raw_projection)
+     spend = p.body.spends[0]
+-    return b'KPXASP01' + DOMAIN + p.body.old_state.cm_root + spend.nf + spend.cv + effects_digest(raw_projection)
++    return b'KPBPSP01' + DOMAIN + p.body.old_state.cm_root + spend.nf + spend.cv + effects_digest(raw_projection)
+ 
+ 
+ def output_statement(row):
+     out = parse_output(row)
+-    return b'KPXAOU01' + DOMAIN + out.cm + out.cv + out.cfh
++    return b'KPBPOU01' + DOMAIN + out.cm + out.cv + out.cfh
+ 
+ 
+ def journal(raw_projection, component_profile_sha256):
+     parse_projection(raw_projection)
+-    return b'KPXAJR01' + DOMAIN + exact(component_profile_sha256, 32, 'profile-digest-width') + sha(raw_projection)
++    return b'KPBPJR01' + DOMAIN + exact(component_profile_sha256, 32, 'profile-digest-width') + sha(raw_projection)
+ 
+ 
+ def validate_public(raw_projection):
+@@ -284,7 +285,7 @@
+         integer(value, low, high, 'integer-sompi-range')
+     need(type(outputs) in (list, tuple) and len(outputs) == 2
+          and type(cm_paths) in (list, tuple) and len(cm_paths) == 2, 'body-builder-counts')
+-    core = (b'KPXAPB01' + struct.pack('<4H', 1, 1, 2, 0) + DOMAIN
++    core = (b'KPBPBD01' + struct.pack('<4H', 1, 1, 2, 0) + DOMAIN
+             + exact(action_id, 32, 'action-id-width') + ZERO + exact(point, 36, 'outpoint-width')
+             + exact(old_state, 112, 'old-state-width') + old_reserve.to_bytes(8, 'little')
+             + exact(new_state, 112, 'new-state-width') + new_reserve.to_bytes(8, 'little')
+@@ -299,7 +300,7 @@
+ 
+ def build_projection(body, immutable_tail):
+     b = parse_body(body)
+-    prefix = (b'KPXAFX01' + b'\x01\0\x01\0' + b.point + b'\xff' * 8
++    prefix = (b'KPBPFX01' + b'\x01\0\x01\0' + b.point + b'\xff' * 8
+               + b.old_reserve.to_bytes(8, 'little') + b'\x25\0' + state_spk(b.old_state.raw, immutable_tail)
+               + b'\x01\0' + b.new_reserve.to_bytes(8, 'little') + b'\x25\0'
+               + state_spk(b.new_state.raw, immutable_tail) + bytes(37) + BODY_LEN.to_bytes(4, 'little'))
+@@ -328,145 +329,3 @@
+          and p.output_spk == state_spk(p.body.new_state.raw, immutable_tail), 'selected-immutable-policy')
+     return result
+ 
+-
+-@dataclass(frozen=True)
+-class ExitBody:
+-    raw: bytes
+-    action_id: bytes
+-    point: bytes
+-    old_state: State
+-    new_state: State
+-    old_reserve: int
+-    new_reserve: int
+-    fee: int
+-    payout: int
+-    payout_spk: bytes
+-    nf: bytes
+-    nf_witness: bytes
+-
+-
+-@dataclass(frozen=True)
+-class ExitProjection:
+-    raw: bytes
+-    prefix: bytes
+-    body: ExitBody
+-    point: bytes
+-    input_amount: int
+-    input_spk: bytes
+-    outputs: tuple
+-
+-
+-def parse_exit_body(raw):
+-    exact(raw, EXIT_BODY_LEN, 'exit-body-width')
+-    need(raw[:8] == b'KPXAXB01' and raw[8:16] == struct.pack('<4H', 1, 1, 0, 1)
+-         and raw[16:48] == DOMAIN and raw[80:112] == ZERO, 'exit-body-identity')
+-    need(raw[48:80] != ZERO and raw[112:144] != ZERO, 'exit-action-or-point')
+-    old, new = parse_state(raw[148:260]), parse_state(raw[268:380])
+-    reserve, remaining, fee, payout = (u64(raw[at:at + 8]) for at in (260, 380, 388, 396))
+-    need(NOTE_FLOOR <= reserve <= MAX_VALUE and 1 <= fee <= MAX_VALUE
+-         and PAYOUT_FLOOR <= payout <= MAX_VALUE
+-         and (remaining == 0 or NOTE_FLOOR <= remaining <= MAX_VALUE)
+-         and remaining + payout + fee == reserve, 'exit-money')
+-    need(old.cm_root == new.cm_root and old.cm_count == new.cm_count
+-         and old.nf_count < 1 << NF_DEPTH and new.nf_count == old.nf_count + 1,
+-         'exit-state-counts-or-CM')
+-    spk, nf = raw[404:440], raw[440:472]
+-    need(spk[:3] == b'\0\0\x20' and spk[-1:] == b'\xac' and nf != ZERO, 'exit-payout-SPK-or-NF')
+-    return ExitBody(raw, raw[48:80], raw[112:148], old, new, reserve, remaining,
+-                    fee, payout, spk, nf, raw[472:])
+-
+-
+-def parse_exit_projection(raw):
+-    need(type(raw) is bytes and len(raw) in (EXIT_BODY_LEN + EXIT_CONTINUING_PREFIX_LEN,
+-         EXIT_BODY_LEN + EXIT_TERMINAL_PREFIX_LEN), 'exit-projection-width')
+-    width = len(raw) - EXIT_BODY_LEN
+-    prefix, body = raw[:width], parse_exit_body(raw[width:])
+-    need(prefix[:8] == b'KPXAFX01' and prefix[8:12] == b'\x01\0\x01\0'
+-         and prefix[48:56] == b'\xff' * 8 and prefix[64:66] == b'\x25\0'
+-         and prefix[66:70] == b'\0\0\xaa\x20' and prefix[102:103] == b'\x87',
+-         'exit-projection-native-header')
+-    count = int.from_bytes(prefix[103:105], 'little')
+-    need(count == (2 if body.new_reserve else 1), 'exit-output-count')
+-    at, outputs = 105, []
+-    for _ in range(count):
+-        value, length = u64(prefix[at:at + 8]), int.from_bytes(prefix[at + 8:at + 10], 'little')
+-        need(length in (36, 37) and at + 11 + length <= width, 'exit-output-width')
+-        spk = prefix[at + 10:at + 10 + length]
+-        need(prefix[at + 10 + length:at + 11 + length] == b'\0', 'exit-output-covenant')
+-        outputs.append((value, spk))
+-        at += 11 + length
+-    need(at + 40 == width and prefix[at:at + 36] == bytes(36)
+-         and u32(prefix[at + 36:]) == EXIT_BODY_LEN, 'exit-projection-tail')
+-    need(prefix[12:48] == body.point and u64(prefix[56:64]) == body.old_reserve,
+-         'exit-projection-input')
+-    need(outputs[-1] == (body.payout, body.payout_spk), 'exit-projection-payout')
+-    if body.new_reserve:
+-        need(outputs[0][0] == body.new_reserve and len(outputs[0][1]) == 37
+-             and outputs[0][1][:4] == b'\0\0\xaa\x20' and outputs[0][1][-1:] == b'\x87',
+-             'exit-projection-continuation')
+-    need(body.old_reserve - sum(value for value, _ in outputs) == body.fee, 'exit-projection-fee')
+-    return ExitProjection(raw, prefix, body, body.point, body.old_reserve, prefix[66:103], tuple(outputs))
+-
+-
+-def exit_effects_digest(raw_projection):
+-    p = parse_exit_projection(raw_projection)
+-    return sha(b'KPXAEF01', p.prefix, p.body.raw)
+-
+-
+-def exit_statement(raw_projection):
+-    b = parse_exit_projection(raw_projection).body
+-    return (b'KPXAEX01' + DOMAIN + b.old_state.cm_root + b.nf + exit_effects_digest(raw_projection)
+-            + b.payout.to_bytes(8, 'little') + b.fee.to_bytes(8, 'little'))
+-
+-
+-def validate_exit_public(raw_projection):
+-    b = parse_exit_projection(raw_projection).body
+-    need(insert_nf(b.old_state.nf_root, b.old_state.nf_count, b.nf, b.nf_witness)
+-         == b.new_state.nf_root, 'exit-NF-successor-root')
+-    return {'public_frame_and_transition_validated': True,
+-            'effects_digest_hex32': exit_effects_digest(raw_projection).hex(),
+-            'exit_statement_hex152': exit_statement(raw_projection).hex(),
+-            'full_projection_sha256': sha(raw_projection).hex(),
+-            'g16_verified': False, 'native_VM_executed': False, 'accepted_backing_or_currentness': False}
+-
+-
+-def build_exit_body(*, action_id, point, old_state, new_state, old_reserve, new_reserve,
+-                    fee, payout, payout_spk, nf, nf_witness):
+-    for value, low in ((old_reserve, NOTE_FLOOR), (new_reserve, 0), (fee, 1), (payout, PAYOUT_FLOOR)):
+-        integer(value, low, MAX_VALUE, 'integer-sompi-range')
+-    result = (b'KPXAXB01' + struct.pack('<4H', 1, 1, 0, 1) + DOMAIN
+-              + exact(action_id, 32, 'action-id-width') + ZERO + exact(point, 36, 'outpoint-width')
+-              + exact(old_state, 112, 'old-state-width') + old_reserve.to_bytes(8, 'little')
+-              + exact(new_state, 112, 'new-state-width') + new_reserve.to_bytes(8, 'little')
+-              + fee.to_bytes(8, 'little') + payout.to_bytes(8, 'little')
+-              + exact(payout_spk, 36, 'payout-SPK-width') + exact(nf, 32, 'nf-width')
+-              + exact(nf_witness, 1160, 'nf-witness-width'))
+-    parse_exit_body(result)
+-    return result
+-
+-
+-def build_exit_projection(body, immutable_tail):
+-    b = parse_exit_body(body)
+-    outputs = ([(b.new_reserve, state_spk(b.new_state.raw, immutable_tail))] if b.new_reserve else [])
+-    outputs.append((b.payout, b.payout_spk))
+-    prefix = (b'KPXAFX01' + b'\x01\0\x01\0' + b.point + b'\xff' * 8
+-              + b.old_reserve.to_bytes(8, 'little') + b'\x25\0' + state_spk(b.old_state.raw, immutable_tail)
+-              + len(outputs).to_bytes(2, 'little'))
+-    for value, spk in outputs:
+-        prefix += value.to_bytes(8, 'little') + len(spk).to_bytes(2, 'little') + spk + b'\0'
+-    result = prefix + bytes(36) + EXIT_BODY_LEN.to_bytes(4, 'little') + body
+-    validate_exit_public(result)
+-    return result
+-
+-
+-def require_current_exit_head(raw_projection, state112, point36, reserve_sompi, immutable_tail):
+-    result = validate_exit_public(raw_projection)
+-    p = parse_exit_projection(raw_projection)
+-    integer(reserve_sompi, NOTE_FLOOR, MAX_VALUE, 'current-reserve-range')
+-    need(p.body.old_state.raw == exact(state112, 112, 'current-state-width')
+-         and p.point == exact(point36, 36, 'current-point-width')
+-         and p.input_amount == reserve_sompi, 'exact-current-head-required')
+-    need(p.input_spk == state_spk(state112, immutable_tail), 'selected-immutable-policy')
+-    if p.body.new_reserve:
+-        need(p.outputs[0][1] == state_spk(p.body.new_state.raw, immutable_tail), 'selected-immutable-policy')
+-    return result

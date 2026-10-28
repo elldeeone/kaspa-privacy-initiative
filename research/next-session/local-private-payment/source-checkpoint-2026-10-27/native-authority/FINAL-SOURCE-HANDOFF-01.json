@@ -1,0 +1,83 @@
+{
+  "schema": "kpi-nativeauth-final-source-handoff/v1",
+  "status": "SOURCE_PREPARATION_COMPLETE_EXECUTION_HELD",
+  "source_freeze": {
+    "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/SOURCE-FREEZE-02.json",
+    "bytes": 22541,
+    "sha256": "9bded95d08ec2a372bd89b89d83b630155b1e095da7909b2696e423962320b71"
+  },
+  "source_files": 96,
+  "source_bytes": 2795707,
+  "selected_handles": {
+    "SPEC-03.md": {
+      "bytes": 17771,
+      "sha256": "6d45e719c04881fdb85a469bfb43c7bf862003912647202dc3ed523c619f19b5"
+    },
+    "PROPOSED-RESEARCH-ADR-01.md": {
+      "bytes": 3492,
+      "sha256": "4d7826b1198c88c5b26ff28a85cc8e62f0b4fabd39b093c5e9691bffdb86d5e7"
+    },
+    "RUN-PLAN-01.md": {
+      "bytes": 4239,
+      "sha256": "b9fbba01645cc8ffdeadc11577600013008ef1e2cd2c308dc9cb9e35828b5804"
+    },
+    "RUN-LOCK-01.json": {
+      "bytes": 1643,
+      "sha256": "654106bb426772fe672338c2baf4c7f802dc9e3afa78e26b39ecaf1db08ce9d0"
+    },
+    "RESOURCE-ESTIMATE-01.json": {
+      "bytes": 2587,
+      "sha256": "143c71ef23f82ff141379bd57224129feb1ab186656f70abd2381f61f12a5101"
+    },
+    "COMMANDS-02.json": {
+      "bytes": 13359,
+      "sha256": "977de091e3c561bb5221b73e368280b8acb55f2fa2a7c113613d63caa3a362e4"
+    },
+    "CONTROLS-01.json": {
+      "bytes": 4462,
+      "sha256": "d1c41668b4335f5dc8fcef1432fc3c2054c260d9f2eebe5fe4bfa48e714c915b"
+    },
+    "harness/build_gate.py": {
+      "bytes": 4507,
+      "sha256": "d47e22a44cafe5686131b046461dc9890272ab027e4186a7e55809b4a274c6db"
+    },
+    "harness/run_gate-02.py": {
+      "bytes": 12893,
+      "sha256": "30236ecec4fa651e645c2abc2734a49c1d9a5ba7044f56ddeb0d6feb33939b4e"
+    },
+    "source-bridge/INDEPENDENT-SOURCE-REVIEW-02.json": {
+      "bytes": 9962,
+      "sha256": "ac184a50cddd751f6259ae98bea3ae40489f84c272c44784ac92bd5316ba1f88"
+    },
+    "independent-reviews/SIGNATURE-OWNER-SOURCE-REVIEW-01.json": {
+      "bytes": 8556,
+      "sha256": "9b0eb268b780e2df4d041e34be797f9cbbeda0a8d5c9ee91d2d6a173ed21d220"
+    },
+    "independent-reviews/INDEPENDENT-RUST-FULLBINDING-SOURCE-REVIEW-01.json": {
+      "bytes": 6719,
+      "sha256": "1b95623071bfcce2d64cdae0970743f105de8de22bab30df66f19d67cda6da59"
+    }
+  },
+  "expected_unexecuted_controls": {
+    "actual_matrix_cases": 16,
+    "sat": 2,
+    "residual_failures": 14,
+    "tiny_assignment_refusals": 4,
+    "raw_field_alias_parser_refusals": 1,
+    "total": 21
+  },
+  "reviews": "Independent Rust/fullbinding, signature/owner export and adapter/commands SOURCE GO; source-only limits retained in receipts. Spec03/ADR and final freeze remain for Root whole-package review.",
+  "resource_proposal": "2CPUs,8GiB,2GiB local scratch; build3\u201310min and serial controls15\u201340min projections from actual baseline counts, not measurements/timeouts. No scratch reserved.",
+  "remaining_before_execution": [
+    "Root whole-package source review/resource release",
+    "reauthenticate installed JS import closure and readonly runtime inputs",
+    "fresh offline build and selected actual nlink1 binary/dat/matrix/sym hashes",
+    "fresh runtime with unchanged frozen controls and first-failure stop"
+  ],
+  "no_execution": "No prepared module imported, syntax checked, compiled, signed or run; no witness/setup/proof/PK/MPC/RPC/financial jobs; candidate/publication untouched by this lane.",
+  "limits": "ONE new authority/matrix seam only; no accepted profile/VK reuse/2+4 aggregate/proof/MPC/Exit/recovery/delivery/privacy/fee qualification. Full-collusion confidentiality and multi-owner complete-effects consent/retry/cohort behavior remain open.",
+  "source_findings_retained": [
+    "317byte host Node wrapper corrected only to authenticated standalone Node source leaf; no runtime attempt",
+    "repeated-wire alias hypothesis disproved by exact official Circom source; adapter01 unchanged"
+  ]
+}

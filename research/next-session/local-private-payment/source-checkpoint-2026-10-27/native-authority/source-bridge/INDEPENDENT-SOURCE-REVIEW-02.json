@@ -1,0 +1,165 @@
+{
+  "schema": "kpi-nativeauth-adapter-command-source-review/v1",
+  "status": "SOURCE_GO_NO_ALIAS_CORRECTION_NO_EXECUTION_RELEASE",
+  "helper09_sha256": "0f8ff562a4364c1db7729d98d7daf57f75ff5e882936e06e9907a4e936bd82fd",
+  "scope": "independent source-only .sym semantics, selected adapter copy, command repair and bounded build/run driver review; Native predicate reviewed separately",
+  "reviewed": [
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/COMMANDS-01.json",
+      "byteLength": 13339,
+      "sha256": "00e9c71d9d72abb951d67394e823240eff4982f23aa5f551e9e720486bf1899d"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/COMMANDS-02.json",
+      "byteLength": 13359,
+      "sha256": "977de091e3c561bb5221b73e368280b8acb55f2fa2a7c113613d63caa3a362e4"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/COMMAND-REPAIR-02.diff",
+      "byteLength": 1329,
+      "sha256": "e5787ed20e4e204f38dbeffa808a86b4d4cf0f2ffcfda9e84567348cf21c8ac8"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/TOOL-SELECTION-02.json",
+      "byteLength": 2342,
+      "sha256": "1992c9324870b8251ed22b30b41f1689ed7cb111e7c755c56175eab5137f1295"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/CONTROLS-01.json",
+      "byteLength": 4462,
+      "sha256": "d1c41668b4335f5dc8fcef1432fc3c2054c260d9f2eebe5fe4bfa48e714c915b"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/harness/run_gate.py",
+      "byteLength": 12893,
+      "sha256": "b7666e0827809a35f2d9dae73b8a36d3eed47552e172cf8f0066028aa9c03165"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/harness/run_gate-02.py",
+      "byteLength": 12893,
+      "sha256": "30236ecec4fa651e645c2abc2734a49c1d9a5ba7044f56ddeb0d6feb33939b4e"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/harness/build_gate.py",
+      "byteLength": 4507,
+      "sha256": "d47e22a44cafe5686131b046461dc9890272ab027e4186a7e55809b4a274c6db"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/harness/worker.mjs",
+      "byteLength": 2987,
+      "sha256": "d5d8ecb41fc14a487501938bae6668c16a5250367f24c71755fbc0ad8fe2e863"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/signature-component-adapter-01.mjs",
+      "byteLength": 16366,
+      "sha256": "7cb1579791fe61d2675ebd0f88c923362d6d5632226fcc8f5cb13fe9a7a70161"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/signature-component-adapter-selected.mjs",
+      "byteLength": 16366,
+      "sha256": "7cb1579791fe61d2675ebd0f88c923362d6d5632226fcc8f5cb13fe9a7a70161"
+    }
+  ],
+  "selected_adapter": {
+    "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/signature-component-adapter-selected.mjs",
+    "byteLength": 16366,
+    "sha256": "7cb1579791fe61d2675ebd0f88c923362d6d5632226fcc8f5cb13fe9a7a70161",
+    "ordinary_owned_nlink1_copy": true,
+    "adapter01_preserved": true,
+    "adapter02_created": false
+  },
+  "sym_decision": {
+    "result": "NO_CHANGE_SOURCE_SUPPORTED",
+    "evidence": [
+      "pinned format docs require every nonzero physical wire once;0 reserved ONE",
+      "constraint_simplification::rebuild_witness injectively assigns retained original IDs; removed equality/constant aliases are omitted",
+      "IteratorSignal::new maps absent original ID to map.len(); sym_porting writes that sentinel as-1",
+      "ConstraintList::get_witness_as_vec inverts the same signal_map; r1cs_porting writes that vector as section3",
+      "there is no source support for admitting repeated physical aliases or nonzero original labels at wire0 in this selected compiler"
+    ],
+    "selected66_policy": "exact expected top-level names bijective on raw1..66 remains unchanged",
+    "constant_alias_policy": "removed constant-assignment originals emit-1; ONE0 remains outside selected .sym names; raw matrix/witness ONE admission unchanged"
+  },
+  "official_sources": [
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/code_producers--src--c_elements--c_code_generator.rs",
+      "byteLength": 48919,
+      "sha256": "258b5d1f19092d346855e5b2ebba4c124576f6203f4cd0f5b975bc71b67255af",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/code_producers/src/c_elements/c_code_generator.rs"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/code_producers--src--c_elements--common--main.cpp",
+      "byteLength": 11023,
+      "sha256": "8e78374bbddba41c5ff0f65d6a9c8165029560b0ab0951fa7dafcfa73a3ba9cb",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/code_producers/src/c_elements/common/main.cpp"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/code_producers--src--c_elements--generic--makefile",
+      "byteLength": 314,
+      "sha256": "d49dca82c1f66b95e2bf38387dc7ab3efb7241a82d597091ce47aa4b8b8ec8a0",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/code_producers/src/c_elements/generic/makefile"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/code_producers--src--c_elements--mod.rs",
+      "byteLength": 7477,
+      "sha256": "e21c71f154b266f62e6605f9840b03514a9d2799c08a35a4940cc58be222be4b",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/code_producers/src/c_elements/mod.rs"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/constraint_list--src--constraint_simplification.rs",
+      "byteLength": 26939,
+      "sha256": "5282610fbddb21b550607f6b9d78fb00f8e48bb524b850ae07fecbb52e484fea",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/constraint_list/src/constraint_simplification.rs"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/constraint_list--src--lib.rs",
+      "byteLength": 5827,
+      "sha256": "ef58260e71072b2ae2189c82b8113006b451ffda6820aa4876a0ea02a05e1e90",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/constraint_list/src/lib.rs"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/constraint_list--src--r1cs_porting.rs",
+      "byteLength": 5311,
+      "sha256": "d5cf3d9dd25eb5485f3e8608b4ae262ea0768055e7f155aae974bc12f8918215",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/constraint_list/src/r1cs_porting.rs"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/source-bridge/sym-review-02/constraint_list--src--sym_porting.rs",
+      "byteLength": 1247,
+      "sha256": "794a34e04057410884b9fa847a39c38c1d8d7b30d22ac90e74f4e1524fa18a44",
+      "url": "https://github.com/iden3/circom/blob/ad44e915a12bb047b05745c2884aad9cc8326bc6/constraint_list/src/sym_porting.rs"
+    }
+  ],
+  "command_repair": {
+    "deltas": [
+      {
+        "path": [
+          "run",
+          "node",
+          21
+        ],
+        "before": "/home/luke/.nvm/versions/node/v24.15.0/bin/node",
+        "after": "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/node"
+      }
+    ],
+    "driver_difference": "exact one COMMANDS-01.json to COMMANDS-02.json filename replacement",
+    "no_other_command_leaf_or_mount_or_environment_change": true
+  },
+  "source_review_conclusions": [
+    "ordinary and CPP0 emit same source/prime/O1; CPP0 only adds C backend sanity0/no_asm; exact R1CS byte identity checked before normalization",
+    "official no_asm path selects generic makefile: CC=g++, CFLAGS=-std=c++11 -O3 -I.; command overrides CC/CXX to real mounted g++15 without NDEBUG or flag replacement",
+    "official main.cpp loads argv0+.dat; readonly /generator directory contains selected binary plus adjacent selected .dat",
+    "closed arrays clear env/unshare all and bind owned source, public selected tools/dependencies and fresh work; no whole home/repo/private/PK mount",
+    "driver authenticates source freeze and exact postbuild artifact selection; captures fresh run and freezes normalized matrix+symbol map before keys/signatures/controls",
+    "direct WTNS edits use exact publicMap raw indices and retain all other auxiliaries; P raw alias expects NONCANONICAL_FIELD parser refusal, not residual credit",
+    "driver separates owner signing and verifier preparation modes semantically; known public fixture seeds remain worker source, so this is not process secrecy or full-collusion privacy evidence",
+    "driver evaluates all rows through separately reviewed Native executable, compares Native/Sig/link failures, both reference outputs,3joint instances and68actual links; no host signature Boolean substituted",
+    "build wrapper executes only finite native/ordinary/cpp0/make arrays, retains first failure and hardlink metadata hold without reading held binary bodies; no runtime starts"
+  ],
+  "limits": [
+    "No syntax check, module import, compile, owner signing, witness generation, adapter run or residual test was executed by this review",
+    "Full resolved installed runtime/import closure and actual tool/binary reauthentication remains a mandatory separately selected pre-execution condition; archive pins alone are insufficient",
+    "Source review does not qualify actual compile/link success, postbuild symbol map/dimensions, generator completeness, actual negative verdicts, setup/proof/MPC/current Native profile/independent Exit/privacy/recovery/fees",
+    "Root must select resources and explicit execution GO; no current release implied"
+  ]
+}

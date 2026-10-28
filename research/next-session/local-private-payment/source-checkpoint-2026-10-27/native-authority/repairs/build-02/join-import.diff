@@ -1,0 +1,10 @@
+--- unchanged-source02/join.rs
++++ overlay-build02/join.rs
+@@ -1,6 +1,7 @@
+ //! SOURCE-ONLY full-matrix seam; no proof/setup/MPC or host signature verdict.
+ use ark_bn254::Fr;
+ use ark_ff::Field;
++use ark_ff::AdditiveGroup;
+ pub type Row=Vec<(Fr,usize)>;
+ #[derive(Clone)] pub struct R1cs { pub instances:usize, pub witnesses:usize, pub matrices:[Vec<Row>;3] }
+ #[derive(Clone,Copy,Debug,PartialEq,Eq)] pub enum Boundary { Shape, Column, One, Length, Overflow, Inverse, Predicate, Synthesis }

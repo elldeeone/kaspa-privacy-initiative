@@ -1,0 +1,194 @@
+{
+  "co_snarks_commit": "436f63fa17f2f10ece38c6650df68da99fbc0307",
+  "forbidden_fallbacks": [
+    "raw shares or stripped MACs into REP3/Shamir",
+    "party0 clear owner witness input",
+    "Share.randomize for proof masks",
+    "unmodified MCL default curve or BLS12-381 NTT root",
+    "unchecked shorter-slice MSM truncation",
+    "ECDSA diagnostic secret-key openings",
+    "client one-mask fallback or client MAC export"
+  ],
+  "full_proof_gate": {
+    "ABC_nonzero_counts": [
+      3,
+      3,
+      2
+    ],
+    "H_map_length": 4,
+    "N": 4,
+    "VK_IC_length": 2,
+    "a_b1_b2_query_lengths": [
+      5,
+      5,
+      5
+    ],
+    "columns": [
+      "ONE",
+      "t",
+      "x",
+      "y",
+      "z"
+    ],
+    "constraints": [
+      "x*y=z",
+      "(z+1)*(x+y)=t"
+    ],
+    "derived_h_query_length": 4,
+    "h_policy": "append exactly one PUBLIC G1 identity after validating matched LibSnark arities; no H-tail opening",
+    "l_query_length": 3,
+    "num_constraints": 2,
+    "num_instance": 2,
+    "num_private": 3,
+    "num_total_variables": 5,
+    "original_h_query_length": 3,
+    "owner_path": "strict all3-TLS DDNNT3n externally masked inputs; no party0 clear witness dealer",
+    "private_MPC_derived_auxiliary": {
+      "z": 15
+    },
+    "private_external_clients": {
+      "X": 3,
+      "Y": 5
+    },
+    "public_instance": [
+      1,
+      128
+    ],
+    "status": "PLANNED_UNRUN",
+    "verifier_inputs": [
+      128
+    ]
+  },
+  "mcl_commit": "9f49ba06593e2d426ab6fb9b0e17bc125a6f720c",
+  "methods": [
+    {
+      "actual_source_locations": "groth16.rs:155; mpc.rs:55",
+      "existing_method": "rand",
+      "mandatory_semantics": "stock preprocessing.get_random(); no raw randomize and independent proof-mask calls",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "AuthScalar random_auth(MascotContext&)"
+    },
+    {
+      "actual_source_locations": "reduction.rs:196-209; mpc.rs:58-63",
+      "existing_method": "evaluate_constraint",
+      "mandatory_semantics": "full MAC-retaining assignment including authenticated public prefix",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "AuthScalar evaluate_linear(SparseRow, span<AuthScalar>)"
+    },
+    {
+      "actual_source_locations": "reduction.rs:212-225; mpc.rs:66-71",
+      "existing_method": "evaluate_constraint_half_share",
+      "mandatory_semantics": "C matrix stays authenticated",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "same evaluate_linear; no downgrade"
+    },
+    {
+      "actual_source_locations": "reduction.rs:267-269; mpc.rs:74-77",
+      "existing_method": "promote_to_trivial_shares",
+      "mandatory_semantics": "private alpha_i tags; ID-only interface insufficient",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "AuthScalar public_constant(LinearMacContext, FrPublic)"
+    },
+    {
+      "actual_source_locations": "reduction.rs:289; groth16.rs:291; mpc.rs:84-88",
+      "existing_method": "local_mul_vec",
+      "mandatory_semantics": "ordered checked Beaver networking; remove non-networking and halfshare requirements",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "vector<AuthScalar> multiply_batch(MascotContext&, span<AuthScalar>, span<AuthScalar>)"
+    },
+    {
+      "actual_source_locations": "reduction.rs:271; mpc.rs:91-94",
+      "existing_method": "distribute_powers_and_mul_by_const",
+      "mandatory_semantics": "pure local multiply of both value and MAC lanes",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "void scale_public(span<AuthScalar>, span<FrPublic>)"
+    },
+    {
+      "actual_source_locations": "groth16.rs:157-161,226,244,261,303,307; mpc.rs:97",
+      "existing_method": "to_half_share",
+      "mandatory_semantics": "all masks/witness/H remain authenticated",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "REMOVE"
+    },
+    {
+      "actual_source_locations": "groth16.rs:189,277,284; mpc.rs:100-105",
+      "existing_method": "msm_public_points_hs",
+      "mandatory_semantics": "equal lengths and fixed admitted bases; map both scalar components",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "AuthG1/AuthG2 msm_g1/g2(span<PublicPoint>, span<AuthScalar>)"
+    },
+    {
+      "actual_source_locations": "groth16.rs:227,245,262,292,303,308; mpc.rs:108-113",
+      "existing_method": "scalar_mul_public_point_hs",
+      "mandatory_semantics": "public admitted point times both authenticated scalar components",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "AuthG1/AuthG2 public_point_map(PublicPoint, AuthScalar)"
+    },
+    {
+      "actual_source_locations": "groth16.rs:194-196; mpc.rs:116-120",
+      "existing_method": "add_assign_points_public_hs",
+      "mandatory_semantics": "stock public-point constant including MAC tag",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "void add_public(AuthPoint&, PublicPoint, LinearMacContext)"
+    },
+    {
+      "actual_source_locations": "groth16.rs:302,318; mpc.rs:124-132",
+      "existing_method": "open_two_half_points",
+      "mandatory_semantics": "field check before open; all group MAC checks before returning; field check again",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "checked_g1_pair / checked_g1_g2(MascotContext&, AuthPoints)"
+    },
+    {
+      "actual_source_locations": "reduction.rs:30-35,241-342",
+      "existing_method": "R1CSToQAP witness_map",
+      "mandatory_semantics": "LibSnark only first gate; complete ABC, appended public prefix, N coefficients",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "vector<AuthScalar> libsnark_h(MascotContext&, PublicModel, full AuthAssignment)"
+    },
+    {
+      "actual_source_locations": "groth16.rs:125-173,329-424",
+      "existing_method": "private prove_inner/public aliases",
+      "mandatory_semantics": "separate authenticated public entry or standalone C++ port, not aliasing REP3/Shamir",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "ProofPublic prove(MascotContext&, PublicModel, private AuthAssignment)"
+    },
+    {
+      "actual_source_locations": "groth16.rs:175-198",
+      "existing_method": "calculate_coeff",
+      "mandatory_semantics": "all public alpha/beta/public-query terms MAC tagged",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "authenticated coefficient accumulator"
+    },
+    {
+      "actual_source_locations": "mpc-core/src/lib.rs:19-28",
+      "existing_method": "MpcState::fork",
+      "mandatory_semantics": "do not clone/reuse preprocessing; pure FFT parallelism only",
+      "port_status": "REQUIRED_NOT_IMPLEMENTED",
+      "proposed_contract": "C++ port has no such bound; Rust adapter must explicitly refuse unsupported fork"
+    }
+  ],
+  "mpspdz_commit": "113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+  "non_claims": [
+    "no full Groth16 backend implemented",
+    "no group/FFT/client composition qualification",
+    "no active/privacy or mapping/abort/retry qualification",
+    "no NativeAuthSpend/native payment/fee/production claim"
+  ],
+  "preimage_contract_sha256": "833ceea7155180a9f6264ebca9df853139e79317cad1dfdb1f4e7895c93cbe4f",
+  "public_proof_gate_fixed_slot_anonymity_claimed": false,
+  "real_owner_approval": {
+    "full_effects_bytes": 3756,
+    "full_packet_bytes": 4077,
+    "multiowner_private_nullifier_approval_implemented": false,
+    "opaque_digest_shortcut_allowed": false,
+    "statement_bytes": 200
+  },
+  "recommended_initial_route": "small C++ stock-MASCOT prover port with explicit-root established NTT adapter; Ark public export/verify",
+  "schema": "kpxa-mascot-groth16-method-contract/v1",
+  "server_transcript_contract": {
+    "A_B1_opening_before_C": "SERVER_INTERNAL_ONLY; complete field and G1 MAC checks BEFORE secret r/s point maps",
+    "coordinator_plus_colluding_server": "includes internalB1 through colluder; augmented transcript ZK/active privacy remains UNQUALIFIED",
+    "publishable_output": "final verified A/B2/C only"
+  },
+  "status": "SOURCE_ONLY_PORT_NOT_BUILT_OR_EXECUTED"
+}

@@ -1,0 +1,113 @@
+--- fr_scalar_party.py
++++ fr_scalar_party_03.py
+@@ -17,6 +17,19 @@
+ def need(ok):
+     if not ok:
+         raise ValueError('FR_PARTY_INCOMPLETE')
++
++
++def checked_public_output(stdout_raw, stderr_raw, run_id):
++    # Both raw streams stay inside this one worker. No raw diagnostic is
++    # returned to the controller, including on failed decoding/checks.
++    need(type(stdout_raw) is bytes and type(stderr_raw) is bytes)
++    need(b'insecure' not in stdout_raw.lower() and b'insecure' not in stderr_raw.lower())
++    lines = stdout_raw.decode('utf-8').splitlines()
++    tagged = [line for line in lines if line.startswith('KPI_FR_')]
++    expected = ['KPI_FR_SCALAR_GATE ' + run_id] + [
++        'KPI_FR_RESIDUAL %d 0' % index for index in range(28)]
++    need(tagged == expected)
++    return [int(line.rsplit(' ', 1)[1]) for line in tagged[1:]]
+ 
+ 
+ def main():
+@@ -49,16 +62,11 @@
+     need(process.returncode == 0)
+     # Only the selected worker reads its new engine logs. No TLS/MAC-key body
+     # is read by this code; the engine opens its own transport state as needed.
+-    need(b'insecure' not in stderr_path.read_bytes().lower())
+-    lines = stdout_path.read_text(encoding='utf-8').splitlines()
+-    tagged = [line for line in lines if line.startswith('KPI_FR_')]
+-    expected = ['KPI_FR_SCALAR_GATE ' + run_id] + [
+-        'KPI_FR_RESIDUAL %d 0' % index for index in range(28)]
+-    need(tagged == expected)
++    residuals = checked_public_output(stdout_path.read_bytes(), stderr_path.read_bytes(), run_id)
+     return {'schema': 'kpxa-public-fr-scalar-party/v1', 'status': 'PASS',
+             'party': int(party), 'run_id': run_id, 'field_decimal': str(FR),
+             'engine_argv': argv, 'engine_exit': process.returncode,
+-            'residuals': [0] * 28, 'insecure_warning_seen': False,
++            'residuals': residuals, 'insecure_warning_seen': False,
+             'elapsed_milliseconds': int((time.monotonic() - started) * 1000)}
+ 
+ 
+--- run_fr_scalar_gate.py
++++ run_fr_scalar_gate_03.py
+@@ -75,7 +75,7 @@
+     need(type(rows) is list and len({row['path'] for row in rows}) == len(rows), 'unique-selected-files')
+     files = {}
+     required = {'kpi_fr_scalar_gate.mpc', 'fixture_preflight.py', 'PUBLIC-FIXTURE-01.json',
+-                'fr_scalar_party.py', 'run_fr_scalar_gate.py'}
++                'fr_scalar_party_03.py', 'run_fr_scalar_gate_03.py'}
+     for row in rows:
+         need(type(row) is dict and set(row) == {'path', 'bytes', 'sha256'}, 'closed-selected-file')
+         path = Path(row['path'])
+@@ -86,7 +86,7 @@
+             need(len(body) == row['bytes'], 'selected-source-length')
+             files[path.name] = (row, body)
+     need(set(files) == required and
+-         files['run_fr_scalar_gate.py'][0]['sha256'] == args.source_sha256, 'complete-source-and-self-selection')
++         files['run_fr_scalar_gate_03.py'][0]['sha256'] == args.source_sha256, 'complete-source-and-self-selection')
+     return selection, files
+ 
+ 
+@@ -233,6 +233,7 @@
+         'full_Groth16_or_active_privacy_or_financial_qualification':False,
+         'private_transport_and_engine_logs_retained':True, 'TLS_key_bodies_read_hashed_or_logged_by_controller':False}
+     stage = 'isolated-anchor'
++    last_sample, sample_attempts, telemetry_failures = 0, 0, []
+     started = time.monotonic()
+     try:
+         anchor = docker.base(names[0], 'none', anchor=True) + ['--detach','--entrypoint','/usr/bin/env',
+@@ -251,7 +252,7 @@
+                 '--mount',f'type=bind,src={work[party] / ("P%d.key" % party)},dst=/work/Player-Data/P{party}.key,readonly',
+                 '--mount',f'type=bind,src={programs},dst=/work/Programs,readonly',
+                 '--mount',f'type=bind,src={SOFTWARE / "mascot-party.x"},dst=/engine,readonly',
+-                '--mount',f'type=bind,src={HERE / "fr_scalar_party.py"},dst=/app/fr_scalar_party.py,readonly',
++                '--mount',f'type=bind,src={HERE / "fr_scalar_party_03.py"},dst=/app/fr_scalar_party.py,readonly',
+                 '--workdir','/work','--entrypoint','/usr/bin/env',IMAGE,'-i',
+                 'PATH=/usr/bin:/bin','LANG=C.UTF-8','TZ=UTC','/usr/bin/python3','-B',
+                 '/app/fr_scalar_party.py',str(party),run_id,digest,str(before.st_dev),str(before.st_ino)]
+@@ -263,6 +264,14 @@
+                 stdin=subprocess.DEVNULL, env=docker.env))
+         while any(process.poll() is None for process in processes):
+             need(all(process.poll() in (None,0) for process in processes), 'party-failed-no-subset')
++            if time.monotonic() - last_sample >= 1:
++                sample_attempts += 1
++                try:
++                    docker.sample()
++                except Exception as telemetry_error:
++                    # Observation failures never decide arithmetic acceptance.
++                    telemetry_failures.append({'error_type':type(telemetry_error).__name__})
++                last_sample = time.monotonic()
+             time.sleep(0.1)
+         need([process.returncode for process in processes] == [0,0,0], 'all-three-party-exits')
+         for stream in opened:
+@@ -306,6 +315,10 @@
+                           cleanup_error_type=type(cleanup_error).__name__)
+             raise
+         finally:
++            result['telemetry'] = {'sample_attempts':sample_attempts,
++                'sample_records':len(docker.samples), 'failures':telemetry_failures,
++                'absent':not bool(docker.samples), 'acceptance_depends_on_telemetry':False,
++                'complete_lifetime_peak_or_simultaneous_host_peak_claimed':False}
+             result['worker_wrapper_exits'] = [process.poll() for process in processes]
+             result['runtime_milliseconds'] = int((time.monotonic()-started)*1000)
+             save(output / 'RESULT.json', encoded(result))
+@@ -333,7 +346,7 @@
+                 'public_source_frames':[{'file':Path(frame.filename).name,'line':frame.lineno,
+                                          'function':frame.name}
+                     for frame in traceback.extract_tb(error.__traceback__)
+-                    if Path(frame.filename).name in ('run_fr_scalar_gate.py','fixture_preflight.py','backend.py')]}))
++                    if Path(frame.filename).name in ('run_fr_scalar_gate_03.py','fixture_preflight.py','backend.py')]}))
+         raise
+     print(encoded(result).decode().strip())
+ 

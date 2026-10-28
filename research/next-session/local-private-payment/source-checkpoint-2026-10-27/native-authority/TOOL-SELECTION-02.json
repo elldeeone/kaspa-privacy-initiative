@@ -1,0 +1,50 @@
+{
+  "schema": "kpi-nativeauth-proposed-tool-selection/v1",
+  "status": "SOURCE_READ_AUTHENTICATED_NO_COMPILER_OR_RUNTIME_EXECUTION",
+  "public_tools": [
+    {
+      "path": "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/node",
+      "bytes": 122889056,
+      "sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c"
+    },
+    {
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/circom",
+      "bytes": 13145432,
+      "sha256": "85342c7ff332d948df7c0c50ecf201e6129349aef550ce873f3c811b79fe53a3"
+    },
+    {
+      "path": "/usr/bin/x86_64-linux-gnu-g++-15",
+      "bytes": 1305304,
+      "sha256": "e6718f7e0c7d057c3ff77b550c603da9bc4030e3ede3c053705acce1293dbe4d"
+    },
+    {
+      "path": "/usr/bin/make",
+      "bytes": 295120,
+      "sha256": "27c9f6d806aee15882b01c2c61848f7aa75caa14bc7b6f608ba422f9e46a7d49"
+    }
+  ],
+  "existing_provenance": [
+    {
+      "path": "tool-provenance/TOOL-PREPARATION-01.json",
+      "bytes": 5151,
+      "sha256": "f57a258ea1d273e05bc50284b9b3fe54d91222e8e3db4ab8abcc3d226e5d520c"
+    },
+    {
+      "path": "tool-provenance/TOOL-ARCHIVE-CLOSURE-01.json",
+      "bytes": 66933,
+      "sha256": "431bbccb84f35dfd2d1296a875aec6059958f2f1005e96b0126aa527bde9930d"
+    },
+    {
+      "path": "tool-provenance/CPP-TOOLS-02.json",
+      "bytes": 6471,
+      "sha256": "ceb23304c4418a3f083affb6477f8d79836d2b20fd6b5aa4a7021e7dd4bbcfac"
+    }
+  ],
+  "js_lock": {
+    "path": "EXISTING-JS-LOCK-01.json",
+    "sha256": "514b0cc802f1aa8ec54f0a665e2e6866437d4c1bc01e6f54a3f6c997ca18c0be"
+  },
+  "runtime_root": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules",
+  "source_boundary": "96 official npm archives checked in retained provenance; selected actual host/adapter source bodies separately pinned. Installed full import tree is not exhaustively byte-compared or audited. Execution requires separately selected reauthentication of resolved runtime closure and actual binaries; archive pin alone is not body parity. No install/download or dynamic API test occurred.",
+  "source_repair": "COMMANDS01 path resolved to public317B shell wrapper executing an unmounted home path. No runtime attempted. COMMANDS02 selects retained authenticated standalone public Node binary; no new mount class, NODE_OPTIONS, private input or permissive flag."
+}

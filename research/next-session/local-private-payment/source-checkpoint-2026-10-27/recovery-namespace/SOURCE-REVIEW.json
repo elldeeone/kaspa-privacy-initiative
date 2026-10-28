@@ -1,0 +1,51 @@
+{
+  "automatic_promotion": false,
+  "bootstrap_originals_readable_in_guest": true,
+  "checks_completed": [
+    "guarded full source reads",
+    "warning-free syntax compilation",
+    "independent static source review"
+  ],
+  "checks_not_run": [
+    "namespace execution",
+    "controller execution",
+    "Original workers",
+    "nested bwrap runtime qualification",
+    "promotion runtime qualification",
+    "actual full graph acceptance"
+  ],
+  "files": {
+    "CONTRACT-AND-STATUS.md": {
+      "bytes": 10403,
+      "sha256": "e8aeb54e818632c14dcf66f91faf1c466066a335ddab7434ac6843f3ef53564c"
+    },
+    "promote_primary_held_once.py": {
+      "bytes": 19022,
+      "sha256": "b9ab15bef18697372c986a5bc2f45ec1fc74006c42cb426e6f25bedcd62d8d69"
+    },
+    "run_primary_namespace_once.py": {
+      "bytes": 24194,
+      "sha256": "bc205de04de8c1a9c9e90c1036af398a559e35e68a5a6106400769f367c0e6b6"
+    }
+  },
+  "global_audit_complete": false,
+  "host_guard_history_cleared": false,
+  "independent_reviewer": "/root/final_data_staging_space/receiver_contract_check",
+  "independent_source_findings": "No blocking source defect under the stated trusted-host and exact Root-selected closure assumptions. Two contract wording corrections applied; Python sources unchanged after review.",
+  "main_packet_or_current_pipeline_modified": false,
+  "metadata_only_bootstrap_is_trusted_frozen_code_behavior": true,
+  "original_content_read_hashed_copied_or_sealed_by_wrapper": false,
+  "promotion_semantics": "Each exact move uses renameat2(RENAME_NOREPLACE); the complete sequence may partially finish and preserves remaining holders plus journal.",
+  "reviewed_launcher_sha256": "bc205de04de8c1a9c9e90c1036af398a559e35e68a5a6106400769f367c0e6b6",
+  "reviewed_promoter_sha256": "b9ab15bef18697372c986a5bc2f45ec1fc74006c42cb426e6f25bedcd62d8d69",
+  "runtime_requires": [
+    "Root-selected exact public import/runtime/data FD closure and corrected core selector",
+    "Root-selected actual plan and 17 metadata-only Original routes",
+    "trusted host with closed writers/mappings and private-generation epoch",
+    "fresh holders and private captures",
+    "separate runtime decision and bounded qualification",
+    "Root-pinned full frozen PRIMARY graph review before any promotion"
+  ],
+  "schema": "kpxa-finite-primary-namespace-source-review/v1",
+  "status": "STATIC_VIABLE_RUNTIME_UNQUALIFIED_EXECUTION_HELD"
+}

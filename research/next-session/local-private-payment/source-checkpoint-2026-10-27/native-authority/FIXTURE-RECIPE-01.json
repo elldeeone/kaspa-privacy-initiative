@@ -1,0 +1,95 @@
+{
+  "schema": "kpi-nativeauth-public-fixture-source-recipe/v1",
+  "status": "UNMATERIALIZED_NOT_EXECUTED",
+  "all_keys_are_public_test_keys_no_secrecy_or_unforgeability_evidence": true,
+  "domain_hex": "a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6",
+  "owner_seed_A_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "owner_seed_B_hex": "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f",
+  "owner_seed_C_hex": "404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f",
+  "input": {
+    "owner_role": "A",
+    "incoming_hex": "2222222222222222222222222222222222222222222222222222222222222222",
+    "value_sompi": 2000000000,
+    "rho_hex": "4444444444444444444444444444444444444444444444444444444444444444",
+    "nullifier_k_hex": "7171717171717171717171717171717171717171717171717171717171717171",
+    "native_pk_hex": "5555555555555555555555555555555555555555555555555555555555555555",
+    "position": 3,
+    "cv_blind_integer": 7
+  },
+  "prior_notes": [
+    {
+      "position": 0,
+      "owner_role": "A",
+      "incoming_hex": "1010101010101010101010101010101010101010101010101010101010101010",
+      "value_sompi": 60000000,
+      "rho_hex": "2020202020202020202020202020202020202020202020202020202020202020",
+      "nullifier_k_hex": "6060606060606060606060606060606060606060606060606060606060606060",
+      "native_pk_hex": "3030303030303030303030303030303030303030303030303030303030303030"
+    },
+    {
+      "position": 1,
+      "owner_role": "B",
+      "incoming_hex": "1111111111111111111111111111111111111111111111111111111111111111",
+      "value_sompi": 70000000,
+      "rho_hex": "2121212121212121212121212121212121212121212121212121212121212121",
+      "nullifier_k_hex": "6161616161616161616161616161616161616161616161616161616161616161",
+      "native_pk_hex": "3131313131313131313131313131313131313131313131313131313131313131"
+    },
+    {
+      "position": 2,
+      "owner_role": "C",
+      "incoming_hex": "1212121212121212121212121212121212121212121212121212121212121212",
+      "value_sompi": 80000000,
+      "rho_hex": "2222222222222222222222222222222222222222222222222222222222222222",
+      "nullifier_k_hex": "6262626262626262626262626262626262626262626262626262626262626262",
+      "native_pk_hex": "3232323232323232323232323232323232323232323232323232323232323232"
+    }
+  ],
+  "outputs": [
+    {
+      "owner_role": "B",
+      "incoming_hex": "2323232323232323232323232323232323232323232323232323232323232323",
+      "value_sompi": 300000000,
+      "rho_hex": "4545454545454545454545454545454545454545454545454545454545454545",
+      "nullifier_k_hex": "7272727272727272727272727272727272727272727272727272727272727272",
+      "native_pk_hex": "5656565656565656565656565656565656565656565656565656565656565656",
+      "cv_blind_integer": 11,
+      "CF_hex": "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab",
+      "opaque_proof_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "owner_role": "A",
+      "incoming_hex": "2424242424242424242424242424242424242424242424242424242424242424",
+      "value_sompi": 1680000000,
+      "rho_hex": "4646464646464646464646464646464646464646464646464646464646464646",
+      "nullifier_k_hex": "7373737373737373737373737373737373737373737373737373737373737373",
+      "native_pk_hex": "5757575757575757575757575757575757575757575757575757575757575757",
+      "cv_blind_integer": 13,
+      "CF_hex": "acacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacac",
+      "opaque_proof_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "coordinator_output0": {
+    "owner_role": "C",
+    "incoming_hex": "2525252525252525252525252525252525252525252525252525252525252525",
+    "value_sompi": 300000000,
+    "rho_hex": "4747474747474747474747474747474747474747474747474747474747474747",
+    "nullifier_k_hex": "7474747474747474747474747474747474747474747474747474747474747474",
+    "native_pk_hex": "5858585858585858585858585858585858585858585858585858585858585858",
+    "cv_blind_integer": 11,
+    "CF_hex": "adadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadad",
+    "opaque_proof_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "fee_sompi": 20000000,
+  "old_reserve_sompi": 9000000000,
+  "new_reserve_sompi": 8980000000,
+  "delta": "SUBGROUP_Q-17 encoded canonical32LE",
+  "action_id_hex": "8080808080808080808080808080808080808080808080808080808080808080",
+  "point_hex": "818181818181818181818181818181818181818181818181818181818181818100000000",
+  "immutable_tail_hex": "5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a",
+  "opaque_spend_proof_hex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "cm_history": "positions0..2=prior_notes,position3=input; other leaves CM_EMPTY; depth16; oldcount4,newcount6; sequential append outputs4/5",
+  "nf_history": "sentinel nf_leaf(0,0,0) at0,other leaves NF_EMPTY; depth17; oldcount1,newcount2; insert inputNF at1 via exact predecessor/update/empty-append witness",
+  "pre_export_degeneracy": "failclosed before anysignature export; no seed/message/nonce retuning",
+  "all_paths_must_call": "research_wire.validate_public and require_current_head with this exact supplied synthetic head; no actualchain authenticity claim"
+}

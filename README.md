@@ -9,6 +9,9 @@
 The [public research checkpoint](PUBLICATION.md) indexes both retained proof/native
 experiments and their limits. See [REPRODUCE.md](REPRODUCE.md) for source checks.
 
+The [current native-KAS work handoff](research/next-session/local-private-payment/README.md)
+links the October 27 checkpoint, stopped work and preserved source drafts.
+
 ## Start here and help shape the research
 
 The [shared-pool branch plan](docs/SHARED-POOL-PLAN.md) gives the direct-L1 work's

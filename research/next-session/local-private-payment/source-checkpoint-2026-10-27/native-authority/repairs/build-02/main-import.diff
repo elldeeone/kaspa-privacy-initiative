@@ -1,0 +1,10 @@
+--- unchanged-source02/main.rs
++++ overlay-build02/main.rs
+@@ -2,6 +2,7 @@
+ use kpi_nativeauthspend_seam::{self as seam,AuthSpendCircuit,AuthSpendStatement,AuthSpendWitness,ReferenceOutputCircuit,Note,H,CV,DOMAIN};
+ use ark_bn254::Fr;
+ use ark_ff::Field;
++use ark_ff::AdditiveGroup;
+ use ark_serialize::CanonicalSerialize;
+ use serde_json::{Value,json};
+ use std::io::{self,Read};

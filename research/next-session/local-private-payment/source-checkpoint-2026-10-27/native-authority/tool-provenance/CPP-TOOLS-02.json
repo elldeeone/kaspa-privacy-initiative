@@ -1,0 +1,129 @@
+{
+  "archive_boundary": "Exact3officialdistro archives bind full extracted header/library contents; selected actualtool/header/runtimebytes separately pinned. Existing compiler/OS/standard-library include tree is not exhaustively sealed or security-audited.",
+  "backend": "official --c --sanity_check0 --no_asm; no NASM, no-DNDEBUG, no generated-code patch",
+  "compiler_version": "g++15.2.0 Ubuntu15.2.0-16ubuntu1",
+  "files": [
+    {
+      "bytes": 1305304,
+      "resolved_path": "/usr/bin/x86_64-linux-gnu-g++-15",
+      "selected_path": "/usr/bin/x86_64-linux-gnu-g++-15",
+      "sha256": "e6718f7e0c7d057c3ff77b550c603da9bc4030e3ede3c053705acce1293dbe4d"
+    },
+    {
+      "bytes": 295120,
+      "resolved_path": "/usr/bin/make",
+      "selected_path": "/usr/bin/make",
+      "sha256": "27c9f6d806aee15882b01c2c61848f7aa75caa14bc7b6f608ba422f9e46a7d49"
+    },
+    {
+      "bytes": 150176,
+      "resolved_path": "/usr/bin/dpkg-deb",
+      "selected_path": "/usr/bin/dpkg-deb",
+      "sha256": "66a1f5c65bc66cf20a35eb0695bf783bfb365bc80a45006d8a9d97fd406536e0"
+    },
+    {
+      "bytes": 826608,
+      "resolved_path": "/usr/bin/x86_64-linux-gnu-as",
+      "selected_path": "/usr/bin/as",
+      "sha256": "4e5fcaa3cdc160173cb5cfe7aa35dc39d7aa1f06ba8d75b8d923bbae5473991b"
+    },
+    {
+      "bytes": 1890472,
+      "resolved_path": "/usr/bin/x86_64-linux-gnu-ld.bfd",
+      "selected_path": "/usr/bin/ld",
+      "sha256": "97f48d93b8b076a92d2809ec29dcb17f0f37c8827358f832255e2ed22fef6075"
+    },
+    {
+      "bytes": 84576,
+      "resolved_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/prefix/usr/include/x86_64-linux-gnu/gmp.h",
+      "selected_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/prefix/usr/include/x86_64-linux-gnu/gmp.h",
+      "sha256": "633b1aa6d653a06ffd384296ca8ce26ca0dbad053aea834e59c4004a6c8f8a10"
+    },
+    {
+      "bytes": 199205,
+      "resolved_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/prefix/usr/include/nlohmann/json.hpp",
+      "selected_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/prefix/usr/include/nlohmann/json.hpp",
+      "sha256": "b6ae9fe0e4b02835185466309deafed1bca2facab121d7c819eb689e743d350d"
+    },
+    {
+      "bytes": 543168,
+      "resolved_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/prefix/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+      "selected_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/prefix/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+      "sha256": "fda9699eef15deda5f1c626e9140377a7f5d88c41516a54278ac02429cb20fa5"
+    },
+    {
+      "bytes": 543168,
+      "resolved_path": "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+      "selected_path": "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+      "sha256": "fda9699eef15deda5f1c626e9140377a7f5d88c41516a54278ac02429cb20fa5"
+    },
+    {
+      "bytes": 39797952,
+      "resolved_path": "/usr/libexec/gcc/x86_64-linux-gnu/15/cc1plus",
+      "selected_path": "/usr/libexec/gcc/x86_64-linux-gnu/15/cc1plus",
+      "sha256": "6f2b2c0e3fd32042eb2acace19a57fdb0b229d9c24cdd5e2cc100639c77e9ff0"
+    },
+    {
+      "bytes": 479104,
+      "resolved_path": "/usr/libexec/gcc/x86_64-linux-gnu/15/collect2",
+      "selected_path": "/usr/libexec/gcc/x86_64-linux-gnu/15/collect2",
+      "sha256": "8ab5d946ba2c948e5ea5c91e25a104439302e0599a521785770d10690c565437"
+    },
+    {
+      "bytes": 2657792,
+      "resolved_path": "/usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so",
+      "selected_path": "/usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so",
+      "sha256": "946ce23525e79c2916eacb0aeaabd6538df4b1ea9b84ebdd17451f0c89350777"
+    },
+    {
+      "bytes": 187120,
+      "resolved_path": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "selected_path": "/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libgcc_s.so.1",
+      "sha256": "9d339ecb409578d6a5d587e6c537a8f9589b8a13fefba30d167433a4b5758bee"
+    }
+  ],
+  "make_version": "4.4.1",
+  "new_dependencies": {
+    "apt_origin": "Ubuntu resolute/main local apt-cache policy; exact archive SHA256 verified",
+    "existing_runtime": "libgmp10 installed exact2:6.3.0+dfsg-5ubuntu2; system not changed",
+    "nasm": "not installed; official --no_asm generic backend selected prospectively",
+    "no_build_or_generator_execution": true,
+    "packages": [
+      {
+        "archive_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/archives/libgmp-dev.deb",
+        "bytes": 341530,
+        "official_uri": "https://archive.ubuntu.com/ubuntu/pool/main/g/gmp/libgmp-dev_6.3.0%2bdfsg-5ubuntu2_amd64.deb",
+        "operation": "unprivileged dpkg-deb --extract only; no system install/scripts",
+        "package": "libgmp-dev",
+        "sha256": "b43e38f2d5ae4aa38471e1b3f90ed63e96c2ce614ffe496cdcd72f9944e87a4a",
+        "version": "2:6.3.0+dfsg-5ubuntu2"
+      },
+      {
+        "archive_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/archives/libgmp10.deb",
+        "bytes": 256686,
+        "official_uri": "https://archive.ubuntu.com/ubuntu/pool/main/g/gmp/libgmp10_6.3.0%2bdfsg-5ubuntu2_amd64.deb",
+        "operation": "unprivileged dpkg-deb --extract only; no system install/scripts",
+        "package": "libgmp10",
+        "sha256": "a9bbe9d4a4bcd5875bbd0f53e67c379bc881d1c1a80522d51dfb4b107cc31819",
+        "version": "2:6.3.0+dfsg-5ubuntu2"
+      },
+      {
+        "archive_path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/archives/nlohmann-json3-dev.deb",
+        "bytes": 191288,
+        "official_uri": "https://archive.ubuntu.com/ubuntu/pool/main/n/nlohmann-json3/nlohmann-json3-dev_3.12.0.really.3.12.0.really.3.11.3-3build1_all.deb",
+        "operation": "unprivileged dpkg-deb --extract only; no system install/scripts",
+        "package": "nlohmann-json3-dev",
+        "sha256": "d074e6107bef659ccfa169cb1d9e2e0daa9bcecfea84ce13c45812ff9cd58e9d",
+        "version": "3.12.0.really.3.12.0.really.3.11.3-3build1"
+      }
+    ],
+    "prefix": "/var/tmp/kpi-signature-predicate-tools-20261026-01/cpp-02/prefix",
+    "schema": "signature-predicate-cpp02-official-dependency-preparation/v1",
+    "status": "PREPARED_NOT_COMPILED_OR_EXECUTED",
+    "tool_budget_bytes": 201326592,
+    "total_tool_runtime_bytes_including_prior_cache": 184922405
+  },
+  "no_compiler_build_cpp_generation_or_witness_run": true,
+  "schema": "signature-predicate-cpp02-finite-tool-selection/v1",
+  "status": "PREPARED_SOURCE_ONLY_NOT_BUILT"
+}

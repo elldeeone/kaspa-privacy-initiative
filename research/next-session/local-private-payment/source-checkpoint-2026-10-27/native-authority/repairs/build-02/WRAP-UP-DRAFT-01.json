@@ -1,0 +1,81 @@
+{
+  "schema": "kpi-nativeauth-wrap-up-draft/v1",
+  "status": "STOPPED_FOR_USER_WRAP_UP_UNFROZEN_INCOMPLETE_REPAIR",
+  "instruction": "Root relayed user wrap up for today: no new work, reviews or execution. Child review interrupted.",
+  "preserved_source02": {
+    "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/SOURCE-FREEZE-02.json",
+    "bytes": 22541,
+    "sha256": "9bded95d08ec2a372bd89b89d83b630155b1e095da7909b2696e423962320b71",
+    "all96_preimage_file_bodies_unchanged": true
+  },
+  "actual_build01": {
+    "actor": "Root",
+    "result": "first native compile exit101; only2E0599 in join.rs Fr::ZERO needs AdditiveGroup",
+    "elapsed_seconds": 76.98971891403198,
+    "stderr": {
+      "path": "/var/tmp/kpi-nativeauthspend-work-01/build-01/native.stderr",
+      "bytes": 4913,
+      "sha256": "8c566899806abb94921addfe28f1b0b86f6c1d5d77e281722072c7c47c892dca"
+    },
+    "first_failure": {
+      "path": "/var/tmp/kpi-nativeauthspend-work-01/build-01/FIRST-BUILD-FAILURE-01.json",
+      "bytes": 2942,
+      "sha256": "ef7dc70cb2d3fd67d4f146e2d3448fc78b0046864e51855659bc5ef082e3996c"
+    },
+    "cpp_signing_witness_setup_proof_mpc_financial_execution": false
+  },
+  "saved_import_overlays": [
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/repairs/build-02/native-core-join.rs",
+      "bytes": 5532,
+      "sha256": "56b7a48bebc2c98a8edfeb99aa33d5d6238856266cac663a8e61aadbd8ccf01b"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/repairs/build-02/native-core-main.rs",
+      "bytes": 9365,
+      "sha256": "a8291393e348230dacea669f65f99a58ad3bdfdf4f4ed8d8ea233cf6d96478fa"
+    }
+  ],
+  "overlay_delta": "Each adds only use ark_ff::AdditiveGroup; after existing Field import. Root selected same fix in main proactively. No predicate/control/dependency cleanup. Draft overlays uncompiled/unreviewed/unexecuted.",
+  "overlay_contract": {
+    "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/repairs/build-02/RUST-IMPORT-OVERLAY-01.json",
+    "bytes": 1866,
+    "sha256": "e6e19f4304d54dfe490867f25bc0caa17e5a82d19d377e5db8a346ee2402d8b7"
+  },
+  "cache_move_proposal_DRAFT_NOT_EXECUTABLE": {
+    "source": "/var/tmp/kpi-nativeauthspend-work-01/build-01/target",
+    "destination": "/var/tmp/kpi-nativeauthspend-work-01/build-02/target",
+    "source_last_observed_metadata": {
+      "dev": 64512,
+      "inode": 70793476,
+      "uid": 1000,
+      "mode": "0775",
+      "nlink": 3,
+      "type": "directory"
+    },
+    "build01_parent_last_observed_metadata": {
+      "dev": 64512,
+      "inode": 62439229,
+      "uid": 1000,
+      "mode": "0700"
+    },
+    "destination_build02_last_observed": "ABSENT",
+    "proposal": "After Root selects a fresh build02 identity, create owned0700 build02 then anchor old/new parent directory FDs with O_DIRECTORY|O_NOFOLLOW; revalidate exact source metadata, destination absent and same filesystem; atomically rename only target via src_dir_fd/dst_dir_fd; record before/after metadata and unchanged inode; preserve every old build log/source/freeze. No copy, cache-body read, hardlink-admission bypass or cache deletion. Source code for this move is NOT written or reviewed yet.",
+    "safety_boundary": "Regenerable Cargo target cache only. Root must confirm prior build writer stopped and explicitly approve exact move before future execution. Do not duplicate303MB target with roughly563MB free as last reported. No move occurred."
+  },
+  "separate_visibility_correction": {
+    "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/PUBLIC-EFFECTS-OWNER-VISIBILITY-02.md",
+    "bytes": 2464,
+    "sha256": "f4f2fcff7a72d3511879616d5daac5b1311a47558d72203332da730ac7e5f810",
+    "meaning": "Same stock MASCOT vendor binary actually reused by bounded exact-Fr scalar gate; only Q prepared bytecode/sessions/shares/field-bound wrappers incompatible with P. Note01 preserved."
+  },
+  "NOT_PREPARED": [
+    "COMMANDS03 with fresh build02/run02 paths and both readonly overlays",
+    "buildGate03 with reviewed anchored cache transfer",
+    "runGate03 future path/status updates",
+    "SourceFreeze03 preserving old96 plus new repair closure",
+    "independent repair review or Root execution release"
+  ],
+  "next_session_only": "Reauthenticate stopped state and space; finish minimal repair scripts/commands/cache-move contract; freeze and Root-review literal two-import diffs/rename; only then separately release fresh build02. Keep run/signing/witness/proof/MPC/funds held until separately qualified.",
+  "author_execution": "No compiler, retry, prepared-module import, signing, witness, setup, proof, PK, MPC, RPC, funds or cache move by this author. Current work stopped."
+}
