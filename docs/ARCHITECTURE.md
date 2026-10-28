@@ -1,5 +1,17 @@
 # Candidate Architecture
 
+## Resumed private construction work, 2026-10-28
+
+[ADR-0075](adr/0075-authenticated-groth16-functional-experiment.md) selects one
+isolated authenticated Groth16 functional experiment following the preserved
+MASCOT integration plan. It is a dependency of private payment construction;
+its synthetic arithmetic statement does not establish a native batch, privacy,
+delivery or recovery. Existing native financial profiles and keys remain separate.
+The [tracked handoff](../research/next-session/local-private-payment/README.md)
+preserves their completed results and unresolved privacy, fee and availability
+gates. A complete private batch still needs a reviewed restricted-consent,
+private-witness, disclosure and every-path independent-exit contract.
+
 ## Independent-wallet payment candidate
 
 [ADR-0066](adr/0066-local-native-kas-payment-prototype.md) implements the

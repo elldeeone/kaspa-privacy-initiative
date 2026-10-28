@@ -2,6 +2,17 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+## Resumed authenticated construction, 2026-10-28
+
+Can the complete authenticated external-input, witness-map, FFT, group and
+Groth16 path produce one independently verified proof under
+[ADR-0075](docs/adr/0075-authenticated-groth16-functional-experiment.md)? Which
+assumptions remain after that finite functional result? How can restricted
+multi-owner consent and private input/output routing preserve complete effects,
+recipient spendability, state binding, seed recovery and independent exits?
+Can any bounded retry policy improve observed linkage without turning lost
+off-chain history into an operator withdrawal authority or a silent privacy claim?
+
 ## Independent-wallet candidate
 
 [ADR-0066](docs/adr/0066-local-native-kas-payment-prototype.md) now has a bounded

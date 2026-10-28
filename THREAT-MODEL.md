@@ -1,5 +1,17 @@
 # Threat Model
 
+## Authenticated proving experiment, 2026-10-28
+
+[ADR-0075](docs/adr/0075-authenticated-groth16-functional-experiment.md) permits
+one complete unfunded synthetic MASCOT/Groth16 experiment. Its fixed client
+slots, authenticated transport and public input are functional boundaries,
+not sender anonymity. Active share integrity, checked group openings, exact
+field/domain/codec semantics and independent verification must be exercised
+together. Proof acceptance does not qualify privacy of the prover's augmented
+transcript or eliminate setup/source/trusted-host assumptions. Private batch
+consent, pre-settlement NF disclosure and changed-cohort retry remain distinct
+unresolved threats. No existing reserve or withdrawal path is changed.
+
 ## Independent-wallet payment research
 
 [ADR-0066](docs/adr/0066-local-native-kas-payment-prototype.md) removes mandatory
