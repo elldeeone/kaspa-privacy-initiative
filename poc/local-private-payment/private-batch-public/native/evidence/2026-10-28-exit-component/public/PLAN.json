@@ -1,0 +1,237 @@
+{
+  "auth_exit_parameter_manifest": {
+    "path": "/public/AUTH-EXIT-MANIFEST.json",
+    "sha256": "bc41c97e06f07a06ee9ab2af59ef1ba8c5190a126dfb0eb120d586667aaddd8f"
+  },
+  "classification": "UNFUNDED_EXIT_COMPONENT_ONLY_UNSELECTED_PAYMENT_METADATA",
+  "expected_auth_exit_matrix_sha256": "9fbedc0628a6afb592f03a0ceda9825924f7d8bd76fe49785b6252237affc149",
+  "expected_auth_exit_source_sha256": "ccd4e28a728cbf8ffd6db0dd0fa81a6200c0c6e4ecb20242435f00e5b6aae19e",
+  "native_vm_plan": {
+    "cases": [
+      {
+        "case": {
+          "path": "/public/terminal-positive.json",
+          "sha256": "1ab01ec6ba868760c35f72bbb074bfd1cba20fb8ec0f42aea7e59f46437a39db"
+        },
+        "expected": "accept",
+        "id": "terminal-positive",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-payout.json",
+          "sha256": "c225fd305084ee3d96984f236a8449bbe49b00548a1f9f8c336b34ffc17cbe77"
+        },
+        "expected": "reject",
+        "id": "terminal-payout",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-destination.json",
+          "sha256": "53d569c31d78f21cb165751aa0b48f4ef5c7ceecce151fcc2c95acedc91e9a08"
+        },
+        "expected": "reject",
+        "id": "terminal-destination",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-fee-body.json",
+          "sha256": "1c05f333bf8e020a5ea2097de316d2a01ce13d62d442b17985757cd986188088"
+        },
+        "expected": "reject",
+        "id": "terminal-fee-body",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-wrong-head.json",
+          "sha256": "bb5dbe206b6c8cc04c0477ad93e37b7af7523bd597b9ed65dbfc861c8cad73cd"
+        },
+        "expected": "reject",
+        "id": "terminal-wrong-head",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-wrong-domain.json",
+          "sha256": "5cf63c2c7082a58ebdc02270fbc927187a4f6b448e8f5f8962f8abe85abf5082"
+        },
+        "expected": "reject",
+        "id": "terminal-wrong-domain",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-wrong-pool.json",
+          "sha256": "39285b65e3c66bb953ce4d6b88718bf99ce19218b12fb2029a2b71deaf63c9a9"
+        },
+        "expected": "reject",
+        "id": "terminal-wrong-pool",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-corrupt-proof.json",
+          "sha256": "aa5d33e1693436f9046e9df5ae8d5f97a91969a625928930ab4d37f7a04e78b2"
+        },
+        "expected": "reject",
+        "id": "terminal-corrupt-proof",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-cross-context-valid-proof.json",
+          "sha256": "4c64daf5bc62fabbf564a90927cbab6aa4dd8c74f33c07a7681a8cd944b000d7"
+        },
+        "expected": "reject",
+        "id": "terminal-cross-context-valid-proof",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-spent-state-nullifier-replay.json",
+          "sha256": "c65ed179b7f5d2a3bd95c15734dd19b70b489870db464a8243d2430951cadd46"
+        },
+        "expected": "reject",
+        "id": "terminal-spent-state-nullifier-replay",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-positive.json",
+          "sha256": "162015cff4392244929f1fb1dd6f12e3f959b031847e20ce29bde0904c100590"
+        },
+        "expected": "accept",
+        "id": "continuing-positive",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-payout.json",
+          "sha256": "38d7919c6e64ad9c32b36ee04e241199da752cb1f38eb93510de58d66fb348b0"
+        },
+        "expected": "reject",
+        "id": "continuing-payout",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-destination.json",
+          "sha256": "2776074643eb1b810c67ce5b3724020a64b27cd1fce3e8eeb9c5d1fd073aac74"
+        },
+        "expected": "reject",
+        "id": "continuing-destination",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-fee-body.json",
+          "sha256": "0cad9829f164b1dc0a8b8888aa7223c2578945522bd8206a694954c4bbe8e5e4"
+        },
+        "expected": "reject",
+        "id": "continuing-fee-body",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-wrong-head.json",
+          "sha256": "a3221b5624b64cd2efe82f6d77d07461a1a341ec7ecfaa91c7bbfc3cac66def9"
+        },
+        "expected": "reject",
+        "id": "continuing-wrong-head",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-wrong-domain.json",
+          "sha256": "08e9ec6894e17d266999bb50b838b639472d954b0f3aff36e8994c3781507b60"
+        },
+        "expected": "reject",
+        "id": "continuing-wrong-domain",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-wrong-pool.json",
+          "sha256": "55e24329b3b7330575b265db37261f7ec4b068618545d48474aa9ae84d5373f5"
+        },
+        "expected": "reject",
+        "id": "continuing-wrong-pool",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-corrupt-proof.json",
+          "sha256": "b11843e863d2d8193665126e6eb3d6498f43e880054a4da01acad80c4c04029c"
+        },
+        "expected": "reject",
+        "id": "continuing-corrupt-proof",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-cross-context-valid-proof.json",
+          "sha256": "7cb34098f2e353d01ee28a1cd548063534de6ffd6657f6e52c1a1e1ea1902e83"
+        },
+        "expected": "reject",
+        "id": "continuing-cross-context-valid-proof",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-spent-state-nullifier-replay.json",
+          "sha256": "45dd3e44c902aba6a1ab2567db4e846f53cc96134b18b5acc8845d12a88cf8dd"
+        },
+        "expected": "reject",
+        "id": "continuing-spent-state-nullifier-replay",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-successor-policy-substitution.json",
+          "sha256": "e1d8c8a59ef526ad2c8f29ba5161c757bc26ddaaf5e2020b992ee8f89ddc4b76"
+        },
+        "expected": "reject",
+        "id": "continuing-successor-policy-substitution",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/continuing-missing-reserve-output.json",
+          "sha256": "6f0aef7e4dab072a3674f7882fb55da1f20193305da25d6bd790dd0f78edc6ba"
+        },
+        "expected": "reject",
+        "id": "continuing-missing-reserve-output",
+        "mode": "exit"
+      },
+      {
+        "case": {
+          "path": "/public/terminal-unexpected-reserve-output.json",
+          "sha256": "78fcc06e40b1b502a062f2ed6aa5727b4acdfc028fe474003309514063723bbd"
+        },
+        "expected": "reject",
+        "id": "terminal-unexpected-reserve-output",
+        "mode": "exit"
+      }
+    ],
+    "codec": {
+      "path": "/public/exit-component-probe",
+      "sha256": "88e12978651e456d7a192b8681d56b3c9f7978cddf180f0bf298d88852ccb3fc"
+    },
+    "engine": {
+      "path": "/public/native-validator",
+      "sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061"
+    },
+    "parameters": {
+      "path": "/public/PARAMETERS.json",
+      "sha256": "c3d8866c55180991091b4f4b3f6c55ffbe29a6764924414d22488f27b22c169b"
+    },
+    "schema": "private-batch-native-vm-controls/v1",
+    "scope": "exit"
+  },
+  "payment_profile_selected": false,
+  "reference_fee_rate_sompi_per_mass": 100,
+  "schema": "private-batch-unfunded-exit-component-controls/v1"
+}

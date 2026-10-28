@@ -46,7 +46,7 @@ def main():
             raise SystemExit('Missing selected vendor artifact: ' + str(path))
 
     names = ['auth_field.cpp', 'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
-             'owner_inputs_active.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
+             'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
              'auth_groups.cpp', 'auth_groth16.cpp', 'fullproof_gate_main.cpp',
              'owner_client_main.cpp']
     selected = sorted(set(names) | {p.name for p in source.glob('*.hpp')})
@@ -78,7 +78,7 @@ def main():
     links = []
     if not failures:
         common = ['auth_field.cpp', 'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
-                  'owner_inputs_active.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
+                  'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
                   'auth_groups.cpp', 'auth_groth16.cpp']
         for binary, entry in [('mpc-fullproof', 'fullproof_gate_main.cpp'),
                               ('owner-client', 'owner_client_main.cpp')]:

@@ -1,0 +1,68 @@
+{
+  "classification": "PUBLIC_STORAGE_AND_PROCESS_ONLY_NO_FINANCIAL_OR_PRIVATE_MPC_EXECUTION",
+  "compiled_trusted_live_authority_configured": false,
+  "control_source_sha256": {
+    "process_controls.cpp": "096ed2866304f8a06699436027b7d754565f0b19da9fabfa10a1def39e7d633f",
+    "production_surface.cpp": "37624f4ccff0cee432c036e8ff90e2ca85f267dd909636f639e750c329705ae8",
+    "storage_controls.cpp": "12e087b0060ec9a6654efd4e6281a5dbd8c8027d0bb31b41293de11f1168a456"
+  },
+  "failures_retained": [
+    {
+      "cause": "control command used nonexistent python3.12, before child execution",
+      "state": "process-control-state-01"
+    },
+    {
+      "cause": "sealed memfd EOF caused empty child execution; no success prefix, parent refused; fixed one-line rewind; public strace retained",
+      "state": "process-control-state-02/03"
+    }
+  ],
+  "node_or_financial_MPC_or_live_resolution_executed": false,
+  "process": {
+    "binary": "/var/tmp/kpb-history-settlement-process-controls-02",
+    "binary_sha256": "5df9d5fbe6fdf83c5e79ddd8557790e22cad79932f145aacf57c83b964a61e5c",
+    "exit": 0,
+    "groups": [
+      "absent-compiled-authority-refuses",
+      "strict-eight-digest-result",
+      "unqualified-and-inner-prefix-refused",
+      "extra-stdout-and-missing-newline-refused",
+      "six-request-bindings-individually-refused",
+      "private-path-and-hardlink-body-admission-refused",
+      "actual-sealed-source-canonical-origin",
+      "actual-child-closes-inherited-canary-FD",
+      "actual-child-nonzero-refused"
+    ],
+    "interpreter": "/usr/bin/python3.14",
+    "interpreter_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+    "state": "/var/tmp/kpb-history-settlement-process-control-state-04"
+  },
+  "production_surface_compile_exit": 0,
+  "schema": "kpb-settlement-candidate-controls/v1",
+  "source_review_cap_sha256": "276ded9c8e779356c50fe29d0fa00e90f6e2abd08df3a0c6fffceb44fa4fba03",
+  "source_sha256": {
+    "epoch_journal.cpp": "ed481bb36814d5bb68b56083da2f1c7064dab9e358cafd3ed5fa8440310b46ff",
+    "epoch_journal.hpp": "17949d23c18aaaf0f881c4f5da0b75b25e71b1c88543f3ff885dc9f659423d57",
+    "epoch_ticket.cpp": "6910011cd4ab46ee8bc90349791b03c7c5008dceed19e64c8fd989f05b0a6357",
+    "settlement_capability.cpp": "276ded9c8e779356c50fe29d0fa00e90f6e2abd08df3a0c6fffceb44fa4fba03",
+    "settlement_capability.hpp": "e90afbbc73b934ca2ce1ebf92ba8b8b9972107ffd0759a2ef2abc8ae5f5bddcc"
+  },
+  "storage": {
+    "binary": "/var/tmp/kpb-history-settlement-storage-controls-01",
+    "binary_sha256": "810f66033557daaaafad2be46e61dcb73b374043860b7c0f7f9983cbd5bf41c4",
+    "exit": 0,
+    "groups": [
+      "durable-lock-agreement-identity-reconstructed",
+      "wrong-lock-attempt-checkpoint-candidate-case-projection-and-stale-record-refused",
+      "storage-settled-retains-all-public-NF-tombstones",
+      "settlement-append-one-use-stale-replay-refused",
+      "actual-restart-retains-settlement-and-tombstones",
+      "sequential-second-lock-joins-full-history-and-retains-NFs",
+      "released-NF-reuse-after-settlement-enters-irreversible-conflict",
+      "independent-local-observations-share-canonical-settlement-checkpoint",
+      "same-key-registration-cloned-store-path-refused",
+      "actual-process-crash-all-four-settlement-write-boundaries-safe-or-halt",
+      "partial-settlement-peer-checkpoints-cannot-agree-next-lock"
+    ],
+    "state": "/var/tmp/kpb-history-settlement-storage-control-state-01"
+  }
+}

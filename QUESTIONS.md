@@ -13,6 +13,12 @@ the actual workload? Can the [durable attempt policy](docs/adr/0077-durable-priv
 bind actual private NFs, same-assignment validation and every disclosure barrier
 across crashes and session changes? Can fresh acquired/replayed acceptance of
 the exact whole CASE safely permit round two without losing reorg tombstones?
+Can the [public-only continuation](docs/adr/0078-public-continuation-after-private-egress.md)
+bind actual R0/NativeFull finalization and later accepted-chain settlement after
+the original private context has been destroyed?
+Can [registered head selection](docs/adr/0079-registered-head-program-selection.md)
+generate complete programs for real accepted successors while proving exact
+row/key reuse and preserving every dynamic trace/history assertion?
 
 Can the complete authenticated external-input, witness-map, FFT, group and
 Groth16 path produce one independently verified proof under

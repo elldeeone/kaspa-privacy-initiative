@@ -1,0 +1,35 @@
+{
+  "command": [
+    "g++",
+    "-std=c++20",
+    "-O1",
+    "-g0",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/history/epoch_journal.cpp",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/history/tests/nf_set_controls.cpp",
+    "-pthread",
+    "-lcrypto",
+    "-o",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-batch-history-NF-order-controls-01/nf-order-controls"
+  ],
+  "compile_exit": 0,
+  "financial_or_private_MPC_execution": false,
+  "result": {
+    "classification": "PUBLIC_ENCODING_ONLY",
+    "core_and_projection_bytes_and_SHA_unchanged": true,
+    "financial_proof_or_privateNF_qualification": false,
+    "malformed_order_duplicate_zero_refusals": 3,
+    "nonpalindromic_LE_vs_bytelex_regression": true,
+    "schema": "history-NF-order-controls/v1"
+  },
+  "run_exit": 0,
+  "schema": "history-NF-order-source-controls/v1",
+  "seconds": 2.6095475980546325,
+  "source_sha256": {
+    "epoch_journal.cpp": "47d9e4f63df0a9112adaab1e916caa3a6839e5ab16314124017d0e5e6b1c3494",
+    "epoch_journal.hpp": "63108b037cb67ccd6cba2b076b0e180c5abec2060e970dab724b76706f02425b",
+    "tests/nf_set_controls.cpp": "80f7eab2bf7a4c533573ad4ec2a3ce888f27ff3f15ed45b01f130859bdd11024"
+  }
+}

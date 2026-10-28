@@ -1,4 +1,6 @@
 #include "packed_model.hpp"
+#include "gzip_queries.hpp"
+#include "point_codec.hpp"
 #include <algorithm>
 #include <cerrno>
 #include <cstring>
@@ -280,7 +282,8 @@ public:
 };
 
 std::array<unsigned char, 32> encode_g1(const G1Value& point) {
-    point.check();
+    // Private helper: called only on the same immutable local value immediately
+    // after successful G1Value::admit. Retain its full checks and exact roundtrip.
     std::array<unsigned char, 32> bytes{};
     if (point.is_identity()) { bytes.back() = 0x40; return bytes; }
     auto value = point.point(); value.normalize(); bytes = fq_bytes(value.x);
@@ -288,7 +291,8 @@ std::array<unsigned char, 32> encode_g1(const G1Value& point) {
     return bytes;
 }
 std::array<unsigned char, 64> encode_g2(const G2Value& point) {
-    point.check();
+    // Private helper: called only on the same immutable local value immediately
+    // after successful G2Value::admit. Retain its full checks and exact roundtrip.
     std::array<unsigned char, 64> bytes{};
     if (point.is_identity()) { bytes.back() = 0x40; return bytes; }
     auto value = point.point(); value.normalize();
@@ -338,6 +342,15 @@ G2Value decode_g2(std::span<const unsigned char> bytes, bool allowed) {
 }
 }  // namespace
 
+G1Value admit_compressed_g1(std::span<const unsigned char> bytes, CompressedPointRole role) {
+    if (role != CompressedPointRole::Base && role != CompressedPointRole::Query) refuse("packed-point-role");
+    return decode_g1(bytes, role == CompressedPointRole::Query);
+}
+G2Value admit_compressed_g2(std::span<const unsigned char> bytes, CompressedPointRole role) {
+    if (role != CompressedPointRole::Base && role != CompressedPointRole::Query) refuse("packed-point-role");
+    return decode_g2(bytes, role == CompressedPointRole::Query);
+}
+
 namespace detail {
 struct Section { uint64_t offset = 0, count = 0, width = 0; };
 struct Storage {
@@ -345,7 +358,9 @@ struct Storage {
     const Metadata meta;
     const std::string identity;
     const std::array<std::unique_ptr<MappedFile>, 3> matrices;
-    const MappedFile pk, vk;
+    const std::unique_ptr<MappedFile> pk;
+    const MappedFile vk;
+    std::shared_ptr<const GzipQueryStore> gzip_queries;
     std::array<Section, 5> queries{};
     uint64_t beta1 = 0, delta1 = 0;
     AdmissionStats stats;
@@ -355,22 +370,22 @@ struct Storage {
           identity(metadata_file.digest()),
           matrices{std::make_unique<MappedFile>(directory / "A.rows.gz"),
                    std::make_unique<MappedFile>(directory / "B.rows.gz"),
-                   std::make_unique<MappedFile>(directory / "C.rows.gz")}, pk(pk_path), vk(vk_path) {
+                   std::make_unique<MappedFile>(directory / "C.rows.gz")}, pk(std::make_unique<MappedFile>(pk_path)), vk(vk_path) {
         if (identity != expected) refuse("packed-metadata-pin");
-        stats.mapped_public_bytes = add(add(metadata_file.size(), pk.size()), vk.size());
+        stats.mapped_public_bytes = add(add(metadata_file.size(), pk->size()), vk.size());
         for (unsigned axis = 0; axis < 3; ++axis) {
             if (matrices[axis]->size() != meta.compressed_bytes[axis] ||
                 matrices[axis]->digest() != meta.compressed_sha256[axis]) refuse("packed-axis-pin-or-size");
             stats.mapped_public_bytes = add(stats.mapped_public_bytes, matrices[axis]->size());
         }
-        if (pk.size() != meta.pk_bytes || vk.size() != meta.vk_bytes ||
-            pk.digest() != meta.pk_sha256 || vk.digest() != meta.vk_sha256) refuse("packed-key-pin-or-size");
+        if (pk->size() != meta.pk_bytes || vk.size() != meta.vk_bytes ||
+            pk->digest() != meta.pk_sha256 || vk.digest() != meta.vk_sha256) refuse("packed-key-pin-or-size");
         const auto vk_size = add(232, mul(meta.instances, 32));
-        if (vk_size != vk.size() || u64(pk.slice(224, 8)) != meta.instances ||
-            !std::equal(vk.slice(0, vk.size()).begin(), vk.slice(0, vk.size()).end(), pk.slice(0, vk.size()).begin()))
+        if (vk_size != vk.size() || u64(pk->slice(224, 8)) != meta.instances ||
+            !std::equal(vk.slice(0, vk.size()).begin(), vk.slice(0, vk.size()).end(), pk->slice(0, vk.size()).begin()))
             refuse("packed-VK-prefix-or-shape");
         beta1 = vk_size; delta1 = add(beta1, 32);
-        Reader reader{pk, add(vk_size, 64)};
+        Reader reader{*pk, add(vk_size, 64)};
         const auto variables = add(meta.instances, meta.witnesses);
         const std::array<uint64_t, 5> counts{variables, variables, variables, meta.domain - 1, meta.witnesses};
         const std::array<uint64_t, 5> widths{32, 32, 64, 32, 32};
@@ -379,26 +394,61 @@ struct Storage {
             queries[q] = {reader.position, counts[q], widths[q]};
             (void) reader.take(mul(counts[q], widths[q]));
         }
-        if (reader.position != pk.size()) refuse("packed-PK-trailing");
+        if (reader.position != pk->size()) refuse("packed-PK-trailing");
+    }
+    Storage(const std::filesystem::path& directory, const GzipQueryStore& admitted,
+            const std::filesystem::path& vk_path, const std::string& expected, const RowsDescriptor& rows)
+        : metadata_file(directory / "model.meta"), meta(parse_metadata(metadata_file)),
+          identity(metadata_file.digest()),
+          matrices{std::make_unique<MappedFile>(rows.files[0]),
+                   std::make_unique<MappedFile>(rows.files[1]),
+                   std::make_unique<MappedFile>(rows.files[2])}, pk(nullptr), vk(vk_path),
+          gzip_queries(std::make_shared<GzipQueryStore>(admitted)) {
+        if (identity != expected) refuse("packed-metadata-pin");
+        if (rows.instances != meta.instances || rows.witnesses != meta.witnesses ||
+            rows.constraints != meta.constraints || rows.compressed_sha256 != meta.compressed_sha256 ||
+            rows.raw_sha256 != meta.raw_sha256 || rows.compressed_bytes != meta.compressed_bytes ||
+            rows.raw_bytes != meta.raw_bytes || rows.matrix_fingerprint != meta.matrix_fingerprint)
+            refuse("packed-compressed-row-descriptor");
+        const auto& shape = admitted.shape(); const auto& pins = admitted.pins();
+        if (shape.instances != meta.instances || shape.witnesses != meta.witnesses ||
+            shape.domain != meta.domain || pins.canonical_pk_sha256 != meta.pk_sha256 ||
+            pins.canonical_pk_bytes != meta.pk_bytes || pins.vk_sha256 != meta.vk_sha256 ||
+            vk.size() != meta.vk_bytes || vk.digest() != meta.vk_sha256 ||
+            vk.size() != add(232, mul(meta.instances, 32))) refuse("packed-compressed-key-model-binding");
+        stats.mapped_public_bytes = add(add(metadata_file.size(), pins.container_bytes), vk.size());
+        for (unsigned axis = 0; axis < 3; ++axis) {
+            if (matrices[axis]->size() != meta.compressed_bytes[axis] ||
+                matrices[axis]->digest() != meta.compressed_sha256[axis]) refuse("packed-axis-pin-or-size");
+            stats.mapped_public_bytes = add(stats.mapped_public_bytes, matrices[axis]->size());
+        }
+        // The store factory has already admitted every canonical role-specific
+        // point and exact stock EOF. Sharing it never repeats or copies a key.
+        stats.g1_points = add(meta.instances, 3);
+        for (auto q : {Query::A, Query::B1, Query::H, Query::L})
+            stats.g1_points = add(stats.g1_points, admitted.query_size(q));
+        stats.g2_points = add(3, admitted.query_size(Query::B2));
     }
     void unchanged() const {
-        metadata_file.unchanged(); pk.unchanged(); vk.unchanged();
+        metadata_file.unchanged(); if (pk) pk->unchanged(); vk.unchanged();
         for (const auto& file : matrices) file->unchanged();
     }
     std::span<const unsigned char> query(Query query, uint64_t index) const {
+        if (!pk) refuse("packed-compressed-query-needs-cursor");
         const auto number = static_cast<unsigned>(query);
         if (number >= queries.size()) refuse("packed-query-kind");
         const auto& section = queries[number];
         if (index >= section.count) refuse("packed-query-index");
-        return pk.slice(add(section.offset, mul(index, section.width)), section.width);
+        return pk->slice(add(section.offset, mul(index, section.width)), section.width);
     }
     void release_query_chunk(Query query, uint64_t index) const noexcept {
+        if (!pk) return;
         const auto number = static_cast<unsigned>(query);
         if (number >= queries.size()) return;
         const auto& section = queries[number];
         if (index >= section.count || ((index + 1) % 4096 != 0 && index + 1 != section.count)) return;
         const auto first = index - index % 4096;
-        pk.release_pages(section.offset + first * section.width, (index - first + 1) * section.width);
+        pk->release_pages(section.offset + first * section.width, (index - first + 1) * section.width);
     }
 };
 
@@ -533,16 +583,30 @@ PackedModel PackedModel::admit(const std::filesystem::path& directory,
     const auto g2 = [&](std::span<const unsigned char> bytes, bool allow) {
         (void) decode_g2(bytes, allow); ++source->stats.g2_points;
     };
-    g1(source->pk.slice(0, 32), false);
-    for (auto offset : {uint64_t{32}, uint64_t{96}, uint64_t{160}}) g2(source->pk.slice(offset, 64), false);
-    for (uint64_t i = 0; i < source->meta.instances; ++i) g1(source->pk.slice(add(232, mul(i, 32)), 32), false);
-    g1(source->pk.slice(source->beta1, 32), false); g1(source->pk.slice(source->delta1, 32), false);
+    g1(source->pk->slice(0, 32), false);
+    for (auto offset : {uint64_t{32}, uint64_t{96}, uint64_t{160}}) g2(source->pk->slice(offset, 64), false);
+    for (uint64_t i = 0; i < source->meta.instances; ++i) g1(source->pk->slice(add(232, mul(i, 32)), 32), false);
+    g1(source->pk->slice(source->beta1, 32), false); g1(source->pk->slice(source->delta1, 32), false);
     for (unsigned q = 0; q < source->queries.size(); ++q)
         for (uint64_t index = 0; index < source->queries[q].count; ++index) {
             const auto bytes = source->query(static_cast<Query>(q), index);
             if (q == static_cast<unsigned>(Query::B2)) g2(bytes, true); else g1(bytes, true);
             source->release_query_chunk(static_cast<Query>(q), index);
         }
+    source->unchanged();
+    return PackedModel(std::move(source));
+}
+PackedModel PackedModel::admit_compressed(const std::filesystem::path& directory,
+    const GzipQueryStore& admitted, const std::filesystem::path& vk,
+    const std::string& expected, const RowsDescriptor& rows) {
+    require_hash(expected); initialize_bn254_field(); initialize_bn254_groups();
+    auto source = std::make_shared<detail::Storage>(directory, admitted, vk, expected, rows);
+    Hash fingerprint; fingerprint_header(fingerprint, source->meta);
+    for (unsigned axis = 0; axis < 3; ++axis) {
+        detail::Cursor cursor(source, axis);
+        scan_axis(cursor, fingerprint, source->stats);
+    }
+    if (fingerprint.finish() != source->meta.matrix_fingerprint) refuse("packed-matrix-fingerprint");
     source->unchanged();
     return PackedModel(std::move(source));
 }
@@ -554,6 +618,7 @@ RowCursor PackedModel::rows(unsigned axis) const {
     return RowCursor(storage_, axis);
 }
 G1Value PackedModel::base_g1(BaseG1 role) const {
+    if (storage_->gzip_queries) return storage_->gzip_queries->base_g1(role);
     uint64_t offset;
     switch (role) {
         case BaseG1::Alpha: offset = 0; break;
@@ -561,9 +626,10 @@ G1Value PackedModel::base_g1(BaseG1 role) const {
         case BaseG1::Delta: offset = storage_->delta1; break;
         default: refuse("packed-base-role");
     }
-    return decode_g1(storage_->pk.slice(offset, 32), false);
+    return decode_g1(storage_->pk->slice(offset, 32), false);
 }
 G2Value PackedModel::base_g2(BaseG2 role) const {
+    if (storage_->gzip_queries) return storage_->gzip_queries->base_g2(role);
     uint64_t offset;
     switch (role) {
         case BaseG2::Beta: offset = 32; break;
@@ -571,16 +637,24 @@ G2Value PackedModel::base_g2(BaseG2 role) const {
         case BaseG2::Delta: offset = 160; break;
         default: refuse("packed-base-role");
     }
-    return decode_g2(storage_->pk.slice(offset, 64), false);
+    return decode_g2(storage_->pk->slice(offset, 64), false);
 }
 G1Value PackedModel::vk_gamma_abc(uint64_t index) const {
     if (index >= metadata().instances) refuse("packed-VK-index");
-    return decode_g1(storage_->pk.slice(add(232, mul(index, 32)), 32), false);
+    return decode_g1(storage_->vk.slice(add(232, mul(index, 32)), 32), false);
 }
 uint64_t PackedModel::query_size(Query query) const {
+    if (storage_->gzip_queries) return storage_->gzip_queries->query_size(query);
     const auto kind = static_cast<unsigned>(query);
     if (kind >= storage_->queries.size()) refuse("packed-query-kind");
     return storage_->queries[kind].count;
+}
+GzipQueryCursor PackedModel::query_cursor() const {
+    if (!storage_->gzip_queries) refuse("packed-raw-query-needs-index");
+    return storage_->gzip_queries->cursor();
+}
+const std::string& PackedModel::query_transport_identity() const {
+    return storage_->gzip_queries ? storage_->gzip_queries->transport_identity() : storage_->identity;
 }
 G1Value PackedModel::g1_query(Query query, uint64_t index) const {
     if (query == Query::B2) refuse("packed-query-group");

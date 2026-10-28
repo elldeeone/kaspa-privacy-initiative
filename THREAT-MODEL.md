@@ -24,6 +24,18 @@ never erases tombstones. Loss or rollback of every trusted history anchor remain
 a privacy failure. This stronger refusal policy can permanently lose private
 liveness and adds no withdrawal authority.
 
+The [post-egress continuation](docs/adr/0078-public-continuation-after-private-egress.md)
+must bind a fresh direct verifier execution to the exact durable public EGRESS
+and fixed registered history. Offline FINAL-CANDIDATE and accepted-chain
+SETTLED are separate authorities. Imported reports, a restored MAC context,
+relabelled qualification stores and fresh paths/identities cannot supply either.
+
+[Registered program selection](docs/adr/0079-registered-head-program-selection.md)
+must derive from actual accepted-head authority and direct pinned source
+execution. An exporter label, arbitrary program hash or offline success cannot
+mint it. Pin actual peer certificate DER and fresh preprocessing contexts;
+cached public bytes do not authorize restoring old private MAC/OT state.
+
 [ADR-0075](docs/adr/0075-authenticated-groth16-functional-experiment.md) permits
 one complete unfunded synthetic MASCOT/Groth16 experiment. Its fixed client
 slots, authenticated transport and public input are functional boundaries,

@@ -1,0 +1,79 @@
+{
+  "VM_execution": false,
+  "case_count": 23,
+  "case_semantics": {
+    "continuing-corrupt-proof": "Actual ScriptEngine rejection of corrupt-proof with cached ID/storage mass alone canonicalized.",
+    "continuing-cross-context-valid-proof": "Actual ScriptEngine rejection of cross-context-valid-proof with cached ID/storage mass alone canonicalized.",
+    "continuing-destination": "Actual ScriptEngine rejection of destination with cached ID/storage mass alone canonicalized.",
+    "continuing-fee-body": "Actual ScriptEngine rejection of fee-body with cached ID/storage mass alone canonicalized.",
+    "continuing-missing-reserve-output": "Remove expected continuation while preserving aggregate output value/fee.",
+    "continuing-payout": "Actual ScriptEngine rejection of payout with cached ID/storage mass alone canonicalized.",
+    "continuing-positive": "Genuine AuthExit proof against exact actual native projection, supplied unfunded context only.",
+    "continuing-spent-state-nullifier-replay": "Stale/spent-state NF context: actual entry/redeem is post-exit NFroot/count while old body/proof remains; not an isolated in-circuit nonmembership test.",
+    "continuing-successor-policy-substitution": "Actual continuation P2SH differs from exact expected successor policy/state.",
+    "continuing-wrong-domain": "Actual ScriptEngine rejection of wrong-domain with cached ID/storage mass alone canonicalized.",
+    "continuing-wrong-head": "Actual ScriptEngine rejection of wrong-head with cached ID/storage mass alone canonicalized.",
+    "continuing-wrong-pool": "Actual ScriptEngine rejection of wrong-pool with cached ID/storage mass alone canonicalized.",
+    "terminal-corrupt-proof": "Actual ScriptEngine rejection of corrupt-proof with cached ID/storage mass alone canonicalized.",
+    "terminal-cross-context-valid-proof": "Actual ScriptEngine rejection of cross-context-valid-proof with cached ID/storage mass alone canonicalized.",
+    "terminal-destination": "Actual ScriptEngine rejection of destination with cached ID/storage mass alone canonicalized.",
+    "terminal-fee-body": "Actual ScriptEngine rejection of fee-body with cached ID/storage mass alone canonicalized.",
+    "terminal-payout": "Actual ScriptEngine rejection of payout with cached ID/storage mass alone canonicalized.",
+    "terminal-positive": "Genuine AuthExit proof against exact actual native projection, supplied unfunded context only.",
+    "terminal-spent-state-nullifier-replay": "Stale/spent-state NF context: actual entry/redeem is post-exit NFroot/count while old body/proof remains; not an isolated in-circuit nonmembership test.",
+    "terminal-unexpected-reserve-output": "Add unexpected continuation while preserving aggregate output value/fee.",
+    "terminal-wrong-domain": "Actual ScriptEngine rejection of wrong-domain with cached ID/storage mass alone canonicalized.",
+    "terminal-wrong-head": "Actual ScriptEngine rejection of wrong-head with cached ID/storage mass alone canonicalized.",
+    "terminal-wrong-pool": "Actual ScriptEngine rejection of wrong-pool with cached ID/storage mass alone canonicalized."
+  },
+  "classification": "UNFUNDED_EXIT_COMPONENT_ONLY_UNSELECTED_PAYMENT_METADATA",
+  "funding_or_broadcast": false,
+  "payment_profile_selected": false,
+  "plan": {
+    "path": "/public/PLAN.json",
+    "sha256": "b5b3fcb133202101bbcd6ae297f6fbfb84f59c63d3bcee00f490576b7a667f19"
+  },
+  "schema": "public-unfunded-exit-controls-preparation/v1",
+  "source_and_inputs": {
+    "AUTH-EXIT-MANIFEST.json": {
+      "path": "/public/AUTH-EXIT-MANIFEST.json",
+      "sha256": "bc41c97e06f07a06ee9ab2af59ef1ba8c5190a126dfb0eb120d586667aaddd8f"
+    },
+    "EMITTED-POLICY.json": {
+      "path": "/public/EMITTED-POLICY.json",
+      "sha256": "bf72f64b0fef0c306f9abd0a0eb3cc50bd98e505801d930b78ec2191b52d9cec"
+    },
+    "PARAMETERS.json": {
+      "path": "/public/PARAMETERS.json",
+      "sha256": "c3d8866c55180991091b4f4b3f6c55ffbe29a6764924414d22488f27b22c169b"
+    },
+    "PREPARE-CONTROLS.py": {
+      "path": "/public/PREPARE-CONTROLS.py",
+      "sha256": "72bf32ad91d59e400e2804a5e0277748250803a7e5d147a13b647ff7f1a1e10b"
+    },
+    "continuing-260M-PROOF-INPUT.json": {
+      "path": "/public/continuing-260M-PROOF-INPUT.json",
+      "sha256": "6a5296b85fd0459ca7ce103a20041a2b88365cc751fe0cad6ce89f29b1ae89d9"
+    },
+    "exit-component-probe": {
+      "path": "/public/exit-component-probe",
+      "sha256": "88e12978651e456d7a192b8681d56b3c9f7978cddf180f0bf298d88852ccb3fc"
+    },
+    "native-validator": {
+      "path": "/public/native-validator",
+      "sha256": "077585b8a8c739abb70007507a757fafe6584734338d11db84a69e6e6dd8a061"
+    },
+    "run_exit_component_controls.py": {
+      "path": "/public/run_exit_component_controls.py",
+      "sha256": "c9b40a3a1d96341db55d19b826e1983b021b1177ff4a35eb6b4286231689d441"
+    },
+    "run_native_controls.py": {
+      "path": "/public/run_native_controls.py",
+      "sha256": "1482415c0a2d85ea88ea92ddf57b0c791502298e96817a5b5e6b2869505c4da6"
+    },
+    "terminal-200M-PROOF-INPUT.json": {
+      "path": "/public/terminal-200M-PROOF-INPUT.json",
+      "sha256": "5e9a2336904d86eb0a06ffa234a1dd159ab04e977546f2f275fea27eed3f3f42"
+    }
+  }
+}

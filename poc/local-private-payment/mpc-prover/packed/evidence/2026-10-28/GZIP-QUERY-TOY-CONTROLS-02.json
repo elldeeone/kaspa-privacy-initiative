@@ -1,0 +1,30 @@
+{
+  "schema": "kpi-gzip-query-public-control-run/v1",
+  "argv": [
+    ".local/gzip-query-backend-build-02/gzip-query-controls",
+    ".local/mpc-prover-packed-toy-01",
+    ".local/mpc-prover-vendor/public-model-01/pk.bin",
+    ".local/mpc-prover-vendor/public-model-01/vk.bin",
+    "aa5e8cba630ce787d7087a2b32a22a37d7167343b1c6d1f7c5840d21964f99d6",
+    ".local/gzip-query-toy-controls-02/fixtures"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.10795505496207625,
+  "peak_rss_KiB": 17532,
+  "binary_sha256": "53a4a71e08197a9d971023b60dc1affb9a6f9966b4906c5e5be802f256dde6e8",
+  "build_receipt_sha256": "76dc14350cf47640f8745e205d9171295961fcc0f0a62d46baf9a030eb77c67e",
+  "public_input_sha256": {
+    ".local/mpc-prover-vendor/public-model-01/pk.bin": "8c0c8e2d53831217830005901b01e3f654e99f3e574e4646aa173d15e1ecd6e4",
+    ".local/mpc-prover-vendor/public-model-01/vk.bin": "05efced91d23b9fa5d081baa0e15ffa711a8c970708b32ca6d9272b3df99fa3c"
+  },
+  "model_metadata_sha256": "aa5e8cba630ce787d7087a2b32a22a37d7167343b1c6d1f7c5840d21964f99d6",
+  "result": {
+    "schema": "kpi-gzip-query-controls/v1",
+    "status": "PASS",
+    "controls": 35,
+    "compared_query_points": 84,
+    "transport_identity": "24b16cdd0d3f6121df9072773a235ab59d5ca9369035cfc699726b32438a507a",
+    "private_input_or_MPC_or_setup_executed": false
+  },
+  "private_inputs_MPC_or_setup_executed": false
+}

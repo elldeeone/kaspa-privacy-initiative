@@ -1,0 +1,62 @@
+{
+  "schema": "kpb-accepted-head-relation-source-controls/v1",
+  "status": "PASS_WITHIN_PUBLIC_MODEL_SCOPE",
+  "scope": "PURE_PUBLIC_RELATION_MODELS_NO_ACCEPTED_HEAD_AUTHORITY",
+  "source_pins": {
+    "poc/local-private-payment/private_batch_trial/accepted_head_relation.py": "65120bb736e891c37d2a17a9c385e0a391981ab7ba8c65a4c3d78c844f683328",
+    "poc/local-private-payment/private_batch_trial/test_accepted_head_relation.py": "e193fe1ce0c72acc4b04c700cf2e17f93faaa3e8f46c6935894cadf22887e736",
+    "poc/local-private-payment/private_batch_trial/genesis.py": "2ece985ac07b956b5d4c42a4d26e6aa986654daac0a836ea0424a3b76ac3e7d9",
+    "poc/local-private-payment/private_batch_trial/wallet_history.py": "609850ab3df16d4936d2a0ac07bf06be7c865b31a1bb619bd32924f78035a20f",
+    "poc/local-private-payment/private_batch_trial/output_verifier.py": "e422f79bf188b2157c38df0940805c882b6f96e93b9bf19ee64e15d94245dbdd",
+    "poc/local-private-payment/private_batch_trial/exit_wire.py": "fabf7361f030e25ec4a52a72691fef4bcfe03f6fef369ff33b8fa55dd01ccb6a",
+    "poc/local-private-payment/private_batch_trial/test_genesis.py": "2276d993a02cac16572300bd4c17bd38d37e69c73f7130c4c55c1f59cd60d1e2",
+    "poc/local-private-payment/integration/trees.py": "4936a7b571187469755b9aafae275c61ac589eb70ecd6a8efbced862d8c3bd3b"
+  },
+  "API_document_sha256": "4a8ed3f23e731118bf74c17f7341180eaf0ff5f5a53fd94308687043e0ebfd09",
+  "execution": {
+    "command": "python3 -B -m unittest -v test_accepted_head_relation",
+    "working_directory": "poc/local-private-payment/private_batch_trial",
+    "tests_passed": 9,
+    "exit_code": 0,
+    "wall_seconds_reported_by_unittest": 0.075,
+    "models_use_dummy_financial_proofs_and_model_verifier_callbacks": true
+  },
+  "controls": [
+    "GEN3_only_export_has_three_CMs_and_NF_sentinel",
+    "GEN3_value_CV_funding_ALL_and_quote_checks_are_reexecuted",
+    "actual_verification_callback_required_for_every_CASE",
+    "actual_witness_proof_policy_and_native_effects_are_bound",
+    "callback_detached_alias_cannot_replace_verified_outpoint",
+    "noncanonical_integer_aliases_refuse",
+    "reordered_replayed_extra_flag_or_wrong_lane_CASEs_refuse",
+    "terminal_state_does_not_export_a_fake_live_head",
+    "whole_CASE_ordered_payment_Exit_export_exact_tree_and_context"
+  ],
+  "independent_review": {
+    "reviewer": "/root/wallet_lifecycle/funding_review",
+    "status": "SOURCE_GO_AFTER_CALLBACK_ALIAS_FIX",
+    "reviewer_executed_tests_or_runtime": false,
+    "fixed_blocker": "Callback could detach the transaction dictionary and mutate the old alias ID after canonical-byte comparison. Successor txid now freezes into immutable bytes before callback; dedicated regression retained.",
+    "remaining_source_blockers_found": 0
+  },
+  "actual_Original_private_input_truth_or_wallet_read": false,
+  "actual_financial_proof_NativeFull_SDK_or_chain_execution": false,
+  "funding_mining_network_or_broadcast": false,
+  "AcceptedFinancialHead_or_registration_constructor_exposed": false,
+  "existing_UNFUNDED_loader_or_checkpoint_sources_changed": false,
+  "producer_obligations": [
+    "Source-pin and directly execute every selected SDK/native/proof callback on each exact whole CASE.",
+    "Fresh complete accepted GEN3-to-current-head acquisition and SDK reconstruction.",
+    "Actual GEN3 ordinary ALL signature execution, strict Output/CV/contribution admission and exact quoted fee.",
+    "Actual payment aggregate/six Output/R0 checks and actual AuthExit verification.",
+    "Fresh current UTXO/reorg/race checks and selected registered-service capability sealing.",
+    "Never promote imported relation JSON or status flags to accepted financial authority."
+  ],
+  "retention": {
+    "temporary_public_document_directory": "/run/user/1000/kpb-accepted-head-relation-public-handoff-20261028-01",
+    "reason": "Root filesystem ENOSPC; no runtime/private/source artifacts deleted or moved.",
+    "intended_repo_document": "poc/local-private-payment/private_batch_trial/ACCEPTED-HEAD-RELATION.md",
+    "intended_repo_receipt": "poc/local-private-payment/private_batch_trial/accepted_head_relation_EXECUTED-SOURCE-CONTROLS-2026-10-28.json",
+    "repo_document_currently_zero_byte_unqualified_placeholder": true
+  }
+}

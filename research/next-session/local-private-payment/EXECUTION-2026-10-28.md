@@ -41,6 +41,25 @@ The complete 15,474,590-operation financial trace was subsequently exported
 with actual model/key/layout/prefix bindings. These are source/setup results,
 not a financial proof.
 
+The first full financial attempt reached all three owner listeners, then the
+workers exited before any owner clients or private inputs. The stock external
+client queue has a 60-second timeout; the launcher had been paused for resource
+scheduling. That source-consistent explanation is retained separately from the
+observed exit codes, without reading raw diagnostics. The repair replaces only
+the empty-queue timeout with an unbounded condition wait. All three real MPC
+roles then survived a deliberate 65-second idle period and completed the small
+TLS/DDNNT/full-proof control with independent verification. A fresh full
+financial run uses immutable Source05 and the reviewed public-point decoder
+optimization. It remains an unfunded qualification attempt until it finishes.
+
+The original recovery audit completed 108 of 180 primary scanner cells before
+disk exhaustion during D6 preparation, before D6 Original intake. Those results
+are preserved as partial evidence. Complete preparation provenance had not been
+serialized, so they cannot be imported into a complete aggregate. A fresh audit
+now uses a separately reviewed controller that durably saves preparation records
+before Original intake and checkpoints whole completed batches. The scanner,
+guard, archive and Original selection remain unchanged.
+
 ## Work still required
 
 1. Run the complete three-owner private construction and financial prover with
@@ -62,6 +81,10 @@ bounded research integration. The new history design uses one unresolved
 attempt per service/pool epoch and permanent released-NF tombstones. Unknown
 exposure can permanently stop private progress; independent Exit remains usable.
 Actual whole-CASE accepted-chain verification is required to resolve an attempt.
+The registered accepted-head and public continuation designs are recorded in
+[ADR-0079](../../../docs/adr/0079-registered-head-program-selection.md) and
+[ADR-0078](../../../docs/adr/0078-public-continuation-after-private-egress.md).
+Their source controls do not yet establish a genuine financial or live result.
 
 ## Retained limitations
 

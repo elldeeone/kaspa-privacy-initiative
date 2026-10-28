@@ -1,0 +1,115 @@
+{
+  "actual_network_off_one_owner_scorer_fixture": true,
+  "actual_private_Original_truth_or_server_view_used": false,
+  "actual_repeated_query_refused": true,
+  "classification": "PUBLIC_SYNTHETIC_CONTROLS_NO_ACTUAL_PRIVATE_STUDY",
+  "combined_terminal_status": "UNQUALIFIED",
+  "financial_native_or_privacy_readiness": false,
+  "independent_integration_review_required": true,
+  "model_round_metrics": [
+    {
+      "correct_unique_inputs": 0,
+      "correct_unique_outputs": 0,
+      "correct_unique_pair_links": 0,
+      "eligible_inputs": 2,
+      "eligible_outputs": 3,
+      "forbidden_exports": 0,
+      "honest_creator_swap_retained": false,
+      "honest_input_swap_retained": true,
+      "honest_joint_swap_retained": false,
+      "input_owner_assignments": 2,
+      "joint_candidates": 6,
+      "nf_pair_candidate_count_histogram": {
+        "1": 1,
+        "6": 2
+      },
+      "nf_to_created_pair_relations": 6,
+      "output_creator_assignments": 3,
+      "output_pair_partitions": 3,
+      "round": 1,
+      "strict_H1_status": "FAIL",
+      "truth_retained": true,
+      "wrong_unique_inputs": 0,
+      "wrong_unique_outputs": 0,
+      "wrong_unique_pair_links": 0
+    },
+    {
+      "correct_unique_inputs": 0,
+      "correct_unique_outputs": 0,
+      "correct_unique_pair_links": 0,
+      "eligible_inputs": 2,
+      "eligible_outputs": 3,
+      "forbidden_exports": 0,
+      "honest_creator_swap_retained": false,
+      "honest_input_swap_retained": true,
+      "honest_joint_swap_retained": false,
+      "input_owner_assignments": 2,
+      "joint_candidates": 6,
+      "nf_pair_candidate_count_histogram": {
+        "1": 1,
+        "6": 2
+      },
+      "nf_to_created_pair_relations": 6,
+      "output_creator_assignments": 3,
+      "output_pair_partitions": 3,
+      "round": 2,
+      "strict_H1_status": "FAIL",
+      "truth_retained": true,
+      "wrong_unique_inputs": 0,
+      "wrong_unique_outputs": 0,
+      "wrong_unique_pair_links": 0
+    }
+  ],
+  "remaining": [
+    "trusted finite launcher routing and worker hooks",
+    "root exact prospective execution selection",
+    "actual complete private views and isolated truth scoring",
+    "complete corrupt-server and terminal strategy qualification"
+  ],
+  "schema": "kpb-privacy-source-control-qualification/v1",
+  "source_files": [
+    {
+      "bytes": 19310,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_codec.py",
+      "sha256": "9523699d392f7d2c53a47f9ae96a2ce95099e6a26e3d47d27a0f4908a55455f4"
+    },
+    {
+      "bytes": 11945,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_observer.py",
+      "sha256": "f152b5745a0382de59f472885eba58c6eff910426016e3c7281437ee7967c3bd"
+    },
+    {
+      "bytes": 3497,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_owner.py",
+      "sha256": "cbc19629d7328ba1e416b62720d5edfe8d0e7be3a98a7c71ecaddcda68cc4198"
+    },
+    {
+      "bytes": 12888,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_roles.py",
+      "sha256": "835d1c92e7ec9436c31423adef0d24adb2f400cac4e479e99cb26fc39af7bed8"
+    },
+    {
+      "bytes": 17048,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_test.py",
+      "sha256": "aac7c55d3530d15887d98cbc12d4a74133b6326e90e0bcdc8ce063ef559d74ca"
+    },
+    {
+      "bytes": 8418,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_API.md",
+      "sha256": "d834004d57f90725b96bd2b1660c903ffe077b83b22343f6dd934ddbc0e99db8"
+    },
+    {
+      "bytes": 2457,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_SOURCE_COUNTEREXAMPLE.md",
+      "sha256": "7afe4815abb03b67ea38b4161e89af75996b1f40c0b5d0d3c5b46cfbd3fd25c7"
+    },
+    {
+      "bytes": 2828,
+      "path": "poc/local-private-payment/private_batch_trial/privacy_ADVERSARIAL-REVIEW.md",
+      "sha256": "c04f24f2197e1d8ff34464ee93a5dede7484461675c738ee07a12d53c0c18bba"
+    }
+  ],
+  "test_command": "python3 -B -m unittest -v privacy_test",
+  "tests_passed": 12,
+  "unittest_seconds": 7.898
+}

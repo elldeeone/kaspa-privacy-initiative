@@ -1,0 +1,37 @@
+{
+  "argv": [
+    ".local/gzip-query-backend-build-02/gzip-query-controls",
+    ".local/mpc-prover-packed-sha3-01",
+    ".local/mpc-prover-sha3-model-01/pk.bin",
+    ".local/mpc-prover-sha3-model-01/vk.bin",
+    "5f1b27c6707b0fa399eeadbe55479ccf99ec0c53f28bde0b6682343db43994ad",
+    ".local/gzip-query-sha3-controls-01/fixtures"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 458.8723194479244,
+  "binary_sha256": "53a4a71e08197a9d971023b60dc1affb9a6f9966b4906c5e5be802f256dde6e8",
+  "build_receipt_sha256": "76dc14350cf47640f8745e205d9171295961fcc0f0a62d46baf9a030eb77c67e",
+  "result": {
+    "schema": "kpi-gzip-query-controls/v1",
+    "status": "PASS",
+    "controls": 35,
+    "compared_query_points": 587728,
+    "transport_identity": "53f4cf872191b5a901d2d44a96ddd0f5f9166454e48cc74213a620251f3a756c",
+    "private_input_or_MPC_or_setup_executed": false
+  },
+  "private_inputs_MPC_or_setup_executed": false,
+  "schema": "kpi-gzip-query-public-control-run/v1",
+  "rss_observation": {
+    "rss_KiB": 38692,
+    "elapsed_at_sample": "05:38",
+    "is_peak_measurement": false
+  },
+  "stock_query_lengths": {
+    "A": 28542,
+    "B1": 28542,
+    "B2": 28542,
+    "H": 32767,
+    "L": 28539
+  },
+  "timing_scope": "Full control including raw admission, store admissions, four raw/stream query comparisons, refusals and adopted-FD replay; not a pure one-store admission benchmark."
+}

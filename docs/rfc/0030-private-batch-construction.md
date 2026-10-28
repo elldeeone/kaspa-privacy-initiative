@@ -244,6 +244,20 @@ The conservative design can permanently halt private progress. Independent
 Exit remains available. Until the actual new-profile settlement adapter exists,
 the financial implementation has no successful resolve path.
 
+[ADR-0078](../adr/0078-public-continuation-after-private-egress.md) closes the
+process-lifetime seam after durable EGRESS. Later R0/native candidate validation
+uses a fresh public-only context and a private capability minted by direct
+qualified verification of that exact EGRESS/whole CASE. It restores no private
+shares and cannot settle or unlock. Actual fresh accepted-chain verification
+remains the separate authority for SETTLED and a subsequent private round.
+
+[ADR-0079](../adr/0079-registered-head-program-selection.md) defines the matching
+registered private entry: actual accepted-head authority plus direct pinned
+public exporter execution yields an immutable program selection. Public history
+may change operations/assertions, so the gate checks actual selected counts and
+exact row/key reuse. Arbitrary caller program hashes and qualification-store
+labels cannot select a funded head.
+
 The [release-policy implementation](../../poc/local-private-payment/private_batch/release_policy.py)
 is a runnable SQLite durability/information-flow model using clear synthetic
 member tokens and opaque proof bytes. It implements no private input path,

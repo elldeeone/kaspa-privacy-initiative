@@ -1,7 +1,7 @@
 #pragma once
 #include "auth_field.hpp"
 #include "ExternalIO/Client.h"
-#include "Processor/ExternalClients.h"
+#include "owner_connections.hpp"
 #include <array>
 #include <filesystem>
 #include <set>
@@ -33,7 +33,7 @@ OwnerInputContract load_owner_contract(const std::filesystem::path& path);
 
 class ActiveOwnerInputServer {
     MascotContext& context_;
-    ExternalClients clients_;
+    PatientOwnerConnections clients_;
     int port_base_;
     std::set<int> consumed_roles_;
 

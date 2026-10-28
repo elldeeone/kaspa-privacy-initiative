@@ -1,0 +1,56 @@
+{
+  "schema": "kpi-financial-preowner-worker-exit-observation/v1",
+  "run_id": "767159332ffa15d5a2dd4447237c78fb02d54165c1193cf313df8a35032824db",
+  "unix": 1793174848.0899017,
+  "scope": "PUBLIC_UNFUNDED_UNREGISTERED_QUALIFICATION_ONLY",
+  "last_typed_stages": [
+    {
+      "schema": "kpi-mascot-public-stage/v1",
+      "phase": "owner-listeners-ready",
+      "status": "running"
+    },
+    {
+      "schema": "kpi-mascot-public-stage/v1",
+      "phase": "owner-listeners-ready",
+      "status": "running"
+    },
+    {
+      "schema": "kpi-mascot-public-stage/v1",
+      "phase": "owner-listeners-ready",
+      "status": "running"
+    }
+  ],
+  "P_worker_pids_absent": [
+    4128131,
+    4128134,
+    4128135
+  ],
+  "launcher_pid": 4127093,
+  "launcher_still_stopped": true,
+  "owner_clients_started": false,
+  "worker_wrapper_wait_statuses": [
+    {
+      "pid": 4128125,
+      "wait_status": 256,
+      "exit_code": 1
+    },
+    {
+      "pid": 4128128,
+      "wait_status": 256,
+      "exit_code": 1
+    },
+    {
+      "pid": 4128132,
+      "wait_status": 256,
+      "exit_code": 1
+    }
+  ],
+  "oom_events": 0,
+  "public_source_idle_wait_seconds": 60,
+  "source_location": "MP-SPDZ/Networking/ServerSocket.cpp:238 AnonymousServerSocket::get_connection_socket",
+  "source_behavior": "empty client queue times out at CONNECTION_TIMEOUT and calls exit_error",
+  "diagnosis": "consistent with stock idle-client timeout after scheduling hold; exact reason not proven by typed runtime receipt",
+  "private_input_or_proof_claim": false,
+  "raw_diagnostics_read_or_hashed": false,
+  "fresh_identity_required_for_retry": true
+}

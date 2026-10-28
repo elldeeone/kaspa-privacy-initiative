@@ -1,0 +1,81 @@
+{
+  "compiles": [
+    {
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O1",
+        "-g0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DKPI_HISTORY_UNFUNDED_SETUP",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/history/epoch_journal.cpp",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/history/tests/journal_controls.cpp",
+        "-pthread",
+        "-lcrypto",
+        "-o",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-batch-history-installed-source-controls-01/journal-controls"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "g++",
+        "-std=c++20",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fsyntax-only",
+        "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/history/tests/continuation_surface.cpp"
+      ],
+      "exit": 0
+    }
+  ],
+  "financial_or_live_MPC_execution": false,
+  "result": {
+    "classification": "PUBLIC_UNFUNDED_DURABILITY_COMPONENT_ONLY",
+    "count": 26,
+    "financial_settlement_or_MPC_privateNF_qualified": false,
+    "passed": [
+      "fresh-unfunded-durable-genesis",
+      "no-reinitialize-or-overwrite",
+      "durable-lock",
+      "changed-nonce-cohort-recipe-head-cannot-reset-lock",
+      "stale-local-record-refused",
+      "wrong-effects-refused",
+      "duplicate-unsorted-zero-NF-refused",
+      "durable-public-NF-tombstones",
+      "wrong-projection-final-case-refused",
+      "restart-retains-final-candidate-and-NFs",
+      "final-candidate-remains-unresolved-no-resolve-API",
+      "cross-journal-receipt-refused",
+      "both-history-and-anchor-loss-no-auto-init",
+      "checkpoint-rollback-refused",
+      "journal-rollback-refused",
+      "wrong-pool-registration-refused",
+      "hardlink-alias-refused",
+      "symlink-path-refused",
+      "directory-inode-substitution-refused",
+      "actual-process-crash-boundary-0",
+      "actual-process-crash-boundary-1",
+      "actual-process-crash-boundary-2",
+      "actual-process-crash-boundary-3",
+      "actual-partial-write-error-torn-tail-refused",
+      "actual-fsync-EBADF-refused-with-unresolved-tail",
+      "actual-concurrent-processes-only-one-lock"
+    ],
+    "schema": "kpb-history-journal-controls/v1"
+  },
+  "run_exit": 0,
+  "schema": "installed-history-source-controls/v1",
+  "source_sha256": {
+    "epoch_journal.cpp": "ed481bb36814d5bb68b56083da2f1c7064dab9e358cafd3ed5fa8440310b46ff",
+    "epoch_journal.hpp": "7b1ce921d15396fa35b89b9ca3decd557ed2aad0d6eb396710168f69fb70eab3",
+    "settlement_capability.cpp": "5a10ada5d535bc73d4403f4ca2167551a20a778d382011ed6c942b4ae2ba7ea1",
+    "settlement_capability.hpp": "8967b74d6d645d4af6be40859bbac8af751f5b486f68bac95931c75371261542",
+    "tests/continuation_surface.cpp": "5271c86e81ced29fb26ff0db6ac60d68b79d18484463436171324bc6594a99b7",
+    "tests/journal_controls.cpp": "e1a1badbaecc2d4d9ea1406e452cc1e54e345b3a354a1925ab21ad84ded1f785"
+  }
+}

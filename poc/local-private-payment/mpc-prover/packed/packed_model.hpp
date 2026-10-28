@@ -51,6 +51,8 @@ struct RowsDescriptor {
 AdmissionStats inspect_matrix_transport(const RowsDescriptor&);
 
 namespace detail { struct Storage; struct Cursor; }
+class GzipQueryStore;
+class GzipQueryCursor;
 
 class RowCursor {
     std::unique_ptr<detail::Cursor> cursor_;
@@ -79,6 +81,11 @@ public:
     static PackedModel admit(const std::filesystem::path& directory,
         const std::filesystem::path& stock_pk, const std::filesystem::path& stock_vk,
         const std::string& expected_metadata_sha256);
+    // Reuses a completely admitted immutable gzip store. Explicit axes may
+    // live outside directory; their pins must exactly match model.meta.
+    static PackedModel admit_compressed(const std::filesystem::path& directory,
+        const GzipQueryStore&, const std::filesystem::path& stock_vk,
+        const std::string& expected_metadata_sha256, const RowsDescriptor&);
     const Metadata& metadata() const;
     const AdmissionStats& admission_stats() const;
     const std::string& identity() const;
@@ -87,6 +94,8 @@ public:
     G2Value base_g2(BaseG2 role) const;
     G1Value vk_gamma_abc(uint64_t index) const;
     uint64_t query_size(Query query) const;
+    GzipQueryCursor query_cursor() const;
+    const std::string& query_transport_identity() const;
     G1Value g1_query(Query query, uint64_t index) const;
     G2Value g2_query(uint64_t index) const;
     // Metadata/stat validation before/after a larger operation; this is not a

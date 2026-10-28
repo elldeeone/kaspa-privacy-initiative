@@ -1,0 +1,204 @@
+{
+  "schema": "kpb-executed-new-wallet-components/v1",
+  "date": "2026-10-28",
+  "classification": "PUBLIC_UNFUNDED_COMPONENT_EVIDENCE_ONLY",
+  "domain_hex32": "a0a1b4fbf4ce8505f17b24b354ffa81fc4201dc1e130b0358e3bc849611186e0",
+  "profile_id_hex32": "ea19260a60a8d0a54b8ad9848f82317c1d84059a1881be34d318bcca42493700",
+  "binary_sha256": "930972ac461ec4d9300836d4127212a594c55b90b56b8732bc9bfd98507a6fa6",
+  "components": {
+    "output": {
+      "manifest_sha256": "1e24b8d3e22692b7445822d533b28f8ab7a09ddc4050c6e785941717e3e6fc82",
+      "role": "new-output",
+      "matrix_sha256": "d8e94558a7b9e3a5cc6187a894cb7f141d85d3c6d862b6a628561a24c4bfdd31",
+      "constraints": 217807,
+      "witnesses": 214998,
+      "instances": 3,
+      "parameter_bytes": 85578096,
+      "parameter_sha256": "1c2d02992ae89810b8a95ede7bf38aefd503f4984e7b82b27db452141752339a",
+      "vk_sha256": "8d5738e3726611b07bedec944dc26d8458b728a7d18c1fecf2ad6638aa1cd119",
+      "durable_parameter_directory": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-batch-component-parameters/output-01",
+      "actual_proof_public_verification": true,
+      "wrong_statement_rejected": true
+    },
+    "auth_exit": {
+      "manifest_sha256": "bc41c97e06f07a06ee9ab2af59ef1ba8c5190a126dfb0eb120d586667aaddd8f",
+      "role": "new-auth-exit",
+      "matrix_sha256": "9fbedc0628a6afb592f03a0ceda9825924f7d8bd76fe49785b6252237affc149",
+      "constraints": 1483816,
+      "witnesses": 1468311,
+      "instances": 3,
+      "parameter_bytes": 604078768,
+      "parameter_sha256": "d9c07f4ac755dfc5ec1c1f161694ce02f6037f1e152b51e48af02f0879e92cb0",
+      "vk_sha256": "e6a49ac7ece8aa501300f24c1ec4602745df6e8d38cd4eed8b1222b36f1e0414",
+      "durable_parameter_directory": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-batch-component-parameters/auth-exit-01",
+      "actual_proof_public_verification": true,
+      "wrong_statement_rejected": true
+    }
+  },
+  "auth_exit_controls": [
+    {
+      "counts": {
+        "link_residual_failures": 0,
+        "native_residual_failures": 0,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 0
+      },
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "id": "P01_GENUINE_EXIT"
+    },
+    {
+      "counts": {
+        "link_residual_failures": 0,
+        "native_residual_failures": 0,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 2
+      },
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "id": "N01_REDIRECT_WITH_STALE_SIGNATURE"
+    },
+    {
+      "counts": {
+        "link_residual_failures": 0,
+        "native_residual_failures": 0,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 0
+      },
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "id": "P02_RECONSENTED_FEE_CHANGE"
+    },
+    {
+      "counts": {
+        "link_residual_failures": 0,
+        "native_residual_failures": 1,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 0
+      },
+      "expected": [
+        "positive",
+        0,
+        0
+      ],
+      "id": "N02_ONE_SOMPI_PRIVATE_INFLATION"
+    },
+    {
+      "counts": {
+        "link_residual_failures": 64,
+        "native_residual_failures": 0,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 0
+      },
+      "expected": [
+        0,
+        0,
+        "positive"
+      ],
+      "id": "N03_SIGNATURE_KEY_COPY_LINK"
+    },
+    {
+      "counts": {
+        "link_residual_failures": 0,
+        "native_residual_failures": 1,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 0
+      },
+      "expected": [
+        "positive",
+        0,
+        0
+      ],
+      "id": "N04_HIGH_MEMBERSHIP_POSITION"
+    },
+    {
+      "counts": {
+        "link_residual_failures": 0,
+        "native_residual_failures": 1,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 0
+      },
+      "expected": [
+        "positive",
+        0,
+        0
+      ],
+      "id": "N05_WRONG_ORIGINAL_NF"
+    },
+    {
+      "counts": {
+        "link_residual_failures": 0,
+        "native_residual_failures": 0,
+        "signature_relation_checked": true,
+        "signature_residual_failures": 1
+      },
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "id": "N06_SIGNATURE_SCALAR_PLUS_Q"
+    }
+  ],
+  "complete_exit_controls_passed": true,
+  "actual_complete_output_recovery_proofs": 2,
+  "output_recovery_checks": {
+    "changed_ciphertext_rejected": true,
+    "changed_proof_rejected": true,
+    "coherently_rehashed_ciphertext_rejected_by_real_proof": true,
+    "duplicate_commitment_rejected": true,
+    "original_seed_restores_both_real_outputs": true,
+    "roles_remain_unclassified": true,
+    "stable_nullifiers_without_creator_blinds": true,
+    "wrong_CM_root_rejected": true,
+    "wrong_seed_rejected": true
+  },
+  "runtime_result_pins": [
+    {
+      "path": "/run/user/1000/kpb-new-wallet-component-20261028-01/RESULT.json",
+      "sha256": "7a0e8303397f07679dc2ba6871d4ba884769e9aefc7ca46745ce41feb49e951d"
+    },
+    {
+      "path": "/run/user/1000/kpb-new-wallet-component-20261028-02/RESULT.json",
+      "sha256": "7ec80fbdecd9960625270ad317b6436dc1c92009b8327d92f8bc8b4eba5846bc"
+    },
+    {
+      "path": "/run/user/1000/kpb-output-recovery-20261028-03/RESULT.json",
+      "sha256": "f05f101a78c55bd10c1c3576ce8e67327673a2259ec3912658b8ec68c8ca2e88"
+    }
+  ],
+  "native_vm_exit_probe": {
+    "classification": "UNFUNDED_EXIT_COMPONENT_ONLY_UNSELECTED_PAYMENT_METADATA",
+    "result_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-batch-exit-component-controls-01/out/CONDITIONAL-RESULT.json",
+    "sha256": "3101c51517af572b7534b418436ee3935ab96e65273b675aa37ea1471d9ea015",
+    "actual_positive_NativeFull_and_all_input_engines": 2,
+    "actual_negative_script_rejections": 21,
+    "accepted_ledger_funding_or_full_financial_profile": false
+  },
+  "funding_broadcast_accepted_history_financial_readiness_or_privacy_qualification": false,
+  "actual_private_wallet_originals_used": false,
+  "runtime_parameter_or_witness_bodies_in_git": false,
+  "three_owner_unfunded_rehearsal": {
+    "result_path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-batch-unfunded-components-05/RESULT.json",
+    "result_sha256": "2c6d8005358de21c90dbf85f04b9af62b288f0a27cce29b80f365830a5ae354a",
+    "public_head_sha256": "910c09f5ea30ece29b36b1d0428a7c04c10e3b2e7f6ab65457c248b45c6cddf9",
+    "actual_Output_proofs": 6,
+    "actual_restricted_intent_signatures": 3,
+    "actual_signature_normalizations": 3,
+    "owner_local_auxiliaries": 3,
+    "ordered_values_each": 2635409,
+    "original_public_seed_unclassified_recoveries": 6,
+    "controller_read_or_hashed_private_record_or_auxiliary_bodies": false,
+    "known_seed_or_creator_association_qualifies_privacy": false,
+    "component_recovery_positions_are_accepted_final_financial_positions": false
+  }
+}

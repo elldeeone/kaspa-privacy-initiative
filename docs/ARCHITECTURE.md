@@ -23,6 +23,22 @@ durable barriers. Only fresh independently acquired/replayed acceptance of that
 exact CASE can resolve the attempt. Implementation and full integration remain
 unqualified; no offline success flag supplies settlement authority.
 
+[ADR-0078](adr/0078-public-continuation-after-private-egress.md) permits a fresh
+public-only continuation after the private gate exits. A direct qualified
+offline verifier binds the exact durable EGRESS to FINAL-CANDIDATE; a separate
+fresh accepted-chain verifier authorizes SETTLED. Neither restores private
+shares or creates withdrawal authority. See the [wallet lifecycle](../poc/local-private-payment/private_batch_trial/LIFECYCLE.md),
+[GEN3](../poc/local-private-payment/private_batch_trial/GENESIS.md),
+[funding](../poc/local-private-payment/private_batch_trial/FUNDING.md) and
+[explicit Exit release](../poc/local-private-payment/private_batch_trial/EXIT-RELEASE.md)
+for the current source interfaces and their unqualified live boundaries.
+
+[ADR-0079](adr/0079-registered-head-program-selection.md) selects a closed path
+from actual accepted-head verification and fixed service configuration to a
+source-generated immutable assignment program. Public history may change the
+program/counts; exact finalized rows and variable mapping must still match the
+admitted key. The fixed nonexistent-head qualification cannot enter that path.
+
 [ADR-0075](adr/0075-authenticated-groth16-functional-experiment.md) selects one
 isolated authenticated Groth16 functional experiment following the preserved
 MASCOT integration plan. It is a dependency of private payment construction;

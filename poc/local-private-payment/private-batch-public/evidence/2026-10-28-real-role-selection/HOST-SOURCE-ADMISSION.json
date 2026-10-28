@@ -1,0 +1,129 @@
+{
+  "canonical_outer_selection_remains_false": true,
+  "compiled_local_source_records": [
+    {
+      "bytes": 830,
+      "path": "poc/local-private-payment/private-batch-public/host/Cargo.toml",
+      "sha256": "892bd2ba24c07fa95ef1f6a48dcf7073bafe6fdca2913838fccb4f161b9b32b6"
+    },
+    {
+      "bytes": 78332,
+      "path": "poc/local-private-payment/private-batch-public/host/Cargo.lock",
+      "sha256": "d7114e1028fef28a703648aa77f2d4e57c60ab7cc0c7c4c961bf64e602fca730"
+    },
+    {
+      "bytes": 12469,
+      "module_or_embedded_input_lines": [
+        "mod native_proof;",
+        "mod receipt_checks;",
+        "use kpi_private_batch_public::{evaluate, sha, Profile, Projection, JOURNAL_LEN, PROJECTION_LEN};",
+        "serde_json::from_slice(include_bytes!(\"../../outer-selection.json\"))?;"
+      ],
+      "path": "poc/local-private-payment/private-batch-public/host/src/main.rs",
+      "sha256": "39cb542861fa585bee15d0b19fbcc711c7b33e814dd7a521679bc475f07cc743"
+    },
+    {
+      "bytes": 4956,
+      "module_or_embedded_input_lines": [
+        "mod tests {"
+      ],
+      "path": "poc/local-private-payment/private-batch-public/host/src/native_proof.rs",
+      "sha256": "53da4c819fa0a1801c0f00ef76e0a15acf98dc6ec348c16ea4cab889dcc0ce7b"
+    },
+    {
+      "bytes": 2932,
+      "path": "poc/local-private-payment/private-batch-public/host/src/receipt_checks.rs",
+      "sha256": "0af26ef2d5f2815f43fde882ec6729a8a863a2f4771381c9edc8b6cdfa1ce7bb"
+    },
+    {
+      "bytes": 1515,
+      "path": "poc/local-private-payment/private-batch-public/common/Cargo.toml",
+      "sha256": "43a9e5c4909ad9db4489365bd07449c611143a69c82809cdd3855c8166ede0b9"
+    },
+    {
+      "bytes": 60201,
+      "path": "poc/local-private-payment/private-batch-public/common/Cargo.lock",
+      "sha256": "ed6bf21b46cf5acc6452adee8b928e0cb57fd66d06b19d97193f60307e6170ef"
+    },
+    {
+      "bytes": 10401,
+      "module_or_embedded_input_lines": [
+        "use kpi_local_private_payment_relation as relation;",
+        "mod g16;",
+        "pub mod wire;",
+        "mod tests;",
+        "Self::parse(include_bytes!(\"../../component-profile.json\"))"
+      ],
+      "path": "poc/local-private-payment/private-batch-public/common/src/lib.rs",
+      "sha256": "f49548358d4cd02949843f5c3677074773a9a427a49dc8c24953cd6afa90674c"
+    },
+    {
+      "bytes": 3744,
+      "module_or_embedded_input_lines": [
+        "mod tests {"
+      ],
+      "path": "poc/local-private-payment/private-batch-public/common/src/g16.rs",
+      "sha256": "c6ce48be94c702858b6a9a7093ae835cf4d2afd7808e56eb2a9a762c1d21b36a"
+    },
+    {
+      "bytes": 9891,
+      "path": "poc/local-private-payment/private-batch-public/common/src/wire.rs",
+      "sha256": "3b55d446478a5cf05d15d17a8b97303fe2bc9853f5c569f9ee78a3b3d97f945a"
+    },
+    {
+      "bytes": 1401,
+      "path": "poc/local-private-payment/relation/Cargo.toml",
+      "sha256": "32665070753ad63b5787923360586952af3af50a06f711503d9d2a5db694386f"
+    },
+    {
+      "bytes": 37110,
+      "path": "poc/local-private-payment/relation/Cargo.lock",
+      "sha256": "26af87b0b440cbe138a6d619982e2e8e19b262cfc5cb149cf1c9e7655a1d1e9e"
+    },
+    {
+      "bytes": 5119,
+      "module_or_embedded_input_lines": [
+        "pub mod circuit;",
+        "pub mod cv;",
+        "mod exact_sha256;",
+        "pub mod keys;",
+        "pub mod request;",
+        "pub mod statements;",
+        "pub mod wire;"
+      ],
+      "path": "poc/local-private-payment/relation/src/lib.rs",
+      "sha256": "f93c2593444acd3936595e4e0d07cc680ff8ada05ce9f9c7dd5a47a387245b9e"
+    },
+    {
+      "bytes": 13720,
+      "module_or_embedded_input_lines": [
+        "mod tests {"
+      ],
+      "path": "poc/local-private-payment/relation/src/cv.rs",
+      "sha256": "350153426d8ff86905a7956a76311726812151bbe301b319ee254336b33c2f05"
+    },
+    {
+      "bytes": 5486,
+      "path": "poc/local-private-payment/relation/src/statements.rs",
+      "sha256": "bcd3f5f947904fe6fecc4e747b93e0f85a5c611390d0331651e3a1884004e123"
+    },
+    {
+      "bytes": 3846,
+      "path": "poc/local-private-payment/relation/src/wire.rs",
+      "sha256": "e47fc2e3e033b644f6099a2b2753c89d67eae7d999c975acf21475d92a32a3ef"
+    },
+    {
+      "bytes": 3866,
+      "path": "poc/local-private-payment/private-batch-public/component-profile.json",
+      "sha256": "2598cd4baa438e6fb5c95bc4d1f6b8f1f7db607879f428c43f82a5247aca7f36"
+    },
+    {
+      "bytes": 391,
+      "path": "poc/local-private-payment/private-batch-public/outer-selection.json",
+      "sha256": "c44ac47b38bc80602b8d986e7c36527a0b139470fc5e32e00f94c59069f3d93d"
+    }
+  ],
+  "local_relation_features": "default-features=false; onlylib,cv,statements,wire compiled; prover circuit/keys/request/bin absent",
+  "schema": "new-host-transitive-local-build-source-read/v1",
+  "source_changed_or_compiled": false
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "kpb-independent-funding-source-review/v1",
+  "reviewer": "/root/wallet_lifecycle/funding_review",
+  "date_utc": "2026-10-28",
+  "verdict": "BOUNDED_SOURCE_GO_PUBLIC_FIXTURE_TESTS_ONLY",
+  "reviewed_sources": [
+    "genesis.py",
+    "output_verifier.py",
+    "funding.py",
+    "funding_worker.py",
+    "activate.py",
+    "rehearsal_gate.py",
+    "funding_network.py",
+    "funding_network*.mjs/.py and relevant public imports"
+  ],
+  "fixed_findings": [
+    {
+      "location": "activate.py consolidation submission and readback",
+      "cause": "owner_component argument omitted from network operation",
+      "fix": "pass owner-component i on both operations",
+      "status": "SOURCE_REREAD_CLOSED"
+    },
+    {
+      "location": "funding_worker.py consolidation SDK helper",
+      "cause": "legacy helper rejected explicit new KPBAMF01 payload",
+      "fix": "new consolidation_sdk.mjs changes only explicit request schema and payload tag; worker and staged closure use new helper",
+      "status": "SOURCE_REREAD_CLOSED"
+    }
+  ],
+  "confirmed_boundaries": [
+    "strict new backup/KDF only",
+    "one Original in network-off owner namespace",
+    "genuine Output and independently evaluated20KAS zero-blind CV each;60KAS reserve",
+    "per-owner funding/change/fee equations and actual ALL signatures",
+    "GEN3 ordinary3-input SDK separate from arbitrary coinbase consolidation helper",
+    "12 actual NativeFull CASE checks before activation network mutations",
+    "whole accepted CASE,SDK,NativeFull and fresh current reserve checks",
+    "durable consumed phase/tx before network connection; no resubmit",
+    "public certificates plus two admitted Python wheels only"
+  ],
+  "reviewer_executed_target_tests_network_or_private_reads": false,
+  "actual_owner_funding_network_or_complete_terminal_lifecycle_qualified": false,
+  "retained_scan_report_boundary": "offline gate checks exact-history retained Original scan reports; it does not rerun private scans",
+  "final_execution_source_pins_required": true
+}

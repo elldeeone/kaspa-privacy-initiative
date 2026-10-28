@@ -1,0 +1,55 @@
+{
+  "schema": "kpb-wallet-lifecycle-independent-source-review/v1",
+  "reviewer": "root, independent of wallet implementation",
+  "status": "GO_UNFUNDED_SUPPLIED_CONTEXT_SOURCE_ONLY",
+  "files": [
+    {
+      "path": "wallet_history.py",
+      "bytes": 9933,
+      "sha256": "609850ab3df16d4936d2a0ac07bf06be7c865b31a1bb619bd32924f78035a20f"
+    },
+    {
+      "path": "lifecycle_worker.py",
+      "bytes": 17332,
+      "sha256": "b6d32454cd5c48923eb0aa6da350c2e7d7308e5046f88a9c67fbde8041865d2f"
+    },
+    {
+      "path": "private_lifecycle.py",
+      "bytes": 17447,
+      "sha256": "016a11e4a055443910fa9b8fe01636090c6fd64257c92a82310d52b11cf3b049"
+    },
+    {
+      "path": "output_verifier.py",
+      "bytes": 3372,
+      "sha256": "e422f79bf188b2157c38df0940805c882b6f96e93b9bf19ee64e15d94245dbdd"
+    },
+    {
+      "path": "test_wallet_history.py",
+      "bytes": 9993,
+      "sha256": "42ce1954b9f8f94001ca6b151eff98247369f1c5f10d6fbb18b4429bfb880358"
+    },
+    {
+      "path": "LIFECYCLE.md",
+      "bytes": 6771,
+      "sha256": "2fc80645d6e01dbe0ecbea2173f8e9251ac254ec2aecefa6cdfb17022a31e772"
+    }
+  ],
+  "validation": "11 focused structural/replay/metadata-only boundary tests PASS; public actual verifier accepts correctOutput/refuses changedproof withoutPK per separate executed receipt",
+  "reviewed_properties": [
+    "Complete exact3/6 framing/currenthead/NF/CM/reserve replay, integer/range semantics, domain/pool/profile/service bindings",
+    "Owner integer conservation and exact private consent; genuine Output/signature/owneraux and AuthExit independent verification calls",
+    "No controller Original/privateinvoice/ownerrecord/aux/Exitcandidate body reads or hashes; exact public receipt schemas exclude correspondence",
+    "OneOriginal/networkoff namespaces; no otherowner or history/MPC dependency forExit; verifier-only Output path and direct inner subprocess avoid nestedbwrap",
+    "Only UNFUNDED_SUPPLIED_CONTEXT; no caller acceptedbool/scope upgrade or funded/submission entry"
+  ],
+  "assumptions": [
+    "Trustedhost source/runtime/namespace routing; source hash selection is trusted admission, not a malicioushost defense",
+    "Recipient authentication is trusted local expectedcounterparty IPC; corrupt dispatcher cannot replace that trusted route",
+    "Actual financial/aggregate/R0/Exit history validity and accepted backing are not established by supplied replay"
+  ],
+  "remaining": [
+    "StrictnewGEN3 module not covered by this review",
+    "Actualprivate operations held until fixed observer/truth/source executionselection",
+    "Concrete actual accepted-chain qualification entry, all9 sequential nativeExit payouts and originalseed final scans required"
+  ]
+}

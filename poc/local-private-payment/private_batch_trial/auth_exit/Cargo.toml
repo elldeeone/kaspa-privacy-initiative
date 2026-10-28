@@ -1,0 +1,27 @@
+[package]
+name = "kpi-private-batch-auth-exit"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+[workspace]
+
+[dependencies]
+authority = { package = "kpi-nativeauthspend-seam", path = "../../native-authority/native-core" }
+native = { package = "kpi-local-private-payment-relation", path = "../../native-authority/vendor/native-relation", features = ["prover"] }
+ark-bn254 = "=0.6.0"
+ark-ed-on-bn254 = { version = "=0.6.0", default-features = false, features = ["std", "r1cs"] }
+ark-ff = "=0.6.0"
+ark-r1cs-std = "=0.6.0"
+ark-relations = "=0.6.0"
+ark-groth16 = { version = "=0.6.0", default-features = false, features = ["std", "parallel"] }
+ark-serialize = "=0.6.0"
+sha2 = "=0.10.9"
+hex = "=0.4.3"
+rand = "=0.8.5"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.145"
+
+[profile.release]
+debug = 0

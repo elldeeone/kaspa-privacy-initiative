@@ -1,0 +1,42 @@
+{
+  "R0_or_native_or_proof_execution": false,
+  "command": [
+    "/usr/bin/bwrap",
+    "--unshare-all",
+    "--die-with-parent",
+    "--new-session",
+    "--clearenv",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--ro-bind",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-batch-new-host-build-01/kpi-private-batch-public-host",
+    "/host",
+    "/host",
+    "key-check"
+  ],
+  "exit": 0,
+  "result": {
+    "aggregate_vk_sha256": "2ca01e24f64b764e0470e67ff4fe183ed9e6d4a2d0b17e77887499c7ed0de102",
+    "auth_exit_vk_sha256": "e6a49ac7ece8aa501300f24c1ec4602745df6e8d38cd4eed8b1222b36f1e0414",
+    "component_profile_sha256": "2598cd4baa438e6fb5c95bc4d1f6b8f1f7db607879f428c43f82a5247aca7f36",
+    "domain_hex32": "a0a1b4fbf4ce8505f17b24b354ffa81fc4201dc1e130b0358e3bc849611186e0",
+    "output_vk_sha256": "8d5738e3726611b07bedec944dc26d8458b728a7d18c1fecf2ad6638aa1cd119",
+    "private_input_read": false
+  }
+}

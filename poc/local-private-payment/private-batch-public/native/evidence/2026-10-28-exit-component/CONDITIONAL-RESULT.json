@@ -1,0 +1,497 @@
+{
+  "accepted_liability_ledger_or_chain_currentness": false,
+  "actual_native_vm_result": {
+    "accepted_backing_or_chain_confirmation": false,
+    "actual_negative_script_rejections": true,
+    "actual_positive_native_full_and_scripts": true,
+    "cases": [
+      {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 19050800
+        },
+        "case_sha256": "1ab01ec6ba868760c35f72bbb074bfd1cba20fb8ec0f42aea7e59f46437a39db",
+        "engine_exit": 0,
+        "expected": "accept",
+        "id": "terminal-positive",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "units": 14798703
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "8a2fb5f5c761978e65261e6adc697824953c79914c46d1d3139b2ca2e6674f43",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-payout",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 38704
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "1d3e61e32bbc64b23a55eb25cae8daebac131c29d5af7240002e1c5bb0c89f37",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-destination",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 38669
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "21445af1b8c5566bddecac9b8829bf8f9c6c25772e9e2f22085d98bf80a1d22c",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-fee-body",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 17654
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "422d5a028ed01cae45c76ed023c0f8fb8cdcafb62bebc514b4c90dc25dcd199f",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-wrong-head",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 16864
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "cc94cb3eca1f4befc827d07f8b11efaf815ca4b8456be22dce68de29a73ca6c2",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-wrong-domain",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 16715
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "34979580491a19a3ecaf4baa15a23c540e548206b0826177b25655d957ff27c8",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-wrong-pool",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 16651
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\"))"
+        },
+        "case_sha256": "aa5d33e1693436f9046e9df5ae8d5f97a91969a625928930ab4d37f7a04e78b2",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-corrupt-proof",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\")",
+            "units": 14798702
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "case_sha256": "4c64daf5bc62fabbf564a90927cbab6aa4dd8c74f33c07a7681a8cd944b000d7",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-cross-context-valid-proof",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14798702
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "c65ed179b7f5d2a3bd95c15734dd19b70b489870db464a8243d2430951cadd46",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-spent-state-nullifier-replay",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 17502
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": true,
+          "fee_sompi": 19093100
+        },
+        "case_sha256": "162015cff4392244929f1fb1dd6f12e3f959b031847e20ce29bde0904c100590",
+        "engine_exit": 0,
+        "expected": "accept",
+        "id": "continuing-positive",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": true,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "units": 14833360
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "1425055015a2352580cff2dbd90ea3be96ad26582518adeb9de684f248f20681",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-payout",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 72247
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "9dd74eacb09b7e75e852d9566f7b9488ee7a551e2c101d2f05ac89dfa1e38766",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-destination",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 72206
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "0877759de6275703d4a181d99a96c116c71c1637487d3189fe888c204d6bd0fe",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-fee-body",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 17669
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "1eceddb557d2b73a8b43977cedd42cec1de8e95aec8a87fa4ff39451e729c84d",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-wrong-head",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 16864
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "40cf1b7586ba8379b8384d029c5666c97c6cf2a3207b009fcd4c3759e130614c",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-wrong-domain",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 16715
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "984626cf51bc1008d4de3ffd7034c737e83e2ac154ecccf904de8877ea6d3ed0",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-wrong-pool",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 16651
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "case_sha256": "b11843e863d2d8193665126e6eb3d6498f43e880054a4da01acad80c4c04029c",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-corrupt-proof",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14833359
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+        },
+        "case_sha256": "7cb34098f2e353d01ee28a1cd548063534de6ffd6657f6e52c1a1e1ea1902e83",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-cross-context-valid-proof",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "ZkIntegrity(\"Groth16 verification failed\")",
+            "units": 14833359
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "45dd3e44c902aba6a1ab2567db4e846f53cc96134b18b5acc8845d12a88cf8dd",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-spent-state-nullifier-replay",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 17502
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "f1284058f18275a0047f5d17862144f756a4b33b63e7bbd40781dd68ef6aaa65",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-successor-policy-substitution",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 72117
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "b84a3ba018afc338b2246d8142aa05688fd8f74a1f9e8dbb8015a0273311b4d5",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "continuing-missing-reserve-output",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 38629
+          }
+        ]
+      },
+      {
+        "Full": {
+          "accepted": false,
+          "typed_error": "SignatureInvalid(VerifyError)"
+        },
+        "case_sha256": "62dfb7684d91f59fbedad0c1e769027900faeaeceb348769f40c248e7825c81e",
+        "engine_exit": 0,
+        "expected": "reject",
+        "id": "terminal-unexpected-reserve-output",
+        "mode": "exit",
+        "per_input_ScriptEngine": [
+          {
+            "accepted": false,
+            "allowed_script_units": 18009999,
+            "input_index": 0,
+            "typed_error": "VerifyError",
+            "units": 38584
+          }
+        ]
+      }
+    ],
+    "classification": "REAL_NATIVE_VM_SUPPLIED_CONTEXT_NOT_CHAIN_CONFIRMATION",
+    "funding_or_broadcast": false,
+    "plan_sha256": "b5b3fcb133202101bbcd6ae297f6fbfb84f59c63d3bcee00f490576b7a667f19",
+    "private_wallet_contents_read": false,
+    "schema": "private-batch-native-vm-controls-result/v1",
+    "scope": "exit"
+  },
+  "actual_native_vm_result_sha256": "d8d55d8d0481b7ff80a296ccd64f89ea518198f0520647d1c5c69a4b88b6bdc2",
+  "actual_node_minimum_fee_claim": false,
+  "aggregate_key_or_payment_receipt_qualified": false,
+  "auth_exit_matrix_sha256": "9fbedc0628a6afb592f03a0ceda9825924f7d8bd76fe49785b6252237affc149",
+  "auth_exit_parameter_manifest": {
+    "path": "/public/AUTH-EXIT-MANIFEST.json",
+    "sha256": "bc41c97e06f07a06ee9ab2af59ef1ba8c5190a126dfb0eb120d586667aaddd8f"
+  },
+  "auth_exit_source_sha256": "ccd4e28a728cbf8ffd6db0dd0fa81a6200c0c6e4ecb20242435f00e5b6aae19e",
+  "auth_exit_vk_sha256": "e6a49ac7ece8aa501300f24c1ec4602745df6e8d38cd4eed8b1222b36f1e0414",
+  "classification": "UNFUNDED_EXIT_COMPONENT_ONLY_UNSELECTED_PAYMENT_METADATA",
+  "conditional_exit_branch_only": true,
+  "domain_hex32": "a0a1b4fbf4ce8505f17b24b354ffa81fc4201dc1e130b0358e3bc849611186e0",
+  "funding_or_broadcast": false,
+  "payment_profile_selected": false,
+  "plan_sha256": "b5b3fcb133202101bbcd6ae297f6fbfb84f59c63d3bcee00f490576b7a667f19",
+  "positive_branches": [
+    "continuing",
+    "terminal"
+  ],
+  "profile_id_hex32": "ea19260a60a8d0a54b8ad9848f82317c1d84059a1881be34d318bcca42493700",
+  "reference_fee_rate_sompi_per_mass": 100,
+  "schema": "private-batch-unfunded-exit-component-native-result/v1"
+}
