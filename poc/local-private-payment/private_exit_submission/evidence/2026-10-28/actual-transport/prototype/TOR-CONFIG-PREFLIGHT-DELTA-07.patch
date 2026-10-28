@@ -1,0 +1,96 @@
+--- d4a7
++++ e2fc3d1367f3ad11a705fc9c51145ce6b3e8e04769acf1f31582f72213ba8a33
+@@ -59,7 +59,7 @@
+ def tor_role(kind, socks_port, receiver_port):
+     """Only this role sees its own newly generated Tor state and raw notices."""
+     os.umask(0o077)
+-    argv = ['/tools/tor', '--defaults-torrc', '/dev/null', '-f', '/dev/null',
++    argv = ['/tools/tor', '--defaults-torrc', '/app/empty-torrc', '-f', '/app/empty-torrc',
+         '--RunAsDaemon', '0', '--DataDirectory', '/state/data', '--ControlPort', '0',
+         '--SocksPort', ('127.0.0.1:%d IsolateSOCKSAuth' % socks_port) if kind == 'client' else '0',
+         '--Log', 'notice stdout', '--ClientOnly', '1']
+@@ -224,6 +224,11 @@
+         setup_fds.append(marker_source)
+         argv += ['--perms', '0400', '--ro-bind-data', str(marker_source), '/NO-ORIGINAL-PUBLIC-TRANSPORT',
+                  '--ro-bind', '/proc/self/fd/' + str(descriptors[str(TOR)]), '/tools/tor']
++        # Tor deliberately rejects /dev/null as a configuration file. Use an
++        # authenticated empty regular public file, with a fresh read description.
++        config_source = os.open('/proc/self/fd/' + str(marker_fd), os.O_RDONLY | os.O_CLOEXEC)
++        setup_fds.append(config_source)
++        argv += ['--perms', '0400', '--ro-bind-data', str(config_source), '/app/empty-torrc']
+         for name in ('libevent-2.1.so.7', 'libssl.so.3', 'libcrypto.so.3'):
+             argv += ['--ro-bind', '/proc/self/fd/' + str(descriptors[str(TOR.parent / name)]), '/tools/' + name]
+         argv += ['--setenv', 'PATH', '/usr/bin', '--setenv', 'LANG', 'C.UTF-8', '--setenv', 'HOME', '/tmp']
+@@ -360,7 +365,7 @@
+                 '--library-path', '/tools:/usr/lib/x86_64-linux-gnu', '/tools/tor', '--version']),
+             ('tor-config', namespace() + ['/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2',
+                 '--library-path', '/tools:/usr/lib/x86_64-linux-gnu', '/tools/tor',
+-                '--defaults-torrc', '/dev/null', '-f', '/dev/null', '--verify-config',
++                '--defaults-torrc', '/app/empty-torrc', '-f', '/app/empty-torrc', '--verify-config',
+                 '--DataDirectory', '/tmp/config-check', '--SocksPort', '0', '--ControlPort', '0']),
+             ('curl-version', namespace() + ['/usr/bin/curl', '-q', '--version']),
+             ('python-import-frame', namespace() + python + ['-c',
+@@ -370,12 +375,18 @@
+                 "s=receiver.ObservedHTTPServer(('127.0.0.1',0),receiver.Observer('/tmp/observations'),'preflight');s.server_close();"
+                 "print('KPB_PUBLIC_IMPORT_FRAME_OK')"]),
+         ]
++        preflight_results = []
++        def preflight_result(label, done, expected=None):
++            passed = done.returncode == 0 and (expected is None or done.stdout == expected)
++            value = {'check': label, 'returncode': done.returncode, 'passed': passed,
++                'public_stdout': done.stdout.decode('utf-8', errors='replace'),
++                'public_stderr': done.stderr.decode('utf-8', errors='replace')}
++            preflight_results.append(value)
++            event('runtime-preflight', **value)
+         for label, argv in checks:
+-            done = subprocess.run(argv, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
++            done = subprocess.run(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                 stdin=subprocess.DEVNULL, close_fds=True, pass_fds=public_fds(), env={'PATH':'/usr/bin','LANG':'C.UTF-8'})
+-            need(done.returncode == 0, 'network-off-runtime-preflight-' + label)
+-            event('runtime-preflight', check=label, returncode=done.returncode,
+-                  public_stdout_sha256=hashlib.sha256(done.stdout).hexdigest())
++            preflight_result(label, done)
+         # Exercise the real pipe setup and independent source offsets before
+         # generating state. These commands cannot reach any network or wallet.
+         incoming, outgoing = os.pipe2(os.O_CLOEXEC)
+@@ -384,10 +395,9 @@
+             command = namespace(input_fd=incoming) + python + ['-c',
+                 "from pathlib import Path;assert Path('/input/frame').read_bytes()==b'KPB_PUBLIC_PIPE_SMOKE';"
+                 "print('KPB_PUBLIC_PIPE_OK')"]
+-            done = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
++            done = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                 close_fds=True, pass_fds=public_fds() + (incoming,), env={'PATH':'/usr/bin','LANG':'C.UTF-8'})
+-            need(done.returncode == 0 and done.stdout == b'KPB_PUBLIC_PIPE_OK\n', 'network-off-pipe-setup-smoke')
+-            event('runtime-preflight', check='pipe-setup', returncode=0)
++            preflight_result('pipe-setup', done, b'KPB_PUBLIC_PIPE_OK\n')
+         finally:
+             os.close(incoming)
+             if outgoing is not None:
+@@ -397,17 +407,20 @@
+             for _ in range(2)]
+         results = [None, None]
+         def public_source_check(index):
+-            results[index] = subprocess.run(parallel[index], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
++            results[index] = subprocess.run(parallel[index], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                 close_fds=True, pass_fds=public_fds(), env={'PATH':'/usr/bin','LANG':'C.UTF-8'})
+         threads = [threading.Thread(target=public_source_check, args=(index,)) for index in range(2)]
+         for thread in threads: thread.start()
+         for thread in threads: thread.join()
+-        need(all(done is not None and done.returncode == 0 and done.stdout == b'KPB_PUBLIC_SOURCE_OK\n'
+-                 for done in results), 'network-off-concurrent-source-offset-smoke')
+-        event('runtime-preflight', check='independent-concurrent-source-offsets', copies=2, returncode=0)
+-        save('NAMESPACE-PREFLIGHT.json', {'all_checks_passed': True, 'private_state_root_created': False,
+-            'network': 'UNSHARED', 'checks': [label for label, _argv in checks]
+-                + ['pipe-setup', 'independent-concurrent-source-offsets']})
++        for index, done in enumerate(results):
++            need(done is not None, 'public-source-check-completed')
++            preflight_result('independent-concurrent-source-offset-' + str(index), done, b'KPB_PUBLIC_SOURCE_OK\n')
++        all_preflight_passed = all(value['passed'] for value in preflight_results)
++        save('NAMESPACE-PREFLIGHT.json', {'all_checks_passed': all_preflight_passed,
++            'private_state_root_created': False, 'network': 'UNSHARED',
++            'diagnostic_scope': 'PUBLIC_PRESTATE_NETWORK_OFF_NO_PRIVATE_INPUTS',
++            'checks': preflight_results})
++        need(all_preflight_passed, 'network-off-complete-runtime-preflight')
+         row = plan['public_input']; raw_input = read(Path(row['path']), row['sha256']); inputs = json.loads(raw_input)
+         need(inputs['schema'] == 'kpb-public-exit-fixture-selection/v1'
+              and inputs['classification'] == 'PUBLIC_SYNTHETIC_UNFUNDED_OFFLINE_KNOWN_SEED_HYPOTHETICAL_CASES'

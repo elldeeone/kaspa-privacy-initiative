@@ -1,0 +1,53 @@
+--- run_probe.BASELINE-c7e8.py
++++ run_probe.py
+@@ -178,7 +178,7 @@
+     save('PLAN.json', plan_raw)
+     tools = json.loads(read(TOOLS, TOOLS_SHA)); elf = json.loads(read(ELF, ELF_SHA))
+     rows = {r['path']: r for r in [*tools['files'], *elf['files']]}
+-    descriptors = {}; app_fds = {}; processes = []; events = []; messages = queue.Queue(); latest = {}; stopped_roles = set()
++    descriptors = {}; app_fds = {}; processes = []; events = []; messages = queue.Queue(); latest = {}; stopped_roles = set(); masked_packages = []
+     def event(kind, **values):
+         events.append({'kind': kind, 'monotonic_ns': time.monotonic_ns(), **values})
+     def admit_runtime(path, row):
+@@ -207,6 +207,8 @@
+             '--ro-bind', str(STDLIB), str(STDLIB)]
+         if network:
+             argv += ['--share-net']
++        for path in masked_packages:
++            argv += ['--tmpfs', str(path), '--remount-ro', str(path)]
+         for path, fd in descriptors.items():
+             argv += ['--ro-bind', '/proc/self/fd/' + str(fd), path]
+         for path, record in elf['aliases'].items():
+@@ -323,6 +325,11 @@
+                 need(info.st_uid == 0
+                      and (info.st_dev, info.st_ino) not in guard['m'].GUARD.inodes,
+                      'installed-stdlib-owned-public-metadata')
++                if name in ('site-packages', 'dist-packages'):
++                    need(stat.S_ISDIR(info.st_mode) and not info.st_mode & 0o022, 'package-mask-directory')
++                    masked_packages.append(path)
++                    dirs.remove(name)
++                    continue
+                 if stat.S_ISLNK(info.st_mode):
+                     target = path.resolve(strict=True)
+                     need(not target.is_dir(), 'no-stdlib-directory-alias')
+@@ -334,10 +341,10 @@
+                     continue
+                 need(not info.st_mode & 0o022, 'installed-stdlib-not-writable-to-others')
+                 need(stat.S_ISREG(info.st_mode) or stat.S_ISDIR(info.st_mode), 'regular-installed-stdlib')
+-                need(name not in ('site-packages', 'dist-packages'), 'no-site-packages-bound')
+                 stdlib_count += 1
+         event('runtime-admission', kind_of_admission='EXACT_ROOT_RECEIPT_METADATA_REUSE_NO_NEW_BODY_HASH',
+-              elf_leaves=len(rows), installed_stdlib_metadata_entries=stdlib_count, stdlib_aliases=stdlib_aliases)
++              elf_leaves=len(rows), installed_stdlib_metadata_entries=stdlib_count, stdlib_aliases=stdlib_aliases,
++              package_directories_shadowed_empty=[str(path) for path in masked_packages])
+         for name, (_row, body) in selected.items():
+             app_fds[name] = public_memfd(body)
+         marker_fd = public_memfd(b'')
+@@ -352,6 +359,7 @@
+             ('curl-version', namespace() + ['/usr/bin/curl', '-q', '--version']),
+             ('python-import-frame', namespace() + python + ['-c',
+                 "import sys;sys.path.insert(0,'/app');import packet,receiver,transport;"
++                "from pathlib import Path;assert not list(Path('/usr/lib/python3.14/dist-packages').iterdir());"
+                 "p=b'KPBXFX01'+bytes(1844-8);assert packet.decode(packet.encode(p,bytes(128))).projection==p;"
+                 "s=receiver.ObservedHTTPServer(('127.0.0.1',0),receiver.Observer('/tmp/observations'),'preflight');s.server_close();"
+                 "print('KPB_PUBLIC_IMPORT_FRAME_OK')"]),

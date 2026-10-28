@@ -1,0 +1,105 @@
+--- run_probe.BASELINE-67a2.py
++++ run_probe.py
+@@ -178,7 +178,7 @@
+     save('PLAN.json', plan_raw)
+     tools = json.loads(read(TOOLS, TOOLS_SHA)); elf = json.loads(read(ELF, ELF_SHA))
+     rows = {r['path']: r for r in [*tools['files'], *elf['files']]}
+-    descriptors = {}; app_fds = {}; processes = []; events = []; messages = queue.Queue(); latest = {}; stopped_roles = set(); masked_packages = []
++    descriptors = {}; app_fds = {}; setup_fds = []; processes = []; events = []; messages = queue.Queue(); latest = {}; stopped_roles = set(); masked_packages = []
+     def event(kind, **values):
+         events.append({'kind': kind, 'monotonic_ns': time.monotonic_ns(), **values})
+     def admit_runtime(path, row):
+@@ -215,8 +215,14 @@
+             if record['link_text'] is not None:
+                 argv += ['--symlink', record['link_text'], path]
+         for name, fd in app_fds.items():
+-            argv += ['--ro-bind', '/proc/self/fd/' + str(fd), '/app/' + name]
+-        argv += ['--ro-bind', '/proc/self/fd/' + str(marker_fd), '/NO-ORIGINAL-PUBLIC-TRANSPORT',
++            # A fresh open description is required: --ro-bind-data consumes its
++            # offset, whereas dup() would share it across concurrent launches.
++            source = os.open('/proc/self/fd/' + str(fd), os.O_RDONLY | os.O_CLOEXEC)
++            setup_fds.append(source)
++            argv += ['--perms', '0400', '--ro-bind-data', str(source), '/app/' + name]
++        marker_source = os.open('/proc/self/fd/' + str(marker_fd), os.O_RDONLY | os.O_CLOEXEC)
++        setup_fds.append(marker_source)
++        argv += ['--perms', '0400', '--ro-bind-data', str(marker_source), '/NO-ORIGINAL-PUBLIC-TRANSPORT',
+                  '--ro-bind', '/proc/self/fd/' + str(descriptors[str(TOR)]), '/tools/tor']
+         for name in ('libevent-2.1.so.7', 'libssl.so.3', 'libcrypto.so.3'):
+             argv += ['--ro-bind', '/proc/self/fd/' + str(descriptors[str(TOR.parent / name)]), '/tools/' + name]
+@@ -226,11 +232,11 @@
+         if observations:
+             argv += ['--bind', str(public / 'observations'), '/observations']
+         if input_fd is not None:
+-            argv += ['--preserve-fds', str(max([input_fd, *descriptors.values(), *app_fds.values(), marker_fd]) - 2)]
++            argv += ['--dir', '/input', '--perms', '0400', '--ro-bind-data', str(input_fd), '/input/frame']
+         return argv
+     python = ['/usr/bin/python3.14', '-I', '-S', '-B']
+     def public_fds():
+-        return tuple(descriptors.values()) + tuple(app_fds.values()) + (marker_fd,)
++        return tuple(descriptors.values()) + tuple(app_fds.values()) + tuple(setup_fds) + (marker_fd,)
+     def launch(role, argv, extra_fds=()):
+         started = time.monotonic_ns()
+         process = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+@@ -370,8 +376,38 @@
+             need(done.returncode == 0, 'network-off-runtime-preflight-' + label)
+             event('runtime-preflight', check=label, returncode=done.returncode,
+                   public_stdout_sha256=hashlib.sha256(done.stdout).hexdigest())
++        # Exercise the real pipe setup and independent source offsets before
++        # generating state. These commands cannot reach any network or wallet.
++        incoming, outgoing = os.pipe2(os.O_CLOEXEC)
++        try:
++            os.write(outgoing, b'KPB_PUBLIC_PIPE_SMOKE'); os.close(outgoing); outgoing = None
++            command = namespace(input_fd=incoming) + python + ['-c',
++                "from pathlib import Path;assert Path('/input/frame').read_bytes()==b'KPB_PUBLIC_PIPE_SMOKE';"
++                "print('KPB_PUBLIC_PIPE_OK')"]
++            done = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
++                close_fds=True, pass_fds=public_fds() + (incoming,), env={'PATH':'/usr/bin','LANG':'C.UTF-8'})
++            need(done.returncode == 0 and done.stdout == b'KPB_PUBLIC_PIPE_OK\n', 'network-off-pipe-setup-smoke')
++            event('runtime-preflight', check='pipe-setup', returncode=0)
++        finally:
++            os.close(incoming)
++            if outgoing is not None:
++                os.close(outgoing)
++        parallel = [namespace() + python + ['-c',
++            "import sys;sys.path.insert(0,'/app');import packet,receiver,transport;print('KPB_PUBLIC_SOURCE_OK')"]
++            for _ in range(2)]
++        results = [None, None]
++        def public_source_check(index):
++            results[index] = subprocess.run(parallel[index], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
++                close_fds=True, pass_fds=public_fds(), env={'PATH':'/usr/bin','LANG':'C.UTF-8'})
++        threads = [threading.Thread(target=public_source_check, args=(index,)) for index in range(2)]
++        for thread in threads: thread.start()
++        for thread in threads: thread.join()
++        need(all(done is not None and done.returncode == 0 and done.stdout == b'KPB_PUBLIC_SOURCE_OK\n'
++                 for done in results), 'network-off-concurrent-source-offset-smoke')
++        event('runtime-preflight', check='independent-concurrent-source-offsets', copies=2, returncode=0)
+         save('NAMESPACE-PREFLIGHT.json', {'all_checks_passed': True, 'private_state_root_created': False,
+-            'network': 'UNSHARED', 'checks': [label for label, _argv in checks]})
++            'network': 'UNSHARED', 'checks': [label for label, _argv in checks]
++                + ['pipe-setup', 'independent-concurrent-source-offsets']})
+         row = plan['public_input']; raw_input = read(Path(row['path']), row['sha256']); inputs = json.loads(raw_input)
+         need(inputs['schema'] == 'kpb-public-exit-fixture-selection/v1'
+              and inputs['classification'] == 'PUBLIC_SYNTHETIC_UNFUNDED_OFFLINE_KNOWN_SEED_HYPOTHETICAL_CASES'
+@@ -420,10 +456,10 @@
+             event('pipe-created', client=index, read_fd=incoming, write_fd=outgoing,
+                   pipe_inode=os.fstat(incoming).st_ino)
+             argv = namespace(input_fd=incoming, network=True) + python + ['-c',
+-                "import sys,runpy;sys.path.insert(0,'/app');sys.argv=" + repr([
+-                '/app/transport.py', '--frame-fd', str(incoming), '--onion-endpoint', 'http://' + hostname + '/exit',
++                "import sys,runpy,os;sys.path.insert(0,'/app');fd=os.open('/input/frame',os.O_RDONLY);sys.argv=" + repr([
++                '/app/transport.py', '--frame-fd', 'INPUT_FD', '--onion-endpoint', 'http://' + hostname + '/exit',
+                 '--socks', '127.0.0.1:' + str(socks), '--selected-curl', '/usr/bin/curl']) +
+-                ";runpy.run_path('/app/transport.py',run_name='__main__')"]
++                ";sys.argv[2]=str(fd);runpy.run_path('/app/transport.py',run_name='__main__')"]
+             try:
+                 sender = launch('transport-' + str(index), argv, (incoming,)); senders.append(sender)
+                 event('pipe-write-start', client=index)
+@@ -475,6 +511,8 @@
+             os.close(fd)
+         for fd in app_fds.values():
+             os.close(fd)
++        for fd in setup_fds:
++            os.close(fd)
+         if marker_fd is not None:
+             os.close(marker_fd)
+         save('EVENTS.json', events); save('RESULT.json', result)

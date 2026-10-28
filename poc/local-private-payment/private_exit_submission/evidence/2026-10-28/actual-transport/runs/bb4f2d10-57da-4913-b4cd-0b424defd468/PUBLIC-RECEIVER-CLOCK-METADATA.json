@@ -1,0 +1,166 @@
+{
+  "clock_qualified": false,
+  "excluded_fields": [
+    "projection_hex",
+    "proof_hex128",
+    "exit_id",
+    "frame_sha256"
+  ],
+  "privacy_or_financial_qualification": false,
+  "records": [
+    {
+      "accepted_monotonic_ns": 888191709317023,
+      "accepted_unix_ns": 1793195428530204113,
+      "arrival_sequence": 1,
+      "broadcast": false,
+      "financial_validation": "NOT_RUN",
+      "framing": "PASS",
+      "handler_monotonic_ns": 888191709635790,
+      "headers": [
+        [
+          "Host",
+          "mjn4cywkmi5tzdsbz6bd5p4xt44ah5wi6exczna4hjzzbniq4wkkbgad.onion"
+        ],
+        [
+          "User-Agent",
+          "kpb-exit-transport/1"
+        ],
+        [
+          "Accept",
+          "application/octet-stream"
+        ],
+        [
+          "Content-Type",
+          "application/octet-stream"
+        ],
+        [
+          "Content-Length",
+          "4096"
+        ]
+      ],
+      "http_status": 202,
+      "path": "/exit",
+      "peer": [
+        "127.0.0.1",
+        58764
+      ],
+      "post_handler_monotonic_ns": 888193398521232,
+      "received_body_bytes": 4096,
+      "recorded_monotonic_ns": 888193398644527,
+      "request_line": "POST /exit HTTP/1.0",
+      "schema": "kpb-exit-transport-arrival/v1",
+      "scope": "UNTRUSTED_PUBLIC_TRANSPORT_ONLY"
+    },
+    {
+      "accepted_monotonic_ns": 888192106038886,
+      "accepted_unix_ns": 1793195428926925485,
+      "arrival_sequence": 2,
+      "broadcast": false,
+      "financial_validation": "NOT_RUN",
+      "framing": "PASS",
+      "handler_monotonic_ns": 888192106273302,
+      "headers": [
+        [
+          "Host",
+          "mjn4cywkmi5tzdsbz6bd5p4xt44ah5wi6exczna4hjzzbniq4wkkbgad.onion"
+        ],
+        [
+          "User-Agent",
+          "kpb-exit-transport/1"
+        ],
+        [
+          "Accept",
+          "application/octet-stream"
+        ],
+        [
+          "Content-Type",
+          "application/octet-stream"
+        ],
+        [
+          "Content-Length",
+          "4096"
+        ]
+      ],
+      "http_status": 202,
+      "path": "/exit",
+      "peer": [
+        "127.0.0.1",
+        58778
+      ],
+      "post_handler_monotonic_ns": 888193665616154,
+      "received_body_bytes": 4096,
+      "recorded_monotonic_ns": 888193939940810,
+      "request_line": "POST /exit HTTP/1.0",
+      "schema": "kpb-exit-transport-arrival/v1",
+      "scope": "UNTRUSTED_PUBLIC_TRANSPORT_ONLY"
+    },
+    {
+      "accepted_monotonic_ns": 888192444555114,
+      "accepted_unix_ns": 1793195429265441493,
+      "arrival_sequence": 3,
+      "broadcast": false,
+      "financial_validation": "NOT_RUN",
+      "framing": "PASS",
+      "handler_monotonic_ns": 888192444779551,
+      "headers": [
+        [
+          "Host",
+          "mjn4cywkmi5tzdsbz6bd5p4xt44ah5wi6exczna4hjzzbniq4wkkbgad.onion"
+        ],
+        [
+          "User-Agent",
+          "kpb-exit-transport/1"
+        ],
+        [
+          "Accept",
+          "application/octet-stream"
+        ],
+        [
+          "Content-Type",
+          "application/octet-stream"
+        ],
+        [
+          "Content-Length",
+          "4096"
+        ]
+      ],
+      "http_status": 202,
+      "path": "/exit",
+      "peer": [
+        "127.0.0.1",
+        58790
+      ],
+      "post_handler_monotonic_ns": 888193133771035,
+      "received_body_bytes": 4096,
+      "recorded_monotonic_ns": 888193374613294,
+      "request_line": "POST /exit HTTP/1.0",
+      "schema": "kpb-exit-transport-arrival/v1",
+      "scope": "UNTRUSTED_PUBLIC_TRANSPORT_ONLY"
+    }
+  ],
+  "schema": "kpb-public-receiver-clock-only-export/v1",
+  "scope": "PUBLIC_KNOWN_SEED_FIXTURE_FUNCTIONALITY_ONLY_NOT_PRIVATE_OWNER_MEASUREMENT",
+  "source_clock_facts": {
+    "clock_offset_set_by_launcher": false,
+    "host_launch_event_monotonic_ns": "sampled after Popen returns",
+    "host_launch_started_ns": "sampled immediately before subprocess.Popen",
+    "host_pipe_created_event": "after os.pipe2",
+    "host_pipe_write_complete": "after all writes, before parent pipe close",
+    "host_pipe_write_start": "before first os.write",
+    "namespace_clock_identity": "not recorded in trial13",
+    "receiver_clock_fields": "actual child time.monotonic_ns and time.time_ns samples from frozen receiver",
+    "requested_namespace_flags": [
+      "--unshare-all",
+      "--share-net"
+    ],
+    "timens_offsets": "not recorded in trial13",
+    "transport_202_status_clock": "controller observation upper bound after transport emits fixed status; no transport child timestamp",
+    "transport_exit_event": "post-wait/final-cleanup observation; not exact child exit time"
+  },
+  "source_events_sha256": "2ac89f31386b1bf234b5c91821fc1d213acd4772cfea80e2f2f23eec6e723027",
+  "source_fixture_selection_sha256": "b6705efda984a68e94bf2078baa8cb071c626589f886011cafe198bfab267ed0",
+  "source_launcher_sha256": "0582a871c6f03a1d512618cede051c6b36bae37acae4a26be25b11534fcd9dec",
+  "source_received_sha256": "7656814ff7515cee9770fcc55308dc57a951860c361454e4f37ddac81cfc95c0",
+  "source_receiver_sha256": "0375401b3f3b2844c60e78bf4450cf1ad7f8e574462bc98b71395078d07601ac",
+  "trial_id": "bb4f2d10-57da-4913-b4cd-0b424defd468"
+}

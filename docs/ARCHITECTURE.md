@@ -1326,3 +1326,13 @@ owner-labelled clear candidate handoff. A common receiver retains actual arrival
 order and timing and has no signing or withdrawal authority. The current
 workload is unchanged; same-host and traffic-correlation anonymity remain
 unqualified, and independent direct Exit remains available.
+
+The isolated public transport rehearsal delivered three exact 4,096-byte packets
+over real Tor with clean receiver drain. The received-byte Native checks accepted
+two genuine cases and rejected an old proof after destination mutation. This is
+unfunded known-seed functionality evidence; it establishes neither anonymity nor
+an accepted financial lifecycle. The private owner-to-pipe and combined Tor flow
+also passed with an already exposed candidate: the controller received metadata
+and fixed statuses, and independent recipient NativeFull validation accepted the
+exact delivered bytes. A new privacy comparison remains unselected; this
+functional result does not establish a larger anonymity set.

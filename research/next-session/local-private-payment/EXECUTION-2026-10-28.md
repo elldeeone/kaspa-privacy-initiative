@@ -116,6 +116,21 @@ complete corrupt-server view remain unqualified. An automated
 security filter blocked the full corrupt-server recorder, so it is not executed.
 The old cyclic H1 failure and changed-cohort counterexample remain unchanged.
 
+The optional [owner-origin route design](../../../docs/adr/0082-optional-owner-origin-exit-submission.md)
+now has a completed real public Tor transport rehearsal. Three one-shot
+4,096-byte frames arrived exactly and the receiver drained cleanly. NativeFull
+verification of received bytes accepted two genuine cases and rejected the
+changed-destination old-proof case. This uses already public, unfunded fixtures;
+no anonymity, accepted-chain, funding or broadcast qualification follows. Keep
+each earlier incomplete/preflight/shutdown/stream-limit run separate. The
+private owner-to-pipe boundary and combined transport flow also passed with one
+already exposed candidate. The owner role validated it, a no-Original transport
+received its stdout directly, the receiver drained cleanly, and one independent
+NativeFull/all-input check accepted the exact received bytes. Controller body,
+frame, recipient-body and labelled digest access stayed absent. No proof or note
+was regenerated. This is functionality only; a new privacy study needs fresh
+identities/notes and a complete source and budget freeze, and remains unselected.
+
 ## Work still required
 
 1. Run the complete three-owner private construction and financial prover with

@@ -1,0 +1,42 @@
+--- e2fc
++++ 7b9687f585ddaf9d784bd416784cb4b35ff870b50c5f19726766197f79c9f83a
+@@ -122,9 +122,15 @@
+     signal.signal(signal.SIGTERM, stopped)
+     emit({'schema': 'kpb-probe-listener/v1', 'port': server.server_address[1],
+           'monotonic_ns': time.monotonic_ns()})
++    serving = threading.Thread(target=server.serve_forever, daemon=False)
++    serving.start()
+     try:
+-        server.serve_forever()
++        # Fixed public lifecycle control only, with EOF required. Do not signal
++        # the bwrap supervisor: namespace teardown can preempt this final drain.
++        need(sys.stdin.buffer.read(6) == b'STOP\n', 'fixed-public-receiver-stop')
+     finally:
++        server.shutdown()
++        serving.join()
+         server.server_close()
+         emit({'schema': 'kpb-probe-listener-summary/v1', 'accepted': observer.sequence,
+               'completed': len(list(Path('/observations/arrivals').glob('arrival-*.json'))),
+@@ -245,7 +251,8 @@
+     def launch(role, argv, extra_fds=()):
+         started = time.monotonic_ns()
+         process = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+-            stdin=subprocess.DEVNULL, close_fds=True, pass_fds=public_fds() + tuple(extra_fds),
++            stdin=subprocess.PIPE if role == 'receiver' else subprocess.DEVNULL,
++            close_fds=True, pass_fds=public_fds() + tuple(extra_fds),
+             env={'PATH': '/usr/bin', 'LANG': 'C.UTF-8'})
+         processes.append((role, process)); event('launch', role=role, pid=process.pid, started_ns=started, argv=argv)
+         def receive():
+@@ -310,7 +317,11 @@
+             return
+         stopped_roles.add(role)
+         if process.poll() is None:
+-            process.terminate()
++            if role == 'receiver':
++                process.stdin.write(b'STOP\n')
++                process.stdin.close()
++            else:
++                process.terminate()
+         process.wait(); event('role-exit', role=role, returncode=process.returncode)
+     result = {'schema': 'kpb-public-onion-probe-result/v1', 'trial_id': plan['trial_id'],
+         'classification': plan['classification'], 'financial_validation': 'NOT_RUN',

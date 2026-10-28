@@ -1,0 +1,23 @@
+--- 7b96
++++ 0582a871c6f03a1d512618cede051c6b36bae37acae4a26be25b11534fcd9dec
+@@ -63,6 +63,10 @@
+         '--RunAsDaemon', '0', '--DataDirectory', '/state/data', '--ControlPort', '0',
+         '--SocksPort', ('127.0.0.1:%d IsolateSOCKSAuth' % socks_port) if kind == 'client' else '0',
+         '--Log', 'notice stdout', '--ClientOnly', '1']
++    if kind == 'client':
++        # Generous connection wait for fresh isolated onion circuits; this does
++        # not retry, change routing, or grant financial acceptance.
++        argv += ['--SocksTimeout', '900']
+     if kind == 'service':
+         argv += ['--HiddenServiceDir', '/state/hidden', '--HiddenServiceVersion', '3',
+                  '--HiddenServicePort', '80 127.0.0.1:%d' % receiver_port]
+@@ -377,7 +381,8 @@
+             ('tor-config', namespace() + ['/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2',
+                 '--library-path', '/tools:/usr/lib/x86_64-linux-gnu', '/tools/tor',
+                 '--defaults-torrc', '/app/empty-torrc', '-f', '/app/empty-torrc', '--verify-config',
+-                '--DataDirectory', '/tmp/config-check', '--SocksPort', '0', '--ControlPort', '0']),
++                '--DataDirectory', '/tmp/config-check', '--SocksPort', '0', '--ControlPort', '0',
++                '--SocksTimeout', '900']),
+             ('curl-version', namespace() + ['/usr/bin/curl', '-q', '--version']),
+             ('python-import-frame', namespace() + python + ['-c',
+                 "import sys;sys.path.insert(0,'/app');import packet,receiver,transport;"
