@@ -1,0 +1,107 @@
+{
+  "archive_boundary": "All96 downloaded archive bytes independently guarded-read/SHA512 checked against lock. Installed tree not exhaustively byte-compared with archives. Actual included circuit closure and selected runtime sources separately pinned; no dependency security audit.",
+  "archive_closure_sha256": "431bbccb84f35dfd2d1296a875aec6059958f2f1005e96b0126aa527bde9930d",
+  "bundled_signer_addon": {
+    "behavior": "Selected blake-hash2.0.0 tries bundled native addon then JS fallback; install script disabled; no native source build or addon execution yet; binary not security-audited",
+    "bytes": 117680,
+    "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/blake-hash/prebuilds/linux-x64/node.napi.node",
+    "sha256": "7ad88c48b10b72df6c910a5cce06f93eb1aba70800850582cface0038abe004f"
+  },
+  "circom": {
+    "bytes": 13145432,
+    "executed": false,
+    "guarded_verified": true,
+    "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/circom",
+    "sha256": "85342c7ff332d948df7c0c50ecf201e6129349aef550ce873f3c811b79fe53a3",
+    "version": "2.2.3"
+  },
+  "limits": "No setup/PK/proving/GPU/nativeKAS/private-wallet operations. Future execution needs Root source review and fresh preflight.",
+  "node": {
+    "bytes": 122889056,
+    "execution_scope_so_far": "npm install only",
+    "guarded_verified": true,
+    "path": "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/node",
+    "sha256": "d1de76d8edf2fededf6f8b30d244e2c0529ac607923a018283b77e9c74bd932c"
+  },
+  "npm_installer": {
+    "cli_path": "/home/luke/.nvm/versions/node/v24.15.0/lib/node_modules/npm/bin/npm-cli.js",
+    "cli_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+    "existing_version": "12.0.1",
+    "flags": [
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund",
+      "--userconfig=own empty file",
+      "--globalconfig=distinct own empty file",
+      "--registry=https://registry.npmjs.org/",
+      "--cache=own tool runtime"
+    ],
+    "initial_setup_failure": "npm rejected user/global configs both /dev/null as double-loading same path; corrected to two distinct own empty files before install",
+    "package_json_sha256": "86b3bb881d80ca22e197013138be17c7c1e6e424decde7b126612f7d69abfa52",
+    "scope": "installer source closure not audited; selected package archives independently checked"
+  },
+  "package_lock": {
+    "packages": 96,
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/local-private-payment/privacy-next/signature-authority-predicate-01/package-lock.json",
+    "registry_only": true,
+    "sha256": "514b0cc802f1aa8ec54f0a665e2e6866437d4c1bc01e6f54a3f6c997ca18c0be"
+  },
+  "prospectively_selected_limits": {
+    "peak_ram_bytes": 4294967296,
+    "scratch_bytes": 2147483648,
+    "serial_cpu_seconds": 1800,
+    "tools_bytes": 201326592
+  },
+  "root_implementation_record_sha256": "8a43a526ce5c1f8907bc13c1435468145a98950a22ba414733ed951d95463691",
+  "schema": "signature-predicate-tool-preparation/v1",
+  "scratch_selection": {
+    "allocated": false,
+    "initial_available_bytes": 13374115840,
+    "path": "/dev/shm/kpi-signature-predicate-scratch-01"
+  },
+  "selected_source_files": [
+    {
+      "bytes": 286,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/package.json",
+      "sha256": "109e08957add358270c4e67b6d839e8d404186cd005a8a4ce439fca245da090a"
+    },
+    {
+      "bytes": 100,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/blake-hash/index.js",
+      "sha256": "b8f12a64623b79b9a38419b68e8c630dc85e8ee0d19ae2c6e876c8df654aa918"
+    },
+    {
+      "bytes": 76,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/blake-hash/bindings.js",
+      "sha256": "1c7983c7ac2b715ff76648724f9d5ff4db1f1fa3b0fe208ee38022cc26f57893"
+    },
+    {
+      "bytes": 56,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/blake-hash/js.js",
+      "sha256": "5124331e19c51c9f0075c4e8a315b4614a49315270520bbd9c68e73ebeb613c8"
+    },
+    {
+      "bytes": 5228,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/snarkjs/src/wtns_check.js",
+      "sha256": "e150b29d1628a47e598ab7e85a46561f501c602d9599ad60b4923b5d6af4b456"
+    },
+    {
+      "bytes": 1994,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/snarkjs/src/curves.js",
+      "sha256": "eca7e0344d5b7a9f9db81128058faa5cb2020de9bb40ed01523d1e7a083f15bb"
+    },
+    {
+      "bytes": 10482,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/circomlibjs/src/eddsa.js",
+      "sha256": "d0e3934c3a01ec185abe12d46dd123189a5b4515a79eddaeb53496c413f09b3a"
+    },
+    {
+      "bytes": 3912,
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/circomlibjs/src/babyjub.js",
+      "sha256": "68c3e5d2e3b2c5f4012b06df0a68829606bce8f5227dab64e43fbd7e675160c5"
+    }
+  ],
+  "status": "PREPARED_ONLY_NO_COMPILE_SIGN_WITNESS_CHECK",
+  "tool_bytes_including_cache": 180811508,
+  "tool_runtime": "/var/tmp/kpi-signature-predicate-tools-20261026-01"
+}

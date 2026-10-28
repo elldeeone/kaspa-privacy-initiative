@@ -1,0 +1,53 @@
+{
+  "schema": "kpi-nativeauth-prospective-resource-estimate/v1",
+  "status": "ESTIMATE_NOT_NATIVEAUTH_MEASUREMENT",
+  "actual_baselines": {
+    "source_assessment": {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/research/next-session/local-private-payment/privacy-next/direct-native-composition-01/SOURCE-ASSESSMENT-01.md",
+      "sha256": "e24e7c279e3f61f197d319562e3482275ddc2f397790ba9e5dfe75c9dc218055"
+    },
+    "current_native_spend": {
+      "constraints": 1476992,
+      "witnesses": 1461143
+    },
+    "current_native_output_actual_matrix": {
+      "constraints": 217807,
+      "witnesses": 214998
+    },
+    "output_matrix_run03": {
+      "elapsed_seconds": 7.217595392023213,
+      "last_sampled_scope_memory_peak_bytes": 313720832,
+      "scope_observations_sha256": "82d01e92c03e4fa2519e9647bca55f169c976e22d14576090853f3493024dd43",
+      "sampled_peak_is_lower_bound_not_final_process_rss": true,
+      "warning": "outer GNU time reported bwrap-only RSS2340KiB and must not be used as actual probe peak"
+    },
+    "prior_fresh_native_output_rust_build_seconds": 80.5,
+    "prior_cache_bytes_approximate": 310000000
+  },
+  "derived_counts_not_new_synthesis": {
+    "spend_to_output_constraint_ratio": 6.7811961966327985,
+    "one_spend_plus_two_reference_output_constraints": 1912606,
+    "sixteen_case_legacy_base_rows_before_new_authorization_and_repeated_evaluations": 30601696,
+    "new_owner_hash": "136byte input vs104byte legacy owner input; one additional padded SHA block; exact new rows/witnesses unknown until actual synthesis",
+    "signature_rows": "not yet compiled; wrapper/subgroup/signature rows unknown"
+  },
+  "proposal": {
+    "max_cpus": 2,
+    "memory_max_bytes": 8589934592,
+    "nice": 10,
+    "cargo_jobs": 1,
+    "scratch_filesystem": "owned /var/tmp, no tmpfs reservation",
+    "provision_scratch_bytes": 2147483648,
+    "build_wall_minutes_estimate": [
+      3,
+      10
+    ],
+    "serial_control_wall_minutes_estimate": [
+      15,
+      40
+    ],
+    "time_estimate_is_projection_not_timeout_or_promise": true,
+    "estimate_basis": "16 serial cases each synthesize roughly6.78 output-equivalents of Spend plus2 reference Outputs; Output baseline7.22s also included different controls/serialization. New SHA/signature/IPC/JSON/clones change cost, so wide range; no performance/fee claim."
+  },
+  "stop_rules": "Root publication/readback priority; no execution before independent source review and separate Root resource release. First build/runtime mismatch retained without retune or retry of used identity."
+}

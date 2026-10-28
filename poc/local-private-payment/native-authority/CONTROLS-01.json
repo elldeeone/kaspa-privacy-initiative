@@ -1,0 +1,180 @@
+{
+  "schema": "kpi-nativeauth-frozen-source-controls/v1",
+  "status": "PROPOSED_UNEXECUTED_EXPECTATIONS_NOT_RESULTS",
+  "all_matrix_cases_require_reference_output_failures": [
+    0,
+    0
+  ],
+  "unexpected_first_result": "STOP_RETAIN_NO_RETUNE",
+  "cases": [
+    {
+      "id": "P01_BASE",
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "recipe": "base packet; ownerA authorization; exact components and outer digest"
+    },
+    {
+      "id": "N01_COORDINATOR_SUBSTITUTION",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "coherent C recipient output, recomputed CM successors/effects/M; retain original ownerA R8/S"
+    },
+    {
+      "id": "P02_RECONSENTED_SUBSTITUTION",
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "recipe": "same changed packet; ownerA deliberately signs exact changed packet"
+    },
+    {
+      "id": "N02_KEY_COPY_LINK",
+      "expected": [
+        0,
+        0,
+        "positive"
+      ],
+      "recipe": "base Native ownerA; exact base packet authorization by ownerB; separate key byte copies"
+    },
+    {
+      "id": "N03_OUTER_LIMB_LINK",
+      "expected": [
+        0,
+        0,
+        "positive"
+      ],
+      "recipe": "base components unchanged; outer low digest plus1"
+    },
+    {
+      "id": "N04_SCALAR_PLUS_Q",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "S+Q canonical Fr; CPP0 recomputes full signature witness"
+    },
+    {
+      "id": "N05_SCALAR_EQ_Q",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "S=Q canonical Fr; CPP0 recomputes full signature witness"
+    },
+    {
+      "id": "N06_BYTE_256_DIRECT",
+      "expected": [
+        0,
+        "positive",
+        "positive"
+      ],
+      "recipe": "baseline raw WTNS exact mapped ownerKeyBytes[0] physical wire=256; every other auxiliary retained"
+    },
+    {
+      "id": "N07_DIGEST_2P128_DIRECT",
+      "expected": [
+        0,
+        "positive",
+        "positive"
+      ],
+      "recipe": "baseline raw WTNS exact mapped digestLimbs[0] physical wire=2^128; every other auxiliary retained"
+    },
+    {
+      "id": "N08_NATIVE_OWNER_DIRECT",
+      "expected": [
+        "positive",
+        0,
+        0
+      ],
+      "recipe": "baseline Native Note.owner[0] xor1; packet/signature/key/outer unchanged"
+    },
+    {
+      "id": "N09_NATIVE_HIGH_POSITION",
+      "expected": [
+        "positive",
+        0,
+        0
+      ],
+      "recipe": "position3+65536; original packet/NF/path/signature retained"
+    },
+    {
+      "id": "N10_PREIMAGE_DIRECT",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "baseline preimageA.x+1 modulo P as an intentional semantic point mutation; CPP0 full witness"
+    },
+    {
+      "id": "N11_R8_IDENTITY",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "R8=(0,1), preimageR8=(0,1), original nonzero-nonce S; no zero-nonce signature constructed"
+    },
+    {
+      "id": "N12_ACTION_REPLAY",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "packet body actionID byte0 xor1; complete public revalidation; original R8/S retained"
+    },
+    {
+      "id": "N13_KEY_IDENTITY",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "fully coherent new Native note/tree/packet with A=(0,1), preimageA=(0,1), original R8/S"
+    },
+    {
+      "id": "N14_KEY_TORSION",
+      "expected": [
+        0,
+        "positive",
+        0
+      ],
+      "recipe": "fully coherent new Native note/tree/packet with A=(0,P-1), preimageA=(0,P-1), original R8/S"
+    },
+    {
+      "id": "B01_ONE_ZERO",
+      "boundary": "ASSIGNMENT_REFUSAL",
+      "recipe": "tiny3variable kernel; zero constant wire"
+    },
+    {
+      "id": "B02_ONE_TWO",
+      "boundary": "ASSIGNMENT_REFUSAL",
+      "recipe": "tiny3variable kernel; constant wire2"
+    },
+    {
+      "id": "B03_SHORT",
+      "boundary": "ASSIGNMENT_REFUSAL",
+      "recipe": "tiny3variable kernel; assignment length2"
+    },
+    {
+      "id": "B04_LONG",
+      "boundary": "ASSIGNMENT_REFUSAL",
+      "recipe": "tiny3variable kernel; assignment length4"
+    },
+    {
+      "id": "B05_RAW_FIELD_P",
+      "boundary": "PARSER_REFUSAL",
+      "recipe": "baseline raw WTNS mapped keybyte wire encoded P; refuse before field-library modulo conversion; never UNSAT credit"
+    }
+  ]
+}

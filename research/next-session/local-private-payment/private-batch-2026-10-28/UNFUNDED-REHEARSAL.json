@@ -1,0 +1,65 @@
+{
+  "schema": "kpi-private-batch-unfunded-rehearsal/v1",
+  "classification": "PUBLIC_SYNTHETIC_HEAD_NO_ACCEPTED_DEPOSIT_OR_BACKING",
+  "profile_descriptor_sha256": "d07d66d7668b94df7a003ed7cd289f2805f46a96206824e8af4279b632d76546",
+  "profile_id_hex32": "ea19260a60a8d0a54b8ad9848f82317c1d84059a1881be34d318bcca42493700",
+  "domain_hex32": "a0a1b4fbf4ce8505f17b24b354ffa81fc4201dc1e130b0358e3bc849611186e0",
+  "service_policy_hex32": "ce821210834e870b6eebe3851b0b003b1b33cf343b1a17a996987f35dda514b5",
+  "chain_genesis_hex32": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+  "pool_lineage_hex32": "d68068e3eecfe9fe1b2fcc63026fe7a5268829efa37f4f64c2e7374798e94adf",
+  "pool_identity_scope": "Prospective new research pool allocated before GEN3 and aggregate setup. No prior native pool or transaction uses this identity.",
+  "placeholder_reserve_outpoint": {
+    "transaction_id_hex32": "255798360cfa4d4c6b51b7a2f2443d1668a7e5f87cd45d01c4d683bcd76b26e8",
+    "index": 0
+  },
+  "initial_note_values_sompi": [
+    2000000000,
+    2000000000,
+    2000000000
+  ],
+  "initial_cm_positions": [
+    0,
+    1,
+    2
+  ],
+  "initial_cm_count": 3,
+  "initial_nf_count": 1,
+  "initial_reserve_sompi": 6000000000,
+  "public_genesis_builder": "Wallet worker constructs three genuine AK-bound notes/CMs and the established NF sentinel tree; only public genesis/head and own-owner records are exported to their allowed consumers.",
+  "workload": {
+    "round1_payment_sompi": [
+      500000000,
+      500000000,
+      500000000
+    ],
+    "round1_recipient_offset": 1,
+    "round2_payment_sompi": [
+      200000000,
+      200000000,
+      200000000
+    ],
+    "round2_recipient_offset": 2,
+    "round2_selection": [
+      "received-preferred",
+      "change",
+      "received-preferred"
+    ],
+    "useful_payment_sompi": 2100000000,
+    "independent_exit_count": 9
+  },
+  "provisional_unfunded_round1_owner_fees_sompi": [
+    7000000,
+    7000000,
+    7000000
+  ],
+  "provisional_fees_are_native_measured": false,
+  "funded_execution_requirements": [
+    "fresh private Original wallet seeds never public test seeds",
+    "accepted authenticated actual GEN3 state/reserve/history",
+    "actual native mass/fee calibration before all owner authorizations",
+    "fresh exact-head intents/signatures/output proofs when head or fee changes",
+    "complete real proof/native rehearsal and confirmed terminal payout before readiness"
+  ],
+  "financial_trial_started": false,
+  "native_broadcasts": 0
+}

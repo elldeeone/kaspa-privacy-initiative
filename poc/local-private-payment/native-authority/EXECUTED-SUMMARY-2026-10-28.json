@@ -1,0 +1,194 @@
+{
+  "schema": "kpi-nativeauth-authority-controls-summary/v1",
+  "status": "ACTUAL_BOUNDED_MATRIX_CONTROLS_PASS",
+  "date": "2026-10-28",
+  "sourceFreezeSha256": "8c894ff8e0b7539ba8ec80517c19ba964426f8bfb570f21168c5919b808f0320",
+  "postbuildSelectionSha256": "154920d00305cb492e0695c4fd6616886854c8c00c7622094cf02aaf1ff31c36",
+  "commandsSha256": "63247d8dc02b4082f620cb7817192a7dc0b12509481ae37da5193d23c0ab9c63",
+  "frozenControlsSha256": "d1c41668b4335f5dc8fcef1432fc3c2054c260d9f2eebe5fe4bfa48e714c915b",
+  "localResult": {
+    "path": "/run/user/1000/kpi-nativeauthspend-resume-20261028-03/run-03/RESULT-01.json",
+    "bytes": 118217,
+    "sha256": "4f9b692eb5822daccfd0cc8e4e6b353bd2e9158ade570ee21ff3ba5056769ab0"
+  },
+  "counts": {
+    "matrixCases": 16,
+    "satisfied": 2,
+    "actualResidualRejections": 14,
+    "assignmentRefusals": 4,
+    "noncanonicalFieldParserRefusals": 1,
+    "totalControls": 21,
+    "allRowsChecked": 24281808
+  },
+  "rowsPerCase": {
+    "native": 1507480,
+    "signature": 10065,
+    "links": 68,
+    "joint": 1517613
+  },
+  "cases": [
+    {
+      "case": "P01_BASE",
+      "nativeFailures": 0,
+      "signatureFailures": 0,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N01_COORDINATOR_SUBSTITUTION",
+      "nativeFailures": 0,
+      "signatureFailures": 2,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "P02_RECONSENTED_SUBSTITUTION",
+      "nativeFailures": 0,
+      "signatureFailures": 0,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N02_KEY_COPY_LINK",
+      "nativeFailures": 0,
+      "signatureFailures": 0,
+      "linkFailures": 64,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N03_OUTER_LIMB_LINK",
+      "nativeFailures": 0,
+      "signatureFailures": 0,
+      "linkFailures": 2,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N04_SCALAR_PLUS_Q",
+      "nativeFailures": 0,
+      "signatureFailures": 1,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N05_SCALAR_EQ_Q",
+      "nativeFailures": 0,
+      "signatureFailures": 3,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N06_BYTE_256_DIRECT",
+      "nativeFailures": 0,
+      "signatureFailures": 1,
+      "linkFailures": 1,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N07_DIGEST_2P128_DIRECT",
+      "nativeFailures": 0,
+      "signatureFailures": 2,
+      "linkFailures": 1,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N08_NATIVE_OWNER_DIRECT",
+      "nativeFailures": 65,
+      "signatureFailures": 0,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N09_NATIVE_HIGH_POSITION",
+      "nativeFailures": 33,
+      "signatureFailures": 0,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N10_PREIMAGE_DIRECT",
+      "nativeFailures": 0,
+      "signatureFailures": 8,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N11_R8_IDENTITY",
+      "nativeFailures": 0,
+      "signatureFailures": 3,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N12_ACTION_REPLAY",
+      "nativeFailures": 0,
+      "signatureFailures": 2,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N13_KEY_IDENTITY",
+      "nativeFailures": 0,
+      "signatureFailures": 4,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "N14_KEY_TORSION",
+      "nativeFailures": 0,
+      "signatureFailures": 5,
+      "linkFailures": 0,
+      "referenceOutputFailures": [
+        0,
+        0
+      ]
+    }
+  ],
+  "privateOwnerMaterialUsed": false,
+  "signingFixtures": "Known public unfunded seeds only.",
+  "scope": "One NativeAuthSpend authorization matrix seam; no setup, proof, MPC, native acceptance, delivered payment, recovery, Exit, fee or privacy qualification."
+}

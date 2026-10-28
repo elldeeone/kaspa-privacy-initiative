@@ -1,0 +1,56 @@
+{
+  "schema": "kpi-nativeauthspend-source-spec-bounded-review/v1",
+  "review_utc": "2026-10-27T04:34:41.143755+00:00",
+  "status": "GO_SOURCE_SPEC_PREPARATION_ONLY",
+  "reviewed_spec": {
+    "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/SPEC-01.md",
+    "bytes": 14020,
+    "sha256": "477328a7c98f3a7314944b76abd5be94743715ec0ebdf6ad2e4e1ef340b1f413"
+  },
+  "independent_public_codec": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/verification/wire.py",
+    "bytes": 20259,
+    "sha256": "6727e00a143596dbd31abf06c7fd5a2ceafa07082d6e3e6de47fa389a826def8",
+    "reviewed_regions": "State/output/body/projection parsers, effects/statement reconstruction, validate_public and transfer builders."
+  },
+  "blocking_source_spec_findings": [],
+  "checked": {
+    "eight_unique_fixed_eight_byte_tags_and_D_a6_32bytes": true,
+    "new_owner136_bytes_retains_actual_D_and_note_incoming_and_binds_canonical_AK64": true,
+    "canonical_FIELD_P_coordinates_vs_distinct_SUBGROUP_Q_range": true,
+    "curve_cofactor_image_nonidentity_denominator_admissions_and_owner_pre_export_guard": true,
+    "actual_200_byte_statement_SHA_split_two128bit_limbs_then_existing_Poseidon_arity2": true,
+    "effects_prefix193_bodycore3756_finalSpend128_excluded_whole_Output520_included": true,
+    "opaque_zero_output_proof_fields_not_called_valid_proofs": true,
+    "public_inputs_reconstructed_from_full_projection_no_caller_validity_Boolean": true,
+    "component_instances67_and67_including_ONE": true,
+    "final_instances3_no_public_key_or_signature_edges": true,
+    "wire_ranges_contiguous_and_disjoint_except_shared_ONE": true,
+    "joint_witnesses132_plus_Wn_plus_Ws": true,
+    "link_rows68_equals2_native_digest_plus2_signature_digest_plus64_key_bytes": true,
+    "rawONE_shape_field_format_custom_gate_and_full_auxiliary_admission_boundaries": true,
+    "coherent_effects_substitution_and_reconsent_controls_distinct": true,
+    "no_existing_setup_VK_native_acceptance_privacy_or_fee_claim": true
+  },
+  "required_clarifications_before_execution_freeze": [
+    {
+      "topic": "Public transition validation",
+      "detail": "effects_digest/spend_statement call parse_projection; actual NF/CM successor/path checks reside in validate_public lines261-277. Explicitly retain and call validate_public for coherent fixtures and any claimed public transition validation. Digest reconstruction alone is not path validation, proof validity, accepted backing or current-head authentication."
+    },
+    {
+      "topic": "Complete source/recipe identity",
+      "detail": "As already promised, freeze full frame byte offsets and all remaining fixture values/recipes, exact signer+field/transitive dependencies, actual source, argv and normalized map/matrix identity before controls. Spec01 alone is not a runnable execution freeze."
+    },
+    {
+      "topic": "Compiler sanity option",
+      "detail": "Use the actual separated argv spelling --sanity_check followed by 0 (or supported equivalent), with the same selected optimization. The prose abbreviation --sanity_check0 is not an execution command."
+    }
+  ],
+  "review_limits": [
+    "Source contract only; implementation/public parsers/matrix normalization/adapters still require exact-source review.",
+    "Group order8Q and primeQ remain subgroup-admission soundness assumptions; no fresh point-count/primality/crypto computation.",
+    "No signature/witness generation, build, constraints, proof/setup, PK, MPC, native acceptance, privacy, independent Exit, recovery, fee or production qualification.",
+    "The unspecified fixture details are acknowledged preparation work, not silently accepted execution inputs."
+  ],
+  "no_build_run_crypto_private_Original_financial_RPC_or_blocked_benchmark": true
+}

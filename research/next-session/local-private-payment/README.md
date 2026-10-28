@@ -2,7 +2,9 @@
 
 Worktree: `continuation`; branch: `research/shielded-kas-feasibility`.
 The starting checkpoint is `8cd88a6eb4e01ddfaeeaf3c902457dc70c7032e3`.
-Research remains stopped pending an owner instruction to resume.
+The owner resumed work on October 28. Read the
+[current execution record](EXECUTION-2026-10-28.md) for the new work and its
+remaining financial, privacy and recovery gates.
 
 1. Read the [session handoff](SESSION-HANDOFF-2026-10-27.md) for the exact stop
    state, failure identities, local evidence locations and resume priorities.

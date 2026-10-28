@@ -1,0 +1,100 @@
+{
+  "baseline_identities_authenticated_not_new_audits": {
+    "vendor/native-relation/src/circuit.rs": "e13fa9bd6ba33bd01b71e824d10944b3d8561854b3c026f997b282cf57fde4b0",
+    "vendor/native-relation/src/cv.rs": "350153426d8ff86905a7956a76311726812151bbe301b319ee254336b33c2f05",
+    "vendor/native-relation/src/lib.rs": "f93c2593444acd3936595e4e0d07cc680ff8ada05ce9f9c7dd5a47a387245b9e",
+    "vendor/native-relation/src/statements.rs": "bcd3f5f947904fe6fecc4e747b93e0f85a5c611390d0331651e3a1884004e123"
+  },
+  "body_access": "All reviewed source bodies entered through unchanged helper09; no proposed module imports.",
+  "conditions": [
+    "Final run source freeze must include the exact closed driver, codec, fixture builder, commands, controls and selected signature adapter/implementation closure. Rust-only freeze01 is not a complete run lock.",
+    "Built binaries and generated matrix/mapping artifacts require their separately selected postbuild identities before controls; arbitrary caller-provided pins alone are not authority."
+  ],
+  "findings": [
+    "No material retained-predicate or matrix-link preservation defect found in the exact reviewed Rust source. This is not a complete audit.",
+    "circuit124 binds owner SHA(KPBPOW01||D||AK64||the consumed incoming32);125 binds NK32 through KEY_TAG into Note168.key_commitment; note_vars commits the entire Note168; depth16 membership binds CM to anchor;137 derives positioned HMAC from the same NK/CM/position. Removing legacy s does not leave NK free for a fixed committed note under the stated hash assumptions.",
+    "Exact SHA256/HMAC construction, nonzero CM/NF, fixed domain/role, position high-bit exclusion, NOTE_FLOOR/MAX, all256-bit subgroup-blinding bound, fixed-base CV and nonidentity checks remain.",
+    "main27-33 reconstructs the tagged200-byte statement from the actual4077-byte packet. Effects hash covers the complete193-byte prefix plus body3756; circuit SHA constrains all200 bytes and two LE128 digest limbs.",
+    "collect rejects missing/additional/non-R1CS predicates and retains the actual dimensions/assignment. join preserves every component row/term/coefficient through inverse checks; maps both67-instance components to internal variables and adds exactly68 equality rows. Exact assignment length and ONE==1 are mandatory.",
+    "Closed driver revalidates public structure/transitions and the supplied synthetic current-head context before signing/checking. It requires referenceOutputFailures=[0,0], complete checked-row count and component/region parity; first unexpected failure is retained. Current-head function explicitly cannot authenticate its source."
+  ],
+  "helper_sha256": "0f8ff562a4364c1db7729d98d7daf57f75ff5e882936e06e9907a4e936bd82fd",
+  "limits": [
+    "No compile, syntax check, API execution, import, signature/witness/proof generation, setup, PK, MPC, RPC, funds or Original/private-body access performed.",
+    "No independent signature-gadget or arithmetic audit; local signer implementation is outside this Rust review. Signing seed/scalar/nonce are not fields in the reviewed AuthSpend witness; actual confidentiality is not established.",
+    "No full state acceptance, global CV/value-conservation acceptance, current-chain authentication, legacy Native compatibility, new accepted Native profile, complete2/4 batch, independent Exit, privacy, delivery, recovery or fee qualification.",
+    "Reference output predicates remain separately labelled; opaque proof/ciphertext fixture bytes do not establish proof validity, ciphertext correctness or recipient spendability.",
+    "SPEC-02 and proposed ADR were announced after this review; they are not covered by this receipt."
+  ],
+  "preservation": "No reviewed source, repository financial implementation, frozen publication candidate or original result was edited.",
+  "reviewer": "native_batch_exception_contract",
+  "schema": "kpi-nativeauth-independent-rust-source-review/v1",
+  "sources": [
+    {
+      "bytes": 2258,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/RUST-SOURCE-REVIEW-FREEZE-01.json",
+      "sha256": "fd6424f9d0c583ad1edfd82f891b428fddacfea32c3af576f68c49f92a92cfae"
+    },
+    {
+      "bytes": 559,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/Cargo.toml",
+      "sha256": "ee28825dff05697cef8b976658db14d1249462412cbcf82ab4e0716b37c6a6cf"
+    },
+    {
+      "bytes": 2037,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/src/lib.rs",
+      "sha256": "607c57e7b91764d0ef66d559ed6c60597cea99274b952a683c2694416ac83044"
+    },
+    {
+      "bytes": 7272,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/src/circuit.rs",
+      "sha256": "d8867cb2d905c2febe9393f7e5cc3c2a69651d794a6bd73c7845ae97d2a0e68d"
+    },
+    {
+      "bytes": 1386,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/src/collect.rs",
+      "sha256": "c2b87448a56320daae330e9ca8af12feca9d1882434064c19c47ecee105c2bfc"
+    },
+    {
+      "bytes": 5505,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/src/join.rs",
+      "sha256": "6211edb3f11370f60709b1af734d45f2f12f71ba0c5e2445a0f7708505ecaf1a"
+    },
+    {
+      "bytes": 4451,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/src/interchange.rs",
+      "sha256": "374d3729b42f72a6a6b01cdfdb2c9340eee1baf8ccdb42e3089bd2d26e2e35d2"
+    },
+    {
+      "bytes": 9338,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/src/main.rs",
+      "sha256": "dc024ed2036d4260d84fb5b0ed9ec2afb328134faa2d44de98b88a59a1fc27e7"
+    },
+    {
+      "bytes": 12532,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/native-core/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "bytes": 14020,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/SPEC-01.md",
+      "sha256": "477328a7c98f3a7314944b76abd5be94743715ec0ebdf6ad2e4e1ef340b1f413"
+    },
+    {
+      "bytes": 12893,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/harness/run_gate.py",
+      "sha256": "b7666e0827809a35f2d9dae73b8a36d3eed47552e172cf8f0066028aa9c03165"
+    },
+    {
+      "bytes": 13426,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/research_wire.py",
+      "sha256": "f70c8658506b5a485d15f19108ac53f4694e9f7a12f5c622e9695c708a0511f7"
+    },
+    {
+      "bytes": 4623,
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/harness/fixture_builder.py",
+      "sha256": "2aa79688c02c0d8c09596c394683222aa844a0328c489f7f6f6db77e41854f60"
+    }
+  ],
+  "status": "BOUNDED_SOURCE_GO"
+}

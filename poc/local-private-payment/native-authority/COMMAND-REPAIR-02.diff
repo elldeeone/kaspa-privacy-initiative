@@ -1,0 +1,23 @@
+--- COMMANDS-01.json
++++ COMMANDS-02.json
+@@ -402,7 +402,7 @@
+       "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti",
+       "/src",
+       "--ro-bind",
+-      "/home/luke/.nvm/versions/node/v24.15.0/bin/node",
++      "/home/luke/.local/share/kpi-private-network-runtime/adr0054-01/node",
+       "/runtime/node",
+       "--ro-bind",
+       "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules",
+
+--- harness/run_gate.py
++++ harness/run_gate-02.py
+@@ -61,7 +61,7 @@
+     for name,rel in required.items():
+         pin=selected['artifacts'][name];need(pin['path']==str(BUILD/rel),'POSTBUILD_PATH');art[name]=admit(BUILD/rel,pin)
+     need(art['ordinaryR1cs']==art['cpp0R1cs'],'ORDINARY_CPP0_BYTE_IDENTITY')
+-    commands=json.loads(read(BASE/'COMMANDS-01.json'));control=json.loads(read(BASE/'CONTROLS-01.json'));need(commands['run_root']==str(RUN)and commands['build_root']==str(BUILD),'COMMAND_ROOTS')
++    commands=json.loads(read(BASE/'COMMANDS-02.json'));control=json.loads(read(BASE/'CONTROLS-01.json'));need(commands['run_root']==str(RUN)and commands['build_root']==str(BUILD),'COMMAND_ROOTS')
+     need(not RUN.exists(),'FRESH_RUN_ID_REQUIRED');RUN.mkdir(mode=0o700);st=RUN.stat();need(st.st_uid==os.getuid()and stat.S_IMODE(st.st_mode)==0o700,'RUN_OWNER_MODE')
+     r=Runner(commands);results=[]
+     try:

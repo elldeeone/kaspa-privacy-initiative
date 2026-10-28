@@ -1,0 +1,131 @@
+{
+  "schema": "kpi-nativeauth-signature-owner-seam-source-review/v1",
+  "reviewer": "authorization_gadget_sources",
+  "status": "GO_BOUNDED_SOURCE_PREPARATION_ONLY",
+  "blocking_findings": [],
+  "reviewed_exact_sources": [
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/signature-core/private_authorization.circom",
+      "bytes": 2758,
+      "sha256": "0d24df5ada24cd87ceeedb3d1ecc9d789627908bff2b73ce9788b50dd90d479c"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/owner-source/public_packet.mjs",
+      "bytes": 3948,
+      "sha256": "3988e54f6b914a7f7472540dd2f1d1e8b8471ce5cf802a764f3372a309ffb3f8"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/owner-source/owner_signer.mjs",
+      "bytes": 2189,
+      "sha256": "ff7828b3f2bb20e43b2e1cadba811c128b13c73548de273f911e334c0a742552"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/owner-source/verifier_aux.mjs",
+      "bytes": 2187,
+      "sha256": "aa880cf779b36b491f437cf8bfcc399f8e28a2d1add7859488ed0594fffdc1fc"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/SPEC-01.md",
+      "bytes": 14020,
+      "sha256": "477328a7c98f3a7314944b76abd5be94743715ec0ebdf6ad2e4e1ef340b1f413"
+    }
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "result": "PASS_SOURCE",
+      "subject": "Actual curve, cofactor, nonidentity and scalar admission",
+      "evidence": "private_authorization.circom17-34,44-47: PA/PR and each doubled input/output are BabyCheck constrained; three stock BabyDbl stages bind actual xout/yout to A/R8. IsZero.out=0 guards both 1+168696*(x*y)^2 and 1-168696*(x*y)^2 on the same stage inputs. Target x!=0 follows image admission. Stock enabled=1 and unchanged Num2Bits253/CompConstant(Q-1) preserve 0<=S<Q. This uses standard #E=8Q/primeQ and existing stock-verifier arithmetic assumptions; no fresh point-count or formal completeness proof."
+    },
+    {
+      "id": "R2",
+      "result": "PASS_SOURCE",
+      "subject": "Canonical coordinates and exact two-limb prehash",
+      "evidence": "private_authorization.circom9-15,37-47: each AK byte has8-bit decomposition, both high coordinate bits are zero, Bits2Num_strict enforces canonical<P encoding. Both digest limbs have128-bit constraints and feed unchanged original Poseidon(2) in lo,hi order, then stock EdDSAPoseidonVerifier.M. R8 is a field pair; raw external integer canonicality is a transport boundary. Component main has66 public interface edges, not a safe standalone proof publication."
+    },
+    {
+      "id": "R3",
+      "result": "PASS_SOURCE",
+      "subject": "Owner-local secret and degenerate result export boundary",
+      "evidence": "owner_signer.mjs6-19: A and R8 are on-curve, in-subgroup and x!=0 before return; S is a bigint in[0,Q). Seed remains local; no expanded scalar/prefix/nonce is exported or logged. Returned object is only schema,key,R8,S,statementSha256,packetSha256. The code uses unchanged stock prv2pub/signPoseidon; it does not alter deterministic nonce generation. This is source-level non-export evidence, not runtime isolation, memory-erasure or side-channel qualification."
+    },
+    {
+      "id": "R4",
+      "result": "PASS_SOURCE",
+      "subject": "Exact locked stock host representation",
+      "evidence": "EXISTING-JS-LOCK-01 selects circomlibjs0.1.7. Its admitted eddsa.js d0e393 uses blake-hash, not the newer noble capture. ESM package exports buildEddsa and buildPoseidon. Poseidon accepts BigInt-array inputs by F.e; owner converts result via poseidon.F.toObject and eddsa.F.e before signPoseidon, matching the locked signPoseidon field-element message API. Actual0.1.7 host/R1CS numeric parity still requires the held execution gate."
+    },
+    {
+      "id": "R5",
+      "result": "PASS_SOURCE",
+      "subject": "Verifier witness has no signing authority parameter",
+      "evidence": "verifier_aux.mjs7-17: strict authorization key names, exact lowercase AK64 hex and coordinate<P, canonical decimal R8/S<FIELD_P. It reconstructs packet limbs and returns only those limbs, key bytes, R8/S, cofactor preimages. Default preimages are INV8 times known points, with no discrete-log or signing-key input. Explicit arbitrary preimages remain available for circuit negative controls. Old metadata never overrides the rebuilt message. S<Q is intentionally deferred to R1CS so canonical-field S+Q can test its residual."
+    },
+    {
+      "id": "R6",
+      "result": "PASS_SOURCE_WITH_BOUNDARY",
+      "subject": "Public effects reconstruction and acceptance separation",
+      "evidence": "public_packet.mjs15-36 explicitly performs structural reconstruction only. It parses fixed193+3884 packet layout and derives effects from prefix plus body0:3756, then the exact200-byte role/domain/root/NF/CV/effects statement. Whole output tuples include their opaque output-proof bytes. It does not evaluate indexed NF/CM successor paths, verify proofs, authenticate currentness or authorize a transaction. Preserve separate public transition validation before any such claim."
+    }
+  ],
+  "freeze_clarifications": [
+    {
+      "id": "C1",
+      "required_before_execution_freeze": true,
+      "detail": "Align Spec02 handoff wording with selected actual API: ownerKeyHex is Ax32LE||Ay32LE lowercase hex, while R8 coordinates and S are canonical unsigned decimal strings. Spec01 lines60-61 describes32LE R8/S transport. No mathematical/API change is required, but do not claim an unimplemented32LE signature serializer."
+    },
+    {
+      "id": "C2",
+      "required_before_execution_freeze": true,
+      "detail": "Retain parser/auxiliary-generation refusals separately from R1CS residual failures. Default INV8 computation on malformed/off-curve hostile points may stop before a complete witness; explicitPreimages does not create a genuine assigned UNSAT result by itself."
+    },
+    {
+      "id": "C3",
+      "required_before_execution_freeze": true,
+      "detail": "Authenticate the exact resolved host package closure and actual runtime mount/import boundary; the preparation directory node_modules was empty at review. Never mount/load owner_signer in a verifier job. Full package0.1.7 import exposes stock signing APIs but no seed is a verifier parameter; this review does not certify the future runtime boundary."
+    }
+  ],
+  "supporting_pins": [
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/EXISTING-JS-LOCK-01.json",
+      "bytes": 52708,
+      "sha256": "514b0cc802f1aa8ec54f0a665e2e6866437d4c1bc01e6f54a3f6c997ca18c0be"
+    },
+    {
+      "path": "/var/tmp/kpi-nativeauthspend-preparation-vyqdmzti/CIRCOM-TRANSITIVE-SOURCE-01.json",
+      "bytes": 2358,
+      "sha256": "515322bd62db6f6671c7971b4dece1b621ed25d55ad939f6f7b8851057ff9026"
+    },
+    {
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/circomlibjs/src/eddsa.js",
+      "bytes": 10482,
+      "sha256": "d0e3934c3a01ec185abe12d46dd123189a5b4515a79eddaeb53496c413f09b3a"
+    },
+    {
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/circomlibjs/src/babyjub.js",
+      "bytes": 3912,
+      "sha256": "68c3e5d2e3b2c5f4012b06df0a68829606bce8f5227dab64e43fbd7e675160c5"
+    },
+    {
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/circomlibjs/src/poseidon_wasm.js",
+      "bytes": 15954,
+      "sha256": "ef05f1c1ab5a533049d60fa993e3c985a3f9b8e1f74662d1c8ffa20b96334338"
+    },
+    {
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/circomlibjs/package.json",
+      "bytes": 1071,
+      "sha256": "9c7e866ba70ada882020b7fd1d644a761149c50f59817f981d7bc347af1d30d7"
+    },
+    {
+      "path": "/var/tmp/kpi-signature-predicate-tools-20261026-01/node_modules/circomlibjs/main.js",
+      "bytes": 1048,
+      "sha256": "3b54cc2a6094c772670e24185a97ee9c8f2f8648fe14bcacf2228d82e9a729bd"
+    }
+  ],
+  "guard": {
+    "path": "/var/tmp/kpi-root-guard-helper-09.py",
+    "sha256": "0f8ff562a4364c1db7729d98d7daf57f75ff5e882936e06e9907a4e936bd82fd",
+    "all_local_input_body_reads_and_hashes": "unchanged helper09 admission"
+  },
+  "excluded": "No selected source imported or executed; no compile/signature/witness/constraint/proof/setup/MPC/PK/private/Original/RPC/financial/network or blocked Exit benchmark operation. No descendants. No repo/publication edits. Native component owner binding, matrix links, execution isolation, batch/privacy/fee/Exit/current profile acceptance are not qualified by this seam review."
+}

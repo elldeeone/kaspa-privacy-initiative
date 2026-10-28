@@ -2,6 +2,27 @@
 
 ## Resumed private construction work, 2026-10-28
 
+[RFC-0030](rfc/0030-private-batch-construction.md) and
+[ADR-0074](adr/0074-private-batch-construction.md) define the new restricted-intent
+three-owner/six-output research profile. Each wallet retains signing authority;
+the private aggregate must bind complete approved effects, and a mandatory
+proved R0 public wrapper must validate state transitions and real Output proofs.
+Service-affine disclosure history is an additional privacy/liveness assumption,
+with independent exits preserved and unrestricted retry privacy unqualified.
+[ADR-0076](adr/0076-batched-private-assignment-validation.md) selects an explicit
+research validation mode for the large complete authenticated assignment. It
+retains every residual and mandatory MAC check, uses a fresh checked field coin,
+opens one validity bit and records ideal batching error separately from real
+cryptographic assumptions. It is not an automatic fallback after a failure.
+
+[ADR-0077](adr/0077-durable-private-attempt-history.md) selects one durable
+unresolved attempt per pool/service epoch before owner intake. Released NFs
+remain permanent public tombstones and later candidates are checked privately
+against them. Effects, egress and the later full native CASE have distinct
+durable barriers. Only fresh independently acquired/replayed acceptance of that
+exact CASE can resolve the attempt. Implementation and full integration remain
+unqualified; no offline success flag supplies settlement authority.
+
 [ADR-0075](adr/0075-authenticated-groth16-functional-experiment.md) selects one
 isolated authenticated Groth16 functional experiment following the preserved
 MASCOT integration plan. It is a dependency of private payment construction;

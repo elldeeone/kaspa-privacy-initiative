@@ -4,6 +4,16 @@ The initiative should treat these as questions to answer, not conclusions to def
 
 ## Resumed authenticated construction, 2026-10-28
 
+The new [restricted-intent profile](docs/rfc/0030-private-batch-construction.md)
+must connect owner-local auxiliary generation to genuine private permutation,
+NF/CM state construction and full proof execution. Can the
+[batched private validation mode](docs/adr/0076-batched-private-assignment-validation.md)
+retain complete residual coverage and one-bit-only invalidity disclosure at
+the actual workload? Can the [durable attempt policy](docs/adr/0077-durable-private-attempt-history.md)
+bind actual private NFs, same-assignment validation and every disclosure barrier
+across crashes and session changes? Can fresh acquired/replayed acceptance of
+the exact whole CASE safely permit round two without losing reorg tombstones?
+
 Can the complete authenticated external-input, witness-map, FFT, group and
 Groth16 path produce one independently verified proof under
 [ADR-0075](docs/adr/0075-authenticated-groth16-functional-experiment.md)? Which

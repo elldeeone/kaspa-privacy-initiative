@@ -1,0 +1,52 @@
+{
+  "schema": "kpi-private-batch-research-selection/v1",
+  "status": "UNFUNDED_COMPONENT_IDENTITY_NO_FINANCIAL_READINESS",
+  "profile_id_hex32": "ea19260a60a8d0a54b8ad9848f82317c1d84059a1881be34d318bcca42493700",
+  "profile_descriptor": {
+    "schema": "kpi-private-batch-profile-descriptor/v1",
+    "network": "kaspa-testnet-10",
+    "chain_genesis_hex32": "f896a3034873be1739fc4359236899fd3d65d2bc94f9780df0d0da3eb1cc4370",
+    "chain_source": "https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/config/genesis.rs",
+    "domain_hex32": "a0a1b4fbf4ce8505f17b24b354ffa81fc4201dc1e130b0358e3bc849611186e0",
+    "service_policy_hex32": "ce821210834e870b6eebe3851b0b003b1b33cf343b1a17a996987f35dda514b5",
+    "spends": 3,
+    "outputs": 6,
+    "intent_bytes": 1460,
+    "effect_core_bytes": 10364,
+    "output_statement_tag": "KPXAOU01",
+    "exit_statement_tag": "KPBPEX01",
+    "intent_tag": "KPBINT01",
+    "owner_binding_tag": "KPBPOW01",
+    "wallet_kdf_tag": "KPBKDF01",
+    "note_bytes": 168,
+    "receipt_bytes": 216,
+    "anchor_policy": "EXACTHEAD",
+    "min_note_sompi": 60000000,
+    "max_value_sompi": 2870000000000000000,
+    "proof_roles": [
+      "aggregate",
+      "output",
+      "exit"
+    ],
+    "proof_roles_in_profile_id": false,
+    "component_manifest_binds_actual_role_keys": true,
+    "component_manifest_precedes_guest_image": true
+  },
+  "service_policy_descriptor": {
+    "schema": "kpi-private-progress-policy/v1",
+    "epoch_hex32": "1719a11d82194639da551cd7302ad3ea94e42a0e424962ac40719f5634d38b94",
+    "cohort": "three-owners-two-honest-one-colluder",
+    "servers": "three-at-most-one-corrupt",
+    "anchor": "EXACTHEAD",
+    "after_preparation": "refuse-overlapping-changed-cohort-or-effects",
+    "exit": "independent-unconditional-under-cryptographic-rule",
+    "history": "persistent-authenticated-service-state-and-trusted-latest-checkpoint-required",
+    "history_loss_or_cross_service_bypass": "privacy-failure-private-progress-refusal"
+  },
+  "identity_encoding": "SHA256 of UTF-8 canonical sorted JSON with compact separators, without trailing newline; service policy first, profile descriptor second",
+  "component_parameters_generated": false,
+  "native_profile_selected": false,
+  "financial_trial_started": false,
+  "pool_lineage_rule": "Allocate fresh public pool identity before GEN3, authenticate its actual genesis/deposit lineage; do not hash a transaction that embeds its own hash.",
+  "service_implementation_qualified": false
+}

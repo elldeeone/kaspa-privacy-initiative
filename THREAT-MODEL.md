@@ -2,6 +2,28 @@
 
 ## Authenticated proving experiment, 2026-10-28
 
+[ADR-0074](docs/adr/0074-private-batch-construction.md) studies restricted owner
+consent and hidden correspondence under a new profile. Secret witness routing,
+private NF/CM witness construction and authenticated history across sessions
+are required before release; the clear-token durability model supplies none
+of that private execution. History loss, rollback or cross-service bypass
+remains a privacy failure, while direct Exit must remain independent.
+[ADR-0076](docs/adr/0076-batched-private-assignment-validation.md) permits only a
+fresh post-assignment checked field challenge with immutable residual coverage
+and one-bit disclosure. Its polynomial root bound assumes ideal independent
+field coins; PRNG, commitment, active-MPC and retry assumptions are additional.
+The old exact toy validation and normal final SNARK/R0/native checks remain.
+
+[ADR-0077](docs/adr/0077-durable-private-attempt-history.md) conservatively blocks
+all new private attempts while one is unresolved, including after crashes,
+independent Exits and changed heads. Three durable authenticated acknowledgements
+are required at each barrier. Permanent released-NF tombstones survive rejection
+and reorg; candidate NF comparison must use the actual same-assignment 256-bit
+values. Exact accepted whole-CASE settlement permits later disjoint work but
+never erases tombstones. Loss or rollback of every trusted history anchor remains
+a privacy failure. This stronger refusal policy can permanently lose private
+liveness and adds no withdrawal authority.
+
 [ADR-0075](docs/adr/0075-authenticated-groth16-functional-experiment.md) permits
 one complete unfunded synthetic MASCOT/Groth16 experiment. Its fixed client
 slots, authenticated transport and public input are functional boundaries,
