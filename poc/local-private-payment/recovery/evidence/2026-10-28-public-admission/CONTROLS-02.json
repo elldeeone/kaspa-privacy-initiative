@@ -1,0 +1,33 @@
+{
+  "schema": "kpi-parallel-public-admission-controls/v1",
+  "status": "PASS",
+  "source_sha256": "a27c1a0760429219c3f809df5b1214ff9d194cb85e11e5d029d5d420a0927385",
+  "controls": [
+    {
+      "control": "sixteen-real-public-admissions-match-serial-order-and-bytes",
+      "status": "PASS",
+      "files": 16,
+      "serial_seconds": 49.22527186002117,
+      "parallel_seconds": 17.412956707994454
+    },
+    {
+      "control": "wrong-expected-sha-refuses",
+      "status": "PASS"
+    },
+    {
+      "control": "source-mutation-after-child-read-refuses",
+      "status": "PASS"
+    },
+    {
+      "control": "exact-64MiB-serial-boundary-with-real-bytes",
+      "status": "PASS"
+    },
+    {
+      "control": "guard09-protected-origin-refuses-known-public-marker",
+      "status": "PASS",
+      "actual_originals_or_private_values_used": false
+    }
+  ],
+  "actual_originals_opened_read_or_hashed": false,
+  "private_wallet_or_truth_used": false
+}

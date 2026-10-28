@@ -1,0 +1,26 @@
+--- /home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/method03-role-source-controls-20261028-01/test-before-terminal1796-negative.py
++++ /home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_batch_trial/test_method03_roles.py
+@@ -358,13 +358,21 @@
+         self.assertTrue(all(set(row) == {'ordinal', 'arrival_id', 'projection_hex', 'proof_hex128', 'native'}
+                             for row in parsed['records']))
+         packet.decode.assert_not_called(); packet.encode.assert_not_called()
+-        for mutation in ('ordinal', 'projection_hash', 'proof_case', 'invented_frame'):
++        for mutation in ('ordinal', 'projection_hash', 'proof_case', 'invented_frame', 'terminal1796'):
+             with self.subTest(mutation=mutation):
+                 bad = copy.deepcopy(index)
+                 if mutation == 'ordinal': bad['records'][1]['arrival_sequence'] = 1
+                 elif mutation == 'projection_hash': bad['records'][0]['exit_id'] = 'dd' * 32
+                 elif mutation == 'proof_case': bad['records'][0]['proof_hex128'] = bad['records'][0]['proof_hex128'].upper()
+-                else: bad['records'][0]['frame_hex4096'] = '00' * 4096
++                elif mutation == 'invented_frame': bad['records'][0]['frame_hex4096'] = '00' * 4096
++                else:
++                    # Coherent public fake terminal-width projection: keep the
++                    # prefix and rehash its actual1796 bytes, so width is the
++                    # refusal reason rather than a stale projection digest.
++                    terminal = b'KPBXFX01' + bytes(1788)
++                    self.assertEqual(len(terminal), 1796)
++                    bad['records'][0]['projection_hex'] = terminal.hex()
++                    bad['records'][0]['exit_id'] = hashlib.sha256(terminal).hexdigest()
+                 with self.assertRaises(ValueError): self.r.parse_receiver_index(f.config, runtime, bad)
+ 
+     def test_complete_aggregate_authenticates_private_scores_without_exporting_masks(self):

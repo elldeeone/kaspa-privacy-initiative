@@ -1,0 +1,116 @@
+{
+  "classification": "PUBLIC_SYNTHETIC_FIXTURE_CONTROLS_ONLY",
+  "controls": [
+    {
+      "detail": "Ambiguous fixture retains both full models, candidate counts2/2/1; record ordering cannot impose FIFO.",
+      "id": "all_bijections_order_invariance",
+      "status": "PASS"
+    },
+    {
+      "detail": "All9individualedges admit offsets but only1wholemodel has a single shared offset; exact5..10range retained.",
+      "id": "shared_clock_offset",
+      "status": "PASS"
+    },
+    {
+      "detail": "Large integer timestamps stay exact; bool/float timestamps, invalid bounds/ranges refuse.",
+      "id": "integer_ns_and_invalid_inputs",
+      "status": "PASS"
+    },
+    {
+      "detail": "Pre-Popen started_ns and delayed typed202 observer time are used; outerlauncher PID is never relabelled innerPID.",
+      "id": "actual_bound_fields",
+      "status": "PASS"
+    },
+    {
+      "detail": "Post-Popen and receiver postresponse values cannot replace safe causal bounds.",
+      "id": "post_observation_not_bound",
+      "status": "PASS"
+    },
+    {
+      "detail": "No202/failedtransport has nofiniteupperbound; missingprelaunch staysunbounded; latearrival remainspossible.",
+      "id": "missing_failure_bounds",
+      "status": "PASS"
+    },
+    {
+      "detail": "Duplicate launches, missing/shortpipe, extra/acceptance status and reversedprelaunch timestamps refuse.",
+      "id": "malformed_events_refuse",
+      "status": "PASS"
+    },
+    {
+      "detail": "Changing publictruth changes scoring only; callerclocktrue refuses; allresultsUNQUALIFIED.",
+      "id": "truth_after_models_and_no_clock_promotion",
+      "status": "PASS"
+    },
+    {
+      "detail": "Typed publicmetadata analysis succeeds with builtins.open and os.open forbidden.",
+      "id": "metadata_io_free",
+      "status": "PASS"
+    },
+    {
+      "detail": "Wrong trial/event/receiver/launcher/fixture bindings or qualificationclaims refuse in eitherexport.",
+      "id": "exact_source_run_bindings",
+      "status": "PASS"
+    },
+    {
+      "detail": "Rawprojection field, badreceiverorder/framewidth, duplicatearrival and foreigntruth refuse.",
+      "id": "clock_record_truth_shape",
+      "status": "PASS"
+    },
+    {
+      "detail": "Freshpublicoutput is400+hashbound; existingdestination and symlink refuse withoutoverwrite.",
+      "id": "append_only_public_output",
+      "status": "PASS"
+    }
+  ],
+  "evidence_boundary": {
+    "Original_or_private_contact_truth_financial_key_TLS_Tor_log_or_pcap_body_read_or_hashed": false,
+    "actual_Tor13_metadata_read_by_controls": false,
+    "actual_Tor_or_runtime_launched": false,
+    "actual_private_measurement": false,
+    "packet_or_proof_body_read": false,
+    "private_capture_executed": false,
+    "private_role_or_generator_executed": false,
+    "source_qualified_guard_reads": true,
+    "synthetic_events_clock_exports_and_truth_only": true
+  },
+  "limits": [
+    "Exact rawbyte admission of actualEVENTS/exports remains the trusted callers responsibility.",
+    "These controls establish no actualclockdomain/nsID/offset/calibration provenance.",
+    "Diagnostic conditionalzero/sharedconstantoffset models remain UNQUALIFIED; unsafeFIFO is sensitivityonly.",
+    "No METHOD03 sourcefreeze/privateexecution, financial/chain acceptance or privacyqualification follows from these tests."
+  ],
+  "schema": "kpb-public-tor13-timing-diagnostic-fixture-controls/v1",
+  "source_review": {
+    "bounded_go": true,
+    "empty_model_assertion_passed": true,
+    "exact_prior_reconstruction_verified": true,
+    "only_source_change": "Empty compatible model rank_interval is None instead of [1,0].",
+    "prior_12_controls_passed_seconds": 16.531,
+    "prior_source_sha256": "da18704bf06e049fc4cc486b6d44d80dcf945ad2ffc507d287f05415e812ddf9"
+  },
+  "sources": {
+    "diagnostic": {
+      "bytes": 14573,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01/timing_diagnostic.py",
+      "sha256": "077e2979541ae839582d0d1c5d9d9d993b4b010797f60b36c25f690a5feef3da"
+    },
+    "external_initial_bootstrap": {
+      "bytes": 6077,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_batch_trial/payout_linkage_guard.py",
+      "sha256": "ce86998d7ddfe404cc1c194cda064d369ca1bd78c8df674e43b2381da1d3a4b1"
+    },
+    "tests": {
+      "bytes": 18165,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01/test_timing_diagnostic.py",
+      "sha256": "3b357dc9e26bb65b95d68c32940c001b31e8d069b63f65d44245cc9630cbaffc"
+    }
+  },
+  "status": "PASS",
+  "verification": {
+    "command": "python3 -B -m unittest -v test_timing_diagnostic",
+    "cwd": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01",
+    "elapsed_unittest_seconds": 16.403,
+    "failed": 0,
+    "passed": 12
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "actual_Original_workers_or_namespaces_executed": false,
+  "actual_audit_executed": false,
+  "classification": "PUBLIC_SYNTHETIC_CHECKPOINT_CONTROLS_NO_ACTUAL_AUDIT",
+  "command": "python3 -B -m unittest -v test_publication_batch_controller_checkpointed",
+  "controls": [
+    "strict exact completed-prefix and explicit-record reconstruction",
+    "skip completedprefix; interrupted tail reruns all9 with fresh stage/preparation",
+    "durable fullrecord failure precedes any modeled owner intake",
+    "completedbatch recovers after final prefix checkpoint write fails",
+    "metadata ENOSPC retains partial files, waits, and atomically publishes without replacement",
+    "optional prepare/resource telemetry exceptions do not change acceptance",
+    "fresh unchanged helper09 per newly created historical envelope/allowlist/result; expected result SHA preserved",
+    "metadata directory ENOSPC sync retries without a timeout or bypass",
+    "exact five current-stage descriptor/release/scope files sync before full RECORD; failure prevents modeled intake",
+    "retained runtime allowlist/result files and parent directories sync before prefix; failure prevents publication",
+    "fresh execution uses actual pinned audit_one checked returns, not historical re-read or PASS markers"
+  ],
+  "dependencies": [
+    {
+      "bytes": 1336,
+      "path": "/var/tmp/kpi-root-guard-helper-09.py",
+      "sha256": "0f8ff562a4364c1db7729d98d7daf57f75ff5e882936e06e9907a4e936bd82fd",
+      "unchanged": true
+    },
+    {
+      "bytes": 45035,
+      "path": "/var/tmp/kpi-terminal-audit-two-checker-fix-01/publication_batch_audit_path_fix.py",
+      "sha256": "53a8cb735d8063425cdc3e02046e4dcac581806b44cf92c792907619c93abeec",
+      "unchanged": true
+    },
+    {
+      "bytes": 29718,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/recovery/publication_batch_controller.py",
+      "sha256": "0d972cbb114c3c922183d76a5fcf16d9b2909b3e05336dbcb0476f9f238078b7",
+      "unchanged": true
+    },
+    {
+      "bytes": 18829,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/recovery/final_publication_launch_prepared_parallel.py",
+      "sha256": "59bf821031feaa7339f46e478cc851d47b316081750b4ec9d86cff597694b95f",
+      "unchanged": true
+    },
+    {
+      "bytes": 24640,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/recovery/test_publication_batch_audit.py",
+      "scope": "existing public synthetic fixture only",
+      "sha256": "41e467dc3dd500c7eba73e98bcda30d0ebf88ba7a8da79916387bf247e05df83"
+    }
+  ],
+  "exact_review_diff": {
+    "bytes": 14408,
+    "path": "poc/local-private-payment/recovery/evidence/2026-10-28-public-checkpoint/REVIEW-FIXES.diff",
+    "sha256": "e43b1f9a7e7ea70d9272ae763da3dac09f3db2d169cfe8ded8b10957eca3dd75"
+  },
+  "explicit_record_pair_source_prefix_plan_SHA_tamper_cases": 13,
+  "guard09_core_controller_prepared_and_scanners_unchanged": true,
+  "independent_review": "Recovery publication owner reviewed initial13c plus exact review-fix diff and gave source GO. Actual audit is separate.",
+  "limitations": [
+    "Whole completed batches only; interrupted batch reruns all9 with fresh runtime/job identity.",
+    "Public source/candidate staging and unchanged worker-output ENOSPC may still end a stage; complete durable records and prefix checkpoints support a fresh stage.",
+    "Metadata fsync/open performs no public or private file-body read; unchanged guard09 still inventories private inode metadata.",
+    "Trusted host with no concurrent mutation; these records are local evidence, not cryptographic attestations.",
+    "No private preparation timer is reconstructed and no source test supplies financial, recovery-publication or privacy completion."
+  ],
+  "network_upload_funding_broadcast_or_private_workload_executed": false,
+  "old04_incomplete_receipts_reused": false,
+  "private_bodies_read_or_hashed": false,
+  "retained_negatives": [
+    "source01 old public fixture missing fixed archive.path",
+    "source02 public output-directory fsync guard seam",
+    "source04 fixture lacked a real materialized descriptor file; fixture corrected, production check retained"
+  ],
+  "reviewed_preimage": {
+    "controller_sha256": "13c75abd7c331a3df62e0eb4b0c913b1b2e289cbeddad8ce2608b5e21a547cbc",
+    "retained_path": ".local/recovery-checkpoint-source-controls-20261028-01/source03-reviewed",
+    "test_sha256": "287bded2b41118674fb2cabab6aedddd268806c4bee635ef371d24df934bb7c5"
+  },
+  "schema": "kpi-publication-checkpoint-source-controls/v2",
+  "source_files": [
+    {
+      "bytes": 26295,
+      "lines": 449,
+      "path": "poc/local-private-payment/recovery/publication_batch_controller_checkpointed.py",
+      "sha256": "aa0027785ff5554d8b3cd3ea07d477df2ad1910f419dd88b47f5c78d743fe9d1",
+      "syntax_valid": true
+    },
+    {
+      "bytes": 21688,
+      "lines": 379,
+      "path": "poc/local-private-payment/recovery/test_publication_batch_controller_checkpointed.py",
+      "sha256": "bdd90ef3641c3aca3f9ca1346ed6c5064018a8929c0e0ae7f06fcde96f076b35",
+      "syntax_valid": true
+    }
+  ],
+  "tests_passed": 12,
+  "unittest_seconds": 15.076
+}

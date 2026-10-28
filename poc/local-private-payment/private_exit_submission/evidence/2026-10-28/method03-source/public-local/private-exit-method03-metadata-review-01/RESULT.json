@@ -1,0 +1,41 @@
+{
+  "AST_only_syntax_check": "PASS",
+  "checks": [
+    "clock observations occur immediately after read completion and before JSON or queue consumption",
+    "exact role/status schemas reject extra content identifiers, malformed fields, duplicates and cross-role records with fixed errors",
+    "reader and snapshot PIDs are obtained locally; source applies no clock normalization or caller qualification flags",
+    "raw current/child time namespace identities and offsets are checked for stability and preserved",
+    "missing malformed or changing kernel evidence refuses; current-child mismatch remains unqualified evidence",
+    "no role launch, schedule, queue, fallback, crypto, proof, candidate or Original API"
+  ],
+  "new_module_functions_executed_by_reviewer": false,
+  "pending_clock_or_status_API_delta_not_covered": true,
+  "private_bodies_or_keys_read_or_hashed": false,
+  "private_capture_or_pipeline_execution": false,
+  "public_control_groups_reported_pass": 6,
+  "public_control_results_are_not_actual_METHOD03_role_capture": true,
+  "required_future_integration": [
+    "selected launcher must prove owner status reader binds stderr2 and never reads frame stdout1",
+    "preserve actual role PID/PPID/namespaces, FD/pipe mappings, outgoing order and all other launch/readiness/exit metadata",
+    "actual role snapshots must run within that role and use a separately frozen exact metadata channel",
+    "extractor must fail closed on missing clock join evidence or ambiguous namespaces unless separate calibration was frozen"
+  ],
+  "retained_public_controls_sha256": "3fb20ecd0b61f776c24f06cddc2b46321f15af556735d4c94d3c909ec3562b04",
+  "schema": "kpb-method03-controller-metadata-independent-source-review/v1",
+  "source_handoff_sha256": "c6607c6137ef876dac3e54046ab7ee854de693348e6373cc8b3a2f94cd50dc70",
+  "source_members": [
+    {
+      "name": "controller_metadata.py",
+      "sha256": "b187213b7d4cc9fb617d7772cce8b3b21b3b072dbc0144dae12bc04e5b0a3ca1"
+    },
+    {
+      "name": "public_controls.py",
+      "sha256": "02d379626df44041d1fd05033384092b9134bd3c15f0ebb5d708f92571f3ff58"
+    },
+    {
+      "name": "README.md",
+      "sha256": "62f067c29bf32683de6b00b74047ef4d16b0ad5a1d18c2d1ffbae14106fde7c7"
+    }
+  ],
+  "status": "SCOPED_SOURCE_GO"
+}

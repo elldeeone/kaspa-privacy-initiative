@@ -1,0 +1,28 @@
+{
+  "schema": "public-sealed-adoption-race-regression/v1",
+  "before_fix_reproduced": true,
+  "after_fix_refused": true,
+  "MPC_or_private_input_executed": false,
+  "records": [
+    {
+      "version": "03",
+      "binary_sha256": "e037c8b5cba674ff8d57cc26cbfc9e454a5f8549e8840d9f48c1c5aa50acf827",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "container_bytes_before": 70,
+      "sealed_bytes_after": 75,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 50 70 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "passed": true
+    },
+    {
+      "version": "04",
+      "binary_sha256": "32c8884660492618f1b35173204c23c684c7ea09f1c107e23db317ee909cec5a",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "container_bytes_before": 70,
+      "sealed_bytes_after": 75,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-changed-before-sealed-adoption\n",
+      "passed": true
+    }
+  ]
+}

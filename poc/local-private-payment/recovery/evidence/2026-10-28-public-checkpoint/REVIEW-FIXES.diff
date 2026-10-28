@@ -1,0 +1,258 @@
+--- source03/publication_batch_controller_checkpointed.py
++++ source04/publication_batch_controller_checkpointed.py
+@@ -18,6 +18,7 @@
+ import re
+ import runpy
+ import shutil
++import stat
+ import sys
+ import time
+ import types
+@@ -53,6 +54,25 @@
+             except Exception:
+                 pass
+ 
++    def fresh_guard(self):
++        return runpy.run_path(GUARD)
++
++    def new_public_read(self, path, expected=None):
++        # Match prepared59bf: a newly created public inode may have previously
++        # belonged to a removed private leaf. Never clear or relax a guard.
++        return self.fresh_guard()['read'](path, expected)
++
++    def sync_fd(self, fd, name):
++        while True:
++            try:
++                os.fsync(fd)
++                return
++            except OSError as error:
++                if error.errno not in (errno.ENOSPC, errno.EDQUOT):
++                    raise
++                self.phase('STORAGE_WAIT', name)
++                time.sleep(5)
++
+     def identities(self):
+         return {'checkpoint_controller_sha256': self.source_sha,
+                 'base_controller_sha256': BASE_SHA, 'core_sha256': CORE_SHA,
+@@ -75,10 +95,54 @@
+         while path != OUTPUT_ROOT.parent:
+             fd = os.open(path, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+             try:
+-                os.fsync(fd)
++                self.sync_fd(fd, path.name)
+             finally:
+                 os.close(fd)
+             path = path.parent
++
++    def sync_public_leaves(self, paths):
++        """Finite already-authenticated public leaves; metadata and fsync only."""
++        guard = self.fresh_guard()
++        guard['refresh']()  # Unchanged guard09's current private-inode inventory.
++        for path in dict.fromkeys(Path(p) for p in paths):
++            path = self.public_path(path)
++            selected, before = guard['m'].GUARD.metadata(path)
++            self.a.need(selected == path and stat.S_ISREG(before.st_mode)
++                        and before.st_nlink == 1 and before.st_uid == os.getuid(),
++                        'checkpoint-owned-single-public-leaf')
++            fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
++            try:
++                def identity(info):
++                    return (info.st_dev, info.st_ino, info.st_mode, info.st_nlink,
++                            info.st_size, info.st_mtime_ns, info.st_ctime_ns)
++                self.a.need(identity(os.fstat(fd)) == identity(before), 'checkpoint-stable-public-fsync-leaf')
++                self.sync_fd(fd, path.name)
++                self.a.need(identity(os.fstat(fd)) == identity(before), 'checkpoint-unchanged-public-fsync-leaf')
++            finally:
++                os.close(fd)
++            self.sync_directories(path.parent)
++
++    def sync_record_references(self, releases, output, descriptor_row=None):
++        paths = []
++        if descriptor_row is not None and Path(descriptor_row['path']).is_relative_to(output):
++            paths.append(descriptor_row['path'])
++        for release in releases.values():
++            paths.append(release['row']['path'])
++            paths.extend(row['source'] for row in release['release']['sources']
++                         if row['mount'] == self.c.SCOPE_MOUNT)
++        # Canonical BASE descriptors/context originals predate this stage.
++        self.sync_public_leaves(p for p in paths if Path(p).is_relative_to(output))
++
++    def runtime_leaves(self, wrapped, value):
++        bid = wrapped['batch_record']['descriptor']['batch_id']; label = wrapped['stage_label']
++        runtime = OUTPUT_ROOT / ('prepared-' + label + '-' + bid.lower())
++        paths = []
++        for original in value['originals']:
++            oid = original['original_id']
++            job = runtime / ('audit-' + label + '-' + bid.lower() + '-' + oid.lower())
++            for kind in ('literal', 'derived'):
++                paths += [job / (kind + '-ALLOWLIST.json'), job / (kind + '-out') / 'RESULTS.json']
++        return paths
+ 
+     def save(self, path, value):
+         """Publish complete public metadata, retaining partial writes on ENOSPC.
+@@ -165,7 +229,7 @@
+         for original in value['originals']:
+             oid, cohort = original['original_id'], original['cohort']
+             path = output / 'local-invocations' / bid / (oid + '.json')
+-            envelope = a.parse_metadata(self.read(self.public_path(path)))
++            envelope = a.parse_metadata(self.new_public_read(self.public_path(path)))
+             release = record['releases'][cohort]
+             a.invocation_checked(envelope, original, record['descriptor'], record['descriptor_row'],
+                 release['release'], release['row'], contexts[cohort], value['index']['sha256'],
+@@ -177,13 +241,14 @@
+                           else 'kpxa-derived-export-candidates/v1')
+                 allowlist = a.encoded({'schema': schema,
+                                       'files': a.candidate_manifest(record['descriptor']['files'])})
+-                a.need(self.read(self.public_path(job / (kind + '-ALLOWLIST.json'))) == allowlist,
++                a.need(self.new_public_read(self.public_path(job / (kind + '-ALLOWLIST.json'))) == allowlist,
+                        'checkpoint-original-worker-allowlist')
+                 receipt = envelope['worker_receipts'][kind]
+-                raw = self.read(self.public_path(job / (kind + '-out') / 'RESULTS.json'), receipt['sha256'])
++                raw = self.new_public_read(self.public_path(job / (kind + '-out') / 'RESULTS.json'), receipt['sha256'])
+                 a.need(len(raw) == receipt['bytes'] and a.parse(raw) == envelope['workers'][kind],
+                        'checkpoint-original-worker-result')
+             result.append(envelope)
++        self.sync_public_leaves(self.runtime_leaves(wrapped, value))
+         return result
+ 
+     def prefix_checked(self, resume, plan_row, value, index, plan, contexts):
+@@ -270,6 +335,7 @@
+                           'bytes': len(raw), 'sha256': selected['sha256']})
+         releases = {cohort: c.release_for(output, 'DESCRIPTORS', cohort, files, context)
+                     for cohort, context in contexts.items()}
++        self.sync_record_references(releases, output)
+         stage = {'batch_id': 'DESCRIPTORS', 'files': files,
+                  'required_public_metadata': {'index': value['index'], 'plan': value['batch_plan']},
+                  'supplemental_public_metadata': [], 'releases': releases}
+@@ -330,15 +396,19 @@
+                               'releases': releases, 'preparation': preparation,
+                               'producer_preparation': authority if bid == 'BASE' else None}
+                     self.record_checked(record, batch, value, index, plan, contexts)
++                    self.sync_record_references(releases, output, descriptor_row)
+                     wrapped = self.wrapper(selected['execution_plan'], selected['stage_label'], output, record)
+                     row = self.save(output / 'local-batches' / bid / 'RECORD.json', wrapped)
+                     # Only after the complete record and its directories are durable
+                     # may the unchanged one-Original launcher be called.
++                    pairs = []
+                     for original in value['originals']:
+-                        c.audit_one(runtime_value, original, descriptor, descriptor_row,
+-                            releases[original['cohort']], contexts[original['cohort']], output, prepared, preparation)
++                        pairs.append(c.audit_one(runtime_value, original, descriptor, descriptor_row,
++                            releases[original['cohort']], contexts[original['cohort']], output, prepared, preparation))
+                         self.sync_directories(output / 'local-invocations' / bid)
+-                    pairs = self.pairs_checked(wrapped, value, contexts)
++                    # audit_one already deeply checks actual execution returns.
++                    # Historical resume additionally rejoins all retained bytes.
++                    self.sync_public_leaves(self.runtime_leaves(wrapped, value))
+                 finally:
+                     prepared.close()
+                 records.append(record); invocations.extend(pairs); rows.append(row)
+--- source03/test_publication_batch_controller_checkpointed.py
++++ source04/test_publication_batch_controller_checkpointed.py
+@@ -50,11 +50,16 @@
+         for record in self.f['batches']:
+             self.register_record(record)
+         self.io = [patch.object(self.k, 'read', side_effect=self.read),
++                   patch.object(self.k, 'fresh_guard', side_effect=self.fixture_guard),
+                    patch.object(self.a, 'guarded', side_effect=lambda row: self.read(row['path'], row['sha256'])),
+                    patch.object(self.c, 'load_plan', return_value=(self.value, self.f['index'], self.f['plan'],
+                                                                  self.f['contexts'], self.f['coverage']))]
+         for p in self.io:
+             p.start()
++
++    def fixture_guard(self):
++        return {'read': self.read, 'refresh': lambda: None,
++                'm': SimpleNamespace(GUARD=SimpleNamespace(metadata=lambda p: (Path(p), Path(p).lstat())))}
+ 
+     def tearDown(self):
+         for p in reversed(self.io + self.patches):
+@@ -185,7 +190,7 @@
+             temporary.mkdir()
+             record = copy.deepcopy(next(r for r in self.f['batches'] if r['descriptor']['batch_id'] == batch['batch_id']))
+             record['descriptor']['files'][0]['source'] = str(temporary / 'public-candidate.bin')
+-            record['descriptor_row'] = self.doc(Path(ix['path']).parent / (batch['batch_id'] + '-BATCH.json'), record['descriptor'])
++            record['descriptor_row'] = self.a.save(Path(ix['path']).parent / (batch['batch_id'] + '-BATCH.json'), record['descriptor'])
+             record['materialization']['descriptor'] = record['descriptor_row']
+             return record['materialization']
+         def prepare(value, descriptor, releases, _):
+@@ -295,6 +300,80 @@
+         finally:
+             self.k.prepare_phase = None
+ 
++    def test_new_public_reads_use_a_fresh_unchanged_helper_each_time(self):
++        calls = []
++        def fresh():
++            token = len(calls)
++            calls.append(token)
++            return {'read': lambda path, expected=None: (token, path, expected)}
++        with patch.object(checkpointed.runpy, 'run_path', side_effect=lambda path: fresh() if path == checkpointed.GUARD else self.fail(path)), \
++             patch.object(self.k, 'fresh_guard', wraps=checkpointed.Controller.fresh_guard.__get__(self.k)):
++            self.assertEqual(self.k.new_public_read('/public-one', 'ab' * 32), (0, '/public-one', 'ab' * 32))
++            self.assertEqual(self.k.new_public_read('/public-two', 'cd' * 32), (1, '/public-two', 'cd' * 32))
++        self.assertEqual(calls, [0, 1])
++
++    def test_directory_sync_ENOSPC_waits_and_retries_without_bypass(self):
++        path = self.root / 'directory-sync'; path.mkdir()
++        real = checkpointed.os.fsync; calls = []
++        def sync(fd):
++            calls.append(fd)
++            if len(calls) == 1: raise OSError(errno.ENOSPC, 'PUBLIC_MODEL_DIRECTORY_SYNC_FULL')
++            return real(fd)
++        with patch.object(checkpointed.os, 'fsync', side_effect=sync), \
++             patch.object(checkpointed.time, 'sleep') as sleep:
++            self.k.sync_directories(path)
++        sleep.assert_called_once_with(5)
++        self.assertGreater(len(calls), 1)
++
++    def test_prefix_cannot_publish_before_finite_runtime_receipts_are_durable(self):
++        calls, patches = self.execution_adapters()
++        authority = self.f['batches'][0]['producer_preparation']
++        original_sync = self.k.sync_public_leaves
++        def fail_runtime(paths):
++            paths = list(paths)
++            if any('/prepared-' in str(p) for p in paths):
++                raise OSError(errno.EIO, 'PUBLIC_MODEL_RECEIPT_DURABILITY_FAILURE')
++            return original_sync(paths)
++        patches += [patch.object(self.k, 'base_authority', return_value=authority),
++                    patch.object(self.k, 'sync_public_leaves', side_effect=fail_runtime),
++                    patch.object(self.k, 'pairs_checked', side_effect=AssertionError('FRESH_PATH_MUST_USE_CHECKED_RETURNS'))]
++        for p in patches: p.start()
++        output = self.root / 'runtime-sync-failure'
++        try:
++            with self.assertRaises(OSError): self.k.execute(self.selected(None, 'durability-fail'), output)
++        finally:
++            for p in reversed(patches): p.stop()
++        self.assertEqual(len([x for x in calls if x[0] != 'close']), 9)
++        self.assertTrue((output / 'local-batches/BASE/RECORD.json').exists())
++        self.assertFalse((output / 'local-checkpoints').exists())
++
++    def test_full_record_waits_for_exact_current_stage_reference_closure(self):
++        row, _ = self.durable(0)
++        calls, patches = self.execution_adapters()
++        output = self.root / 'reference-sync-failure'
++        expected = {output / 'materialization-inputs/D000001-BATCH.json',
++                    *[output / directory / 'D000001' / (cohort + '.json')
++                      for directory in ('local-releases', 'local-scopes')
++                      for cohort in ('creation', 'actual02')]}
++        real = self.k.sync_public_leaves; observed = []
++        def fail_references(paths):
++            paths = list(paths)
++            if any(Path(p).is_relative_to(output) for p in paths):
++                self.assertEqual(set(map(Path, paths)), expected)
++                observed.append(paths)
++                raise OSError(errno.EIO, 'PUBLIC_MODEL_REFERENCE_DURABILITY_FAILURE')
++            return real(paths)
++        patches += [patch.object(self.k, 'sync_public_leaves', side_effect=fail_references)]
++        for p in patches: p.start()
++        try:
++            with self.assertRaises(OSError):
++                self.k.execute(self.selected({'batch_records': [row]}, 'refs-fail'), output)
++        finally:
++            for p in reversed(patches): p.stop()
++        self.assertEqual(len(observed), 1)
++        self.assertEqual([x for x in calls if x[0] != 'close'], [])
++        self.assertFalse((output / 'local-batches/D000001/RECORD.json').exists())
++
+ 
+ if __name__ == '__main__':
+     unittest.main()

@@ -1,0 +1,20 @@
+{
+  "Original_note_proof_capture_or_network_execution": false,
+  "argv": [
+    "python3",
+    "-B",
+    "poc/local-private-payment/private_batch_trial/method03_generation.py",
+    "stage",
+    "--label",
+    "source-01"
+  ],
+  "category": "TypeError",
+  "cause": "guard context API received bare read function",
+  "effect": "Public source copies retained; no selection or private identity/view was produced.",
+  "exit_code": 1,
+  "fix": "Stage getter and runtime open_vector receive admitted guard context with selected read override.",
+  "location": "stage.selected_transport_source_pins",
+  "schema": "kpb-method03-public-source-stage-negative/v1",
+  "source_experiment_or_default_sources_changed": false,
+  "stage": "source-01"
+}

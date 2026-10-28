@@ -1,0 +1,321 @@
+--- method03_transport.BASELINE-c8e7.py
++++ method03_transport.py
+@@ -160,7 +160,10 @@
+         self.journal = (self.public / 'EVENTS.ndjson').open('xb')
+         self.callback = emit_metadata; self.lock = threading.RLock(); self.condition = threading.Condition(self.lock)
+         self.records = 0; self.owned = []; self.processes = {}; self.threads = []; self.latest = {}
+-        self.messages = queue.Queue(); self.invalid = set(); self.attempts = {}; self.active = set(); self.closed = False
++        self.messages = queue.Queue(); self.invalid = set(); self.attempts = {}; self.active = set()
++        self.closed = False; self.closing = False; self.cleanup_started = False; self.finish_ident = None
++        self.active_threads = {}; self.callback_threads = set(); self.check_processes = []
++        self.consumer_failure = None
+         self.reported_exits = set(); self.regular_records = {}; self.a_exposures = {}
+         self.sources = {}; self.descriptors = {}; self.masked_packages = []; self.leaf_count = 0
+         self.consumer = threading.Thread(target=self._consume, daemon=True); self.consumer.start()
+@@ -254,13 +257,22 @@
+         with self.lock:
+             row = {'schema': 'kpb-method03-controller-event/v1', 'binding': self.binding,
+                    'sequence': self.records, 'recorded_monotonic_ns': time.clock_gettime_ns(time.CLOCK_MONOTONIC), 'kind': kind, **fields}
+-            self.records += 1; self.journal.write(encoded(row)); self.journal.flush()
++            self.records += 1
++            try:
++                self.journal.write(encoded(row)); self.journal.flush()
++            except BaseException as error:
++                self.consumer_failure = type(error).__name__
++                self.invalid.add('controller-metadata-journal'); self.condition.notify_all()
++                raise
++            callback_ident = threading.get_ident(); self.callback_threads.add(callback_ident)
+             try:
+                 self.callback(row)
+             except BaseException:
+                 # The durable journal remains authoritative. A missing live
+                 # callback is explicit incomplete evidence, never a receipt.
+                 self.invalid.add('controller-metadata-callback')
++            finally:
++                self.callback_threads.remove(callback_ident)
+ 
+     def _consume(self):
+         while True:
+@@ -276,8 +288,10 @@
+                 else:
+                     self._event(kind, role=role, **value)
+                     if kind == 'invalid-public-status': self.invalid.add(role)
+-            except BaseException:
+-                self.invalid.add('controller-metadata-journal')
++            except BaseException as error:
++                with self.condition:
++                    self.consumer_failure = type(error).__name__
++                    self.invalid.add('controller-metadata-journal'); self.condition.notify_all()
+             finally:
+                 self.messages.task_done()
+ 
+@@ -295,6 +309,7 @@
+     def _wait_value(self, role, schema, predicate=lambda value: True):
+         with self.condition:
+             while True:
++                need(self.consumer_failure is None, 'controller-journal-consumer-failure')
+                 value = self.latest.get((role, schema))
+                 if value is not None and predicate(value): return value
+                 need(role not in self.invalid, 'invalid-public-role-status')
+@@ -344,9 +359,12 @@
+         self._public_check('actual-owner-prover-loader', argv + ['/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2', '--list', '/runtime/prover'], fds)
+ 
+     def _public_check(self, label, argv, fds, expected=None):
+-        before = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
+-        process = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+-                                   close_fds=True, pass_fds=fds, env={'PATH': '/usr/bin', 'LANG': 'C.UTF-8'})
++        with self.lock:
++            need(not self.closing and not self.closed, 'no-public-preflight-launch-after-closing')
++            before = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
++            process = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
++                                       close_fds=True, pass_fds=fds, env={'PATH': '/usr/bin', 'LANG': 'C.UTF-8'})
++            self.check_processes.append(process)
+         self._event('public-preflight-launch', check=label, host_pid=process.pid,
+                     popen_started_monotonic_ns=before, popen_returned_monotonic_ns=time.clock_gettime_ns(time.CLOCK_MONOTONIC),
+                     argv=argv, passed_setup_fds=list(fds))
+@@ -392,12 +410,14 @@
+         return [*python, '-c', prefix + 'sys.argv=' + repr(argv) + ";runpy.run_path(sys.argv[0],run_name='__main__')"]
+ 
+     def _launch(self, role, argv, fds, *, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, owner=False):
+-        before = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
+-        process = subprocess.Popen(argv, stdin=stdin, stdout=stdout, stderr=stderr, close_fds=True,
+-                                   pass_fds=fds, env={'PATH': '/usr/bin', 'LANG': 'C.UTF-8'})
+-        returned = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
+         with self.lock:
+-            need(role not in self.processes, 'one-role-launch-only'); self.processes[role] = process
++            need(not self.closing and not self.closed, 'no-role-launch-after-closing')
++            need(role not in self.processes, 'one-role-launch-only')
++            before = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
++            process = subprocess.Popen(argv, stdin=stdin, stdout=stdout, stderr=stderr, close_fds=True,
++                                       pass_fds=fds, env={'PATH': '/usr/bin', 'LANG': 'C.UTF-8'})
++            returned = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
++            self.processes[role] = process
+         def fd_spec(value):
+             if type(value) is int: return value
+             return value.fileno() if hasattr(value, 'fileno') else None
+@@ -474,10 +494,10 @@
+         """As-ready, callable concurrently. No peer wait/batch or automatic retry."""
+         slot = validate_slot(arm, owner_slot); owner_role = 'owner/' + str(slot); transport_role = 'transport/' + str(slot)
+         with self.lock:
+-            need(not self.closed and slot not in self.attempts, 'one-attempt-per-selected-slot')
++            need(not self.closing and not self.closed and slot not in self.attempts, 'one-attempt-per-selected-slot')
+             result = {'arm': arm, 'owner_slot': owner_slot, 'owner_role': owner_role, 'transport_role': transport_role,
+                       'owner_returncode': None, 'transport_returncode': None, 'receipt': False}
+-            self.attempts[slot] = result; self.active.add(slot)
++            self.attempts[slot] = result; self.active.add(slot); self.active_threads[slot] = threading.get_ident()
+         candidate_fd = incoming = outgoing = None
+         try:
+             files = self._owner_files(slot, history_ref, tail_ref, identity_tuple)
+@@ -547,21 +567,26 @@
+         except BaseException as error:
+             self._event('submission-error', slot=slot, arm=arm, owner_slot=owner_slot, category=type(error).__name__)
+         finally:
+-            for fd in (incoming, outgoing, candidate_fd):
+-                if fd is not None: os.close(fd)
+-            for role, key in ((owner_role, 'owner_returncode'), (transport_role, 'transport_returncode')):
+-                if role in self.processes and result[key] is None: result[key] = self._wait_process(role)
+-            # Read threads must finish queueing all real statuses, including a
+-            # valid202 followed by a nonzero process exit. Never erase that U.
+-            for thread in list(self.threads):
+-                if thread.name in (owner_role, transport_role): thread.join()
+-            self.messages.join()
+-            result['receipt'] = self.latest.get((transport_role, 'kpb-exit-transport-status/v1'), {}).get('transport_receipt') is True
+-            status = self.latest.get((owner_role, 'kpb-owner-exit-pipe-status/v1'), {}).get('status')
+-            self._event('submission-finished', slot=slot, arm=arm, owner_slot=owner_slot,
+-                        owner_returncode=result['owner_returncode'], transport_returncode=result['transport_returncode'],
+-                        receipt_seen=result['receipt'], owner_fixed_status=status, possibly_arrived=transport_role in self.processes)
+-            with self.lock: self.active.remove(slot)
++            try:
++                for fd in (incoming, outgoing, candidate_fd):
++                    if fd is not None: os.close(fd)
++                for role, key in ((owner_role, 'owner_returncode'), (transport_role, 'transport_returncode')):
++                    if role in self.processes and result[key] is None: result[key] = self._wait_process(role)
++                # Read threads finish queueing all real statuses, including a
++                # valid202 followed by nonzero exit. Never erase that U.
++                for thread in list(self.threads):
++                    if thread.name in (owner_role, transport_role): thread.join()
++                self.messages.join()
++                result['receipt'] = self.latest.get((transport_role, 'kpb-exit-transport-status/v1'), {}).get('transport_receipt') is True
++                status = self.latest.get((owner_role, 'kpb-owner-exit-pipe-status/v1'), {}).get('status')
++                self._event('submission-finished', slot=slot, arm=arm, owner_slot=owner_slot,
++                            owner_returncode=result['owner_returncode'], transport_returncode=result['transport_returncode'],
++                            receipt_seen=result['receipt'], owner_fixed_status=status, possibly_arrived=transport_role in self.processes)
++            finally:
++                # A journal failure must not strand cancellation waiting for an
++                # active marker whose caller already unwound.
++                with self.condition:
++                    self.active.remove(slot); del self.active_threads[slot]; self.condition.notify_all()
+         return dict(result)
+ 
+     def _stop(self, role):
+@@ -579,7 +604,8 @@
+     def finish(self):
+         """Completeness only: never wait for missing owners before sending."""
+         with self.lock:
+-            need(not self.closed and not self.active, 'finish-after-active-calls-return')
++            need(not self.closing and not self.closed and not self.active, 'finish-after-active-calls-return')
++            self.closing = True; self.finish_ident = threading.get_ident()
+         summary = None
+         try:
+             for role in ('client/0', 'service/0'): self._stop_tor(role)
+@@ -617,17 +643,45 @@
+             self.close_incomplete()
+ 
+     def close_incomplete(self):
+-        if self.closed: return
+-        self.closed = True
+-        for role in list(self.processes):
+-            try: self._stop(role)
+-            except BaseException: pass
+-        for thread in self.threads: thread.join()
+-        self.messages.join(); self.messages.put(None); self.messages.join(); self.consumer.join()
+-        for fd in set(self.owned):
+-            try: os.close(fd)
+-            except OSError: pass
+-        self.journal.flush(); os.fsync(self.journal.fileno()); self.journal.close()
++        caller = threading.get_ident()
++        with self.condition:
++            if self.closed: return
++            need(caller not in self.active_threads.values() and caller not in self.callback_threads
++                 and threading.current_thread() is not self.consumer, 'cleanup-from-independent-controller-thread')
++            if self.cleanup_started or (self.finish_ident is not None and self.finish_ident != caller):
++                while not self.closed: self.condition.wait(0.25)
++                return
++            # All role and public-preflight Popen admission uses this same lock.
++            # An admitted submit may still unwind/preflight, but cannot launch
++            # after this transition. Shared FDs remain owned until it is quiet.
++            self.closing = True; self.cleanup_started = True
++            roles = list(self.processes); checks = list(self.check_processes)
++        try:
++            for process in checks:
++                try:
++                    if process.poll() is None: process.terminate()
++                    process.wait()
++                except BaseException:
++                    self.invalid.add('public-preflight-cleanup')
++            for role in roles:
++                try: self._stop(role)
++                except BaseException: pass
++            with self.condition:
++                while self.active: self.condition.wait(0.25)
++            # No source can now register another Popen, create a candidate
++            # handle or append a public setup FD. Reap every registered role.
++            for role in list(self.processes):
++                try: self._stop(role)
++                except BaseException: pass
++            for thread in self.threads: thread.join()
++            self.messages.join(); self.messages.put(None); self.messages.join(); self.consumer.join()
++            for fd in set(self.owned):
++                try: os.close(fd)
++                except OSError: pass
++            self.journal.flush(); os.fsync(self.journal.fileno()); self.journal.close()
++        finally:
++            with self.condition:
++                self.closed = True; self.condition.notify_all()
+ 
+ 
+ def open_vector(**kwargs):
+--- transport_public_controls.BASELINE-788b.py
++++ transport_public_controls.py
+@@ -4,6 +4,7 @@
+ import hashlib
+ import os
+ from pathlib import Path
++import queue
+ import threading
+ from types import SimpleNamespace
+ 
+@@ -91,6 +92,7 @@
+     def fake_session(arm, transport_code=0):
+         session = object.__new__(driver.ExperimentalVectorSession)
+         session.lock = threading.RLock(); session.closed = False; session.attempts = {}; session.active = set()
++        session.closing = False; session.active_threads = {}; session.condition = threading.Condition(session.lock)
+         session.processes = {}; session.threads = []; session.latest = {}; session.messages = FakeQueue()
+         session.capture = driver.PRIVATE / 'diagnostics' / 'unit-capture'
+         session.private = driver.PRIVATE / 'diagnostics' / 'unit-tor'
+@@ -181,6 +183,85 @@
+         assert 'clock_snapshot(' + repr(role) + ')' in command[-1]
+         if transport: assert 'os.dup(0)' in command[-1]
+     checks.append({'check': 'actual-wrapper-generated-code-parses-fixed-role-clock-status-and-dup-entry', 'passed': True})
++
++    # Public threads/opaque fake FD numbers only. Close must mark admission
++    # closed atomically, refuse BOTH Popen sites, and retain shared descriptors
++    # until an already-admitted submit has become quiescent.
++    session = object.__new__(driver.ExperimentalVectorSession)
++    session.lock = threading.RLock(); session.condition = threading.Condition(session.lock)
++    session.closed = False; session.closing = False; session.cleanup_started = False; session.finish_ident = None
++    session.active = {3}; session.active_threads = {3: -100}; session.callback_threads = set()
++    session.processes = {}; session.check_processes = []; session.threads = []; session.owned = [17, 18]
++    session.messages = queue.Queue(); session.attempts = {}; session._event = lambda *args, **kwargs: None
++    session._stop = lambda role: None
++    fake_closed = []; fake_fsync = []; popen_calls = []
++
++    class FakeJournal:
++        def flush(self): pass
++        def fileno(self): return 99
++        def close(self): pass
++
++    session.journal = FakeJournal()
++
++    def consume():
++        while True:
++            value = session.messages.get(); session.messages.task_done()
++            if value is None: return
++
++    session.consumer = threading.Thread(target=consume); session.consumer.start()
++    previous_os, previous_subprocess = driver.os, driver.subprocess
++    driver.os = SimpleNamespace(close=fake_closed.append, fsync=fake_fsync.append)
++    driver.subprocess = SimpleNamespace(DEVNULL=-3, PIPE=-1,
++        Popen=lambda *args, **kwargs: popen_calls.append((args, kwargs)))
++    closer = threading.Thread(target=session.close_incomplete); closer.start()
++    try:
++        with session.condition:
++            assert session.condition.wait_for(lambda: session.closing, timeout=2)
++        assert not fake_closed and not session.closed
++        for operation in (lambda: session._launch('transport/3', [], ()),
++                          lambda: session._public_check('PUBLIC_FAKE_ONLY', [], ()),
++                          lambda: session.submit_one('B', 0, {}, {}, {}, {})):
++            try:
++                operation()
++            except ValueError:
++                pass
++            else:
++                raise AssertionError('new launch/submit admitted after closing')
++        assert not popen_calls and not fake_closed
++        with session.condition:
++            session.active.clear(); session.active_threads.clear(); session.condition.notify_all()
++        closer.join(2)
++        assert not closer.is_alive() and session.closed
++        assert set(fake_closed) == {17, 18} and fake_fsync == [99]
++    finally:
++        with session.condition:
++            session.active.clear(); session.active_threads.clear(); session.condition.notify_all()
++        closer.join(2)
++        driver.os, driver.subprocess = previous_os, previous_subprocess
++    checks.append({'check': 'atomic-close-blocks-both-Popen-sites-and-keeps-shared-fds-until-active-quiescent', 'passed': True})
++
++    session = object.__new__(driver.ExperimentalVectorSession)
++    session.lock = threading.RLock(); session.condition = threading.Condition(session.lock)
++    session.latest = {}; session.invalid = set(); session.consumer_failure = None
++    session.processes = {'service/0': SimpleNamespace(poll=lambda: None)}
++    session.messages = queue.Queue()
++    def failed_journal(*args, **kwargs):
++        raise OSError('PUBLIC_FAKE_JOURNAL_FAILURE')
++    session._event = failed_journal
++    consumer = threading.Thread(target=session._consume); consumer.start()
++    waiter_done = threading.Event(); failures = []
++    def wait_for_live_role():
++        try:
++            session._wait_value('service/0', 'kpb-probe-tor-progress/v1')
++        except ValueError as error:
++            failures.append(str(error)); waiter_done.set()
++    waiter = threading.Thread(target=wait_for_live_role); waiter.start()
++    session.messages.put(('status', 'service/0', {'value': {'schema': 'kpb-probe-tor-progress/v1', 'percent': 100}}))
++    assert waiter_done.wait(2)
++    waiter.join(); session.messages.join(); session.messages.put(None); session.messages.join(); consumer.join()
++    assert failures == ['controller-journal-consumer-failure']
++    assert session.consumer_failure == 'OSError' and 'controller-metadata-journal' in session.invalid
++    checks.append({'check': 'terminal-journal-consumer-failure-notifies-live-role-waiter', 'passed': True})
+     return {'schema': 'kpb-method03-transport-public-fake-controls/v1',
+             'classification': 'SOURCE_UNIT_FAKE_CONTROLS_NOT_GENUINE_PROOF_OR_PIPELINE',
+             'private_input': False, 'actual_subprocess': False, 'network': False,

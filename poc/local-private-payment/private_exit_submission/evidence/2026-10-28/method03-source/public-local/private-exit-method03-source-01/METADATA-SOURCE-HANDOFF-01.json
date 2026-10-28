@@ -1,0 +1,59 @@
+{
+  "apis": [
+    "predict(plan,observation)",
+    "score_owner(plan,observation,prediction,owner_truth)",
+    "aggregate_owner_scores(plan,observation,prediction,private_scores)"
+  ],
+  "authority": {
+    "broadcast": false,
+    "full_host_server_or_cryptographic_privacy_qualification": false,
+    "network_execution": false,
+    "private_capture": false,
+    "private_generation": false
+  },
+  "declassification_rules": [
+    "Raw observation/prediction and masks stay private",
+    "Only high-entropy-salted commitments/capsule hashes export",
+    "Exact owner-labelled digest tie positions stay private",
+    "Public aggregate contains no matching arrival IDs, masks or model rows"
+  ],
+  "independent_review": "bounded SOURCE GO from /root/recovery_publication/publication_helper_review, exact final source5ace; no runtime/private-input work",
+  "pending_integration": [
+    "Root complete method/source/three-new-Original identity/budget freeze",
+    "actual source-selected per-role clock/reader and launch lifetime bindings",
+    "complete selected producer facts and evidence provenance",
+    "persistent vector reservation and actual all-seals-before-truth barrier",
+    "closed one-owner salted score capsules and closed whole-joint-mask aggregate"
+  ],
+  "prior_evidence": "METHOD02 actual no-gain and Tor13 clock_UNQUALIFIED immutable",
+  "public_files": [
+    {
+      "bytes": 25865,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/metadata_attack.py",
+      "sha256": "5ace32051139233bc28b315085f6a73f4000530fe2b7d138bffd26f312f3c52e"
+    },
+    {
+      "bytes": 17291,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/test_metadata_attack.py",
+      "sha256": "12cec1f9512453fa5448e58353544ded11c8ef1f4cbcbe2dc7ddb2282bb6b263"
+    },
+    {
+      "bytes": 11402,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/METADATA-API-01.md",
+      "sha256": "74566cc8f17ba54a97d0b90d27f4d8bf8f5955352bd4ecedd70cb260bce28983"
+    },
+    {
+      "bytes": 3628,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/METADATA-PUBLIC-CONTROLS-01.json",
+      "sha256": "3429c2485503b6f493bf6bf0f84c7d0c920562e65674aea81ea29a9d38a35f38"
+    }
+  ],
+  "reviewed_draft02_sha256": "0b4f01b0cc38963d9117248fa9ee3449928b4a36f00b0aa9e8cf4cd7d77694a6",
+  "schema": "kpb-method03-metadata-source-handoff/v1",
+  "status": "UNSELECTED_SOURCE_PUBLIC_CONTROLS_PASS",
+  "tests": {
+    "actual_Tor_Native_private_generation": false,
+    "passed": 20,
+    "public_invented_fixture_controls": 20
+  }
+}

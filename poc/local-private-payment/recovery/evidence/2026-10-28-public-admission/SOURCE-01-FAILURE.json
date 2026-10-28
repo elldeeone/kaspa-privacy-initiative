@@ -1,0 +1,10 @@
+{
+  "schema": "kpi-public-admission-control-failure/v1",
+  "source_sha256": "10e4dd65a637c273a9f668d55243e433643dd07fe18ceebfaab9949f79182068",
+  "status": "FAIL_AT_EXACT_64MiB_SERIAL_BOUNDARY",
+  "location": "public_admission_pool.py:165",
+  "cause": "Serial results retained tuple metadata while child results were normalized JSON arrays; parent compares canonical JSON metadata.",
+  "fix": "Normalize serial metadata to the same JSON form before parent validation.",
+  "actual_originals_or_private_wallets_used": false,
+  "source01_exact_copies_retained": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/recovery-publication-resume-20261028-01/source-01"
+}

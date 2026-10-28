@@ -1,0 +1,40 @@
+{
+  "base_review": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/method03-wallet-core-review-01/RESULT.json",
+    "sha256": "35a1307122c05f423a070cf7d90ec1e00ecdd595d1289bc4b1d175d86ca86820",
+    "unchanged": true
+  },
+  "exact_inverse_to_reviewed_sources": {
+    "method03_generation.py": "e437364f3cbad9c1bc392928ed4727066c150f1b6a753931c4df7760dfcb6b30",
+    "method03_native_host.py": "2d753c1fdc1e5ae7366dd93f9311a911b6e3848846d58765991489566702b6b6"
+  },
+  "limits": [
+    "Source alignment only; full driver lifecycle review remains separately owned.",
+    "Original base review and production UNSELECTED/registry-None posture remain unchanged.",
+    "No private inputs, Original/key/log bodies, network, capture or proving execution occurred; Root complete freeze remains required."
+  ],
+  "public_controls": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_batch_trial/method03_generation_EXECUTED-SOURCE-CONTROLS-04-2026-10-28.json",
+    "reported_passed": true,
+    "reported_tests_run": 17,
+    "reviewer_reran_tests": false,
+    "sha256": "96d11173f61648aa7048834f20f454160bdaef55504a807e0474586a0d4c366c"
+  },
+  "schema": "kpb-method03-wallet-core-alignment-review/v1",
+  "source_files_edited": false,
+  "sources": {
+    "TRANSPORT-SOURCE-SELECTION-02.json": "0c8bbe9b5f58018dbce8e99c4c560f39f396936e0c82a30e4adf0f01e07a4ce2",
+    "method03_generation.py": "4230b12d5861bded49d8de14c0878df0c3c3e4b52f5722f07c4fd646b429ea92",
+    "method03_native_host.py": "1532bdd6be8f238abb57360a1e0a1e63cacd04a711734e1d462991694f1a1e70",
+    "method03_transport.py": "f08b3e284e379a1c57420f9984d347954ee88002316af7c9c2e12b49bef418ee"
+  },
+  "status": "SCOPED_SOURCE_DELTA_GO",
+  "verified_joins": [
+    "Stage pins and snapshots exact new transport descriptor; all twelve descriptor members join guarded wallet snapshots and duplicate paths must have the same selected SHA.",
+    "Old owner role selection 05d remains only the driver inner role reference; it is not mispassed as outer transport descriptor.",
+    "Generator passes unchanged driver constructor kwargs with actual trial UUID and separate fixed global protected method03-tor-UUID and method03-capture-UUID compartments.",
+    "Constructor independently requires that exact private parent and UUID derivation and requires their parents already be guard-protected.",
+    "Native host admits only capture descendants of the same selected capture root; no Original-label-derived fallback remains.",
+    "No budget policy, crypto, private payload read or fresh runtime authority was added."
+  ]
+}

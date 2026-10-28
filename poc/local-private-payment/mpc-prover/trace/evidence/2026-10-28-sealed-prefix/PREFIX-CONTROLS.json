@@ -1,0 +1,169 @@
+{
+  "schema": "public-prefix-recipe-controls/v1",
+  "cases_passed": 20,
+  "actual_digest_recipe_sha256": "1a90d3bc9f878b66fe9765737dbebaf07e668bdf5be125a205dc4897071a918a",
+  "actual_digest_recipe_bytes": 10328,
+  "MPC_or_private_input_executed": false,
+  "records": [
+    {
+      "name": "actual-sha-recipe-independent",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_INSPECT_PASS 28542 18488\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "actual-sha-recipe-value-differential",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_EVALUATION_PASS 28542 0\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-file-pin",
+      "expected": "prefix-recipe-file-identity",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-file-identity\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-field",
+      "expected": "prefix-recipe-header-or-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-header-or-shape\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-model-count",
+      "expected": "prefix-recipe-header-or-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-header-or-shape\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-instance-count",
+      "expected": "prefix-recipe-header-or-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-header-or-shape\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "missing-output",
+      "expected": "prefix-recipe-header-or-shape",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-header-or-shape\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "zero-coefficient",
+      "expected": "prefix-recipe-term-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-term-canonicality\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "field-alias",
+      "expected": "prefix-recipe-term-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-term-canonicality\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "self-prefix-alias",
+      "expected": "prefix-recipe-term-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-term-canonicality\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "scratch-reference",
+      "expected": "prefix-recipe-term-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-term-canonicality\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "duplicate-column",
+      "expected": "prefix-recipe-term-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-term-canonicality\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "unsorted-columns",
+      "expected": "prefix-recipe-term-canonicality",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-term-canonicality\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "empty-output",
+      "expected": "prefix-recipe-linear-arity",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-linear-arity\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "constant-placeholder",
+      "expected": "prefix-recipe-constant-output",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-constant-output\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "trailing-bytes",
+      "expected": "prefix-recipe-trailing-data",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-trailing-data\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "truncated-term",
+      "expected": "prefix-recipe-truncated",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED prefix-recipe-truncated\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "early-independent-recipe",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_TRACE_INSPECT_PASS 5 2\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "late-independent-recipe",
+      "expected": "trace-prefix-recipe-not-defined-before-first-instance-write",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-prefix-recipe-not-defined-before-first-instance-write\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "transitive-prefix-alias",
+      "expected": "trace-prefix-recipe-not-defined-before-first-instance-write",
+      "exit_code": 1,
+      "stdout": "PUBLIC_CONTROL_REFUSED trace-prefix-recipe-not-defined-before-first-instance-write\n",
+      "stderr": "",
+      "passed": true
+    }
+  ]
+}

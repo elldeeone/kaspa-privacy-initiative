@@ -38,3 +38,8 @@ poc/local-private-payment/private_batch_trial/payout_linkage_measure.py -text wh
 poc/local-private-payment/private_batch_trial/payout_linkage_observe.py -text whitespace=-blank-at-eof
 poc/local-private-payment/private_exit_submission/evidence/2026-10-28/actual-transport/** -text -whitespace
 poc/local-private-payment/private_exit_submission/evidence/2026-10-28/owner-pipe/** -text -whitespace
+# Preserve the exact, unselected METHOD03 source/history archive.
+poc/local-private-payment/private_exit_submission/evidence/2026-10-28/method03-source/** -text -whitespace
+poc/local-private-payment/mpc-prover/trace/evidence/2026-10-28-sealed-prefix/*.bin binary
+poc/local-private-payment/private-batch-public/evidence/2026-10-28-real-role-selection/AGGREGATE-VK.bin binary
+poc/local-private-payment/recovery/evidence/2026-10-28-public-checkpoint/REVIEW-FIXES.diff -text -whitespace

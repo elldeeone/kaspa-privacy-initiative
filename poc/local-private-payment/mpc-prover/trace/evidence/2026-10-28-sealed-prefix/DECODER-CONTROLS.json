@@ -1,0 +1,401 @@
+{
+  "schema": "public-sealed-trace-controls/v1",
+  "cases_passed": 49,
+  "actual_public_trace_bytes": 2584358,
+  "actual_public_trace_gzip_bytes": 318723,
+  "MPC_or_private_input_executed": false,
+  "records": [
+    {
+      "name": "plain-0",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 0 0 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-0",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 0 20 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-1",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 1 1 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-1",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 1 21 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-2",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2 2 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-2",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2 22 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-137",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 137 137 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-137",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 137 160 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-65535",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 65535 65535 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-65535",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 65535 597 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-65536",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 65536 65536 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-65536",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 65536 597 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-65537",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 65537 65537 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-65537",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 65537 597 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-131071",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 131071 131071 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-131071",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 131071 851 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-131072",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 131072 131072 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-131072",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 131072 851 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "plain-131073",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 131073 131073 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "gzip-131073",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 131073 851 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "actual-sha3-plain",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2584358 2584358 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "actual-sha3-gzip",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2584358 318723 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "replace-original-plain",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2584358 2584358 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "replace-original-gzip",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2584358 318723 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-canonical-pin",
+      "expected": "public-sealed-canonical-pin",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED public-sealed-canonical-pin\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-container-pin",
+      "expected": "public-sealed-container-pin",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED public-sealed-container-pin\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-byte-count",
+      "expected": "public-sealed-byte-count",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED public-sealed-byte-count\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "trailing-junk",
+      "expected": "trace-gzip-trailing-container-data",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-trailing-container-data\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "concatenated-empty",
+      "expected": "trace-gzip-trailing-container-data",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-trailing-container-data\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "concatenated-body",
+      "expected": "trace-gzip-trailing-container-data",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-trailing-container-data\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "truncated-1",
+      "expected": "trace-gzip-truncated",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-truncated\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "truncated-8",
+      "expected": "trace-gzip-truncated",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-truncated\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "truncated-318713",
+      "expected": "trace-gzip-truncated",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-truncated\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "truncated-318721",
+      "expected": "trace-gzip-truncated",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-truncated\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "corrupt-crc",
+      "expected": "trace-gzip-invalid-or-corrupt",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-invalid-or-corrupt\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "corrupt-size",
+      "expected": "trace-gzip-invalid-or-corrupt",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-invalid-or-corrupt\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "wrong-method",
+      "expected": "trace-gzip-invalid-or-corrupt",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-invalid-or-corrupt\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "reserved-flags",
+      "expected": "trace-gzip-invalid-or-corrupt",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-gzip-invalid-or-corrupt\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "fifo",
+      "expected": "trace-artifact-file-type",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-file-type\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "directory",
+      "expected": "trace-artifact-file-type",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-file-type\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "symlink",
+      "expected": "trace-artifact-file-open",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-file-open\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "adopt-sealed-gzip",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2584358 318723 gzip 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "adopt-sealed-plain",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "PUBLIC_SEALED_TRACE_PASS 2584358 2584358 plain 939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "adopt-unsealed",
+      "expected": "trace-artifact-adoption-requires-kernel-seals",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-adoption-requires-kernel-seals\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "adopt-missing-8",
+      "expected": "trace-artifact-adoption-requires-kernel-seals",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-adoption-requires-kernel-seals\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "adopt-missing-4",
+      "expected": "trace-artifact-adoption-requires-kernel-seals",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-adoption-requires-kernel-seals\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "adopt-missing-2",
+      "expected": "trace-artifact-adoption-requires-kernel-seals",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-adoption-requires-kernel-seals\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "adopt-missing-1",
+      "expected": "trace-artifact-adoption-requires-kernel-seals",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-adoption-requires-kernel-seals\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "resize-and-seal-after-initial-stat",
+      "expected": "trace-artifact-changed-before-sealed-adoption",
+      "exit_code": 1,
+      "stdout": "PUBLIC_SEALED_TRACE_REFUSED trace-artifact-changed-before-sealed-adoption\n",
+      "stderr": "",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "Tor_FIFO_delay_bound_or_timestamp_backdating_assumed": false,
+  "actual_runtime_or_network_reexecuted": false,
+  "admitted_public_metadata_inputs": {
+    "clock": {
+      "bytes": 5150,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01/runs/bb4f2d10-57da-4913-b4cd-0b424defd468/PUBLIC-RECEIVER-CLOCK-METADATA.json",
+      "sha256": "56f7f591c672652b13325f29ab558b471d45ebd889bfc8ee4be3be582105d716"
+    },
+    "events": {
+      "bytes": 54607,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01/runs/bb4f2d10-57da-4913-b4cd-0b424defd468/EVENTS.json",
+      "sha256": "2ac89f31386b1bf234b5c91821fc1d213acd4772cfea80e2f2f23eec6e723027"
+    },
+    "truth": {
+      "bytes": 1503,
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01/runs/bb4f2d10-57da-4913-b4cd-0b424defd468/PUBLIC-ARRIVAL-CLIENT-MAPPING.json",
+      "sha256": "c86efe2e7e290ed2b8da0ff36b109f922b3f7e30881249882f77744cf7075c57"
+    }
+  },
+  "classification": "PUBLIC_KNOWN_FIXTURE_FUNCTIONALITY_ONLY",
+  "clock_facts_as_recorded": {
+    "clock_offset_set_by_launcher": false,
+    "host_launch_event_monotonic_ns": "sampled after Popen returns",
+    "host_launch_started_ns": "sampled immediately before subprocess.Popen",
+    "host_pipe_created_event": "after os.pipe2",
+    "host_pipe_write_complete": "after all writes, before parent pipe close",
+    "host_pipe_write_start": "before first os.write",
+    "namespace_clock_identity": "not recorded in trial13",
+    "receiver_clock_fields": "actual child time.monotonic_ns and time.time_ns samples from frozen receiver",
+    "requested_namespace_flags": [
+      "--unshare-all",
+      "--share-net"
+    ],
+    "timens_offsets": "not recorded in trial13",
+    "transport_202_status_clock": "controller observation upper bound after transport emits fixed status; no transport child timestamp",
+    "transport_exit_event": "post-wait/final-cleanup observation; not exact child exit time"
+  },
+  "clock_limit": "Actual13 time-namespace identity/offset/calibration evidence was not captured. Both offset models are conditional sensitivity analyses, not retrospectively verified clocks.",
+  "clock_qualified": false,
+  "conditional_one_shared_unbounded_constant_offset": {
+    "candidate_counts": [
+      3,
+      3,
+      3
+    ],
+    "client_order": [
+      0,
+      1,
+      2
+    ],
+    "compatible_arrivals": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "compatible_bijections": 6,
+    "correct_unique": 0,
+    "model_shared_offset_ranges_ns": [
+      {
+        "lower_ns": -906280742,
+        "upper_ns": 9132168425
+      },
+      {
+        "lower_ns": -906309126,
+        "upper_ns": 9133094568
+      },
+      {
+        "lower_ns": -906300299,
+        "upper_ns": 9132168425
+      },
+      {
+        "lower_ns": -906300299,
+        "upper_ns": 9133094568
+      },
+      {
+        "lower_ns": -906309126,
+        "upper_ns": 9134247853
+      },
+      {
+        "lower_ns": -906280742,
+        "upper_ns": 9134247853
+      }
+    ],
+    "models": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ],
+    "public_truth_retained": true,
+    "ranks": [
+      {
+        "candidate_count": 3,
+        "client": 0,
+        "ordinal_tie_rank": 1,
+        "rank_interval": [
+          1,
+          3
+        ]
+      },
+      {
+        "candidate_count": 3,
+        "client": 1,
+        "ordinal_tie_rank": 3,
+        "rank_interval": [
+          1,
+          3
+        ]
+      },
+      {
+        "candidate_count": 3,
+        "client": 2,
+        "ordinal_tie_rank": 2,
+        "rank_interval": [
+          1,
+          3
+        ]
+      }
+    ],
+    "wrong_unique": 0
+  },
+  "conditional_zero_offset": {
+    "candidate_counts": [
+      3,
+      3,
+      3
+    ],
+    "client_order": [
+      0,
+      1,
+      2
+    ],
+    "compatible_arrivals": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "compatible_bijections": 6,
+    "correct_unique": 0,
+    "model_shared_offset_ranges_ns": [
+      {
+        "lower_ns": 0,
+        "upper_ns": 0
+      },
+      {
+        "lower_ns": 0,
+        "upper_ns": 0
+      },
+      {
+        "lower_ns": 0,
+        "upper_ns": 0
+      },
+      {
+        "lower_ns": 0,
+        "upper_ns": 0
+      },
+      {
+        "lower_ns": 0,
+        "upper_ns": 0
+      },
+      {
+        "lower_ns": 0,
+        "upper_ns": 0
+      }
+    ],
+    "models": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ],
+    "public_truth_retained": true,
+    "ranks": [
+      {
+        "candidate_count": 3,
+        "client": 0,
+        "ordinal_tie_rank": 1,
+        "rank_interval": [
+          1,
+          3
+        ]
+      },
+      {
+        "candidate_count": 3,
+        "client": 1,
+        "ordinal_tie_rank": 3,
+        "rank_interval": [
+          1,
+          3
+        ]
+      },
+      {
+        "candidate_count": 3,
+        "client": 2,
+        "ordinal_tie_rank": 2,
+        "rank_interval": [
+          1,
+          3
+        ]
+      }
+    ],
+    "wrong_unique": 0
+  },
+  "diagnostic_source": {
+    "bytes": 14553,
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-submission-proposal-01/timing_diagnostic.py",
+    "sha256": "da18704bf06e049fc4cc486b6d44d80dcf945ad2ffc507d287f05415e812ddf9"
+  },
+  "full_host_or_corrupt_server_capture_available": false,
+  "new_Original_note_or_private_capture_generated": false,
+  "overall_privacy_qualified": false,
+  "owner_origin_pipe_mode_qualified": false,
+  "post_Popen_launch_event_used_as_lower_bound": false,
+  "private_key_log_config_packet_proof_corrupt_server_crypto_bodies_read_or_hashed": false,
+  "private_owner_or_full_privacy_view_measured": false,
+  "public_fixture_truth_for_scoring_only": {
+    "0": 1,
+    "1": 3,
+    "2": 2
+  },
+  "raw_received_export_or_packet_bodies_read_by_diagnostic": false,
+  "receiver_event_choice": "post_handler before body read; recorded postresponse is retained only in source metadata, never an ACK upper bound",
+  "receiver_recorded_ns_used_as_pre_ACK_timestamp": false,
+  "schema": "kpb-public-tor13-timing-diagnostic/v1",
+  "source_bindings": {
+    "events_sha256": "2ac89f31386b1bf234b5c91821fc1d213acd4772cfea80e2f2f23eec6e723027",
+    "known_fixture_selection_sha256": "b6705efda984a68e94bf2078baa8cb071c626589f886011cafe198bfab267ed0",
+    "launcher_sha256": "0582a871c6f03a1d512618cede051c6b36bae37acae4a26be25b11534fcd9dec",
+    "received_export_reference_sha256": "7656814ff7515cee9770fcc55308dc57a951860c361454e4f37ddac81cfc95c0",
+    "receiver_sha256": "0375401b3f3b2844c60e78bf4450cf1ad7f8e574462bc98b71395078d07601ac",
+    "transport_sha256": "88cb8d0c0eb7c8a533556f7323d30c115a56a97a53b45263b3f0932dbbeba4f4"
+  },
+  "source_source_semantics": "0582 launch.started_ns is before Popen; role-status event is after reader queue consumption. Receiver037 post_handler before body decode/202; recorded after response.",
+  "status": "UNQUALIFIED",
+  "trial_id": "bb4f2d10-57da-4913-b4cd-0b424defd468",
+  "unsafe_FIFO_sensitivity_only": {
+    "correct": 1,
+    "predicted_public_client_arrival": {
+      "0": 3,
+      "1": 1,
+      "2": 2
+    },
+    "this_is_not_an_admissible_Tor_ordering_attack": true,
+    "wrong": 2
+  },
+  "windows": [
+    {
+      "client": 0,
+      "controller_read_fd": 114,
+      "controller_write_fd": 116,
+      "exit_event_index": 71,
+      "inner_transport_or_curl_pid_observed": false,
+      "launch_event_index": 51,
+      "lower_ns": 888183999523182,
+      "observed_launcher_pid": 1182822,
+      "pipe_created_event_index": 50,
+      "pipe_inode": 40757609,
+      "pipe_write_complete_ns": 888184000599792,
+      "pipe_write_start_ns": 888184000592517,
+      "post_Popen_launch_event_ns": 888184000451639,
+      "returncode": 0,
+      "spawn_observation_gap_ns": 928457,
+      "status_event_index": 63,
+      "typed_202_and_exit0": true,
+      "upper_bound_is_delayed_host_status_observation_not_child_clock": true,
+      "upper_ns": 888194571916453
+    },
+    {
+      "client": 1,
+      "controller_read_fd": 114,
+      "controller_write_fd": 116,
+      "exit_event_index": 70,
+      "inner_transport_or_curl_pid_observed": false,
+      "launch_event_index": 55,
+      "lower_ns": 888184000676467,
+      "observed_launcher_pid": 1182824,
+      "pipe_created_event_index": 54,
+      "pipe_inode": 40757612,
+      "pipe_write_complete_ns": 888184001503040,
+      "pipe_write_start_ns": 888184001496157,
+      "post_Popen_launch_event_ns": 888184001377462,
+      "returncode": 0,
+      "spawn_observation_gap_ns": 700995,
+      "status_event_index": 62,
+      "typed_202_and_exit0": true,
+      "upper_bound_is_delayed_host_status_observation_not_child_clock": true,
+      "upper_ns": 888194571896896
+    },
+    {
+      "client": 2,
+      "controller_read_fd": 114,
+      "controller_write_fd": 116,
+      "exit_event_index": 69,
+      "inner_transport_or_curl_pid_observed": false,
+      "launch_event_index": 59,
+      "lower_ns": 888184001602610,
+      "observed_launcher_pid": 1182827,
+      "pipe_created_event_index": 58,
+      "pipe_inode": 40757615,
+      "pipe_write_complete_ns": 888184002455464,
+      "pipe_write_start_ns": 888184002449272,
+      "post_Popen_launch_event_ns": 888184002320938,
+      "returncode": 0,
+      "spawn_observation_gap_ns": 718328,
+      "status_event_index": 64,
+      "typed_202_and_exit0": true,
+      "upper_bound_is_delayed_host_status_observation_not_child_clock": true,
+      "upper_ns": 888194571925280
+    }
+  ]
+}

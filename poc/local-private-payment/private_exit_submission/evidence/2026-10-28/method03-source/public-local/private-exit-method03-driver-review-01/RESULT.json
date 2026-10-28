@@ -1,0 +1,105 @@
+{
+  "schema": "kpb-method03-driver-source-review/v1",
+  "reviewer": "/root/public_native_recovery/settlement_adapter/owner_pipe_launcher/transport_source_review",
+  "status": "SCOPED_SOURCE_GO",
+  "classification": "SOURCE_ANALYSIS_AND_AUTHENTICATED_RETAINED_FAKE_CONTROL_REPORT_ONLY",
+  "reviewed_sources": {
+    "baseline": {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/method03_transport.BASELINE-c8e7.py",
+      "sha256": "c8e7dd6b5b1634188ef2e52e94205d938066c62c1ebaf75e7aedeb658523cdfc",
+      "authentication": "Body authenticated and compared during completed source review"
+    },
+    "repaired": {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/method03_transport.py",
+      "sha256": "f08b3e284e379a1c57420f9984d347954ee88002316af7c9c2e12b49bef418ee",
+      "authentication": "Body authenticated and exact delta compared against baseline during completed review"
+    },
+    "controls": {
+      "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/transport_public_controls.py",
+      "sha256": "c8792a080cb4b1f7754278f9819acdf74cc850b2496435880640625a4750c420",
+      "authentication": "Identity bound by the authenticated retained fake-control report; not executed by reviewer"
+    }
+  },
+  "retained_fake_control_report": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/TRANSPORT-PUBLIC-CONTROLS-04.json",
+    "sha256": "c512038ffd8f417f6f6cad1ea785bf414d2fb530e5ac241535b19cf2789de880",
+    "body_authenticated": true,
+    "reported_groups_passed": 7,
+    "reviewer_reran_controls": false,
+    "actual_subprocess_or_pipeline_qualification": false
+  },
+  "implementation_patch_reference": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/private-exit-method03-source-01/TRANSPORT-LIFECYCLE-REPAIR.patch",
+    "sha256": "bfc45f37f3744ccaaa290037a9688fb2a948682ed3a107388159c59ac3e4db00",
+    "pin_provenance": "Provided by implementation owner",
+    "artifact_independently_read": false,
+    "actual_source_delta_independently_compared": true
+  },
+  "findings": [
+    {
+      "id": "ACTIVE_SUBMISSION_SHARED_FD_CLEANUP_RACE",
+      "baseline_locations": [
+        "finish",
+        "close_incomplete",
+        "_launch",
+        "_public_check",
+        "submit_one"
+      ],
+      "baseline_finding": "Cleanup could close shared public descriptors while admitted submissions still prepared or launched roles; descriptor reuse could cross the intended owner-only candidate boundary.",
+      "closure": "Both Popen admission sites and submission admission use the shared closing lock. Finish closes admission atomically. Abort blocks later admission, stops and reaps registered processes, waits for active submissions to quiesce, then closes shared descriptors and the journal. Active markers clear even when journaling fails.",
+      "result": "CLOSED_BY_REPAIRED_SOURCE_WITH_STATED_CALLER_CONTRACT"
+    },
+    {
+      "id": "TERMINAL_JOURNAL_FAILURE_NOT_PROPAGATED_TO_WAITER",
+      "baseline_locations": [
+        "_event",
+        "_consume",
+        "_wait_value"
+      ],
+      "baseline_finding": "A global journal-consumer error marker was ignored by role waiters, allowing an indefinite wait while the dependency process remained live.",
+      "closure": "Direct journal and consumer errors set a terminal failure and notify the condition. Waiters check that failure before cached status values and raise into cleanup.",
+      "result": "CLOSED_BY_REPAIRED_SOURCE"
+    }
+  ],
+  "required_caller_contract": [
+    "Cleanup runs from an independent controller thread, never an active submission, metadata callback, or consumer thread.",
+    "The selected caller admits the exact source/runtime closure and proves the owner stderr2 status binding; owner stdout1 remains the frame pipe.",
+    "Actual host and namespace PID, FD, role and clock provenance remain selected-caller and extractor obligations.",
+    "This source GO does not authorize private generation, capture, networking or pipeline execution; Root's complete method/source/budget freeze is still required."
+  ],
+  "unchanged_contracts": [
+    "The finite six-event API and exact named four-field transport source pin map remain unchanged.",
+    "The journal is NDJSON kpb-method03-controller-event/v1 records, referenced as kpb-method03-controller-journal/v1.",
+    "All role, Tor, clock and subprocess observations use kind status with the same observation envelope and separate consumed_monotonic_ns; there is no separate tor-status event.",
+    "Early actual-controller clock evidence and its followup retain PID, boot, namespace and raw-offset continuity.",
+    "Arm A retains its explicit consolidated exposure artifact; Arm B returns metadata-only references without a controller body, frame, exit identifier or projection hash."
+  ],
+  "coverage_limits": {
+    "receiver_source_sha256": "0375401b3f3b2844c60e78bf4450cf1ad7f8e574462bc98b71395078d07601ac",
+    "receiver_body_unchanged": true,
+    "full_packet_padding_retained": false,
+    "new_raw_capture_seam_reviewed_or_selected": false,
+    "primary_full_view_qualification": "UNQUALIFIED_WITH_MISSING_PADDING_COVERAGE",
+    "finite_gain_claim_allowed": false,
+    "full_global_host_qualification": "UNQUALIFIED",
+    "app_subprocess_metadata_is_not_all_transient_C_fd_or_syscall_coverage": true
+  },
+  "review_activity": {
+    "source_analysis": true,
+    "exact_source_delta_comparison": true,
+    "retained_report_authentication": true,
+    "execution": false,
+    "tests_or_controls_executed_by_reviewer": false,
+    "controller_or_pipeline_execution": false,
+    "proc_capture": false,
+    "private_input_read": false,
+    "network": false,
+    "code_changes": false,
+    "financial_or_privacy_qualification": false
+  },
+  "receipt_followup": {
+    "activity": "Explicitly authorized write of this public receipt from already completed analysis",
+    "new_source_reads": false,
+    "new_tests_or_runtime_checks": false
+  }
+}

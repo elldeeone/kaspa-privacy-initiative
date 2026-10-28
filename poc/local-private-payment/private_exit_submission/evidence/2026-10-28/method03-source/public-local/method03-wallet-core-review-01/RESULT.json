@@ -1,0 +1,66 @@
+{
+  "Original_note_proof_capture_or_network_execution": false,
+  "commits_or_pushes": false,
+  "findings": [
+    {
+      "after_sha256": "e437364f3cbad9c1bc392928ed4727066c150f1b6a753931c4df7760dfcb6b30",
+      "before_sha256": "bd715c6073656cd03ff6a9011e889d6de230e3b144f9ae209006c132ff66e856",
+      "exact_inverse_sha_verified": true,
+      "fix": "Use guard()[read] callable.",
+      "id": "CALLABLE-GUARD-01",
+      "location": "method03_generation.py:run_role",
+      "problem": "guard() returns a context dictionary; treating it as read callable fails before first owner role admission after budget consumption.",
+      "status": "CLOSED"
+    },
+    {
+      "after_sha256": "dc100f178e37d339bcc7d7be79a2effe7695f1c7a6bf8abd150488e2a4a30b3f",
+      "before_sha256": "73c6d0cb1d14d670063b172b34dcd21e4725ab3188bcc15171287d56b355fc96",
+      "exact_inverse_sha_verified": true,
+      "fix": "Consume PRIMARY before constructing/launching collector, retain and reuse that exact permit for PRIMARY observer; claim secondary labels separately.",
+      "id": "CONTACT-INTAKE-ORDER-01",
+      "location": "method03_measure.py:measure",
+      "problem": "Private corrupt-contact collector was launched before PRIMARY intake permit.",
+      "status": "CLOSED"
+    }
+  ],
+  "private_inputs_or_logs_read": false,
+  "public_controls": {
+    "path": "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/private_batch_trial/method03_generation_EXECUTED-SOURCE-CONTROLS-03-2026-10-28.json",
+    "report_and_test_authenticated": true,
+    "reported_passed": true,
+    "reported_tests_run": 17,
+    "reviewer_reran_tests": false,
+    "sha256": "7773771d776ba459f124f5e3f7f0ca7c310c1b017f724c906d5ef6d8116ac114",
+    "test_sha256": "cde62d7c56506669b2ac78844e5d319029efb9beaef2ac25a267f06f5898d6da"
+  },
+  "remaining_limits": [
+    "Root complete method/source/budget freeze remains required before private execution; shipped budget remains UNSELECTED with REGISTRY_ADMISSION None.",
+    "Trusted selected launcher and persistent storage assumptions remain; Python bookkeeping is not authority against arbitrary same-process code or malicious storage rollback.",
+    "Funding-key identity is limited to the exact frozen profile; no cross-profile Original seed identity is claimed.",
+    "Runtime transport, helper and closed-role reviews were separate; no duplicate complete driver or SDK qualification was performed.",
+    "Source review is not private runtime, clock, Tor anonymity, full corrupt-server view, financial acceptance, gain or cryptographic correctness qualification."
+  ],
+  "reviewed_source_files_modified": false,
+  "schema": "kpb-method03-wallet-core-boundary-review/v1",
+  "scope": "SIX_NEW_WALLET_CORE_FILES_ONLY_SOURCE_REVIEW",
+  "source_sha256": {
+    "method03_entry.py": "60715c266767e2e91540877e2432609091bd4b0526326cdbfb7a2783afded5b9",
+    "method03_generation.py": "e437364f3cbad9c1bc392928ed4727066c150f1b6a753931c4df7760dfcb6b30",
+    "method03_guard.py": "23f060f18f06ac5b81ec833964a71969ca04467d367ac3b62f6af5f0882ad8e6",
+    "method03_measure.py": "dc100f178e37d339bcc7d7be79a2effe7695f1c7a6bf8abd150488e2a4a30b3f",
+    "method03_native_host.py": "2d753c1fdc1e5ae7366dd93f9311a911b6e3848846d58765991489566702b6b6",
+    "method03_worker.py": "0ea416946229380dae061ef34e16bd78e0481fba7564590f6c1ce648d590dc22"
+  },
+  "status": "SCOPED_SOURCE_GO_AFTER_TWO_FINITE_FIXES",
+  "verified_properties": [
+    "Entry and generator refuse unselected production policy or missing registry admission before bootstrap execution.",
+    "Only the selected one-command new three-Original bootstrap is admitted; no caller legacy Original, seed or alternate trial input is implemented.",
+    "Owner checks exact consumed record binding/profile/source/spec/grammar before loading one Original, then derives invoice0xffffffff funding SPK and requires exact record match before METHOD03 note creation.",
+    "Candidate, raw capture and private INDEX host paths are metadata-only; Native host translates public EXITS/result references without reading or hashing their bodies.",
+    "Contact arm partition is by actual Context276 equality in unlabelled received records, not source ordinal or owner publication order.",
+    "Per-view permit precedes private intake; actual successful role wait plus public salted SEAL admission precedes all-three durable barrier.",
+    "Each owner truth permit precedes truth mounts; closed aggregate permit follows all three owner score completions.",
+    "View, score and aggregate work paths derive from global consumed-identity directory, not caller output labels.",
+    "Actual selected entry compiles project imports from admitted immutable source snapshots; initial entry/helper admission remains an external seven-root caller contract."
+  ]
+}

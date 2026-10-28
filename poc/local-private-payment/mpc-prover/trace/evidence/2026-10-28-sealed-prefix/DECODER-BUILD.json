@@ -1,0 +1,65 @@
+{
+  "schema": "public-sealed-trace-build/v1",
+  "argv": [
+    "g++",
+    "-std=c++20",
+    "-O1",
+    "-g0",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-DKPI_TRACE_ZLIB_BINARY_SHA256=\"27fa6c6cb94fb5b099ead61758a300dbc392d1dbf307fff6c16a9b8e57fdc9de\"",
+    "-DKPI_TRACE_ZLIB_HEADERS_SHA256=\"088e164cdd52e61ab1b0c60351dc7a6911a7ff8466ffb87c14098485006e7c6c\"",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/trace/sealed_trace.cpp",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/trace/sealed_controls.cpp",
+    "-o",
+    "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/sealed-trace-controls-build-04/sealed-controls",
+    "-lcrypto",
+    "-lz",
+    "-ldl"
+  ],
+  "exit_code": 0,
+  "source_before": {
+    "sealed_trace.hpp": "6bb265c864ae463457dd5f5323deac5a7e76b2028d8aca462f0e252fbc611f02",
+    "sealed_trace.cpp": "0066aef17aa953b6eec058b0996d3074ef41e379c909430c60c808fe492695f2",
+    "sealed_controls.cpp": "93649729f610d852484a62cf9e97b3a71be3ea1cb9ae4cb42c5f0ec965a79f84",
+    "run_sealed_controls.py": "b8ea63452db052c28b5d5339a5e9edcb2540a67be0c968580df20e8825aac7d4",
+    "tests/adoption_race.c": "a62d50010f1c70a9c79fd535eec2cfd79ff73fc995ada0c092d4af08670d98bb"
+  },
+  "source_after": {
+    "sealed_trace.hpp": "6bb265c864ae463457dd5f5323deac5a7e76b2028d8aca462f0e252fbc611f02",
+    "sealed_trace.cpp": "0066aef17aa953b6eec058b0996d3074ef41e379c909430c60c808fe492695f2",
+    "sealed_controls.cpp": "93649729f610d852484a62cf9e97b3a71be3ea1cb9ae4cb42c5f0ec965a79f84",
+    "run_sealed_controls.py": "b8ea63452db052c28b5d5339a5e9edcb2540a67be0c968580df20e8825aac7d4",
+    "tests/adoption_race.c": "a62d50010f1c70a9c79fd535eec2cfd79ff73fc995ada0c092d4af08670d98bb"
+  },
+  "zlib_binary": {
+    "path": "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+    "sha256": "27fa6c6cb94fb5b099ead61758a300dbc392d1dbf307fff6c16a9b8e57fdc9de"
+  },
+  "zlib_headers": {
+    "zlib.h": "8a5579af72ea4f427ff00a4150f0ccb3fc5c1e4379f726e101133b1ab9fc600c",
+    "zconf.h": "44e543ff4514c7a9a01d648019c2c9a81d1105cbfa3c77f1faf6cd86eafa8abd"
+  },
+  "zlib_headers_sha256": "088e164cdd52e61ab1b0c60351dc7a6911a7ff8466ffb87c14098485006e7c6c",
+  "success": true,
+  "private_input_executed": false,
+  "binary_sha256": "32c8884660492618f1b35173204c23c684c7ea09f1c107e23db317ee909cec5a",
+  "shim_compile": {
+    "argv": [
+      "cc",
+      "-std=c11",
+      "-shared",
+      "-fPIC",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/home/luke/projects/kpi-intensive-2026-10-22/continuation/poc/local-private-payment/mpc-prover/trace/tests/adoption_race.c",
+      "-o",
+      "/home/luke/projects/kpi-intensive-2026-10-22/continuation/.local/sealed-trace-controls-build-04/adoption-race.so"
+    ],
+    "exit_code": 0,
+    "sha256": "7d374513cfab4c04cf4d94dee6ebad79d727d5c12548ff9b535b77e3801aa239"
+  }
+}

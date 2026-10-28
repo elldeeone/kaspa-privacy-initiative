@@ -1,0 +1,27 @@
+--- role_subprocess_metadata.BASELINE-499e.py
++++ role_subprocess_metadata.py
+@@ -201,7 +201,8 @@
+               and value["observation"] in ("wait", "communicate", "poll")
+               and _int(value["observed_wait_monotonic_ns"]), "subprocess-exit-outcome")
+     else:
+-        _need(value["operation"] == "unrecognized" and value["reason"] in _REFUSALS, "fixed-subprocess-refusal")
++        _need(value["operation"] == "unrecognized" and type(value["reason"]) is str
++              and value["reason"] in _REFUSALS, "fixed-subprocess-refusal")
+     if kind != "role-subprocess-exit":
+         _need(_int(value["pre_Popen_monotonic_ns"]) and _int(value["post_Popen_monotonic_ns"])
+               and value["pre_Popen_monotonic_ns"] <= value["post_Popen_monotonic_ns"], "subprocess-launch-clock-order")
+--- subprocess_public_controls.BASELINE-a720.py
++++ subprocess_public_controls.py
+@@ -153,6 +153,12 @@
+                    dict(saved_launch, actual_local_ppid=False),
+                    dict(saved_launch, pid_namespace={"link": "pid:[501]", "inode": 500}),
+                    dict(saved_launch, pass_fds=[3, True])]
++        for reason in ([], {}):
++            refusal = {key: saved_launch[key] for key in observed._COMMON}
++            refusal.update(kind="role-subprocess-refusal", operation="unrecognized", reason=reason,
++                           pre_Popen_monotonic_ns=saved_launch["pre_Popen_monotonic_ns"],
++                           post_Popen_monotonic_ns=saved_launch["post_Popen_monotonic_ns"])
++            invalid.append(refusal)
+         for event in invalid:
+             try:
+                 observed.validate_event(event, "transport/2")

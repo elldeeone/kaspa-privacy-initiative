@@ -102,7 +102,7 @@ fn hash32(v: &Value) -> Result<[u8; 32], E> {
         .try_into()
         .map_err(|_| "public hash length")?)
 }
-fn history(v: &Value) -> Result<PublicHistory, E> {
+pub(crate) fn history(v: &Value) -> Result<PublicHistory, E> {
     Ok(PublicHistory {
         commitments: v["commitments_hex32"]
             .as_array()
@@ -150,7 +150,9 @@ fn construct(
     Ok(())
 }
 fn main() -> Result<(), E> {
-    let mut a = std::env::args().skip(1).collect::<Vec<_>>();
+    run_with_args(std::env::args().skip(1).collect())
+}
+pub(crate) fn run_with_args(mut a: Vec<String>) -> Result<(), E> {
     let prepare = a.first().map(String::as_str) == Some("prepare");
     if prepare {
         a.remove(0);

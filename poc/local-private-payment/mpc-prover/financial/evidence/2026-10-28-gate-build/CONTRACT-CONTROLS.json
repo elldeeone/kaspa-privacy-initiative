@@ -1,0 +1,58 @@
+{
+  "schema": "kpi-financial-gate-contract-controls/v1",
+  "cases": [
+    {
+      "case": "positive",
+      "exit": 0,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-run_nonce",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-model",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-source",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-pk",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-vk",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-trace",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-layout",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-count",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    },
+    {
+      "case": "wrong-role",
+      "exit": 1,
+      "before_network_or_owner_input": true
+    }
+  ],
+  "passed": true,
+  "public_dummy_cert_pins_only": true,
+  "network_MPC_or_private_owner_input": false
+}
