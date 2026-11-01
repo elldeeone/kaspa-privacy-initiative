@@ -1,0 +1,31 @@
+[package]
+name = "kpb-bounded-setup-worker"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+[workspace]
+
+[dependencies]
+aggregate = { package = "kpi-private-batch-relation", path = "../../private-batch-relation" }
+authority = { package = "kpi-nativeauthspend-seam", path = "../../native-authority/native-core" }
+native = { package = "kpi-local-private-payment-relation", path = "../../native-authority/vendor/native-relation", features = ["prover"] }
+output = { package = "kpi-private-batch-auth-exit", path = "../auth_exit" }
+ark-bn254 = "=0.6.0"
+ark-groth16 = { version = "=0.6.0", default-features = false, features = ["std", "parallel"] }
+ark-relations = "=0.6.0"
+ark-serialize = "=0.6.0"
+hex = "=0.4.3"
+libc = "=0.2.191"
+rand = "=0.8.5"
+serde_json = "=1.0.145"
+sha2 = "=0.10.9"
+zeroize = "=1.9.1"
+
+[profile.release]
+debug = 0
+codegen-units = 1
+lto = true
+panic = "abort"
+strip = "symbols"

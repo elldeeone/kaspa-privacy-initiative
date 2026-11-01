@@ -1,4 +1,5 @@
 import {connectTor} from './funding_network_rpc.mjs';
+import {requireLiveNetworkActivation} from './funding_network_activation.mjs';
 import {MiningJobs} from '../bootstrap/mining_jobs.mjs';
 import {identityDocument as newIdentity, checkAddresses, reservePhase, IDS, readPinned, strictJson} from './funding_network_common.mjs';
 // Ordinary TN10 mining with the existing SDK. Default is read-only planning.
@@ -56,6 +57,8 @@ function payloadCheck(block, ownScript) {
   need(actual === ownScript && raw.readBigUInt64LE(8) > 0n, 'own future reward script/subsidy');
   return raw.readBigUInt64LE(8);
 }
+
+requireLiveNetworkActivation();
 
 if (!isMainThread) {
   const k = load(); let active = null, scheduled = false;

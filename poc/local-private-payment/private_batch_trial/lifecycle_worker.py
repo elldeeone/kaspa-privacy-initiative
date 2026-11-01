@@ -14,7 +14,9 @@ import secrets
 import subprocess
 import sys
 import tempfile
+import uuid
 
+import c1_capture_supervisor
 import exit_wire
 import output_producer
 import output_verifier
@@ -109,19 +111,28 @@ def own_initial_cv(receiver, prover, history):
     return owned[0]
 
 
-def prepare_payment(receiver, prover, history, config):
+def prepare_payment(receiver, prover, history, config, capture=None):
     round_number, component = config['round'], config['owner_component']
     claim = wallet_history.select_for_round(history.recover(receiver), round_number, component)
     invoice = wallet.Invoice.parse(read('/invoice/INVOICE208.bin', private=True))
     need(invoice.domain == receiver.profile.domain and invoice.index == 2 * round_number - 1,
          'owner-authenticated-benchmark-recipient-invoice')
     payment = 500_000_000 if round_number == 1 else 200_000_000
+    if capture is not None:
+        # The invoice has just been authenticated. Emit the accepted record
+        # here; the supervisor may order it later but may not recreate it.
+        capture.accepted_invoice(payment)
     fee = config['approved_fee_sompi']
     need(type(fee) is int and 1 <= fee <= exit_wire.MAX, 'owner-exact-approved-integer-fee')
     change = claim.receipt.value_sompi - payment - fee
     need(exit_wire.NOTE_FLOOR <= change <= exit_wire.MAX, 'owner-value-conserving-change-range')
     created = [prover.create(receiver.crypto, invoice, payment),
                prover.create(receiver.crypto, receiver.invoice(2 * round_number), change)]
+    if capture is not None:
+        # These exact tuples exist first at this creation boundary.
+        capture.original(claim.nf, claim.receipt.value_sompi,
+                         created[0].row, payment,
+                         created[1].row, change)
     # Incoming CVs are freshly rerandomized. No creator's old blinding is a
     # recovery prerequisite; value is bound to the CM-proved recovered note.
     blind = secrets.randbelow(output_producer.Q).to_bytes(32, 'little')
@@ -221,6 +232,32 @@ def prepare_exit(receiver, history, config, tail):
             'service_or_other_owner_dependency': False, 'candidate_exported': False}
 
 
+def capture_recovered_receipts(capture, history, claims, config):
+    """Emit only receipts authenticated/decrypted by the immediately prior scan."""
+    if capture is None:
+        return
+    round_number = config['round']
+    need(config['owner_component'] == 1 and round_number in (1, 2),
+         'c1-capture-scan-binding')
+    expected = (
+        ('incoming-payment', 2 * round_number - 1),
+        ('change', 2 * round_number),
+    )
+    for kind, receipt_index in expected:
+        selected = [claim for claim in claims
+                    if claim.receipt.index == receipt_index]
+        need(len(selected) == 1, 'c1-capture-exact-recovered-receipt')
+        claim = selected[0]
+        row = history.rows[claim.position]
+        need(type(row) is bytes and len(row) == 520
+             and row[:32] == claim.receipt.commitment(),
+             'c1-capture-authenticated-receipt-row')
+        # No creator label is accepted from this scan callsite. The emitter
+        # joins the already-committed, HMAC-bound C1 invoice/contact stage.
+        capture.decrypted_receipt(kind, receipt_index, row, row[:32],
+                                  claim.receipt.value_sompi)
+
+
 def run(operation):
     marker = parse(read('/NAMESPACE.json'))
     need(marker == {'schema': 'kpb-one-owner-namespace/v1', 'network': 'disabled',
@@ -230,8 +267,26 @@ def run(operation):
     interfaces = [line.split(':', 1)[0].strip() for line in Path('/proc/net/dev').read_text().splitlines()[2:]]
     need(interfaces == ['lo'], 'network-off-owner-lifecycle-namespace')
     config = parse(read('/CONFIG.json'))
+    try:
+        operation_id = uuid.UUID(config['operation_id'])
+    except (KeyError, TypeError, ValueError, AttributeError):
+        operation_id = None
+    need(operation_id is not None and operation_id.version == 4
+         and str(operation_id) == config['operation_id'],
+         'exact-controller-operation-id')
     for member in config['source_members'] + config['runtime_members']:
         read(member['path'], member['sha256'])
+    capture = None
+    if 'c1_capture' in config:
+        need(operation in ('invoice', 'pay', 'scan')
+             and config['owner_component'] == 1
+             and config['c1_capture']['stage'] == operation
+             and config['c1_capture']['operation_id'] ==
+                 config['operation_id']
+             and config['c1_capture']['target_invoice_operation_id'] ==
+                 config.get('target_invoice_operation_id'),
+             'exact-c1-capture-worker-binding')
+        capture = c1_capture_supervisor.StageEmitter(config['c1_capture'])
     profile = wallet.Profile(bytes.fromhex(config['domain_hex32']), bytes.fromhex(config['profile_id_hex32']))
     modules = wallet.authenticate_js('/runtime/JS-INSTALLED-LEAF-MAP.json', config['js_leaf_map_sha256'], '/runtime/js')
     crypto = wallet.Crypto('/runtime/crypto')
@@ -239,7 +294,11 @@ def run(operation):
         receiver = wallet.Receiver(boundary.load_backup('/original/BACKUP.json', profile), profile, crypto, authority)
         if operation == 'invoice':
             need(type(config['round']) is int and config['round'] in (1, 2), 'owner-benchmark-round')
-            write('/owner/INVOICE208.bin', receiver.invoice(2 * config['round'] - 1).encode())
+            issued = receiver.invoice(2 * config['round'] - 1)
+            write('/owner/INVOICE208.bin', issued.encode())
+            if capture is not None:
+                payment = 500_000_000 if config['round'] == 1 else 200_000_000
+                capture.issued_invoice(payment)
             result = {'authenticated_private_invoice_ready': True, 'invoice_exported_publicly': False}
         else:
             if operation == 'pay':
@@ -255,11 +314,16 @@ def run(operation):
             initial_cv = own_initial_cv(receiver, prover, value)
             history = wallet_history.load_supplied(value, profile, identity, tail, prover.verify, initial_cv)
             if operation == 'pay':
-                result = prepare_payment(receiver, prover, history, config)
+                result = prepare_payment(receiver, prover, history, config,
+                                         capture)
             elif operation == 'exit':
                 result = prepare_exit(receiver, history, config, tail)
             else:
                 claims = history.recover(receiver)
+                # recover() has authenticated every selected ciphertext and
+                # returned the private openings. Capture them at this exact
+                # boundary, before later terminal reconciliation logic.
+                capture_recovered_receipts(capture, history, claims, config)
                 by_nf = {claim.nf: claim for claim in claims}
                 import fresh_self_payout
                 for event in value['transitions']:
@@ -275,6 +339,8 @@ def run(operation):
                 result = {'original_only_scan_complete': True, 'private_claims_exported': False,
                           'terminal_reconciled': history.reserve == 0,
                           'history_sha256': config['history_sha256']}
+        if capture is not None:
+            capture.commit()
     write('/out/PUBLIC.json', {'schema': 'kpb-original-lifecycle-operation/v1', 'operation': operation,
         'scope': wallet_history.SCOPE, 'private_original_or_witness_exported': False,
         'accepted_backing_or_native_settlement': False, **result}, 0o400)

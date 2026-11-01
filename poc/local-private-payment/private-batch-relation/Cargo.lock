@@ -823,7 +823,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "kpi-private-batch-relation"
+name = "kpi-private-batch-auth-exit"
 version = "0.1.0"
 dependencies = [
  "ark-bn254",
@@ -834,11 +834,37 @@ dependencies = [
  "ark-relations",
  "ark-serialize",
  "hex",
+ "kpi-local-private-payment-relation",
  "kpi-nativeauthspend-seam",
  "rand",
  "serde",
  "serde_json",
  "sha2",
+]
+
+[[package]]
+name = "kpi-private-batch-relation"
+version = "0.1.0"
+dependencies = [
+ "ark-bn254",
+ "ark-ec",
+ "ark-ed-on-bn254",
+ "ark-ff",
+ "ark-groth16",
+ "ark-poly",
+ "ark-r1cs-std",
+ "ark-relations",
+ "ark-serialize",
+ "blake2",
+ "hex",
+ "kpi-local-private-payment-relation",
+ "kpi-nativeauthspend-seam",
+ "kpi-private-batch-auth-exit",
+ "rand",
+ "serde",
+ "serde_json",
+ "sha2",
+ "zeroize",
 ]
 
 [[package]]

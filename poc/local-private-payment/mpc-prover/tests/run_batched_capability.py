@@ -148,8 +148,9 @@ class Attempt(base.Attempt):
                result.get('failure_epoch') != expected_epoch:
                 raise RuntimeError('actual capability control typed contract mismatch')
             expected_events = int(expected_proof)
-            for event in ['authenticated-H-map-started', 'masked-A-and-B1-MAC-checked',
-                          'final-B2-and-C-MAC-checked']:
+            for event in ['authenticated-H-map-started',
+                          'masked-secret-G1-products-MAC-checked',
+                          'final-A-B2-C-MAC-checked']:
                 if result['events'].get(event, 0) != expected_events:
                     raise RuntimeError('capability refusal had unexpected H/proof events')
             if self.args.case == 'different-context-generation' and \

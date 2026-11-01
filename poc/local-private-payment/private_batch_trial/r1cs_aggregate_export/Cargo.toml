@@ -1,0 +1,16 @@
+[package]
+name = "kpb-frozen-aggregate-r1cs-export"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+[workspace]
+
+[dependencies]
+flate2 = { version = "=1.1.10", default-features = false, features = ["rust_backend"] }
+hex = "=0.4.3"
+libc = "=0.2.191"
+serde_json = "=1.0.145"
+sha2 = "=0.10.9"
+

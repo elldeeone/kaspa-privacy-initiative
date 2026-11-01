@@ -1,14 +1,7 @@
 #include "packed_assignment.hpp"
 #include "../auth_groups.hpp"
+#include "../p1_capture_seams.hpp"
 #include <array>
-
-namespace kpi::mpc {
-// The same implementation-private friend as the qualified prover. Keeping the
-// identical definition in this TU exposes no caller-facing point accessor.
-struct FinalProofAccess {
-    static G1Value a(const G1ServerOpened& point) { return point.point_; }
-};
-}
 
 namespace kpi::mpc::financial {
 namespace {
@@ -47,17 +40,17 @@ ProofPublic prove_packed_public_fixture(MascotContext& context,
         context.agree_public_bytes("packed-validated-immutable-model", {
             reinterpret_cast<const unsigned char*>(identity.data()), identity.size()});
         const auto h = validated.make_h_map(context, batch);
-        const auto r = context.random_auth(), s = context.random_auth();
-        const std::array<AuthScalar, 1> rv{r}, sv{s};
-        const auto rs = context.multiply_batch(rv, sv).at(0);
+        const auto r = context.random_auth(
+            p1_capture::ScalarCaptureSite::PackedProofMaskR);
+        const auto s = context.random_auth(
+            p1_capture::ScalarCaptureSite::PackedProofMaskS);
         const auto delta1 = model.base_g1(packed::BaseG1::Delta);
         const auto delta2 = model.base_g2(packed::BaseG2::Delta);
         auto a = query_g1(model, packed::Query::A, assignment);
         a += public_point_map(delta1, r);
         add_public(a, model.base_g1(packed::BaseG1::Alpha), context);
-        auto b1 = query_g1(model, packed::Query::B1, assignment);
-        b1 += public_point_map(delta1, s);
-        add_public(b1, model.base_g1(packed::BaseG1::Beta), context);
+        auto b1_base = query_g1(model, packed::Query::B1, assignment);
+        add_public(b1_base, model.base_g1(packed::BaseG1::Beta), context);
         auto b2 = query_g2(model, assignment);
         b2 += public_point_map(delta2, s);
         add_public(b2, model.base_g2(packed::BaseG2::Beta), context);
@@ -67,16 +60,24 @@ ProofPublic prove_packed_public_fixture(MascotContext& context,
         model.check_backing_unchanged();
         GroupMacSetup group_checks(context.player());
         context.report_public_phase("packed-group-MAC-coordinators-ready");
-        const auto [opened_a, opened_b1] = open_checked_g1_pair(context, a, b1);
-        context.report_public_phase("packed-masked-A-and-B1-MAC-checked");
-        auto c = server_opened_point_map(opened_a, s);
-        c += server_opened_point_map(opened_b1, r);
-        c -= public_point_map(delta1, rs);
+        // Canonical algebraic order, independent of query scheduling.
+        const std::array<AuthG1, 4> base_group_state{{
+            a, b1_base, l, h_point}};
+        if (auto* capture = context.p1_capture_seams())
+            capture->proof_base_group_state(base_group_state, b2);
+        const std::array<AuthG1, 2> secret_groups{a, b1_base};
+        const std::array<AuthScalar, 2> secret_scalars{s, r};
+        const auto products = secret_scalar_g1_products(
+            context, group_checks, secret_groups, secret_scalars);
+        context.report_public_phase("packed-masked-secret-G1-products-MAC-checked");
+        auto c = products[0];
+        c += products[1];
         c += l;
         c += h_point;
-        const auto [opened_c, opened_b2] = open_checked_g1_g2(context, c, b2);
-        context.report_public_phase("packed-final-B2-and-C-MAC-checked");
-        ProofPublic result{FinalProofAccess::a(opened_a), opened_b2, opened_c};
+        const auto opened = open_final_groth16(
+            context, group_checks, a, b2, c);
+        context.report_public_phase("packed-final-A-B2-C-MAC-checked");
+        ProofPublic result{opened.a, opened.b, opened.c};
         const auto encoded = encode_native_proof(result);
         const auto decoded = decode_native_proof(encoded);
         if (decoded.a != result.a || decoded.b != result.b || decoded.c != result.c)

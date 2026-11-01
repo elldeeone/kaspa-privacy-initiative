@@ -5,6 +5,7 @@ import zlib from 'node:zlib';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {connectTor} from './funding_network_rpc.mjs';
+import {NETWORK_ACTIVATION_CONFIGURED,requireLiveNetworkActivation} from './funding_network_activation.mjs';
 import {identity as nodeIdentity, frontier, scan, entry} from '../chain/acquire.mjs';
 import {validateHeader} from '../chain/wire.mjs';
 import {IDS,RPCS,NODE_PIN,need,sha,stringify,canonical,strictJson,checkedPath,readPinned,
@@ -12,6 +13,7 @@ import {IDS,RPCS,NODE_PIN,need,sha,stringify,canonical,strictJson,checkedPath,re
   reservePhase,integer,point,pointKey,canonicalTransaction,script} from './funding_network_common.mjs';
 
 const CLOSED = ['anchor','collect','submit-consolidation','reconcile-ordinary','submit-genesis','confirm'];
+export {NETWORK_ACTIVATION_CONFIGURED};
 
 export function nativeGate(job, invoke=spawnSync) {
   const result=invoke('/usr/bin/python3',['-B','-S',fileURLToPath(new URL('./funding_network_gate.py',import.meta.url))],
@@ -27,6 +29,7 @@ export function nativeGate(job, invoke=spawnSync) {
 }
 
 export async function queryInputs(k,rpc,candidate) {
+  requireLiveNetworkActivation();
   const observed=await nodeIdentity(rpc), current=integer(observed.dag.virtualDaaScore);
   const scripts=[...new Set(candidate.contexts.map(row=>row.script_public_key))];
   const addresses=scripts.map(spk=>{const address=k.addressFromScriptPublicKey(spk,'testnet-10');
@@ -46,6 +49,7 @@ export async function queryInputs(k,rpc,candidate) {
 }
 
 export async function currentOutputs(k,rpc,candidate) {
+  requireLiveNetworkActivation();
   const observed=await nodeIdentity(rpc),current=integer(observed.dag.virtualDaaScore);
   const scripts=[...new Set([...candidate.contexts.map(row=>row.script_public_key),
     ...candidate.transaction.outputs.map(row=>row.scriptPublicKey)])];
@@ -66,6 +70,7 @@ export async function currentOutputs(k,rpc,candidate) {
 }
 
 export async function submitOnce({k,rpc,identity,job,candidate,transaction,onSubmit=()=>{}}) {
+  requireLiveNetworkActivation();
   const stage=job.operation==='submit-genesis'?'genesis':'consolidate-'+job.owner_component;
   // Registry consumption precedes the first RPC, including read-only checks.
   // The caller invokes this before connecting; see execute() for that ordering.
@@ -83,6 +88,7 @@ export async function submitOnce({k,rpc,identity,job,candidate,transaction,onSub
 }
 
 export async function collect(k,rpc,identity,output) {
+  requireLiveNetworkActivation();
   const observed=await nodeIdentity(rpc),current=integer(observed.dag.virtualDaaScore),owners=[];
   for (const owner of identity.owners) {
     const reply=await rpc.getUtxosByAddresses({addresses:[owner.address]});
@@ -100,6 +106,7 @@ export async function collect(k,rpc,identity,output) {
 }
 
 export async function captureAnchor(k,rpc,identity) {
+  requireLiveNetworkActivation();
   const found=await frontier(k,rpc);
   return {schema:'kpb-GEN3-birth-anchor/v1',...IDS,trial_id:identity.trial_id,
     component_profile_sha256:identity.component_profile_sha256,native_tail_sha256:identity.native_tail_sha256,
@@ -124,6 +131,7 @@ function decodedPage(output,record) {
 }
 
 export async function confirm(k,rpc,identity,job,candidate,output) {
+  requireLiveNetworkActivation();
   const anchor=strictJson(readPinned('/inputs/ANCHOR.json',job.anchor_sha256));
   need(anchor.schema==='kpb-GEN3-birth-anchor/v1' && Object.entries(IDS).every(([key,value])=>anchor[key]===value)
     && anchor.trial_id===identity.trial_id && anchor.component_profile_sha256===identity.component_profile_sha256
@@ -162,6 +170,7 @@ export async function confirm(k,rpc,identity,job,candidate,output) {
 }
 
 export async function execute(operation) {
+  requireLiveNetworkActivation();
   need(CLOSED.includes(operation),'CLOSED_NEW_PUBLIC_NETWORK_OPERATION');
   need(!fs.existsSync('/etc/ssl/private') && !fs.existsSync('/original') && !fs.existsSync('/home/luke/.codex'), 'PUBLIC_NETWORK_NO_HOST_PRIVATE_MOUNTS');
   need(sha(readPinned(process.execPath))===NODE_PIN,'SELECTED_PUBLIC_NODE');

@@ -110,8 +110,8 @@ void require(bool value, const char* error) {
 void expected_refusal(MascotContext& context, ValidatedAssignment&& capability,
                       const BatchedValidationBinding& binding, std::string_view expected) {
     const auto h_before = events["authenticated-H-map-started"];
-    const auto pair_before = events["masked-A-and-B1-MAC-checked"];
-    const auto final_before = events["final-B2-and-C-MAC-checked"];
+    const auto pair_before = events["masked-secret-G1-products-MAC-checked"];
+    const auto final_before = events["final-A-B2-C-MAC-checked"];
     bool refused = false;
     try {
         (void) prove_validated(context, std::move(capability), binding);
@@ -120,8 +120,8 @@ void expected_refusal(MascotContext& context, ValidatedAssignment&& capability,
     }
     require(refused, "control-wrong-or-missing-capability-refusal");
     require(events["authenticated-H-map-started"] == h_before &&
-            events["masked-A-and-B1-MAC-checked"] == pair_before &&
-            events["final-B2-and-C-MAC-checked"] == final_before,
+            events["masked-secret-G1-products-MAC-checked"] == pair_before &&
+            events["final-A-B2-C-MAC-checked"] == final_before,
             "control-refusal-followed-H-or-proof-opening");
 }
 
@@ -219,8 +219,8 @@ void coin_fault_control(MascotContext& context, int party) {
     }
     context.poison();
     require(events["authenticated-H-map-started"] == 0 &&
-            events["masked-A-and-B1-MAC-checked"] == 0 &&
-            events["final-B2-and-C-MAC-checked"] == 0,
+            events["masked-secret-G1-products-MAC-checked"] == 0 &&
+            events["final-A-B2-C-MAC-checked"] == 0,
             "control-coin-fault-released-proof-events");
     final_result(true, outcome, party, false, false, "", context.generation(),
                  context.generation(), context.failure_epoch(), context.check_counter(), context.check_counter());
@@ -304,8 +304,9 @@ int run(int argc, char** argv) {
             proof_verified = true;
             published_proof = proof_hex(proof);
             require(events["authenticated-H-map-started"] == 1 &&
-                events["masked-A-and-B1-MAC-checked"] == 1 &&
-                events["final-B2-and-C-MAC-checked"] == 1, "control-incomplete-proof-event-chain");
+                events["masked-secret-G1-products-MAC-checked"] == 1 &&
+                events["final-A-B2-C-MAC-checked"] == 1,
+            "control-incomplete-proof-event-chain");
             if (selected_case == "reuse")
                 expected_refusal(*context, std::move(capability), binding,
                                  "validated-assignment-capability-refused");
@@ -369,8 +370,9 @@ int run(int argc, char** argv) {
                 (invalid && message == "invalid-batched-extended-assignment")),
                 "control-unexpected-runtime-refusal");
         require(events["authenticated-H-map-started"] == 0 &&
-                events["masked-A-and-B1-MAC-checked"] == 0 &&
-                events["final-B2-and-C-MAC-checked"] == 0, "control-invalid-released-proof-events");
+                events["masked-secret-G1-products-MAC-checked"] == 0 &&
+                events["final-A-B2-C-MAC-checked"] == 0,
+            "control-invalid-released-proof-events");
         require(events["batched-coin-agreed"] == (shape ? 0 : 1), "control-invalid-coin-order");
         if (selected_case == "repeat-after-invalid") {
             checks[0] = context->public_constant(Fr(0));

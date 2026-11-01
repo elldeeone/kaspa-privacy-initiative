@@ -117,6 +117,7 @@ std::vector<AuthScalar> StreamedWitnessMap::compute(MascotContext& context,
                 // Spans refer directly into A and B. The only result storage
                 // outside the two domain vectors is this bounded chunk.
                 auto products = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::StreamedHProduct,
                     std::span<const AuthScalar>(a).subspan(offset, count),
                     std::span<const AuthScalar>(b).subspan(offset, count));
                 if (products.size() != count)

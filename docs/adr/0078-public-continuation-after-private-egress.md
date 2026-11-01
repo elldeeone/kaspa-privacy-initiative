@@ -56,6 +56,19 @@ The fixed known-unfunded fixture uses a distinct derived, unregistered
 qualification history and cannot be promoted into live registered history or
 claimed to have settled on chain.
 
+The fixed-unfunded implementation now has a narrow public cryptographic
+handoff in
+`poc/local-private-payment/mpc-prover/financial/qualify_public_release.py`.
+It accepts only the
+typed three-party release, binds exact core/proof/projection bytes and the fixed
+old head/state, and directly executes the pinned actual-key host `cross-check`.
+The resulting artifact record explicitly carries false accepted-head, R0 and
+native-settlement authority. This closes the byte-level EGRESS-to-public-
+verifier seam; it does not implement this ADR's registered journal reopening,
+R0 receipt, full native CASE, FINAL-CANDIDATE or SETTLED capabilities. Because
+the outer image selection is still false, proceeding to R0/native authority
+must refuse rather than infer selection from a successful host check.
+
 Registered certificate identity is SHA256 of canonical X.509 DER. Keep separate
 whole-PEM-file hashes for source/file admission. Retain CA and hostname checks,
 and pin the actual TLS peer DER on both streams and every OT/setup `fresh_fork`

@@ -19,6 +19,7 @@ import subprocess
 import time
 import uuid
 
+import c1_capture_supervisor
 import component_run
 import exit_wire
 import new_private_trial as bootstrap
@@ -80,7 +81,7 @@ def public_receipt(value, operation):
 
 def source_selection(shared, read, operation):
     paths = [HERE / name for name in ('private_lifecycle.py', 'new_private_trial.py', 'component_run.py',
-        'lifecycle_worker.py', 'wallet_history.py',
+        'lifecycle_worker.py', 'c1_capture_supervisor.py', 'wallet_history.py',
         'private_worker.py', 'wallet_profile.py', 'output_producer.py', 'output_verifier.py', 'owner_authority.mjs', 'exit_wire.py')]
     paths += [HERE.parent / 'private_batch/intent.py', HERE.parent / 'integration/trees.py',
         HERE.parent / 'verification/wire.py', HERE.parents[1] / 'future-recipient/v2/recipient.py']
@@ -124,19 +125,43 @@ def selected_runtime(read, operation):
 
 
 def execute(slot, operation, original_parent, private, public, shared, config, runtimes, read, approved_fee,
-            invoice=None, observed_route=None):
+            invoice=None, observed_route=None, *, operation_id,
+            capture_stage=None):
     own, out = private / ('owner-' + str(slot)), public / ('owner-' + str(slot))
     own.mkdir(mode=0o700); out.mkdir(mode=0o700)
     original = private_leaf(original_parent / ('owner-' + str(slot)) / 'BACKUP.json')
-    selected = {**config, 'owner_component': slot}
+    try:
+        parsed_operation = uuid.UUID(operation_id)
+    except (ValueError, TypeError, AttributeError):
+        parsed_operation = None
+    need(parsed_operation is not None and parsed_operation.version == 4
+         and str(parsed_operation) == operation_id,
+         'exact-lifecycle-operation-id')
+    target_invoice_operation_id = (None if observed_route is None else
+                                   observed_route.get(
+                                       'target_invoice_operation_id'))
+    selected = {**config, 'owner_component': slot,
+                'operation_id': operation_id}
+    if operation == 'pay':
+        selected['target_invoice_operation_id'] = target_invoice_operation_id
     selected['approved_fee_sompi'] = approved_fee
+    if operation in ('invoice', 'pay', 'scan'):
+        capture_config, capture_mounts = c1_capture_supervisor.controller_stage(
+            capture_stage, owner_component=slot,
+            operation_name=operation, operation_id=operation_id,
+            target_invoice_operation_id=target_invoice_operation_id)
+    else:
+        capture_config, capture_mounts = {}, []
+    need(capture_stage is None or capture_config,
+         'capture-stage-only-supported-lifecycle-operation')
+    selected.update(capture_config)
     config_path, marker = own / 'CONFIG.json', shared / ('NAMESPACE-' + str(slot) + '.json')
     # This is a controller-created request, not an export. Persist it directly
     # to this owner's excluded directory; do not hash or reopen its body.
     private_worker.write(config_path, selected)
     save(marker, {'schema': 'kpb-one-owner-namespace/v1', 'network': 'disabled',
                   'operation': operation, 'owner_slots': 1})
-    mounts = []
+    mounts = list(capture_mounts)
     for source in config['source_members']:
         mounts += ['--ro-bind', str(shared / ('source-' + str(source['index']))), source['path']]
     for alias, path, _ in runtimes:
@@ -168,8 +193,14 @@ def execute(slot, operation, original_parent, private, public, shared, config, r
              and any(argv[i:i + 3] == ['--ro-bind', str(invoice), '/invoice/INVOICE208.bin']
                      for i in range(len(argv) - 2)), 'observed-actual-authenticated-invoice-mount')
     launched = time.monotonic_ns()
+    capture_error = None
     with (own / 'WORKER-STDOUT.log').open('xb') as stdout, (own / 'WORKER-STDERR.log').open('xb') as stderr:
         result = subprocess.run(argv, env=bootstrap.CLEAN, stdout=stdout, stderr=stderr)
+    if capture_stage is not None:
+        try:
+            capture_stage.finish(result.returncode)
+        except BaseException as error:
+            capture_error = error
     if observed_route is not None:
         # These are the actual namespace route/timings visible to the declared
         # dispatcher observer. Do not replace them with counts or infer a
@@ -177,6 +208,8 @@ def execute(slot, operation, original_parent, private, public, shared, config, r
         save(out / 'OBSERVED-INVOICE-ROUTE.json', {**observed_route,
             'launch_monotonic_ns': launched, 'complete_monotonic_ns': time.monotonic_ns(),
             'worker_returncode': result.returncode})
+    if capture_error is not None:
+        raise capture_error
     need(result.returncode == 0, 'isolated-original-owner-operation-incomplete')
     receipt = public_receipt(parse(read(out / 'PUBLIC.json')), operation)
     if operation == 'scan':
@@ -289,7 +322,8 @@ def run(args):
             'invoice_leaf_path': str(recipient), 'source_operation_id': selection['operation_id'],
             'target_invoice_operation_id': invoices['operation_id']}
         return execute(slot, args.operation, original_parent, private, public, shared, config, runtimes, read,
-                       fees[slot], recipient, route)
+                       fees[slot], recipient, route,
+                       operation_id=selection['operation_id'])
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
         owners = list(pool.map(owner, slots))
     result = {'schema': 'kpb-original-lifecycle-controller-result/v1', 'scope': wallet_history.SCOPE,

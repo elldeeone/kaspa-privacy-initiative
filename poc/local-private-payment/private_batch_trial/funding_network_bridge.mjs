@@ -2,10 +2,12 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {createInterface} from 'node:readline';
+import {requireLiveNetworkActivation} from './funding_network_activation.mjs';
 
 const DEFAULT_DEPS = '/deps/websockets-17.3-py3-none-any.whl:/deps/python_socks-3.1.1-py3-none-any.whl';
 
 export async function startTorBridge({upstream, proxyPort = 19050, deps = DEFAULT_DEPS} = {}) {
+  requireLiveNetworkActivation();
   if (deps !== DEFAULT_DEPS) throw new Error('exact admitted wheel-only PYTHONPATH required');
   const selected = new URL(upstream);
   if (selected.protocol !== 'wss:' || selected.username || selected.password || selected.search || selected.hash

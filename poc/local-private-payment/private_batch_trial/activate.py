@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Research-only new-profile GEN3 activation after complete native rehearsal.
+"""Research-only new-profile GEN3 activation plan; network is CONFIGURED0.
 
-Default writes a finite plan without network activity. --execute first reruns
-the complete two-payment/nine-Exit offline native rehearsal, then mines only
-testnet KAS, privately signs ordinary funding/GEN3 and confirms the exact whole
-GEN3 CASE. It does not claim terminal testnet readiness or run private payments.
+Default writes a non-executable plan. ``--execute`` always refuses before the
+root guard or filesystem access. Future activation must be spawned by the live
+parent while consuming both privacy-pass and pre-network-safety authorities.
 """
 import argparse
 import concurrent.futures
@@ -13,17 +12,65 @@ import json
 import os
 from pathlib import Path
 import re
+import stat
 import subprocess
 import threading
 import time
+import uuid
 
 import funding
 import genesis
 import private_worker
-import rehearsal_gate
+import activation_preflight
 
 HERE = Path(__file__).absolute().parent
 need, checked, save, encoded, parse = funding.need, funding.checked, funding.save, private_worker.encoded, private_worker.parse
+ACTIVATION_PREFLIGHT_REGISTRY = (funding.bootstrap.PRIVATE /
+    'activation-preflight-registry-v1')
+
+
+def record_preflight_evidence(trial_id, preflight_sha256,
+                              funding_identity_sha256, *,
+                              registry=ACTIVATION_PREFLIGHT_REGISTRY):
+    """Record one exact audit receipt; this does not admit any authority."""
+    need(str(uuid.UUID(trial_id)) == trial_id,
+         'activation-preflight-canonical-trial-id')
+    activation_preflight.word(preflight_sha256, 'preflight-receipt-sha256')
+    activation_preflight.word(funding_identity_sha256,
+                              'preflight-funding-identity-sha256')
+    registry = Path(registry).absolute()
+    need('..' not in registry.parts
+         and not any(path.is_symlink() for path in
+                     (registry, *registry.parents) if path.exists()),
+         'activation-preflight-registry-path')
+    registry.mkdir(parents=True, exist_ok=True, mode=0o700)
+    info = registry.lstat()
+    need(stat.S_ISDIR(info.st_mode) and info.st_uid == os.getuid()
+         and stat.S_IMODE(info.st_mode) == 0o700,
+         'activation-preflight-registry-mode')
+    marker = registry / preflight_sha256
+    value = {
+        'schema': 'kpb-consumed-testnet-activation-preflight/v1',
+        'trial_id': trial_id,
+        'preflight_receipt_sha256': preflight_sha256,
+        'funding_identity_sha256': funding_identity_sha256,
+        'consumed_before_first_network_operation': True,
+        'terminal_complete_or_readiness_claimed': False,
+    }
+    raw = encoded(value)
+    try:
+        fd = os.open(marker, os.O_WRONLY | os.O_CREAT | os.O_EXCL |
+                     os.O_NOFOLLOW | os.O_CLOEXEC, 0o400)
+    except FileExistsError as error:
+        raise ValueError('activation-preflight-already-consumed') from error
+    with os.fdopen(fd, 'wb') as handle:
+        handle.write(raw); handle.flush(); os.fsync(handle.fileno())
+    parent = os.open(registry, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        os.fsync(parent)
+    finally:
+        os.close(parent)
+    return value
 
 
 def ordinary_source(value, expected_script, trial_id):
@@ -44,6 +91,10 @@ def ordinary_source(value, expected_script, trial_id):
 
 
 def run(args):
+    # This CLI cannot receive either process-local move-only authority. Refuse
+    # before the root guard, selected files, output directories, or child argv.
+    if args.execute:
+        need(False, 'live-parent-authority-conjunction-required')
     import runpy
     read = runpy.run_path('/var/tmp/kpi-root-guard-helper-09.py')['read']
     need(re.fullmatch('[a-z][a-z0-9-]{0,63}', args.label), 'fresh-new-profile-activation-label')
@@ -65,24 +116,33 @@ def run(args):
     need(not public.exists() and not private.exists(), 'fresh-unused-activation-operation')
     public.mkdir(parents=True, mode=0o700); private.mkdir(parents=True, mode=0o700)
     network = HERE / 'funding_network.py'
-    programs = [HERE / name for name in ('activate.py', 'funding.py', 'funding_worker.py', 'genesis.py',
-        'rehearsal_gate.py', 'funding_network.py')]
+    programs = [HERE / name for name in ('activate.py', 'activation_preflight.py',
+        'funding.py', 'funding_worker.py', 'genesis.py', 'funding_network.py')]
     source = [{'path': str(path), 'sha256': hashlib.sha256(read(path)).hexdigest()} for path in programs]
     plan = {'schema': 'kpb-new-profile-research-activation-plan/v1', 'trial_id': value['trial_id'],
         'component_profile_sha256': args.component_profile_sha256, 'native_tail_sha256': args.tail_sha256,
-        'funding_identity_sha256': args.identity_sha256, 'rehearsal_manifest_sha256': args.rehearsal_sha256,
-        'source_members': source, 'ordered_steps': ['complete-native-rehearsal', 'birth-anchor',
+        'funding_identity_sha256': args.identity_sha256,
+        'activation_preflight_sha256': args.preflight_sha256,
+        'source_members': source, 'ordered_steps': ['same-trial-launch-preflight', 'birth-anchor',
             'three-own-testnet-miners', 'maturity-readback', 'three-own-consolidations-and-readbacks',
             'real-GEN3-proposal-three-Original-approvals-NativeFull', 'one-GEN3-submission', 'fresh-whole-CASE-confirmation'],
         'mining_funding_or_broadcast_executed': False, 'readiness_claimed': False,
         'private_payment_or_withdrawal_performed': False}
     save(public / 'PLAN.json', plan)
     if not args.execute:
-        return {'status': 'NEW_PROFILE_RESEARCH_ACTIVATION_STAGED_NO_NETWORK', 'plan': str(public / 'PLAN.json')}
-    need(args.rehearsal is not None and args.rehearsal_sha256 is not None,
-         'complete-two-payment-nine-Exit-native-rehearsal-required-before-funding')
-    # No caller-supplied PASS flag reaches the first network operation.
-    rehearsal_gate.verify(args, read, args.rehearsal, args.rehearsal_sha256, public / 'actual-rehearsal-recheck')
+        return {'status': 'NEW_PROFILE_RESEARCH_ACTIVATION_STAGED_NO_NETWORK',
+                'plan': str(public / 'PLAN.json'),
+                'network_activation_configured': False,
+                'live_parent_authority_conjunction_present': False}
+    need(args.preflight is not None and args.preflight_sha256 is not None,
+         'exact-same-trial-activation-preflight-required-before-funding')
+    # No caller-supplied PASS flag reaches the first network operation. The
+    # receipt is rebuilt from its exact source contract; it carries no terminal
+    # completion/readiness authority.
+    launch = activation_preflight.verify_audit(args, read, args.preflight,
+        args.preflight_sha256, public / 'actual-activation-preflight-recheck')
+    record_preflight_evidence(value['trial_id'], args.preflight_sha256,
+                              args.identity_sha256)
     ordinal = 0
     launch_lock = threading.Lock()
     def pin(path): return hashlib.sha256(read(path)).hexdigest()
@@ -108,7 +168,9 @@ def run(args):
         '--component-profile', args.component_profile, '--component-profile-sha256', args.component_profile_sha256,
         '--tail', args.tail, '--tail-sha256', args.tail_sha256, '--fee-rate-sompi-per-mass', args.fee_rate_sompi_per_mass]
     def milestone(step, **metadata): print(json.dumps({'step': step, **metadata}), flush=True)
-    milestone('complete-native-terminal-path-reexecuted')
+    milestone('same-trial-launch-preflight-consumed',
+              launch_authorized=launch['launch_authorized'],
+              terminal_complete=False, readiness=False)
     anchor = public / 'birth-anchor'
     net('anchor', anchor)
     anchor_file = anchor / 'RESULTS.json'
@@ -191,6 +253,10 @@ def run(args):
         'birth_anchor': str(anchor_file), 'birth_anchor_sha256': pin(anchor_file),
         'component_profile_sha256': args.component_profile_sha256, 'native_tail_sha256': args.tail_sha256,
         'pre_genesis_paid_fee_sompi': ordinary_fees, 'R1_R2_nine_exits_and_testnet_terminal_recovery_still_required': True,
+        'activation_preflight_sha256': args.preflight_sha256,
+        'complete_terminal_lifecycle_observed': False,
+        'testnet_trial_readiness_claimed': False,
+        'mainnet_or_production_authorized': False,
         'financial_readiness_or_independent_consensus_proof': False}
     save(public / 'HANDOFF.json', result)
     milestone('new-profile-GEN3-confirmed-private-lifecycle-pending')
@@ -203,7 +269,7 @@ def main():
     for name in ('label', 'trial', 'trial-sha256', 'identity', 'identity-sha256', 'component-profile',
                  'component-profile-sha256', 'tail', 'tail-sha256', 'output'):
         parser.add_argument('--' + name, required=True)
-    parser.add_argument('--rehearsal'); parser.add_argument('--rehearsal-sha256')
+    parser.add_argument('--preflight'); parser.add_argument('--preflight-sha256')
     parser.add_argument('--fee-rate-sompi-per-mass', type=int, default=100)
     parser.add_argument('--mining-workers', type=int, default=4)
     parser.add_argument('--target-sompi', type=int, default=3_100_000_000)

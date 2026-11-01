@@ -1,17 +1,22 @@
 #include "owner_inputs_active.hpp"
+#include "owner_input_ddnnt.hpp"
+#include "owner_cohort_ingress.hpp"
+#include "p1_capture_seams.hpp"
 #include "ExternalIO/Client.hpp"
 #include <algorithm>
 #include <array>
-#include <bit>
 #include <limits>
 #include <memory>
 #include <fstream>
+#include <openssl/crypto.h>
 #include <openssl/ssl.h>
 #include <openssl/x509v3.h>
 #include <stdexcept>
 
 namespace kpi::mpc {
 namespace {
+inline constexpr std::size_t OWNER_DDNNT_MULTIPLICATION_BATCH = 4096;
+
 void require_hash(const std::string& value) {
     if (value.size() != 64 || value.find_first_not_of("0123456789abcdef") != std::string::npos)
         throw std::runtime_error("owner-contract-identity-format");
@@ -62,35 +67,136 @@ std::string require_authenticated_peer(client_socket* socket,
     return public_key_identity(certificate);
 }
 
-void require_frame(const octetStream& frame, size_t count) {
-    if (count > std::numeric_limits<size_t>::max() / Fr::size() ||
-        frame.get_length() != count * Fr::size())
-        throw std::runtime_error("owner-active-field-frame-length");
-}
-
-Fr unpack_strict(octetStream& frame) {
-    static_assert(std::endian::native == std::endian::little,
-                  "Selected MP-SPDZ native Montgomery framing requires little-endian limbs");
-    const auto size = static_cast<size_t>(Fr::size());
-    if (frame.left() < size)
-        throw std::runtime_error("truncated-owner-Fr");
-    auto* encoded = frame.consume(size);
-    // ExternalIO uses fixed-width Montgomery field representations. Check the
-    // raw residue is canonical in that representation before upstream unpack.
-    bigint residue;
-    mpz_import(residue.get_mpz_t(), size, -1, 1, 0, 0, encoded);
-    if (residue >= fr_modulus())
-        throw std::runtime_error("owner-Montgomery-Fr-alias");
-    octetStream single(size, encoded);
-    Fr result;
-    result.unpack(single);
-    if (!single.done())
-        throw std::runtime_error("owner-Fr-frame-not-exhausted");
-    return result;
-}
-
 std::string frame_bytes(const octetStream& frame) {
     return std::string(reinterpret_cast<const char*>(frame.get_data()), frame.get_length());
+}
+
+template<class T>
+void wipe_vector(std::vector<T>& values) noexcept {
+    if (!values.empty())
+        OPENSSL_cleanse(values.data(), values.size() * sizeof(T));
+    values.clear();
+    std::vector<T>().swap(values);
+}
+
+void wipe_frame(octetStream& frame) noexcept {
+    if (frame.get_length() != 0)
+        OPENSSL_cleanse(frame.get_data(), frame.get_length());
+    frame.clear();
+}
+
+template<class T>
+class VectorWipeGuard {
+    std::vector<T>* values_;
+public:
+    explicit VectorWipeGuard(std::vector<T>& values) : values_(&values) {}
+    ~VectorWipeGuard() { if (values_ != nullptr) wipe_vector(*values_); }
+    void release() noexcept { values_ = nullptr; }
+};
+
+class FrameWipeGuard {
+    octetStream* frame_;
+public:
+    explicit FrameWipeGuard(octetStream& frame) : frame_(&frame) {}
+    ~FrameWipeGuard() { if (frame_ != nullptr) wipe_frame(*frame_); }
+    void release() noexcept { frame_ = nullptr; }
+};
+
+std::vector<AuthScalar> prepare_ddnnt_input_supply(
+        MascotContext& context, std::size_t input_count,
+        octetStream& preprocessing_frame) {
+    if (input_count == 0 ||
+        input_count > std::numeric_limits<std::size_t>::max() /
+                          DDNNT_COMPONENT_COUNT ||
+        input_count * DDNNT_COMPONENT_COUNT >
+            std::numeric_limits<std::size_t>::max() /
+                static_cast<std::size_t>(Fr::size()))
+        throw std::runtime_error("owner-ddnnt-preprocessing-shape");
+
+    FrameWipeGuard preprocessing_guard(preprocessing_frame);
+    preprocessing_frame.reserve(input_count * DDNNT_COMPONENT_COUNT *
+                                static_cast<std::size_t>(Fr::size()));
+    std::vector<AuthScalar> masks;
+    VectorWipeGuard<AuthScalar> masks_guard(masks);
+    masks.reserve(input_count);
+    for (std::size_t first = 0; first < input_count;
+         first += OWNER_DDNNT_MULTIPLICATION_BATCH) {
+        const auto count = std::min(OWNER_DDNNT_MULTIPLICATION_BATCH,
+                                    input_count - first);
+        std::vector<AuthScalar> s(count), r(count), w(count);
+        VectorWipeGuard<AuthScalar> s_guard(s);
+        VectorWipeGuard<AuthScalar> r_guard(r);
+        VectorWipeGuard<AuthScalar> w_guard(w);
+        for (std::size_t index = 0; index < count; ++index)
+            context.protocols().preprocessing.get_three(
+                DATA_TRIPLE, s[index], r[index], w[index]);
+        auto v = context.random_auth_batch(
+            p1_capture::ScalarCaptureSite::OwnerDdnntRandomV, count);
+        VectorWipeGuard<AuthScalar> v_guard(v);
+        auto u = context.multiply_batch(
+            p1_capture::ScalarCaptureSite::OwnerDdnntProductU, v, r);
+        VectorWipeGuard<AuthScalar> u_guard(u);
+        // No local value share crosses the owner TLS boundary until the stock
+        // preprocessing, multiplication, MAC and checked-broadcast state for
+        // this complete public chunk has finished.
+        context.check_field_pending();
+        // The owner receives value shares only. Preserve P1's complete typed
+        // authenticated triple share/MAC lane before packing and wiping. This
+        // is not a claim to capture internal OT/PRNG coins or other host state.
+        context.capture_authenticated_values(
+            p1_capture::ScalarCaptureSite::OwnerDdnntTripleS, s);
+        context.capture_authenticated_values(
+            p1_capture::ScalarCaptureSite::OwnerDdnntTripleR, r);
+        context.capture_authenticated_values(
+            p1_capture::ScalarCaptureSite::OwnerDdnntTripleW, w);
+        for (std::size_t index = 0; index < count; ++index) {
+            s[index].get_share().pack(preprocessing_frame);
+            r[index].get_share().pack(preprocessing_frame);
+            w[index].get_share().pack(preprocessing_frame);
+            v[index].get_share().pack(preprocessing_frame);
+            u[index].get_share().pack(preprocessing_frame);
+            masks.push_back(s[index]);
+        }
+    }
+    require_owner_fr_frame_length(
+        preprocessing_frame, input_count * DDNNT_COMPONENT_COUNT);
+    preprocessing_guard.release();
+    masks_guard.release();
+    return masks;
+}
+
+std::vector<AuthScalar> receive_ddnnt_offset_and_derive(
+        MascotContext& context, client_socket* socket,
+        std::span<const AuthScalar> masks, unsigned owner,
+        p1_capture::P1OwnerInputOffsetFrameSink* capture) {
+    octetStream offset;
+    FrameWipeGuard offset_guard(offset);
+    offset.Receive(socket);
+    bool valid_length = true;
+    try { require_owner_fr_frame_length(offset, masks.size()); }
+    catch (...) { valid_length = false; }
+    const unsigned char valid = valid_length ? 1 : 0;
+    context.agree_public_bytes(
+        "owner-ddnnt-offset-length-valid",
+        std::span<const unsigned char>(&valid, 1));
+    if (!valid_length)
+        throw std::runtime_error("owner-ddnnt-offset-frame-length");
+    if (capture != nullptr)
+        capture->owner_input_offset_frame(
+            owner, {offset.get_data(), offset.get_length()});
+    context.agree_public_bytes(
+        "owner-ddnnt-common-offset",
+        {offset.get_data(), offset.get_length()});
+    auto offsets = decode_owner_fr_frame(offset, masks.size());
+    VectorWipeGuard<Fr> offsets_guard(offsets);
+    std::vector<AuthScalar> inputs;
+    inputs.reserve(masks.size());
+    for (std::size_t index = 0; index < masks.size(); ++index)
+        inputs.push_back(masks[index] +
+                         context.public_constant(offsets[index]));
+    context.capture_authenticated_values(
+        p1_capture::ScalarCaptureSite::OwnerDerivedInput, inputs);
+    return inputs;
 }
 }  // namespace
 
@@ -106,17 +212,19 @@ std::string canonical_owner_contract(const OwnerInputContract& contract) {
                                             contract.server_certificate_sha256.end());
     if (server_pins.size() != 3 || server_pins.contains(contract.owner_certificate_sha256))
         throw std::runtime_error("owner-contract-reused-cohort-certificate");
-    if (contract.owner_id < 0 || contract.input_count == 0 ||
-        contract.input_count > std::numeric_limits<size_t>::max() / (3 * Fr::size()))
+    if (contract.owner_id < 0 || contract.owner_id > 2 ||
+        contract.input_count == 0 ||
+        contract.input_count > std::numeric_limits<size_t>::max() /
+                                   (DDNNT_COMPONENT_COUNT * Fr::size()))
         throw std::runtime_error("owner-contract-role-or-shape");
     const bool trace_bound = !contract.trace_identity.empty() || !contract.layout_identity.empty();
     if (trace_bound) {
         require_hash(contract.trace_identity);
         require_hash(contract.layout_identity);
     }
-    return std::string(trace_bound ? "KPI_MASCOT_OWNER_INPUT_V2\nBN254\nFr\n" :
-                                    "KPI_MASCOT_OWNER_INPUT_V1\nBN254\nFr\n") + FR_MODULUS +
-        "\nDDNNT_ACTIVE_3N\n" + contract.run_nonce + "\n" +
+    return std::string(trace_bound ? "KPI_MASCOT_OWNER_DDNNT_INPUT_V2\nBN254\nFr\n" :
+                                    "KPI_MASCOT_OWNER_DDNNT_INPUT_V1\nBN254\nFr\n") + FR_MODULUS +
+        "\nDDNNT_ACTIVE_5N\n" + contract.run_nonce + "\n" +
         contract.model_identity + "\n" + contract.source_identity + "\n" +
         contract.proving_key_identity + "\n" + contract.verifying_key_identity + "\n" +
         (trace_bound ? contract.trace_identity + "\n" + contract.layout_identity + "\n" : "") +
@@ -149,7 +257,8 @@ OwnerInputContract load_owner_contract(const std::filesystem::path& path) {
         return std::stoull(value);
     };
     const auto version = token();
-    if (version != "KPI_OWNER_CONTRACT_V1" && version != "KPI_OWNER_CONTRACT_V2")
+    if (version != "KPI_OWNER_DDNNT_CONTRACT_V1" &&
+        version != "KPI_OWNER_DDNNT_CONTRACT_V2")
         throw std::runtime_error("owner-contract-version");
     OwnerInputContract result{};
     tag("run_nonce"); result.run_nonce = token();
@@ -157,7 +266,7 @@ OwnerInputContract load_owner_contract(const std::filesystem::path& path) {
     tag("source"); result.source_identity = token();
     tag("pk"); result.proving_key_identity = token();
     tag("vk"); result.verifying_key_identity = token();
-    if (version == "KPI_OWNER_CONTRACT_V2") {
+    if (version == "KPI_OWNER_DDNNT_CONTRACT_V2") {
         tag("trace"); result.trace_identity = token();
         tag("layout"); result.layout_identity = token();
     }
@@ -192,7 +301,17 @@ ActiveOwnerInputServer::ActiveOwnerInputServer(MascotContext& context, int port_
     clients_.start_listening(port_base_);
 }
 
-std::vector<AuthScalar> ActiveOwnerInputServer::receive(const OwnerInputContract& contract) {
+std::vector<AuthScalar> ActiveOwnerInputServer::receive(
+        const OwnerInputContract& contract,
+        p1_capture::P1OwnerInputOffsetFrameSink* p1_capture) {
+    try {
+    auto* attached = context_.p1_capture_seams();
+    if (p1_capture != nullptr && attached != nullptr &&
+        p1_capture != attached)
+        throw std::runtime_error("P1-owner-capture-capability-mismatch");
+    auto* selected_capture = p1_capture != nullptr ? p1_capture : attached;
+    if (selected_capture != nullptr && context_.party_id() != 1)
+        throw std::runtime_error("P1-owner-capture-role");
     const auto canonical = canonical_owner_contract(contract);
     if (!consumed_roles_.insert(contract.owner_id).second)
         throw std::runtime_error("duplicate-owner-job-role");
@@ -217,29 +336,132 @@ std::vector<AuthScalar> ActiveOwnerInputServer::receive(const OwnerInputContract
     context_.agree_public_bytes("owner-job-ack", std::span(
         acknowledgment.get_data(), acknowledgment.get_length()));
 
-    std::vector<std::array<AuthScalar, 3>> triples(contract.input_count);
-    for (auto& triple : triples)
-        context_.protocols().preprocessing.get_three(DATA_TRIPLE,
-            triple[0], triple[1], triple[2]);
-    context_.check_field_pending();
-    octetStream mask_components;
-    for (const auto& triple : triples)
-        for (const auto& component : triple)
-            component.get_share().pack(mask_components);  // Never a MAC lane.
-    require_frame(mask_components, 3 * contract.input_count);
-    mask_components.Send(socket);
+    octetStream preprocessing_frame;
+    auto masks = prepare_ddnnt_input_supply(
+        context_, contract.input_count, preprocessing_frame);
+    try {
+        if (selected_capture != nullptr)
+            selected_capture->owner_input_preprocessing_share_frame(
+                static_cast<unsigned>(contract.owner_id),
+                {preprocessing_frame.get_data(),
+                 preprocessing_frame.get_length()});
+        preprocessing_frame.Send(socket);
+        wipe_frame(preprocessing_frame);
+        auto inputs = receive_ddnnt_offset_and_derive(
+            context_, socket, masks,
+            static_cast<unsigned>(contract.owner_id), selected_capture);
+        wipe_vector(masks);
+        clients_.close_connection(owner);
+        return inputs;
+    } catch (...) {
+        wipe_frame(preprocessing_frame);
+        wipe_vector(masks);
+        throw;
+    }
+    } catch (...) { context_.poison(); throw; }
+}
 
-    octetStream masked;
-    masked.Receive(socket);
-    require_frame(masked, contract.input_count);
-    context_.agree_public_bytes("owner-masked-input", std::span(masked.get_data(), masked.get_length()));
-    std::vector<AuthScalar> inputs;
-    for (size_t i = 0; i < contract.input_count; ++i)
-        inputs.push_back(context_.public_constant(unpack_strict(masked)) - triples[i][0]);
-    if (!masked.done())
-        throw std::runtime_error("trailing-owner-masked-input");
-    clients_.close_connection(owner);
-    return inputs;
+std::array<std::vector<AuthScalar>, 3>
+ActiveOwnerInputServer::receive_cohort(
+        const std::array<OwnerInputContract, 3>& contracts,
+        PrivateOwnerCohortObserver& observer,
+        p1_capture::P1OwnerInputOffsetFrameSink* p1_capture) {
+    try {
+    auto* attached = context_.p1_capture_seams();
+    if (p1_capture != nullptr && attached != nullptr &&
+        p1_capture != attached)
+        throw std::runtime_error("P1-owner-capture-capability-mismatch");
+    auto* selected_capture = p1_capture != nullptr ? p1_capture : attached;
+    if (selected_capture != nullptr && context_.party_id() != 1)
+        throw std::runtime_error("P1-owner-capture-role");
+    std::array<std::string, 3> canonical;
+    std::array<std::size_t, 3> frame_sizes{};
+    for (std::size_t role = 0; role < contracts.size(); ++role) {
+        const auto& contract = contracts[role];
+        if (contract.owner_id != static_cast<int>(role) ||
+            !consumed_roles_.insert(contract.owner_id).second)
+            throw std::runtime_error("owner-cohort-contract-role");
+        canonical[role] = canonical_owner_contract(contract);
+        frame_sizes[role] = contract.input_count * Fr::size();
+    }
+    OwnerCohortIngressState ingress(frame_sizes);
+
+    // Accept and authenticate the complete cohort in arbitrary network order.
+    // No MPC agreement or preprocessing is allowed in this phase because the
+    // three computing parties can observe different socket arrival orders.
+    for (std::size_t ordinal = 0; ordinal < contracts.size(); ++ordinal) {
+        const int owner = clients_.get_client_connection(port_base_);
+        if (owner < 0 || owner >= static_cast<int>(contracts.size()))
+            throw std::runtime_error("owner-cohort-role");
+        const auto& contract = contracts[static_cast<std::size_t>(owner)];
+        auto* socket = clients_.get_socket(owner);
+        const auto owner_key = require_authenticated_peer(
+            socket, "C" + std::to_string(owner),
+            contract.owner_certificate_sha256);
+        if (owner_key == public_key_identity(
+                SSL_get_certificate(socket->native_handle())))
+            throw std::runtime_error("owner-and-server-TLS-key-reuse");
+        ingress.authenticated(static_cast<unsigned>(owner));
+        observer.owner_authenticated(static_cast<unsigned>(owner));
+        // Upstream Client connects to P0/P1/P2 sequentially and waits for the
+        // public job specification at each hop. Send only this already
+        // validated owner's canonical public specification now; MPC agreement,
+        // preprocessing and private upload remain blocked on the full cohort.
+        octetStream specification(canonical[static_cast<std::size_t>(owner)]);
+        specification.Send(socket);
+    }
+    ingress.require_full_authentication();
+
+    // From here every party uses the same canonical role order, independent
+    // of its local connection order. This preserves all-three agreement and
+    // preprocessing sequencing while keeping arrival order observer-private.
+    std::array<std::vector<AuthScalar>, 3> result;
+    for (std::size_t role = 0; role < contracts.size(); ++role) {
+        const auto& contract = contracts[role];
+        const auto& job = canonical[role];
+        context_.agree_public_bytes("owner-contract", std::span(
+            reinterpret_cast<const unsigned char*>(job.data()), job.size()));
+        auto* socket = clients_.get_socket(static_cast<int>(role));
+        octetStream acknowledgment;
+        acknowledgment.Receive(socket);
+        const auto expected_ack = sha256_hex(std::span(
+            reinterpret_cast<const unsigned char*>(job.data()), job.size()));
+        if (frame_bytes(acknowledgment) != expected_ack)
+            throw std::runtime_error(
+                "wrong-or-replayed-owner-job-acknowledgment");
+        context_.agree_public_bytes("owner-job-ack", std::span(
+            acknowledgment.get_data(), acknowledgment.get_length()));
+
+        octetStream preprocessing_frame;
+        auto masks = prepare_ddnnt_input_supply(
+            context_, contract.input_count, preprocessing_frame);
+        try {
+            if (selected_capture != nullptr)
+                selected_capture->owner_input_preprocessing_share_frame(
+                    static_cast<unsigned>(role),
+                    {preprocessing_frame.get_data(),
+                     preprocessing_frame.get_length()});
+            preprocessing_frame.Send(socket);
+            wipe_frame(preprocessing_frame);
+            result[role] = receive_ddnnt_offset_and_derive(
+                context_, socket, masks, static_cast<unsigned>(role),
+                selected_capture);
+            wipe_vector(masks);
+        } catch (...) {
+            wipe_frame(preprocessing_frame);
+            wipe_vector(masks);
+            throw;
+        }
+        // Count the owner upload only after its exact common offset is
+        // canonical, agreed by all three parties and converted to [s] + d.
+        ingress.upload_complete(static_cast<unsigned>(role), frame_sizes[role]);
+        observer.owner_upload_complete(static_cast<unsigned>(role),
+                                       frame_sizes[role]);
+        clients_.close_connection(static_cast<int>(role));
+    }
+    ingress.seal();
+    return result;
+    } catch (...) { context_.poison(); throw; }
 }
 
 void send_private_inputs_active(const std::array<std::string, 3>& hostnames,
@@ -265,25 +487,33 @@ void send_private_inputs_active(const std::array<std::string, 3>& hostnames,
     for (auto* socket : client.sockets)
         octetStream(ack).Send(socket);
 
-    std::vector<std::array<Fr, 3>> triples(values.size());
-    for (auto* socket : client.sockets) {
-        octetStream frame;
-        frame.Receive(socket);
-        require_frame(frame, 3 * values.size());  // No one-mask fallback.
-        for (auto& triple : triples)
-            for (auto& value : triple)
-                value += unpack_strict(frame);
-        if (!frame.done())
-            throw std::runtime_error("trailing-owner-triple-components");
+    std::array<std::vector<Fr>, 3> party_frames;
+    try {
+        for (std::size_t server = 0; server < client.sockets.size(); ++server) {
+            octetStream frame;
+            try {
+                frame.Receive(client.sockets[server]);
+                party_frames[server] = decode_owner_fr_frame(
+                    frame, DDNNT_COMPONENT_COUNT * values.size());
+                wipe_frame(frame);
+            } catch (...) {
+                wipe_frame(frame);
+                throw;
+            }
+        }
+        auto masks = reconstruct_checked_ddnnt_masks(
+            party_frames, values.size());
+        VectorWipeGuard<Fr> masks_guard(masks);
+        for (auto& frame : party_frames)
+            wipe_owner_fr_values(frame);
+        auto offset = make_owner_masked_difference_frame(values, masks);
+        FrameWipeGuard offset_guard(offset);
+        for (auto* socket : client.sockets)
+            offset.Send(socket);
+    } catch (...) {
+        for (auto& frame : party_frames)
+            wipe_owner_fr_values(frame);
+        throw;
     }
-    for (const auto& triple : triples)
-        if (triple[0] * triple[1] != triple[2])
-            throw std::runtime_error("owner-active-triple-check");
-    octetStream masked;
-    for (size_t i = 0; i < values.size(); ++i)
-        Fr(values[i] + triples[i][0]).pack(masked);
-    require_frame(masked, values.size());
-    for (auto* socket : client.sockets)
-        masked.Send(socket);
 }
 }  // namespace kpi::mpc

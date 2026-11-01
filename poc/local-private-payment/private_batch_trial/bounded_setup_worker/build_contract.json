@@ -1,0 +1,54 @@
+{
+  "schema": "kpb-bounded-static-setup-worker-build/v1",
+  "toolchain": {
+    "rustc_release": "1.95.0",
+    "rustc_commit": "59807616e1fa2540724bfbac14d7976d7e4a3860",
+    "llvm": "22.1.2",
+    "target": "x86_64-unknown-linux-musl",
+    "offline": true,
+    "locked": true,
+    "static_non_pie": true
+  },
+  "worker_build_controls": [
+    {"path": "Cargo.toml", "sha256": "fdfad328fe51258545cfd223b446de3f3250a9c19e726024af22cb9b679348d8"},
+    {"path": "Cargo.lock", "sha256": "268ccabb2d2e0e2787477d93976a5ef6d9f4a6eba54e4c08fc6a36f982759e2d"},
+    {"path": ".cargo/config.toml", "sha256": "bc559216e0ebf7f548fa1c2cc557c0a079ceeaa28067a69f6bceee88e0c03f39"},
+    {"path": "rust-toolchain.toml", "sha256": "2ff65fbf5269faeed6e23bfa6f2f2c7e2b742995484a319d798cdafe02d09faa"},
+    {"path": "src/main.rs", "sha256": "e1562118ebab201d7cce9e273166310d4757d3c572ccafbb1fc880f1cdaf734d"}
+  ],
+  "worker_build_control_identity": "8617e2abb6b7226d60d6d85c47faa09589d87280215ff24771e33eba3f8905ca",
+  "local_source_closure": {
+    "manifest": "source_closure.json",
+    "manifest_sha256": "4c46c838d132e8916cfc28e1468a9db55d09c5235b7b4ae6578f547bfe4b7ef9",
+    "resolved_local_packages": 5,
+    "files": 50,
+    "local_build_scripts": [],
+    "closure_identity": "04a809da7e8efbaa62a55972b23676df0f8e64d9ab136b2a9212ee5e4c7536d0"
+  },
+  "registry_resolution": {
+    "cargo_lock": "Cargo.lock",
+    "cargo_lock_sha256": "268ccabb2d2e0e2787477d93976a5ef6d9f4a6eba54e4c08fc6a36f982759e2d",
+    "locked": true,
+    "offline": true
+  },
+  "build_closure_identity": "e303980390081583c421001324c3cc90dacfd99b2028f95946f2d6fb9ec0a85d",
+  "selected_worker": {
+    "relative_path": "target/x86_64-unknown-linux-musl/release/kpb-bounded-setup-worker",
+    "bytes": 1745168,
+    "sha256": "5754490a8649fe9f287d3e3f7f40d3abcdcbc515afb39e8122b8dd17e6adcd0d",
+    "elf_type": "ET_EXEC",
+    "machine": "EM_X86_64",
+    "pt_interp": false,
+    "pt_dynamic": false
+  },
+  "circuit_closures": {
+    "output_source": "ccd4e28a728cbf8ffd6db0dd0fa81a6200c0c6e4ecb20242435f00e5b6aae19e",
+    "output_matrix": "d8e94558a7b9e3a5cc6187a894cb7f141d85d3c6d862b6a628561a24c4bfdd31",
+    "aggregate_source": "04adfd77d3b97f60efe6c4547cda583856ea7f7be4c9538f4237330ac137a9d7",
+    "aggregate_matrix": "c02320f82593d16f347e22a7b14cbe5ae394027a260b6af8a4a247b1c6c756ab"
+  },
+  "full_output_setup_executed": false,
+  "full_aggregate_setup_executed": false,
+  "erasure_cryptographically_proven": false,
+  "setup_honesty_cryptographically_proven": false
+}

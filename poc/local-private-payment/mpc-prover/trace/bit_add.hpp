@@ -13,7 +13,9 @@ std::vector<Scalar> add_words(Context& context, const std::vector<Scalar>& first
     if (first.size() != second.size() || first.empty())
         throw std::runtime_error("trace-add-runtime-arity");
     const auto width = first.size();
-    auto generate = context.multiply_batch(first, second);
+    auto generate = context.multiply_batch(
+        p1_capture::ScalarCaptureSite::TraceBitAddGenerate,
+        first, second);
     std::vector<Scalar> original, propagate;
     original.reserve(width);
     for (size_t i = 0; i < width; ++i)
@@ -27,7 +29,9 @@ std::vector<Scalar> add_words(Context& context, const std::vector<Scalar>& first
             left.push_back(propagate[i]); right.push_back(generate[i - distance]);
             left.push_back(propagate[i]); right.push_back(propagate[i - distance]);
         }
-        const auto products = context.multiply_batch(left, right);
+        const auto products = context.multiply_batch(
+            p1_capture::ScalarCaptureSite::TraceBitAddPropagate,
+            left, right);
         auto next_generate = generate;
         auto next_propagate = propagate;
         for (size_t i = distance; i < width; ++i) {
@@ -42,7 +46,9 @@ std::vector<Scalar> add_words(Context& context, const std::vector<Scalar>& first
     for (size_t i = 1; i < width; ++i) {
         left.push_back(original[i]); right.push_back(generate[i - 1]);
     }
-    const auto products = context.multiply_batch(left, right);
+    const auto products = context.multiply_batch(
+        p1_capture::ScalarCaptureSite::TraceBitAddFinalize,
+        left, right);
     std::vector<Scalar> result;
     result.reserve(width);
     result.push_back(original[0]);

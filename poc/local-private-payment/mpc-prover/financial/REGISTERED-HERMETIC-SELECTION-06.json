@@ -1,0 +1,54 @@
+{
+  "schema": "kpb-registered-hermetic-selection/v1",
+  "status": "RETRACTED_STALE_UNTRUSTED",
+  "retraction": {
+    "reason": "selection-06 predates minimal-mount namespaces, external authority pins, sealed runtime execution, and the pending registry supervisor anchor source closure",
+    "may_be_selected_or_launched": false,
+    "regeneration_required": true
+  },
+  "snapshot": {
+    "path": ".local/registered-financial-selection-06",
+    "files_in_manifest": 3219,
+    "files_on_disk_including_manifest_and_receipt": 3221,
+    "snapshot_receipt_sha256": "ebf55850f7bb166b5dd82f7f2b12f1320b8a442d9101148939ca38d8c2402ba5",
+    "configuration_candidate_sha256": "a6557811bb869ad7804bfca60f630da6aa1bcf59d2f26d98468415d44ab2d720",
+    "historical_only": true
+  },
+  "selected_runtime": {
+    "closure_sha256": "bc1aeed76b4ec5578169f851a1341215a4232226bf2f815499e8b615ce9a5708",
+    "verifier_sha256": "e02148fd9f73444ea747a9f3b73564fe8045f226f1de2e6de3fa302f9d8b057e",
+    "python_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+    "loader_sha256": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14",
+    "libSPDZ_sha256": "06fb18d0e8521b9dca7114d0e1b810a68be8468acfadc1f0a7e895f9368c8036",
+    "host_cache_disabled": true,
+    "binary_runpath_disabled": true,
+    "resolved_objects_are_snapshot_files": true,
+    "live_vendor_runtime_masked": true,
+    "inherited_environment_keys": [],
+    "network_namespace_isolated": true
+  },
+  "authority": {
+    "trial_id": "46c16c64-2ba3-4d69-89e0-c00bd3a1277b",
+    "registration_sha256": "101b682fcd64f51ec4214ee5858f06f1adefa49f225be89b32a3318d71c8f92d",
+    "selection_sha256": "77252d3ca1a4faffa3ee8e03706a93604e0909034cc274309c7ea2300c198401",
+    "trial_authority_sha256": "520b0983849b7cd777c266a4d706994d804836fb1612610c5dd9ec16ab1fd672",
+    "unconfigured_build_authority_sha256": "0931de42aaa401f20725b9b48fd3f63580d00b7a96fadfcc84b8be5276e47f74"
+  },
+  "controls": {
+    "registered_selection_candidate": "HISTORICAL 11/11 PASS BEFORE RETRACTION",
+    "selected_verifier_executed": true,
+    "interpreter_loader_runtime_drift_refused": true,
+    "hostile_loader_and_python_environment_ignored": true,
+    "authoritative_trial_state_writable_mount_used": false,
+    "private_input_mpc_proof_funding_or_broadcast": false
+  },
+  "boundary": {
+    "namespace_launcher": "/usr/bin/bwrap",
+    "namespace_launcher_sha256": "523da3e7399044be5163aee6f57a77a6bef7454376e28f0a0627920bae1b76b6",
+    "namespace_launcher_reason": "host policy permits unprivileged namespaces only for the administrator-installed path; its bytes are pinned to the snapshot copy before use",
+    "selection_trusted": false,
+    "configured": false,
+    "durable_freshness_admitted": false,
+    "launch_authorized": false
+  }
+}

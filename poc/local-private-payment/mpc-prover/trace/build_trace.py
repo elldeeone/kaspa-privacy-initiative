@@ -52,12 +52,18 @@ def main():
         if not path.is_file():
             raise SystemExit('Missing selected vendor artifact: ' + str(path))
 
-    names = ['auth_field.cpp', 'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
-             'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
+    names = ['auth_field.cpp', 'p1_capture_stream.cpp',
+             'p1_capturing_player.cpp', 'p1_capture_seams.cpp',
+             'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
+             'owner_input_ddnnt.cpp', 'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
              'auth_groups.cpp', 'auth_groth16.cpp',
              'owner_client_main.cpp', 'trace/sealed_trace.cpp', 'trace/prefix_recipe.cpp',
              'trace/trace_witness.cpp', 'trace/trace_gate_main.cpp']
-    selected = sorted(set(names) | {str(p.relative_to(source)) for p in source.glob('*.hpp')} | {str(p.relative_to(source)) for p in (source/'trace').glob('*.hpp')} | {'trace/build_trace.py', 'trace/run_trace.py', 'run_toy.py'})
+    selected = sorted(set(names) |
+        {str(p.relative_to(source)) for p in source.glob('*.hpp')} |
+        {str(p.relative_to(source)) for p in (source/'trace').glob('*.hpp')} |
+        {'financial/registered_roster_transport.hpp',
+         'trace/build_trace.py', 'trace/run_trace.py', 'run_toy.py'})
     before = {name: digest(source / name) for name in selected}
     flags = ['-std=c++20', '-O1', '-g0', '-march=native', '-pthread',
              '-Wall', '-Wextra', '-Werror', '-Wno-overloaded-virtual',
@@ -101,8 +107,10 @@ def main():
     failures = [r for r in commands if r['exit_code']]
     links = []
     if not failures:
-        common = ['auth_field.cpp', 'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
-                  'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
+        common = ['auth_field.cpp', 'p1_capture_stream.cpp',
+                  'p1_capturing_player.cpp', 'p1_capture_seams.cpp',
+                  'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
+                  'owner_input_ddnnt.cpp', 'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
                   'auth_groups.cpp', 'auth_groth16.cpp', 'trace/sealed_trace.cpp',
                   'trace/prefix_recipe.cpp', 'trace/trace_witness.cpp']
         for binary, entry in [('mpc-trace-gate', 'trace/trace_gate_main.cpp'),

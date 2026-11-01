@@ -1,0 +1,204 @@
+{
+  "schema": "kpb-registered-actual-head-immutable-selection/v1",
+  "status": "UNCONFIGURED_BLOCKED",
+  "configured": false,
+  "classification": "PUBLIC_UNFUNDED_PATH_AND_PIN_SELECTION_NO_HEAD_OR_PRIVATE_EXECUTION",
+  "target_root": "/srv/kpi/registered-financial/v1",
+  "selection_rule": "Only the target paths below may enter a CONFIGURED=1 source selection. Candidate sources are provenance, not runtime fallbacks. Every target must be materialized root-owned, non-writable by the service account, and rehashed before configuration review.",
+  "financial_model": {
+    "model_identity": "f3ca3c18f17ed8175fa420364e9aa2824a12af4320ca1dc00ba2508f60ba28ff",
+    "source_identity": "3ff31adfc6f2666ac53606ecf60336366d850951fda22a38b7445262f380d829",
+    "matrix_fingerprint": "c02320f82593d16f347e22a7b14cbe5ae394027a260b6af8a4a247b1c6c756ab",
+    "instances": 3,
+    "witnesses": 12949818,
+    "constraints": 13093029,
+    "domain": 16777216,
+    "model_directory": "/srv/kpi/registered-financial/v1/model",
+    "model_metadata": {
+      "target": "/srv/kpi/registered-financial/v1/model/model.meta",
+      "candidate_source": ".local/private-batch-financial-model-01/model.meta",
+      "sha256": "f3ca3c18f17ed8175fa420364e9aa2824a12af4320ca1dc00ba2508f60ba28ff",
+      "bytes": 744
+    },
+    "rows": [
+      {
+        "axis": 0,
+        "target": "/srv/kpi/registered-financial/v1/model/A.r1cs.bin.gz",
+        "candidate_source": ".local/private-batch-full-matrix-probe-20261028-01/artifact/A.r1cs.bin.gz",
+        "compressed_sha256": "4a78fccf7f49e9f25a77b2f212fb99b9beb0a6da63240567c13ae2d7754ff048",
+        "compressed_bytes": 132280879,
+        "raw_sha256": "002b86f052e75f6e98eebfd27f977c5dcb7362a15d0a25d5af6642ac0cd2ecee",
+        "raw_bytes": 1439778032
+      },
+      {
+        "axis": 1,
+        "target": "/srv/kpi/registered-financial/v1/model/B.r1cs.bin.gz",
+        "candidate_source": ".local/private-batch-full-matrix-probe-20261028-01/artifact/B.r1cs.bin.gz",
+        "compressed_sha256": "8fe2d65194704b601f911099a5ed4123a2fd4f374aaefb1b1d620cc1603ca34c",
+        "compressed_bytes": 39357111,
+        "raw_sha256": "a32c39c1e0a087172fb396a019ee3ad3ebff5b5833281ef1d72162e38cf5d565",
+        "raw_bytes": 703804592
+      },
+      {
+        "axis": 2,
+        "target": "/srv/kpi/registered-financial/v1/model/C.r1cs.bin.gz",
+        "candidate_source": ".local/private-batch-full-matrix-probe-20261028-01/artifact/C.r1cs.bin.gz",
+        "compressed_sha256": "7e921a7eda84e389c91e2a9b6674b74c8c0dbc056ac78d9953976a95912f6d92",
+        "compressed_bytes": 71201926,
+        "raw_sha256": "000b71a3433cb0b0e0ed3bb155a064314710fca5be5e26088ab5606aa588dbae",
+        "raw_bytes": 1036906272
+      }
+    ],
+    "compressed_proving_key": {
+      "target": "/srv/kpi/registered-financial/v1/keys/aggregate-pk.bin.gz",
+      "candidate_source": ".local/private-batch-stock-setup-20261028-02/artifact/AGGREGATE-PK.bin.gz",
+      "container_sha256": "4a3d0ac3143ecc32a875af8107c923b851036363a68a8a744b97c74d0a3879ff",
+      "container_bytes": 1749414110,
+      "canonical_pk_sha256": "170431eee45f57ff6a3dc278d96f8a824145b8ca9ded04088a662983a449e945",
+      "canonical_pk_bytes": 2608842576,
+      "decoder_identity": "939e9a585ba2282380bcabda9e37c9f5f346e8eb001b6b2e98bda21104b4cc9d"
+    },
+    "verifying_key": {
+      "target": "/srv/kpi/registered-financial/v1/keys/aggregate-vk.bin",
+      "candidate_source": ".local/private-batch-financial-model-01/vk.bin",
+      "sha256": "2ca01e24f64b764e0470e67ff4fe183ed9e6d4a2d0b17e77887499c7ed0de102",
+      "bytes": 328
+    },
+    "independent_verifier": {
+      "target": "/srv/kpi/registered-financial/v1/bin/kpi-mascot-public-model",
+      "candidate_source": ".local/mpc-prover-public-model-target-03/release/kpi-mascot-public-model",
+      "sha256": "c1805cfe7ae9b2db7d58fd58727b57e92a0fec866506cd720fbd59242359131f",
+      "bytes": 1479584
+    },
+    "layout_identity": "9a3ee5f5eb98384273e2b608f71a60f89c49e6fc9c1029586f8f201b84617e1e",
+    "prefix_recipe_identity": "ef6279fa5633c77230a8a8b8ae9b70a58770a30e6c6f5e0bcf97edba0d0e0edb"
+  },
+  "public_exporter": {
+    "entry": {
+      "target": "/srv/kpi/registered-financial/v1/compiler/export_registered_program.py",
+      "candidate_source": "poc/local-private-payment/mpc-prover/financial/export_registered_program.py",
+      "sha256": "edc99f410e61aa1d1e391e71ad27c11e7a0d01b0b82dfc19fd76c72bcfb04979",
+      "bytes": 7073
+    },
+    "native_exporter": {
+      "target": "/srv/kpi/registered-financial/v1/compiler/export_financial_trace",
+      "candidate_source": ".local/private-batch-relation-target/release/examples/export_financial_trace",
+      "sha256": "7e90412697bd71b2e0e85c7a40d3c95933ab838809bf47b13013ef7d46ad9247",
+      "bytes": 2795112
+    },
+    "signature_matrix": {
+      "target": "/srv/kpi/registered-financial/v1/compiler/SIGNATURE-MATRIX.json",
+      "candidate_source": "/run/user/1000/kpb-new-wallet-component-20261028-02/SIGNATURE-MATRIX.json",
+      "sha256": "b573a68be539426b1165e4f1b1d01f054a3ca275c7d7a1811ece99280bf17d11",
+      "bytes": 2711586,
+      "ephemeral_candidate_must_be_materialized_and_reviewed": true
+    },
+    "source_closure_target": "/srv/kpi/registered-financial/v1/compiler/SOURCE.json",
+    "specification_target": "/srv/kpi/registered-financial/v1/compiler/SPEC.json",
+    "work_parent": "/var/lib/kpi/registered-financial/public/exporter-work",
+    "interpreter": {
+      "path": "/usr/bin/python3.14",
+      "sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41"
+    },
+    "runtime": [
+      {
+        "path": "/usr/bin/gzip",
+        "sha256": "2ba6fd35db5f0b5561e56b97124a08b067464b795e8e08278367f23dc539d549"
+      },
+      {
+        "path": "/usr/bin/busybox",
+        "sha256": "df12634c17fcdca839ae5dc47d7627b7558511f7645de7c99ccf097a0f28ed5b"
+      }
+    ],
+    "runtime_aliases": [
+      {
+        "path": "/usr/bin/env",
+        "target": "/usr/bin/busybox"
+      }
+    ],
+    "namespace_tool": {
+      "path": "/usr/bin/bwrap",
+      "sha256": "523da3e7399044be5163aee6f57a77a6bef7454376e28f0a0627920bae1b76b6"
+    }
+  },
+  "accepted_head_acquisition": {
+    "entry_target": "/srv/kpi/registered-financial/v1/acquisition/producer.py",
+    "source_closure_target": "/srv/kpi/registered-financial/v1/acquisition/SOURCE.json",
+    "specification_target": "/srv/kpi/registered-financial/v1/acquisition/SPEC.json",
+    "work_parent": "/var/lib/kpi/registered-financial/public/acquisition-work",
+    "candidate_sources": [
+      {
+        "path": ".local/private-batch-registered-head-candidate-01/source/producer/producer.py",
+        "sha256": "aef0c1d462b35334aa3d45c45028dcda99fd298af11fdadf9a4bdeef253701f8"
+      },
+      {
+        "path": ".local/private-batch-registered-head-candidate-01/source/producer/head_protocol.py",
+        "sha256": "260ae2d07f858643f9bbfe06fdf3279517810ca74004ab8352ef28ddda7d2d72"
+      },
+      {
+        "path": ".local/private-batch-registered-head-candidate-01/source/producer/acquire_head.mjs",
+        "sha256": "203fabefe07935875e680036ebacf528d6a474f2481a109e8cac6decafc4ba8e"
+      }
+    ],
+    "selected_node_and_currentness_assumption": "One compile-pinned validating testnet node supplies a finite confirmed prefix and two fresh same-reserve UTXO observations after complete replay; this is not independent consensus or continuous-currentness proof."
+  },
+  "registered_service": {
+    "registration_file": "/etc/kpi/registered-financial/v1/registration.bin",
+    "certificates": [
+      "/etc/kpi/registered-financial/v1/role-0.pem",
+      "/etc/kpi/registered-financial/v1/role-1.pem",
+      "/etc/kpi/registered-financial/v1/role-2.pem"
+    ],
+    "journals": [
+      "/var/lib/kpi/registered-financial/role-0/journal",
+      "/var/lib/kpi/registered-financial/role-1/journal",
+      "/var/lib/kpi/registered-financial/role-2/journal"
+    ],
+    "anchors": [
+      "/var/lib/kpi/registered-financial/role-0/anchor",
+      "/var/lib/kpi/registered-financial/role-1/anchor",
+      "/var/lib/kpi/registered-financial/role-2/anchor"
+    ],
+    "private_roots": [
+      "/var/lib/kpi/registered-financial/role-0/private",
+      "/var/lib/kpi/registered-financial/role-1/private",
+      "/var/lib/kpi/registered-financial/role-2/private"
+    ],
+    "native_parameters": "/srv/kpi/registered-financial/v1/native/PARAMETERS.json",
+    "immutable_tail": "/srv/kpi/registered-financial/v1/native/native-tail.bin"
+  },
+  "driver_runtime": {
+    "private_candidate_roots": [
+      "/var/lib/kpi/registered-financial/role-0/private/candidates",
+      "/var/lib/kpi/registered-financial/role-1/private/candidates",
+      "/var/lib/kpi/registered-financial/role-2/private/candidates"
+    ],
+    "public_result_roots": [
+      "/var/lib/kpi/registered-financial/role-0/public-results",
+      "/var/lib/kpi/registered-financial/role-1/public-results",
+      "/var/lib/kpi/registered-financial/role-2/public-results"
+    ],
+    "owner_port_base": 24100,
+    "multiplication_batch": 4096,
+    "runtime_arguments_or_environment_configuration": false
+  },
+  "unfunded_actual_head_sequence": [
+    "construct selected RosterPinnedPlayer and fresh MascotContext",
+    "RegisteredService.open_selected",
+    "admit sealed compressed query transport, verifying key, all rows, and model",
+    "AcceptedFinancialHead.acquire_fresh",
+    "RegisteredFinancialSelection.admit",
+    "stop before attempt binding, LOCK, owner listener, private intake, proving, EGRESS, FINAL, or settlement"
+  ],
+  "materialization_blockers": [
+    "registration bytes and digest are absent",
+    "three certificate PEM bytes, PEM hashes, DER hashes, and roster-pinned transport build are absent",
+    "three existing registered journal and trusted-anchor stores are absent",
+    "the accepted-head SPEC.json and complete selected node SDK tool source closure are absent",
+    "the exporter SPEC.json and complete source closure are absent",
+    "the signature matrix exists only as an ephemeral candidate and is not installed immutable public input",
+    "native parameters, immutable tail, and their selected target hashes are not materialized",
+    "no selected configuration header defines KPI_REGISTERED_FINANCIAL_DRIVER_HEADER",
+    "no actual network head acquisition has been run or qualified"
+  ]
+}

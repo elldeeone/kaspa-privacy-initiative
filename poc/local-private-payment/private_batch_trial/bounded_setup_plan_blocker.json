@@ -1,0 +1,129 @@
+{
+  "schema": "kpb-bounded-setup-plan-blocker/v1",
+  "status": "BLOCKED",
+  "reason": "source-owned-pre-setup-two-run-plan-missing-and-post-setup-fields-excluded",
+  "authoritative_inputs": {
+    "selected_parent_contract": "privacy_measurement_selected_parent_artifact_contract.json",
+    "selected_parent_missing_report": "privacy_measurement_selected_parent_artifact_missing.json",
+    "required_parent_artifacts": 60,
+    "missing_parent_artifacts": 60
+  },
+  "required_pre_setup_plan_fields": [
+    "trial",
+    "financial_runs[2]",
+    "round_attempts[2]",
+    "round_cohorts[2]"
+  ],
+  "precommit_derivation": {
+    "root": "trial",
+    "domain": "KPB_BOUNDED_SETUP_PRECOMMIT_V1\\n",
+    "children": {
+      "financial_runs[2]": "SHA256(domain || trial || 0x01 || round_u8)",
+      "round_attempts[2]": "SHA256(domain || trial || 0x02 || round_u8)",
+      "round_cohorts[2]": "SHA256(domain || trial || 0x03 || round_u8)"
+    },
+    "children_depend_only_on": [
+      "domain",
+      "trial",
+      "kind",
+      "round"
+    ],
+    "crs_or_setup_output_input_allowed": false,
+    "proof_projection_observer_or_post_run_input_allowed": false,
+    "caller_selected_child_digest_allowed": false,
+    "generated_crs_identity_allowed": false,
+    "trial_root_must_be_source_owned_before_setup": true,
+    "production_trial_root_authority_present": false,
+    "existing_financial_lineage_join_implemented": false
+  },
+  "circuit_closure_semantics": {
+    "pre_setup_inputs": [
+      "circuit source identity",
+      "matrix identity",
+      "constraint and variable counts",
+      "expected PK and VK serialization lengths",
+      "selected static worker and aggregate input identities"
+    ],
+    "post_setup_outputs_only": [
+      "generated proving-key identity",
+      "generated verifying-key identity",
+      "setup artifact bytes"
+    ]
+  },
+  "typed_chronology_handoff": {
+    "contract": "bounded_setup_chronology_contract.hpp",
+    "pre_setup_input": "counterfactual_feasibility::W1PreSetupTrialAuthority&&",
+    "pre_setup_output": "W1PreSetupSplitAuthority",
+    "same_trial_continuation": "W1SetupBindingContinuationAuthority",
+    "post_setup_inputs": [
+      "SetupCompletionAuthority&&",
+      "W1SetupBindingContinuationAuthority&&"
+    ],
+    "post_setup_output": "W1PostSetupReceiptAuthority",
+    "eligible_pre_setup_source": "future source-owned pre-key trial reservation with exact relation/profile/build selection, fixed W0-to-W1 policy and accepted starting-head lineage",
+    "current_fresh_owner_trial_issuance_eligible_pre_setup": false,
+    "current_fresh_owner_trial_issuance_blocker": "owner contracts already bind proving-key and verifying-key identities",
+    "post_setup_receipt_must_precede": [
+      "fresh owner contract and trial issuance",
+      "W1 proof verification against the newly measured keys",
+      "capture and Close consumption"
+    ],
+    "current_w1_historical_vk_pins_accept_fresh_setup": false,
+    "raw_digest_or_receipt_overload": false,
+    "pre_setup_minter_implemented": false,
+    "setup_launcher_callsite_implemented": false,
+    "post_setup_join_implemented": false,
+    "full_w1_or_capture_consumer_implemented": false
+  },
+  "chronology": {
+    "setup_precedes": [
+      "Output proof production",
+      "aggregate proof production",
+      "projection release",
+      "observer and score outputs"
+    ],
+    "round_attempt_semantics": "predeclared fresh-owner round attempt nonce, not the post-run attempt-history row identity",
+    "precommit_identity_limit": "the six child identities are setup-specific precommit labels; no production authority yet joins them to the later financial RunBinding or fresh-owner lineage",
+    "selected_parent_rows": {
+      "required": 60,
+      "present": 0,
+      "pre_setup_independence_proven": false,
+      "blocker": "all rows are missing and canonical-assets-archive does not yet exclude CRS, proof, projection, or observer-derived content"
+    },
+    "excluded_from_pre_setup_plan": [
+      {
+        "field": "projections[2]",
+        "reason": "the projection identity hashes the released projection body after verified EGRESS"
+      },
+      {
+        "field": "round_capture_plans[2]",
+        "reason": "the identity includes model, query-store, and capture-manifest preimages and no production pre-setup minter exists"
+      },
+      {
+        "field": "finite_manifest_identity",
+        "reason": "the 60 selected-parent artifacts are absent and their assets are not proven independent of setup outputs"
+      },
+      {
+        "field": "finite_manifest_parent_recomputation_identity",
+        "reason": "recomputation follows selected-child verification and inherits the unresolved 60-artifact dependency"
+      },
+      {
+        "field": "comparison_selection",
+        "reason": "the current value is an opaque selection-artifact hash with no production pre-setup authority"
+      },
+      {
+        "field": "run_selection",
+        "reason": "the current value is an opaque selection-artifact hash with no production pre-setup authority"
+      }
+    ]
+  },
+  "source_owned_worker_selector": true,
+  "source_owned_plan_selector": false,
+  "production_plan_selected": false,
+  "full_setup_ready": false,
+  "full_output_setup_executed": false,
+  "full_aggregate_setup_executed": false,
+  "s4_selected": false,
+  "s12_selected": false,
+  "configured": false
+}

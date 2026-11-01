@@ -7,6 +7,15 @@
 #include "../packed/gzip_queries.hpp"
 #include "../trace/prefix_recipe.hpp"
 #include "../trace/sealed_trace.hpp"
+#ifndef KPI_P1_UNREGISTERED_QUALIFIER
+#define KPI_P1_UNREGISTERED_QUALIFIER 0
+#endif
+#if KPI_P1_UNREGISTERED_QUALIFIER == 1
+#include "unregistered_p1_capture_qualifier.hpp"
+#include "../p1_capture_seams.hpp"
+#elif KPI_P1_UNREGISTERED_QUALIFIER != 0
+#error "KPI_P1_UNREGISTERED_QUALIFIER must be exactly zero or one"
+#endif
 #include <algorithm>
 #include <charconv>
 #include <cstring>
@@ -144,8 +153,51 @@ int receive_public_pk_fd(int party, const std::string& run_nonce) {
     need(result >= 0); return result;
 }
 
+#if KPI_P1_UNREGISTERED_QUALIFIER == 1
+std::string control_uuid(std::string word, unsigned half) {
+    need(word.size() == 64 && half < 2);
+    std::string compact = word.substr(half * 32, 32);
+    compact[12] = '4';
+    compact[16] = '8';
+    return compact.substr(0, 8) + "-" + compact.substr(8, 4) + "-" +
+        compact.substr(12, 4) + "-" + compact.substr(16, 4) + "-" +
+        compact.substr(20, 12);
+}
+
+int connect_control_capture() {
+    const int socket_fd = socket(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC, 0);
+    need(socket_fd >= 0);
+    sockaddr_un address{};
+    address.sun_family = AF_UNIX;
+    constexpr char path[] = "/work/control-only-p1-capture.sock";
+    static_assert(sizeof(path) <= sizeof(address.sun_path));
+    std::copy_n(path, sizeof(path), address.sun_path);
+    const auto length = static_cast<socklen_t>(
+        offsetof(sockaddr_un, sun_path) + sizeof(path));
+    if (connect(socket_fd, reinterpret_cast<const sockaddr*>(&address),
+                length) != 0) {
+        close(socket_fd);
+        need(false);
+    }
+    ucred peer{};
+    socklen_t peer_size = sizeof(peer);
+    need(getsockopt(socket_fd, SOL_SOCKET, SO_PEERCRED, &peer, &peer_size) == 0 &&
+         peer_size == sizeof(peer) && peer.uid == getuid());
+    if (dup2(socket_fd, 23) != 23) {
+        close(socket_fd);
+        need(false);
+    }
+    if (socket_fd != 23) close(socket_fd);
+    return 23;
+}
+#endif
+
 int qualify(int argc, char** argv) {
+#if KPI_P1_UNREGISTERED_QUALIFIER == 1
+    need(argc == 14);
+#else
     need(argc == 11);
+#endif
     const int party = static_cast<int>(natural(argv[2], 0, 2));
     const int network_port = static_cast<int>(natural(argv[3], 1024, 65520));
     const int owner_port = static_cast<int>(natural(argv[4], 1024, 65520));
@@ -159,6 +211,11 @@ int qualify(int argc, char** argv) {
         load_owner_contract(argv[6]), load_owner_contract(argv[7]), load_owner_contract(argv[8])};
     const auto job_identity = check_jobs(jobs);
     const auto dependencies = h::unhex(argv[9]);
+#if KPI_P1_UNREGISTERED_QUALIFIER == 1
+    const auto capture_source = h::hex(h::unhex(argv[11]));
+    const auto capture_build = h::hex(h::unhex(argv[12]));
+    const auto capture_launch = h::hex(h::unhex(argv[13]));
+#endif
     const auto& key = descriptor.key;
     for (size_t i = 0; i < 3; ++i)
         need(jobs[0].server_certificate_sha256[i] == h::hex(key.server_certificates[i]));
@@ -204,9 +261,59 @@ int qualify(int argc, char** argv) {
     binding.immutable_tail = h::unhex(h::qualification::TAIL_SHA);
     binding.native_parameters = f::FinancialConstruction::native_parameters_identity();
     stage("interparty-addresses-started");
-    Names names(party, 3, "127.0.0.1", network_port); CryptoPlayer player(names);
+    Names names(party, 3, "127.0.0.1", network_port);
+#if KPI_P1_UNREGISTERED_QUALIFIER == 1
+    auto upstream = std::make_unique<
+        f::qualification::ControlOnlyUnregisteredCryptoPlayer>(
+            names, key.server_certificates);
+    stage("interparty-TLS-ready");
+    ::Player* selected_player = upstream.get();
+    std::unique_ptr<p1_capture::P1CapturingPlayer> captured_player;
+    std::unique_ptr<p1_capture::P1TypedCaptureSeams> capture_seams;
+    if (party == 1) {
+        const Bytes run_bytes(jobs[0].run_nonce.begin(),
+                              jobs[0].run_nonce.end());
+        const auto capture_word = sha256_hex(run_bytes);
+        auto authority = f::qualification::
+            ControlOnlyUnregisteredP1Capture::admit({
+                .scope = SCOPE,
+                .classification = "CONTROL_ONLY_UNREGISTERED",
+                .fixed_fd = connect_control_capture(),
+                .round = 1,
+                .party = 1,
+                .attempt_id = control_uuid(jobs[0].run_nonce, 0),
+                .cohort_sha256 = jobs[0].cohort_identity,
+                .financial_run_id = jobs[0].run_nonce,
+                .capture_identity = control_uuid(capture_word, 1),
+                .protocol_source_sha256 = capture_source,
+                .protocol_build_sha256 = capture_build,
+                .protocol_launch_sha256 = capture_launch,
+                .model_preimage_sha256 = model.identity(),
+                .query_store_preimage_sha256 =
+                    model.query_transport_identity(),
+                .scalar_capture_manifest_sha256 = std::string(
+                    p1_capture::SCALAR_CAPTURE_MANIFEST_SHA256),
+                .actual_authority_requested = false,
+            });
+        captured_player = authority.begin(*upstream);
+        selected_player = captured_player.get();
+        capture_seams = std::make_unique<p1_capture::P1TypedCaptureSeams>(
+            *captured_player);
+    }
+    std::unique_ptr<MascotContext> context_storage;
+    if (capture_seams)
+        context_storage = std::make_unique<MascotContext>(
+            *selected_player, *capture_seams,
+            [](const char* phase) { stage(phase); });
+    else
+        context_storage = std::make_unique<MascotContext>(
+            *selected_player, [](const char* phase) { stage(phase); });
+    auto& context = *context_storage;
+#else
+    CryptoPlayer player(names);
     stage("interparty-TLS-ready");
     MascotContext context(player, [](const char* phase) { stage(phase); });
+#endif
     stage("financial-trace-preflight-and-lock-started");
     const auto construction = f::FinancialConstruction::construct(context, model, "/app/trace.txt.gz", trace,
         jobs, tail, journal, binding, owner_port);
@@ -223,6 +330,11 @@ int qualify(int argc, char** argv) {
     stage("independent-Ark-financial-verification-complete");
     const auto released = f::FinancialHistoryAccess::release_verified(context, std::move(verified), std::move(prepared));
     stage("all-three-durable-EGRESS-complete");
+#if KPI_P1_UNREGISTERED_QUALIFIER == 1
+    // This separate control run has no later MPC phase. The registered path
+    // still seals only through its parent-owned final-candidate capability.
+    if (party == 1) context.complete_p1_capture();
+#endif
     write_bytes("released-core.bin", released.core());
     write_bytes("released-proof.bin", released.aggregate_proof());
     write_bytes("released-projection.bin", released.projection());
@@ -238,7 +350,13 @@ int qualify(int argc, char** argv) {
         << "\",\"proof_sha256\":\"" << sha256_hex(released.aggregate_proof())
         << "\",\"projection_sha256\":\"" << sha256_hex(released.projection())
         << "\",\"egress_binding_sha256\":\"" << h::hex(released.binding_identity())
-        << "\",\"payment_privacy_qualified\":false,\"native_settlement_performed\":false}\n";
+        << "\",\"payment_privacy_qualified\":false,\"native_settlement_performed\":false"
+#if KPI_P1_UNREGISTERED_QUALIFIER == 1
+        << ",\"p1_capture_classification\":\"CONTROL_ONLY_UNREGISTERED\""
+        << ",\"p1_capture_actual_authority\":false"
+        << ",\"p1_capture_stream_role\":" << (party == 1 ? "true" : "false")
+#endif
+        << "}\n";
     output.close(); need(bool(output)); stage("complete", "verified"); return 0;
 }
 }  // namespace

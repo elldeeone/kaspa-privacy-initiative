@@ -3,6 +3,7 @@
 #include "fixed_public_run.hpp"
 #include "construction.hpp"
 #include "financial_assignment.hpp"
+#include "baseline_owner_effects_recipe.hpp"
 #include "../trace/prefix_recipe.hpp"
 #include "../trace/sealed_trace.hpp"
 #include <algorithm>
@@ -20,8 +21,10 @@ void integer(Bytes& out, uint64_t value) { for (unsigned i = 0; i < 8; ++i) out.
 Bytes tag(const std::string& value) { return Bytes(value.begin(), value.end()); }
 struct Container { std::string raw_sha, encoded_sha; size_t raw_bytes, encoded_bytes; };
 struct Descriptor {
-    std::string model, source, matrix, history_sha, recipe_sha;
-    size_t variables, instances, rows, domain, recipe_bytes;
+    std::string model, source, matrix, history_sha, recipe_sha,
+        owner_effects_recipe_sha;
+    size_t variables, instances, rows, domain, recipe_bytes,
+        owner_effects_recipe_bytes;
     Container trace, layout;
 };
 size_t natural(std::istream& in) {
@@ -37,7 +40,7 @@ void token(std::istream& in, const char* expected) {
 }
 Descriptor parse_descriptor(const Bytes& data) {
     std::istringstream in(std::string(data.begin(), data.end()));
-    Descriptor d{}; token(in, "KPB_REGISTERED_EXPORT_V1");
+    Descriptor d{}; token(in, "KPB_REGISTERED_EXPORT_V2");
     token(in, "MODEL"); d.model = hash(in); token(in, "SOURCE"); d.source = hash(in);
     token(in, "MATRIX"); d.matrix = hash(in); token(in, "VARIABLES"); d.variables = natural(in);
     token(in, "INSTANCES"); d.instances = natural(in); token(in, "ROWS"); d.rows = natural(in);
@@ -47,7 +50,10 @@ Descriptor parse_descriptor(const Bytes& data) {
         c.encoded_sha = hash(in); c.encoded_bytes = natural(in); return c;
     };
     d.trace = container("TRACE"); d.layout = container("LAYOUT");
-    token(in, "RECIPE"); d.recipe_sha = hash(in); d.recipe_bytes = natural(in); token(in, "END");
+    token(in, "RECIPE"); d.recipe_sha = hash(in); d.recipe_bytes = natural(in);
+    token(in, "OWNER_EFFECTS_RECIPE");
+    d.owner_effects_recipe_sha = hash(in);
+    d.owner_effects_recipe_bytes = natural(in); token(in, "END");
     std::string extra; need(!(in >> extra)); return d;
 }
 Bytes read_tail(const RegisteredService& service) {
@@ -65,27 +71,38 @@ history::Digest compiler_identity(const RegisteredService& service) {
 }
 } // namespace
 
-// The only friend allowed to consume an AcceptedFinancialHead is this closed
-// factory implementation. No header declares a public consumption function.
-class RegisteredSelectionAccess {
-public:
-    static void consume(MascotContext& c, AcceptedFinancialHead& head,
-                        const RegisteredService& service, const history::Digest& history_sha) {
-        head.consume_for_selection(c, service.identity(), history_sha);
-    }
-};
+void RegisteredSelectionAccess::consume_head(
+        MascotContext& context, AcceptedFinancialHead& head,
+        const RegisteredService& service,
+        const history::Digest& public_history) {
+    head.consume_for_selection(
+        context, service.identity(), public_history);
+}
+
+RegisteredService RegisteredServiceSelectionBridge::retain(
+        const RegisteredService& service) {
+    return RegisteredService(service);
+}
 
 struct RegisteredFinancialSelection::Storage {
     const RegisteredService service;
     const packed::PackedModel model;
     const AcceptedHeadBinding head;
     const TraceProgram program;
+    const std::shared_ptr<const registered_driver::baseline_disclosure::
+        BaselineOwnerEffectsRecipe> owner_effects_recipe;
     const Bytes tail;
     const history::Digest compiler;
     const std::string identity;
-    Storage(const RegisteredService& s, const packed::PackedModel& m, AcceptedHeadBinding h,
-            TraceProgram p, Bytes t, history::Digest c, std::string i)
-        : service(s), model(m), head(std::move(h)), program(std::move(p)), tail(std::move(t)), compiler(c), identity(std::move(i)) {}
+    Storage(const RegisteredService& s, const packed::PackedModel& m,
+            AcceptedHeadBinding h, TraceProgram p,
+            std::shared_ptr<const registered_driver::baseline_disclosure::
+                BaselineOwnerEffectsRecipe> owner_recipe,
+            Bytes t, history::Digest c, std::string i)
+        : service(RegisteredServiceSelectionBridge::retain(s)), model(m),
+          head(std::move(h)), program(std::move(p)),
+          owner_effects_recipe(std::move(owner_recipe)), tail(std::move(t)),
+          compiler(c), identity(std::move(i)) {}
 };
 RegisteredFinancialSelection::RegisteredFinancialSelection(MascotContext& c, std::shared_ptr<const Storage> s)
     : storage_(std::move(s)), context_(&c), generation_(c.generation()), epoch_(c.failure_epoch()),
@@ -107,7 +124,8 @@ RegisteredFinancialSelection RegisteredFinancialSelection::admit(MascotContext& 
              metadata.instances == 3 && metadata.witnesses == 12949818 && metadata.constraints == 13093029 &&
              metadata.domain == 16777216 && metadata.matrix_fingerprint ==
                  "c02320f82593d16f347e22a7b14cbe5ae394027a260b6af8a4a247b1c6c756ab");
-        RegisteredSelectionAccess::consume(context, accepted, service, head.public_history);
+        RegisteredSelectionAccess::consume_head(
+            context, accepted, service, head.public_history);
         // Keep peak PUBLIC setup synthesis bounded to one role at a time.
         // Each honest role still directly executes and checks every row itself.
         std::unique_ptr<FixedPublicResult> output;
@@ -131,9 +149,13 @@ RegisteredFinancialSelection RegisteredFinancialSelection::admit(MascotContext& 
         const auto trace_path = check_fixed_public_result_path(service, *output, "trace.txt.gz");
         const auto layout_path = check_fixed_public_result_path(service, *output, "layout.txt.gz");
         const auto recipe_path = check_fixed_public_result_path(service, *output, "PREFIX-RECIPE.bin");
+        const auto owner_recipe_path = check_fixed_public_result_path(
+            service, *output, "OWNER-EFFECTS-RECIPE.bin");
         need(std::filesystem::file_size(trace_path) == descriptor.trace.encoded_bytes &&
              std::filesystem::file_size(layout_path) == descriptor.layout.encoded_bytes &&
-             std::filesystem::file_size(recipe_path) == descriptor.recipe_bytes);
+             std::filesystem::file_size(recipe_path) == descriptor.recipe_bytes &&
+             std::filesystem::file_size(owner_recipe_path) ==
+                 descriptor.owner_effects_recipe_bytes);
         const auto recipe = PrefixRecipe::load(recipe_path, descriptor.recipe_sha, descriptor.variables, descriptor.instances);
         TraceBinding selected{descriptor.trace.raw_sha, descriptor.source, descriptor.model, descriptor.layout.raw_sha,
             layout_path, {0,1,2}, descriptor.variables, descriptor.instances, descriptor.trace.encoded_sha,
@@ -143,20 +165,31 @@ RegisteredFinancialSelection RegisteredFinancialSelection::admit(MascotContext& 
         for (size_t owner = 0; owner < 3; ++owner)
             need(program.owner_layout[owner].owner_role == static_cast<int>(owner) &&
                  program.owner_layout[owner].columns.size() == FinancialConstruction::OWNER_INPUT_COUNT);
+        const std::array<std::span<const std::size_t>, 3> owner_layout{
+            program.owner_layout[0].columns,
+            program.owner_layout[1].columns,
+            program.owner_layout[2].columns};
+        const auto owner_recipe = registered_driver::baseline_disclosure::
+            BaselineOwnerEffectsRecipe::load(
+                owner_recipe_path, descriptor.owner_effects_recipe_sha,
+                descriptor.source, descriptor.layout.raw_sha,
+                descriptor.variables, descriptor.instances, owner_layout);
         auto tail = read_tail(service); need(history::reserve_spk(head.state, tail) == head.script_public_key);
         const auto compiler = compiler_identity(service);
-        auto binding = tag("KPB_REGISTERED_FINANCIAL_SELECTION_V1\n");
+        auto binding = tag("KPB_REGISTERED_FINANCIAL_SELECTION_V2\n");
         for (const auto& value : {service.identity(), head.identity, head.public_history, compiler,
              history::unhex(model.identity()), history::unhex(program.artifact->canonical_sha256()),
              history::unhex(program.artifact->container_sha256()), history::unhex(program.artifact->decoder_identity()),
-             history::unhex(model.query_transport_identity())}) add(binding, value);
+             history::unhex(model.query_transport_identity()),
+             history::unhex(owner_recipe->identity())}) add(binding, value);
         integer(binding, program.header.variables); integer(binding, program.header.operations);
         integer(binding, program.expected_private_checks);
         service.require_live(context); model.check_backing_unchanged();
         context.agree_public_bytes("registered-complete-head-program-selection", binding);
         const auto identity = history::hex(history::digest(binding));
         return RegisteredFinancialSelection(context, std::make_shared<const Storage>(service, model, head,
-            std::move(program), std::move(tail), compiler, identity));
+            std::move(program), owner_recipe, std::move(tail), compiler,
+            identity));
     } catch (...) { context.poison(); refuse(); }
 }
 void RegisteredFinancialSelection::require_live(MascotContext& c) const {
@@ -166,13 +199,14 @@ void RegisteredFinancialSelection::require_live(MascotContext& c) const {
              c.check_counter() >= checked_counter_);
     } catch (...) { c.poison(); refuse(); }
 }
-void RegisteredFinancialSelection::consume_for_lock(MascotContext& c) {
+void RegisteredFinancialSelection::consume_for_lock(
+    MascotContext& c, AcceptedFinancialHead&& fresh) {
     require_live(c);
-    auto fresh = AcceptedFinancialHead::acquire_fresh(c, storage_->service);
     need(fresh.binding().identity == storage_->head.identity &&
          fresh.binding().public_history == storage_->head.public_history &&
          fresh.binding().context == storage_->head.context);
-    RegisteredSelectionAccess::consume(c, fresh, storage_->service, storage_->head.public_history);
+    RegisteredSelectionAccess::consume_head(
+        c, fresh, storage_->service, storage_->head.public_history);
     c.require_healthy();
     need(!consumed_ && context_ == &c && generation_ == c.generation() && epoch_ == c.failure_epoch() &&
          c.check_counter() >= checked_counter_);
@@ -182,7 +216,41 @@ void RegisteredFinancialSelection::consume_for_lock(MascotContext& c) {
 const TraceProgram& RegisteredFinancialSelection::program() const { return storage_->program; }
 const packed::PackedModel& RegisteredFinancialSelection::model() const { return storage_->model; }
 const RegisteredService& RegisteredFinancialSelection::service() const { return storage_->service; }
+const std::shared_ptr<const registered_driver::baseline_disclosure::
+    BaselineOwnerEffectsRecipe>&
+RegisteredFinancialSelection::owner_effects_recipe() const {
+    return storage_->owner_effects_recipe;
+}
 std::span<const unsigned char> RegisteredFinancialSelection::native_tail() const { return storage_->tail; }
+
+const TraceProgram& RegisteredSelectionConstructionBridge::program(
+        const RegisteredFinancialSelection& selection) {
+    return selection.program();
+}
+const packed::PackedModel& RegisteredSelectionConstructionBridge::model(
+        const RegisteredFinancialSelection& selection) {
+    return selection.model();
+}
+const RegisteredService& RegisteredSelectionConstructionBridge::service(
+        const RegisteredFinancialSelection& selection) {
+    return selection.service();
+}
+const std::shared_ptr<const registered_driver::baseline_disclosure::
+    BaselineOwnerEffectsRecipe>&
+RegisteredSelectionConstructionBridge::owner_effects_recipe(
+        const RegisteredFinancialSelection& selection) {
+    return selection.owner_effects_recipe();
+}
+std::span<const unsigned char>
+RegisteredSelectionConstructionBridge::native_tail(
+        const RegisteredFinancialSelection& selection) {
+    return selection.native_tail();
+}
+void RegisteredSelectionConstructionBridge::consume_for_lock(
+        RegisteredFinancialSelection& selection, MascotContext& context,
+        AcceptedFinancialHead&& head) {
+    selection.consume_for_lock(context, std::move(head));
+}
 const std::string& RegisteredFinancialSelection::identity() const { return storage_->identity; }
 const TraceBinding& RegisteredFinancialSelection::trace_binding() const { return storage_->program.binding; }
 size_t RegisteredFinancialSelection::expected_trace_assertions() const { return storage_->program.expected_private_checks; }

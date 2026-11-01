@@ -12,6 +12,13 @@ The boundaries are:
 | `epoch_journal` | Local journal/anchor durability and replay; its public receipts alone authorize no private intake, proof or settlement. |
 | `epoch_ticket` | Authenticated all-three LOCK/PREPARED/EGRESS barriers, immutable construction bindings and one-use proof/release capabilities. |
 | `settlement_capability` | Separate private `VerifiedFinalCandidate` and `VerifiedSettlement` types, minted only by direct selected verification. |
+
+Private journal lineage is exposed only through the complete
+`EpochTicketJournalBridge` and `VerifiedSettlementJournalBridge` contracts.
+The latter consumes a genuine verifier capability and performs the complete
+pre-append and post-durability agreement sequence; a caller-authored record or
+digest cannot invoke settlement. `JournalCore` returns append metadata only and
+cannot construct `DurableRecord`.
 | `final_candidate/` | Offline exact CASE, seven component proofs, selected R0 receipt and NativeFull verification; can support FINAL only. |
 | `settlement/` | Fresh selected SDK accepted-prefix/current-UTXO acquisition and complete replay of the exact FINAL candidate. |
 

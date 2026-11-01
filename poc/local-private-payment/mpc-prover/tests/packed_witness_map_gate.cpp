@@ -71,7 +71,8 @@ int run(int argc, char** argv) {
     const auto proof = financial::prove_packed_public_fixture(context, std::move(validated), binding, 2);
     const auto encoded = encode_native_proof(proof);
     require(phases["streamed-H-map-started"] == 2 && phases["streamed-H-map-complete"] == 2 &&
-        phases["packed-masked-A-and-B1-MAC-checked"] == 1 && phases["packed-final-B2-and-C-MAC-checked"] == 1);
+        phases["packed-masked-secret-G1-products-MAC-checked"] == 1 &&
+        phases["packed-final-A-B2-C-MAC-checked"] == 1);
     stage("public-packed-control-complete");
     std::ofstream out(output / "PUBLIC-RESULT.json");
     out << "{\"schema\":\"kpi-packed-witness-map-control/v1\",\"status\":\"PASS\",\"party\":" << party

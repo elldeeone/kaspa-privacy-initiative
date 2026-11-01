@@ -11,6 +11,18 @@ accepts only `UNFUNDED_SUPPLIED_CONTEXT`. A caller's `accepted` field or changed
 scope is rejected. The genuine aggregate/R0/native proofs, accepted whole-CASE
 acquisition and strict new GEN3 admission remain separate requirements. No
 funding, submission or network operation is available in this controller.
+ADR-0084 separates the same-trial launch-only preflight from post-terminal
+completion: this controller's supplied-context result cannot mint either one.
+The first full Testnet path is the rehearsal, and every live transition still
+needs fresh accepted-head admission, exact proof/NativeFull checks and one-use
+submission before the terminal completion gate can consume it.
+The exact post-run evidence join is specified in
+[`COMPLETE-UNFUNDED-REHEARSAL.md`](COMPLETE-UNFUNDED-REHEARSAL.md). It requires
+the pre-private-intake owner/financial binding, direct registered-driver result,
+genuine R0/CASE chain, release-bound payment and terminal privacy gates, ordered
+service-loss evidence and nine successive independent exits. The current fixed
+unregistered financial handoff, privacy v2 assertion and zero-count service-loss
+JSON cannot satisfy it, so the assembler deliberately refuses.
 
 ## Workload and private outputs
 
@@ -72,6 +84,21 @@ history proofs or current chain acceptance. It cannot be used as a substitute
 for the concrete accepted-chain adapter. Preserving complete ordered raw
 transitions allows that adapter to bind the actual whole CASE rather than
 upgrading a rows-only or Boolean history report.
+
+The source-only accepted-history core now fixes the adapter chronology. A
+Full20 Testnet-10 GEN3 confirmation can authorize only the Round-1 input and
+returns a one-use continuation. Round 1 must then be constructed, submitted
+and independently confirmed before that continuation can authorize the
+Round-1 successor used by Round 2. The validator checks exact activation and
+lifecycle lineage, current UTXO/old-input state and a no-removal checkpoint
+requery; the fresh-owner supervisor injects private owner lineages internally.
+Its real First-RPC/network-child producer and selected callsite remain absent
+and `CONFIGURED0`, so this source path is not Testnet acceptance evidence.
+Any failed Round-2 observation burns the only continuation. A retry uses a new
+trial identity and repeats the full Round-1/Round-2 sequence; R2-only and
+same-trial retries are unavailable. The success authority covers only that
+fresh successful trial, while the separate private observer archive retains
+all failed fresh-trial histories for privacy analysis.
 
 ## Invocation and checks
 

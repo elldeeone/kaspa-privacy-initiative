@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Fresh fixed unfunded financial qualification; no registration or settlement.
+"""Legacy unfunded financial controller; all direct execution is hard-disabled.
 
 Only the three isolated owner executables read their own private input files.
 The controller reads public sources, parameters, certificates and typed results.
 Raw MPC diagnostics, owner inputs and TLS private-key bodies remain unread.
+
+The retained code is a build/control fixture only. A future execution must be
+spawned by the durable registered parent with independently issued fresh owner
+inputs; serialized receipts or direct CLI arguments cannot restore authority.
 """
 import argparse
 import array
@@ -35,6 +39,7 @@ PK_GZ = '4a3d0ac3143ecc32a875af8107c923b851036363a68a8a744b97c74d0a3879ff'
 VK = '2ca01e24f64b764e0470e67ff4fe183ed9e6d4a2d0b17e77887499c7ed0de102'
 VERIFIER = 'c1805cfe7ae9b2db7d58fd58727b57e92a0fec866506cd720fbd59242359131f'
 SCOPE = 'PUBLIC_UNFUNDED_UNREGISTERED_QUALIFICATION_ONLY'
+RUNNER_REFUSAL = 'financial-runner-durable-registered-admission-unavailable'
 
 
 def need(value, message):
@@ -52,10 +57,60 @@ def digest(path):
     return result.hexdigest()
 
 
+def select_binary_profile(build, binary, control_only_p1_capture):
+    """Bind the runner to one exact link profile; never infer capture mode."""
+    expected = ('mpc-financial-capture-qualification'
+                if control_only_p1_capture
+                else 'mpc-financial-qualification')
+    records = [record for record in build.get('link', [])
+               if record.get('binary') == expected]
+    need(len(records) == 1 and records[0].get('sha256') == digest(binary),
+         'financial executable does not match selected profile')
+    compile_records = build.get('compile', [])
+    qualifier = [record for record in compile_records
+                 if record.get('source') ==
+                 'financial/unregistered_p1_capture_qualifier.cpp']
+    normal_gate = [record for record in compile_records
+                   if record.get('source') == 'financial/gate_main.cpp' and
+                   record.get('profile', 'normal') == 'normal']
+    capture_gate = [record for record in compile_records
+                    if record.get('source') == 'financial/gate_main.cpp' and
+                    record.get('profile') == 'control-only-p1']
+    need(len(normal_gate) == 1 and len(capture_gate) == 1 and
+         len(qualifier) == 1 and
+         qualifier[0].get('profile') == 'control-only-p1',
+         'financial build profile manifest is incomplete')
+    link_words = ' '.join(map(str, records[0].get('argv', [])))
+    selected_qualifier = (
+        'financial_unregistered_p1_capture_qualifier.cpp.control-p1.o'
+        in link_words)
+    need(selected_qualifier is control_only_p1_capture,
+         'control-only qualifier object crossed binary profiles')
+    return records[0]
+
+
+def source_manifest_identity(source_sha256):
+    need(isinstance(source_sha256, dict) and source_sha256,
+         'empty financial source manifest')
+    for name, identity in source_sha256.items():
+        need(isinstance(name, str) and name and isinstance(identity, str) and
+             len(identity) == 64 and all(c in '0123456789abcdef'
+                                         for c in identity),
+             'noncanonical financial source manifest')
+    canonical = json.dumps(source_sha256, sort_keys=True,
+                           separators=(',', ':')).encode()
+    return hashlib.sha256(canonical).hexdigest()
+
+
 base.digest = digest
 
 
 class FinancialAttempt(base.Attempt):
+    def __init__(self, _args):
+        # Importing this module is not an execution authority. The former base
+        # constructor created the output tree, so refuse before calling it.
+        need(False, RUNNER_REFUSAL)
+
     def freeze(self):
         args = self.args
         build = json.loads((args.binary.parent / 'BUILD-RESULT.json').read_text())
@@ -63,9 +118,26 @@ class FinancialAttempt(base.Attempt):
         self.decoder = Path(build['zlib_binary']['path'])
         for name, expected in build['source_sha256'].items():
             need(digest(SOURCE / name) == expected, 'financial source changed')
-        for name, path in [('mpc-financial-qualification', args.binary), ('financial-owner-client', args.owner_client)]:
-            records = [r for r in build['link'] if r['binary'] == name]
-            need(len(records) == 1 and records[0]['sha256'] == digest(path), 'financial executable changed')
+        self.binary_record = select_binary_profile(
+            build, args.binary, args.control_only_p1_capture)
+        owner_records = [record for record in build['link']
+                         if record['binary'] == 'financial-owner-client']
+        need(len(owner_records) == 1 and
+             owner_records[0]['sha256'] == digest(args.owner_client),
+             'financial owner executable changed')
+        symbols = subprocess.run(
+            ['nm', '-C', '--defined-only', str(args.binary)],
+            capture_output=True, check=False)
+        need(symbols.returncode == 0,
+             'financial executable symbol profile unavailable')
+        qualifier_symbol = (
+            b'ControlOnlyUnregisteredP1Capture::admit' in symbols.stdout)
+        need(qualifier_symbol is args.control_only_p1_capture,
+             'financial executable qualifier symbol crossed profiles')
+        self.capture_source_sha256 = source_manifest_identity(
+            build['source_sha256'])
+        self.capture_build_sha256 = digest(args.binary)
+        self.capture_launch_sha256 = digest(Path(__file__).resolve())
         for artifact in build['vendor_artifacts']:
             need(digest(Path(artifact['path'])) == artifact['sha256'], 'financial vendor changed')
         need(digest(args.model / 'model.meta') == MODEL and digest(args.verifier) == VERIFIER,
@@ -112,6 +184,17 @@ class FinancialAttempt(base.Attempt):
             'native_parameters_file_sha256': digest(args.native_parameters), 'resources': resources,
             'public_head_sha256': digest(head_path),
             'public_context_sha256': '6efa0e97ae8868b12743d72d45dcd46e858214e3413a1c63c1dee1ab56aacdc0',
+            'execution_profile': ('CONTROL_ONLY_UNREGISTERED'
+                                  if args.control_only_p1_capture
+                                  else 'NORMAL_UNREGISTERED'),
+            'control_only_p1_capture': args.control_only_p1_capture,
+            'capture_source_sha256': self.capture_source_sha256,
+            'capture_build_sha256': self.capture_build_sha256,
+            'capture_launch_sha256': self.capture_launch_sha256,
+            'capture_configured': False,
+            'capture_launch_authorized': False,
+            'capture_actual_receipt_enabled': False,
+            'capture_serialized_receipt_is_authority': False,
             'registered_financial_service': False, 'private_owner_files_or_keys_read_or_hashed': False,
             'raw_party_diagnostics_read': False, 'native_settlement_performed': False}
         base.write_json(self.public / 'SOURCE-AND-CONTROL-FREEZE.json', freeze)
@@ -140,7 +223,7 @@ class FinancialAttempt(base.Attempt):
                                            sort_keys=True, separators=(',', ':')).encode()).hexdigest()
         paths = []
         for owner in range(3):
-            body = ('KPI_OWNER_CONTRACT_V2\nrun_nonce ' + self.args.run_id + '\nmodel ' + MODEL +
+            body = ('KPI_OWNER_DDNNT_CONTRACT_V2\nrun_nonce ' + self.args.run_id + '\nmodel ' + MODEL +
                 '\nsource ' + SOURCE_SHA + '\npk ' + PK + '\nvk ' + VK + '\ntrace ' + TRACE +
                 '\nlayout ' + LAYOUT + '\ncohort ' + cohort + '\nowner_id ' + str(owner) + '\ninput_count 2635409\n')
             for party in range(3):
@@ -152,7 +235,11 @@ class FinancialAttempt(base.Attempt):
 
     def contract_controls(self, contracts):
         original = contracts[0].read_text()
-        cases = [('positive', original, 0)]
+        cases = [('positive', original, 0),
+                 ('legacy-3n-version', original.replace(
+                     'KPI_OWNER_DDNNT_CONTRACT_V2', 'KPI_OWNER_CONTRACT_V2', 1), 1),
+                 ('unselected-additive-version', original.replace(
+                     'KPI_OWNER_DDNNT_CONTRACT_V2', 'KPI_OWNER_ADDITIVE_CONTRACT_V2', 1), 1)]
         for field, value in [('run_nonce', self.args.run_id), ('model', MODEL), ('source', SOURCE_SHA),
                              ('pk', PK), ('vk', VK), ('trace', TRACE), ('layout', LAYOUT)]:
             cases.append(('wrong-' + field, original.replace(field + ' ' + value, field + ' ' + '0' * 64), 1))
@@ -286,6 +373,73 @@ class FinancialAttempt(base.Attempt):
         self.commands.append({'role': role, 'argv': argv, 'pid': process.pid})
         self.stage_paths[role] = work / 'result/PUBLIC-STAGE.json'
 
+    def start_control_capture(self, work):
+        need(self.args.control_only_p1_capture and
+             'capture-sink' not in self.processes,
+             'control-only capture worker lifecycle')
+        socket_path = work / 'control-only-p1-capture.sock'
+        raw_output = self.private / 'P1-C03.raw'
+        receipt = self.public / 'CONTROL-ONLY-P1-CAPTURE.json'
+        worker = SOURCE / 'financial/control_only_p1_capture_sink.py'
+        command = [sys.executable, str(worker), '--socket', str(socket_path),
+                   '--raw-output', str(raw_output), '--receipt', str(receipt)]
+        out = (self.private / 'capture-sink.stdout').open('xb')
+        err = (self.private / 'capture-sink.stderr').open('xb')
+        self.streams += [out, err]
+        process = subprocess.Popen(
+            command, stdin=subprocess.DEVNULL, stdout=out, stderr=err,
+            start_new_session=True, close_fds=True)
+        self.processes['capture-sink'] = process
+        self.commands.append({'role': 'capture-sink', 'argv': command,
+                              'pid': process.pid})
+        deadline = time.monotonic() + 5
+        while time.monotonic() < deadline:
+            need(process.poll() in (None, 0),
+                 'control-only capture worker refused before bind')
+            try:
+                info = socket_path.lstat()
+            except FileNotFoundError:
+                time.sleep(0.01)
+                continue
+            need(stat.S_ISSOCK(info.st_mode) and info.st_uid == os.getuid() and
+                 stat.S_IMODE(info.st_mode) == 0o600,
+                 'control-only capture socket identity')
+            self.capture_receipt_path = receipt
+            return
+        raise RuntimeError('control-only capture worker bind timeout')
+
+    def validate_control_capture_receipt(self):
+        need(self.args.control_only_p1_capture and
+             hasattr(self, 'capture_receipt_path'),
+             'control-only capture receipt lifecycle')
+        receipt = json.loads(self.capture_receipt_path.read_text())
+        expected_keys = {
+            'schema', 'status', 'c03_sha256', 'c03_bytes', 'frame_count',
+            'configured', 'launch_authorized', 'actual_receipt_enabled',
+            'serialized_receipt_is_authority', 'raw_capture_path_exported',
+            'raw_capture_body_exported',
+        }
+        need(set(receipt) == expected_keys and
+             receipt.get('schema') ==
+             'kpb-p1-control-only-private-capture/v1' and
+             receipt.get('status') == 'CONTROL_ONLY_UNREGISTERED_CAPTURED' and
+             isinstance(receipt.get('c03_sha256'), str) and
+             len(receipt['c03_sha256']) == 64 and
+             all(c in '0123456789abcdef'
+                 for c in receipt['c03_sha256']) and
+             isinstance(receipt.get('c03_bytes'), int) and
+             receipt['c03_bytes'] > 0 and
+             isinstance(receipt.get('frame_count'), int) and
+             receipt['frame_count'] >= 2 and
+             all(receipt.get(key) is False for key in (
+                 'configured', 'launch_authorized',
+                 'actual_receipt_enabled',
+                 'serialized_receipt_is_authority',
+                 'raw_capture_path_exported',
+                 'raw_capture_body_exported')),
+             'control-only capture receipt refused')
+        return receipt
+
     def wait_phase(self, target):
         # Stages are fixed public metadata. Remember reaching a stage so that
         # a quick later transition cannot make the supervisor wait forever.
@@ -316,6 +470,7 @@ class FinancialAttempt(base.Attempt):
             time.sleep(0.2)
 
     def execute(self):
+        need(False, RUNNER_REFUSAL)
         freeze = self.freeze()
         keys, certs, pins = self.certificates()
         contracts = self.contracts(pins, freeze)
@@ -331,7 +486,13 @@ class FinancialAttempt(base.Attempt):
             command = ['/app/mpc-financial', 'qualify', str(party), str(network), str(owner_port),
                 self.history_roles[party]['role_spec'], *['/public/' + path.name for path in contracts],
                 dependencies, '/work/result']
+            if self.args.control_only_p1_capture:
+                command += [self.capture_source_sha256,
+                            self.capture_build_sha256,
+                            self.capture_launch_sha256]
             argv, work = self.role_command('P' + str(party), keys, certs, command)
+            if party == 1 and self.args.control_only_p1_capture:
+                self.start_control_capture(work)
             self.launch('P' + str(party), argv, work)
         self.wait_phase('owner-listeners-ready')
         for owner in range(3):
@@ -353,6 +514,18 @@ class FinancialAttempt(base.Attempt):
                  result.get('actual_R1CS_rows') == 13093029 and result.get('trace_assertions') == 33896 and
                  result.get('context_byte_assertions') == 276 and result.get('historical_NF_assertions') == 0,
                  'financial typed completion')
+            if self.args.control_only_p1_capture:
+                need(result.get('p1_capture_classification') ==
+                     'CONTROL_ONLY_UNREGISTERED' and
+                     result.get('p1_capture_actual_authority') is False and
+                     result.get('p1_capture_stream_role') is (i == 1),
+                     'control-only P1 party result classification')
+            else:
+                need(all(key not in result for key in (
+                    'p1_capture_classification',
+                    'p1_capture_actual_authority',
+                    'p1_capture_stream_role')),
+                    'normal financial result contains capture profile')
             coin = result.get('public_challenge')
             need(isinstance(coin, str) and coin.isdecimal() and str(int(coin)) == coin and
                  0 <= int(coin) < 21888242871839275222246405745257275088548364400416034343698204186575808495617,
@@ -386,8 +559,19 @@ class FinancialAttempt(base.Attempt):
         need(digest(self.args.binary) == freeze['binary_sha256'] and
              digest(self.args.owner_client) == freeze['owner_client_sha256'] and
              digest(self.args.verifier) == freeze['verifier_sha256'], 'executable changed during run')
+        capture_receipt = (self.validate_control_capture_receipt()
+                           if self.args.control_only_p1_capture else None)
         result = {'schema': 'kpi-financial-qualification-run/v1', 'run_id': self.args.run_id, 'status': 'VERIFIED_AND_DURABLE_EGRESS',
             'scope': SCOPE, 'parties': parties, 'independent_digest_verifier_controls': checks,
+            'execution_profile': ('CONTROL_ONLY_UNREGISTERED'
+                                  if self.args.control_only_p1_capture
+                                  else 'NORMAL_UNREGISTERED'),
+            'control_only_p1_capture_receipt': capture_receipt,
+            'capture_configured': False,
+            'capture_launch_authorized': False,
+            'capture_actual_receipt_enabled': False,
+            'capture_serialized_receipt_is_authority': False,
+            'capture_raw_body_read_or_hashed_by_controller': False,
             'registered_financial_service': False, 'payment_privacy_qualified': False, 'native_settlement_performed': False,
             'private_owner_files_or_keys_read_or_hashed': False, 'raw_party_diagnostics_read': False}
         base.write_json(self.public / 'RESULT.json', result)
@@ -403,7 +587,13 @@ def main():
     parser.add_argument('--memory-gib', type=int, default=18)
     parser.add_argument('--cpu-cores', type=int, default=8)
     parser.add_argument('--inside-scope', action='store_true')
+    parser.add_argument('--control-only-p1-capture', action='store_true')
     args = parser.parse_args()
+    # This legacy controller pins the consumed 20261028-05 owner root and a
+    # caller-authored direct run bypasses the durable service. Parse --help,
+    # then refuse every execution profile before resolving or opening a path,
+    # constructing an attempt, creating output, or dispatching a process.
+    need(False, RUNNER_REFUSAL)
     need(len(args.run_id) == 64 and all(c in '0123456789abcdef' for c in args.run_id), 'fresh canonical financial identity')
     need(len(args.owner_input_file) == 3 and args.memory_gib > 0 and args.cpu_cores > 0, 'three owner paths and positive resources')
     for name in ('binary', 'owner_client', 'verifier', 'model', 'trace', 'native_parameters', 'vendor_root', 'output_parent'):

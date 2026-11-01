@@ -1,6 +1,17 @@
 #include "owner_inputs_active.hpp"
+#include "owner_input_ddnnt.hpp"
 #include <iostream>
 #include <stdexcept>
+
+namespace {
+class OwnerValueWipeGuard {
+    std::vector<kpi::mpc::Fr>& values_;
+public:
+    explicit OwnerValueWipeGuard(std::vector<kpi::mpc::Fr>& values)
+        : values_(values) {}
+    ~OwnerValueWipeGuard() { kpi::mpc::wipe_owner_fr_values(values_); }
+};
+} // namespace
 
 int main(int argc, char** argv) {
     try {
@@ -13,6 +24,7 @@ int main(int argc, char** argv) {
         if (consumed != std::string(argv[2]).size() || port < 1024 || port > 65533)
             throw std::runtime_error("owner-port-range");
         std::vector<kpi::mpc::Fr> values;
+        OwnerValueWipeGuard values_guard(values);
         for (size_t i = 0; i < contract.input_count; ++i) {
             std::string text;
             if (!(std::cin >> text))

@@ -1,0 +1,40 @@
+{
+  "schema": "kpb-capture-archive-reservation-blocker/v1",
+  "date": "2026-10-29",
+  "configured": false,
+  "selected_program_byte_schedule_authority": "MISSING",
+  "reservation_before_trial_identity_use": false,
+  "typed_archive_failure_invalidation": false,
+  "no_drop_quarantine_primitive": false,
+  "live_process_linear_quarantine_owner": true,
+  "allocation_failure_no_drop": false,
+  "process_crash_durable": false,
+  "power_loss_durable": false,
+  "post_partial_inspection_quarantine": true,
+  "typed_unavailable_terminal": false,
+  "retry_after_incomplete_capture_permitted": false,
+  "observed_or_fixture_sizes_admissible": false,
+  "entries": [
+    {"slot": 0, "round": 1, "kind": "PublicProjection", "fixed_fd": 20, "bound": "MISSING"},
+    {"slot": 1, "round": 1, "kind": "TerminalHistory", "fixed_fd": 21, "bound": "MISSING"},
+    {"slot": 2, "round": 1, "kind": "Dispatcher", "fixed_fd": 22, "bound": "MISSING"},
+    {"slot": 3, "round": 1, "kind": "CorruptServer", "fixed_fd": 23, "bound": "MISSING"},
+    {"slot": 4, "round": 1, "kind": "ColluderWallet", "fixed_fd": 24, "bound": "MISSING"},
+    {"slot": 5, "round": 2, "kind": "PublicProjection", "fixed_fd": 25, "bound": "MISSING"},
+    {"slot": 6, "round": 2, "kind": "TerminalHistory", "fixed_fd": 26, "bound": "MISSING"},
+    {"slot": 7, "round": 2, "kind": "Dispatcher", "fixed_fd": 27, "bound": "MISSING"},
+    {"slot": 8, "round": 2, "kind": "CorruptServer", "fixed_fd": 28, "bound": "MISSING"},
+    {"slot": 9, "round": 2, "kind": "ColluderWallet", "fixed_fd": 29, "bound": "MISSING"}
+  ],
+  "required_source": [
+    "exact selected producer and workload grammar",
+    "per-slot event and message multiplicities including retries",
+    "exact framing and chunk formula",
+    "child and parent independent recomputation",
+    "pre-fork statvfs and fallocate reservation",
+    "private prelinked 0600 spool objects beneath a source-owned 0700 directory",
+    "file and directory fsync before any crash-durability claim",
+    "typed whole-trial invalidation if reservation or archive finalization fails"
+  ],
+  "reason": "Current launch plans bind lineage but contain no byte schedule, and the selected stream grammars admit repeated records. No source-derived finite bound exists."
+}

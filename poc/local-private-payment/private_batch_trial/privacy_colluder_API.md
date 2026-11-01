@@ -22,12 +22,13 @@ The diagnostic selection is the trusted launcher selection documented in
 prospective execution selection.
 
 Ordered source members are `{name,sha256}` for the finite `sources()` mapping:
-the producer/controller, worker, qualified launcher, codec/observer, existing
-private-worker/wallet/output-producer, owner-authority script and mature recipient
-module. Node, crypto binary and installed JS leaf-map identities use the existing
-admitted constants. Small public sources are frozen as readonly copies; existing
-heavy runtimes and public JS assets are mounted readonly without duplication.
-The worker rechecks all installed JS leaves inside its namespace.
+the producer/controller, worker, qualified launcher, codec/observer and its
+transitive capture-model adapter, existing private-worker/wallet/
+output-producer, owner-authority script and mature recipient module. Node,
+crypto binary and installed JS leaf-map identities use the existing admitted
+constants. Small public sources are frozen as readonly copies; existing heavy
+runtimes and public JS assets are mounted readonly without duplication. The
+worker rechecks all installed JS leaves inside its namespace.
 
 The controller derives these private paths from the actual admitted trial and
 actual selected owner1 pay operation, never caller-supplied truth paths:
@@ -74,5 +75,9 @@ selected sealed-box/EdDSA machinery to create new CFs. Its CV/proof bytes are
 explicitly dummy: this is a receiving/decryption/routing control, not an Output
 or financial proof. Production source has no fixture mode. Metadata controls
 exercise atomic no-clobber, symlink/alias refusal and original-inode retention.
-Complete raw server and terminal models remain UNQUALIFIED, and the unchanged
-strict creator-swap counterexample remains valid.
+The fixture's dummy financial projection is explicitly unmodeled by the strict
+typed capture adapter; it cannot contribute modeled privacy coverage. Complete
+raw server and terminal models remain UNQUALIFIED. The frozen
+acceptance predicate holds legitimate recipient edges fixed and tests an
+alternate honest NF-to-created-pair graph instead of an impossible all-output
+relabel.

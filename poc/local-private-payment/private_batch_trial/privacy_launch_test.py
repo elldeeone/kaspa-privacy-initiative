@@ -23,7 +23,8 @@ class LauncherControls(unittest.TestCase):
         cls.real_read = staticmethod(runpy.run_path('/var/tmp/kpi-root-guard-helper-09.py')['read'])
         cls.source_cache = {}
         for name in (*launch.CORE_PINS, 'privacy_launch.py'):
-            path = launch.HERE / name; cls.source_cache[path] = cls.real_read(path)
+            path = (launch.HERE / name).resolve()
+            cls.source_cache[path] = cls.real_read(path)
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix='kpb-public-privacy-launcher-fixture-')
@@ -69,13 +70,45 @@ class LauncherControls(unittest.TestCase):
         trial_ref = self.save(self.bootstrap / self.label / 'TRIAL.json', trial)
         rounds = []
         for r in (1, 2):
-            raw = bytearray(10685); raw[:8] = b'KPBAFX01'; raw[193:201] = b'KPBAEF01'
-            raw[201:477] = bytes([r]) * 276
+            body = bytearray(10492); body[:8] = b'KPBAEF01'
+            for index in range(5):
+                body[8 + 32 * index:40 + 32 * index] = hashlib.sha256(
+                    b'launch-context' + bytes([r, index])).digest()
+            point = hashlib.sha256(b'launch-point' + bytes([r])).digest() \
+                + (r + 1).to_bytes(4, 'little')
+            body[168:204] = point
+            body[204:236] = hashlib.sha256(b'launch-old-cm' + bytes([r])).digest()
+            body[236:268] = hashlib.sha256(b'launch-old-nf' + bytes([r])).digest()
+            body[268:272] = (3).to_bytes(4, 'little')
+            body[272:276] = (1).to_bytes(4, 'little')
+            body[276:284] = (6_000_000_000).to_bytes(8, 'little')
+            body[284:316] = hashlib.sha256(b'launch-new-cm' + bytes([r])).digest()
+            body[316:348] = hashlib.sha256(b'launch-new-nf' + bytes([r])).digest()
+            body[348:352] = (9).to_bytes(4, 'little')
+            body[352:356] = (4).to_bytes(4, 'little')
+            body[356:364] = (5_970_000_000).to_bytes(8, 'little')
+            body[364:372] = (30_000_000).to_bytes(8, 'little')
+            body[372:404] = hashlib.sha256(b'launch-delta' + bytes([r])).digest()
             for index, nf in enumerate(model.public(r)['nfs_hex32']):
-                raw[193 + 404 + index * 96:193 + 436 + index * 96] = bytes.fromhex(nf)
-            for index in range(6): raw[193 + 692 + index * 520:193 + 692 + (index + 1) * 520] = model.row(r, index)
-            projection = self.save(self.base / ('PUBLIC-PROJECTION-' + str(r) + '.bin'), bytes(raw))
-            batch = observer.batch_from_projection(r, bytes(raw))
+                body[404 + index * 96:436 + index * 96] = bytes.fromhex(nf)
+                body[436 + index * 96:500 + index * 96] = hashlib.sha512(
+                    b'launch-input-cv' + bytes([r, index])).digest()
+            for index in range(6):
+                body[692 + index * 520:692 + (index + 1) * 520] = model.row(r, index)
+            body[3812:7292] = bytes([31 + r]) * 3480
+            body[7292:10364] = bytes([41 + r]) * 3072
+            script = bytes((0, 0, 0xaa, 0x20)) + bytes([77 + r]) * 32 + bytes((0x87,))
+            prefix = bytearray(193); prefix[:12] = b'KPBAFX01\x01\0\x01\0'
+            prefix[12:48] = point; prefix[48:56] = bytes([255]) * 8
+            prefix[56:64] = (6_000_000_000).to_bytes(8, 'little')
+            prefix[64:66] = (37).to_bytes(2, 'little'); prefix[66:103] = script
+            prefix[103:105] = (1).to_bytes(2, 'little')
+            prefix[105:113] = (5_970_000_000).to_bytes(8, 'little')
+            prefix[113:115] = (37).to_bytes(2, 'little'); prefix[115:152] = script
+            prefix[189:193] = (10492).to_bytes(4, 'little')
+            raw = bytes(prefix + body)
+            projection = self.save(self.base / ('PUBLIC-PROJECTION-' + str(r) + '.bin'), raw)
+            batch = observer.batch_from_projection(r, raw)
             results = {}
             for operation in ('invoice', 'pay'):
                 op_label = 'public-' + operation + '-r' + str(r); owners = []
@@ -129,8 +162,10 @@ class LauncherControls(unittest.TestCase):
             capture = {'owner_component': 1, 'root': str(root), 'relative_leaves': ['PUBLIC-FIXTURE-RAW.json']}
         selected = {'schema': 'kpb-private-diagnostic-launch-selection/v1', 'binding': self.bound,
             'run_selection': {'path': str(self.run_selection), 'sha256': self.bound['selection_sha256']},
-            'bootstrap_trial': trial_ref, 'source_members': [{'name': name, 'sha256': digest(raw)}
-                for name, raw in ((path.name, raw) for path, raw in self.source_cache.items())],
+            'bootstrap_trial': trial_ref, 'source_members': [{'name': name,
+                'sha256': digest(self.source_cache[
+                    (launch.HERE / name).resolve()])}
+                for name in (*launch.CORE_PINS, 'privacy_launch.py')],
             'rounds': rounds, 'corrupt_server_view': capture}
         return selected, self.save(self.base / 'PUBLIC-LAUNCH-SELECTION.json', selected)
 
@@ -152,12 +187,38 @@ class LauncherControls(unittest.TestCase):
         result = codec.parse(self.public_read(measured['public_result'], measured['public_result_sha256']))
         self.assertEqual([part['view'] for part in result['views']], list(codec.VIEWS))
         union = result['views'][-1]
-        self.assertEqual([part['strict_H1_status'] for part in union['rounds']], ['FAIL', 'FAIL'])
+        # Legacy v1 capture cannot model the frozen two-round graph
+        # alternative and therefore remains unqualified, not a privacy FAIL
+        # that could be mistaken for a completed measurement.
+        self.assertEqual([part['strict_H1_status'] for part in union['rounds']],
+                         ['UNQUALIFIED', 'UNQUALIFIED'])
         self.assertEqual(union['combined_terminal_status'], 'UNQUALIFIED')
         self.assertFalse(result['private_records_masks_or_per_owner_counts_exported'])
         with self.assertRaises(ValueError): launch.run('score', ref['path'], ref['sha256'], 0, True)
         with self.assertRaises(ValueError): launch.run('observe', ref['path'], ref['sha256'], execute=True)
         self.assertFalse(any(path.is_relative_to(self.private_base) for path in self.read_paths))
+
+    def test_self_authored_v2_cannot_execute_any_diagnostic_role(self):
+        ref = self.save(self.base / 'SELF-AUTHORED-V2.json', {
+            'schema': 'kpb-private-diagnostic-launch-selection/v2',
+        })
+        with patch.object(launch, 'admitted') as admitted_role, \
+                patch.object(launch, 'capture_chain_v2') as capture_chain, \
+                patch.object(launch.subprocess, 'run') as isolated_role:
+            for operation, owner_component in (
+                    ('observe', None), ('score', 0), ('aggregate', None)):
+                with self.subTest(operation=operation), self.assertRaisesRegex(
+                        ValueError,
+                        'privacy-v2-execute-authoritative-actual-producer-launch-absent'):
+                    launch.run(operation, ref['path'], ref['sha256'],
+                               owner_component, execute=True)
+            admitted_role.assert_not_called()
+            capture_chain.assert_not_called()
+            isolated_role.assert_not_called()
+        self.assertEqual(self.read_paths, [Path(ref['path'])] * 3)
+        self.assertFalse((self.private / 'diagnostics').exists())
+        self.assertFalse((self.bootstrap / self.label /
+                          'privacy-diagnostics').exists())
 
     def test_observer_cannot_select_honest_truth_or_wrong_corrupt_server(self):
         selected, _ = self.fixture()

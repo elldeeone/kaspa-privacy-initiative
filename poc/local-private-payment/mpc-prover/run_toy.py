@@ -204,7 +204,7 @@ class Attempt:
             'control': self.args.control}, sort_keys=True).encode()).hexdigest()
         contracts = []
         for owner in range(2):
-            body = ('KPI_OWNER_CONTRACT_V1\nrun_nonce ' + self.args.run_id +
+            body = ('KPI_OWNER_DDNNT_CONTRACT_V1\nrun_nonce ' + self.args.run_id +
                 '\nmodel ' + self.args.expected_model_sha256 + '\nsource ' + fields['source'] +
                 '\npk ' + fields['pk_sha256'] + '\nvk ' + fields['vk_sha256'] +
                 '\ncohort ' + cohort + '\nowner_id ' + str(owner) + '\ninput_count 1\n')
@@ -224,6 +224,10 @@ class Attempt:
         server1 = next(line.split()[1] for line in lines if line.startswith('server_certificate_1 '))
         owner0 = next(line.split()[1] for line in lines if line.startswith('owner_certificate '))
         cases = [
+            ('legacy-3n-contract-version', 0, originals[0].replace(
+                'KPI_OWNER_DDNNT_CONTRACT_V1', 'KPI_OWNER_CONTRACT_V1', 1)),
+            ('unselected-additive-contract-version', 0, originals[0].replace(
+                'KPI_OWNER_DDNNT_CONTRACT_V1', 'KPI_OWNER_ADDITIVE_CONTRACT_V1', 1)),
             ('duplicate-server-certificate', 0, originals[0].replace('server_certificate_1 ' + server1,
                 'server_certificate_1 ' + server0)),
             ('owner-server-certificate-overlap', 0, originals[0].replace('owner_certificate ' + owner0,
@@ -314,8 +318,8 @@ class Attempt:
             'assignment-validity-MAC-checked', 'full-assignment-check-complete',
             'authenticated-H-map-started', 'authenticated-H-map-complete',
             'authenticated-proof-masks-derived', 'group-MAC-coordinators-ready',
-            'masked-A-and-B1-MAC-checked',
-            'final-B2-and-C-MAC-checked',
+            'masked-secret-G1-products-MAC-checked',
+            'final-A-B2-C-MAC-checked',
             'complete-proof-and-MAC-checks', 'independent-Ark-verification-complete', 'complete']
         while True:
             ready = True

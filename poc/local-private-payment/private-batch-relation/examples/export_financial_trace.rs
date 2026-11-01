@@ -149,6 +149,41 @@ fn construct(
     }
     Ok(())
 }
+fn owner_effects_recipe(
+    layout: &kpi_private_batch_relation::BatchLayout,
+    variables: usize,
+    source_sha256: &str,
+    layout_sha256: &str,
+) -> Result<Vec<u8>, E> {
+    let source: [u8; 32] = hex::decode(source_sha256)?
+        .try_into()
+        .map_err(|_| "owner effects source identity")?;
+    let layout_identity: [u8; 32] = hex::decode(layout_sha256)?
+        .try_into()
+        .map_err(|_| "owner effects layout identity")?;
+    let mut recipe = Vec::new();
+    recipe.extend_from_slice(b"KPBOER01");
+    for value in [variables, 3, 3, 256, 2, 6] {
+        recipe.extend((value as u64).to_le_bytes());
+    }
+    recipe.extend(source);
+    recipe.extend(layout_identity);
+    for (owner, fields) in layout.owner_fields.iter().enumerate() {
+        if fields.input_nf_bits.len() != 256 {
+            return Err("owner effects NF recipe shape".into());
+        }
+        recipe.extend((owner as u64).to_le_bytes());
+        for column in &fields.input_nf_bits {
+            recipe.extend((*column as u64).to_le_bytes());
+        }
+        for output in 0..2 {
+            for column in layout.output_permutation_columns[2 * owner + output] {
+                recipe.extend((column as u64).to_le_bytes());
+            }
+        }
+    }
+    Ok(recipe)
+}
 fn main() -> Result<(), E> {
     run_with_args(std::env::args().skip(1).collect())
 }
@@ -254,6 +289,30 @@ pub(crate) fn run_with_args(mut a: Vec<String>) -> Result<(), E> {
     }
     let recipe_sha = hex::encode(Sha256::digest(&recipe));
     fs::write(root.join("PREFIX-RECIPE.bin"), &recipe)?;
+    let layout_sha = layout_receipt["sha256"].as_str().ok_or("layout pin")?;
+    let owner_recipe = owner_effects_recipe(&layout, variables, &source_pin, layout_sha)?;
+    let owner_recipe_sha = hex::encode(Sha256::digest(&owner_recipe));
+    fs::write(root.join("OWNER-EFFECTS-RECIPE.bin"), &owner_recipe)?;
+    fs::write(
+        root.join("OWNER-EFFECTS-RECIPE.json"),
+        serde_json::to_vec_pretty(&json!({
+            "schema":"kpb-baseline-owner-effects-recipe/v1",
+            "classification":"PUBLIC_COLUMN_RECIPE_NO_VALUES_BASELINE_ONLY",
+            "file":"OWNER-EFFECTS-RECIPE.bin",
+            "sha256":owner_recipe_sha,
+            "bytes":owner_recipe.len(),
+            "source_sha256":source_pin,
+            "layout_sha256":layout_sha,
+            "model_variables":variables,
+            "instances":3,
+            "owners":3,
+            "nf_bits_per_owner":256,
+            "outputs_per_owner":2,
+            "public_destinations":6,
+            "raw_tuple_columns_included":false,
+            "private_values_included":false
+        }))?,
+    )?;
     if prepare {
         let manifest = json!({"schema":"kpb-financial-trace-independent-preparation/v1","classification":"PUBLIC_LAYOUT_RECIPE_AND_GRAPH_ONLY_NO_MODEL_PLACEHOLDER","source_sha256":source_pin,"model_variables":variables,"model_instances":3,"trace_variables":counted.variables(),"operations":expected_ops,"operation_text_bytes":counted.operation_text_bytes()?,"graph_sha256":expected_graph,"layout":layout_receipt,"prefix_recipe":{"file":"PREFIX-RECIPE.bin","sha256":recipe_sha,"bytes":recipe.len(),"outputs":prefix.len()},"original_signature_matrix_sha256":a[2],"original_signature_mapping_sha256":a[3],"owner_input_counts":columns.iter().map(Vec::len).collect::<Vec<_>>(),"public_context_sha256":hex::encode(Sha256::digest(context.bytes())),"elapsed_seconds":started.elapsed().as_secs_f64(),"model_identity_claim":false,"private_owner_material_read":false});
         fs::write(
@@ -262,7 +321,7 @@ pub(crate) fn run_with_args(mut a: Vec<String>) -> Result<(), E> {
         )?;
         println!(
             "{}",
-            json!({"stage":"independent_actual_layout_recipe_preparation_complete","output":root,"layout_sha256":manifest["layout"]["sha256"],"prefix_recipe_sha256":recipe_sha,"graph_sha256":expected_graph})
+            json!({"stage":"independent_actual_layout_recipe_preparation_complete","output":root,"layout_sha256":manifest["layout"]["sha256"],"prefix_recipe_sha256":recipe_sha,"owner_effects_recipe_sha256":owner_recipe_sha,"graph_sha256":expected_graph})
         );
         return Ok(());
     }
@@ -279,7 +338,7 @@ pub(crate) fn run_with_args(mut a: Vec<String>) -> Result<(), E> {
     drop(counted);
     println!(
         "{}",
-        json!({"stage":"actual_financial_trace_counted","model_variables":variables,"operations":expected_ops,"uncompressed_bytes":expected_bytes,"graph_sha256":expected_graph,"prefix_recipe_sha256":recipe_sha})
+        json!({"stage":"actual_financial_trace_counted","model_variables":variables,"operations":expected_ops,"uncompressed_bytes":expected_bytes,"graph_sha256":expected_graph,"prefix_recipe_sha256":recipe_sha,"owner_effects_recipe_sha256":owner_recipe_sha})
     );
     io::stdout().flush()?;
     let trace_receipt = gzip(&root.join("trace.txt.gz"), |sink| {

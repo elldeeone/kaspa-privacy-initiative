@@ -11,18 +11,8 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-// This separate fixture exercises the private storage primitive only. The
-// production header rejects KPI_HISTORY_UNFUNDED_SETUP and defines a different
-// complete class; this fixture cannot be linked as financial authority.
-namespace kpi::mpc::history {
-class VerifiedSettlement {
-public:
-    static DurableRecord append(EpochJournal& j,const SettlementRecord& r,uint64_t seq,const Digest& cp,FailureOnlyHook hook={}){
-        return j.record_verified_settlement(r,seq,cp,hook);
-    }
-    static void storage(EpochJournal& j,const std::filesystem::path& local,const std::filesystem::path& anchor,const Digest& reg){j.require_fixed_storage(local,anchor,reg);}
-};
-}
+// This separate fixture exercises explicit macro-gated storage primitives
+// only. It cannot define a production friend name or link financial authority.
 using namespace kpi::mpc::history;
 namespace {
 std::vector<std::string> passed;
@@ -57,23 +47,23 @@ int main(int argc,char** argv){try{
     Store primary(root,"primary");auto j=primary.fresh();const auto record=ready_candidate(j);const auto final=j.snapshot();
     check(final.lock_identity&&*final.lock_identity==record.lock_identity);success("durable-lock-agreement-identity-reconstructed");
     for(unsigned field=0;field<6;++field){auto bad=record;switch(field){case 0:bad.lock_identity[0]^=1;break;case 1:bad.attempt[0]^=1;break;case 2:bad.final_checkpoint[0]^=1;break;case 3:bad.candidate[0]^=1;break;case 4:bad.raw_case[0]^=1;break;case 5:bad.projection[0]^=1;break;}
-        refuses([&]{(void)VerifiedSettlement::append(j,bad,final.sequence,final.checkpoint);});}
-    refuses([&]{(void)VerifiedSettlement::append(j,record,final.sequence-1,final.checkpoint);});success("wrong-lock-attempt-checkpoint-candidate-case-projection-and-stale-record-refused");
-    auto local=VerifiedSettlement::append(j,record,final.sequence,final.checkpoint);check(local.phase()==Phase::Ready);
+        refuses([&]{(void)VerifiedSettlementJournalBridge::test_only_record_verified_settlement(j,bad,final.sequence,final.checkpoint);});}
+    refuses([&]{(void)VerifiedSettlementJournalBridge::test_only_record_verified_settlement(j,record,final.sequence-1,final.checkpoint);});success("wrong-lock-attempt-checkpoint-candidate-case-projection-and-stale-record-refused");
+    auto local=VerifiedSettlementJournalBridge::test_only_record_verified_settlement(j,record,final.sequence,final.checkpoint);check(local.phase()==Phase::Ready);
     auto settled=j.snapshot();check(settled.phase==Phase::Ready&&!settled.attempt&&!settled.egress&&!settled.candidate&&settled.last_settlement==record&&settled.seen_nullifiers==final.seen_nullifiers&&settled.seen_identity==final.seen_identity);success("storage-settled-retains-all-public-NF-tombstones");
-    refuses([&]{(void)VerifiedSettlement::append(j,record,final.sequence,final.checkpoint);});success("settlement-append-one-use-stale-replay-refused");
+    refuses([&]{(void)VerifiedSettlementJournalBridge::test_only_record_verified_settlement(j,record,final.sequence,final.checkpoint);});success("settlement-append-one-use-stale-replay-refused");
     auto reopened=primary.open();check(reopened.snapshot().last_settlement==record&&reopened.snapshot().seen_identity==final.seen_identity);success("actual-restart-retains-settlement-and-tombstones");
     const auto before=reopened.snapshot();const auto round2job=job("round2");const auto round2identity=lock_agreement_identity(before,round2job);auto round2=reopened.lock(round2job);
     check(reopened.snapshot().lock_identity==round2identity&&reopened.snapshot().seen_nullifiers==final.seen_nullifiers);success("sequential-second-lock-joins-full-history-and-retains-NFs");
     auto prep2=reopened.prepare(round2,label("effects"));auto duplicate=reopened.record_egress(prep2,packet());check(duplicate.phase()==Phase::ExposureConflict);success("released-NF-reuse-after-settlement-enters-irreversible-conflict");
     Store a(root,"deterministic-a"),b(root,"deterministic-b");auto ja=a.fresh();auto jb=b.fresh();auto ra=ready_candidate(ja);auto rb=ready_candidate(jb);check(ra==rb);auto sa=ja.snapshot();auto sb=jb.snapshot();
-    (void)VerifiedSettlement::append(ja,ra,sa.sequence,sa.checkpoint);(void)VerifiedSettlement::append(jb,rb,sb.sequence,sb.checkpoint);check(ja.snapshot().checkpoint==jb.snapshot().checkpoint);success("independent-local-observations-share-canonical-settlement-checkpoint");
+    (void)VerifiedSettlementJournalBridge::test_only_record_verified_settlement(ja,ra,sa.sequence,sa.checkpoint);(void)VerifiedSettlementJournalBridge::test_only_record_verified_settlement(jb,rb,sb.sequence,sb.checkpoint);check(ja.snapshot().checkpoint==jb.snapshot().checkpoint);success("independent-local-observations-share-canonical-settlement-checkpoint");
     Store clone(root,"clone");{auto c=clone.fresh();(void)c;}
-    auto cloned=clone.open();refuses([&]{VerifiedSettlement::storage(cloned,a.local,a.anchor,label("registered-public-storage-fixture"));});success("same-key-registration-cloned-store-path-refused");
+    auto cloned=clone.open();refuses([&]{VerifiedSettlementJournalBridge::test_only_require_fixed_storage(cloned,a.local,a.anchor,label("registered-public-storage-fixture"));});success("same-key-registration-cloned-store-path-refused");
     for(auto boundary:{WriteBoundary::JournalWritten,WriteBoundary::JournalSynced,WriteBoundary::AnchorWritten,WriteBoundary::AnchorSynced}){
         Store crash(root,"crash"+std::to_string(static_cast<unsigned>(boundary)));{auto c=crash.fresh();(void)ready_candidate(c);}
         auto pid=::fork();check(pid>=0);if(pid==0){auto c=crash.open();const auto s=c.snapshot();const auto r=SettlementRecord{*s.lock_identity,s.attempt->attempt,s.checkpoint,digest(encode(*s.candidate)),s.candidate->raw_case,s.egress->projection,label("adapter-selection"),label("acceptance-STORAGE-ONLY")};
-            (void)VerifiedSettlement::append(c,r,s.sequence,s.checkpoint,[&](auto at){if(at==boundary)::_exit(91);});::_exit(92);}
+            (void)VerifiedSettlementJournalBridge::test_only_record_verified_settlement(c,r,s.sequence,s.checkpoint,[&](auto at){if(at==boundary)::_exit(91);});::_exit(92);}
         int status=0;check(::waitpid(pid,&status,0)==pid&&WIFEXITED(status)&&WEXITSTATUS(status)==91);
         try{auto c=crash.open();check(c.snapshot().phase==Phase::Ready&&c.snapshot().seen_nullifiers==final.seen_nullifiers);}catch(const Refused&){}
     }success("actual-process-crash-all-four-settlement-write-boundaries-safe-or-halt");

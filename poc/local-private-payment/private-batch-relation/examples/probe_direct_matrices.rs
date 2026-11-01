@@ -13,12 +13,19 @@ use kpi_private_batch_relation::{
 };
 use serde_json::{Value, json};
 use sha2::Digest;
+#[cfg(target_os = "linux")]
+use std::os::fd::AsRawFd;
 use std::{
-    fs,
-    io::{self, Write},
-    path::PathBuf,
+    fs::{self, File},
+    io::{self, Read, Write},
+    path::{Component, Path, PathBuf},
     time::Instant,
 };
+
+struct SourceSelection {
+    sha256: String,
+    members: usize,
+}
 fn rows_json(r: &AxisReceipt, file: &str) -> Value {
     json!({"axis":r.axis,"file":file,"uncompressed_bytes":r.raw_bytes,"uncompressed_sha256":r.raw_sha256,"compressed_bytes":r.compressed_bytes,"compressed_sha256":r.compressed_sha256})
 }
@@ -26,18 +33,124 @@ fn event(v: Value) -> io::Result<()> {
     println!("{}", v);
     io::stdout().flush()
 }
+#[cfg(target_os = "linux")]
+fn read_opened_regular(
+    path: &Path,
+    expected_canonical_path: &Path,
+) -> Result<Vec<u8>, Box<dyn std::error::Error>> {
+    let mut file = File::open(path)?;
+    if !file.metadata()?.file_type().is_file() {
+        return Err("source table member is not a regular file".into());
+    }
+    let opened =
+        fs::canonicalize(PathBuf::from("/proc/self/fd").join(file.as_raw_fd().to_string()))?;
+    if opened != expected_canonical_path {
+        return Err("source table member opened outside its exact path".into());
+    }
+    let mut raw = Vec::new();
+    file.read_to_end(&mut raw)?;
+    Ok(raw)
+}
+
+#[cfg(not(target_os = "linux"))]
+fn read_opened_regular(
+    _path: &Path,
+    _expected_canonical_path: &Path,
+) -> Result<Vec<u8>, Box<dyn std::error::Error>> {
+    Err("exact source table verification requires pinned Linux /proc file descriptors".into())
+}
+
+fn selected_source_table(path: &Path) -> Result<SourceSelection, Box<dyn std::error::Error>> {
+    let expected = option_env!("KPB_MATRIX_SOURCE_TABLE_SHA256")
+        .ok_or("matrix source table build binding absent")?;
+    if expected.len() != 64
+        || !expected
+            .bytes()
+            .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+    {
+        return Err("matrix source table build binding format".into());
+    }
+    let expected_count: usize = option_env!("KPB_MATRIX_SOURCE_MEMBER_COUNT")
+        .ok_or("matrix source count build binding absent")?
+        .parse()?;
+    if expected_count == 0 {
+        return Err("matrix source count build binding empty".into());
+    }
+    let configured_repository =
+        PathBuf::from(option_env!("KPB_REPOSITORY_ROOT").ok_or("repository build binding absent")?);
+    if !configured_repository.is_absolute() {
+        return Err("repository build binding is not absolute".into());
+    }
+    let repository = fs::canonicalize(&configured_repository)?;
+    if repository != configured_repository || !repository.is_dir() {
+        return Err("repository build binding is not its canonical directory".into());
+    }
+    let canonical_table = fs::canonicalize(path)?;
+    let raw = read_opened_regular(path, &canonical_table)?;
+    let actual = hex::encode(sha2::Sha256::digest(&raw));
+    if actual != expected {
+        return Err("exact source table build binding".into());
+    }
+    let table: Value = serde_json::from_slice(&raw)?;
+    if serde_json::to_vec(&table)? != raw {
+        return Err("canonical unique source table".into());
+    }
+    let members = table.as_object().ok_or("source table object")?;
+    if members.len() != expected_count || members.is_empty() {
+        return Err("source table exact count".into());
+    }
+    for (relative, selected) in members {
+        let relative = Path::new(relative);
+        if relative.is_absolute()
+            || relative.components().any(|component| {
+                !matches!(component, Component::Normal(_))
+                    || matches!(component, Component::Normal(value) if value == "target" || value == "evidence" || value == ".git")
+            })
+        {
+            return Err("source table canonical repository path".into());
+        }
+        let selected = selected.as_str().ok_or("source table SHA string")?;
+        if selected.len() != 64
+            || !selected
+                .bytes()
+                .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+        {
+            return Err("source table SHA format".into());
+        }
+        let source = repository.join(relative);
+        if fs::canonicalize(&source)? != source {
+            return Err("source table member path is not canonical".into());
+        }
+        let raw = read_opened_regular(&source, &source)?;
+        if hex::encode(sha2::Sha256::digest(raw)) != selected {
+            return Err("source table member drift".into());
+        }
+    }
+    Ok(SourceSelection {
+        sha256: actual,
+        members: members.len(),
+    })
+}
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = std::env::args().skip(1).collect::<Vec<_>>();
+    if args.len() == 2 && args[0] == "--check-source-table" {
+        let source = selected_source_table(Path::new(&args[1]))?;
+        event(json!({
+            "stage":"exact_source_table_verified",
+            "source_sha256":source.sha256,
+            "source_members":source.members,
+            "matrix_synthesis_started":false,
+            "private_assignment":false,
+            "parameter_generation_proof_or_mpc":false
+        }))?;
+        return Ok(());
+    }
     if args.len() != 7 {
-        return Err("usage: probe_direct_matrices PUBLIC-CONTEXT-HISTORY.json PUBLIC-SIGNATURE-MATRIX.json EXPECTED-MATRIX-SHA EXPECTED-MAP-SHA SOURCE-SHA NEW-ARTIFACT-DIRECTORY COMPRESSED-BYTE-BUDGET".into());
+        return Err("usage: probe_direct_matrices --check-source-table EXACT-SOURCE-TABLE.json | PUBLIC-CONTEXT-HISTORY.json PUBLIC-SIGNATURE-MATRIX.json EXPECTED-MATRIX-SHA EXPECTED-MAP-SHA EXACT-SOURCE-TABLE.json NEW-ARTIFACT-DIRECTORY COMPRESSED-BYTE-BUDGET".into());
     }
-    if args[4].len() != 64
-        || !args[4]
-            .bytes()
-            .all(|b| b.is_ascii_digit() || (b'a'..=b'f').contains(&b))
-    {
-        return Err("source identity format".into());
-    }
+    let source = selected_source_table(Path::new(&args[4]))?;
+    let source_sha = source.sha256;
+    let source_members = source.members;
     let output = PathBuf::from(&args[5]);
     if output.exists() {
         return Err("fresh output directory required".into());
@@ -60,7 +173,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         core::array::from_fn(|_| signature.clone()),
     )?;
     event(
-        json!({"stage":"stock_setup_mode_matrix_synthesis_start","private_assignment":false,"source_sha256":args[4]}),
+        json!({"stage":"stock_setup_mode_matrix_synthesis_start","private_assignment":false,"source_sha256":source_sha}),
     )?;
     let cs = ConstraintSystem::<Fr>::new_ref();
     cs.set_optimization_goal(OptimizationGoal::Constraints);
@@ -131,7 +244,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
         files.push(rows_json(&actual, names[axis]));
     }
-    let manifest = json!({"schema":"kpi-r1cs-axis-gzip/v1","classification":"PUBLIC_UNASSIGNED_STOCK_ROWS_NO_PK_SETUP_PROOF_OR_ACCEPTANCE","magic_ascii":"KPI_R1CS_AXIS_V1","field_decimal":Fr::MODULUS.to_string(),"num_instances":matrices.instances,"num_witnesses":matrices.witnesses,"num_constraints":matrices.constraints(),"model_variables":shape.final_variables,"source_sha256":args[4],"canonical_r1cs_fingerprint":fingerprint,"original_signature_matrix_sha256":args[2],"original_signature_mapping_sha256":args[3],"signature_variables":shape.signature_variables,"public_prefix_policy":{"slots":3,"policy":"derived_only_after_global_private_validity","fixed_digest_values":false,"prefix_recipe_status":"separately_bound_required_before_jobs"},"gzip_binary_sha256":gzip_pin,"gzip_arguments":["-1","-n","-c"],"axes":files,"private_assignment_included":false,"parameter_or_vk_identity_claim":false});
+    let manifest = json!({"schema":"kpi-r1cs-axis-gzip/v1","classification":"PUBLIC_UNASSIGNED_STOCK_ROWS_NO_PK_SETUP_PROOF_OR_ACCEPTANCE","magic_ascii":"KPI_R1CS_AXIS_V1","field_decimal":Fr::MODULUS.to_string(),"num_instances":matrices.instances,"num_witnesses":matrices.witnesses,"num_constraints":matrices.constraints(),"model_variables":shape.final_variables,"source_sha256":source_sha,"source_member_count":source_members,"canonical_r1cs_fingerprint":fingerprint,"original_signature_matrix_sha256":args[2],"original_signature_mapping_sha256":args[3],"signature_variables":shape.signature_variables,"public_prefix_policy":{"slots":3,"policy":"derived_only_after_global_private_validity","fixed_digest_values":false,"prefix_recipe_status":"separately_bound_required_before_jobs"},"gzip_binary_sha256":gzip_pin,"gzip_arguments":["-1","-n","-c"],"axes":files,"private_assignment_included":false,"parameter_or_vk_identity_claim":false});
     fs::write(
         output.join("PUBLIC-ROWS-MANIFEST.json"),
         serde_json::to_vec_pretty(&manifest)?,

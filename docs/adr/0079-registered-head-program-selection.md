@@ -111,3 +111,23 @@ selection; full exporter/constructor validation; Original-only spending; and a
 complete native broadcast/confirmation rehearsal. Independent source review and
 public controls must precede registered private intake. No funded readiness,
 privacy, production safety or completed live result is claimed here.
+
+## Current implementation blocker
+
+`accepted_head.*` and `fixed_public_run.*` are now canonically installed after
+the unchanged current implementation passed 8/8 public-process controls and a
+strict current C++20 compile together with the registered source closure. This
+is source/compile eligibility only. It still does not produce a complete
+registered path: there is no registered main, linked selected roster-pinned
+transport build, or fixed configuration for model/query/PK/VK/verifier and
+candidate work paths. Configuration remains off and no registered private
+intake, proof, EGRESS or live authority has run.
+
+`poc/local-private-payment/mpc-prover/financial/REGISTERED-DRIVER-REQUIREMENTS.json`
+is the canonical machine-readable blocker list. It requires the single live sequence from
+`open_selected` through fresh accepted-head acquisition, registered program
+selection, LOCK/private construction, full proof/EGRESS, selected R0/native
+verification and FINAL capability. The default remains unconfigured and must
+refuse before file, network, head, owner-listener or MPC access. The fixed
+unregistered Source05 qualifier and its public handoff cannot be relabelled as
+this registered authority.

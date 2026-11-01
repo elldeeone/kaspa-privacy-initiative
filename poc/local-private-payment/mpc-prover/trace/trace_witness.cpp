@@ -332,11 +332,20 @@ void require_same_header(const TraceHeader& first, const TraceHeader& second) {
 struct AuthenticatedTraceContext {
     MascotContext& context;
     AuthScalar public_constant(const Fr& value) { return context.public_constant(value); }
-    std::vector<AuthScalar> multiply_batch(std::span<const AuthScalar> left,
-                                           std::span<const AuthScalar> right) {
-        return context.multiply_batch(left, right);
+    std::vector<AuthScalar> multiply_batch(
+        p1_capture::ScalarCaptureSite site,
+        std::span<const AuthScalar> left,
+        std::span<const AuthScalar> right) {
+        return context.multiply_batch(site, left, right);
     }
-    AuthScalar random_bit() { return context.protocols().preprocessing.get_bit(); }
+    AuthScalar random_bit() {
+        auto value = context.protocols().preprocessing.get_bit();
+        const std::array<AuthScalar, 1> selected{value};
+        context.capture_randomness_values(
+            p1_capture::ScalarCaptureSite::TraceWitnessRandomBit,
+            selected);
+        return value;
+    }
     void check_field_pending() { context.check_field_pending(); }
 };
 
@@ -377,7 +386,9 @@ class Executor {
     void flush() {
         if (targets_.empty())
             return;
-        const auto products = context_.multiply_batch(left_, right_);
+        const auto products = context_.multiply_batch(
+            p1_capture::ScalarCaptureSite::TraceWitnessBufferedProduct,
+            left_, right_);
         for (size_t i = 0; i < targets_.size(); ++i) {
             write(targets_[i], products[i] + add_[i]);
             assigned_[targets_[i]] = 1;
@@ -712,32 +723,76 @@ TraceExecution execute_trace(MascotContext& context, const TraceProgram& program
     return {result.model_variables, std::move(result.wires), std::move(result.private_checks)};
 }
 
+TracePrivateCheckCaptureSchedule trace_private_check_capture_schedule(
+        size_t check_count) {
+    if (check_count == 0)
+        refuse("trace-private-check-capture-count");
+    const bigint exponent(fr_modulus() - 1);
+    const auto bits = static_cast<size_t>(
+        mpz_sizeinbase(exponent.get_mpz_t(), 2));
+    size_t nonzero_accumulate_calls = 0;
+    for (size_t bit = 0; bit < bits; ++bit)
+        if (mpz_tstbit(exponent.get_mpz_t(), bit))
+            ++nonzero_accumulate_calls;
+    std::vector<size_t> reduction_widths;
+    for (size_t remaining = check_count; remaining > 1;
+         remaining = remaining / 2 + remaining % 2)
+        reduction_widths.push_back(remaining / 2);
+    return {
+        check_count,
+        nonzero_accumulate_calls,
+        bits - 1,
+        std::move(reduction_widths),
+    };
+}
+
 AuthScalar trace_private_checks_hold(MascotContext& context,
-                                     std::span<const AuthScalar> checks) {
-    if (checks.empty())
-        return context.public_constant(Fr(1));
+                                     std::span<const AuthScalar> checks,
+                                     size_t expected_count) {
+    if (checks.size() != expected_count || expected_count == 0)
+        refuse("trace-private-check-capture-count");
+    const auto schedule = trace_private_check_capture_schedule(expected_count);
     const bigint exponent(fr_modulus() - 1);
     std::vector<AuthScalar> powers(checks.begin(), checks.end());
     std::vector<AuthScalar> nonzero(checks.size(), context.public_constant(Fr(1)));
     const auto bits = mpz_sizeinbase(exponent.get_mpz_t(), 2);
+    size_t nonzero_accumulate_calls = 0;
+    size_t nonzero_square_calls = 0;
     for (size_t bit = 0; bit < bits; ++bit) {
-        if (mpz_tstbit(exponent.get_mpz_t(), bit))
-            nonzero = context.multiply_batch(nonzero, powers);
-        if (bit + 1 < bits)
-            powers = context.multiply_batch(powers, powers);
+        if (mpz_tstbit(exponent.get_mpz_t(), bit)) {
+            nonzero = context.multiply_batch(
+                p1_capture::ScalarCaptureSite::TraceWitnessNonzeroAccumulate,
+                nonzero, powers);
+            ++nonzero_accumulate_calls;
+        }
+        if (bit + 1 < bits) {
+            powers = context.multiply_batch(
+                p1_capture::ScalarCaptureSite::TraceWitnessNonzeroSquare,
+                powers, powers);
+            ++nonzero_square_calls;
+        }
     }
+    if (nonzero_accumulate_calls != schedule.nonzero_accumulate_calls ||
+        nonzero_square_calls != schedule.nonzero_square_calls)
+        refuse("trace-private-check-capture-exponent-schedule");
     for (auto& flag : nonzero)
         flag = context.public_constant(Fr(1)) - flag;
-    while (nonzero.size() > 1) {
+    for (const auto expected_width : schedule.reduction_widths) {
         std::vector<AuthScalar> left, right;
         for (size_t i = 0; i + 1 < nonzero.size(); i += 2) {
             left.push_back(nonzero[i]); right.push_back(nonzero[i + 1]);
         }
-        auto next = context.multiply_batch(left, right);
+        if (left.size() != expected_width || right.size() != expected_width)
+            refuse("trace-private-check-capture-reduction-schedule");
+        auto next = context.multiply_batch(
+            p1_capture::ScalarCaptureSite::TraceWitnessReduction,
+            left, right);
         if (nonzero.size() % 2)
             next.push_back(nonzero.back());
         nonzero = std::move(next);
     }
+    if (nonzero.size() != 1)
+        refuse("trace-private-check-capture-reduction-result");
     return nonzero[0];
 }
 
@@ -748,7 +803,9 @@ PublicTraceReference evaluate_public_trace_for_controls(
     size_t window_size) {
     struct PublicContext {
         Fr public_constant(const Fr& value) { return value; }
-        std::vector<Fr> multiply_batch(std::span<const Fr> left, std::span<const Fr> right) {
+        std::vector<Fr> multiply_batch(
+            p1_capture::ScalarCaptureSite,
+            std::span<const Fr> left, std::span<const Fr> right) {
             if (left.size() != right.size())
                 refuse("public-trace-multiplication-arity");
             std::vector<Fr> result;

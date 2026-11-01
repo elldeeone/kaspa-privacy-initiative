@@ -232,17 +232,135 @@ Bytes final_agreement(const PublicSnapshot& s,const Digest& lock,const FinalCand
 }
 }
 
+std::unique_ptr<EpochJournal>
+VerifiedSettlementJournalBridge::retain_final_candidate(
+        VerifiedFinalCandidate& capability, EpochJournal& journal) {
+    const auto current = journal.snapshot();
+    need(!capability.journal_ && capability.context_ != nullptr &&
+         current.phase == Phase::Egress && current.egress &&
+         current.lock_identity &&
+         current.sequence == capability.sequence_ &&
+         current.checkpoint == capability.checkpoint_ &&
+         *current.lock_identity == capability.lock_identity_ &&
+         current.egress->projection == capability.candidate_.projection);
+    return std::unique_ptr<EpochJournal>(new EpochJournal(journal.core_));
+}
+
+void VerifiedSettlementJournalBridge::bind_final_candidate(
+        VerifiedFinalCandidate& capability, MascotContext& context) {
+    try {
+        context.require_healthy();
+        need(capability.journal_ && !capability.consumed_ &&
+             capability.context_ == &context &&
+             capability.generation_ == context.generation() &&
+             capability.epoch_ == context.failure_epoch());
+        const auto current = capability.journal_->snapshot();
+        need(current.phase == Phase::Egress && current.egress &&
+             current.lock_identity &&
+             current.sequence == capability.sequence_ &&
+             current.checkpoint == capability.checkpoint_ &&
+             *current.lock_identity == capability.lock_identity_ &&
+             current.egress->projection == capability.candidate_.projection);
+        context.agree_public_bytes(
+            "history-before-durable-exact-final",
+            final_agreement(
+                current, capability.lock_identity_, capability.candidate_));
+        capability.consumed_ = true;
+        const DurableRecord egress(
+            capability.journal_->core_, capability.sequence_,
+            capability.checkpoint_, Phase::Egress);
+        const auto local = capability.journal_->bind_final_candidate(
+            egress, capability.candidate_);
+        Bytes durable = final_agreement(
+            current, capability.lock_identity_, capability.candidate_);
+        for (unsigned index = 0; index < 8; ++index)
+            durable.push_back(local.sequence() >> (8 * index));
+        add(durable, local.checkpoint());
+        context.agree_public_bytes(
+            "history-all-three-durable-final-continuation", durable);
+    } catch (...) {
+        context.poison();
+        throw Refused();
+    }
+}
+
+std::unique_ptr<EpochJournal>
+VerifiedSettlementJournalBridge::retain_settlement(
+        VerifiedSettlement& capability, EpochJournal& journal) {
+    const auto current = journal.snapshot();
+    need(!capability.journal_ && capability.context_ != nullptr &&
+         current.phase == Phase::FinalCandidate && current.attempt &&
+         current.egress && current.candidate && current.lock_identity &&
+         current.sequence == capability.sequence_ &&
+         current.checkpoint == capability.checkpoint_ &&
+         capability.settlement_.lock_identity == *current.lock_identity &&
+         capability.settlement_.attempt == current.attempt->attempt &&
+         capability.settlement_.final_checkpoint == current.checkpoint &&
+         capability.settlement_.candidate == digest(encode(*current.candidate)) &&
+         capability.settlement_.raw_case == current.candidate->raw_case &&
+         capability.settlement_.projection == current.egress->projection &&
+         capability.settlement_.selection != Digest{} &&
+         capability.settlement_.acceptance != Digest{});
+    return std::unique_ptr<EpochJournal>(new EpochJournal(journal.core_));
+}
+
+void VerifiedSettlementJournalBridge::resolve_settlement(
+        VerifiedSettlement& capability, MascotContext& context) {
+    try {
+        context.require_healthy();
+        need(capability.journal_ && !capability.consumed_ &&
+             capability.context_ == &context &&
+             capability.generation_ == context.generation() &&
+             capability.epoch_ == context.failure_epoch());
+        const auto current = capability.journal_->snapshot();
+        need(current.phase == Phase::FinalCandidate && current.attempt &&
+             current.egress && current.candidate && current.lock_identity &&
+             current.sequence == capability.sequence_ &&
+             current.checkpoint == capability.checkpoint_ &&
+             capability.settlement_.lock_identity == *current.lock_identity &&
+             capability.settlement_.attempt == current.attempt->attempt &&
+             capability.settlement_.final_checkpoint == current.checkpoint &&
+             capability.settlement_.candidate ==
+                 digest(encode(*current.candidate)) &&
+             capability.settlement_.raw_case == current.candidate->raw_case &&
+             capability.settlement_.projection == current.egress->projection &&
+             capability.settlement_.selection != Digest{} &&
+             capability.settlement_.acceptance != Digest{});
+        context.agree_public_bytes(
+            "history-before-durable-exact-settlement",
+            agreement(current, capability.settlement_));
+        capability.consumed_ = true;
+        const auto local = capability.journal_->record_verified_settlement(
+            capability.settlement_, capability.sequence_,
+            capability.checkpoint_);
+        Bytes durable = agreement(current, capability.settlement_);
+        for (unsigned index = 0; index < 8; ++index)
+            durable.push_back(local.sequence() >> (8 * index));
+        add(durable, local.checkpoint());
+        context.agree_public_bytes(
+            "history-all-three-durable-settlement", durable);
+    } catch (...) {
+        context.poison();
+        throw Refused();
+    }
+}
+
 VerifiedFinalCandidate::VerifiedFinalCandidate(MascotContext& ctx,EpochJournal& journal,const PublicSnapshot& s,
     FinalCandidate candidate,Digest request,Digest nonce,Digest evidence)
-    :journal_(journal.core_),context_(&ctx),generation_(ctx.generation()),epoch_(ctx.failure_epoch()),
+    :journal_(nullptr),context_(&ctx),generation_(ctx.generation()),epoch_(ctx.failure_epoch()),
      sequence_(s.sequence),checkpoint_(s.checkpoint),lock_identity_(*s.lock_identity),candidate_(std::move(candidate)),
-     request_(request),nonce_(nonce),evidence_(evidence){}
+     request_(request),nonce_(nonce),evidence_(evidence) {
+    journal_ = VerifiedSettlementJournalBridge::retain_final_candidate(
+        *this, journal);
+}
 
 VerifiedFinalCandidate VerifiedFinalCandidate::acquire_fresh(MascotContext& ctx,EpochJournal& journal,const FinalCandidatePaths& paths){
     try{
         ctx.require_healthy();require_private_outer(paths.fresh_workspace);
         const auto trust=compiled_final_trust();const int party=ctx.party_id();need(party>=0&&party<3);
-        journal.require_fixed_storage(trust.local[party],trust.anchor[party],trust.registration);const auto s=journal.snapshot();
+        VerifiedSettlementJournalBridge::require_fixed_storage(
+            journal, trust.local[party], trust.anchor[party],
+            trust.registration);const auto s=journal.snapshot();
         need(s.phase==Phase::Egress&&s.attempt&&s.effects&&s.egress&&s.lock_identity
             &&s.registration==trust.registration&&s.key.epoch==unhex("1719a11d82194639da551cd7302ad3ea94e42a0e424962ac40719f5634d38b94")
             &&paths.case_sha256!=Digest{}&&paths.receipt_sha256!=Digest{});
@@ -273,28 +391,26 @@ VerifiedFinalCandidate VerifiedFinalCandidate::acquire_fresh(MascotContext& ctx,
 
 void VerifiedFinalCandidate::bind(MascotContext& ctx){
     try{
-        ctx.require_healthy();need(!consumed_&&context_==&ctx&&generation_==ctx.generation()&&epoch_==ctx.failure_epoch());
-        const auto s=journal_.snapshot();need(s.phase==Phase::Egress&&s.sequence==sequence_&&s.checkpoint==checkpoint_
-            &&s.lock_identity==lock_identity_);ctx.agree_public_bytes("history-before-durable-exact-final",final_agreement(s,lock_identity_,candidate_));
-        consumed_=true;const DurableRecord egress(journal_.core_,sequence_,checkpoint_,Phase::Egress);
-        const auto local=journal_.bind_final_candidate(egress,candidate_);Bytes durable=final_agreement(s,lock_identity_,candidate_);
-        for(unsigned i=0;i<8;++i){durable.push_back(local.sequence()>>(8*i));}
-        add(durable,local.checkpoint());
-        ctx.agree_public_bytes("history-all-three-durable-final-continuation",durable);
+        VerifiedSettlementJournalBridge::bind_final_candidate(*this,ctx);
     }catch(...){ctx.poison();throw Refused();}
 }
 
 VerifiedSettlement::VerifiedSettlement(MascotContext& ctx,EpochJournal& journal,const PublicSnapshot& s,SettlementRecord record,
     Digest request,Digest nonce,Digest evidence)
-    :journal_(journal.core_),context_(&ctx),generation_(ctx.generation()),epoch_(ctx.failure_epoch()),
+    :journal_(nullptr),context_(&ctx),generation_(ctx.generation()),epoch_(ctx.failure_epoch()),
      sequence_(s.sequence),checkpoint_(s.checkpoint),settlement_(std::move(record)),
-     request_(request),nonce_(nonce),evidence_(evidence){}
+     request_(request),nonce_(nonce),evidence_(evidence) {
+    journal_ = VerifiedSettlementJournalBridge::retain_settlement(
+        *this, journal);
+}
 
 VerifiedSettlement VerifiedSettlement::acquire_fresh(MascotContext& ctx,EpochJournal& journal,const SettlementPaths& paths){
     try{
         ctx.require_healthy();require_private_outer(paths.fresh_workspace);
         const auto trust=compiled_trust();const int party=ctx.party_id();need(party>=0&&party<3);
-        journal.require_fixed_storage(trust.local[party],trust.anchor[party],trust.registration);
+        VerifiedSettlementJournalBridge::require_fixed_storage(
+            journal, trust.local[party], trust.anchor[party],
+            trust.registration);
         const auto s=journal.snapshot();
         need(s.phase==Phase::FinalCandidate&&s.attempt&&s.effects&&s.egress&&s.candidate&&s.lock_identity
             &&s.registration==trust.registration&&s.key.epoch==unhex("1719a11d82194639da551cd7302ad3ea94e42a0e424962ac40719f5634d38b94")
@@ -329,12 +445,7 @@ VerifiedSettlement VerifiedSettlement::acquire_fresh(MascotContext& ctx,EpochJou
 
 void VerifiedSettlement::resolve(MascotContext& ctx){
     try{
-        ctx.require_healthy();need(!consumed_&&context_==&ctx&&generation_==ctx.generation()&&epoch_==ctx.failure_epoch());
-        const auto s=journal_.snapshot();need(s.sequence==sequence_&&s.checkpoint==checkpoint_&&s.phase==Phase::FinalCandidate);
-        ctx.agree_public_bytes("history-before-durable-exact-settlement",agreement(s,settlement_));consumed_=true;
-        const auto local=journal_.record_verified_settlement(settlement_,sequence_,checkpoint_);
-        Bytes durable=agreement(s,settlement_);for(unsigned i=0;i<8;++i)durable.push_back(local.sequence()>>(8*i));add(durable,local.checkpoint());
-        ctx.agree_public_bytes("history-all-three-durable-settlement",durable);
+        VerifiedSettlementJournalBridge::resolve_settlement(*this,ctx);
     }catch(...){ctx.poison();throw Refused();}
 }
 } // namespace kpi::mpc::history

@@ -200,6 +200,12 @@ std::array<Digest, 3> canonical_history_nullifiers(std::span<const unsigned char
 }
 
 namespace detail {
+struct AppendResult {
+    uint64_t sequence;
+    Digest checkpoint;
+    Phase phase;
+};
+
 struct JournalCore : std::enable_shared_from_this<JournalCore> {
     EpochKey key;Digest registration;
     std::filesystem::path local,anchor;
@@ -257,7 +263,7 @@ struct JournalCore : std::enable_shared_from_this<JournalCore> {
         need(at==bytes&&state.sequence==(anchor_bytes-ANCHOR_HEADER)/ANCHOR_ROW);
         state.seen_nullifiers.assign(seen.begin(),seen.end());state.seen_identity=seen_digest(seen);identities();return state;
     }
-    DurableRecord append(const PublicSnapshot& prior,uint8_t kind,std::span<const unsigned char> payload,Phase phase,const FailureOnlyHook& hook);
+    AppendResult append(const PublicSnapshot& prior,uint8_t kind,std::span<const unsigned char> payload,Phase phase,const FailureOnlyHook& hook);
 };
 } // namespace detail
 
@@ -289,7 +295,7 @@ EpochJournal EpochJournal::open_existing(const std::filesystem::path& local,cons
 }
 PublicSnapshot EpochJournal::snapshot() const {std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);return core_->read();}
 
-DurableRecord detail::JournalCore::append(const PublicSnapshot& prior,uint8_t kind,std::span<const unsigned char> payload,Phase phase,const FailureOnlyHook& hook){
+detail::AppendResult detail::JournalCore::append(const PublicSnapshot& prior,uint8_t kind,std::span<const unsigned char> payload,Phase phase,const FailureOnlyHook& hook){
     need(prior.sequence!=std::numeric_limits<uint64_t>::max()&&payload.size()<=2048);Bytes record;tag(record,"KPBHEV01");u64(record,prior.sequence+1);u32(record,payload.size());record.push_back(kind);add(record,prior.checkpoint);add(record,payload);const auto head=digest(record);add(record,head);
     try{
         identities();need(::lseek(journal,0,SEEK_END)>=0);write_all(journal,record);if(hook)hook(WriteBoundary::JournalWritten);
@@ -297,26 +303,27 @@ DurableRecord detail::JournalCore::append(const PublicSnapshot& prior,uint8_t ki
         Bytes anchor_record;u64(anchor_record,prior.sequence+1);add(anchor_record,head);need(::lseek(latest,0,SEEK_END)>=0);write_all(latest,anchor_record);if(hook)hook(WriteBoundary::AnchorWritten);
         sync(latest);if(hook)hook(WriteBoundary::AnchorSynced);identities();
     }catch(...){poisoned=true;throw Refused();}
-    return DurableRecord(shared_from_this(),prior.sequence+1,head,phase);
+    return {prior.sequence+1,head,phase};
 }
 
 DurableRecord EpochJournal::lock(const AttemptBinding& value,FailureOnlyHook hook){
-    std::lock_guard guard(core_->mutex);Exclusive locked(core_->journal);auto prior=core_->read();need(prior.phase==Phase::Ready);valid(value,core_->key);return core_->append(prior,1,encode(value),Phase::Locked,hook);
+    std::lock_guard guard(core_->mutex);Exclusive locked(core_->journal);auto prior=core_->read();need(prior.phase==Phase::Ready);valid(value,core_->key);const auto appended=core_->append(prior,1,encode(value),Phase::Locked,hook);return DurableRecord(core_,appended.sequence,appended.checkpoint,appended.phase);
 }
 DurableRecord EpochJournal::prepare(const DurableRecord& locked,const Digest& effects,FailureOnlyHook hook){
-    std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);auto prior=core_->read();need(locked.core_==core_&&locked.phase_==Phase::Locked&&prior.phase==Phase::Locked&&locked.sequence_==prior.sequence&&locked.checkpoint_==prior.checkpoint&&nonzero(effects));return core_->append(prior,2,effects,Phase::Prepared,hook);
+    std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);auto prior=core_->read();need(locked.core_==core_&&locked.phase_==Phase::Locked&&prior.phase==Phase::Locked&&locked.sequence_==prior.sequence&&locked.checkpoint_==prior.checkpoint&&nonzero(effects));const auto appended=core_->append(prior,2,effects,Phase::Prepared,hook);return DurableRecord(core_,appended.sequence,appended.checkpoint,appended.phase);
 }
 DurableRecord EpochJournal::record_egress(const DurableRecord& prepared,const EgressPacket& value,FailureOnlyHook hook){
-    std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);auto prior=core_->read();need(prepared.core_==core_&&prepared.phase_==Phase::Prepared&&prior.phase==Phase::Prepared&&prepared.sequence_==prior.sequence&&prepared.checkpoint_==prior.checkpoint&&value.effects==prior.effects);valid(value);bool conflict=false;for(const auto& nf:value.nullifiers)conflict|=std::binary_search(prior.seen_nullifiers.begin(),prior.seen_nullifiers.end(),nf);return core_->append(prior,3,encode(value),conflict?Phase::ExposureConflict:Phase::Egress,hook);
+    std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);auto prior=core_->read();need(prepared.core_==core_&&prepared.phase_==Phase::Prepared&&prior.phase==Phase::Prepared&&prepared.sequence_==prior.sequence&&prepared.checkpoint_==prior.checkpoint&&value.effects==prior.effects);valid(value);bool conflict=false;for(const auto& nf:value.nullifiers)conflict|=std::binary_search(prior.seen_nullifiers.begin(),prior.seen_nullifiers.end(),nf);const auto appended=core_->append(prior,3,encode(value),conflict?Phase::ExposureConflict:Phase::Egress,hook);return DurableRecord(core_,appended.sequence,appended.checkpoint,appended.phase);
 }
 DurableRecord EpochJournal::bind_final_candidate(const DurableRecord& egress_record,const FinalCandidate& value,FailureOnlyHook hook){
-    std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);auto prior=core_->read();need(egress_record.core_==core_&&egress_record.phase_==Phase::Egress&&prior.phase==Phase::Egress&&egress_record.sequence_==prior.sequence&&egress_record.checkpoint_==prior.checkpoint&&value.projection==prior.egress->projection);valid(value);return core_->append(prior,4,encode(value),Phase::FinalCandidate,hook);
+    std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);auto prior=core_->read();need(egress_record.core_==core_&&egress_record.phase_==Phase::Egress&&prior.phase==Phase::Egress&&egress_record.sequence_==prior.sequence&&egress_record.checkpoint_==prior.checkpoint&&value.projection==prior.egress->projection);valid(value);const auto appended=core_->append(prior,4,encode(value),Phase::FinalCandidate,hook);return DurableRecord(core_,appended.sequence,appended.checkpoint,appended.phase);
 }
 DurableRecord EpochJournal::record_verified_settlement(const SettlementRecord& value,
     uint64_t sequence,const Digest& checkpoint,FailureOnlyHook hook) {
     std::lock_guard guard(core_->mutex);Exclusive lock(core_->journal);auto prior=core_->read();
     need(prior.sequence==sequence&&prior.checkpoint==checkpoint);matches_settlement(prior,value);
-    return core_->append(prior,5,encode(value),Phase::Ready,hook);
+    const auto appended=core_->append(prior,5,encode(value),Phase::Ready,hook);
+    return DurableRecord(core_,appended.sequence,appended.checkpoint,appended.phase);
 }
 void EpochJournal::require_fixed_storage(const std::filesystem::path& local,
     const std::filesystem::path& anchor,const Digest& registration)const {
@@ -325,4 +332,26 @@ void EpochJournal::require_fixed_storage(const std::filesystem::path& local,
         &&core_->registration==registration);
     (void)snapshot();
 }
+
+void VerifiedSettlementJournalBridge::require_fixed_storage(
+        EpochJournal& journal, const std::filesystem::path& local,
+        const std::filesystem::path& anchor, const Digest& registration) {
+    journal.require_fixed_storage(local, anchor, registration);
+}
+
+#ifdef KPI_HISTORY_SETTLEMENT_STORAGE_ONLY_CONTROLS
+DurableRecord
+VerifiedSettlementJournalBridge::test_only_record_verified_settlement(
+        EpochJournal& journal, const SettlementRecord& settlement,
+        uint64_t sequence, const Digest& checkpoint, FailureOnlyHook hook) {
+    return journal.record_verified_settlement(
+        settlement, sequence, checkpoint, std::move(hook));
+}
+
+void VerifiedSettlementJournalBridge::test_only_require_fixed_storage(
+        EpochJournal& journal, const std::filesystem::path& local,
+        const std::filesystem::path& anchor, const Digest& registration) {
+    journal.require_fixed_storage(local, anchor, registration);
+}
+#endif
 } // namespace kpi::mpc::history

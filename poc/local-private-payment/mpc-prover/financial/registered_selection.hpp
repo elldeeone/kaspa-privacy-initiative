@@ -1,4 +1,5 @@
 #pragma once
+#include "registered_selection_authority_contract.hpp"
 #include "registered_service.hpp"
 #include "../owner_inputs_active.hpp"
 #include "../packed/packed_model.hpp"
@@ -6,8 +7,9 @@
 
 namespace kpi::mpc::financial {
 class AcceptedFinancialHead;
-class FinancialConstruction;
-class RegisteredSelectionAccess;
+namespace registered_driver::baseline_disclosure {
+class BaselineOwnerEffectsRecipe;
+}
 
 // Authority is produced by direct accepted-head acquisition and direct pinned
 // public compilation. Neither this metadata nor a serialized receipt can
@@ -19,12 +21,14 @@ class RegisteredFinancialSelection {
     const uint64_t generation_, epoch_, checked_counter_;
     bool consumed_ = false;
     RegisteredFinancialSelection(MascotContext&, std::shared_ptr<const Storage>);
-    void consume_for_lock(MascotContext&);
+    void consume_for_lock(MascotContext&, AcceptedFinancialHead&&);
     const TraceProgram& program() const;
     const packed::PackedModel& model() const;
     const RegisteredService& service() const;
+    const std::shared_ptr<const registered_driver::baseline_disclosure::
+        BaselineOwnerEffectsRecipe>& owner_effects_recipe() const;
     std::span<const unsigned char> native_tail() const;
-    friend class FinancialConstruction;
+    friend class RegisteredSelectionConstructionBridge;
     friend class RegisteredSelectionAccess;
 public:
     RegisteredFinancialSelection(const RegisteredFinancialSelection&) = delete;

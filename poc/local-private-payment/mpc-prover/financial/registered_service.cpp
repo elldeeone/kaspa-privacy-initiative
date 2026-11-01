@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <openssl/pem.h>
 #include <openssl/sha.h>
+#include <openssl/x509v3.h>
 #include <set>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -127,10 +128,71 @@ history::Digest authenticate(const Config& c, unsigned party) {
          c.key.domain == history::unhex("a0a1b4fbf4ce8505f17b24b354ffa81fc4201dc1e130b0358e3bc849611186e0") &&
          c.key.profile == history::unhex("ea19260a60a8d0a54b8ad9848f82317c1d84059a1881be34d318bcca42493700") &&
          c.key.service == history::unhex("ce821210834e870b6eebe3851b0b003b1b33cf343b1a17a996987f35dda514b5"));
-    const std::string tag = "KPB_REGISTERED_FINANCIAL_SERVICE_V1\n";
+    need(!c.authority.trial_id.empty() &&
+         c.authority.selection_candidate != history::Digest{} &&
+         c.authority.registration == c.registration &&
+         c.authority.certificate_authority == c.certificate_authority_der_sha256 &&
+         c.authority.server_certificates == c.key.server_certificates &&
+         c.authority.native_parameters == c.native_parameters &&
+         c.authority.immutable_tail == c.native_tail);
+    for (const auto& value : {c.authority.trial_authority,
+            c.authority.ready_checkpoint,
+            c.authority.accepted_head_source_closure,
+            c.authority.accepted_head_build,
+            c.authority.exporter_adapter,
+            c.authority.exporter_source_closure,
+            c.authority.exporter_build,
+            c.authority.qualifier_source_closure,
+            c.authority.qualifier_build,
+            c.authority.qualifier_authority_build,
+            c.authority.qualifier_build_contract,
+            c.authority.qualifier_configuration_selection,
+            c.authority.component_profile,
+            c.authority.outer_image, c.authority.native_program,
+            c.authority.native_codec})
+        need(value != history::Digest{});
+    const std::string tag = "KPB_REGISTERED_FINANCIAL_SERVICE_V2\n";
     Bytes binding(tag.begin(), tag.end()); add(binding, history::encode(c.key)); add(binding, c.registration);
+    number(binding, c.authority.trial_id.size());
+    binding.insert(binding.end(), c.authority.trial_id.begin(), c.authority.trial_id.end());
+    for (const auto& value : {c.authority.selection_candidate,
+            c.authority.trial_authority, c.authority.ready_checkpoint,
+            c.authority.certificate_authority,
+            c.authority.accepted_head_source_closure,
+            c.authority.accepted_head_build,
+            c.authority.exporter_adapter,
+            c.authority.exporter_source_closure,
+            c.authority.exporter_build,
+            c.authority.qualifier_source_closure, c.authority.qualifier_build,
+            c.authority.qualifier_authority_build,
+            c.authority.qualifier_build_contract,
+            c.authority.qualifier_configuration_selection,
+            c.authority.native_parameters, c.authority.immutable_tail,
+            c.authority.component_profile, c.authority.outer_image,
+            c.authority.native_program, c.authority.native_codec})
+        add(binding, value);
     (void)pinned_file(c.registration_file, c.registration_file_sha256, excluded);
     path_binding(binding, c.registration_file); add(binding, c.registration_file_sha256);
+    const auto ca_pem = pinned_file(c.certificate_authority,
+        c.certificate_authority_pem_sha256, excluded);
+    std::unique_ptr<BIO, decltype(&BIO_free)> ca_bio(
+        BIO_new_mem_buf(ca_pem.data(), ca_pem.size()), BIO_free);
+    need(bool(ca_bio));
+    std::unique_ptr<X509, decltype(&X509_free)> ca(
+        PEM_read_bio_X509(ca_bio.get(), nullptr, nullptr, nullptr), X509_free);
+    need(bool(ca));
+    unsigned char* ca_raw = nullptr;
+    const int ca_length = i2d_X509(ca.get(), &ca_raw);
+    need(ca_length > 0 && ca_raw);
+    const auto ca_der = history::digest(std::span(ca_raw, ca_length));
+    OPENSSL_free(ca_raw);
+    need(ca_der == c.certificate_authority_der_sha256);
+    std::unique_ptr<X509_STORE, decltype(&X509_STORE_free)> trust(
+        X509_STORE_new(), X509_STORE_free);
+    need(bool(trust) && X509_STORE_add_cert(trust.get(), ca.get()) == 1);
+    path_binding(binding, c.certificate_authority);
+    add(binding, c.certificate_authority_pem_sha256);
+    add(binding, c.certificate_authority_der_sha256);
     std::set<history::Digest> public_keys;
     std::set<std::filesystem::path> stores;
     for (size_t role = 0; role < 3; ++role) {
@@ -150,6 +212,15 @@ history::Digest authenticate(const Config& c, unsigned party) {
         need(bool(bio));
         std::unique_ptr<X509, decltype(&X509_free)> cert(PEM_read_bio_X509(bio.get(), nullptr, nullptr, nullptr), X509_free);
         need(bool(cert));
+        std::unique_ptr<X509_STORE_CTX, decltype(&X509_STORE_CTX_free)> chain(
+            X509_STORE_CTX_new(), X509_STORE_CTX_free);
+        need(bool(chain) &&
+             X509_STORE_CTX_init(chain.get(), trust.get(), cert.get(), nullptr) == 1 &&
+             X509_verify_cert(chain.get()) == 1 &&
+             X509_STORE_CTX_get_error(chain.get()) == X509_V_OK);
+        const auto role_name = "P" + std::to_string(role);
+        need(X509_check_host(cert.get(), role_name.c_str(),
+                            role_name.size(), 0, nullptr) == 1);
         unsigned char* raw = nullptr; const int length = i2d_X509(cert.get(), &raw);
         need(length > 0 && raw); const auto der_sha = history::digest(std::span(raw, length)); OPENSSL_free(raw);
         need(der_sha == c.key.server_certificates[role]);
@@ -178,7 +249,8 @@ Config selected_configuration() {
 void authenticated_transport(MascotContext& context, const Config& config) {
 #if KPI_REGISTERED_FINANCIAL_CONFIGURED == 1
     const auto* player = dynamic_cast<const RosterPinnedPlayer*>(&context.player());
-    need(player && player->authenticated_roster() == config.key.server_certificates);
+    need(player && player->authenticated_roster() == config.key.server_certificates &&
+         player->authenticated_registered_binding() == config.authority);
 #else
     (void)context; (void)config; refuse();
 #endif

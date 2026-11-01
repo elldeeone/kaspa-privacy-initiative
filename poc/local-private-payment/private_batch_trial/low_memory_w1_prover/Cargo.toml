@@ -1,0 +1,40 @@
+[package]
+name = "kpb-low-memory-w1-prover"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "Apache-2.0"
+
+[workspace]
+
+[features]
+default = []
+algebraic-controls = []
+
+[dependencies]
+ark-bn254 = "=0.6.0"
+ark-ec = "=0.6.0"
+ark-ff = "=0.6.0"
+ark-groth16 = { version = "=0.6.0", default-features = false, features = ["std", "parallel"] }
+ark-poly = "=0.6.0"
+ark-relations = "=0.6.0"
+ark-serialize = "=0.6.0"
+hex = "=0.4.3"
+rand = "=0.8.5"
+sha2 = "=0.10.9"
+zeroize = { version = "=1.9.1", features = ["zeroize_derive"] }
+
+[profile.release]
+debug = 0
+
+[[example]]
+name = "measure_streamed_r1cs"
+required-features = ["algebraic-controls"]
+
+[[example]]
+name = "measure_msm_buffers"
+required-features = ["algebraic-controls"]
+
+[[example]]
+name = "rehearse_exact_public_r1cs"
+required-features = ["algebraic-controls"]

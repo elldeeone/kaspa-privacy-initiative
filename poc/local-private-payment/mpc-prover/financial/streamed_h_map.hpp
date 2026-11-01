@@ -1,11 +1,10 @@
 #pragma once
 
+#include "financial_assignment.hpp"
+#include "packed_assignment.hpp"
 #include "../packed/packed_model.hpp"
 
 namespace kpi::mpc::financial {
-
-class PackedValidatedAssignment;
-class FinancialValidatedAssignment;
 
 // A witness map is not a validity check. Only the sealed financial assignment
 // capability may enter this path, after consuming its context/epoch binding.

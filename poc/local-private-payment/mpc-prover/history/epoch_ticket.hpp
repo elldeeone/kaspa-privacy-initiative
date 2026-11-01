@@ -4,17 +4,38 @@
 #endif
 #include "epoch_journal.hpp"
 #include "../auth_field.hpp"
+#include "../financial/financial_history_access_contract.hpp"
 
 namespace kpi::mpc::financial {
-// The qualified financial construction/validation implementation owns this
-// bridge. It must use actual derived immutable NF/core wires and the same
-// validated assignment, never caller-selected wires, prefixes or bools.
-class FinancialHistoryAccess;
+namespace registered_driver {
+class RegisteredCaptureSession;
+}
+namespace attempt_supervisor { class OwnerIntakePermit; }
 }
 
 namespace kpi::mpc::history {
+class LockedAttempt;
 class PreparedEpochTicket;
 class EgressRelease;
+
+// Complete capability adapters replace forward-only friendship to the two
+// construction classes.  The unregistered adapter still requires possession
+// of the live one-shot lock; the registered adapter additionally consumes the
+// nonforgeable supervisor permit at the exact claim boundary.
+class FinancialConstructionEpochBridge final {
+    FinancialConstructionEpochBridge() = delete;
+public:
+    static void claim_owner_intake(
+        LockedAttempt&, MascotContext&, const AttemptBinding&);
+};
+
+class RegisteredOwnerIntakeBridge final {
+    RegisteredOwnerIntakeBridge() = delete;
+public:
+    static void claim_owner_intake(
+        LockedAttempt&, MascotContext&, const AttemptBinding&, unsigned,
+        financial::attempt_supervisor::OwnerIntakePermit&&);
+};
 
 class LockedAttempt {
     EpochJournal journal_;
@@ -31,6 +52,16 @@ class LockedAttempt {
     friend LockedAttempt lock_attempt(MascotContext&, EpochJournal&, const AttemptBinding&);
     friend class PreparedEpochTicket;
     friend class financial::FinancialHistoryAccess;
+    friend class FinancialConstructionEpochBridge;
+    friend class RegisteredOwnerIntakeBridge;
+    friend class EpochTicketJournalBridge;
+    // The unregistered constructor has the only untyped claim route.
+    void claim_owner_intake(MascotContext&, const AttemptBinding&);
+    // Registered intake has no metadata-only overload: the supervisor permit
+    // is consumed at the exact LockedAttempt claim boundary.
+    void claim_registered_owner_intake(
+        MascotContext&, const AttemptBinding&, unsigned role,
+        financial::attempt_supervisor::OwnerIntakePermit&&);
 public:
     LockedAttempt(const LockedAttempt&) = delete;
     LockedAttempt(LockedAttempt&&) = delete;
@@ -41,9 +72,6 @@ public:
     const std::vector<Digest>& seen_nullifiers() const { return seen_nullifiers_; }
     const AttemptBinding& binding() const { return binding_; }
     void require_live(MascotContext&, const AttemptBinding&) const;
-    // Financial owner intake claims the exact capability once. Failure leaves
-    // durable LOCK unchanged; no RAII destructor clears an unresolved attempt.
-    void claim_owner_intake(MascotContext&, const AttemptBinding&);
 };
 
 LockedAttempt lock_attempt(MascotContext&, EpochJournal&, const AttemptBinding&);
@@ -67,7 +95,10 @@ class PreparedEpochTicket {
         std::string construction_binding, uint64_t validation_check_counter);
     friend class financial::FinancialHistoryAccess;
     friend class EgressRelease;
-    EpochJournal share_journal() const { return EpochJournal(journal_.core_); }
+    friend class EpochTicketJournalBridge;
+    EpochJournal share_journal() const {
+        return EpochTicketJournalBridge::retain_prepared(journal_, *this);
+    }
 public:
     PreparedEpochTicket(const PreparedEpochTicket&) = delete;
     PreparedEpochTicket(PreparedEpochTicket&&) = delete;
@@ -100,7 +131,8 @@ class EgressRelease {
     EgressRelease(MascotContext&, PreparedEpochTicket&&,
         std::span<const unsigned char> actual_core10364,
         std::span<const unsigned char> verified_aggregate_proof128,
-        std::span<const unsigned char> actual_projection10685);
+        std::span<const unsigned char> actual_projection10685,
+        financial::registered_driver::RegisteredCaptureSession* capture);
     DurableRecord bind_final_candidate(MascotContext&, const FinalCandidate&);
     friend class financial::FinancialHistoryAccess;
 public:

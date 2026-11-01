@@ -1,0 +1,88 @@
+{
+  "schema": "kpb-frozen-output-r1cs-export-plan/v1",
+  "classification": "PRODUCTION_SIZED_R1CS_CONVERSION_ONLY_NO_SETUP_OR_CEREMONY",
+  "materials_pending": false,
+  "materials": {
+    "exporter_source_sha256": "fc7d320c7252035fe0cf4c9f837a7ddfc7ce4af39a9bf93b21eae2671c3daf13",
+    "cargo_toml_sha256": "31710b3afa5926fdfad2e662422fe136d07b3fc40e4e2217df146bc5850945ed",
+    "cargo_lock_sha256": "f5abc329120857468f4b60d72b508d4e3d63177dc671a9a047d8ecd388bf5107",
+    "rust_toolchain_sha256": "980d30aa049a1dbd1183e7a010f082b54b52c6b3cc3c180ddb7abfd6229d3be7",
+    "verifier_source_sha256": "a179e1ac36a666db0d26074a38532e388b476fb58f892428cc1b536bb943f703",
+    "verifier_python_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41"
+  },
+  "verifier_runtime": {
+    "implementation": "CPython",
+    "resolved_executable": "/usr/bin/python3.14",
+    "version_info": [3, 14, 4, "final", 0],
+    "zlib_runtime_version": "1.3.1"
+  },
+  "admission_receipt_sha256": "90b84c0c9c32e3559d9ebcd527068b4263fbf910c8b2d5e76938c7bc566a3ea9",
+  "generator_source_sha256": "3a876fa011216a38bf13713771dac64a6bc2a287356861c69defe28f4cacc5da",
+  "generator_binary_sha256": "7064cb7fc582b0b7e19af9bc106c3de7d343a3b3e2bcca33861febb759d3f41c",
+  "selected_axes_manifest_sha256": "bda54ef2342a1b76a7c5401c73628354917680e296b4f94b0bb7b6b2f05536e2",
+  "selected_historical_source_sha256": "ccd4e28a728cbf8ffd6db0dd0fa81a6200c0c6e4ecb20242435f00e5b6aae19e",
+  "current_source_closure_manifest_sha256": "cebe96d670fc57ef7edcdc6b65be5ecd3f60c0e78c24cdc0bfe405a237df0709",
+  "current_source_closure_identity": "eb96515e9d12f75c5e1cca07fbeb3bbc0c9c0cd774ca8a771090b08997513427",
+  "current_build_dep_info_sha256": "8ab7d104ada2f2d7a3a2a5422f054d68fc191e4c8c519ba8561a563e3c622adc",
+  "current_build_dep_info_local_source_identity": "341f73cd6772954e03b21ebc21b20a4c8374344b5738973a25d90bd049ca9d16",
+  "scanner_source_sha256": "f7013e3bc72cfcda3d77ae8b94e8c549c844a9561e3cbb5175174f789cf33a45",
+  "field_decimal": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+  "field_le_hex": "010000f093f5e1439170b97948e833285d588181b64550b829a031e1724e6430",
+  "geometry": {
+    "instances_including_one": 3,
+    "public_outputs": 0,
+    "public_inputs": 2,
+    "private_inputs": 214998,
+    "witnesses": 214998,
+    "variables": 215001,
+    "constraints": 217807,
+    "labels": 215001
+  },
+  "axes": [
+    {
+      "axis": 0,
+      "file_label": "A.r1cs.bin.gz",
+      "compressed_bytes": 2216721,
+      "compressed_sha256": "5f501ec89be77b370f2ed07faa5253ce5cca911d2b865b57930fe698570104dc",
+      "raw_bytes": 23911616,
+      "raw_sha256": "fcb6f61e31f7cad4ace399c5a6f5adbbd9c7c151cadccf786a758f441cd721f0",
+      "terms": 554227,
+      "maximum_row_terms": 164
+    },
+    {
+      "axis": 1,
+      "file_label": "B.r1cs.bin.gz",
+      "compressed_bytes": 648570,
+      "compressed_sha256": "bced778b48889967d62df280870dcfb952498019011a3551f3bd4feb332e1304",
+      "raw_bytes": 11605056,
+      "raw_sha256": "26d9bad9c2f9134dcae04fef8eea95cd883cfbb188ddd9ecb737ad39f8ce2c95",
+      "terms": 246563,
+      "maximum_row_terms": 2
+    },
+    {
+      "axis": 2,
+      "file_label": "C.r1cs.bin.gz",
+      "compressed_bytes": 1188285,
+      "compressed_sha256": "8179fe5e06e8e158dbc278f8a8efcce79158762f7edf51c3594be88cd175ab25",
+      "raw_bytes": 17129456,
+      "raw_sha256": "7ca4875c7ba1740e4e69868190288bbe4643bcf9cb347d15c4e0ea55989b9f52",
+      "terms": 384673,
+      "maximum_row_terms": 255
+    }
+  ],
+  "canonical_r1cs_fingerprint": "d8e94558a7b9e3a5cc6187a894cb7f141d85d3c6d862b6a628561a24c4bfdd31",
+  "standard_r1cs_v1": {
+    "section_order": [1, 2, 3],
+    "row_axis_count_framing_bytes": 2613684,
+    "term_framing_and_coefficient_bytes": 42676668,
+    "constraint_section_bytes": 45290352,
+    "identity_wire_map_bytes": 1720008,
+    "complete_file_bytes": 47010472
+  },
+  "output_full_export_authorized": true,
+  "setup_authorized": false,
+  "zkey_authorized": false,
+  "phase1_authorized": false,
+  "phase2_authorized": false,
+  "ceremony_authorized": false
+}

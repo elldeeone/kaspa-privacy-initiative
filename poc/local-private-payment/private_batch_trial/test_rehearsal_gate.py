@@ -1,8 +1,11 @@
 """Projection/witness coupling against retained genuine public Exit CASEs."""
 import copy
+import hashlib
 from pathlib import Path
 import runpy
+from types import SimpleNamespace
 import unittest
+from unittest import mock
 
 import exit_wire
 import private_worker
@@ -43,6 +46,41 @@ class RehearsalEvidenceControls(unittest.TestCase):
         self.assertEqual([data for data in rehearsal_gate.witness_data(script) if len(data) == 128], [])
         for raw in (b'\x4c', b'\x4d\x01', b'\x4c\x80' + bytes(127), b'\xa9'):
             with self.subTest(raw=raw[:3]), self.assertRaises(wallet.Invalid): rehearsal_gate.witness_data(raw)
+
+    def test_activation_trial_must_equal_manifest_trial_path_hash_and_uuid(self):
+        path = Path('/public-rehearsal-controls/TRIAL.json')
+        trial = {'trial_id': '11111111-1111-4111-8111-111111111111'}
+        raw = private_worker.encoded(trial); pin = hashlib.sha256(raw).hexdigest()
+        args = SimpleNamespace(trial=str(path), trial_sha256=pin)
+        value = {'bootstrap_trial': {'path': str(path), 'sha256': pin},
+                 'bootstrap_trial_id': trial['trial_id']}
+        read = lambda actual, expected: raw if (Path(actual) == path and expected == pin) else None
+        self.assertEqual(rehearsal_gate.require_activation_trial(value, args, read), trial)
+        changed = copy.deepcopy(value)
+        changed['bootstrap_trial_id'] = '22222222-2222-4222-8222-222222222222'
+        with self.assertRaises(wallet.Invalid):
+            rehearsal_gate.require_activation_trial(changed, args, read)
+
+    def test_replay_control_rejects_at_transition_with_exact_categories(self):
+        history = {'transitions': [
+            {'projection_hex': '00'}, {'projection_hex': '00'},
+            {'projection_hex': '00'}]}
+        state = SimpleNamespace(head='successor-head', state='successor-state')
+        selected = SimpleNamespace(tail=b'tail', initial_cv=b'cv', identity=(),
+            verifier=SimpleNamespace(profile='profile', verify=lambda _: True))
+        with mock.patch.object(rehearsal_gate, 'history_prefix', side_effect=lambda value, count: count), \
+             mock.patch.object(rehearsal_gate.wallet_history, 'load_supplied', return_value=state), \
+             mock.patch.object(rehearsal_gate.wallet_history, 'payment',
+                side_effect=wallet.Invalid('wallet-payment-exact-current-context')), \
+             mock.patch.object(rehearsal_gate.exit_wire, 'require_current_head',
+                side_effect=ValueError('new-exit-exact-selected-head')):
+            self.assertEqual(rehearsal_gate.require_actual_replay_refusals(history, selected), 2)
+        with mock.patch.object(rehearsal_gate, 'history_prefix', side_effect=lambda value, count: count), \
+             mock.patch.object(rehearsal_gate.wallet_history, 'load_supplied', return_value=state), \
+             mock.patch.object(rehearsal_gate.wallet_history, 'payment',
+                side_effect=wallet.Invalid('wallet-history-exact-final-head')):
+            with self.assertRaises(wallet.Invalid):
+                rehearsal_gate.require_actual_replay_refusals(history, selected)
 
 
 if __name__ == '__main__':

@@ -68,7 +68,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             position: i as u32 + 1,
             path: [[0; 32]; 16],
             blinding,
-            private_delta: cv::scalar_bytes(&Scalar::from((6-3*i)as u64)),
+            private_delta: cv::scalar_bytes(&Scalar::from((6 - 3 * i) as u64)),
             authorization_key: [130 + i as u8; 64],
             fee_sompi: 10_000_000,
             intent_nonce: [140 + i as u8; 32],

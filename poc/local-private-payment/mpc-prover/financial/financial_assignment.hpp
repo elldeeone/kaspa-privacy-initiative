@@ -1,13 +1,27 @@
 #pragma once
 #include "../history/epoch_ticket.hpp"
+#include "financial_history_access_contract.hpp"
 #include "../packed/packed_model.hpp"
 #include "../proof_codec.hpp"
 #include <memory>
 
 namespace kpi::mpc::financial {
 class FinancialConstruction;
-class FinancialHistoryAccess;
 class VerifiedFinancialProof;
+namespace registered_driver {
+class RegisteredCaptureSession;
+class PartyDriverCompletionAuthority;
+class ChildRoleCompletionEndpointAuthority;
+namespace projection_route { class Role0ProjectionRouteWriterAuthority; }
+namespace baseline_disclosure {
+class BaselineEffectsPlanAuthority;
+class PreparedBaselineOwnerEffects;
+class PartyBaselineOwnerEffectsAuthority;
+}
+}
+namespace fresh_owner_issuance {
+class BaselineOwnerRosterReceiverAuthority;
+}
 
 // Distinct from every public-prefix experiment. Only a selected immutable
 // FinancialConstruction with a live, already claimed durable LOCK can enter.
@@ -30,6 +44,9 @@ class FinancialValidatedAssignment {
     const std::string& verifying_key_identity() const;
     std::array<unsigned char, 128> make_candidate(MascotContext&,
         history::PreparedEpochTicket&);
+    static std::vector<AuthScalar> unseen_nullifier_assertions(
+        MascotContext&, const FinancialConstruction&,
+        const history::LockedAttempt&);
     friend class FinancialHistoryAccess;
     friend VerifiedFinancialProof prove_and_verify_financial(MascotContext&,
         FinancialValidatedAssignment&&, history::PreparedEpochTicket&&,
@@ -47,19 +64,6 @@ public:
     const std::string& public_challenge() const { return challenge_; }
     size_t residual_count() const { return residual_count_; }
     uint64_t validated_check_counter() const { return validated_counter_; }
-};
-
-// Only this friend bridge sees actual owned NF/core/prefix wires. No public
-// API accepts a caller NF span, expected prefix vector or already-checked bool.
-class FinancialHistoryAccess {
-    friend class FinancialValidatedAssignment;
-    static std::vector<AuthScalar> unseen_nullifier_assertions(MascotContext&,
-        const FinancialConstruction&, const history::LockedAttempt&);
-public:
-    static history::PreparedEpochTicket prepare(MascotContext&,
-        const FinancialConstruction&, FinancialValidatedAssignment&);
-    static history::EgressRelease release_verified(MascotContext&,
-        VerifiedFinancialProof&&, history::PreparedEpochTicket&&);
 };
 
 // No point/byte accessor or serialization exists before durable EGRESS. This

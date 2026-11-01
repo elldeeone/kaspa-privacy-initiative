@@ -1,5 +1,6 @@
 #pragma once
 
+#include "registered_selection_authority_contract.hpp"
 #include "../auth_field.hpp"
 #include "../history/epoch_journal.hpp"
 #include <filesystem>
@@ -36,7 +37,7 @@ class RegisteredService {
     const uint64_t generation_, epoch_;
     RegisteredService(MascotContext&, std::shared_ptr<const Storage>);
     RegisteredService(const RegisteredService&) = default;
-    friend class RegisteredFinancialSelection;
+    friend class RegisteredServiceSelectionBridge;
 public:
     RegisteredService(RegisteredService&&) = delete;
     RegisteredService& operator=(const RegisteredService&) = delete;

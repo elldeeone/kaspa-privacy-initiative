@@ -1,0 +1,44 @@
+--- a/Tools/Commit.cpp
++++ b/Tools/Commit.cpp
+@@ -2,12 +2,25 @@
++#define KPI_P1_COMMITMENT_ENTROPY_SOURCE_IMPLEMENTATION
++#include "p1_commitment_entropy_source_capture.hpp"
++
+ #include "Commit.h"
+ #include "random.h"
+ #include "int.h"
++
++static_assert(SEED_SIZE == kpi::mpc::p1_private_state::COMMITMENT_ENTROPY_BYTES);
+ 
+ void Commit(octetStream& comm,octetStream& open,const octetStream& message, int send_player)
+ {
+     open.store(send_player);
+     open.append(message.get_data(), message.get_length());
++    const auto entropy_offset = open.get_length();
+     open.append_random(SEED_SIZE);
++    kpi::mpc::p1_private_state::CommitmentEntropySourceBridge::
++        require_recorded(
++            kpi::mpc::p1_private_state::CommitmentEntropySourceBridge::
++                record_legacy_commit_noexcept(
++                    send_player,
++                    std::span<const unsigned char>(
++                        open.get_data() + entropy_offset, SEED_SIZE)));
+     comm = open.hash();
+ }
+ 
+@@ -38,7 +51,15 @@ bool Open(octetStream& message,const octetStream& comm, octetStream& open, int send_player)
+ void Commitment::commit(const octetStream& message)
+ {
+     open.reset_write_head();
++    const auto entropy_offset = open.get_length();
+     open.append_random(SEED_SIZE);
++    kpi::mpc::p1_private_state::CommitmentEntropySourceBridge::
++        require_recorded(
++            kpi::mpc::p1_private_state::CommitmentEntropySourceBridge::
++                record_object_commit_noexcept(
++                    send_player,
++                    std::span<const unsigned char>(
++                        open.get_data() + entropy_offset, SEED_SIZE)));
+     commit(message, open);
+ }
+ 

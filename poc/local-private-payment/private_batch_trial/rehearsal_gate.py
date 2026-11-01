@@ -1,15 +1,19 @@
-"""Reexecute a complete supplied-context native lifecycle before activation.
+"""Reexecute a complete retained supplied-context native lifecycle.
 
 All inputs are finite public artifacts. No success Boolean replaces the actual
 GEN3 Output/CV checks, ordered public-state replay and NativeFull on every CASE.
-This is an offline prerequisite for a first testnet rehearsal, not confirmation
-of a testnet payout or a declaration of trial readiness.
+Under ADR-0084 this is an end-of-run cryptographic/evidence recheck, not the
+launch authority for a first Testnet rehearsal. It is not confirmation of a
+Testnet payout or a declaration of trial readiness.
 """
+import copy
 import hashlib
 from pathlib import Path
 
 import funding
 import genesis
+import complete_rehearsal_manifest
+import exit_wire
 import private_lifecycle
 import private_worker
 import wallet_history
@@ -67,16 +71,88 @@ def case_projection(case, kind):
     return prefix + bytes(36) + len(payload).to_bytes(4, 'little') + payload
 
 
+def history_prefix(value, count):
+    """Build the exact post-prefix head; never reuse the terminal head."""
+    genesis.need(type(count) is int and 0 <= count <= len(value['transitions']),
+                 'rehearsal-prefix-count')
+    result = copy.deepcopy(value)
+    result['transitions'] = result['transitions'][:count]
+    if count == 0:
+        result['head'] = {name: value['genesis'][name] for name in
+                          ('outpoint_hex36', 'state_hex112', 'reserve_sompi')}
+    else:
+        event = value['transitions'][count - 1]
+        raw = bytes.fromhex(event['projection_hex'])
+        if event['kind'] == 'payment':
+            body = raw[193:]
+            state = (b'KPBAST01' + body[104:136] + body[284:316]
+                     + body[348:352] + body[316:348] + body[352:356])
+            reserve = int.from_bytes(body[356:364], 'little')
+        else:
+            effect = exit_wire.validate_public(raw)
+            state, reserve = effect.next_state(), effect.new_reserve
+        result['head'] = {'outpoint_hex36': event['successor_outpoint_hex36'],
+                          'state_hex112': state.hex(),
+                          'reserve_sompi': reserve}
+    return result
+
+
+def require_actual_replay_refusals(history_value, selected):
+    """Replay transitions against their actual successor state and exact error."""
+    checks = ((0, 'payment', wallet_history.wallet.Invalid,
+               'wallet-payment-exact-current-context'),
+              (2, 'exit', ValueError, 'new-exit-exact-selected-head'))
+    refused = 0
+    for index, kind, error_type, category in checks:
+        state = wallet_history.load_supplied(history_prefix(history_value, index + 1),
+            selected.verifier.profile, selected.identity, selected.tail,
+            selected.verifier.verify, selected.initial_cv)
+        raw = bytes.fromhex(history_value['transitions'][index]['projection_hex'])
+        try:
+            if kind == 'payment':
+                wallet_history.payment(raw, state.head, state.state, selected.tail,
+                                       selected.verifier.verify)
+            else:
+                exit_wire.require_current_head(raw, state.head, selected.tail)
+        except error_type as error:
+            genesis.need(error.args == (category,),
+                         'rehearsal-exact-' + kind + '-replay-refusal')
+            refused += 1
+        else:
+            raise wallet_history.wallet.Invalid(
+                'rehearsal-actual-' + kind + '-replay-accepted')
+    return refused
+
+
+def require_activation_trial(value, args, read):
+    trial_ref = value['bootstrap_trial']
+    genesis.fields(trial_ref, ('path', 'sha256'))
+    expected = {'path': str(Path(args.trial).absolute()),
+                'sha256': args.trial_sha256}
+    activation_trial = private_worker.parse(read(Path(expected['path']),
+                                                 expected['sha256']))
+    genesis.need(trial_ref == expected
+         and value['bootstrap_trial_id'] == activation_trial['trial_id'],
+         'rehearsal-same-fresh-activation-trial')
+    return activation_trial
+
+
 def verify(args, read, manifest_path, manifest_sha256, output):
     selected = funding.component(args, read)
     raw = read(Path(manifest_path).absolute(), manifest_sha256)
     value = private_worker.parse(raw)
-    genesis.fields(value, ('schema', 'scope', 'component_profile_sha256', 'tail_sha256',
+    genesis.fields(value, ('schema', 'scope', 'bootstrap_trial_id', 'bootstrap_trial',
+                           'component_profile_sha256', 'tail_sha256', 'source_contract',
                            'history', 'cases', 'terminal_scan_controller'))
-    genesis.need(value['schema'] == 'kpb-complete-unfunded-native-lifecycle/v1'
+    require_activation_trial(value, args, read)
+    genesis.need(value['schema'] == complete_rehearsal_manifest.MANIFEST_SCHEMA
          and value['scope'] == wallet_history.SCOPE
          and value['component_profile_sha256'] == args.component_profile_sha256
          and value['tail_sha256'] == args.tail_sha256, 'complete-selected-offline-native-rehearsal')
+    # A hand-written list of CASEs is not enough. Rebuild the manifest from the
+    # exact fresh-trial, owner-intake, registered-release, R0 and Exit evidence.
+    genesis.need(complete_rehearsal_manifest.rebuild(read, value['source_contract']) == value,
+                 'rehearsal-exact-source-contract-rebuild')
     for item in (value['history'], value['terminal_scan_controller']):
         genesis.fields(item, ('path', 'sha256'))
     history_raw = read(Path(value['history']['path']).absolute(), value['history']['sha256'])
@@ -84,6 +160,8 @@ def verify(args, read, manifest_path, manifest_sha256, output):
     state = wallet_history.load_supplied(history_value, selected.verifier.profile, selected.identity,
         selected.tail, selected.verifier.verify, selected.initial_cv)
     genesis.need(state.point is None and state.reserve == 0, 'rehearsal-terminal-zero-reserve')
+    replay_rejections = require_actual_replay_refusals(history_value, selected)
+    genesis.need(replay_rejections == 2, 'rehearsal-payment-and-exit-replay-refusal')
     expected_kinds = ['genesis', 'payment', 'payment'] + ['exit'] * 9
     genesis.need(type(value['cases']) is list and [item['kind'] for item in value['cases']] == expected_kinds
          and [event['kind'] for event in history_value['transitions']] == expected_kinds[1:],
@@ -139,6 +217,7 @@ def verify(args, read, manifest_path, manifest_sha256, output):
     result = {'schema': 'kpb-executed-complete-native-rehearsal-gate/v1', 'scope': wallet_history.SCOPE,
         'manifest_sha256': manifest_sha256, 'component_profile_sha256': args.component_profile_sha256,
         'tail_sha256': args.tail_sha256, 'actual_native_CASE_checks': checks,
+        'actual_history_payment_and_exit_replay_rejections': replay_rejections,
         'actual_public_tree_replay_terminal_reserve_sompi': 0, 'original_terminal_scan_statuses': 3,
         'testnet_terminal_broadcast_confirmation_or_readiness': False,
         'controller_Original_private_truth_or_wallet_body_read': False}

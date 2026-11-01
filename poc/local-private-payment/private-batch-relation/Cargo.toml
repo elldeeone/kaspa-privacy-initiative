@@ -4,13 +4,28 @@ version = "0.1.0"
 edition = "2024"
 publish = false
 
+[features]
+default = []
+counterfactual-w1 = ["dep:native", "dep:output"]
+offline-w1-verifier = ["counterfactual-w1", "dep:blake2"]
+offline-w1-preparer = ["offline-w1-verifier"]
+# Internal cfg consumed by the privately path-compiled reviewed core.
+algebraic-controls = []
+# Nondefault fixed entry only. The outer build/host supervisor remains a
+# separate fail-closed launch boundary.
+offline-w1-prover = ["offline-w1-preparer", "algebraic-controls"]
+
 [workspace]
 
 [dependencies]
 auth = { package = "kpi-nativeauthspend-seam", path = "../native-authority/native-core" }
+native = { package = "kpi-local-private-payment-relation", path = "../native-authority/vendor/native-relation", features = ["prover"], optional = true }
+output = { package = "kpi-private-batch-auth-exit", path = "../private_batch_trial/auth_exit", optional = true }
 ark-bn254 = "=0.6.0"
+ark-ec = "=0.6.0"
 ark-ed-on-bn254 = { version = "=0.6.0", default-features = false, features = ["std", "r1cs"] }
 ark-ff = "=0.6.0"
+ark-poly = "=0.6.0"
 ark-r1cs-std = "=0.6.0"
 ark-relations = "=0.6.0"
 sha2 = "=0.10.9"
@@ -20,6 +35,24 @@ serde = "=1.0.228"
 ark-groth16 = { version = "=0.6.0", default-features = false, features = ["std", "parallel"] }
 ark-serialize = "=0.6.0"
 rand = "=0.8.5"
+blake2 = { version = "=0.10.6", optional = true }
+zeroize = "=1.9.1"
+
+[[example]]
+name = "verify_offline_w1_aggregate"
+required-features = ["offline-w1-verifier"]
+
+[[example]]
+name = "prepare_frozen_w1_round1_assignment"
+required-features = ["offline-w1-preparer"]
+
+[[example]]
+name = "prove_frozen_w1_round1"
+required-features = ["offline-w1-prover"]
+
+[[example]]
+name = "verify_frozen_w1_round1_receipt"
+required-features = ["offline-w1-prover"]
 
 [profile.release]
 debug = 0

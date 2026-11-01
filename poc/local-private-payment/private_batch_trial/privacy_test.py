@@ -25,14 +25,21 @@ def digest(value):
 
 def row(round_number, position):
     tag = bytes([round_number, position])
-    return hashlib.sha256(b'PUBLIC MODEL CM ' + tag).digest() + hashlib.sha512(b'PUBLIC MODEL CV ' + tag).digest() + bytes([position + 1]) * 424
+    ciphertext = bytes([position + 1]) * 264
+    return (hashlib.sha256(b'PUBLIC MODEL CM ' + tag).digest()
+            + hashlib.sha512(b'PUBLIC MODEL CV ' + tag).digest()
+            + ciphertext + hashlib.sha256(ciphertext).digest()
+            + hashlib.sha512(b'PUBLIC MODEL PROOF ' + tag).digest() * 2)
 
 
 def public(round_number):
     rows = [row(round_number, i) for i in range(6)]
+    nfs = [digest(b'PUBLIC MODEL NF ' + bytes([round_number, i]))
+           for i in range(3)]
+    nfs.sort(key=lambda value: int.from_bytes(bytes.fromhex(value), 'little'))
     return {'round': round_number, 'projection_sha256': digest(b'PUBLIC MODEL PROJECTION ' + bytes([round_number])),
         'context_sha256': digest(b'PUBLIC MODEL CONTEXT ' + bytes([round_number])),
-        'nfs_hex32': [digest(b'PUBLIC MODEL NF ' + bytes([round_number, i])) for i in range(3)],
+        'nfs_hex32': nfs,
         'cms_hex32': [item[:32].hex() for item in rows], 'tuple_sha256': [digest(item) for item in rows]}
 
 
@@ -62,6 +69,45 @@ def predicted(view='union', incoming=True, unmodeled=0, terminal=False):
         'missing_artifacts': 0, 'terminal_modeled': terminal})
 
 
+def predicted_v2(view='union', incoming=True):
+    models = [codec.assignments(public(r), colluder_constraints(r, incoming))
+              for r in (1, 2)]
+    joint = [[left, right] for left in range(len(models[0]['joint']))
+             for right in range(len(models[1]['joint']))]
+    workload = {
+        'schema': 'kpb-two-round-candidate-join/v1',
+        'round_candidate_counts': [len(model['joint']) for model in models],
+        'cross_round_link_count': 0,
+        'cross_round_constraints_modeled': True,
+        'terminal_constraints_modeled': True,
+        'joint': joint,
+        'workload_joint_candidates': len(joint),
+        'full_workload_candidates': len(joint),
+        'round_candidate_set_commitment_sha256': digest(b'rounds'),
+        'candidate_set_commitment_sha256': digest(b'workload'),
+        'honest_vector_swap_structural_candidates': len(joint),
+        'truth_scored': False,
+    }
+    return codec.prediction(
+        BOUND, view, models,
+        {'modeled_artifacts': 4, 'unmodeled_artifacts': 0,
+         'missing_artifacts': 0, 'terminal_modeled': True},
+        category_coverage={
+            'amounts': {'modeled_artifacts': 2,
+                        'unmodeled_artifacts': 0,
+                        'missing_artifacts': 0,
+                        'constraint_modeled_fields': 1,
+                        'source_assumption_covered_fields': 0,
+                        'unmodeled_fields': 0}},
+        workload=workload,
+        lattice_attestation={
+            'exact_union_artifact_set': True,
+            'exact_union_constraints': True,
+            'candidate_subset_lattice_verified': True,
+            'full_workload_subset_lattice_verified': True,
+        })
+
+
 def result(value):
     raw, seal = codec.seal(value, bytes([19]) * 32)
     checked = codec.unseal(raw, seal)
@@ -78,21 +124,105 @@ class CandidateControls(unittest.TestCase):
         self.assertEqual((own['input_owner_assignments'], own['output_creator_assignments'],
                           own['output_pair_partitions'], own['joint_candidates']), (2, 6, 3, 12))
 
-    def test_legitimate_incoming_fact_breaks_full_swap_without_unique_pair(self):
+    def test_known_incoming_edge_still_allows_unknown_graph_alternative(self):
         actual = result(predicted())
         for measured in actual['rounds']:
             self.assertEqual((measured['input_owner_assignments'], measured['output_creator_assignments'],
                               measured['output_pair_partitions'], measured['joint_candidates']), (2, 3, 3, 6))
             self.assertTrue(measured['truth_retained'])
             self.assertTrue(measured['honest_input_swap_retained'])
-            self.assertFalse(measured['honest_creator_swap_retained'])
-            self.assertEqual(measured['strict_H1_status'], 'FAIL')
+            self.assertTrue(measured['honest_graph_alternative_retained'])
+            self.assertEqual(measured['strict_H1_status'],
+                             'PASS_BOUNDED_DIRECT_CHECK')
             self.assertEqual(measured['correct_unique_inputs'], 0)
             self.assertEqual(measured['correct_unique_outputs'], 0)
             self.assertEqual(measured['nf_to_created_pair_relations'], 6)
             self.assertEqual(measured['nf_pair_candidate_count_histogram'], {'1': 1, '6': 2})
             self.assertEqual(measured['correct_unique_pair_links'], 0)
         self.assertEqual(actual['combined_terminal_status'], 'UNQUALIFIED')
+
+    def test_v2_workload_retains_consistent_unknown_graph_alternative(self):
+        predicted_value = predicted_v2()
+        raw, seal = codec.seal(predicted_value, bytes([19]) * 32)
+        checked = codec.unseal(raw, seal)
+        leaves = [codec.score_owner(checked, truths(i), seal)
+                  for i in range(3)]
+        measured = codec.aggregate(checked, leaves, seal)
+        self.assertEqual(measured['schema'],
+                         'kpb-public-direct-linkage-counts/v2')
+        self.assertTrue(measured['workload']['truth_vector_retained'])
+        self.assertTrue(
+            measured['workload']['honest_graph_alternative_retained'])
+        self.assertGreater(measured['workload']['full_workload_candidates'], 1)
+        self.assertEqual(measured['workload']['correct_unique_full_vectors'], 0)
+        self.assertTrue(all(row['honest_nf_pair_candidate_floor_met']
+                            for row in measured['rounds']))
+        self.assertEqual(measured['combined_terminal_status'],
+                         'PASS_BOUNDED_DIRECT_CHECK')
+
+    def test_terminal_join_cannot_hide_a_unique_honest_output_in_many_vectors(self):
+        """Full-vector ambiguity must not mask a unique eligible graph edge."""
+        models = [codec.assignments(
+            public(round_number), colluder_constraints(round_number, True))
+            for round_number in (1, 2)]
+        # Both links are true in the frozen workload.  They leave twelve full
+        # vectors, including truth and the required common honest graph
+        # alternative, but every surviving vector assigns round-2 output slot
+        # 4 to owner 0.  That output is not part of the colluder-known set.
+        links = ((0, 0, 1, 5), (0, 2, 1, 2))
+        joint = []
+        for left in range(len(models[0]['joint'])):
+            for right in range(len(models[1]['joint'])):
+                candidates = (models[0]['joint'][left],
+                              models[1]['joint'][right])
+                if all(candidates[input_round]['inputs'][input_slot]
+                       == candidates[output_round]['outputs'][output_slot]
+                       for input_round, input_slot, output_round, output_slot
+                       in links):
+                    joint.append([left, right])
+        self.assertEqual(len(joint), 12)
+        workload = {
+            'schema': 'kpb-two-round-candidate-join/v1',
+            'round_candidate_counts': [len(model['joint'])
+                                       for model in models],
+            'cross_round_link_count': len(links),
+            'cross_round_constraints_modeled': True,
+            'terminal_constraints_modeled': True,
+            'joint': joint,
+            'workload_joint_candidates': len(joint),
+            'full_workload_candidates': len(joint),
+            'round_candidate_set_commitment_sha256': digest(b'linked-rounds'),
+            'candidate_set_commitment_sha256': digest(b'linked-workload'),
+            'honest_vector_swap_structural_candidates': len(joint),
+            'truth_scored': False,
+        }
+        predicted_value = codec.prediction(
+            BOUND, 'union', models,
+            {'modeled_artifacts': 4, 'unmodeled_artifacts': 0,
+             'missing_artifacts': 0, 'terminal_modeled': True},
+            category_coverage={
+                'amounts': {'modeled_artifacts': 2,
+                            'unmodeled_artifacts': 0,
+                            'missing_artifacts': 0,
+                            'constraint_modeled_fields': 1,
+                            'source_assumption_covered_fields': 0,
+                            'unmodeled_fields': 0}},
+            workload=workload,
+            lattice_attestation={
+                'exact_union_artifact_set': True,
+                'exact_union_constraints': True,
+                'candidate_subset_lattice_verified': True,
+                'full_workload_subset_lattice_verified': True,
+            })
+        measured = result(predicted_value)
+        self.assertTrue(measured['workload']['truth_vector_retained'])
+        self.assertTrue(
+            measured['workload']['honest_graph_alternative_retained'])
+        self.assertEqual(measured['workload']['full_workload_candidates'], 12)
+        self.assertEqual(measured['workload']['correct_unique_outputs'], 1)
+        self.assertFalse(measured['workload'][
+            'honest_nf_pair_candidate_floor_met'])
+        self.assertEqual(measured['combined_terminal_status'], 'FAIL')
 
     def test_real_literal_pair_tag_control_detected_before_truth(self):
         models = []
@@ -126,6 +256,44 @@ class CandidateControls(unittest.TestCase):
             self.assertEqual(extracted['individual_delta_exports'], 1)
             self.assertGreaterEqual(model['forbidden_exports'], 10)
 
+    def test_terminal_nf_to_pair_link_is_not_lost_without_owner_label(self):
+        p = public(1)
+        # This is a payment-graph disclosure even though the terminal record
+        # never names an owner.  Pair-only constraints cannot express it.
+        owner = TRUTH_INPUTS[0][0]
+        pair = [p['tuple_sha256'][i]
+                for i, creator in enumerate(TRUTH_CREATORS[0])
+                if creator == owner]
+        terminal = {'schema': 'kpb-direct-export-model-control/v1',
+            'scope': 'SYNTHETIC_OBSERVER_CONTROL', 'exports': [{
+                'nf_created_pair': {'nf_hex32': p['nfs_hex32'][0],
+                                    'tuple_sha256': pair}}]}
+        extracted, complete = observer.extract_json(codec.encoded(terminal), p)
+        self.assertTrue(complete)
+        self.assertEqual(extracted['nf_pair_edges'], [{
+            'nf_hex32': p['nfs_hex32'][0], 'tuple_sha256': pair,
+            'provenance': 'direct-export'}])
+        model = codec.assignments(p, extracted)
+        self.assertEqual(model['nf_to_created_pair_relations'], 6)
+        self.assertLess(model['nf_to_created_pair_relations'],
+                        codec.assignments(p, codec.empty_constraints())[
+                            'nf_to_created_pair_relations'])
+        self.assertEqual(model['forbidden_exports'], 1)
+        self.assertTrue(all(
+            candidate['inputs'][0]
+            == candidate['outputs'][p['tuple_sha256'].index(pair[0])]
+            == candidate['outputs'][p['tuple_sha256'].index(pair[1])]
+            for candidate in model['joint']))
+
+    def test_malformed_nf_pair_edge_refuses_instead_of_being_ignored(self):
+        p = public(1); constraints = codec.empty_constraints()
+        constraints['nf_pair_edges'] = [{
+            'nf_hex32': p['nfs_hex32'][0],
+            'tuple_sha256': [p['tuple_sha256'][0], p['tuple_sha256'][0]],
+            'provenance': 'terminal-grouping'}]
+        with self.assertRaises(ValueError):
+            codec.assignments(p, constraints)
+
     def test_wrong_unique_predictions_separate_from_correct(self):
         models = []
         for r in (1, 2):
@@ -145,7 +313,9 @@ class CandidateControls(unittest.TestCase):
     def test_unmodeled_corrupt_view_cannot_become_a_pass(self):
         value = predicted(incoming=False, unmodeled=1)
         measured = result(value)
-        self.assertTrue(all(item['truth_retained'] and item['honest_joint_swap_retained'] for item in measured['rounds']))
+        self.assertTrue(all(item['truth_retained']
+                            and item['honest_graph_alternative_retained']
+                            for item in measured['rounds']))
         self.assertTrue(all(item['strict_H1_status'] == 'UNQUALIFIED' for item in measured['rounds']))
 
     def test_legitimate_private_colluder_material_is_not_a_false_honest_export(self):
@@ -209,7 +379,9 @@ class NamespaceControls(unittest.TestCase):
             sources = []
             mounts = []
             guarded_read = runpy.run_path('/var/tmp/kpi-root-guard-helper-09.py')['read']
-            for name in ('privacy_codec.py', 'privacy_observer.py', 'privacy_owner.py', 'privacy_roles.py'):
+            for name in ('privacy_codec.py', 'privacy_capture_model.py',
+                         'privacy_observer.py', 'privacy_owner.py',
+                         'privacy_roles.py', 'privacy_source_closure.py'):
                 path = source / name; alias = '/software/' + name
                 sources.append({'path': alias, 'sha256': digest(guarded_read(path))})
                 mounts += ['--ro-bind', str(path), alias]

@@ -26,3 +26,11 @@ private owner body or private WTNS. Successful setup and bounded controls do not
 cryptographic correctness, security, privacy or financial acceptance. Actual
 financial shared execution, its proof, selected public/native wrapper and the
 native testnet lifecycle remain separate gates.
+
+On 2026-10-29, the current 48-file source closure was synthesized again after
+the layout-only source edits. All 13,093,029 rows and the complete compressed
+A/B/C artifacts were byte-for-byte identical to the matrices above. See
+`current-matrix-source-table-2026-10-29.json` and
+`current-matrix-equivalence-2026-10-29.json`. This removes source-drift matrix
+invalidation only; it does not upgrade the local setup, erasure, ceremony,
+proof, financial, or privacy evidence.

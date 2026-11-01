@@ -25,8 +25,9 @@ LEAF_MAP_PIN = '00b536cab3799984c2a2f9895329bc410daa0f11f5093f10aa48d92f3abdca50
 
 def sources():
     values = {name: HERE / name for name in ('privacy_colluder.py', 'privacy_colluder_worker.py',
-        'privacy_launch.py', 'privacy_codec.py', 'privacy_observer.py', 'private_worker.py',
-        'wallet_profile.py', 'output_producer.py', 'owner_authority.mjs', 'owner_record.py')}
+        'privacy_launch.py', 'privacy_codec.py', 'privacy_observer.py',
+        'privacy_capture_model.py', 'private_worker.py', 'wallet_profile.py',
+        'output_producer.py', 'owner_authority.mjs', 'owner_record.py')}
     values['recipient.py'] = HERE.parents[1] / 'future-recipient/v2/recipient.py'
     return values
 

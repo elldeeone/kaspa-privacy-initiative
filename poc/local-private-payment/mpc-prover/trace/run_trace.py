@@ -72,7 +72,7 @@ class TraceAttempt(base.Attempt):
             'source_freeze': freeze}, sort_keys=True).encode()).hexdigest()
         paths = []
         for owner in range(2):
-            body = ('KPI_OWNER_CONTRACT_V2\nrun_nonce ' + self.args.run_id +
+            body = ('KPI_OWNER_DDNNT_CONTRACT_V2\nrun_nonce ' + self.args.run_id +
                 '\nmodel ' + self.args.expected_model_sha256 + '\nsource ' + fields['source'] +
                 '\npk ' + fields['pk_sha256'] + '\nvk ' + fields['vk_sha256'] +
                 '\ntrace ' + self.manifest['trace_sha256'] + '\nlayout ' + self.manifest['layout_sha256'] +
@@ -106,7 +106,12 @@ class TraceAttempt(base.Attempt):
                  ('wrong-layout', original.replace(self.manifest['layout_sha256'], '0' * 64)),
                  ('wrong-count', original.replace('input_count 12', 'input_count 11')),
                  ('wrong-role', original.replace('owner_id 0', 'owner_id 1')),
-                 ('downgrade-v1', original.replace('KPI_OWNER_CONTRACT_V2', 'KPI_OWNER_CONTRACT_V1')
+                 ('legacy-3n-version', original.replace(
+                     'KPI_OWNER_DDNNT_CONTRACT_V2', 'KPI_OWNER_CONTRACT_V2', 1)),
+                 ('unselected-additive-version', original.replace(
+                     'KPI_OWNER_DDNNT_CONTRACT_V2', 'KPI_OWNER_ADDITIVE_CONTRACT_V2', 1)),
+                 ('downgrade-v1', original.replace('KPI_OWNER_DDNNT_CONTRACT_V2',
+                                                    'KPI_OWNER_DDNNT_CONTRACT_V1')
                     .replace('trace ' + self.manifest['trace_sha256'] + '\n', '')
                     .replace('layout ' + self.manifest['layout_sha256'] + '\n', ''))]
         records = []

@@ -148,7 +148,9 @@ int serve(int argc, char** argv) {
     const auto y = owners.receive(job_y).at(0);
     stage("second-owner-input-received");
     const std::array<AuthScalar, 1> xs{x}, ys{y};
-    const auto z = ctx.multiply_batch(xs, ys).at(0);
+    const auto z = ctx.multiply_batch(
+        p1_capture::ScalarCaptureSite::FullproofControlProduct,
+        xs, ys).at(0);
     stage("cross-owner-auxiliary-derived");
     std::array<AuthScalar, 5> assignment{
         ctx.public_constant(Fr(1)), ctx.public_constant(Fr(128)), x, y, z};

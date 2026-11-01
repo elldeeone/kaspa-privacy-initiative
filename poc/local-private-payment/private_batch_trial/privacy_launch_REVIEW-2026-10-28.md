@@ -22,5 +22,8 @@ Private body isolation, original leaf routing, fixed state, all-four-view
 capsules, barrier-before-truth and count-only aggregation passed the public
 fixture controls. These are bounded source/integration results. Actual colluder
 derivation, trusted complete-view capture and Root's prospective final selection
-still precede actual use. Full raw server and terminal models remain UNQUALIFIED;
-strict creator-swap H1 remains unchanged and its valid failure is retained.
+still precede actual use. Full raw server and terminal models remain UNQUALIFIED.
+Before any actual capture, the logically impossible all-output relabel predicate
+was replaced by the frozen common graph-alternative predicate: colluder-known
+edges stay fixed, honest input labels exchange, and each honest NF maps to a
+different created pair.

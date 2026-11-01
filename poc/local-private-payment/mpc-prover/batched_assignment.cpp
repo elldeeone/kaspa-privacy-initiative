@@ -168,7 +168,9 @@ ValidatedAssignment validate_batched_public_prefix(MascotContext& context,
             left.push_back(evaluate_linear(model.A[row], assignment));
             right.push_back(evaluate_linear(model.B[row], assignment));
         }
-        auto residuals = context.multiply_batch(left, right);
+        auto residuals = context.multiply_batch(
+            p1_capture::ScalarCaptureSite::BatchedAssignmentResidual,
+            left, right);
         for (size_t row = 0; row < model.num_constraints; ++row)
             residuals[row] -= evaluate_linear(model.C[row], assignment);
         residuals.insert(residuals.end(), checks.begin(), checks.end());
@@ -209,11 +211,17 @@ ValidatedAssignment validate_batched_public_prefix(MascotContext& context,
         for (size_t bit = 0; bit < bits; ++bit) {
             if (mpz_tstbit(exponent.get_mpz_t(), bit)) {
                 const std::array<AuthScalar, 1> a{value}, b{base};
-                value = context.multiply_batch(a, b).at(0);
+                value = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::
+                        BatchedAssignmentNonzeroAccumulate,
+                    a, b).at(0);
             }
             if (bit + 1 < bits) {
                 const std::array<AuthScalar, 1> square{base};
-                base = context.multiply_batch(square, square).at(0);
+                base = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::
+                        BatchedAssignmentNonzeroSquare,
+                    square, square).at(0);
             }
         }
         const std::array<AuthScalar, 1> validity{context.public_constant(Fr(1)) - value};

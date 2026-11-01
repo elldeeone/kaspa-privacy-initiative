@@ -1,0 +1,236 @@
+{
+  "schema": "kpb-bounded-setup-local-source-closure/v1",
+  "workspace_relative": true,
+  "resolved_local_packages": [
+    {
+      "name": "kpi-nativeauthspend-seam",
+      "version": "0.1.0",
+      "manifest_path": "poc/local-private-payment/native-authority/native-core/Cargo.toml"
+    },
+    {
+      "name": "kpi-local-private-payment-relation",
+      "version": "0.1.0",
+      "manifest_path": "poc/local-private-payment/native-authority/vendor/native-relation/Cargo.toml"
+    },
+    {
+      "name": "kpi-private-batch-relation",
+      "version": "0.1.0",
+      "manifest_path": "poc/local-private-payment/private-batch-relation/Cargo.toml"
+    },
+    {
+      "name": "kpi-private-batch-auth-exit",
+      "version": "0.1.0",
+      "manifest_path": "poc/local-private-payment/private_batch_trial/auth_exit/Cargo.toml"
+    },
+    {
+      "name": "kpb-bounded-setup-worker",
+      "version": "0.1.0",
+      "manifest_path": "poc/local-private-payment/private_batch_trial/bounded_setup_worker/Cargo.toml"
+    }
+  ],
+  "local_build_scripts": [],
+  "files": [
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/Cargo.lock",
+      "sha256": "f9ebc906af56d86caaab5368f06c2f658092411cfdb9678df7905f237c89f967"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/Cargo.toml",
+      "sha256": "ee28825dff05697cef8b976658db14d1249462412cbcf82ab4e0716b37c6a6cf"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/src/circuit.rs",
+      "sha256": "d8867cb2d905c2febe9393f7e5cc3c2a69651d794a6bd73c7845ae97d2a0e68d"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/src/collect.rs",
+      "sha256": "c2b87448a56320daae330e9ca8af12feca9d1882434064c19c47ecee105c2bfc"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/src/interchange.rs",
+      "sha256": "374d3729b42f72a6a6b01cdfdb2c9340eee1baf8ccdb42e3089bd2d26e2e35d2"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/src/join.rs",
+      "sha256": "56b7a48bebc2c98a8edfeb99aa33d5d6238856266cac663a8e61aadbd8ccf01b"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/src/lib.rs",
+      "sha256": "607c57e7b91764d0ef66d559ed6c60597cea99274b952a683c2694416ac83044"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/native-core/src/main.rs",
+      "sha256": "a8291393e348230dacea669f65f99a58ad3bdfdf4f4ed8d8ea233cf6d96478fa"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/Cargo.lock",
+      "sha256": "26af87b0b440cbe138a6d619982e2e8e19b262cfc5cb149cf1c9e7655a1d1e9e"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/Cargo.toml",
+      "sha256": "32665070753ad63b5787923360586952af3af50a06f711503d9d2a5db694386f"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/circuit.rs",
+      "sha256": "e13fa9bd6ba33bd01b71e824d10944b3d8561854b3c026f997b282cf57fde4b0"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/cv.rs",
+      "sha256": "350153426d8ff86905a7956a76311726812151bbe301b319ee254336b33c2f05"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/keys.rs",
+      "sha256": "84095f2c53342f869e8bc833b6af44694e847bd55484454d103e01e93177b955"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/lib.rs",
+      "sha256": "f93c2593444acd3936595e4e0d07cc680ff8ada05ce9f9c7dd5a47a387245b9e"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/main.rs",
+      "sha256": "6ebe6f3a132c60199c71436a9c5a593817abe749109d9c7e859f3148d573aeda"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/request.rs",
+      "sha256": "c8d7e9f16adac9c7115def6d638d881d2c9ecc47eb31de73ae2e7cf64cdeb827"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/statements.rs",
+      "sha256": "bcd3f5f947904fe6fecc4e747b93e0f85a5c611390d0331651e3a1884004e123"
+    },
+    {
+      "path": "poc/local-private-payment/native-authority/vendor/native-relation/src/wire.rs",
+      "sha256": "e47fc2e3e033b644f6099a2b2753c89d67eae7d999c975acf21475d92a32a3ef"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/Cargo.lock",
+      "sha256": "59f0d385410c63542e72220bba778a98b852fe1bab7216ad161f369dc8d4d40d"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/Cargo.toml",
+      "sha256": "fc83da438c9d1cd2264b464eb12d92ff409eb7427be7af252b9c53b02f3d2465"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/bin/owner_aux.rs",
+      "sha256": "715a74dee3b495f45ddece72cfd5f9aefe56c2247e97c62fb102990c3958047c"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/bin/owner_file_fr32/mod.rs",
+      "sha256": "d70105096cfe3b683b0df8d405c3503e01c742650e300a420df301f056031000"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/circuit.rs",
+      "sha256": "bae649e1c80fa82f5f1a22446197be7bfaa3b367ea21875e2a6384b98567c022"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/compose.rs",
+      "sha256": "b8b3996df8cc06578e697c2c4eee5593f4c4b288932c5648c8f518c475fb3f62"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/gadgets.rs",
+      "sha256": "a395e49d1d16860bcc1d874e344b4a381de2ed0b51ded6ff232c7830a6b9d978"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/joined_source.rs",
+      "sha256": "e6ec34b6033b53fad5d9bfe6de073cfbbebdd0f9a0d277a318aabbf02eb534e2"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/joint_ark.rs",
+      "sha256": "28e2a8e218898e8489c131f417affe6a479b779648674c093d40953e895215bf"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/joint_trace.rs",
+      "sha256": "c8f56b6c1e054ce4f41ffe84ecfd208c884f36317edb6fc864e475386c5b27fc"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/lib.rs",
+      "sha256": "ad32df0acbe7a2aefbbb87006fe1c3e8f032df01aee07d070bb6ecd4a13eb5ea"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/owner_local.rs",
+      "sha256": "1dc6f43fa0a5617d6f887e2252fcb4f28ca4018b7a20003f5e071cb33bf8576e"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/row_transport.rs",
+      "sha256": "43f7e6ea21478e83db8d98f16a228d92cd4cec2a6adc6a7aba905dea1bf8bd72"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/state_trace.rs",
+      "sha256": "312bb87c8863bc2d3046069e1df30f07a27b197de02020ba9771d83b123de7f3"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/trace.rs",
+      "sha256": "d233ba1d7086bce1981da4f76d46184f943c4e073d9eeebf5b3e461f9726e5a6"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/trace_sha256.rs",
+      "sha256": "510e76946b3fc6ede70515563e32ab3eb0d81a050c7146c81f1237ca4b58b85a"
+    },
+    {
+      "path": "poc/local-private-payment/private-batch-relation/src/wire.rs",
+      "sha256": "307e9c2c9466bf277090b983d24586bcb414e46963b8d621328f5eac42c2a53a"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/auth_exit/Cargo.lock",
+      "sha256": "46a5fee53a7890667720faf255aaadad744ded2e5d87f4eccecde64ad53e9519"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/auth_exit/Cargo.toml",
+      "sha256": "8f6a83c51739d84cad73a9fac1ef3667deb9d7d058b040f070dc2789cc21fbdb"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/auth_exit/src/circuit.rs",
+      "sha256": "28c5b81362dcf473d4043870e54d0853ef127f401ae21c465ceb0ab7254ee022"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/auth_exit/src/exact_sha256.rs",
+      "sha256": "24c7bb2e8c830261a1d000f96a0add5c19d7b992c1d7fcd0021ab272b0c0e9b8"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/auth_exit/src/lib.rs",
+      "sha256": "77a90883214d92ec10c3a579f537df351e36cbc01b11c262d84b5956f23cfd83"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/auth_exit/src/main.rs",
+      "sha256": "779ee09fe0365ee3e25e9661e21b59b3eac878466445237913a8140046d858c0"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/auth_exit/src/proof.rs",
+      "sha256": "db34f48bd6e2a2e50b73485479052350d4fe36543a12a9596ad504b1c57560a7"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/bounded_setup_worker/.cargo/config.toml",
+      "sha256": "bc559216e0ebf7f548fa1c2cc557c0a079ceeaa28067a69f6bceee88e0c03f39"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/bounded_setup_worker/Cargo.lock",
+      "sha256": "268ccabb2d2e0e2787477d93976a5ef6d9f4a6eba54e4c08fc6a36f982759e2d"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/bounded_setup_worker/Cargo.toml",
+      "sha256": "fdfad328fe51258545cfd223b446de3f3250a9c19e726024af22cb9b679348d8"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/bounded_setup_worker/rust-toolchain.toml",
+      "sha256": "2ff65fbf5269faeed6e23bfa6f2f2c7e2b742995484a319d798cdafe02d09faa"
+    },
+    {
+      "path": "poc/local-private-payment/private_batch_trial/bounded_setup_worker/src/main.rs",
+      "sha256": "e1562118ebab201d7cce9e273166310d4757d3c572ccafbb1fc880f1cdaf734d"
+    }
+  ],
+  "file_count": 50,
+  "closure_identity": "04a809da7e8efbaa62a55972b23676df0f8e64d9ab136b2a9212ee5e4c7536d0"
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "kpb-native-empirical-terminal-source-missing/v1",
+  "source_status": "CONFIGURED0",
+  "authenticated_final_streams": [
+    {"round": 1, "fixed_fd": 23, "archive_slot": 3},
+    {"round": 2, "fixed_fd": 28, "archive_slot": 8}
+  ],
+  "missing_complete_history_fields": [
+    "complete_attempt_enumeration",
+    "failed_or_partial_c03_raw_streams",
+    "retry_ordinal",
+    "predecessor_attempt_identity",
+    "attempt_start_monotonic_ns",
+    "attempt_end_monotonic_ns",
+    "attempt_outcome",
+    "attempt_failure_code",
+    "canonical_five_field_observation_encoding",
+    "production_frozen_candidate_set_authority"
+  ],
+  "blocked_authorities": [
+    "EmpiricalCaptureHistoryAuthority",
+    "NativeEmpiricalResultAuthority",
+    "ObservationOutputJoinAuthority"
+  ]
+}

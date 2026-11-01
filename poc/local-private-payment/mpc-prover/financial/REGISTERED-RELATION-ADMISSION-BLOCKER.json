@@ -1,0 +1,174 @@
+{
+  "schema": "kpb-registered-relation-admission-blocker/v1",
+  "recorded_at_utc": "2026-10-29T05:03:46Z",
+  "status": "CONFIGURED0_RELATION_ADMISSION_BLOCKED",
+  "classification": "PUBLIC_STRUCTURAL_RELATION_CANDIDATE_NO_ADMISSION_AUTHORITY",
+  "configured": false,
+  "authority_minted": false,
+  "launch_authorized": false,
+  "network_used": false,
+  "private_owner_body_read": false,
+  "proof_or_financial_acceptance": false,
+  "source_snapshot": {
+    "registered_selection": {
+      "path": "poc/local-private-payment/mpc-prover/financial/REGISTERED-ACTUAL-HEAD-SELECTION.json",
+      "sha256": "2e69ae9a9951072312b9414483e368c784d0e99614973039e1de09234b0da977"
+    },
+    "public_relation_program": {
+      "path": "poc/local-private-payment/private-batch-relation/evidence/2026-10-28-full-financial-source/public-final-financial-program.json",
+      "sha256": "f9ad255749245d6eba32b7d078719f4c6659cdea7e45046bea6d2d0c2b87ee22"
+    },
+    "public_graph_qualification": {
+      "path": "poc/local-private-payment/private-batch-relation/evidence/2026-10-28-full-financial-source/graph-qualification.json",
+      "sha256": "22bcefce2e5da4bf2b93acdce15994ee2a6b885ef0218f0c0e18a73a935c2b45"
+    },
+    "relation_source_table": {
+      "path": "poc/local-private-payment/private-batch-relation/evidence/2026-10-28-full-financial-source/stock-setup-source-table.json",
+      "sha256": "3ff31adfc6f2666ac53606ecf60336366d850951fda22a38b7445262f380d829"
+    },
+    "current_relation_source_table": {
+      "path": "poc/local-private-payment/private-batch-relation/evidence/2026-10-28-full-financial-source/current-matrix-source-table-2026-10-29.json",
+      "sha256": "04adfd77d3b97f60efe6c4547cda583856ea7f7be4c9538f4237330ac137a9d7"
+    },
+    "current_matrix_equivalence": {
+      "path": "poc/local-private-payment/private-batch-relation/evidence/2026-10-28-full-financial-source/current-matrix-equivalence-2026-10-29.json",
+      "sha256": "52ca327ac2d3dd2921c0aa913060f8a97f127d81c5d125c1892dc989853ac692"
+    },
+    "registered_exporter_adapter": {
+      "path": "poc/local-private-payment/mpc-prover/financial/export_registered_program.py",
+      "sha256": "2833eb10d26a1004f3c0455fef07299e02c4220c79897f034e592d7a632c851a"
+    }
+  },
+  "candidate_relation": {
+    "model_identity": "f3ca3c18f17ed8175fa420364e9aa2824a12af4320ca1dc00ba2508f60ba28ff",
+    "source_identity": "3ff31adfc6f2666ac53606ecf60336366d850951fda22a38b7445262f380d829",
+    "graph_identity": "5bda570c1d08940a42994a9e65f80c66cbbeaa314d53f0425127e031f5a64297",
+    "final_matrix_fingerprint": "c02320f82593d16f347e22a7b14cbe5ae394027a260b6af8a4a247b1c6c756ab",
+    "instances": 3,
+    "witnesses": 12949818,
+    "variables": 12949821,
+    "constraints": 13093029,
+    "domain": 16777216,
+    "core_variables_before_signature_components": 12919677,
+    "trace_identity": "4c3dec7c553f66e45775bff2c950417060980cf443ab83a2d198587fc604808e",
+    "owner_column_layout_identity": "9a3ee5f5eb98384273e2b608f71a60f89c49e6fc9c1029586f8f201b84617e1e",
+    "prefix_recipe_identity": "ef6279fa5633c77230a8a8b8ae9b70a58770a30e6c6f5e0bcf97edba0d0e0edb",
+    "owner_roles": [
+      0,
+      1,
+      2
+    ],
+    "owner_input_counts": [
+      2635409,
+      2635409,
+      2635409
+    ],
+    "owner_input_partition_each": {
+      "native_edge_columns": 66,
+      "owner_local_auxiliary_columns": 2625295,
+      "signature_columns_excluding_constant_one": 10048,
+      "total": 2635409
+    },
+    "signature_component": {
+      "matrix_sha256": "b573a68be539426b1165e4f1b1d01f054a3ca275c7d7a1811ece99280bf17d11",
+      "mapping_sha256": "dfff3a6a7063aef13b053ad3e5ba96fc46c2b306c4d984747b0ddbb135290712",
+      "schema": "kpi-signature-normalized-r1cs/v1",
+      "instances_each": 67,
+      "variables_each": 10049,
+      "constraints_each": 10065,
+      "component_copies": 3
+    },
+    "owner_column_rule": [
+      "exact 66 owner-native edge columns 3+66*owner through 3+66*(owner+1)-1",
+      "the exact contiguous owner_local_columns[owner] range from the frozen source layout",
+      "the owner's exact selected signature-component columns excluding only constant ONE",
+      "strictly increasing, disjoint, in-range columns under exact roles 0,1,2"
+    ]
+  },
+  "current_source_matrix_equivalence": {
+    "current_source_table_sha256": "04adfd77d3b97f60efe6c4547cda583856ea7f7be4c9538f4237330ac137a9d7",
+    "selected_source_table_sha256": "3ff31adfc6f2666ac53606ecf60336366d850951fda22a38b7445262f380d829",
+    "selected_matrix_fingerprint": "c02320f82593d16f347e22a7b14cbe5ae394027a260b6af8a4a247b1c6c756ab",
+    "constraints_regenerated": 13093029,
+    "all_axes_byte_identical": true,
+    "source_drift_requires_matrix_or_key_rebuild": false,
+    "selected": false,
+    "authority": false,
+    "setup_provenance_eligible": false,
+    "launch_authorized": false,
+    "boundary": "Public full-matrix regeneration and byte-equivalence evidence only; no selected source, setup provenance, private execution, proof, financial acceptance, privacy, or launch authority."
+  },
+  "preserved_public_candidate": {
+    "path": ".local/registered-financial-relation-candidate-20261029/SIGNATURE-MATRIX.json",
+    "provenance": ".local/registered-financial-relation-candidate-20261029/PROVENANCE.json",
+    "sha256": "b573a68be539426b1165e4f1b1d01f054a3ca275c7d7a1811ece99280bf17d11",
+    "bytes": 2711586,
+    "evidence_only": true,
+    "selected": false,
+    "authority": false
+  },
+  "selected_state": {
+    "registered_financial_configured": false,
+    "registered_selection_status": "UNCONFIGURED_BLOCKED",
+    "target_root": "/srv/kpi/registered-financial/v1",
+    "immutable_exporter_spec_selected": false,
+    "owner_input_admission_authority_present": false,
+    "serialized_receipt_authority": false,
+    "observed_absent_at_recording": [
+      "/srv/kpi/registered-financial/v1/compiler/SPEC.json",
+      "/srv/kpi/registered-financial/v1/compiler/SOURCE.json",
+      "/srv/kpi/registered-financial/v1/compiler/SIGNATURE-MATRIX.json",
+      "/etc/kpi/registered-financial/v1/registration.bin"
+    ]
+  },
+  "missing_bindings": [
+    {
+      "id": "immutable_exporter_spec_absent",
+      "effect": "No selected immutable specification currently authenticates the EdDSA matrix path, matrix SHA-256, mapping SHA-256, relation source closure, exporter build, and runtime together."
+    },
+    {
+      "id": "export_descriptor_omits_signature_matrix",
+      "effect": "REGISTERED-EXPORT.txt does not carry the matrix identity into RegisteredFinancialSelection's parsed descriptor."
+    },
+    {
+      "id": "export_descriptor_omits_signature_mapping",
+      "effect": "REGISTERED-EXPORT.txt does not carry the mapping identity into RegisteredFinancialSelection's parsed descriptor."
+    },
+    {
+      "id": "owner_input_authority_handoff_absent",
+      "effect": "The additive owner-input path cannot consume a live capability proving it belongs to this exact RegisteredFinancialSelection; trace/layout strings or counts alone are forgeable evidence."
+    },
+    {
+      "id": "production_relation_selection_absent",
+      "effect": "KPI_REGISTERED_FINANCIAL_CONFIGURED is 0 and the root-owned selected configuration, registration, transport, stores, and target artifacts are absent."
+    }
+  ],
+  "required_future_seam": {
+    "status": "ABSENT_CONFIGURED0",
+    "proposed_type": "SelectedRelationAdmissionAuthority",
+    "mint_only_from": "live RegisteredFinancialSelection plus its authenticated immutable exporter SPEC and parsed TraceProgram",
+    "consume_by": "the parent-owned additive-stock-MASCOT owner-input admission before any owner listener or masked input",
+    "move_only": true,
+    "single_consume": true,
+    "public_constructor": false,
+    "json_restore": false,
+    "digest_restore": false,
+    "bool_restore": false,
+    "owner_column_map_identity_rule": "authenticated canonical layout bytes and their SHA-256; never counts or a caller digest",
+    "exact_bindings": [
+      "live RegisteredService identity and registered selection identity",
+      "model, complete relation source closure, graph, final matrix, and relation geometry",
+      "all three copies of the exact EdDSA matrix plus its mapping identity",
+      "trace, canonical owner-column layout, prefix recipe, exact roles, and exact parsed column vectors",
+      "selected exporter, parser, build, runtime, and process lineage",
+      "same MascotContext generation and failure epoch as owner-input admission"
+    ]
+  },
+  "promotion_requirements": [
+    "materialize and independently review root-owned immutable SPEC.json, SOURCE.json, signature matrix, exporter, parser/build/runtime closure, and registration",
+    "extend the authenticated registered export/selection handoff to retain and compare the exact signature matrix and mapping identities",
+    "mint the private move-only authority only inside the live selected parent after exact parsed owner-column validation",
+    "consume that authority exactly once at owner-input admission and poison the context on replay, wrong run, wrong role, wrong relation, wrong mapping, wrong layout, or process restart",
+    "keep all configuration and launch flags false until those controls pass against the materialized selection"
+  ]
+}

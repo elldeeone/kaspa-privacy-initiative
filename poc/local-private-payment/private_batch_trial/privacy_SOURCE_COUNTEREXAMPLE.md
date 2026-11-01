@@ -2,7 +2,9 @@
 
 Recorded before executing private payment preparation. This is a public source
 model, not an observation of private wallets, a backend transcript or a native
-financial result. The frozen method and workload remain unchanged.
+financial result. It falsified the original all-output relabel predicate before
+truth or actual capture. The workload stayed fixed; the acceptance freeze was
+corrected before execution to test the eligible unknown payment graph.
 
 Owner1 is the colluder. The fixed schedule sends owner0's round-one payment to
 owner1, then owner2's round-two payment to owner1. Trusted confidential invoice
@@ -12,9 +14,11 @@ The existing owner-private scorer already uses this legitimate invoice-issuance
 and selected-worker knowledge; it is not cryptographic sender authentication.
 
 Consequently, exchanging every honest creator0/2 label contradicts one known
-incoming creator fact in each round. The method's strict global creator-swap H1
-is expected to fail under that full declared view. Do not remove the incoming
-receipt, hide the route, change the colluder, or weaken H1 after observation.
+incoming creator fact in each round. That original predicate is logically
+impossible under the full declared view and is not an acceptance criterion.
+Do not remove the incoming receipt, hide the route or change the colluder.
+Instead, hold known edges fixed and require the common honest-NF input-swap and
+different-created-pair graph alternative frozen by the acceptance method.
 
 That creator fact alone need not reveal its linked change tuple or input NF.
 In the exact direct-fact model, after fixing the colluder's one input and two

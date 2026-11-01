@@ -1,6 +1,8 @@
 // Every official SDK client connects only to a fresh single-session Tor bridge.
 import {startTorBridge} from './funding_network_bridge.mjs';
+import {requireLiveNetworkActivation} from './funding_network_activation.mjs';
 export async function connectTor(k,upstream) {
+  requireLiveNetworkActivation();
   const bridge=await startTorBridge({upstream});
   let rpc;
   try {

@@ -1,9 +1,11 @@
 # Private-batch observation and isolated scoring
 
 Source integration only. No actual private workload, Original, financial truth
-or corrupt-server view was opened while implementing these files. The fixed
-prospective method remains unchanged. Its strict global creator-swap H1 is
-expected to fail under legitimate recipient knowledge; see the separate
+or corrupt-server view was opened while implementing these files. The source
+counterexample proved before execution that an all-output relabel predicate
+contradicts legitimate recipient knowledge. The frozen replacement keeps those
+known edges fixed and requires an honest-NF input swap plus a different created
+pair for each honest NF in one common graph alternative; see the separate
 [source counterexample](privacy_SOURCE_COUNTEREXAMPLE.md).
 
 ## Reuse and scope
@@ -125,7 +127,7 @@ With the colluder's own input/two outputs fixed and no incoming creator fact,
 the direct model has2 input permutations,6 creator assignments,3 unlabeled pair
 partitions and12 joint candidates. Its legitimate known incoming creator leaves
 2 input permutations,3 creator assignments,3 pair partitions and6 joint candidates.
-The honest input swap remains; the full creator swap does not. A pair-tag
+The honest input swap remains; an all-output relabel does not. A pair-tag
 control reduces the creator partition to1, while a full constructor map reduces
 the joint candidate set to1. These are exact public model counts, not observed
 financial results, posterior probabilities or cryptographic privacy evidence.

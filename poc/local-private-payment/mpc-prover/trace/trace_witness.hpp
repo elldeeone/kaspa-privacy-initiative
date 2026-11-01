@@ -92,10 +92,23 @@ TraceExecution execute_trace(MascotContext& context, const TraceProgram& program
                              std::vector<OwnerTraceInput> inputs,
                              size_t multiplication_batch = 4096);
 
+struct TracePrivateCheckCaptureSchedule {
+    size_t check_count;
+    size_t nonzero_accumulate_calls;
+    size_t nonzero_square_calls;
+    std::vector<size_t> reduction_widths;
+};
+
+// Public schedule metadata only. This fixes the typed capture cardinalities
+// before the authenticated reduction runs; it contains no witness value.
+TracePrivateCheckCaptureSchedule trace_private_check_capture_schedule(
+    size_t check_count);
+
 // Exact full-Fr zero checking, with an authenticated result and NO opening.
 // Caller must AND it with complete R1CS validity and open only one aggregate
 // result. This utility does not replace R1CS/model/public-prefix validation.
 AuthScalar trace_private_checks_hold(MascotContext& context,
-                                     std::span<const AuthScalar> checks);
+                                     std::span<const AuthScalar> checks,
+                                     size_t expected_count);
 
 }  // namespace kpi::mpc

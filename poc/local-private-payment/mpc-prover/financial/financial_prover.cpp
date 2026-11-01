@@ -1,7 +1,9 @@
 #include "financial_assignment.hpp"
 #include "construction.hpp"
 #include "streamed_h_map.hpp"
+#include "query_msm_correspondence.hpp"
 #include "../auth_groups.hpp"
+#include "../p1_capture_seams.hpp"
 #include "../packed/gzip_queries.hpp"
 #include <array>
 #include <cerrno>
@@ -16,13 +18,6 @@
 #endif
 
 extern char** environ;
-
-namespace kpi::mpc {
-// Identical implementation-private friend definition as the qualified prover.
-struct FinalProofAccess {
-    static G1Value a(const G1ServerOpened& point) { return point.point_; }
-};
-}
 
 namespace kpi::mpc::financial {
 namespace {
@@ -129,26 +124,11 @@ void verify_candidate(const std::filesystem::path& metadata_path,
 
 template<class Group>
 auto local_point_sum(std::span<const Group> points, std::span<const AuthScalar> scalars) {
-    using Result = decltype(public_point_map(points[0], scalars[0]));
-    if (points.size() != scalars.size() || points.empty() || points.size() > public_point_chunk)
-        throw std::runtime_error("financial-local-point-chunk-shape");
-    std::vector<std::future<Result>> workers;
-    const auto count = std::min(local_point_workers, points.size());
-    for (size_t worker = 0; worker < count; ++worker) {
-        const auto first = points.size() * worker / count;
-        const auto last = points.size() * (worker + 1) / count;
-        // No Player, preprocessing, opening or MascotContext is captured.
-        // Both private scalar lanes retain NativePoint::mul(...,true).
-        workers.push_back(std::async(std::launch::async, [points, scalars, first, last] {
-            Result result;
-            for (size_t i = first; i < last; ++i)
-                result += public_point_map(points[i], scalars[i]);
-            return result;
-        }));
-    }
-    Result total;
-    for (auto& worker : workers) total += worker.get();
-    return total;
+    return query_msm::deterministic_worker_sum(
+        points, scalars, local_point_workers, public_point_chunk,
+        [](const auto& point, const auto& scalar) {
+            return public_point_map(point, scalar);
+        });
 }
 
 AuthG1 query_g1(packed::GzipQueryCursor& cursor, packed::Query kind,
@@ -193,6 +173,9 @@ std::array<unsigned char, 128> FinancialValidatedAssignment::make_candidate(
     prepared.consume_for_proof(context, attempt_, identity_, construction_->binding_identity(), *prepared_effects_);
     const auto& model = construction_->model();
     const auto& metadata = model.metadata();
+    if (auto* capture = context.p1_capture_seams())
+        capture->bind_financial_query_model(
+            model.identity(), model.query_transport_identity());
     if (metadata.prefix_mode != packed::PrefixMode::SecretDerivedRecipe)
         throw std::runtime_error("financial-proof-derived-prefix-required");
     const auto assignment = construction_->assignment();
@@ -202,9 +185,10 @@ std::array<unsigned char, 128> FinancialValidatedAssignment::make_candidate(
     context.agree_public_bytes("financial-local-query-schedule", {
         reinterpret_cast<const unsigned char*>(schedule.data()), schedule.size()});
     const auto h = StreamedWitnessMap::compute(context, model, assignment, batch_);
-    const auto r = context.random_auth(), s = context.random_auth();
-    const std::array<AuthScalar, 1> rv{r}, sv{s};
-    const auto rs = context.multiply_batch(rv, sv).at(0);
+    const auto r = context.random_auth(
+        p1_capture::ScalarCaptureSite::FinancialProofMaskR);
+    const auto s = context.random_auth(
+        p1_capture::ScalarCaptureSite::FinancialProofMaskS);
     const auto delta1 = model.base_g1(packed::BaseG1::Delta);
     const auto delta2 = model.base_g2(packed::BaseG2::Delta);
     auto queries = model.query_cursor();
@@ -212,9 +196,9 @@ std::array<unsigned char, 128> FinancialValidatedAssignment::make_candidate(
     a += public_point_map(delta1, r);
     add_public(a, model.base_g1(packed::BaseG1::Alpha), context);
     context.report_public_phase("financial-A-query-complete");
-    auto b1 = query_g1(queries, packed::Query::B1, assignment, model.query_size(packed::Query::B1));
-    b1 += public_point_map(delta1, s);
-    add_public(b1, model.base_g1(packed::BaseG1::Beta), context);
+    auto b1_base = query_g1(queries, packed::Query::B1, assignment,
+                            model.query_size(packed::Query::B1));
+    add_public(b1_base, model.base_g1(packed::BaseG1::Beta), context);
     context.report_public_phase("financial-B1-query-complete");
     auto b2 = query_g2(queries, assignment, model.query_size(packed::Query::B2));
     b2 += public_point_map(delta2, s);
@@ -227,16 +211,26 @@ std::array<unsigned char, 128> FinancialValidatedAssignment::make_candidate(
     model.check_backing_unchanged();
     context.check_field_pending();
     GroupMacSetup checks(context.player());
-    const auto [opened_a, opened_b1] = open_checked_g1_pair(context, a, b1);
-    context.report_public_phase("financial-masked-A-and-B1-MAC-checked");
-    auto c = server_opened_point_map(opened_a, s);
-    c += server_opened_point_map(opened_b1, r);
-    c -= public_point_map(delta1, rs);
+    // Canonical algebraic order. The selected streamed implementation computes
+    // H before L, but capture order is fixed as A, B1_base, L, H.
+    const std::array<AuthG1, 4> base_group_state{{a, b1_base, l, h_point}};
+    if (auto* capture = context.p1_capture_seams())
+        capture->proof_base_group_state(base_group_state, b2);
+    const std::array<AuthG1, 2> secret_groups{a, b1_base};
+    const std::array<AuthScalar, 2> secret_scalars{s, r};
+    const auto products = secret_scalar_g1_products(
+        context, checks, secret_groups, secret_scalars);
+    context.report_public_phase(
+        "financial-masked-secret-G1-products-MAC-checked");
+    auto c = products[0];
+    c += products[1];
     c += h_point;
     c += l;
-    const auto [opened_c, opened_b2] = open_checked_g1_g2(context, c, b2);
-    context.report_public_phase("financial-final-B2-and-C-MAC-checked");
-    ProofPublic proof{FinalProofAccess::a(opened_a), opened_b2, opened_c};
+    FinalGroth16CaptureAuthority final_capture_authority(context);
+    const auto opened = open_final_groth16(
+        context, checks, a, b2, c, std::move(final_capture_authority));
+    context.report_public_phase("financial-final-A-B2-C-MAC-checked");
+    ProofPublic proof{opened.a, opened.b, opened.c};
     const auto encoded = encode_native_proof(proof);
     const auto decoded = decode_native_proof(encoded);
     if (decoded.a != proof.a || decoded.b != proof.b || decoded.c != proof.c)

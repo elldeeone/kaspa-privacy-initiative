@@ -5,7 +5,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {IDS,MAX,identityDocument,checkAddresses,matureObservation,reservePhase,sha} from './funding_network_common.mjs';
-import {nativeGate,submitOnce} from './funding_network.mjs';
+import {captureAnchor,collect,confirm,currentOutputs,execute,nativeGate,queryInputs,submitOnce} from './funding_network.mjs';
+import {connectTor} from './funding_network_rpc.mjs';
+import {startTorBridge} from './funding_network_bridge.mjs';
 
 function fixture() {
   return {schema:'kpb-three-owner-funding-identity/v1',...IDS,
@@ -80,28 +82,20 @@ test('network gate is reexecuted; imported acceptance flags are not candidates',
   assert.throws(()=>nativeGate(job,()=>({status:2,stdout:JSON.stringify(candidate)})));
 });
 
-function rpcFixture() {
-  let submissions=0;
-  const identity=fixture(),own=identity.owners[0];
-  const candidate={transaction:{id:'22'.repeat(32),inputs:[{previousOutpoint:{transactionId:'11'.repeat(32),index:0}}],
-      outputs:[{value:'2090000000',scriptPublicKey:own.funding_spk_hex36}]},
-    contexts:[{amount_sompi:'2100000000',script_public_key:own.funding_spk_hex36,block_daa_score:'0',is_coinbase:true,covenant_id:null}]};
-  let after=false;
-  const rpc={getServerInfo:async()=>({networkId:'testnet-10',serverVersion:'2.1.0',isSynced:true,hasUtxoIndex:true}),
-    getBlockDagInfo:async()=>({network:'testnet-10',virtualDaaScore:2000n}),
-    getUtxosByAddresses:async()=>({entries:after?[]:[entry()]}),
-    submitTransaction:async()=>{submissions++;after=true;throw Error('PUBLIC FIXTURE UNKNOWN WRITE');}};
-  const k={addressFromScriptPublicKey:()=>({toString:()=>own.address,free(){}})};
-  return {rpc,k,identity,candidate,get submissions(){return submissions;}};
-}
-test('unknown submission invokes exactlyone network write and only requery afterward',async()=>{
-  const fixture=rpcFixture();
-  const result=await submitOnce({...fixture,job:{operation:'submit-consolidation',owner_component:0,case_sha256:'03'.repeat(32),identity_sha256:'04'.repeat(32)},transaction:{}});
-  assert.equal(fixture.submissions,1);assert.equal(result.status,'RPC_UNKNOWN_QUERY_ONLY');
-  assert.equal(result.automatic_resubmission_permitted,false);assert.equal(result.confirmation_claimed,false);
-});
-test('current source substitution refuses before the sole submit call',async()=>{
-  const fixture=rpcFixture();fixture.rpc.getUtxosByAddresses=async()=>({entries:[entry(undefined,'2100000001')]});
-  await assert.rejects(submitOnce({...fixture,job:{operation:'submit-consolidation',owner_component:0},transaction:{}}));
-  assert.equal(fixture.submissions,0);
+test('every selected network-effect export refuses CONFIGURED0 before RPC or spawn',async()=>{
+  let effects=0;
+  const forbidden=new Proxy({}, {get(){effects++;throw Error('network effect touched');}});
+  const calls=[
+    ()=>queryInputs(forbidden,forbidden,forbidden),
+    ()=>currentOutputs(forbidden,forbidden,forbidden),
+    ()=>submitOnce({k:forbidden,rpc:forbidden,identity:forbidden,job:forbidden,candidate:forbidden,transaction:forbidden}),
+    ()=>collect(forbidden,forbidden,forbidden,'/forbidden'),
+    ()=>captureAnchor(forbidden,forbidden,forbidden),
+    ()=>confirm(forbidden,forbidden,forbidden,forbidden,forbidden,'/forbidden'),
+    ()=>connectTor(forbidden,'wss://forbidden.invalid'),
+    ()=>startTorBridge({upstream:'wss://forbidden.invalid'}),
+    ()=>execute('anchor'),
+  ];
+  for(const call of calls) await assert.rejects(call(),/PARENT_LIVE_NETWORK_ACTIVATION_NOT_CONFIGURED/);
+  assert.equal(effects,0);
 });

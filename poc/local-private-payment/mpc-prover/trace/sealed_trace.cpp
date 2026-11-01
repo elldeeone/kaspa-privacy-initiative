@@ -189,6 +189,8 @@ struct SealedTraceArtifact::Impl {
     File snapshot;
     size_t container_bytes = 0;
     size_t canonical_bytes = 0;
+    std::uint64_t snapshot_device = 0;
+    std::uint64_t snapshot_inode = 0;
     bool gzip = false;
     std::string container_sha256, canonical_sha256, decoder_identity;
     explicit Impl(File fd) : snapshot(std::move(fd)) {}
@@ -217,6 +219,15 @@ std::shared_ptr<const SealedTraceArtifact> SealedTraceArtifact::from_fd(int owne
     auto finish = [&](File sealed, size_t count, std::string container_hash)
         -> std::shared_ptr<const SealedTraceArtifact> {
         auto impl = std::make_unique<Impl>(std::move(sealed));
+        struct stat snapshot_info{};
+        if (fstat(impl->snapshot.value, &snapshot_info) ||
+            !S_ISREG(snapshot_info.st_mode) || snapshot_info.st_dev == 0 ||
+            snapshot_info.st_ino == 0)
+            fail("trace-artifact-sealed-snapshot-identity");
+        impl->snapshot_device =
+            static_cast<std::uint64_t>(snapshot_info.st_dev);
+        impl->snapshot_inode =
+            static_cast<std::uint64_t>(snapshot_info.st_ino);
         impl->container_bytes = count; impl->container_sha256 = std::move(container_hash);
         std::array<unsigned char, 2> magic{};
         const auto magic_bytes = pread_retry(impl->snapshot.value, magic.data(), magic.size(), 0);
@@ -294,6 +305,12 @@ std::unique_ptr<std::istream> SealedTraceArtifact::stream() const {
 }
 size_t SealedTraceArtifact::container_bytes() const { return impl_->container_bytes; }
 size_t SealedTraceArtifact::canonical_bytes() const { return impl_->canonical_bytes; }
+std::uint64_t SealedTraceArtifact::snapshot_device() const {
+    return impl_->snapshot_device;
+}
+std::uint64_t SealedTraceArtifact::snapshot_inode() const {
+    return impl_->snapshot_inode;
+}
 const std::string& SealedTraceArtifact::container_sha256() const { return impl_->container_sha256; }
 const std::string& SealedTraceArtifact::canonical_sha256() const { return impl_->canonical_sha256; }
 const std::string& SealedTraceArtifact::decoder_identity() const { return impl_->decoder_identity; }

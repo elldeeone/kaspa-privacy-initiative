@@ -7,6 +7,7 @@ are explicitly unmodeled, even when no literal direct leak was recognized.
 import hashlib
 
 import privacy_codec as codec
+import privacy_capture_model as capture
 
 
 def batch_from_projection(round_number, raw):
@@ -24,7 +25,8 @@ def batch_from_projection(round_number, raw):
 def merge(*values):
     result = codec.empty_constraints()
     for value in values:
-        for name in ('input_edges', 'creator_edges', 'pair_edges'):
+        for name in ('input_edges', 'creator_edges', 'pair_edges',
+                     'nf_pair_edges'):
             result[name].extend(edge for edge in value[name] if edge not in result[name])
         result['individual_delta_exports'] += value['individual_delta_exports']
     return result
@@ -150,6 +152,16 @@ def extract_json(raw, public, *, route_owner=None, legitimate_colluder_view=Fals
         pair = item.get('pair_tuple_sha256')
         if type(pair) is list and all(type(part) is str for part in pair) and len(pair) == len(set(pair)) == 2 and all(part in public['tuple_sha256'] for part in pair):
             result['pair_edges'].append({'tuple_sha256': pair, 'provenance': 'pair-tag-export'})
+        nf_pair = item.get('nf_created_pair')
+        if type(nf_pair) is dict and set(nf_pair) == {
+                'nf_hex32', 'tuple_sha256'}:
+            nf = nf_pair['nf_hex32']; pair = nf_pair['tuple_sha256']
+            if (nf in public['nfs_hex32'] and type(pair) is list
+                    and len(pair) == len(set(pair)) == 2
+                    and all(part in public['tuple_sha256'] for part in pair)):
+                result['nf_pair_edges'].append({
+                    'nf_hex32': nf, 'tuple_sha256': pair,
+                    'provenance': 'direct-export'})
         for child in item.values(): visit(child, component if valid_owner else inherited)
     visit(value, route_owner)
     for grouped in pair_tags.values():
@@ -178,11 +190,45 @@ def collect(public, artifacts, colluder=None):
     material remains unqualified; no ``complete`` caller flag is accepted.
     """
     result = codec.empty_constraints() if colluder is None else colluder
-    modeled = unmodeled = 0
+    modeled = int(colluder is not None); unmodeled = 0
+    terminal_modeled = False
+    projection = None
     for kind, raw, route_owner in artifacts:
         if kind == 'public-projection':
             codec.need(batch_from_projection(public['round'], raw) == public, 'privacy-exact-public-view-batch')
-            modeled += 1
+            codec.need(projection is None, 'privacy-one-public-projection')
+            projection = raw
+            try:
+                admitted = capture.public_projection(raw, public)
+            except ValueError:
+                # Legacy/source-only diagnostics may use the fixed known-seed
+                # projection fixture with dummy financial fields.  It remains
+                # useful for exercising the colluder crypto path, but it is
+                # not the typed financial projection and cannot be counted as
+                # modeled privacy evidence.
+                unmodeled += 1
+            else:
+                result = merge(result, admitted['constraints'])
+                modeled += 1
+            continue
+        if kind == 'dispatcher-capture':
+            admitted = capture.dispatcher(raw, public)
+            result = merge(result, admitted['constraints']); modeled += 1
+            continue
+        if kind == 'corrupt-server-capture':
+            codec.need(projection is not None,
+                       'privacy-corrupt-capture-after-public-projection')
+            admitted = capture.corrupt_server(raw, public, projection)
+            result = merge(result, admitted['constraints']); modeled += 1
+            continue
+        if kind == 'colluder-wallet-capture':
+            admitted = capture.colluder_wallet(raw, public)
+            result = merge(result, admitted['constraints']); modeled += 1
+            continue
+        if kind == 'terminal-history':
+            admitted = capture.terminal(raw, public)
+            result = merge(result, admitted['constraints']); modeled += 1
+            terminal_modeled = terminal_modeled or admitted['terminal_modeled']
             continue
         if kind in ('colluder-original', 'colluder-own-record', 'colluder-raw'):
             # These secrets are legitimately supplied by the declared colluder.
@@ -207,4 +253,4 @@ def collect(public, artifacts, colluder=None):
             # constraints are not qualified by this literal JSON strategy.
             unmodeled += 1
     return codec.assignments(public, result), {'modeled_artifacts': modeled, 'unmodeled_artifacts': unmodeled,
-        'missing_artifacts': int(not artifacts), 'terminal_modeled': False}
+        'missing_artifacts': int(not artifacts), 'terminal_modeled': terminal_modeled}

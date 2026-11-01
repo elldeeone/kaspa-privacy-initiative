@@ -1,0 +1,82 @@
+{
+  "schema": "kpb-frozen-aggregate-r1cs-export-plan/v1",
+  "classification": "PRODUCTION_SIZED_R1CS_CONVERSION_ONLY_NO_SETUP_OR_CEREMONY",
+  "materials_pending": false,
+  "materials": {
+    "exporter_source_sha256": "8944c0fd3031959271f1ad52929db378aa5211987ec441481a4a6c14032c1682",
+    "cargo_toml_sha256": "3fe540c0f5b65d62d6fa4ff05f3b85d78f293ceb9198bbe6cd59a0279dfcfa86",
+    "cargo_lock_sha256": "7e55e79c5b6cc1f648eeda33dcd589186e05491e60f4e81b33f7ba1224ce0e53",
+    "rust_toolchain_sha256": "980d30aa049a1dbd1183e7a010f082b54b52c6b3cc3c180ddb7abfd6229d3be7",
+    "verifier_source_sha256": "5d2750bdd295c350d57722a337edccd17c4787ed156c8943b68a38c86afc86d4",
+    "verifier_python_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41"
+  },
+  "verifier_runtime": {
+    "implementation": "CPython",
+    "resolved_executable": "/usr/bin/python3.14",
+    "version_info": [3, 14, 4, "final", 0],
+    "zlib_runtime_version": "1.3.1"
+  },
+  "admission_receipt_sha256": "41b39354f9c87b5fa00880e31fdf7c9f121ce2bab8dd27f577e0907766523191",
+  "scanner_binary_sha256": "86a0783c997950d6a78f56c2f85c2184c39bd4194fa40a6a2f79e1bf593c9ece",
+  "frozen_manifest_sha256": "34cb8d48a1a2c9e6cbb8fb2481cfb73fc53d46d6f91c07655234485228e363e5",
+  "frozen_source_sha256": "04adfd77d3b97f60efe6c4547cda583856ea7f7be4c9538f4237330ac137a9d7",
+  "field_decimal": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+  "field_le_hex": "010000f093f5e1439170b97948e833285d588181b64550b829a031e1724e6430",
+  "geometry": {
+    "instances_including_one": 3,
+    "public_outputs": 0,
+    "public_inputs": 2,
+    "private_inputs": 12949818,
+    "witnesses": 12949818,
+    "variables": 12949821,
+    "constraints": 13093029,
+    "labels": 12949821
+  },
+  "axes": [
+    {
+      "axis": 0,
+      "file_label": "A.r1cs.bin.gz",
+      "compressed_bytes": 132280879,
+      "compressed_sha256": "4a78fccf7f49e9f25a77b2f212fb99b9beb0a6da63240567c13ae2d7754ff048",
+      "raw_bytes": 1439778032,
+      "raw_sha256": "002b86f052e75f6e98eebfd27f977c5dcb7362a15d0a25d5af6642ac0cd2ecee",
+      "terms": 33375843,
+      "maximum_row_terms": 1032
+    },
+    {
+      "axis": 1,
+      "file_label": "B.r1cs.bin.gz",
+      "compressed_bytes": 39357111,
+      "compressed_sha256": "8fe2d65194704b601f911099a5ed4123a2fd4f374aaefb1b1d620cc1603ca34c",
+      "raw_bytes": 703804592,
+      "raw_sha256": "a32c39c1e0a087172fb396a019ee3ad3ebff5b5833281ef1d72162e38cf5d565",
+      "terms": 14976507,
+      "maximum_row_terms": 8
+    },
+    {
+      "axis": 2,
+      "file_label": "C.r1cs.bin.gz",
+      "compressed_bytes": 71201926,
+      "compressed_sha256": "7e921a7eda84e389c91e2a9b6674b74c8c0dbc056ac78d9953976a95912f6d92",
+      "raw_bytes": 1036906272,
+      "raw_sha256": "000b71a3433cb0b0e0ed3bb155a064314710fca5be5e26088ab5606aa588dbae",
+      "terms": 23304049,
+      "maximum_row_terms": 446
+    }
+  ],
+  "canonical_r1cs_fingerprint": "c02320f82593d16f347e22a7b14cbe5ae394027a260b6af8a4a247b1c6c756ab",
+  "standard_r1cs_v1": {
+    "section_order": [1, 2, 3],
+    "row_axis_count_framing_bytes": 157116348,
+    "term_framing_and_coefficient_bytes": 2579630364,
+    "constraint_section_bytes": 2736746712,
+    "identity_wire_map_bytes": 103598568,
+    "complete_file_bytes": 2840345392
+  },
+  "aggregate_full_export_authorized": true,
+  "setup_authorized": false,
+  "zkey_authorized": false,
+  "phase1_authorized": false,
+  "phase2_authorized": false,
+  "ceremony_authorized": false
+}

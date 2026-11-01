@@ -52,8 +52,10 @@ def main():
         if not path.is_file():
             raise SystemExit('Missing selected vendor artifact: ' + str(path))
 
-    names = ['auth_field.cpp', 'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
-             'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
+    names = ['auth_field.cpp', 'p1_capture_stream.cpp',
+             'p1_capturing_player.cpp', 'p1_capture_seams.cpp',
+             'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
+             'owner_input_ddnnt.cpp', 'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
              'auth_groups.cpp', 'auth_groth16.cpp', 'trace/sealed_trace.cpp',
              'trace/prefix_recipe.cpp', 'trace/trace_witness.cpp',
              'packed/packed_model.cpp', 'packed/gzip_queries.cpp',
@@ -63,7 +65,9 @@ def main():
              'financial/financial_release.cpp', 'financial/gate_main.cpp',
              'financial/owner_file_client.cpp']
     selected = set(names) | {'financial/build_financial.py', 'financial/run_financial.py', 'run_toy.py',
-        'history/qualification_bootstrap.py', 'history/qualification_init.cpp'}
+        'history/qualification_bootstrap.py', 'history/qualification_init.cpp',
+        'financial/control_only_p1_capture_sink.py',
+        'financial/unregistered_p1_capture_qualifier.cpp'}
     selected.update(str(p.relative_to(source)) for p in source.glob('*.hpp'))
     for folder in ('trace', 'packed', 'financial', 'history'):
         selected.update(str(p.relative_to(source)) for p in (source / folder).rglob('*.hpp'))
@@ -101,13 +105,31 @@ def main():
         result = subprocess.run(command, capture_output=True)
         (output / (name.replace('/', '_') + '.stdout')).write_bytes(result.stdout)
         (output / (name.replace('/', '_') + '.stderr')).write_bytes(result.stderr)
-        return {'source': name, 'argv': command, 'exit_code': result.returncode,
+        return {'source': name, 'profile': 'normal', 'argv': command,
+                'exit_code': result.returncode,
                 'object': str(target) if result.returncode == 0 else None}
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
         for result in pool.map(compile_file, names):
             commands.append(result)
             print(result['source'], 'compile exit', result['exit_code'], flush=True)
+    capture_flags = [*flags, '-DKPI_P1_UNREGISTERED_QUALIFIER=1']
+    for name in ('financial/gate_main.cpp',
+                 'financial/unregistered_p1_capture_qualifier.cpp'):
+        target = output / (name.replace('/', '_') + '.control-p1.o')
+        command = ['g++', *capture_flags, '-c', str(source / name),
+                   '-o', str(target)]
+        result = subprocess.run(command, capture_output=True)
+        (output / (name.replace('/', '_') +
+                   '.control-p1.stdout')).write_bytes(result.stdout)
+        (output / (name.replace('/', '_') +
+                   '.control-p1.stderr')).write_bytes(result.stderr)
+        commands.append({'source': name, 'profile': 'control-only-p1',
+                         'argv': command, 'exit_code': result.returncode,
+                         'object': str(target) if result.returncode == 0
+                         else None})
+        print(name, 'control-only-p1 compile exit', result.returncode,
+              flush=True)
     failures = [r for r in commands if r['exit_code']]
     links = []
     if not failures:
@@ -117,7 +139,8 @@ def main():
                               ('financial-owner-client', 'financial/owner_file_client.cpp')]:
             target = output / binary
             command = ['g++', '-pthread', '-o', str(target)]
-            by_name = {record['source']: record for record in commands}
+            by_name = {record['source']: record for record in commands
+                       if record.get('profile', 'normal') == 'normal'}
             command += [by_name[name]['object'] for name in common + [entry]]
             command += [str(path) for path in objects]
             # libSPDZ.so has no upstream SONAME. Linking its absolute filename
@@ -135,6 +158,36 @@ def main():
             links.append({'binary': binary, 'argv': command, 'exit_code': result.returncode,
                           'sha256': digest(target) if result.returncode == 0 else None})
             print(binary, 'link exit', result.returncode, flush=True)
+        if all(record['exit_code'] == 0 for record in commands):
+            binary = 'mpc-financial-capture-qualification'
+            target = output / binary
+            normal = {record['source']: record for record in commands
+                      if record.get('profile', 'normal') == 'normal'}
+            capture = {record['source']: record for record in commands
+                       if record.get('profile') == 'control-only-p1'}
+            command = ['g++', '-pthread', '-o', str(target)]
+            command += [normal[name]['object'] for name in common]
+            command += [capture['financial/gate_main.cpp']['object'],
+                        capture[
+                            'financial/unregistered_p1_capture_qualifier.cpp']
+                            ['object']]
+            command += [str(path) for path in objects]
+            command += ['-L' + str(mp), '-lSPDZ', '-Wl,--start-group',
+                        *map(str, static_libraries), '-Wl,--end-group']
+            command += ['-L' + str(lib), '-Wl,-rpath,' + str(lib),
+                        '-Wl,-rpath,' + str(mp), '-lgmpxx', '-lgmp',
+                        '-lsodium', '-lssl', '-lcrypto',
+                        '-lboost_filesystem', '-lboost_iostreams',
+                        '-lboost_thread', '-lrt', '-lz', '-ldl', '-z',
+                        'noexecstack']
+            result = subprocess.run(command, capture_output=True)
+            (output / (binary + '.link.stdout')).write_bytes(result.stdout)
+            (output / (binary + '.link.stderr')).write_bytes(result.stderr)
+            links.append({'binary': binary, 'argv': command,
+                          'exit_code': result.returncode,
+                          'sha256': digest(target)
+                          if result.returncode == 0 else None})
+            print(binary, 'link exit', result.returncode, flush=True)
     after = {name: digest(source / name) for name in selected}
     if before != after:
         raise SystemExit('Source changed during compilation; build is not qualified')
@@ -146,7 +199,7 @@ def main():
                'vendor_artifacts': [{'path': str(p), 'sha256': digest(p)}
                                     for p in objects + libraries],
                'compile': commands, 'link': links,
-               'success': not failures and len(links) == 2 and all(r['exit_code'] == 0 for r in links),
+               'success': not failures and len(links) == 3 and all(r['exit_code'] == 0 for r in links),
                'proof_or_private_input_executed': False}
     (output / 'BUILD-RESULT.json').write_text(json.dumps(receipt, indent=2) + '\n')
     raise SystemExit(0 if receipt['success'] else 1)

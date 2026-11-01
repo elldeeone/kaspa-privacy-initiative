@@ -33,17 +33,524 @@ shares or creates withdrawal authority. See the [wallet lifecycle](../poc/local-
 [explicit Exit release](../poc/local-private-payment/private_batch_trial/EXIT-RELEASE.md)
 for the current source interfaces and their unqualified live boundaries.
 
+The journal implementation now grants private record/core access only to two
+complete, source-owned bridge types. FINAL/SETTLED mutation consumes the exact
+noncopyable verifier capability and retains both all-three agreement barriers;
+`JournalCore` cannot mint public-looking durable records. This closes a
+header-level authority-forgery route but does not change `CONFIGURED=0`, select
+a settlement adapter or establish financial/privacy qualification.
+
 [ADR-0079](adr/0079-registered-head-program-selection.md) selects a closed path
 from actual accepted-head verification and fixed service configuration to a
 source-generated immutable assignment program. Public history may change the
 program/counts; exact finalized rows and variable mapping must still match the
 admitted key. The fixed nonexistent-head qualification cannot enter that path.
 
+[ADR-0083](adr/0083-parent-owned-fresh-attempt-authority.md) selects one outer
+supervisor as the sole owner of the durable freshness registry. Three
+role/session-bound proposals must agree on the exact run, trial, attempt,
+cohort, direct accepted head and three owner-contract identities before one
+atomic registry consume. The supervisor then issues role-bound one-shot
+approvals; each party rechecks the head before LOCK and burns its linear
+`RegisteredFreshAttempt` immediately before owner intake. Registry state is not
+mounted or inherited by children. Trial03 predates this authority and cannot be
+retrofitted; a fresh unfunded trial and selected build are required.
+
+This remains a source architecture at `CONFIGURED=0`. A configured supervisor
+also needs an external monotonic or permission-separated trusted anchor:
+coordinated same-inode rollback of both local journal and anchor is not
+detectable by their hash chain and blocks launch. No actual supervisor process,
+private intake, MPC, proof, network, funding or broadcast result is implied.
+The bounded Docker anchor backend and C++ client exercise the parent/child
+separation with a distinct service UID, network-disabled container, persistent
+volume and mutually authenticated Unix socket. The rootful Docker operator can
+still roll back that volume. A source-only outer bridge now owns Registry,
+Docker client and Supervisor in a lifetime-safe order and exposes none of their
+paths, descriptors or capabilities to parties. Authenticated party IPC and
+selected-driver activation remain false.
+
+The selected process topology is now fixed in source: one outer parent must
+fork exactly three internally assigned roles before creating threads or
+MP-SPDZ state. Roles do not come from argv or environment. Pre-fork Unix
+seqpacket capability channels authenticate each offer, ACK and completion with
+kernel sender credentials and exact PIDs. For the active round, P0 alone gets
+projection/dispatcher FDs 20/22 or 25/27, P1 alone gets corrupt-server FD 23
+or 28, and P2 gets no capture FD; terminal and C1 streams remain separate.
+Wrong-role descriptors and inherited aliases close before party code. The
+channel remains through child execution as sealed move-only child/parent
+completion endpoints. No raw descriptor or generic packet API is exposed; a
+domain bridge must consume the genuine child result and verify role, round,
+fork plan, offer, ACK, private nonce, payload digest, credentials, EOF and exit
+before minting a parent capability. Real-fork controls cover role swap, parent
+self-ACK, replay and FD mixup. A source-only persistent session now keeps the
+same three authenticated child PIDs and process session across R1 and R2, and
+an indivisible trial authority retains both routes and all six party
+completions through the final clean wait. A sealed measurement bridge consumes
+that authority into the six-party `TrialCaptureJoiner`; neither public receipts
+nor a second process tree can substitute. The selected plan factory and gate
+callsite remain absent, so authenticated selected IPC, `CONFIGURED=0` and
+launch status remain unchanged.
+
+The retained role channel now also has a typed bootstrap phase before supervisor
+proposal traffic. After the role fork, the parent burns one typed fresh-owner
+round/history result, one capture plan and the exact three compiled driver
+selections. It sends a fixed role-bound packet and waits for three
+kernel-credentialed admissions. Each child inherits the same parent-admitted
+kernel-sealed public PK inode, opens an independent `pread` stream, completes
+`PackedModel` admission, and verifies both the model identity and the composite
+gzip-query transport identity before it can take its role-scoped fresh-attempt,
+driver, capture or owner-contract capability. The artifact identity separately
+binds its sealed device/inode, container, canonical PK and decoder; it is not
+the query-store identity. Bootstrap occupies protocol phases 0-2, supervisor
+proposal/approval occupies 2-7, and production completion is unavailable before
+phase 7. The selected driver factory and main callsite remain absent.
+
+Fresh retries must not become a cohort-selection oracle. Public R1 and R2 keep
+distinct attempt/cohort identifiers and distinct inputs; R2 remains gated by
+the accepted R1 successor history. A private residual must prove the same
+three logical owners, authenticated channels, child PIDs and root slots across
+rounds without exposing that roster to the parent. A separate same-round retry
+authority must preserve that round's exact private input lineage. Missing owner
+or continuity halts; it never authorizes re-cohorting. Those production
+continuity/retry minters remain unavailable, so configuration stays off.
+
+The baseline and hidden-candidate arms must also use independently launched
+owner-process trees. Each tree can release one private launch authority only
+while its exact three children are live and before R1. A single sealed join
+burns both authorities and makes one private pass/fail decision over the full
+cross-arm sets of logical-owner identities, root device/inode slots, child
+PIDs and sessions, two-round canonical contracts, and owner/server TLS
+certificate and SPKI identities. It compares complete sets rather than equal
+role positions, so permuting owners cannot hide reuse. Raw values are scrubbed;
+the only result is an opaque move-only pair of arm-bound residuals. Each
+`issue_round1` must consume its exact residual, making a skipped comparison or
+wrong-arm replay structurally unavailable. The production paired-trial
+callsite remains absent, so registered configuration and launch stay off.
+
+The future selected role child now has one concrete immutable-roster
+`CryptoPlayer` adapter. Before any MPC context uses it, the adapter consumes a
+move-only role authority, checks the fixed three-host/port topology, verifies
+the live TLS chain root and each presented local/peer leaf against the selected
+DER identities, and agrees one common registered binding over the three live
+encrypted channels. Every MP-SPDZ `fresh_fork` repeats those live checks while
+preserving the same roster and binding. Wrong CA, wrong leaf, mixed binding,
+duplicate roster and authority replay refuse. The production authority factory
+and selected role-child callsite remain absent, so this is source closure only
+and does not change `CONFIGURED=0` or launch authorization.
+
+The fixed-unfunded path now has an exact public cryptographic handoff from
+durable EGRESS artifacts to the pinned aggregate-plus-six-Output host
+cross-check. It emits a finite hash-pinned artifact record and no owner map.
+That record explicitly has no accepted-head, R0 or native-settlement authority.
+The outer image remains unselected, and the canonical registered driver remains
+blocked by the requirements in
+`poc/local-private-payment/mpc-prover/financial/REGISTERED-DRIVER-REQUIREMENTS.json`.
+
+[ADR-0084](adr/0084-two-phase-testnet-trial-authorization.md) removes a circular
+first-trial prerequisite without weakening a financial check. A same-trial
+preflight may authorize only starting one fresh Testnet research trial after
+direct privacy, registered-driver and GEN3/payment native evidence exists. It is
+durably consumed before the first RPC and explicitly carries no terminal,
+readiness, mainnet or production authority. The complete native recheck moves to
+the end of the first full Testnet path, where accepted GEN3, two payments, an
+actual double-spend refusal, ordered service loss, nine independently confirmed
+Exits, zero reserve, three Original scans and terminal Exit privacy must join.
+The current preflight stops at the missing immutable registered-driver receipt;
+the terminal gate stops at the missing actual Exit-privacy authority.
+
+The in-process activation module now implements the deep capability seam: a
+production `PreNetworkSafetyFactory` consumes typed global payment-capture plus
+ordered GEN3/R1/R2 native completion authorities together with the live
+`BatchPrivacyPassAuthority`, returning one opaque non-detachable
+`PreNetworkSafetyJoin`; `ActivationJoiner` burns that bundle; and a
+selected-parent consumer requires the resulting permit before it can emit an
+inert first-RPC boundary capability. No public-pass or split-half overload
+exists. The offline native core authenticates a sealed child and owns the
+durable-final terminal capture
+writers on FD21/26. Its authority-to-authority join privately matches those
+streams against the genuine ten-stream producer's sole-reader closure and
+returns the one live producer continuation. Public receipts omit terminal
+roots, END/EOF identities, counts, grouping and child PIDs. A genuine retained
+10,685-byte projection capability now enters the sealed child and can mint one
+opaque mapping source: the candidate produces one complete unlabelled
+three-NF/six-tuple group, while the baseline requires a separate explicit-owner
+policy capability and produces exactly three labelled groups. Private
+route/process lineage is not emitted as a group identifier. Absence of an
+explicit owner-to-NF/tuple export is distinct from public state/head continuity.
+The already-matched producer/R1/R2 bundle can be consumed once into an opaque
+terminal-v2 model-admission authority, but the separately authenticated public
+continuity path is only partly closed. A private structural residual binds both
+exact projections and route/process/exit lineage, and requires R1-new/R2-old
+CM/NF roots, counts, reserve, derived state, script and profile context to
+match. It binds the R2 old reserve outpoint but explicitly does not claim that
+native history accepted it as R1's successor. Step 2 may use only this
+structural residual; model application and live-continuation return are still
+absent. Genuine accepted terminal/native history is a separate Step-3
+prerequisite and cannot gate the pre-network pass without recreating a cycle;
+existing fresh-owner successor evidence cannot be relabelled as that authority.
+Submit/ACK/AcceptedCase remains strictly post-permit. The genuine
+outer six-party capture aggregate, real Python lifecycle/model callsites,
+selected-parent producer, namespace builder and network adapter are absent, so
+the seam is unreachable in production and `CONFIGURED0` remains unchanged.
+
+The Step-3 source now includes a staged, still-unreachable Testnet-10 accepted-
+history validator. An authenticated GEN3 observation can produce only the
+Round-1 input capability plus a one-use network continuation. Only that
+continuation and a later independent Full20 Round-1 observation can produce
+the successor capability. Both observations bind the First-RPC/activation
+lineage, exact run/trial/attempt/cohort, whole CASE and contexts, native
+completion identities, current successor, old-input absence and a fixed-
+checkpoint reorg recheck. The fresh-owner supervisor consumes those opaque
+capabilities and injects its private per-owner lineages internally; no public
+receipt, digest or lineage-array overload exists. The real First-RPC consumer,
+authenticated network-child producer and selected callsite do not exist, so
+this adapter performs no network action and does not prove accepted-chain
+continuity for the offline privacy gate.
+
+[ADR-0093](adr/0093-pre-network-private-coverage-phase-scope.md) makes that
+phase distinction executable without calling future history covered. The
+public-projection blocker matrix retains 21 family types per round; the two
+accepted-chain types remain unmodeled, producing four exact deferred R1/R2
+occurrences. Step-2 validation may reach the final native-authority refusal
+only when every other open row is closed. Its private model hook partitions
+those rows exactly, but the Python boundary mints and consumes no authority
+even for an otherwise-ready partition. The native boundary consumes the
+authenticated sealed Observer FD62 v3 authority together with the opaque
+native empirical residual, burns both caller capabilities, exact-matches their
+binding and retains the sole FD62 plus the exact 144-byte deferred section and
+256-byte open Step-2 inventory in one move-only join. ABI v3 is immutable and
+explicitly nonauthorizing: it mints no prediction, phase, Step-2, barrier,
+FD41 or Step-3 permit, and a future closed inventory requires a new ABI/model
+identity. It exposes no fd, body, body hash, count, receipt or digest
+substitute. The selected supervisor and genuine Step-3 accepted-chain
+consumer remain absent. An
+importable Python FD40 constructor/registry is explicitly not accepted as
+structural authority, so those structural rows also remain Step-2-open pending
+a native non-importable capability. The digest-versus-trial/attempt-preimage
+ABI binding is unresolved. Thus the selected phase gate remains RED; this
+source boundary does not enable launch or qualify privacy.
+
+The adjacent sealed-output fanout is likewise source-only and
+nonauthorizing. The open-v3 observer join retains the sole sealed output and
+can form three independent read-only FD41 endpoints behind a secret-salted
+private barrier value, but it cannot mint `BarrierFreezeAuthority` or a score
+permit. The all-three OwnerScore split first preallocates an opaque success/STOP
+closed sum, then burns owners 0/1/2 before validation. It consumes a separate
+opaque compact-lineage authority and exact-matches the body method, selection,
+raw trial UUID, outer attempt text, run selection and owner while also binding
+method and run selection to the live `RunBinding`. It rechecks process/exit
+evidence, inode, size and seals, and keeps aggregate FD43-45 plus
+classification-specific comparison FD46-51 reopenings indivisible with their
+three source outputs. Any post-claim validation, allocation or reopen failure
+returns the STOP arm retaining every present sealed output and the compact
+lineage authority; it does not throw those capabilities away.
+`RunMeasurement` now accepts that opaque success/STOP outcome only after all
+three score permits. It retains either arm without exposing it, exact-matches
+a success arm to the live run, barrier and permit identities, and retains then
+poisons on post-claim or cross-run failure. Aggregate completion still does
+not carry the comparison residuals. The source-owned compact-lineage minter
+and mandatory durable STOP/final sink are also absent; ordinary process-local
+destruction is explicitly not such a sink. The former per-owner
+`RunMeasurement::accept_score`
+and `issue_aggregate` path is now test-build-only, so production cannot bypass
+the all-three lineage gate; no selected final consumer or privacy pass exists.
+The precise upstream source boundary is
+`privacy_launch.py::admitted`: it still possesses the raw outer attempt text
+and the exact diagnostic run-selection document bytes, whereas the C++
+prelaunch plan retains only their digests. That source now emits the exact
+versioned `KPBOSL01` private archive from the already-admitted values. A C++
+parser exact-matches its method, inner/outer selection, source/runtime,
+classification, trial and attempt fields, verifies the exact inner bytes on a
+sealed read-only anonymous inode, and produces only an opaque one-shot
+transfer. No public fd/body/hash/text/receipt surface exists. A credentialed
+`SOCK_SEQPACKET` receiver core now burns a private binding sub-slot, launches a
+fixed-FD worker, accepts exactly one sealed read-only archive descriptor with
+exact child credentials, rejects zero/trailing records, and requires kernel
+EOF plus clean wait. Both the selected input and executable must be sealed
+anonymous inodes; the child revalidates their fingerprints and seals, and
+stages all inherited sources above the fixed-FD range before installing
+FD60/61/63 so crossed descriptor numbers cannot clobber a later source. The
+Python source has the matching fixed-FD worker entry.
+This is still nonselected: the binding factory has no genuine selected worker
+artifact and no source-owned domain joining the raw outer attempt to
+`measurement_attempt`. It also has no prelaunch accepted-head or selected-main
+plan authority; those live authorities are created only after TLS/MASCOT and
+cannot be relabelled as prelaunch plans. Therefore the required atomic
+producer-plus-two-round-capsule split, `authenticated_python_receiver`, selected
+parent, output-minter and configuration status remain false; the archive
+cannot mint production authority on its own. The source contract also reserves move-only registered residuals
+and complete bridge names without a caller string/digest production mint. The
+prelaunch factory and registered measurement
+bridge must linearly forward their matching plan and trial residuals before
+that contract can mint the compact lineage; all corresponding status bits stay
+false. A separate unconstructible terminal-consumer contract requires the
+future RunMeasurement transfer, durable STOP sink and indivisible
+aggregate-plus-comparison consumer to be pre-acquired before the closed sum is
+claimed. It exposes no arm or optional residual and currently implements no
+consumer, sink, aggregate continuation or final privacy pass.
+
+[ADR-0085](adr/0085-staged-registered-payment-capture-authority.md) separates
+party durable EGRESS from global payment capture. Each registered party may
+emit only a move-only `PartyDriverCompletionAuthority` bound to its exact
+round, lineage, attempt/authorization identities, owner contracts, accepted
+head, LOCK, capture plan and verified
+effects/core/proof/projection. It cannot claim producer closure. An outer
+capture supervisor, not yet implemented, must authenticate exactly three roles
+for each of two rounds and join all six capabilities with END, EOF and clean
+exit for the ten fixed local payment streams before
+`PaymentCaptureCompletionAuthority` can exist. Accepted Testnet payment
+terminal authority and the later nine-Exit privacy authority remain distinct.
+There is no caller-JSON substitute; parent durable completion and activation
+stay blocked at `CONFIGURED=0`.
+
+The parent capture plan is one-shot at MASCOT construction too. It splits into
+a role-bound registered-session residual and, only for role 1, a P1 Player
+capture capability. That child wraps the selected `RosterPinnedPlayer` and
+forwards its authenticated roster before any MASCOT setup; roles 0 and 2 cannot
+mint or receive it. A source-only `RegisteredP1Context` owns the wrapper, typed
+seams and context in that lifetime order, then releases the residual to the
+driver. No configured selected driver calls this factory yet, so this is not
+actual capture integration and does not change `CONFIGURED=0` or launch status.
+
+The same ADR fixes the transparent positive-control seam without changing the
+financial relation. Capture classification is prebound: the hidden candidate
+has no disclosure factory, while the explicit baseline may, only after verified
+EGRESS, collect three authenticated owner capabilities. Each reveals that
+owner's own already-public NF and two already-public tuple hashes. The typed
+result preserves owner grouping and verifies the exact three-NF/six-tuple
+partition against a source-owned plan. Host fixtures, flattened hashes and
+caller JSON cannot supply this authority. The plan is derived only from a live
+registered construction and matching durable EGRESS. A source/layout-bound
+registered recipe now MAC-opens only the three owner NF bit vectors and the
+authenticated 6x6 output-permutation selectors after that EGRESS **and** after
+private pre-disclosure consent. Each party first re-authenticates the three
+owners, sends the exact 459-byte challenge, and verifies a proof against the
+parent-issued long-lived logical-owner roster. Those identities remain private
+and stable across the two rounds while TLS certificates and sessions remain
+fresh. Only the resulting one-shot roster capability permits the mapping wires
+to open. The recipe validates a Boolean bijection, maps each owner's two
+pre-shuffle rows to the six already-public EGRESS tuple hashes, exact-joins the
+plan sets, and produces three move-only owner-private-effects authorities. Raw
+tuples and other witness columns never open; the plan is claimed before opening
+so replay races refuse.
+
+The same TLS sockets remain open while the receiver consumes those sources.
+Each owner verifies one identical fixed 683-byte mapping challenge from
+P0/P1/P2 against its selected lineage and actual NF/two 520-byte rows, then
+acknowledges the exact nonce and projection. Each child sends one fixed private
+1,524-byte domain payload through the retained authenticated role endpoint.
+The parent requires the exact three roles, credentialed PID, one packet, EOF
+and zero exit for both rounds, plus the same ordered logical-owner roster and
+distinct ordered financial runs, attempts, cohorts, capture plans and
+projections, then releases one one-shot truth input to each isolated owner
+scorer. Separately, role 0 burns a baseline-only public-effects authority after
+all final ACKs and emits one fixed 693-byte observer leaf containing only owner
+component/contract identity and the already-public NF plus two tuple hashes,
+bound to the exact round lineage. No logical-owner identity, raw certificate,
+private body, body hash, path or scorer truth enters it; HiddenCandidate has no
+factory. A source-only role-blind projection route now exists. Before intake,
+the parent mints one typed seqpacket pair and consumes its writer into fork-plan
+v3, which binds classification, trial, financial run, attempt, cohort, capture
+plan and the three authenticated child sessions. Only the kernel-authenticated
+P0 child can one-shot map the writer to fixed FD30 after its actual
+PID/offer/ACK/channel nonce are known; P1/P2 close inherited high-descriptor
+aliases before child code and the parent closes its source alias after forking.
+The retained parent endpoint must match the same route, fork plan and P0 PID.
+The route carries exactly one 10,685-byte public projection and distinguishes a
+credentialed empty seqpacket from true kernel EOF before acknowledging it. The
+session/dispatcher outbound+END bridge now consumes that typed route after the
+exact durable EGRESS, emits one outbound record and one END, and prevents P0
+party completion until the parent has retained and acknowledged the exact
+projection. P1/P2 never receive or touch FD30. A source-only concrete role
+program performs the real sealed-query/PackedModel admission, immutable TLS
+roster construction, registered proof construction and independent
+verification, durable release, conditional baseline disclosure, route and
+party completion sequence. Before bootstrap, a live immutable-roster authority
+must be bound to the capture plan. The resulting composite pins the lowercase
+raw trial UUID to the plan's domain-separated trial identity; production
+bootstrap no longer accepts an ordinary unbound capture-plan authority. The
+persistent parent forks the same three children once, admits R1 before R2, and
+retains both routes, all six move-only parent-observed party completions,
+optional baseline effects and the final clean wait as one indivisible trial
+authority. The measurement bridge atomically consumes that authority and joins
+the exact six party completions into `TrialCaptureJoiner`. An ACKed route,
+public receipt, different R2 process tree or partial child set cannot advance
+it. Production plan, compiled-model and roster authority minters, the selected
+10-by-6 parent manifest, producer archive/C03/C1/terminal admissions, selected
+observer execution and a selected main remain absent. Configuration and launch
+therefore remain off.
+
+The source-only producer archive no longer retains potentially multi-gigabyte
+wire data in RAM-backed memfds. Before fork it creates ten anonymous
+disk-backed `O_TMPFILE` objects, retains their writer descriptions in the
+private parent, and can recover exact C03 bytes after child crash before
+`fsync`, same-inode hash verification, read-only reopen and writer closure.
+Transactional sealing now retains all ten originals until C03 inspection
+commits; a sealing or later inspection failure can transfer the exact anonymous
+files into one opaque quarantine authority instead of dropping them. The
+runtime outcome, unavailable terminal and mandatory abort sink that must
+consume that quarantine are still incomplete.
+This establishes only live-process linear ownership. Allocation-failure
+no-drop, parent-crash durability and power-loss durability are explicitly
+false. The durable design requires a private source-owned `0700` directory,
+ten prelinked `0600` spool objects created before trial identity use, exact
+opaque directory/inode binding, and file-plus-directory `fsync`; it is not yet
+implemented. Default destruction of the last anonymous descriptor is evidence
+drop, not retention.
+This is not a kernel `F_SEAL` claim, and same-UID `/proc` descriptor reopening
+remains inside the corrupt-host/private-measurement TCB boundary. Selection is
+still blocked. A non-authorizing typed schedule now derives eight of ten source
+bounds: both public-projection, terminal, dispatcher and C1 slots. C1 is a
+fixed no-intra-trial-retry grammar with one invoice, two pay and two scan
+records; FD24 and FD29 each have a 6,140-byte `ProtocolUpperBound` including
+HELLO, META, five ordered records and END. Any C1 retry indication durably
+retains private whole-trial invalidation evidence and poisons the fresh trial
+before commit, END or continuation. P1 FD23/FD28 still have no justified source
+bound, and the schedule derivation module has no selected source/build
+artifacts, complete authority minter or archive consumer. Fixture/observed
+counts and arbitrary runtime caps remain forbidden substitutes. The private C1
+invalidation file also has no authenticated outer failed-trial ledger join.
+Configuration stays off; no same-trial or R2-only retry is permitted. Only a
+complete failed observer view may start a new full trial; quarantined or
+incomplete capture invalidates and stops the whole run.
+
+[ADR-0090](adr/0090-owner-local-candidate-truth-release.md) closes the
+source-level hidden-candidate truth origin without opening its owner map. Each
+long-lived hidden owner child retains only its own genuine R1/R2 nullifier and
+created-output truth. After genuine capture and observer completion,
+`RunMeasurement` can mint one global candidate release only in the frozen
+barrier state. A narrow bridge burns that release together with the exact
+private three-owner pending batch before validation; it recomputes the full
+release identity, matches the admitted runs/capture plans/projections, obtains
+context identities only from the pending batch, and binds the live supervisor
+session/continuation. Any mismatch or replay poisons the tree. Success yields
+three independent opaque FD42 endpoints using the same 813-byte `KPB BOT1`
+schema as the baseline. Owner-local truth crosses only that opaque
+child-to-scorer channel and never enters a public receipt or parent parser; no
+barrier digest, stable logical-owner ID, owner-input path/body or input-body
+hash enters the packet. Each endpoint still requires its own owner-score
+truth-release permit through the common handoff.
+Production-mode linking and real-process controls pass, but the selected
+owner-lifecycle, paired-arm parent and score-worker launch callsites remain
+absent, so `CONFIGURED0`, launch false and privacy qualification are unchanged.
+
+The parent-owned producer core now starts by consuming and concurrently
+draining all ten fixed read ends, before any writer can block. Completion then
+consumes two post-EGRESS route capabilities. Each route must carry exactly one
+10,685-byte aggregate projection through one role-blind mailbox after the
+full-cohort barrier, with no owner-derived socket/path and no per-owner ACK.
+Private record counts, payload/wire lengths, record roots and END/EOF
+identities remain inside the move-only closure evidence; public receipts expose
+only fixed lineage, closure booleans and the constant 10/10/0 aggregate counts.
+The completed disk spool is a private 0700 directory capability consumable
+only by the fully defined observer supervisor; its general-parent export is one
+fixed-size opaque completion capability, never a path, body or transcript
+digest. The selected pinned Python interpreter/stdlib capsule and final
+session/dispatcher route-completion callsite are still absent, so this core
+remains `CONFIGURED0` and cannot emit an actual privacy result.
+
+The payment-privacy observer now fails closed at two additional boundaries.
+First, capture completeness is derived from a per-field leakage ledger, not
+from an artifact/category name. Every field is exactly one of
+`constraint_modeled` with a positive field-specific count,
+`source_assumption_covered` with an exact cited digest, or `unmodeled`.
+For P1, only exact record grammar, the public projection and literal public-ID
+scans are constraint modeled. The grammar distinguishes the two masked field
+and two masked G1 Beaver differences from final proof openings A/C and B2; it
+contains no raw B1 lane. Nonliteral implications of those openings and of the
+canonical `owner-input-offset`, `owner-input-preprocessing-share`,
+authenticated-share, ordinary MAC, randomness and local `mac-key-share` lanes
+remain unmodeled. C03 v9 also captures canonical local authenticated G1 state
+at BASE/MIXED/PRODUCTS/FINAL and authenticated G2 state at BASE/FINAL, with
+exact stage order and repeated A/B2 equality. Its grammar and literal public-ID
+scans are modeled, but its nonliteral meaning, query/MSM capture
+correspondence and mixed-protocol transcript meaning remain unmodeled. Wire
+timing, length, message/chunk order,
+direction/peer/fork and abort/retry state also remain unmodeled.
+The producer still retains C03 as opaque wire, but the isolated model bridge
+now independently parses its exact v9 seventeen-lane grammar and v2 raw
+END/kernel-EOF closure. The seventeenth lane binds every selected scalar
+share/MAC capture to its finite source-site ID, kind and element count. All 22
+sites must occur; a site may repeat only as another complete atomic
+binding/share/MAC group. The HELLO also binds the selected model preimage,
+query-store preimage and scalar-callsite manifest.
+It joins each P1 HELLO and receipt row to the independently selected exact
+ten-role launch-closure preimage, whose canonical digest must equal the
+aggregate role-launch identity. Only that source/build/launch/role/fixed-FD
+binding and those literal preimage/callsite bindings are constraint modeled. A
+dual HELLO-plus-receipt substitution, a JSON
+substitute, a missing/reordered local MAC-key share, and any closure mismatch
+refuse. This provenance join does not model the cryptographic meaning of the
+captured bytes or make the source-only producer/launcher actual authority.
+The empirical scope is the exact pinned, instrumented passive P1 protocol
+process plus passive owner1 view. An arbitrary modified/malicious host or
+binary and host memory/log/swap/cache/page-schedule/CPU/GPU/covert channels are
+a separate out-of-scope, unqualified boundary, not modeled privacy coverage.
+The theoretical full-party OT/PRNG random tape is likewise outside the admitted
+empirical P1 view. An explicit boundary receipt calls none of these channels
+modeled or harmless and blocks general, active-malicious and host claims.
+The active owner-input source is the complete 5N DDNNT relation; the deferred
+stock-additive alternative remains unselected because it does not bind P1's
+chosen share to owner intent. Neither DDNNT's conditional integrity/privacy
+argument nor the MASCOT/OT/TLS chain is yet an admitted source assumption. The
+old `masked-owner-share` and generic `masked-opening` labels are rejected rather
+than aliased. Dispatcher
+cohort/timing/length/order/route/policy fields, unauthenticated C1 contact
+provenance, public amount/proof implications and host-authored terminal
+grouping also remain `unmodeled`; therefore no actual privacy pass is currently
+possible. The conditional MASCOT source analysis in
+[the P1 leakage note](../research/mascot-p1-view-leakage-assumptions-2026-10-29.md)
+is not counted as measured evidence or as a selected source assumption. The
+isolated model also keeps a private, machine-checked inventory for each fixed
+view. Every open field names its exact typed leaf and remains either a pending
+direct constraint, a pending selected source assumption, or a
+mapping-dependent measured failure. A proposal cannot relabel coverage. The
+capsule-internal completion check re-derives exactly ten leaves, all four view
+lattices and their terminal-aware candidate counts, and refuses unless every
+view has zero missing and zero unmodeled fields. Neither the detailed inventory
+nor its leaf identities cross the opaque parent boundary. Second,
+after terminal and cross-round constraints intersect the two-round candidate
+set, the scorer recomputes every eligible input, output and NF-to-created-pair
+marginal and reapplies the frozen six-pair floor. Two surviving whole graphs no
+longer conceal a uniquely assigned honest edge.
+
+[ADR-0088](adr/0088-passive-pinned-p1-empirical-observer-scope.md) makes the
+observer boundary explicit without weakening the protocol threat model. The
+gate's complete selected server view is the complete admitted view of the exact
+pinned/instrumented P1 process following that binary, plus C1's declared wallet
+view. It is not an arbitrary malicious-host image. Active deviation, modified
+code, uncaptured random tape, host/physical/network-stack state and covert
+channels remain unqualified; the retained changed-cohort active-retry failure
+still bounds every positive passive result.
+
 [ADR-0075](adr/0075-authenticated-groth16-functional-experiment.md) selects one
 isolated authenticated Groth16 functional experiment following the preserved
 MASCOT integration plan. It is a dependency of private payment construction;
 its synthetic arithmetic statement does not establish a native batch, privacy,
 delivery or recovery. Existing native financial profiles and keys remain separate.
+
+[ADR-0086](adr/0086-complete-ddnnt-external-owner-input.md) replaces the
+unqualified three-value external-owner `x+a` shortcut in the MASCOT research
+paths. Each server now prepares fresh authenticated `(s,r,w=s*r)`, independent
+`v`, and checked `u=v*r`; it exports only its exact `s,r,w,v,u` value-share
+lanes after all checks. The owner reconstructs and verifies both products before
+sending one common canonical `d=x-s`, which all servers byte-agree before
+deriving `[x]=[s]+d`. Old three-value and additive-share formats refuse. Failure
+poisons the context and retry requires fresh preprocessing. This follows the
+complete DDNNT input-supply construction, but still depends on the recorded
+MASCOT/OT assumptions and says nothing about physical metadata, custom group
+arithmetic, or host compromise. The registered financial relation remains
+unselected; `CONFIGURED0`, launch false, and no privacy qualification remain.
+
+[ADR-0087](adr/0087-no-raw-b1-mixed-beaver-groth16-completion.md) removes the
+raw auxiliary Groth16 `B1` opening. `C` now uses exactly the Appendix-E products
+`s*A` and `r*B1_base`, each from an independent fresh MASCOT field triple mapped
+through the established SPDZ scalar/group Beaver protocol. Only two masked Fr
+differences, two masked G1 differences, and final public `A/B2/C` open. This
+removes the concrete raw-`B1` disclosure; the exact group implementation,
+MASCOT/OT composition, metadata, producer integration, and privacy result remain
+conditional or unqualified at `CONFIGURED0`.
+
 The [tracked handoff](../research/next-session/local-private-payment/README.md)
 preserves their completed results and unresolved privacy, fee and availability
 gates. A complete private batch still needs a reviewed restricted-consent,
@@ -1336,3 +1843,100 @@ also passed with an already exposed candidate: the controller received metadata
 and fixed statuses, and independent recipient NativeFull validation accepted the
 exact delivered bytes. A new privacy comparison remains unselected; this
 functional result does not establish a larger anonymity set.
+
+## Selected-parent artifact authority remains fail-closed
+
+[ADR-0094](adr/0094-source-owned-selected-parent-artifact-table.md) replaces
+the invalid idea that arbitrary caller-supplied sealed files can establish the
+measurement finite manifest. Production requires one internally compiled,
+source-owned table covering exactly ten components and six ordered artifacts
+per component, followed by retained-descriptor child execution and
+post-exit recomputation from the same sealed inodes. The race-free launcher
+mechanism has a diagnostic fixture, but the production table currently has
+zero admitted entries: the deterministic report lists all 60 as MISSING.
+Observer v3 has a separate read-only, two-build-equal six-artifact candidate,
+but v3 is deliberately open-only and nonauthorizing; it is reproducibility
+evidence, not an admitted row, and the final Observer row requires the future
+feasibility-aware v4 worker.
+Selection, callsite, configured and launch flags therefore remain false. No
+privacy or Testnet acceptance can be derived from the diagnostic launcher,
+partial static builds, ABI schemas, public receipts or test artifact hashes.
+
+## Feasibility-aware Observer v4 remains nonauthorizing
+
+[ADR-0096](adr/0096-feasibility-aware-observer-v4-acceptance.md) preserves the
+entire open-only Observer-v3 body and adds a distinct fixed v4 requirement
+section. The section names twelve non-substitutable family/join requirements,
+binds its exact descriptor and source-derived registry, and marks all twelve
+`MISSING_LIVE_AUTHORITY`. Historical/local S4 and S12 keys are pinned only as
+ineligible provenance; S12 separately binds the current source, historical
+setup source, exact matrix-equivalence receipt and independent verifier.
+
+The v4 parser and cross-language mutation controls are implemented, but no v4
+worker, family applicability minter, fresh-trial-ledger join,
+source/runtime-freshness join, acceptance authority, barrier or FD41 release
+exists. Serialized rows, matching digests and same literals cannot authorize
+privacy. V3 semantics and all selection/configuration flags remain unchanged.
+
+## All-branch fresh-trial history remains fail-closed
+
+[ADR-0097](adr/0097-all-branch-fresh-trial-history-owner.md) requires the
+selected parent to acquire one outer ledger, reserve storage, precreate both
+actual C03 objects and pin all three pidfds before any trial identity is used.
+Only a complete failed-trial view may yield a fresh-identity continuation; an
+incomplete or infrastructure-unavailable view seals a distinct unavailable
+terminal and stops the whole run before scoring or acceptance. The final
+success seals the entire ordered ledger. There is no same-trial retry or fixed
+retry-count cap.
+
+The registered ledger and its opaque terminal validator are implemented as
+source/control evidence. The validator accepts more than 64 failed fresh trials,
+requires the two actual C03 objects from each trial, and rejects legacy
+`KPBEMPH1` reconstruction. The production recorder factories, always-returning
+producer outcome, fresh-trial-bound closure capability, pre-identity spool
+reservation and pidfd pinning, typed unavailable terminal, mandatory
+destructor/exception abort sink, selected-parent callsite and final observer
+archive join remain absent. `CONFIGURED0` therefore remains mandatory; killing
+a child, closing descriptors, retrying after disk/write failure, a caller
+Boolean or a matching digest cannot substitute for retained typed history.
+The current source reports only
+`live_process_linear_quarantine_owner=true`; it reports
+`allocation_failure_no_drop=false`, `process_crash_durable=false`, and
+`power_loss_durable=false` until preallocated no-throw transitions, injected
+allocation-failure controls and the private prelinked spool/sink path exist.
+An isolated test-only sink primitive now proves the narrow filesystem pattern:
+a private preidentity `0700` directory, named `0600` payload and commit marker,
+block reservation, file and directory fsync, same-inode read-only reopen,
+partial-byte retention across process exit, and substitution refusal. It has no
+selected root, source-owned byte schedule, canonical failed-view serializer or
+outer-owner consumer, exposes no production path/fd/hash factory, and leaves
+`mandatory_sink=false` and `CONFIGURED0`. Same-UID host access and filesystem
+power-loss semantics remain explicit trust boundaries.
+Fault controls cover fallocate, short write, `ENOSPC`, payload fsync, directory
+fsync and read-only reopen. Every fault yields an opaque Unavailable owner of
+both named inodes, and no commit marker is written before payload durability.
+
+The legacy FreshOwner replay registry's throwing `void consume(span)` is also
+not an acceptable post-claim boundary. An isolated replacement now prepares a
+fixed 56-identity transaction before any owner claim, preallocates its opaque
+outcome, and performs one allocation-free `noexcept` commit. Exact atomic
+success is the only private Committed arm; overlap, replay, infrastructure
+failure, ambiguous-after-write, unknown disposition and moved-from replay all
+yield opaque Unavailable. The same opaque transfer privately retains the
+normalized registry disposition rather than collapsing replay, infrastructure,
+ambiguous-write, invalid-backend and stale-preparation failures. Concurrent
+controls commit the same set exactly once, and a one-identity overlap refuses
+the whole set. This is core/control evidence only: the selected registry
+adapter, canonical three-owner set constructor,
+Ready/owner/verifier retention, issuance-result preallocation and composite
+STOP join remain missing, so every integration/configuration flag stays false.
+
+The Round-1 FreshOwner success-or-STOP result also has a complete neutral
+consumer contract, but no live consumer yet. Its sole reserved method takes the
+all-branch owner and the move-only process outcome together and returns an
+opaque indivisible step. A future success step must retain the same owner and
+the exact issued continuation; a future STOP step must retain the same owner
+and the complete process STOP storage. No public state tag, receipt, digest or
+arm extractor exists. The pinned implementation refuses before claiming either
+input, and the friend grant, atomic transfer, mandatory durable sink, selected
+callsite and configuration remain false.

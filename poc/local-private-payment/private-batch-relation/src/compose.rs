@@ -18,31 +18,54 @@ impl JoinedBatch {
     /// Ordered private-input columns for each wallet: its native internal
     /// edges/auxiliaries and complete selected signature component. Global
     /// digest/core/state/permutation auxiliaries are deliberately excluded.
-    pub fn owner_input_columns(&self,layout:&BatchLayout)->Result<[Vec<usize>;OWNERS],Boundary> {
+    pub fn owner_input_columns(
+        &self,
+        layout: &BatchLayout,
+    ) -> Result<[Vec<usize>; OWNERS], Boundary> {
         self.cs.validate()?;
-        if self.cs.instances!=3||self.core_variables>self.cs.variables()?
-            ||layout.effect_bit_columns!=(COMPONENT_INSTANCES..COMPONENT_INSTANCES+crate::EFFECT_BYTES*8).collect::<Vec<_>>()
-            ||layout.initial_joint_columns.start!=COMPONENT_INSTANCES
-            ||layout.initial_joint_columns.end<COMPONENT_INSTANCES+crate::EFFECT_BYTES*8
-            ||layout.owner_local_columns[0].start!=layout.initial_joint_columns.end
-            ||layout.owner_local_columns[OWNERS-1].end!=layout.final_joint_columns.start
-            ||layout.final_joint_columns.end!=self.core_variables
-            || layout.owner_local_columns.iter().any(|r|r.start<COMPONENT_INSTANCES||r.start>r.end||r.end>self.core_variables)
-            || layout.owner_local_columns.windows(2).any(|p|p[0].end!=p[1].start)
-        {return Err(Boundary::Shape);}
-        let mut signature_start=self.core_variables;
-        let mut owners=Vec::with_capacity(OWNERS);
+        if self.cs.instances != 3
+            || self.core_variables > self.cs.variables()?
+            || layout.effect_bit_columns
+                != (COMPONENT_INSTANCES..COMPONENT_INSTANCES + crate::EFFECT_BYTES * 8)
+                    .collect::<Vec<_>>()
+            || layout.initial_joint_columns.start != COMPONENT_INSTANCES
+            || layout.initial_joint_columns.end < COMPONENT_INSTANCES + crate::EFFECT_BYTES * 8
+            || layout.owner_local_columns[0].start != layout.initial_joint_columns.end
+            || layout.owner_local_columns[OWNERS - 1].end != layout.final_joint_columns.start
+            || layout.final_joint_columns.end != self.core_variables
+            || layout.owner_local_columns.iter().any(|r| {
+                r.start < COMPONENT_INSTANCES || r.start > r.end || r.end > self.core_variables
+            })
+            || layout
+                .owner_local_columns
+                .windows(2)
+                .any(|p| p[0].end != p[1].start)
+        {
+            return Err(Boundary::Shape);
+        }
+        let mut signature_start = self.core_variables;
+        let mut owners = Vec::with_capacity(OWNERS);
         for i in 0..OWNERS {
-            let local=layout.owner_local_columns[i];
-            let mut columns=(3+66*i..3+66*(i+1)).collect::<Vec<_>>();
+            let local = layout.owner_local_columns[i];
+            let mut columns = (3 + 66 * i..3 + 66 * (i + 1)).collect::<Vec<_>>();
             columns.extend(local.start..local.end);
-            let end=add(signature_start,self.signature_variables[i].checked_sub(1).ok_or(Boundary::Shape)?)?;
-            columns.extend(signature_start..end);signature_start=end;
-            if columns.windows(2).any(|p|p[0]>=p[1]) {return Err(Boundary::Column);}
+            let end = add(
+                signature_start,
+                self.signature_variables[i]
+                    .checked_sub(1)
+                    .ok_or(Boundary::Shape)?,
+            )?;
+            columns.extend(signature_start..end);
+            signature_start = end;
+            if columns.windows(2).any(|p| p[0] >= p[1]) {
+                return Err(Boundary::Column);
+            }
             owners.push(columns);
         }
-        if signature_start!=self.cs.variables()? {return Err(Boundary::Length);}
-        owners.try_into().map_err(|_|Boundary::Shape)
+        if signature_start != self.cs.variables()? {
+            return Err(Boundary::Length);
+        }
+        owners.try_into().map_err(|_| Boundary::Shape)
     }
 }
 

@@ -200,12 +200,16 @@ required. A future direct-native public-tree proof is an unimplemented alternati
 
 ## Private witness and release ordering
 
-The implementation must preserve the established masked external-owner input
-protocol, authenticated channels and selected job/model bindings. No owner
-witness enters a clear dealer file, `Input-P0`, ordinary combined WTNS or a
-public client-to-register map. The backend must support private routing and
-cross-owner witness extension. A scalar gate or concatenated component WTNS
-files do not supply that operation.
+The implementation must preserve the authenticated channels and selected
+job/model bindings while using the complete five-value external-owner input
+supply selected by [ADR-0086](../adr/0086-complete-ddnnt-external-owner-input.md).
+For every field the servers send only their checked local value shares of
+`(s,r,w=s*r,v,u=v*r)`; the owner checks both products before all servers agree
+on exact `d=x-s`. Old three-value `x+a` and additive-share formats fail closed,
+and retry requires fresh preprocessing. No owner witness enters a clear dealer
+file, `Input-P0`, ordinary combined WTNS or a public client-to-register map.
+The backend must support private routing and cross-owner witness extension. A
+scalar gate or concatenated component WTNS files do not supply that operation.
 
 The accepted bounded design is [ADR-0077](../adr/0077-durable-private-attempt-history.md).
 It replaces persistent secret-share history with a stronger global exclusion
@@ -224,14 +228,15 @@ Required order:
    selected aggregate validity result and leaves the lock unresolved.
 3. Under that lock, open only the allowed aggregate effects digest. All three
    durably prepare it before minting the one-use same-context proof capability
-   and before reactive masked A/B1 openings. Masked MASCOT traffic and the checked
-   field-coin protocol retain their separately reviewed semantics.
+   and before the two fresh mixed-Beaver scalar/G1 products. Their masked Fr/G1
+   differences and MASCOT traffic retain separately reviewed semantics.
 4. Generate and independently verify the genuine aggregate proof with every
    mandatory field/group MAC check. Open the core to servers under the lock,
    then persist its actual NF set, effects/proof/projection hashes and exact
    binding before coordinator/R0 handoff. That initial core opening already
-   counts as disclosure. Auxiliary B1 stays outside coordinator output; its
-   colluding-server view remains part of privacy qualification.
+   counts as disclosure. Only final `A/B2/C` are unmasked group outputs; raw
+   auxiliary `B1` is absent. Both masked Fr/G1 pairs and their corrupt-server
+   transcript remain part of privacy qualification under [ADR-0087](../adr/0087-no-raw-b1-mixed-beaver-groth16-completion.md).
 5. Produce the genuine R0 receipt and validate the complete native candidate.
    All three durably pin that exact whole CASE before submission. Its hash is
    distinct from the earlier egress hash; the R0 witness did not exist earlier.
@@ -257,6 +262,17 @@ public exporter execution yields an immutable program selection. Public history
 may change operations/assertions, so the gate checks actual selected counts and
 exact row/key reuse. Arbitrary caller program hashes and qualification-store
 labels cannot select a funded head.
+
+For the fixed unregistered qualification only,
+`poc/local-private-payment/mpc-prover/financial/qualify_public_release.py` now
+binds the exact all-three
+EGRESS result to core, aggregate proof and projection bytes, the fixed old
+head/state and the actual-key component profile. It directly executes both
+public verification implementations through the pinned host `cross-check`,
+including all six Output proofs. Its typed artifact record is an input to later
+lifecycle assembly, not a CASE or accepted-head capability. With the outer
+image still unselected, R0/native continuation remains a fail-closed missing
+stage rather than host-asserted truth.
 
 The [release-policy implementation](../../poc/local-private-payment/private_batch/release_policy.py)
 is a runnable SQLite durability/information-flow model using clear synthetic
@@ -312,11 +328,17 @@ consumption wins between an intent and an independent Exit; there is no private
 cancel flag with financial authority.
 
 Before funding the new research profile, match its actual Output/Intent/AuthExit
-relations, setup identities, original-seed derivation, delivery and complete
-terminal rehearsal. A proof over dummy CF/output bytes is not recipient
-spendability. A tiny synthetic MPC proof is not a native financial batch.
-User authorization to execute this work permits progressing through these
-technical gates; it does not make an incomplete profile ready.
+relations, setup identities, original-seed derivation and delivery, and require
+the exact same-trial launch preflight selected by
+[ADR-0084](../adr/0084-two-phase-testnet-trial-authorization.md). That preflight
+binds the release-qualified privacy result, registered driver/head and signed
+GEN3/payment native candidates; it does not claim a terminal rehearsal. The
+first full Testnet path is the rehearsal and remains incomplete until its actual
+double-spend refusal, service shutdown, nine accepted payouts, zero reserve,
+Original scans and terminal privacy gate all pass. A proof over dummy CF/output
+bytes is not recipient spendability. A tiny synthetic MPC proof is not a native
+financial batch. User authorization to execute this work permits progressing
+through these technical gates; it does not make an incomplete profile ready.
 
 ## Acceptance evidence and remaining questions
 
@@ -326,6 +348,15 @@ Require the declared single-batch two-honest-owner ambiguity under the measured
 view, preserve plain-constructor/pair-tag/individual-Delta negatives, and preserve
 the changed-cohort counterexample. Record service-bound refusals as lost private
 liveness; record history bypass as privacy failure.
+
+[ADR-0088](../adr/0088-passive-pinned-p1-empirical-observer-scope.md)
+defines that measured server view narrowly as the complete admitted view of the
+exact pinned/instrumented P1 process following its selected binary, plus C1's
+declared wallet view. This passive empirical scope does not weaken this RFC's
+active-malicious witness/prover question. Modified binaries, arbitrary host
+state, internal random tape, covert channels and active retry/selective failure
+remain unqualified; the retained 3/3 changed-cohort active-retry result still
+limits any positive bounded measurement.
 
 Financial success requires a fresh native testnet deposit, genuine private
 payment batch, deterministic invalid/double-spend/replay rejection, original-seed

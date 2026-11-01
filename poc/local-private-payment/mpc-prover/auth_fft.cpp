@@ -90,7 +90,9 @@ void require_valid_assignment(MascotContext& context, const PublicModel& model,
         left.push_back(evaluate_linear(model.A[i], assignment));
         right.push_back(evaluate_linear(model.B[i], assignment));
     }
-    auto products = context.multiply_batch(left, right);
+    auto products = context.multiply_batch(
+        p1_capture::ScalarCaptureSite::AuthFftConstraintProduct,
+        left, right);
     context.report_public_phase("assignment-row-products-derived");
     for (size_t i = 0; i < model.num_constraints; ++i)
         residuals.push_back(products[i] - evaluate_linear(model.C[i], assignment));
@@ -115,9 +117,13 @@ void require_valid_assignment(MascotContext& context, const PublicModel& model,
     const auto bits = mpz_sizeinbase(exponent.get_mpz_t(), 2);
     for (size_t bit = 0; bit < bits; ++bit) {
         if (mpz_tstbit(exponent.get_mpz_t(), bit))
-            nonzero = context.multiply_batch(nonzero, powers);
+            nonzero = context.multiply_batch(
+                p1_capture::ScalarCaptureSite::AuthFftNonzeroAccumulate,
+                nonzero, powers);
         if (bit + 1 < bits)
-            powers = context.multiply_batch(powers, powers);
+            powers = context.multiply_batch(
+                p1_capture::ScalarCaptureSite::AuthFftNonzeroSquare,
+                powers, powers);
     }
     std::vector<AuthScalar> all_valid;
     for (const auto& flag : nonzero)
@@ -127,7 +133,9 @@ void require_valid_assignment(MascotContext& context, const PublicModel& model,
         for (size_t i = 0; i + 1 < all_valid.size(); i += 2) {
             first.push_back(all_valid[i]); second.push_back(all_valid[i + 1]);
         }
-        auto next = context.multiply_batch(first, second);
+        auto next = context.multiply_batch(
+            p1_capture::ScalarCaptureSite::AuthFftReduction,
+            first, second);
         if (all_valid.size() % 2)
             next.push_back(all_valid.back());
         all_valid = std::move(next);
@@ -158,7 +166,9 @@ std::vector<AuthScalar> h_map_from_assignment(MascotContext& context,
     distribute_powers(b, model.domain.coset_shift);
     distribute_powers(c, model.domain.coset_shift);
     auth_fft(a, model.domain); auth_fft(b, model.domain); auth_fft(c, model.domain);
-    auto ab = context.multiply_batch(a, b);
+    auto ab = context.multiply_batch(
+        p1_capture::ScalarCaptureSite::AuthFftHProduct,
+        a, b);
     const Fr inverse_vanishing =
         (pow_public(model.domain.coset_shift, bigint(n)) - Fr(1)).invert();
     for (size_t i = 0; i < n; ++i)

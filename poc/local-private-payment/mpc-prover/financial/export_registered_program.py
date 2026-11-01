@@ -57,8 +57,9 @@ def compile_program(specification, public_input, output):
     spec = json.loads(original)
     require(set(spec) == {'schema', 'row_probe', 'trace_exporter', 'signature_matrix',
             'signature_mapping_sha256', 'source_closures', 'gzip', 'model_sha256',
-            'source_sha256', 'layout_sha256', 'prefix_recipe_sha256'}, 'exact compiler specification required')
-    require(spec['schema'] == 'kpb-registered-public-compiler/v1', 'registered compiler schema')
+            'source_sha256', 'layout_sha256', 'prefix_recipe_sha256',
+            'owner_effects_recipe_sha256'}, 'exact compiler specification required')
+    require(spec['schema'] == 'kpb-registered-public-compiler/v2', 'registered compiler schema')
     probe = admitted(spec['row_probe'])
     exporter = admitted(spec['trace_exporter'])
     signature = admitted(spec['signature_matrix'])
@@ -94,7 +95,26 @@ def compile_program(specification, public_input, output):
             manifest['prefix_recipe']['sha256'] == pin(spec['prefix_recipe_sha256']) and
             manifest['public_context_sha256'] == hashlib.sha256(bytes.fromhex(
                 json.loads(input_before)['context_hex'])).hexdigest(), 'complete source/layout/recipe mapping refused')
-    lines = ['KPB_REGISTERED_EXPORT_V1', 'MODEL ' + model, 'SOURCE ' + source,
+    owner_recipe = json.loads((output / 'OWNER-EFFECTS-RECIPE.json').read_bytes())
+    require(set(owner_recipe) == {'schema', 'classification', 'file', 'sha256', 'bytes',
+            'source_sha256', 'layout_sha256', 'model_variables', 'instances', 'owners',
+            'nf_bits_per_owner', 'outputs_per_owner', 'public_destinations',
+            'raw_tuple_columns_included', 'private_values_included'} and
+            owner_recipe['schema'] == 'kpb-baseline-owner-effects-recipe/v1' and
+            owner_recipe['classification'] == 'PUBLIC_COLUMN_RECIPE_NO_VALUES_BASELINE_ONLY' and
+            owner_recipe['file'] == 'OWNER-EFFECTS-RECIPE.bin' and
+            owner_recipe['sha256'] == pin(spec['owner_effects_recipe_sha256']) and
+            owner_recipe['source_sha256'] == source and
+            owner_recipe['layout_sha256'] == spec['layout_sha256'] and
+            owner_recipe['model_variables'] == 12949821 and owner_recipe['instances'] == 3 and
+            owner_recipe['owners'] == 3 and owner_recipe['nf_bits_per_owner'] == 256 and
+            owner_recipe['outputs_per_owner'] == 2 and owner_recipe['public_destinations'] == 6 and
+            owner_recipe['raw_tuple_columns_included'] is False and
+            owner_recipe['private_values_included'] is False and
+            sha(output / owner_recipe['file']) == owner_recipe['sha256'] and
+            (output / owner_recipe['file']).stat().st_size == owner_recipe['bytes'],
+            'exact selected baseline owner effects recipe required')
+    lines = ['KPB_REGISTERED_EXPORT_V2', 'MODEL ' + model, 'SOURCE ' + source,
              'MATRIX ' + FINGERPRINT, 'VARIABLES 12949821', 'INSTANCES 3', 'ROWS 13093029',
              'DOMAIN 16777216', 'HISTORY ' + hashlib.sha256(input_before).hexdigest()]
     for label, key in [('TRACE', 'trace'), ('LAYOUT', 'layout')]:
@@ -106,7 +126,9 @@ def compile_program(specification, public_input, output):
                      f'{pin(part["container_sha256"])} {part["container_bytes"]}')
     recipe = manifest['prefix_recipe']
     require(recipe['file'] == 'PREFIX-RECIPE.bin' and sha(output / recipe['file']) == recipe['sha256'], 'recipe file')
-    lines.extend([f'RECIPE {pin(recipe["sha256"])} {recipe["bytes"]}', 'END'])
+    lines.extend([f'RECIPE {pin(recipe["sha256"])} {recipe["bytes"]}',
+                  f'OWNER_EFFECTS_RECIPE {pin(owner_recipe["sha256"])} {owner_recipe["bytes"]}',
+                  'END'])
     require(public_input.read_bytes() == input_before and specification.read_bytes() == original,
             'public compiler input/specification changed')
     for item in [spec['row_probe'], spec['trace_exporter'], spec['signature_matrix'], spec['gzip'], *spec['source_closures']]:

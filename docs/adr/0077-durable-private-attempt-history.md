@@ -138,10 +138,25 @@ Use implementation-private constructors and immutable one-use capabilities:
    Bind all attempt identities above, exact effects digest, history/seen-set,
    context address/generation/MAC epoch and validated check counter.
 4. The financial proof entry consumes both the matching validated assignment
-   and prepared ticket once, immediately before the first masked A/B1 release.
+   and prepared ticket once, immediately before the first mixed-Beaver masked
+   Fr/G1 difference release. Raw auxiliary `B1` is absent under
+   [ADR-0087](0087-no-raw-b1-mixed-beaver-groth16-completion.md).
    No public constructor, `already_validated`/`prepared` flag or deserialization
    path can mint either capability. Abort invalidates volatile capabilities;
    it does not resolve durable history. Fresh contexts do not resurrect them.
+
+Implementation hardening on 2026-10-29 removes forward-only C++ friendship
+from the low-level journal. `EpochTicketJournalBridge` and
+`VerifiedSettlementJournalBridge` are complete definitions at every private
+grant. Ticket lineage transfer requires the genuine journal plus its opaque
+record/capability. FINAL and SETTLED mutation requires the genuine noncopyable
+`VerifiedFinalCandidate` or `VerifiedSettlement`; the bridge independently
+rechecks and consumes it and performs both all-three agreement barriers. The
+internal `JournalCore` returns append metadata only, and the complete
+`EpochJournal` alone constructs `DurableRecord`. Raw settlement-storage helpers
+exist only in the separately compiled unfunded storage-control configuration
+and are absent from production objects. These source controls close a C++
+authority-forgery path; they do not qualify settlement, cryptography or launch.
 
 [Trace agreement](../../poc/local-private-payment/mpc-prover/trace/trace_witness.hpp)
 already precedes owner intake, and [ValidatedAssignment](../../poc/local-private-payment/mpc-prover/batched_assignment.hpp)
@@ -215,7 +230,7 @@ detect a coordinated rollback of all history and trusted freshness authority.
 | --- | --- |
 | Crash before any server locks | No owner intake occurred; a fresh attempt can acquire an untouched epoch. |
 | One/two servers lock, then abort or disagree | No owner intake without three matching barriers. Persisted partial lock still blocks new work; no timeout/reset. |
-| Crash during input, validation, digest, masked A/B1 or before core opening | Unresolved global lock survives. No old shares/context or new-attempt retry. Independent Exit remains available. |
+| Crash during input, validation, digest, mixed-Beaver masked Fr/G1 openings or before final proof/core opening | Unresolved global lock survives. No old shares/context or new-attempt retry. Independent Exit remains available. |
 | NF/core opens, then crash before all `EGRESS` records | Exposure is unknown/partial, so unresolved lock blocks all new private work. Missing public history is never assumed empty. |
 | All `EGRESS` records persist but coordinator receives nothing | NFs remain tombstoned and lock unresolved. Callback failure does not undo exposure. |
 | Native Full succeeds but submission fails or is orphaned | No accepted whole-CASE settlement; lock remains unresolved. |

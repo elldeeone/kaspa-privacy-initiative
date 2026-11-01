@@ -1,5 +1,6 @@
 #pragma once
 #include "registered_service.hpp"
+#include "registered_roster_transport.hpp"
 
 namespace kpi::mpc::financial::registered_detail {
 // A PUBLIC compile-time selection format. There is intentionally no factory
@@ -9,6 +10,10 @@ struct Configuration {
     history::Digest registration;
     std::filesystem::path registration_file;
     history::Digest registration_file_sha256;
+    RegisteredRosterBinding authority;
+    std::filesystem::path certificate_authority;
+    history::Digest certificate_authority_pem_sha256;
+    history::Digest certificate_authority_der_sha256;
     std::array<std::filesystem::path, 3> journals, anchors, certificates;
     std::array<history::Digest, 3> certificate_pem_sha256;
     std::array<std::vector<std::filesystem::path>, 3> private_directories;

@@ -83,15 +83,28 @@ pub fn scalar_bits(bytes: &[B]) -> R<Vec<Boolean<Fr>>> {
 pub fn scalar_field(bytes: &[B]) -> R<FpVar<Fr>> {
     Boolean::le_bits_to_fp(&scalar_bits(bytes)?)
 }
-pub fn bind_delta_sum(cs: ConstraintSystemRef<Fr>, private: &[FpVar<Fr>], public: &[B], quotient: u8) -> R<()> {
-    if private.len()!=3 { return Err(SynthesisError::Unsatisfiable); }
-    let delta=scalar_field(public)?;
-    let k=B::new_witness_vec(cs,&[quotient])?;
-    Boolean::<Fr>::enforce_smaller_or_equal_than_le(&bits(&k)?,[2])?;
-    let q:Fr=cv::SCALAR_MODULUS_DECIMAL.parse().expect("fixed canonical Q below Fr");
+pub fn bind_delta_sum(
+    cs: ConstraintSystemRef<Fr>,
+    private: &[FpVar<Fr>],
+    public: &[B],
+    quotient: u8,
+) -> R<()> {
+    if private.len() != 3 {
+        return Err(SynthesisError::Unsatisfiable);
+    }
+    let delta = scalar_field(public)?;
+    let k = B::new_witness_vec(cs, &[quotient])?;
+    Boolean::<Fr>::enforce_smaller_or_equal_than_le(&bits(&k)?, [2])?;
+    let q: Fr = cv::SCALAR_MODULUS_DECIMAL
+        .parse()
+        .expect("fixed canonical Q below Fr");
     // Each private input was Q-bounded in its owner-local component. Both
     // sides are <3Q<Fr, so this is an exact integer equality, never a P wrap.
-    private.iter().cloned().sum::<FpVar<Fr>>().enforce_equal(&(delta+number(&k)?*q))
+    private
+        .iter()
+        .cloned()
+        .sum::<FpVar<Fr>>()
+        .enforce_equal(&(delta + number(&k)? * q))
 }
 pub fn commitment(value: &[B], blind: &[B], expected: &[B]) -> R<EdwardsVar> {
     bounded_u64(value, NOTE_FLOOR, MAX)?;
@@ -317,28 +330,40 @@ mod tests {
     }
     #[test]
     fn private_delta_sum_requires_q_ranges_exact_quotient_and_public_delta() {
-        let maximum=cv::scalar_bytes(&(-Scalar::ONE));
-        let mut modulus=maximum;
-        for byte in &mut modulus {let(n,c)=byte.overflowing_add(1);*byte=n;if !c {break;}}
-        let mut alias=modulus;alias[0]+=1;
-        let one=cv::scalar_bytes(&Scalar::from(1u64));let zero=[0;32];
-        let qm3=cv::scalar_bytes(&(-Scalar::from(3u64)));
-        for (private,public,k,expected) in [
-            ([zero,zero,zero],zero,0,true),
-            ([maximum,one,zero],zero,1,true),
-            ([maximum,maximum,maximum],qm3,2,true),
-            ([maximum,one,zero],one,1,false),
-            ([zero,zero,zero],zero,3,false),
-            ([alias,zero,zero],one,1,false),
-            ([maximum,one,zero],modulus,0,false),
+        let maximum = cv::scalar_bytes(&(-Scalar::ONE));
+        let mut modulus = maximum;
+        for byte in &mut modulus {
+            let (n, c) = byte.overflowing_add(1);
+            *byte = n;
+            if !c {
+                break;
+            }
+        }
+        let mut alias = modulus;
+        alias[0] += 1;
+        let one = cv::scalar_bytes(&Scalar::from(1u64));
+        let zero = [0; 32];
+        let qm3 = cv::scalar_bytes(&(-Scalar::from(3u64)));
+        for (private, public, k, expected) in [
+            ([zero, zero, zero], zero, 0, true),
+            ([maximum, one, zero], zero, 1, true),
+            ([maximum, maximum, maximum], qm3, 2, true),
+            ([maximum, one, zero], one, 1, false),
+            ([zero, zero, zero], zero, 3, false),
+            ([alias, zero, zero], one, 1, false),
+            ([maximum, one, zero], modulus, 0, false),
         ] {
-            let cs=ConstraintSystem::<Fr>::new_ref();
-            let values=private.iter().map(|v|{
-                let b=B::new_witness_vec(cs.clone(),v).unwrap();scalar_field(&b).unwrap()
-            }).collect::<Vec<_>>();
-            let public=B::new_witness_vec(cs.clone(),&public).unwrap();
-            bind_delta_sum(cs.clone(),&values,&public,k).unwrap();
-            assert_eq!(cs.is_satisfied().unwrap(),expected);
+            let cs = ConstraintSystem::<Fr>::new_ref();
+            let values = private
+                .iter()
+                .map(|v| {
+                    let b = B::new_witness_vec(cs.clone(), v).unwrap();
+                    scalar_field(&b).unwrap()
+                })
+                .collect::<Vec<_>>();
+            let public = B::new_witness_vec(cs.clone(), &public).unwrap();
+            bind_delta_sum(cs.clone(), &values, &public, k).unwrap();
+            assert_eq!(cs.is_satisfied().unwrap(), expected);
         }
     }
 }

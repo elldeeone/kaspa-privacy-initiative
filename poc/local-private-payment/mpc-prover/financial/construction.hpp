@@ -3,12 +3,19 @@
 #include "../owner_inputs_active.hpp"
 #include "../packed/packed_model.hpp"
 #include "../trace/trace_witness.hpp"
+#include "financial_assignment.hpp"
+#include "registered_driver_bridge.hpp"
+#include "baseline_owner_effects_recipe.hpp"
+#include "authenticated_baseline_owner_receiver.hpp"
 #include <array>
 
 namespace kpi::mpc::financial {
-class FinancialValidatedAssignment;
-class FinancialHistoryAccess;
 class RegisteredFinancialSelection;
+namespace registered_driver {
+class DriverAttempt;
+class AuthorizedDriverAttempt;
+class RegisteredCaptureSession;
+}
 
 // Construction authority for the selected RFC-0030 financial relation. It
 // receives owners itself after a real durable LOCK, then owns all authenticated
@@ -34,9 +41,19 @@ class FinancialConstruction {
     std::span<const AuthScalar> nullifier_bits(size_t sorted_input_index) const;
     std::span<const unsigned char> native_tail() const;
     history::LockedAttempt& locked_attempt() const;
+    registered_driver::AuthorizedDriverAttempt& registered_authority() const;
+    registered_driver::RegisteredCaptureSession&
+        registered_capture_session() const;
     void require_live(MascotContext&, const history::AttemptBinding&) const;
     friend class FinancialValidatedAssignment;
     friend class FinancialHistoryAccess;
+    friend class RegisteredBaselineConstructionBridge;
+    friend class registered_driver::baseline_disclosure::
+        BaselineOwnerEffectsRecipeBridge;
+    friend class registered_driver::baseline_disclosure::
+        AuthenticatedBaselineOwnerReceiver;
+    friend class registered_driver::baseline_disclosure::
+        ExplicitOwnerPublicEffectsAuthority;
 public:
     FinancialConstruction(FinancialConstruction&&) = delete;
     FinancialConstruction& operator=(const FinancialConstruction&) = delete;
@@ -67,9 +84,18 @@ public:
     // program path or preflight claim. The consumed accepted-head/compiler
     // capability supplies them, and only its fixed existing store is opened.
     static FinancialConstruction construct_registered(MascotContext&, RegisteredFinancialSelection&&,
-        const std::array<OwnerInputContract, 3>&, const history::AttemptBinding&, int owner_port,
-        size_t multiplication_batch = 4096);
+        const std::array<OwnerInputContract, 3>&, const history::AttemptBinding&,
+        registered_driver::DriverAttempt&&);
 
     const std::string& binding_identity() const { return binding_identity_; }
+};
+
+// Fully defined authority adapter: it can extract the one-shot post-EGRESS
+// baseline claim from a genuine FinancialConstruction, but accepts no public
+// receipt, digest or caller Boolean.
+class RegisteredBaselineConstructionBridge final {
+public:
+    static registered_driver::AuthorizedDriverAttempt::BaselineEffectsClaim
+    claim_baseline_effects(const FinancialConstruction&);
 };
 }  // namespace kpi::mpc::financial

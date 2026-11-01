@@ -1,0 +1,508 @@
+--- a/Networking/CryptoPlayer.cpp
++++ b/Networking/CryptoPlayer.cpp
+@@ -49,12 +49,14 @@ void ssl_error(string side, string other, string me, exception& e)
+     }
+     cerr << endl;
+     cerr << "SSL error: " << e.what() << endl;
+-    exit(1);
+ }
+ 
+-CryptoPlayer::CryptoPlayer(const Names& Nms, const string& id_base) :
++CryptoPlayer::CryptoPlayer(const Names& Nms, const string& id_base,
++        kpi::mpc::p1_private_state::PlayerTlsStateHook* p1_state_hook) :
+         MultiPlayer<ssl_socket*>(Nms, id_base),
+-        ctx("P" + to_string(my_num()))
++        p1_state_hook(p1_state_hook), p1_state_player_id(id_base),
++        ctx("P" + to_string(my_num()), p1_state_hook, my_num(),
++                num_players(), p1_state_player_id)
+ {
+     sockets.resize(num_players());
+     other_sockets.resize(num_players());
+@@ -95,14 +98,18 @@
+ void CryptoPlayer::connect(int i, vector<int>* plaintext_sockets)
+ {
+     sockets[i] = new ssl_socket(io_service, ctx, plaintext_sockets[0][i],
+-            "P" + to_string(i), "P" + to_string(my_num()), i < my_num());
++            "P" + to_string(i), "P" + to_string(my_num()), i < my_num(),
++            p1_state_hook, my_num(), num_players(), i, 0,
++            p1_state_player_id);
+     other_sockets[i] = new ssl_socket(io_service, ctx, plaintext_sockets[1][i],
+-            "P" + to_string(i), "P" + to_string(my_num()), i < my_num());
++            "P" + to_string(i), "P" + to_string(my_num()), i < my_num(),
++            p1_state_hook, my_num(), num_players(), i, 1,
++            p1_state_player_id);
+ 
+ }
+ 
+ CryptoPlayer::CryptoPlayer(const Names& Nms, int id_base) :
+-        CryptoPlayer(Nms, to_string(id_base))
++        CryptoPlayer(Nms, to_string(id_base), 0)
+ {
+ }
+ 
+@@ -273,5 +280,5 @@
+ 
+ Player* CryptoPlayer::fresh_fork(string suffix)
+ {
+-    return new CryptoPlayer(N, get_id() + "-" + suffix);
++    return new CryptoPlayer(N, get_id() + "-" + suffix, p1_state_hook);
+ }
+--- a/Networking/CryptoPlayer.h
++++ b/Networking/CryptoPlayer.h
+@@ -6,8 +6,11 @@
+ #ifndef NETWORKING_CRYPTOPLAYER_H_
+ #define NETWORKING_CRYPTOPLAYER_H_
+ 
++#define KPB_MP_SPDZ_P1_PLAYER_TLS_HOOK_V1 1
++
+ #include "ssl_sockets.h"
+ #include "Networking/Player.h"
++#include "p1_player_tls_state_hook.hpp"
+ 
+ #include <boost/asio/ssl.hpp>
+ #include <boost/asio.hpp>
+@@ -20,6 +23,8 @@
+  */
+ class CryptoPlayer : public MultiPlayer<ssl_socket*>
+ {
++    kpi::mpc::p1_private_state::PlayerTlsStateHook* p1_state_hook;
++    string p1_state_player_id;
+     ssl_ctx ctx;
+     ssl_service io_service;
+ 
+@@ -36,7 +41,33 @@
+      * @param Nms network setup
+      * @param id unique identifier
+      */
+-    CryptoPlayer(const Names& Nms, const string& id);
++    CryptoPlayer(const Names& Nms, const string& id,
++            kpi::mpc::p1_private_state::PlayerTlsStateHook* p1_state_hook = 0);
++
++    // Source-pinned roster validation must authenticate both independent TLS
++    // lanes. Returning the exact live socket keeps the verification at the
++    // registered child callsite; no certificate digest or caller assertion is
++    // accepted in its place.
++    ssl_socket* p1_tls_socket(int peer, int lane) const
++    {
++        if (peer < 0 || peer >= num_players() || peer == my_num() ||
++                (lane != 0 && lane != 1))
++            return 0;
++        return lane == 0 ? sockets.at(peer) : other_sockets.at(peer);
++    }
++#ifdef KPI_REGISTERED_ROSTER_TEST_SETUP
++    ssl_socket* p1_test_replace_tls_socket(
++            int peer, int lane, ssl_socket* replacement)
++    {
++        if (peer < 0 || peer >= num_players() || peer == my_num() ||
++                (lane != 0 && lane != 1))
++            throw invalid_argument("invalid-P1-TLS-test-lane");
++        auto& slot = lane == 0 ? sockets.at(peer) : other_sockets.at(peer);
++        auto* original = slot;
++        slot = replacement;
++        return original;
++    }
++#endif
+     // legacy interface
+     CryptoPlayer(const Names& Nms, int id_base = 0);
+     ~CryptoPlayer();
+--- a/Networking/p1_tls_state_capture.h
++++ b/Networking/p1_tls_state_capture.h
+@@ -0,0 +1,314 @@
++#pragma once
++
++// KPI source hook for the exact passive-P1 TLS construction prefix. This is
++// private evidence transport only. It deliberately does not claim that the
++// OpenSSL provider DRBG, record-layer buffers, or every traffic-key epoch is
++// reconstructible from these callbacks.
++
++#include "p1_player_tls_state_hook.hpp"
++
++#include <openssl/crypto.h>
++#include <openssl/evp.h>
++#include <openssl/pem.h>
++#include <openssl/ssl.h>
++#include <openssl/x509.h>
++
++#include <array>
++#include <cstdint>
++#include <cstring>
++#include <span>
++#include <string>
++#include <vector>
++
++namespace kpb_mp_spdz_p1_tls {
++
++using Hook = kpi::mpc::p1_private_state::PlayerTlsStateHook;
++using Event = kpi::mpc::p1_private_state::PlayerTlsEventView;
++using Kind = kpi::mpc::p1_private_state::PlayerTlsEventKind;
++using Bytes = std::vector<unsigned char>;
++
++inline void cleanse(Bytes& value) noexcept {
++    if (!value.empty()) OPENSSL_cleanse(value.data(), value.size());
++    value.clear();
++}
++
++inline Bytes x509_der(X509* value) {
++    if (value == nullptr) throw std::runtime_error("missing-TLS-certificate");
++    const int count = i2d_X509(value, nullptr);
++    if (count <= 0) throw std::runtime_error("invalid-TLS-certificate-DER");
++    Bytes result(static_cast<std::size_t>(count));
++    auto* output = result.data();
++    if (i2d_X509(value, &output) != count ||
++        output != result.data() + result.size())
++        throw std::runtime_error("incomplete-TLS-certificate-DER");
++    return result;
++}
++
++inline Bytes private_key_der(EVP_PKEY* value) {
++    if (value == nullptr) throw std::runtime_error("missing-TLS-private-key");
++    const int count = i2d_PrivateKey(value, nullptr);
++    if (count <= 0) throw std::runtime_error("invalid-TLS-private-key-DER");
++    Bytes result(static_cast<std::size_t>(count));
++    auto* output = result.data();
++    if (i2d_PrivateKey(value, &output) != count ||
++        output != result.data() + result.size()) {
++        cleanse(result);
++        throw std::runtime_error("incomplete-TLS-private-key-DER");
++    }
++    return result;
++}
++
++inline void append_u64(Bytes& output, std::uint64_t value) {
++    for (int shift = 56; shift >= 0; shift -= 8)
++        output.push_back(static_cast<unsigned char>(value >> shift));
++}
++
++inline Bytes verified_chain_der(SSL* ssl) {
++    STACK_OF(X509)* chain = SSL_get0_verified_chain(ssl);
++    if (chain == nullptr || sk_X509_num(chain) <= 0)
++        throw std::runtime_error("missing-TLS-verified-chain");
++    Bytes result;
++    append_u64(result, static_cast<std::uint64_t>(sk_X509_num(chain)));
++    for (int index = 0; index < sk_X509_num(chain); ++index) {
++        auto der = x509_der(sk_X509_value(chain, index));
++        append_u64(result, der.size());
++        result.insert(result.end(), der.begin(), der.end());
++    }
++    return result;
++}
++
++inline void context_loaded(
++        SSL_CTX* context, Hook* hook, std::uint64_t role,
++        std::uint64_t players, std::string_view player_id) {
++    if (hook == nullptr) return;
++    Bytes certificate;
++    Bytes private_key;
++    try {
++        certificate = x509_der(SSL_CTX_get0_certificate(context));
++        private_key = private_key_der(SSL_CTX_get0_privatekey(context));
++        Event event{};
++        event.kind = Kind::TlsContextLoaded;
++        event.local_role = role;
++        event.player_count = players;
++        event.player_id = player_id;
++        event.payloads[0] = certificate;
++        event.payloads[1] = private_key;
++        if (!hook->record_player_tls_event(event))
++            throw std::runtime_error("P1-TLS-context-capture-failed");
++        cleanse(private_key);
++    } catch (...) {
++        cleanse(private_key);
++        hook->player_tls_unavailable_noexcept();
++        throw;
++    }
++}
++
++class ChannelCapture final {
++    Hook* hook_{};
++    std::uint64_t role_{};
++    std::uint64_t players_{};
++    std::uint64_t peer_{};
++    std::uint64_t lane_{};
++    bool client_{};
++    std::string player_id_;
++    bool unavailable_{};
++    SSL* ssl_{};
++
++    static int ex_index() {
++        static const int value = SSL_get_ex_new_index(0, nullptr, nullptr,
++                                                       nullptr, nullptr);
++        return value;
++    }
++
++    Event event(Kind kind) const {
++        Event result{};
++        result.kind = kind;
++        result.local_role = role_;
++        result.player_count = players_;
++        result.peer_role = peer_;
++        result.lane = lane_;
++        result.client = client_ ? 1 : 0;
++        result.player_id = player_id_;
++        return result;
++    }
++
++    bool record(const Event& value) noexcept {
++        if (hook_ == nullptr) return true;
++        if (unavailable_ || !hook_->record_player_tls_event(value)) {
++            unavailable();
++            return false;
++        }
++        return true;
++    }
++
++    static ChannelCapture* from_ssl(const SSL* ssl) noexcept {
++        const int index = ex_index();
++        if (index < 0) return nullptr;
++        return static_cast<ChannelCapture*>(
++            SSL_get_ex_data(const_cast<SSL*>(ssl), index));
++    }
++
++    static void info_callback(const SSL* ssl, int where, int result) {
++        auto* self = from_ssl(ssl);
++        if (self == nullptr || self->hook_ == nullptr) return;
++        auto value = self->event(Kind::TlsInfo);
++        value.info_where = static_cast<std::uint32_t>(where);
++        value.info_return = static_cast<std::uint32_t>(result);
++        value.ssl_state = static_cast<std::uint64_t>(SSL_get_state(ssl));
++        value.shutdown_state = static_cast<std::uint32_t>(
++            SSL_get_shutdown(ssl));
++        self->record(value);
++    }
++
++    static void message_callback(
++            int write_direction, int version, int content_type,
++            const void* bytes, std::size_t count, SSL* ssl, void* argument) {
++        auto* self = static_cast<ChannelCapture*>(argument);
++        if (self == nullptr) self = from_ssl(ssl);
++        if (self == nullptr || self->hook_ == nullptr ||
++            bytes == nullptr || count == 0) {
++            if (self != nullptr) self->unavailable();
++            return;
++        }
++        auto value = self->event(Kind::TlsMessage);
++        value.write_direction = write_direction != 0;
++        value.protocol_version = static_cast<std::uint32_t>(version);
++        value.content_type = static_cast<std::uint32_t>(content_type);
++        value.ssl_state = static_cast<std::uint64_t>(SSL_get_state(ssl));
++        value.shutdown_state = static_cast<std::uint32_t>(
++            SSL_get_shutdown(ssl));
++        value.payloads[0] = std::span(
++            static_cast<const unsigned char*>(bytes), count);
++        self->record(value);
++    }
++
++    static void keylog_callback(const SSL* ssl, const char* line) {
++        auto* self = from_ssl(ssl);
++        if (self == nullptr || self->hook_ == nullptr || line == nullptr) {
++            if (self != nullptr) self->unavailable();
++            return;
++        }
++        const auto count = std::strlen(line);
++        if (count == 0) {
++            self->unavailable();
++            return;
++        }
++        auto value = self->event(Kind::TlsKeyLog);
++        value.payloads[0] = std::span(
++            reinterpret_cast<const unsigned char*>(line), count);
++        self->record(value);
++    }
++
++public:
++    ChannelCapture(
++            Hook* hook, std::uint64_t role, std::uint64_t players,
++            std::uint64_t peer, std::uint64_t lane, bool client,
++            std::string player_id)
++        : hook_(hook), role_(role), players_(players), peer_(peer),
++          lane_(lane), client_(client), player_id_(std::move(player_id)) {}
++
++    ~ChannelCapture() {
++        if (ssl_ == nullptr) return;
++        const int index = ex_index();
++        SSL_set_info_callback(ssl_, nullptr);
++        SSL_set_msg_callback(ssl_, nullptr);
++        SSL_set_msg_callback_arg(ssl_, nullptr);
++        if (index >= 0) (void)SSL_set_ex_data(ssl_, index, nullptr);
++    }
++
++    void unavailable() noexcept {
++        if (unavailable_) return;
++        unavailable_ = true;
++        if (hook_ != nullptr) hook_->player_tls_unavailable_noexcept();
++    }
++
++    void install(SSL* ssl) {
++        if (hook_ == nullptr) return;
++        const int index = ex_index();
++        if (ssl == nullptr || index < 0 ||
++            SSL_set_ex_data(ssl, index, this) != 1)
++            throw std::runtime_error("P1-TLS-callback-install-failed");
++        ssl_ = ssl;
++        SSL_set_info_callback(ssl, info_callback);
++        SSL_set_msg_callback(ssl, message_callback);
++        SSL_set_msg_callback_arg(ssl, this);
++        SSL_CTX_set_keylog_callback(SSL_get_SSL_CTX(ssl), keylog_callback);
++        if (!record(event(Kind::TlsChannelStarted)))
++            throw std::runtime_error("P1-TLS-channel-start-capture-failed");
++    }
++
++    void handshake_failed(SSL* ssl, std::string_view failure) noexcept {
++        if (hook_ == nullptr) return;
++        auto value = event(Kind::TlsHandshakeFailed);
++        value.ssl_state = ssl == nullptr ? 0 :
++            static_cast<std::uint64_t>(SSL_get_state(ssl));
++        value.shutdown_state = ssl == nullptr ? 0 :
++            static_cast<std::uint32_t>(SSL_get_shutdown(ssl));
++        value.failure_class = failure.empty() ?
++            std::string_view("unknown-TLS-handshake-failure") : failure;
++        (void)record(value);
++    }
++
++    void handshake_complete(SSL* ssl) {
++        if (hook_ == nullptr) return;
++        std::array<Bytes, 6> payloads;
++        try {
++            if (ssl == nullptr || unavailable_)
++                throw std::runtime_error("unavailable-P1-TLS-channel");
++            payloads[0].resize(SSL_get_client_random(ssl, nullptr, 0));
++            payloads[1].resize(SSL_get_server_random(ssl, nullptr, 0));
++            if (payloads[0].empty() || payloads[1].empty() ||
++                SSL_get_client_random(
++                    ssl, payloads[0].data(), payloads[0].size()) !=
++                    payloads[0].size() ||
++                SSL_get_server_random(
++                    ssl, payloads[1].data(), payloads[1].size()) !=
++                    payloads[1].size())
++                throw std::runtime_error("missing-P1-TLS-randoms");
++            SSL_SESSION* session = SSL_get_session(ssl);
++            if (session == nullptr)
++                throw std::runtime_error("missing-P1-TLS-session");
++            payloads[2].resize(
++                SSL_SESSION_get_master_key(session, nullptr, 0));
++            if (payloads[2].empty() ||
++                SSL_SESSION_get_master_key(
++                    session, payloads[2].data(), payloads[2].size()) !=
++                    payloads[2].size())
++                throw std::runtime_error("missing-P1-TLS-master-key");
++            unsigned session_id_count = 0;
++            const auto* session_id = SSL_SESSION_get_id(
++                session, &session_id_count);
++            if (session_id_count != 0) {
++                if (session_id == nullptr)
++                    throw std::runtime_error("missing-P1-TLS-session-id");
++                payloads[3].assign(
++                    session_id, session_id + session_id_count);
++            }
++            payloads[4] = x509_der(SSL_get_certificate(ssl));
++            payloads[5] = verified_chain_der(ssl);
++            const char* protocol = SSL_get_version(ssl);
++            const char* cipher = SSL_get_cipher_name(ssl);
++            if (protocol == nullptr || cipher == nullptr)
++                throw std::runtime_error("missing-P1-TLS-negotiation");
++            auto value = event(Kind::TlsHandshakeComplete);
++            value.protocol_name = protocol;
++            value.cipher_name = cipher;
++            value.verify_result = static_cast<std::uint64_t>(
++                SSL_get_verify_result(ssl));
++            value.ssl_state = static_cast<std::uint64_t>(SSL_get_state(ssl));
++            value.shutdown_state = static_cast<std::uint32_t>(
++                SSL_get_shutdown(ssl));
++            for (std::size_t index = 0; index < payloads.size(); ++index)
++                value.payloads[index] = payloads[index];
++            if (!record(value))
++                throw std::runtime_error("P1-TLS-terminal-capture-failed");
++            for (auto& payload : payloads) cleanse(payload);
++        } catch (...) {
++            for (auto& payload : payloads) cleanse(payload);
++            unavailable();
++            throw;
++        }
++    }
++};
++
++} // namespace kpb_mp_spdz_p1_tls
+--- a/Networking/ssl_sockets.h
++++ b/Networking/ssl_sockets.h
+@@ -10,9 +10,11 @@
+ #include "Tools/time-func.h"
+ #include "sockets.h"
+ #include "Math/Setup.h"
++#include "Networking/p1_tls_state_capture.h"
+ 
+ #include <boost/asio.hpp>
+ #include <boost/asio/ssl.hpp>
++#include <utility>
+ 
+ #ifndef SSL_DIR
+ #define SSL_DIR "Player-Data/"
+@@ -26,7 +28,10 @@
+ class ssl_ctx : public boost::asio::ssl::context
+ {
+ public:
+-    ssl_ctx(string me) :
++    ssl_ctx(string me,
++            kpi::mpc::p1_private_state::PlayerTlsStateHook* p1_state_hook = 0,
++            std::uint64_t local_role = 0, std::uint64_t player_count = 0,
++            std::string_view player_id = {}) :
+             boost::asio::ssl::context(boost::asio::ssl::context::tlsv12)
+     {
+         string prefix = SSL_DIR + me;
+@@ -38,18 +43,28 @@
+         use_certificate_file(cert_file, pem);
+         use_private_key_file(key_file, pem);
+         add_verify_path(SSL_DIR);
++        kpb_mp_spdz_p1_tls::context_loaded(
++            native_handle(), p1_state_hook, local_role, player_count,
++            player_id);
+     }
+ };
+ 
+ class ssl_socket : public boost::asio::ssl::stream<boost::asio::ip::tcp::socket>
+ {
+     typedef boost::asio::ssl::stream<boost::asio::ip::tcp::socket> parent;
++    kpb_mp_spdz_p1_tls::ChannelCapture p1_state_capture;
+ 
+ public:
+     ssl_socket(ssl_service& io_service,
+             boost::asio::ssl::context& ctx, int plaintext_socket, string other,
+-            string me, bool client) :
+-            parent(io_service, ctx)
++            string me, bool client,
++            kpi::mpc::p1_private_state::PlayerTlsStateHook* p1_state_hook = 0,
++            std::uint64_t local_role = 0, std::uint64_t player_count = 0,
++            std::uint64_t peer_role = 0, std::uint64_t lane = 0,
++            std::string player_id = {}) :
++            parent(io_service, ctx),
++            p1_state_capture(p1_state_hook, local_role, player_count,
++                    peer_role, lane, client, std::move(player_id))
+     {
+ #ifdef DEBUG_NETWORKING
+         cerr << me << " setting up SSL to " << other << " as " <<
+@@ -59,12 +74,15 @@
+         set_verify_mode(boost::asio::ssl::verify_peer |
+                         boost::asio::ssl::verify_fail_if_no_peer_cert);
+         set_verify_callback(boost::asio::ssl::host_name_verification(other));
++        p1_state_capture.install(native_handle());
+         if (client)
+             try
+             {
+                 handshake(ssl_socket::client);
++                p1_state_capture.handshake_complete(native_handle());
+             } catch (exception& e)
+             {
++                p1_state_capture.handshake_failed(native_handle(), e.what());
+                 ssl_error("Client", other, me, e);
+                 throw;
+             }
+@@ -73,8 +91,10 @@
+             try
+             {
+                 handshake(ssl_socket::server);
++                p1_state_capture.handshake_complete(native_handle());
+             } catch (exception& e)
+             {
++                p1_state_capture.handshake_failed(native_handle(), e.what());
+                 ssl_error("Server", other, me, e);
+                 throw;
+             }

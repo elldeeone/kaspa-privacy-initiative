@@ -27,7 +27,7 @@ struct FinalCandidatePaths {
 // ADR0078 public-only continuation. Its fresh context carries no old private
 // wires/MAC shares. It can bind FINAL; it cannot settle or clear any lock.
 class VerifiedFinalCandidate {
-    EpochJournal journal_;
+    std::unique_ptr<EpochJournal> journal_;
     const MascotContext* const context_;
     const uint64_t generation_, epoch_, sequence_;
     const Digest checkpoint_, lock_identity_;
@@ -36,6 +36,7 @@ class VerifiedFinalCandidate {
     bool consumed_ = false;
     VerifiedFinalCandidate(MascotContext&, EpochJournal&, const PublicSnapshot&,
         FinalCandidate, Digest request, Digest nonce, Digest evidence);
+    friend class VerifiedSettlementJournalBridge;
 public:
     VerifiedFinalCandidate(const VerifiedFinalCandidate&) = delete;
     VerifiedFinalCandidate(VerifiedFinalCandidate&&) = delete;
@@ -52,7 +53,7 @@ public:
 // complete adapter selection and registered history registration. Without all
 // four pins acquire_fresh refuses before reading any public or private body.
 class VerifiedSettlement {
-    EpochJournal journal_;
+    std::unique_ptr<EpochJournal> journal_;
     const MascotContext* const context_;
     const uint64_t generation_, epoch_, sequence_;
     const Digest checkpoint_;
@@ -63,6 +64,7 @@ class VerifiedSettlement {
     bool consumed_ = false;
     VerifiedSettlement(MascotContext&, EpochJournal&, const PublicSnapshot&,
                        SettlementRecord, Digest request, Digest nonce, Digest evidence);
+    friend class VerifiedSettlementJournalBridge;
 public:
     VerifiedSettlement(const VerifiedSettlement&) = delete;
     VerifiedSettlement(VerifiedSettlement&&) = delete;

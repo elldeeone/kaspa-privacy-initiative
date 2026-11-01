@@ -1,0 +1,282 @@
+diff -uNr a/OT/BaseOT.h b/OT/BaseOT.h
+--- a/OT/BaseOT.h
++++ b/OT/BaseOT.h
+@@ -21,6 +21,10 @@
+ 	BOTH = 0x11
+ };
+ 
++namespace kpb_mp_spdz_p1_ondemand_ot {
++class SourceAccess;
++}
++
+ OT_ROLE INV_ROLE(OT_ROLE role);
+ 
+ const char* role_to_str(OT_ROLE role);
+@@ -35,6 +39,7 @@
+  */
+ class BaseOT
+ {
++    friend class kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
+     /// Hash with counter
+     static void hash_with_id(BitVector& bits, long id);
+ 
+diff -uNr a/OT/OTTripleSetup.cpp b/OT/OTTripleSetup.cpp
+--- a/OT/OTTripleSetup.cpp
++++ b/OT/OTTripleSetup.cpp
+@@ -7,25 +7,65 @@
+     return 0;
+ }
+ 
++void OTTripleSetup::SetupJob::run() noexcept
++{
++    using kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
++    SourceAccess::worker_begin(setup, i);
++    try
++    {
++        setup.run(i);
++        SourceAccess::worker_end(setup, i, true);
++    }
++    catch (...)
++    {
++        failure = std::current_exception();
++        SourceAccess::worker_end(setup, i, false);
++    }
++}
++
+ void OTTripleSetup::setup()
+ {
+     timeval baseOTstart, baseOTend;
+     gettimeofday(&baseOTstart, NULL);
+ 
+     G.ReSeed();
++    kpb_mp_spdz_p1_ondemand_ot::SourceAccess::
++        prng_before_choices(*this);
+     for (int i = 0; i < get_nbase(); i++)
+     {
+         base_receiver_inputs[i] = G.get_uchar() & 1;
+     }
++    kpb_mp_spdz_p1_ondemand_ot::SourceAccess::
++        prng_after_choices(*this);
+     //baseReceiverInput.randomize(G);
+ 
+     vector<SetupJob> threads;
+     for (int i = 0; i < nparties - 1; i++)
+         threads.push_back({*this, i});
++    int create_error = 0;
++    for (int i = 0; i < nparties - 1; i++)
++        if (create_error == 0)
++        {
++            create_error = pthread_create(
++                &threads.at(i).thread, 0, run_ot, &threads.at(i));
++            threads.at(i).started = create_error == 0;
++        }
+     for (int i = 0; i < nparties - 1; i++)
+-        pthread_create(&threads.at(i).thread, 0, run_ot, &threads.at(i));
++        if (threads.at(i).started)
++            pthread_join(threads.at(i).thread, 0);
++    if (create_error != 0)
++    {
++        kpb_mp_spdz_p1_ondemand_ot::SourceAccess::
++            setup_root_abort(*this);
++        throw runtime_error("base OT worker creation failed");
++    }
+     for (int i = 0; i < nparties - 1; i++)
+-        pthread_join(threads.at(i).thread, 0);
++        if (threads.at(i).failure)
++        {
++            kpb_mp_spdz_p1_ondemand_ot::SourceAccess::
++                setup_root_abort(*this);
++            std::rethrow_exception(threads.at(i).failure);
++        }
+     gettimeofday(&baseOTend, NULL);
+ #ifdef VERBOSE_BASEOT
+     double basetime = timeval_diff(&baseOTstart, &baseOTend);
+@@ -71,15 +111,20 @@
+ 
+ BaseOT OTTripleSetup::get_base(size_t index)
+ {
++    using kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
++    SourceAccess::get_base_before(*this, index);
+     BaseOT bot(get_nbase(), 0);
+     bot.receiver_inputs = base_receiver_inputs;
+     bot.sender_inputs = baseSenderInputs.at(index);
+     bot.receiver_outputs = baseReceiverOutputs.at(index);
+     bot.set_seeds();
++    SourceAccess::seeded_initial_advance(*this, index, bot);
+     bot.extend_length();
+     baseSenderInputs.at(index) = bot.sender_inputs;
+     baseReceiverOutputs.at(index) = bot.receiver_outputs;
++    SourceAccess::stored_advance(*this, index, bot);
+     bot.extend_length();
++    SourceAccess::returned_advance(*this, index, bot);
+     return bot;
+ }
+ 
+diff -uNr a/OT/OTTripleSetup.h b/OT/OTTripleSetup.h
+--- a/OT/OTTripleSetup.h
++++ b/OT/OTTripleSetup.h
+@@ -6,13 +6,19 @@
+ #include "Tools/random.h"
+ #include "Tools/time-func.h"
+ 
++#include <exception>
+ #include <map>
+ 
++namespace kpb_mp_spdz_p1_ondemand_ot {
++class SourceAccess;
++}
++
+ /*
+  * Class for creating and storing base OTs between every pair of parties.
+  */
+ class OTTripleSetup
+ {
++    friend class kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
+     typedef vector< array<BitVector, 2> > sender_type;
+     typedef vector<BitVector> receiver_type;
+ 
+@@ -23,6 +29,7 @@
+     PRNG G;
+     int nparties;
+     int my_num;
++    Player* source_player;
+ 
+ public:
+     class SetupJob
+@@ -32,16 +39,15 @@
+ 
+     public:
+         pthread_t thread;
++        std::exception_ptr failure;
++        bool started;
+ 
+         SetupJob(OTTripleSetup& setup, int i) :
+-                setup(setup), i(i), thread(0)
++                setup(setup), i(i), thread(0), failure(), started(false)
+         {
+         }
+ 
+-        void run()
+-        {
+-            setup.run(i);
+-        }
++        void run() noexcept;
+     };
+ 
+     map<string,Timer> timers;
+@@ -55,12 +61,12 @@
+     int get_my_num() const { return my_num; }
+     int get_base_receiver_input(int i) const { return base_receiver_inputs[i]; }
+ 
+-    OTTripleSetup() : nparties(0), my_num(0)
++    OTTripleSetup() : nparties(0), my_num(0), source_player(0)
+     {
+     }
+ 
+     OTTripleSetup(Player& N, bool real_OTs = true)
+-        : nparties(N.num_players()), my_num(N.my_num())
++        : nparties(N.num_players()), my_num(N.my_num()), source_player(&N)
+     {
+         int nbase = 128;
+         base_receiver_inputs.resize(nbase);
+@@ -130,21 +136,51 @@
+ 
+ class OnDemandOTTripleSetup
+ {
++    friend class kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
+     map<Player*, OTTripleSetup*> setups;
+ 
+ public:
+-    ~OnDemandOTTripleSetup()
+-    {
+-        for (auto& setup : setups)
+-            delete setup.second;
+-    }
++    ~OnDemandOTTripleSetup();
++
++    OTTripleSetup get_fresh(Player& P);
++};
++
++#include "p1_ondemand_ot_source_capture.hpp"
+ 
+-    OTTripleSetup get_fresh(Player& P)
++inline OnDemandOTTripleSetup::~OnDemandOTTripleSetup()
++{
++    auto* source_player = kpb_mp_spdz_p1_ondemand_ot::SourceAccess::
++        map_destructor_begin(*this);
++    for (auto& setup : setups)
++        delete setup.second;
++    setups.clear();
++    kpb_mp_spdz_p1_ondemand_ot::SourceAccess::
++        map_destructor_terminal(source_player, *this);
++}
++
++inline OTTripleSetup OnDemandOTTripleSetup::get_fresh(Player& P)
++{
++    using kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
++    SourceAccess::map_lookup(*this, P);
++    try
+     {
+         if (setups.find(&P) == setups.end())
++        {
++            SourceAccess::map_entry_create_begin(P);
+             setups[&P] = new OTTripleSetup(P, true);
+-        return setups[&P]->get_fresh();
++            SourceAccess::map_entry_created(*this, P);
++        }
++        SourceAccess::get_fresh_begin(*setups[&P]);
++        auto result = setups[&P]->get_fresh();
++        SourceAccess::get_fresh_end(*this, P, result);
++        return result;
+     }
+-};
++    catch (...)
++    {
++        kpi::mpc::p1_private_state::OnDemandOtStateSourceBridge::
++            get_fresh_abort_noexcept(&P);
++        throw;
++    }
++}
+ 
+ #endif
+diff -uNr a/Tools/random.h b/Tools/random.h
+--- a/Tools/random.h
++++ b/Tools/random.h
+@@ -30,6 +30,10 @@
+ class PlayerBase;
+ class BitVector;
+ 
++namespace kpb_mp_spdz_p1_ondemand_ot {
++class SourceAccess;
++}
++
+ /* This basically defines a randomness expander, if using
+  * as a real PRG on an input stream you should first collapse
+  * the input stream down to a SEED, say via CBC-MAC (under 0 key)
+@@ -45,6 +49,8 @@
+  */
+ class PRNG
+ {
++   friend class kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
++
+    static const int N_CACHE = 10;
+    static const int RAND_SIZE = N_CACHE * CALL_SIZE;
+ 
+diff -uNr a/Tools/time-func.h b/Tools/time-func.h
+--- a/Tools/time-func.h
++++ b/Tools/time-func.h
+@@ -14,9 +14,14 @@
+ 
+ class TimeScope;
+ 
++namespace kpb_mp_spdz_p1_ondemand_ot {
++class SourceAccess;
++}
++
+ class Timer
+ {
+   friend class TimeScope;
++  friend class kpb_mp_spdz_p1_ondemand_ot::SourceAccess;
+ 
+   public:
+   Timer(clockid_t clock_id = CLOCK_MONOTONIC) : running(false), elapsed_time(0), clock_id(clock_id)

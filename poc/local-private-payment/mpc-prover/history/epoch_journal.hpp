@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 
+namespace kpi::mpc { class MascotContext; }
+
 namespace kpi::mpc::history {
 using Digest = std::array<unsigned char, 32>;
 using Point = std::array<unsigned char, 36>;
@@ -93,10 +95,55 @@ struct PublicSnapshot {
 
 namespace detail { struct JournalCore; }
 class EpochJournal;
+class DurableRecord;
 class LockedAttempt;
 class PreparedEpochTicket;
 class VerifiedSettlement;
 class VerifiedFinalCandidate;
+
+// Complete, dependency-neutral consumers of the journal's private lineage.
+// Every mutating entry requires a genuine opaque capability; no digest,
+// receipt, Boolean or caller-authored record is sufficient.  Defining these
+// names here also prevents hostile direct-include translation units from
+// creating a same-named friend class.
+class EpochTicketJournalBridge final {
+    EpochTicketJournalBridge() = delete;
+public:
+    static EpochJournal retain_after_lock(
+        const EpochJournal&, const DurableRecord&);
+    static EpochJournal retain_after_prepare(
+        const EpochJournal&, const LockedAttempt&, const DurableRecord&);
+    static bool same_journal(
+        const LockedAttempt&, const DurableRecord&);
+    static EpochJournal retain_prepared(
+        const EpochJournal&, const PreparedEpochTicket&);
+};
+
+class VerifiedSettlementJournalBridge final {
+    VerifiedSettlementJournalBridge() = delete;
+public:
+    static void require_fixed_storage(
+        EpochJournal&, const std::filesystem::path&,
+        const std::filesystem::path&, const Digest&);
+    static std::unique_ptr<EpochJournal> retain_final_candidate(
+        VerifiedFinalCandidate&, EpochJournal&);
+    static void bind_final_candidate(
+        VerifiedFinalCandidate&, MascotContext&);
+    static std::unique_ptr<EpochJournal> retain_settlement(
+        VerifiedSettlement&, EpochJournal&);
+    static void resolve_settlement(
+        VerifiedSettlement&, MascotContext&);
+#ifdef KPI_HISTORY_SETTLEMENT_STORAGE_ONLY_CONTROLS
+    // Separately compiled public-storage fixture only. Production binaries do
+    // not declare either raw storage primitive.
+    static DurableRecord test_only_record_verified_settlement(
+        EpochJournal&, const SettlementRecord&, uint64_t, const Digest&,
+        FailureOnlyHook = {});
+    static void test_only_require_fixed_storage(
+        EpochJournal&, const std::filesystem::path&,
+        const std::filesystem::path&, const Digest&);
+#endif
+};
 
 // Public metadata from a completed LOCAL durable append. A peer agreement or
 // a real financial proof ticket cannot be manufactured from this class alone.
@@ -107,10 +154,8 @@ class DurableRecord {
     const Phase phase_;
     DurableRecord(std::shared_ptr<detail::JournalCore>, uint64_t, Digest, Phase);
     friend class EpochJournal;
-    friend class LockedAttempt;
-    friend class PreparedEpochTicket;
-    friend class VerifiedFinalCandidate;
-    friend struct detail::JournalCore;
+    friend class EpochTicketJournalBridge;
+    friend class VerifiedSettlementJournalBridge;
 public:
     uint64_t sequence() const { return sequence_; }
     const Digest& checkpoint() const { return checkpoint_; }
@@ -120,10 +165,8 @@ public:
 class EpochJournal {
     std::shared_ptr<detail::JournalCore> core_;
     explicit EpochJournal(std::shared_ptr<detail::JournalCore>);
-    friend class LockedAttempt;
-    friend class PreparedEpochTicket;
-    friend class VerifiedSettlement;
-    friend class VerifiedFinalCandidate;
+    friend class EpochTicketJournalBridge;
+    friend class VerifiedSettlementJournalBridge;
     DurableRecord record_verified_settlement(const SettlementRecord&,
         uint64_t expected_sequence, const Digest& expected_checkpoint,
         FailureOnlyHook = {});

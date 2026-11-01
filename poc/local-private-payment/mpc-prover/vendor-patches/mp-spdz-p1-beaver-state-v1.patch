@@ -1,0 +1,170 @@
+diff --git a/Protocols/Beaver.hpp b/Protocols/Beaver.hpp
+index 3a7bed4d..f0c3e3d8 100644
+--- a/Protocols/Beaver.hpp
++++ b/Protocols/Beaver.hpp
+@@ -10,6 +10,10 @@
+ 
+ #include "Replicated.hpp"
+ 
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++#include "p1_beaver_source_capture.hpp"
++#endif
++
+ #include <array>
+ 
+ template<class T>
+@@ -39,6 +43,11 @@ void Beaver<T>::init_mul()
+     triples.clear();
+     lengths.clear();
+     multiplicands.clear();
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++    kpi::mpc::p1_private_state::BeaverStateSourceBridge::require_recorded(
++        kpi::mpc::p1_private_state::BeaverStateSourceBridge::
++            init_mul<T>(this));
++#endif
+ }
+ 
+ template<class T>
+@@ -71,6 +80,11 @@ template<class T>
+ void Beaver<T>::prepare_mul_fast(const T& x, const T& y)
+ {
+     multiplicands.push_back({x, y});
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++    kpi::mpc::p1_private_state::BeaverStateSourceBridge::require_recorded(
++        kpi::mpc::p1_private_state::BeaverStateSourceBridge::
++            prepare_mul<T>(this, x, y));
++#endif
+ }
+ 
+ template<class T>
+@@ -80,9 +94,17 @@ void Beaver<T>::pre_fast_exchange()
+     for (auto& x : multiplicands)
+     {
+         auto triple = prep->get_triple(T::clear::length());
++        auto masked_left = x[0] - triple[0];
++        auto masked_right = x[1] - triple[1];
+         triples.push_back(triple);
+-        for (int i = 0; i < 2; i++)
+-            MC->prepare_open(x[i] - triple[i]);
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++        kpi::mpc::p1_private_state::BeaverStateSourceBridge::require_recorded(
++            kpi::mpc::p1_private_state::BeaverStateSourceBridge::
++                triple_and_masks<T>(
++                    this, triple, masked_left, masked_right));
++#endif
++        MC->prepare_open(masked_left);
++        MC->prepare_open(masked_right);
+     }
+ }
+ 
+@@ -131,7 +153,14 @@ void Beaver<T>::post_fast_exchange()
+         // assignments necessary for GCC
+         auto eps = MC->finalize_raw();
+         auto delta = MC->finalize_raw();
+-        results.push_back(finalize(triple, eps, delta, my_num));
++        auto result = finalize(triple, eps, delta, my_num);
++        results.push_back(result);
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++        kpi::mpc::p1_private_state::BeaverStateSourceBridge::require_recorded(
++            kpi::mpc::p1_private_state::BeaverStateSourceBridge::
++                opened_result<T>(
++                    this, eps, delta, triple, result));
++#endif
+     }
+     assert(results.size() == multiplicands.size());
+ }
+@@ -182,7 +211,13 @@ T Beaver<T>::finalize_mul(int n)
+ template<class T>
+ T Beaver<T>::finalize_mul_fast()
+ {
+-    return results.next();
++    auto result = results.next();
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++    kpi::mpc::p1_private_state::BeaverStateSourceBridge::require_recorded(
++        kpi::mpc::p1_private_state::BeaverStateSourceBridge::
++            finalize_return<T>(this, result));
++#endif
++    return result;
+ }
+ 
+ template<class T>
+diff --git a/Protocols/MascotPrep.hpp b/Protocols/MascotPrep.hpp
+index 1c98e8d1..fd0d9045 100644
+--- a/Protocols/MascotPrep.hpp
++++ b/Protocols/MascotPrep.hpp
+@@ -16,6 +16,10 @@
+ #include "Protocols/Spdz2kPrep.hpp"
+ #include "Protocols/ReplicatedPrep.hpp"
+ 
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++#include "p1_beaver_source_capture.hpp"
++#endif
++
+ template<class T>
+ OTPrep<T>::OTPrep(SubProcessor<T>* proc, DataPositions& usage) :
+         BufferPrep<T>(usage), BitPrep<T>(proc, usage),
+@@ -69,9 +73,23 @@ void MascotTriplePrep<T>::buffer_triples()
+     triple_generator->unlock();
+     triple_generator->set_batch_size(OnlineOptions::singleton.batch_size);
+     assert(triple_generator->uncheckedTriples.size() != 0);
++    const auto cache_size_before = this->triples.size();
+     for (auto& triple : triple_generator->uncheckedTriples)
+         this->triples.push_back(
+         {{ triple.a[0], triple.b, triple.c[0] }});
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++    const auto cache_size_after = this->triples.size();
++    const auto* cache_object = dynamic_cast<const void*>(
++        static_cast<const BufferPrep<T>*>(this));
++    auto generated = std::span<const std::array<T, 3>>(
++        this->triples).subspan(
++            cache_size_before, cache_size_after - cache_size_before);
++    kpi::mpc::p1_private_state::BeaverStateSourceBridge::require_recorded(
++        kpi::mpc::p1_private_state::BeaverStateSourceBridge::
++            cache_batch_generated<T>(
++                cache_object, generated, cache_size_before,
++                cache_size_after));
++#endif
+ }
+ 
+ template<class T>
+diff --git a/Protocols/ReplicatedPrep.hpp b/Protocols/ReplicatedPrep.hpp
+index 266dc1af..1e6e912b 100644
+--- a/Protocols/ReplicatedPrep.hpp
++++ b/Protocols/ReplicatedPrep.hpp
+@@ -21,6 +21,10 @@
+ #include "GC/ShareThread.hpp"
+ #include "GC/BitAdder.hpp"
+ 
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++#include "p1_beaver_source_capture.hpp"
++#endif
++
+ class InScope
+ {
+     bool& variable;
+@@ -242,10 +246,22 @@ void BufferPrep<T>::get_three_no_count(Dtype dtype, T& a, T& b, T& c)
+         assert(not triples.empty());
+     }
+ 
+-    a = triples.back()[0];
+-    b = triples.back()[1];
+-    c = triples.back()[2];
++    const auto cache_size_before = triples.size();
++    const auto selected = triples.back();
++    a = selected[0];
++    b = selected[1];
++    c = selected[2];
+     triples.pop_back();
++#ifdef KPI_P1_BEAVER_STATE_CAPTURE
++    const auto cache_size_after = triples.size();
++    const auto* cache_object = dynamic_cast<const void*>(
++        static_cast<const BufferPrep<T>*>(this));
++    kpi::mpc::p1_private_state::BeaverStateSourceBridge::require_recorded(
++        kpi::mpc::p1_private_state::BeaverStateSourceBridge::
++            cache_triple_pop<T>(
++                cache_object, selected, cache_size_before,
++                cache_size_after));
++#endif
+ }
+ 
+ template<class T>

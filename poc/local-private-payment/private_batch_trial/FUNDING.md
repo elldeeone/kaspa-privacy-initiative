@@ -42,15 +42,13 @@ unsigned CASE, then reexecutes native normalization, SDK roundtrip and actual
 NativeFull/all input engines. Public CASE validation alone never grants entry
 authority or proves accepted backing.
 
-`funding_network.py` provides closed public operations through the selected
-Tor/SDK stack: anchor, mining, maturity collection, one-shot submission,
-ordinary-output readback and fresh Full-prefix whole-CASE confirmation. The
-default stages only; `--execute` activates the selected operation. Every
-submission has a durable one-use trial/stage record before the RPC write.
-An uncertain submission is reconciled read-only and is never resubmitted.
-The public namespace mounts certificates and two admitted Python wheels only;
-it mounts no wallet Original, private TLS/CA keys or installed Python dependency
-tree. Node/SDK/software are shared read-only rather than copied per owner.
+`funding_network.py` is currently `CONFIGURED0`. Its default mode writes only an
+inert `kpb-public-network-source-only/v1` receipt. It writes no command, child
+job, controller, registry, journal, namespace mount plan or RPC selection.
+`--execute` refuses before reading the root guard or constructing any network
+command. Both selected JavaScript children independently refuse before mounted
+inputs or RPC. The retained Tor/SDK implementation is source for a future
+parent-owned path; it is not currently executable through this profile.
 
 The concrete final research funding entry is:
 
@@ -61,20 +59,25 @@ python3 -B poc/local-private-payment/private_batch_trial/activate.py \
   --identity ACTUAL_FUNDING_IDENTITY --identity-sha256 EXACT_IDENTITY_SHA \
   --component-profile ACTUAL_COMPONENT_MANIFEST --component-profile-sha256 EXACT_COMPONENT_SHA \
   --tail ACTUAL_IMMUTABLE_TAIL --tail-sha256 EXACT_TAIL_SHA \
-  --rehearsal COMPLETE_NATIVE_REHEARSAL_MANIFEST --rehearsal-sha256 EXACT_REHEARSAL_SHA \
+  --preflight SAME_TRIAL_ACTIVATION_PREFLIGHT --preflight-sha256 EXACT_PREFLIGHT_SHA \
   --output FRESH_PUBLIC_ACTIVATION_DIRECTORY --execute
 ```
 
-Without `--execute`, this writes a finite plan and performs no network action.
-With it, `rehearsal_gate.py` first directly reexecutes the complete signed GEN3,
-two private-batch CASEs and nine current-head Exit CASEs, every actual NativeFull
-check, complete public state replay and the same terminal-history three
-Original-scan reports. It accepts no imported ready/PASS Boolean. A successful
-offline gate still does not establish a real testnet terminal payout or trial
-readiness. The command activates a research GEN3; real R1/R2, nine payouts and
-zero-reserve Original scans must follow through the qualified accepted-history
-and live private-prover path. It does not silently run those through the
-unfunded wallet-history facade.
+Without `--execute`, this writes a non-executable research plan and performs no
+network action. `--execute` is also blocked: saved preflight JSON is evidence,
+not authority. Future activation must be spawned by the selected live parent
+while consuming both a one-shot `BatchPrivacyPassAuthority` and a one-shot
+`PreNetworkSafetyAuthority`. The parent-owned namespace/argv must be built in
+memory; no saved plan may replay it. The current assembler therefore cannot
+mine, query RPC, fund or broadcast through the new profile.
+
+The first full Testnet path is the rehearsal. After activation, real R1/R2, the
+current-head double-spend refusal, ordered service loss, nine accepted payouts,
+zero-reserve Original scans and terminal Exit-privacy capture must complete.
+Only then may `complete_rehearsal_manifest.py`, `rehearsal_gate.py` and
+`complete_testnet_trial_gate.py` rejoin and reexecute the full retained evidence.
+The command does not silently run those stages through the unfunded wallet-
+history facade.
 
 Activation runs three independent public miners concurrently, waits for their
 own reward maturity, consolidates only to the matching owner keys, obtains

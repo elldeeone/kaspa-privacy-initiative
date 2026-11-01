@@ -166,7 +166,8 @@ FinancialConstruction FinancialConstruction::construct(MascotContext& context,
         integer(public_binding, multiplication_batch);
         context.agree_public_bytes("financial-construction-before-owner-input", public_binding);
         agree_trace(context, program, multiplication_batch);
-        locked->claim_owner_intake(context, binding);
+        history::FinancialConstructionEpochBridge::claim_owner_intake(
+            *locked, context, binding);
         // No listening socket or owner receiver exists before durable LOCK
         // and its exact one-use claim.
         ActiveOwnerInputServer receiver(context, owner_port);
@@ -213,6 +214,23 @@ std::span<const AuthScalar> FinancialConstruction::nullifier_bits(size_t sorted_
 }
 std::span<const unsigned char> FinancialConstruction::native_tail() const { return storage_->tail; }
 history::LockedAttempt& FinancialConstruction::locked_attempt() const { return *storage_->locked; }
+registered_driver::AuthorizedDriverAttempt&
+FinancialConstruction::registered_authority() const {
+    need(storage_->registered != nullptr);
+    return *storage_->registered;
+}
+registered_driver::RegisteredCaptureSession&
+FinancialConstruction::registered_capture_session() const {
+    return registered_driver::RegisteredConstructionAuthorityBridge::
+        capture_session(registered_authority());
+}
+
+registered_driver::AuthorizedDriverAttempt::BaselineEffectsClaim
+RegisteredBaselineConstructionBridge::claim_baseline_effects(
+        const FinancialConstruction& construction) {
+    return construction.registered_authority().claim_baseline_effects();
+}
+
 void FinancialConstruction::require_live(MascotContext& context, const history::AttemptBinding& binding) const {
     try {
         context.require_healthy();

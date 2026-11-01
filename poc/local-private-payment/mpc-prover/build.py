@@ -45,11 +45,15 @@ def main():
         if not path.is_file():
             raise SystemExit('Missing selected vendor artifact: ' + str(path))
 
-    names = ['auth_field.cpp', 'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
-             'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
+    names = ['auth_field.cpp', 'p1_mascot_secret_state_hook.cpp',
+             'p1_capture_stream.cpp',
+             'p1_capturing_player.cpp', 'p1_capture_seams.cpp',
+             'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
+             'owner_input_ddnnt.cpp', 'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
              'auth_groups.cpp', 'auth_groth16.cpp', 'fullproof_gate_main.cpp',
              'owner_client_main.cpp']
-    selected = sorted(set(names) | {p.name for p in source.glob('*.hpp')})
+    selected = sorted(set(names) | {p.name for p in source.glob('*.hpp')} | {
+        'financial/registered_roster_transport.hpp'})
     before = {name: digest(source / name) for name in selected}
     flags = ['-std=c++20', '-O1', '-g0', '-march=native', '-pthread',
              '-Wall', '-Wextra', '-Werror', '-Wno-overloaded-virtual',
@@ -77,8 +81,11 @@ def main():
     failures = [r for r in commands if r['exit_code']]
     links = []
     if not failures:
-        common = ['auth_field.cpp', 'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
-                  'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
+        common = ['auth_field.cpp', 'p1_mascot_secret_state_hook.cpp',
+                  'p1_capture_stream.cpp',
+                  'p1_capturing_player.cpp', 'p1_capture_seams.cpp',
+                  'public_model.cpp', 'auth_fft.cpp', 'batched_assignment.cpp',
+                  'owner_input_ddnnt.cpp', 'owner_inputs_active.cpp', 'owner_connections.cpp', 'bn254_values.cpp', 'proof_codec.cpp',
                   'auth_groups.cpp', 'auth_groth16.cpp']
         for binary, entry in [('mpc-fullproof', 'fullproof_gate_main.cpp'),
                               ('owner-client', 'owner_client_main.cpp')]:

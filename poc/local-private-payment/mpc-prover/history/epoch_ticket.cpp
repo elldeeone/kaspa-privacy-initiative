@@ -1,4 +1,6 @@
 #include "epoch_ticket.hpp"
+#include "../financial/registered_capture_session.hpp"
+#include "../financial/registered_attempt_supervisor.hpp"
 #include <algorithm>
 
 namespace kpi::mpc::history {
@@ -52,7 +54,8 @@ DurableRecord append_actual_egress(MascotContext& context,EpochJournal& journal,
 
 LockedAttempt::LockedAttempt(MascotContext& context,EpochJournal& journal,DurableRecord record,
     const PublicSnapshot& prior,AttemptBinding binding)
-    :journal_(journal.core_),record_(std::move(record)),context_(&context),
+    :journal_(EpochTicketJournalBridge::retain_after_lock(journal,record)),
+     record_(std::move(record)),context_(&context),
      generation_(context.generation()),epoch_(context.failure_epoch()),lock_check_counter_(context.check_counter()),
      binding_(std::move(binding)),binding_identity_(lock_agreement_identity(prior,binding_)),
      seen_identity_(prior.seen_identity),seen_nullifiers_(prior.seen_nullifiers) {}
@@ -67,6 +70,48 @@ LockedAttempt lock_attempt(MascotContext& context,EpochJournal& journal,const At
         context.agree_public_bytes("history-all-three-durable-lock",durable_binding("KPBH-DURABLE-LOCK-01",identity,local));
         return LockedAttempt(context,journal,local,prior,binding);
     } catch (...) { context.poison();throw Refused(); }
+}
+
+EpochJournal EpochTicketJournalBridge::retain_after_lock(
+        const EpochJournal& journal, const DurableRecord& record) {
+    const auto current = journal.snapshot();
+    need(record.core_ == journal.core_ && record.phase_ == Phase::Locked &&
+         current.phase == Phase::Locked &&
+         current.sequence == record.sequence_ &&
+         current.checkpoint == record.checkpoint_);
+    return EpochJournal(journal.core_);
+}
+
+EpochJournal EpochTicketJournalBridge::retain_after_prepare(
+        const EpochJournal& journal, const LockedAttempt& locked,
+        const DurableRecord& prepared) {
+    const auto current = locked.journal_.snapshot();
+    need(!locked.consumed_ &&
+         journal.core_ == locked.journal_.core_ &&
+         prepared.core_ == locked.journal_.core_ &&
+         prepared.core_ == locked.record_.core_ &&
+         prepared.phase_ == Phase::Prepared &&
+         current.phase == Phase::Prepared &&
+         current.sequence == prepared.sequence_ &&
+         current.checkpoint == prepared.checkpoint_);
+    return EpochJournal(locked.journal_.core_);
+}
+
+bool EpochTicketJournalBridge::same_journal(
+        const LockedAttempt& locked, const DurableRecord& record) {
+    return locked.journal_.core_ == locked.record_.core_ &&
+           locked.record_.core_ == record.core_;
+}
+
+EpochJournal EpochTicketJournalBridge::retain_prepared(
+        const EpochJournal& journal, const PreparedEpochTicket& prepared) {
+    const auto current = prepared.journal_.snapshot();
+    need(journal.core_ == prepared.journal_.core_ &&
+         prepared.journal_.core_ == prepared.record_.core_ &&
+         current.phase == Phase::Prepared &&
+         current.sequence == prepared.record_.sequence_ &&
+         current.checkpoint == prepared.record_.checkpoint_);
+    return EpochJournal(prepared.journal_.core_);
 }
 
 void LockedAttempt::require_live(MascotContext& context,const AttemptBinding& binding) const {
@@ -85,9 +130,39 @@ void LockedAttempt::claim_owner_intake(MascotContext& context,const AttemptBindi
     intake_claimed_=true;
 }
 
+void LockedAttempt::claim_registered_owner_intake(
+    MascotContext& context, const AttemptBinding& binding, unsigned role,
+    financial::attempt_supervisor::OwnerIntakePermit&& permit) {
+    try {
+        require_live(context, binding);
+        need(!intake_claimed_);
+        const auto receipt = permit.consume_for_claim(role);
+        need(receipt.role == role &&
+             receipt.accepted_head == binding_.admitted_head &&
+             receipt.durable_lock == binding_identity_);
+        intake_claimed_ = true;
+    } catch (...) { context.poison(); throw Refused(); }
+}
+
+void FinancialConstructionEpochBridge::claim_owner_intake(
+        LockedAttempt& locked, MascotContext& context,
+        const AttemptBinding& binding) {
+    locked.claim_owner_intake(context, binding);
+}
+
+void RegisteredOwnerIntakeBridge::claim_owner_intake(
+        LockedAttempt& locked, MascotContext& context,
+        const AttemptBinding& binding, unsigned role,
+        financial::attempt_supervisor::OwnerIntakePermit&& permit) {
+    locked.claim_registered_owner_intake(
+        context, binding, role, std::move(permit));
+}
+
 PreparedEpochTicket::PreparedEpochTicket(MascotContext& context,LockedAttempt&& locked,DurableRecord prepared,
     Digest effects,std::string validated,std::string construction,uint64_t check_counter)
-    :journal_(locked.journal_.core_),record_(std::move(prepared)),context_(&context),
+    :journal_(EpochTicketJournalBridge::retain_after_prepare(
+         locked.journal_,locked,prepared)),
+     record_(std::move(prepared)),context_(&context),
      generation_(context.generation()),epoch_(context.failure_epoch()),validation_check_counter_(check_counter),
      binding_(locked.binding_),binding_identity_(locked.binding_identity_),effects_(effects),
      validated_binding_(std::move(validated)),construction_binding_(std::move(construction)) {
@@ -96,7 +171,8 @@ PreparedEpochTicket::PreparedEpochTicket(MascotContext& context,LockedAttempt&& 
         need(!locked.consumed_&&locked.intake_claimed_&&locked.context_==&context
             &&locked.generation_==generation_&&locked.epoch_==epoch_
             &&check_counter>=locked.lock_check_counter_&&check_counter<=context.check_counter()
-            &&record_.core_==locked.record_.core_&&record_.phase()==Phase::Prepared);
+            &&EpochTicketJournalBridge::same_journal(locked,record_)
+            &&record_.phase()==Phase::Prepared);
         const auto current=journal_.snapshot();
         need(current.phase==Phase::Prepared&&current.attempt==binding_&&current.effects==effects_
             &&current.sequence==record_.sequence()&&current.checkpoint==record_.checkpoint()
@@ -123,7 +199,8 @@ void PreparedEpochTicket::consume_for_proof(MascotContext& context,const Attempt
 
 EgressRelease::EgressRelease(MascotContext& context,PreparedEpochTicket&& prepared,
     std::span<const unsigned char> core,std::span<const unsigned char> proof,
-    std::span<const unsigned char> projection)
+    std::span<const unsigned char> projection,
+    financial::registered_driver::RegisteredCaptureSession* capture)
     :journal_(prepared.share_journal()),
      record_([&]{
         try {
@@ -139,7 +216,19 @@ EgressRelease::EgressRelease(MascotContext& context,PreparedEpochTicket&& prepar
      }()),context_(&context),generation_(context.generation()),epoch_(context.failure_epoch()),
      binding_(prepared.binding_),binding_identity_(prepared.binding_identity_),
      packet_(actual_packet(journal_.snapshot(),prepared.effects_,core,proof,projection)),
-     core_(core.begin(),core.end()),aggregate_proof_(proof.begin(),proof.end()),projection_(projection.begin(),projection.end()) {}
+     core_(core.begin(),core.end()),aggregate_proof_(proof.begin(),proof.end()),projection_(projection.begin(),projection.end()) {
+    // record_ exists only after exact durable EGRESS plus all-three agreement.
+    // Capture therefore observes the genuine released projection, never a
+    // caller-supplied pre-egress candidate. Hook failure aborts construction
+    // and is poisoned by FinancialHistoryAccess.
+    if (capture)
+        financial::registered_driver::RegisteredCaptureEgressBridge::
+            released_projection(*capture, projection_);
+    // P1 retains the exact same durable released projection privately, but
+    // does not seal it yet: final-candidate agreement can still use Player.
+    // A later typed completion authority must seal after the last MPC event.
+    context.capture_released_projection(projection_);
+}
 
 DurableRecord EgressRelease::bind_final_candidate(MascotContext& context,const FinalCandidate& candidate) {
     try {
@@ -148,6 +237,7 @@ DurableRecord EgressRelease::bind_final_candidate(MascotContext& context,const F
         auto local=journal_.bind_final_candidate(record_,candidate);
         auto agreed=durable_binding("KPBH-DURABLE-FINAL-01",binding_identity_,local);add(agreed,encode(candidate));
         context.agree_public_bytes("history-all-three-durable-final-candidate",agreed);
+        context.complete_p1_capture();
         final_bound_=true;return local;
     } catch (...) {context.poison();throw Refused();}
 }

@@ -75,7 +75,7 @@ const std::string& FinancialValidatedAssignment::verifying_key_identity() const 
     return construction_->model().metadata().vk_sha256;
 }
 
-std::vector<AuthScalar> FinancialHistoryAccess::unseen_nullifier_assertions(MascotContext& context,
+std::vector<AuthScalar> FinancialValidatedAssignment::unseen_nullifier_assertions(MascotContext& context,
     const FinancialConstruction& construction, const history::LockedAttempt& locked) {
     construction.require_live(context, locked.binding());
     locked.require_live(context, locked.binding());
@@ -105,7 +105,9 @@ std::vector<AuthScalar> FinancialHistoryAccess::unseen_nullifier_assertions(Masc
                 for (size_t i = 0; i < equal_bits.size(); i += 2) {
                     left.push_back(equal_bits[i]); right.push_back(equal_bits[i + 1]);
                 }
-                equal_bits = context.multiply_batch(left, right);
+                equal_bits = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::FinancialAssignmentEquality,
+                    left, right);
             }
             assertions.push_back(equal_bits.at(0)); // Must be zero (unseen).
         }
@@ -145,7 +147,8 @@ FinancialValidatedAssignment FinancialValidatedAssignment::validate(MascotContex
         model.check_backing_unchanged();
         context.consume_validation_attempt(history::hex(attempt.attempt));
         const auto batch = std::min(multiplication_batch, size_t{4096});
-        const auto history_checks = FinancialHistoryAccess::unseen_nullifier_assertions(context, construction, locked);
+        const auto history_checks = unseen_nullifier_assertions(
+            context, construction, locked);
         const auto rows = checked_size(metadata.constraints);
         const auto total = plus(plus(plus(rows, trace_checks.size()), history_checks.size()), 3);
         std::vector<AuthScalar> residuals;
@@ -156,7 +159,9 @@ FinancialValidatedAssignment FinancialValidatedAssignment::validate(MascotContex
         SparseRow a_row, b_row, c_row;
         const auto flush = [&] {
             if (left.empty()) return;
-            const auto products = context.multiply_batch(left, right);
+            const auto products = context.multiply_batch(
+                p1_capture::ScalarCaptureSite::FinancialAssignmentResidual,
+                left, right);
             for (size_t i = 0; i < products.size(); ++i) residuals.push_back(products[i] - c[i]);
             left.clear(); right.clear(); c.clear();
         };
@@ -202,10 +207,17 @@ FinancialValidatedAssignment FinancialValidatedAssignment::validate(MascotContex
         for (size_t bit = 0; bit < bits; ++bit) {
             if (mpz_tstbit(exponent.get_mpz_t(), bit)) {
                 const std::array<AuthScalar, 1> a{nonzero}, b{base};
-                nonzero = context.multiply_batch(a, b).at(0);
+                nonzero = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::
+                        FinancialAssignmentNonzeroAccumulate,
+                    a, b).at(0);
             }
             if (bit + 1 < bits) {
-                const std::array<AuthScalar, 1> square{base}; base = context.multiply_batch(square, square).at(0);
+                const std::array<AuthScalar, 1> square{base};
+                base = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::
+                        FinancialAssignmentNonzeroSquare,
+                    square, square).at(0);
             }
         }
         const std::array<AuthScalar, 1> validity{context.public_constant(Fr(1)) - nonzero};

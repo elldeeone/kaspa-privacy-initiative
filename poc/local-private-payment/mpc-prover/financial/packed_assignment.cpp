@@ -106,7 +106,9 @@ PackedValidatedAssignment validate_packed_public_prefix(MascotContext& context,
         SparseRow a_row, b_row, c_row;
         const auto flush = [&] {
             if (left.empty()) return;
-            const auto products = context.multiply_batch(left, right);
+            const auto products = context.multiply_batch(
+                p1_capture::ScalarCaptureSite::PackedAssignmentResidual,
+                left, right);
             for (size_t i = 0; i < products.size(); ++i) residuals.push_back(products[i] - c[i]);
             left.clear(); right.clear(); c.clear();
         };
@@ -156,11 +158,17 @@ PackedValidatedAssignment validate_packed_public_prefix(MascotContext& context,
         for (size_t bit = 0; bit < bits; ++bit) {
             if (mpz_tstbit(exponent.get_mpz_t(), bit)) {
                 const std::array<AuthScalar, 1> a{nonzero}, b{base};
-                nonzero = context.multiply_batch(a, b).at(0);
+                nonzero = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::
+                        PackedAssignmentNonzeroAccumulate,
+                    a, b).at(0);
             }
             if (bit + 1 < bits) {
                 const std::array<AuthScalar, 1> square{base};
-                base = context.multiply_batch(square, square).at(0);
+                base = context.multiply_batch(
+                    p1_capture::ScalarCaptureSite::
+                        PackedAssignmentNonzeroSquare,
+                    square, square).at(0);
             }
         }
         const std::array<AuthScalar, 1> validity{context.public_constant(Fr(1)) - nonzero};

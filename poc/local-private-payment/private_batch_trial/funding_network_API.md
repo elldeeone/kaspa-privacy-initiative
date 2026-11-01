@@ -35,13 +35,19 @@ python3 -B funding_network.py OP
   [--execute]
 ```
 
-Default stages the finite namespace and writes `LAUNCH.json`, with **no RPC**.
-`--execute` activates the selected operation, including read-only operations.
-There is no automatic retry, rebroadcast or operation timeout in the launcher.
-The Tor/SDK transport retains its existing bounded connection behavior; an
-uncertain write is followed only by observation and read-only reconciliation.
+Default writes one inert `LAUNCH.json`, with **no RPC and no executable plan**.
+The receipt records `CONFIGURED0`; it contains no argv, mounts, child job,
+controller path, registry, journal or RPC selection. `--execute` refuses before
+filesystem staging or command construction. Both selected JavaScript children
+also refuse before mounted-input reads or RPC. Consequently none of the outputs
+in the table below can currently be produced by this profile.
 
-| Operation | Additional inputs | Actual output under `--output` |
+Future activation requires the selected live parent to consume both
+`BatchPrivacyPassAuthority` and `PreNetworkSafetyAuthority` and construct the
+namespace in memory. JSON, environment variables, CLI flags and saved plans are
+not authority and must not enable a replay.
+
+| Retained operation source | Additional inputs | Future output (currently disabled) |
 | --- | --- | --- |
 | `anchor` | None | `RESULTS.json`: `kpb-GEN3-birth-anchor/v1`; fresh confirmed birth header/sink and five IDs. No funding/currentness claim. |
 | `mine` / `plan-mining` | `--owner-component 0..2`, optional `--workers`, `--target-sompi` | Mining: `RESULTS.json`, schema `kpb-ordinary-TN10-mining-result/v1`; reward observations. Plan: `RESULTS.json`, schema `kpb-readonly-TN10-mining-template/v1`; one template observation and no submission. |
@@ -51,10 +57,8 @@ uncertain write is followed only by observation and read-only reconciliation.
 | `submit-genesis` | Exact CASE/rate; `--component-profile`, `--tail` | Same once-only submission schema. Requires new GEN3 public predicates and fresh actual NativeFull first. |
 | `confirm` | Exact CASE/rate, `--case-mode genesis` or `consolidation`; `--anchor`, `--anchor-sha256`; GEN3 component/tail when applicable | `RESULTS.json`: `kpb-fresh-accepted-whole-CASE/v1`; retained `pages/*.json.gz`, exact Full accepted transaction/witness/budgets/contexts, SDK/native identity and fresh current view. |
 
-All activated operations also retain `LAUNCH.json`. Public outputs are under the
-host directory supplied to `--output`; paths inside a worker's JSON may use
-`/out`, which maps to that host directory. Detailed controller stdout/stderr and
-plans stay excluded and are never body/hash inputs to the host controller.
+The only current output is the inert source-only `LAUNCH.json` under the host
+directory supplied to `--output`. No private controller output is created.
 
 `collect` emits exact string amounts/DAA only at the RPC observation boundary,
 matching `funding_worker.mature_sources`. All arithmetic uses integer Python

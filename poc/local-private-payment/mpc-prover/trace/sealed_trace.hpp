@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
 #include <filesystem>
 #include <istream>
 #include <memory>
@@ -26,6 +27,11 @@ public:
     std::unique_ptr<std::istream> stream() const;
     size_t container_bytes() const;
     size_t canonical_bytes() const;
+    // Identity of the retained kernel-sealed snapshot, not of the caller's
+    // source path. Children forked from one parent must observe this exact
+    // device/inode pair in addition to the content and decoder identities.
+    std::uint64_t snapshot_device() const;
+    std::uint64_t snapshot_inode() const;
     const std::string& container_sha256() const;
     const std::string& canonical_sha256() const;
     const std::string& decoder_identity() const;

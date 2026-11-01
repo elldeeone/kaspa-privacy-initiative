@@ -1,5 +1,10 @@
 #include "financial_assignment.hpp"
 #include "construction.hpp"
+#include "registered_driver_bridge.hpp"
+#include "registered_capture_session.hpp"
+#include "baseline_public_effects_collector.hpp"
+#include "registered_projection_route_capture_bridge.hpp"
+#include "registered_full_cohort_release_barrier_contract.hpp"
 #include <algorithm>
 #include <array>
 
@@ -30,8 +35,10 @@ history::State successor_state(std::span<const unsigned char> core) {
 }
 }
 
-history::EgressRelease FinancialHistoryAccess::release_verified(MascotContext& context,
-    VerifiedFinancialProof&& verified, history::PreparedEpochTicket&& prepared) {
+history::EgressRelease FinancialHistoryAccess::release_verified_impl(
+    MascotContext& context, VerifiedFinancialProof&& verified,
+    history::PreparedEpochTicket&& prepared,
+    registered_driver::RegisteredCaptureSession* capture) {
     context.require_healthy();
     try {
         if (verified.egress_claimed_ || verified.context_ != &context ||
@@ -90,7 +97,101 @@ history::EgressRelease FinancialHistoryAccess::release_verified(MascotContext& c
         context.report_public_phase("financial-core-MAC-checked-before-egress");
         // The private constructor fsyncs exact EGRESS on every role and then
         // authenticates all-three durable agreement before getters exist.
-        return history::EgressRelease(context, std::move(prepared), core, verified.proof_, projection);
+        return history::EgressRelease(context, std::move(prepared), core,
+                                      verified.proof_, projection, capture);
     } catch (...) { context.poison(); throw; }
+}
+
+history::EgressRelease FinancialHistoryAccess::release_verified(
+    MascotContext& context, VerifiedFinancialProof&& verified,
+    history::PreparedEpochTicket&& prepared) {
+    return release_verified_impl(context, std::move(verified),
+                                 std::move(prepared), nullptr);
+}
+
+history::EgressRelease FinancialHistoryAccess::release_verified_registered(
+    MascotContext& context, VerifiedFinancialProof&& verified,
+    history::PreparedEpochTicket&& prepared) {
+    auto& capture = verified.construction_->registered_capture_session();
+    return release_verified_impl(context, std::move(verified),
+                                 std::move(prepared), &capture);
+}
+
+registered_driver::PartyDriverCompletionAuthority
+FinancialHistoryAccess::complete_registered_egress(
+    MascotContext& context, const FinancialConstruction& construction,
+    const history::EgressRelease& release) {
+    context.require_healthy();
+    try {
+        construction.require_live(context, construction.attempt_);
+        if (release.binding_identity() !=
+            construction.locked_attempt().binding_identity())
+            throw std::runtime_error(
+                "registered-party-egress-construction-binding");
+        return construction.registered_authority().complete_egress();
+    } catch (...) { context.poison(); throw; }
+}
+
+void FinancialHistoryAccess::await_registered_release_barrier(
+        MascotContext& context,
+        const FinancialConstruction& construction,
+        const history::EgressRelease& release,
+        registered_driver::ChildRoleCompletionEndpointAuthority& endpoint) {
+    context.require_healthy();
+    try {
+        construction.require_live(context, construction.attempt_);
+        if (release.binding_identity() !=
+            construction.locked_attempt().binding_identity())
+            throw std::runtime_error(
+                "registered-release-barrier-construction-binding");
+        auto verified =
+            registered_driver::VerifiedEgressAuthorityBridge::from_release(
+                release);
+        auto ready = construction.registered_authority()
+            .begin_release_ready(std::move(verified));
+        auto authorization =
+            registered_driver::RegisteredFullCohortReleaseBarrier::
+                arrive_and_wait(std::move(ready), endpoint);
+        construction.registered_authority().authorize_release(
+            std::move(authorization));
+    } catch (...) { context.poison(); throw; }
+}
+
+void FinancialHistoryAccess::route_registered_projection(
+        MascotContext& context,
+        const FinancialConstruction& construction,
+        const history::EgressRelease& release,
+        registered_driver::projection_route::
+            Role0ProjectionRouteWriterAuthority&& writer) {
+    context.require_healthy();
+    try {
+        construction.require_live(context, construction.attempt_);
+        if (release.binding_identity() !=
+            construction.locked_attempt().binding_identity())
+            throw std::runtime_error(
+                "registered-projection-route-construction-binding");
+        construction.registered_authority().require_release_authorized();
+        registered_driver::RegisteredProjectionRouteCaptureBridge::consume(
+            construction.registered_capture_session(), std::move(writer));
+    } catch (...) { context.poison(); throw; }
+}
+
+registered_driver::baseline_disclosure::
+PartyBaselineOwnerEffectsAuthority
+FinancialHistoryAccess::baseline_owner_scoring(
+        MascotContext& context,
+        const FinancialConstruction& construction,
+        const history::EgressRelease& release,
+        fresh_owner_issuance::BaselineOwnerRosterReceiverAuthority&& roster) {
+    auto verified = registered_driver::baseline_disclosure::
+        BaselineDisclosureAuthorityBridge::from_registered_egress(
+            construction, release);
+    auto plan = registered_driver::baseline_disclosure::
+        BaselineDisclosureAuthorityBridge::from_verified_egress(
+            std::move(verified));
+    return registered_driver::baseline_disclosure::
+        AuthenticatedBaselineOwnerReceiver::receive(
+            context, construction, release, std::move(plan),
+            std::move(roster));
 }
 }  // namespace kpi::mpc::financial

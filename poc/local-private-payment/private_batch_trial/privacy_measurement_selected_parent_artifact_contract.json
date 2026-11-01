@@ -1,0 +1,36 @@
+{
+  "schema": "kpb-selected-parent-artifact-table-input/v1",
+  "status": {"production_table_selected": false, "selected_launcher_callsite": false, "configured": false, "blocker": "exact-final-artifacts-missing"},
+  "components": [
+    {"id": 1, "name": "financial-core", "owner": "registered-driver", "origin_contracts": ["poc/local-private-payment/mpc-prover/financial/build_registered_financial.py", "poc/local-private-payment/mpc-prover/financial/registered_selected_parent_orchestrator.cpp"]},
+    {"id": 2, "name": "p1-capture", "owner": "p1-capture", "origin_contracts": ["poc/local-private-payment/mpc-prover/p1_capture_manifest.hpp", "poc/local-private-payment/private_batch_trial/privacy_capture_hook.cpp"]},
+    {"id": 3, "name": "c1-supervisor", "owner": "c1-capture", "origin_contracts": ["poc/local-private-payment/private_batch_trial/c1_contact_value_authority.cpp", "poc/local-private-payment/private_batch_trial/c1_capture_supervisor.py"]},
+    {"id": 4, "name": "terminal-capture", "owner": "native-terminal", "origin_contracts": ["poc/local-private-payment/private_batch_trial/native_terminal_completion.cpp", "poc/local-private-payment/private_batch_trial/native_terminal_mapping_source.cpp"]},
+    {"id": 5, "name": "dispatcher", "owner": "registered-driver", "origin_contracts": ["poc/local-private-payment/mpc-prover/financial/hidden_cohort_dispatcher.cpp", "poc/local-private-payment/mpc-prover/financial/build_registered_financial.py"]},
+    {"id": 6, "name": "producer", "owner": "capture-producer", "origin_contracts": ["poc/local-private-payment/private_batch_trial/privacy_capture_producer_runtime.cpp", "poc/local-private-payment/private_batch_trial/privacy_capture_producer_archive.cpp"]},
+    {"id": 7, "name": "observer", "owner": "measurement-runtime", "origin_contracts": ["poc/local-private-payment/private_batch_trial/privacy_observer_runtime_build/build_static_observer_runtime.py", "poc/local-private-payment/private_batch_trial/privacy_observer_runtime_build/materialize_selected_observer_snapshot.py", "poc/local-private-payment/private_batch_trial/privacy_observer_runtime_build/toolchain_lock.json"]},
+    {"id": 8, "name": "owner-score", "owner": "measurement-runtime", "origin_contracts": ["poc/local-private-payment/private_batch_trial/privacy_measurement_output_abi.py", "poc/local-private-payment/private_batch_trial/privacy_measurement_child_supervisor.cpp"]},
+    {"id": 9, "name": "aggregate", "owner": "measurement-runtime", "origin_contracts": ["poc/local-private-payment/private_batch_trial/privacy_measurement_runtime_bridge.cpp", "poc/local-private-payment/private_batch_trial/privacy_roles.py"]},
+    {"id": 10, "name": "owner-comparison", "owner": "measurement-runtime", "origin_contracts": ["poc/local-private-payment/private_batch_trial/privacy_owner_comparison.py", "poc/local-private-payment/private_batch_trial/privacy_owner_comparison_launch.py"]}
+  ],
+  "fields": [
+    {"id": 1, "name": "source", "kind": "canonical-source-archive", "final_executable": false},
+    {"id": 2, "name": "build", "kind": "reproducible-build-receipt", "final_executable": false},
+    {"id": 3, "name": "runtime", "kind": "transitive-runtime-closure", "final_executable": false},
+    {"id": 4, "name": "assets", "kind": "canonical-assets-archive", "final_executable": false},
+    {"id": 5, "name": "pinned-executable", "kind": "final-selected-child-image", "final_executable": true},
+    {"id": 6, "name": "launcher", "kind": "source-owned-launch-plan", "final_executable": false}
+  ],
+  "selected_snapshot_root": null,
+  "artifacts": [],
+  "enablement": {
+    "required_entry_count": 60,
+    "require_exact_component_field_cross_product": true,
+    "require_openat2_no_symlinks": true,
+    "require_expected_sha256_before_and_after_copy": true,
+    "require_final_executable_hashes": true,
+    "require_same_sealed_descriptors_consumed_by_child": true,
+    "require_verified_child_eof_and_zero_exit": true,
+    "require_independent_review_after_complete_table": true
+  }
+}
