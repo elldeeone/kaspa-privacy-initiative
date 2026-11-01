@@ -1,0 +1,105 @@
+{
+  "actual_corrupt_p1_view": false,
+  "actual_financial_execution": false,
+  "actual_privacy_status_minted": false,
+  "attack": "transparent constructor/terminal map links each public NF to its owner and that owner's created output pair",
+  "bounded_result": "DIRECT_MAP_ATTACK_DEFEATED_IN_STRUCTURAL_MODEL",
+  "change": "remove direct owner/NF/output-pair map; retain only public aggregate rows and legitimate owner-1 colluder facts",
+  "classification": "PUBLIC_SYNTHETIC_STRUCTURAL_CONTROL",
+  "limitation": "This isolates the named direct-map attack only; it does not measure hidden leakage in a real P1 transcript, dispatcher timing, terminal exits, or host side channels.",
+  "rounds": [
+    {
+      "baseline": {
+        "correct_unique_inputs": 3,
+        "correct_unique_outputs": 6,
+        "correct_unique_pair_links": 3,
+        "honest_graph_alternative_retained": false,
+        "honest_input_swap_retained": false,
+        "input_owner_assignments": 1,
+        "joint_candidates": 1,
+        "nf_pair_candidate_count_histogram": {
+          "1": 3
+        },
+        "nf_to_created_pair_relations": 1,
+        "output_creator_assignments": 1,
+        "output_pair_partitions": 1,
+        "truth_retained": true
+      },
+      "candidate": {
+        "correct_unique_inputs": 0,
+        "correct_unique_outputs": 0,
+        "correct_unique_pair_links": 0,
+        "honest_graph_alternative_retained": true,
+        "honest_input_swap_retained": true,
+        "input_owner_assignments": 2,
+        "joint_candidates": 6,
+        "nf_pair_candidate_count_histogram": {
+          "1": 1,
+          "6": 2
+        },
+        "nf_to_created_pair_relations": 6,
+        "output_creator_assignments": 3,
+        "output_pair_partitions": 3,
+        "truth_retained": true
+      },
+      "round": 1
+    },
+    {
+      "baseline": {
+        "correct_unique_inputs": 3,
+        "correct_unique_outputs": 6,
+        "correct_unique_pair_links": 3,
+        "honest_graph_alternative_retained": false,
+        "honest_input_swap_retained": false,
+        "input_owner_assignments": 1,
+        "joint_candidates": 1,
+        "nf_pair_candidate_count_histogram": {
+          "1": 3
+        },
+        "nf_to_created_pair_relations": 1,
+        "output_creator_assignments": 1,
+        "output_pair_partitions": 1,
+        "truth_retained": true
+      },
+      "candidate": {
+        "correct_unique_inputs": 0,
+        "correct_unique_outputs": 0,
+        "correct_unique_pair_links": 0,
+        "honest_graph_alternative_retained": true,
+        "honest_input_swap_retained": true,
+        "input_owner_assignments": 2,
+        "joint_candidates": 6,
+        "nf_pair_candidate_count_histogram": {
+          "1": 1,
+          "6": 2
+        },
+        "nf_to_created_pair_relations": 6,
+        "output_creator_assignments": 3,
+        "output_pair_partitions": 3,
+        "truth_retained": true
+      },
+      "round": 2
+    }
+  ],
+  "same_public_rows_and_hidden_truth": true,
+  "schema": "kpb-bounded-owner-linkage-comparison/v1",
+  "source_sha256": {
+    "privacy_acceptance.py": "2a7b2ff42c1502a2160dcb4a38ddcff6cf4931dda690b40dabeb80ad7074f659",
+    "privacy_codec.py": "78cf9c0021f4cc21f40dd84a00564393a8ebce4381780651b7146072ed642de6",
+    "privacy_observer.py": "aceadace4a5d6cbfaf20a3404e6690409bb15570f01a816914a0d7eb92cfc0eb",
+    "privacy_test.py": "a90b3d04c93681ca6e2017547f43e4a99ba682794d4d84a43ad8141d40013875",
+    "test_privacy_acceptance.py": "c4c9fb6689d89f8a0c8bd40540b86a549cd62f80a64aa48d388fe4110096f952"
+  },
+  "targeted_tests": {
+    "passed": 4,
+    "total": 4
+  },
+  "workload": {
+    "baseline_full_workload_candidates": 1,
+    "baseline_truth_vector_retained": true,
+    "candidate_correct_unique_full_vectors": 0,
+    "candidate_full_workload_candidates": 36,
+    "candidate_honest_graph_alternative_retained": true,
+    "candidate_truth_vector_retained": true
+  }
+}
