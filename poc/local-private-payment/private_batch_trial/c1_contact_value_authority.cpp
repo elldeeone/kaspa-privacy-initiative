@@ -283,6 +283,20 @@ void write_all(int fd, std::span<const unsigned char> value) {
     }
 }
 
+#ifdef KPB_C1_CONTACT_VALUE_AUTHORITY_TEST_SETUP
+bool fail_next_get_seals{};
+#endif
+
+int get_seals(int fd) {
+#ifdef KPB_C1_CONTACT_VALUE_AUTHORITY_TEST_SETUP
+    if (std::exchange(fail_next_get_seals, false)) {
+        errno = EINVAL;
+        return -1;
+    }
+#endif
+    return ::fcntl(fd, F_GET_SEALS);
+}
+
 int sealed_memfd(std::span<const unsigned char> value) {
     int fd = ::memfd_create(
         "kpb-c1-contact-value-offer", MFD_CLOEXEC | MFD_ALLOW_SEALING);
@@ -293,8 +307,10 @@ int sealed_memfd(std::span<const unsigned char> value) {
         need(::lseek(fd, 0, SEEK_SET) == 0);
         constexpr int seals = F_SEAL_SEAL | F_SEAL_SHRINK |
                               F_SEAL_GROW | F_SEAL_WRITE;
-        need(::fcntl(fd, F_ADD_SEALS, seals) == 0 &&
-             (::fcntl(fd, F_GET_SEALS) & seals) == seals);
+        need(::fcntl(fd, F_ADD_SEALS, seals) == 0);
+        const auto observed_seals = get_seals(fd);
+        need(observed_seals >= 0 &&
+             (observed_seals & seals) == seals);
         return fd;
     } catch (...) {
         close_fd(fd);
@@ -303,6 +319,13 @@ int sealed_memfd(std::span<const unsigned char> value) {
 }
 
 } // namespace
+
+#ifdef KPB_C1_CONTACT_VALUE_AUTHORITY_TEST_SETUP
+void c1_contact_value_test_fail_next_get_seals() {
+    need(!fail_next_get_seals);
+    fail_next_get_seals = true;
+}
+#endif
 
 C1LifecycleStagePlanAuthority::C1LifecycleStagePlanAuthority(
         PublicC1LifecycleStagePlan value) : value_(std::move(value)) {
@@ -374,12 +397,16 @@ C1ContactValueOfferAuthority::C1ContactValueOfferAuthority(int fd) : fd_(fd) {
         struct stat state{};
         constexpr int seals = F_SEAL_SEAL | F_SEAL_SHRINK |
                               F_SEAL_GROW | F_SEAL_WRITE;
+        const auto observed_seals = get_seals(fd_);
+        const auto descriptor_flags = ::fcntl(fd_, F_GETFD);
         need(fd_ >= 0 && ::fstat(fd_, &state) == 0 && S_ISREG(state.st_mode) &&
              state.st_uid == ::geteuid() && (state.st_mode & 0077) == 0 &&
              state.st_size ==
                  static_cast<off_t>(C1_CONTACT_VALUE_OFFER_BYTES) &&
-             (::fcntl(fd_, F_GET_SEALS) & seals) == seals &&
-             (::fcntl(fd_, F_GETFD) & FD_CLOEXEC) != 0);
+             observed_seals >= 0 &&
+             (observed_seals & seals) == seals &&
+             descriptor_flags >= 0 &&
+             (descriptor_flags & FD_CLOEXEC) != 0);
         device_ = static_cast<std::uint64_t>(state.st_dev);
         inode_ = static_cast<std::uint64_t>(state.st_ino);
         need(device_ != 0 && inode_ != 0);
@@ -414,13 +441,15 @@ void C1ContactValueOfferAuthority::install_for_child() && {
                               F_SEAL_GROW | F_SEAL_WRITE;
         struct stat before{};
         const int source_flags = ::fcntl(fd_, F_GETFD);
+        const int source_seals = get_seals(fd_);
         need(::fstat(fd_, &before) == 0 && S_ISREG(before.st_mode) &&
              before.st_uid == ::geteuid() && (before.st_mode & 0077) == 0 &&
              before.st_size ==
                  static_cast<off_t>(C1_CONTACT_VALUE_OFFER_BYTES) &&
              static_cast<std::uint64_t>(before.st_dev) == device_ &&
              static_cast<std::uint64_t>(before.st_ino) == inode_ &&
-             (::fcntl(fd_, F_GET_SEALS) & seals) == seals &&
+             source_seals >= 0 &&
+             (source_seals & seals) == seals &&
              source_flags >= 0 && (source_flags & FD_CLOEXEC) != 0);
         const int source = fd_;
         const bool source_is_target =
@@ -433,6 +462,8 @@ void C1ContactValueOfferAuthority::install_for_child() && {
         need(test_only_install_fault_ != TestC1OfferInstallFault::AfterDup);
 #endif
         struct stat installed{};
+        const int installed_seals = get_seals(
+            C1_CONTACT_VALUE_OFFER_FIXED_FD);
         need(::fstat(C1_CONTACT_VALUE_OFFER_FIXED_FD, &installed) == 0 &&
              S_ISREG(installed.st_mode) &&
              installed.st_uid == ::geteuid() &&
@@ -440,8 +471,8 @@ void C1ContactValueOfferAuthority::install_for_child() && {
              static_cast<std::uint64_t>(installed.st_ino) == inode_ &&
              installed.st_size ==
                  static_cast<off_t>(C1_CONTACT_VALUE_OFFER_BYTES) &&
-             (::fcntl(C1_CONTACT_VALUE_OFFER_FIXED_FD, F_GET_SEALS) & seals) ==
-                 seals);
+             installed_seals >= 0 &&
+             (installed_seals & seals) == seals);
 #ifdef KPB_C1_CONTACT_VALUE_AUTHORITY_TEST_SETUP
         need(test_only_install_fault_ !=
              TestC1OfferInstallFault::AfterInstalledFstat);

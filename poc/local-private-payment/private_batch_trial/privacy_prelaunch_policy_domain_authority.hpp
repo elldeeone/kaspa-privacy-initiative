@@ -25,8 +25,9 @@ struct TestOnlyRegisteredPrelaunchPolicyDomainSummary final {
 #endif
 
 // Complete before friendship. It accepts no paths, bytes, digests, context,
-// runtime head, or registered selection. A future selected-prelaunch compiler
-// must add a typed consuming bridge; no such production consumer exists yet.
+// runtime head, or registered selection. The complete state-capsule compiler
+// reacquires and consumes this typed source solely to check the selected
+// activation's already-authenticated policy lineage.
 class RegisteredPrelaunchPolicyDomainSourceBridge final {
 public:
     RegisteredPrelaunchPolicyDomainSourceBridge() = delete;
@@ -49,6 +50,8 @@ class RegisteredPrelaunchPolicyDomainAuthority final {
     friend class RegisteredPrelaunchPolicyDomainSourceBridge;
     friend class ::kpi::mpc::financial::registered_driver::
         RegisteredSelectedProducerActivationBridge;
+    friend class ::kpb::measurement::p1_state::
+        P1StateCapsulePrelaunchCompilerBridge;
 public:
     RegisteredPrelaunchPolicyDomainAuthority(
         const RegisteredPrelaunchPolicyDomainAuthority&) = delete;
@@ -81,7 +84,7 @@ kRegisteredPrelaunchPolicyDomainStatus{
     .caller_digest_or_path_input = false,
     .runtime_accepted_head_authority = false,
     .runtime_selected_main_authority = false,
-    .selected_prelaunch_compiler_consumer = false,
+    .selected_prelaunch_compiler_consumer = true,
     .producer_plus_two_capsule_split = false,
     .configured = false,
 };

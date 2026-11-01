@@ -1,9 +1,10 @@
 #pragma once
 
 // Opaque, source-derived manifest for the selected MASCOT abort-prefix lane.
-// It fixes the exact success prefixes, typed abort event schema, upstream
+// It fixes the expected non-abort prefixes, typed abort event schema, upstream
 // source identities, and every ordering permitted by the selected two-worker
-// implementation. It accepts no caller branch, count, digest, path, or bytes.
+// implementation. It does not claim a selected terminal callsite or stuck-
+// worker closure. It accepts no caller branch, count, digest, path, or bytes.
 
 #include "privacy_p1_corrupt_state_capsule_authority.hpp"
 #include "privacy_p1_state_capsule_prelaunch_compiler_contract.hpp"
@@ -16,16 +17,27 @@ namespace kpb::measurement::p1_state {
 
 class P1MascotAbortTerminalManifestAuthority;
 
+struct P1MascotAbortTerminalCompilerBinding final {
+    std::array<p1_state_capsule::AbortFamilyHookInventory, 2>
+        round_prefixes{};
+    std::array<std::array<std::uint64_t, 2>, 2> variant_counts{};
+    std::array<std::array<Digest, 2>, 2> manifest_identities{};
+    Digest combined_manifest_identity{};
+    bool exact_unlink_outcome{};
+    bool exact_returned_worker_epochs{};
+    bool constructor_failure_join{};
+    bool stuck_worker_terminal_closure{};
+    bool selected_callsite{};
+    bool operator==(
+        const P1MascotAbortTerminalCompilerBinding&) const = default;
+};
+
 // Complete before friendship. Only the complete all-family compiler may ask
 // this bridge to derive the source manifest.
 class P1MascotAbortTerminalManifestCompilerBridge final {
     P1MascotAbortTerminalManifestCompilerBridge() = delete;
     friend class P1StateCapsulePrelaunchCompilerBridge;
     static P1MascotAbortTerminalManifestAuthority compile();
-#ifdef KPB_P1_MASCOT_ABORT_TERMINAL_MANIFEST_TEST_SETUP
-public:
-    static P1MascotAbortTerminalManifestAuthority test_only_compile();
-#endif
 };
 
 class P1MascotAbortTerminalManifestAuthority final {
@@ -33,7 +45,12 @@ class P1MascotAbortTerminalManifestAuthority final {
     std::unique_ptr<Storage> storage_;
     explicit P1MascotAbortTerminalManifestAuthority(
         std::unique_ptr<Storage>) noexcept;
+    P1MascotAbortTerminalCompilerBinding
+    inspect_for_capsule_compiler() const;
+    void claim_for_capsule_compiler(
+        const P1MascotAbortTerminalCompilerBinding&);
     friend class P1MascotAbortTerminalManifestCompilerBridge;
+    friend class P1AbortTerminalManifestSourceBridge;
     friend class P1StateCapsulePrelaunchCompilerBridge;
 public:
     P1MascotAbortTerminalManifestAuthority(
@@ -45,23 +62,6 @@ public:
     P1MascotAbortTerminalManifestAuthority& operator=(
         P1MascotAbortTerminalManifestAuthority&&) = delete;
     ~P1MascotAbortTerminalManifestAuthority();
-
-#ifdef KPB_P1_MASCOT_ABORT_TERMINAL_MANIFEST_TEST_SETUP
-    struct TestOnlySummary final {
-        std::array<p1_state_capsule::AbortFamilyHookInventory, 2>
-            round_prefixes{};
-        std::array<std::array<std::uint64_t, 2>, 2> variant_counts{};
-        std::array<std::array<Digest, 2>, 2> manifest_identities{};
-        Digest combined_manifest_identity{};
-        bool exact_unlink_outcome{};
-        bool exact_returned_worker_epochs{};
-        bool constructor_failure_join{};
-        bool stuck_worker_terminal_closure{};
-        bool selected_callsite{};
-        bool compiler_consumed{};
-    };
-    TestOnlySummary test_only_summary() const;
-#endif
 };
 
 struct P1MascotAbortTerminalManifestSourceStatus final {

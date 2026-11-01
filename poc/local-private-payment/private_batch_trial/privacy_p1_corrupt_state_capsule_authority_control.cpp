@@ -2369,6 +2369,79 @@ void prelaunch_binding_controls() {
            (missing_summary.not_constructed_bitmap &
             (std::uint64_t{1} << missing_index)) != 0);
 
+    // The test-only all-Missing grammar must still have a reachable typed
+    // pre-player abort. No production plan minter exists. In particular,
+    // PlayerAllocation and TLS can be marked NotConstructed while the
+    // recorder remains in RecorderStarted.
+    auto all_missing = plan(7);
+    for (unsigned index = 0; index < STATE_FAMILY_COUNT; ++index)
+        mark_missing(all_missing, static_cast<StateFamily>(index + 1));
+    all_missing.mp_spdz_source_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::MpSpdzSource);
+    all_missing.simplest_ot_source_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::SimplestOtSource);
+    all_missing.libote_source_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::LibOteSource);
+    all_missing.crypto_tools_source_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::CryptoToolsSource);
+    all_missing.openssl_source_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::OpenSslSource);
+    all_missing.online_options_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::OnlineOptions);
+    all_missing.mascot_secrets_policy_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::MascotSecretsPolicy);
+    all_missing.archive_filesystem_identity =
+        canonical_missing_prelaunch_dependency_identity(
+            PrelaunchDependency::ArchiveFilesystem);
+    AbortTerminalHookInventory unavailable_terminal{
+        .terminal_site_identity = digest(0x74),
+        .exception_type_identity = digest(0x75),
+        .phase = SourcePhase::RecorderStarted,
+        .abort_class = AbortClass::Resource,
+    };
+    for (unsigned index = 0; index < STATE_FAMILY_COUNT; ++index)
+        unavailable_terminal.families[index] =
+            not_constructed_abort_family(
+                static_cast<StateFamily>(index + 1));
+    all_missing.abort_terminals = {unavailable_terminal};
+    all_missing.abort_terminal_manifest_identity =
+        recompute_abort_terminal_manifest_identity(
+            all_missing.abort_terminals);
+    auto false_captured_dependency = all_missing;
+    false_captured_dependency.openssl_source_identity = digest(0x77);
+    refuse_plan(std::move(false_captured_dependency));
+    auto all_missing_recorder =
+        P1CorruptStateCapsulePlanAuthority::test_only_mint(
+            std::move(all_missing))
+            .begin_before_player_and_protocol_setup();
+    auto all_missing_thread =
+        all_missing_recorder.take_root_thread_epoch();
+    for (unsigned index = 0; index < STATE_FAMILY_COUNT; ++index)
+        all_missing_recorder.mark_family_not_constructed_before_abort(
+            static_cast<StateFamily>(index + 1));
+    all_missing_recorder.join_thread(
+        std::move(all_missing_thread), snapshot(0x76));
+    auto all_missing_terminal = prepare_test_abort_terminal(
+        all_missing_recorder, digest(0x74), AbortClass::Resource,
+        digest(0x75));
+    auto all_missing_capsule =
+        std::move(all_missing_recorder).close_abort_noexcept(
+            std::move(all_missing_terminal));
+    const auto all_missing_summary =
+        all_missing_capsule.test_only_summary();
+    constexpr std::uint64_t all_family_bits =
+        (std::uint64_t{1} << STATE_FAMILY_COUNT) - 1;
+    assert(all_missing_summary.not_constructed_bitmap == all_family_bits &&
+           all_missing_summary.missing_family_bitmap == all_family_bits &&
+           !all_missing_summary.manifest_structurally_complete);
+
     auto missing_bad_inventory = plan(2);
     mark_missing(missing_bad_inventory, missing_family);
     ++missing_bad_inventory.hook_inventory[missing_index].exact_object_count;
@@ -2398,6 +2471,16 @@ void prelaunch_binding_controls() {
     invalid_disposition.source_family_dispositions[missing_index] =
         SourceFamilyDisposition{};
     refuse_plan(std::move(invalid_disposition));
+
+    auto impossible_captured_counts = plan(8);
+    impossible_captured_counts.hook_inventory[0].exact_transition_count = 100;
+    refuse_plan(std::move(impossible_captured_counts));
+
+    auto cross_family_transition = plan(9);
+    cross_family_transition.hook_inventory[0].required_transition_bitmap =
+        std::uint64_t{1} <<
+        (static_cast<unsigned>(TransitionKind::TlsHandshake) - 1);
+    refuse_plan(std::move(cross_family_transition));
 
     auto replay = P1CorruptStateCapsulePlanAuthority::test_only_mint(
         std::move(selected));
@@ -2430,7 +2513,7 @@ int p1_corrupt_state_capsule_control_main() {
         !p1_state_capsule::kSourceStatus.source_owned_prelaunch_minter);
     static_assert(!p1_state_capsule::kSourceStatus.role1_activation_attachment);
     static_assert(
-        !p1_state_capsule::kSourceStatus.role0_role2_compiletime_absence);
+        p1_state_capsule::kSourceStatus.role0_role2_compiletime_absence);
     static_assert(
         !p1_state_capsule::kSourceStatus.postrun_projection_exit_residual);
     static_assert(!p1_state_capsule::kSourceStatus.success_and_abort_close);

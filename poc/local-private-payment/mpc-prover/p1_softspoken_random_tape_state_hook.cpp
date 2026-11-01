@@ -348,14 +348,21 @@ bool source_matches_locked(
     return false;
 }
 
-ActiveCapture* current_locked() noexcept {
+ActiveCapture* current_or_poison_locked() noexcept {
     auto* active = active_capture;
-    if (!active || !active->healthy ||
-        thread_context.active != active ||
+    if (!active || !active->healthy)
+        return nullptr;
+    if (thread_context.active != active ||
         thread_context.generation != active->generation ||
         thread_context.call_epoch != active->call_epoch ||
-        thread_context.role == SoftSpokenRole::None)
+        thread_context.role == SoftSpokenRole::None) {
+        const auto role = thread_context.role == SoftSpokenRole::Sender ||
+                thread_context.role == SoftSpokenRole::Receiver ?
+            thread_context.role : SoftSpokenRole::None;
+        poison_locked(*active, SoftSpokenAbortClass::WrongWorker, role);
+        thread_context = {};
         return nullptr;
+    }
     return active;
 }
 
@@ -441,7 +448,9 @@ SoftSpokenPathClass classify_path(
     if (silent) return SoftSpokenPathClass::Silent;
     if (passive) return SoftSpokenPathClass::SemiHonest;
     if (k != 2U) return SoftSpokenPathClass::HighOrOtherK;
-    if (mask != 3U) return SoftSpokenPathClass::UnsupportedRole;
+    // MP-SPDZ OT/BaseOT.h at the pinned 113c4e47 commit defines BOTH as
+    // RECEIVER (0x01) | SENDER (0x10), not as two adjacent low bits.
+    if (mask != 0x11U) return SoftSpokenPathClass::UnsupportedRole;
     return SoftSpokenPathClass::SelectedMaliciousK2;
 }
 
@@ -580,8 +589,22 @@ SoftSpokenRandomTapeStateScope::~SoftSpokenRandomTapeStateScope() {
 bool SoftSpokenRandomTapeStateSourceBridge::
 capture_required_pointer_noexcept(const void* source_player) noexcept {
     std::lock_guard lock(capture_mutex);
-    return active_capture && active_capture->healthy &&
+    // An installed-but-poisoned scope remains selected.  Returning false
+    // after the first failure would let an upstream retry silently run as an
+    // uncaptured call, contrary to the bridge's fail-closed contract.
+    return active_capture &&
         active_capture->source_player == source_player;
+}
+
+bool SoftSpokenRandomTapeStateSourceBridge::
+capture_required_current_noexcept() noexcept {
+    std::lock_guard lock(capture_mutex);
+    if (!active_capture) return false;
+    if (active_capture->healthy)
+        (void)current_or_poison_locked();
+    // A poisoned or stale selected scope remains selected.  Returning false
+    // here would let the exact source continue without capture calls.
+    return true;
 }
 
 bool SoftSpokenRandomTapeStateSourceBridge::path_selected(
@@ -768,7 +791,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::seeded_prng(
         std::span<const unsigned char> seed,
         std::span<const unsigned char> prng) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::SeededPrng,
         SoftSpokenRolePhase::Begun, SoftSpokenRolePhase::Seeded,
@@ -780,7 +803,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::base_installed(
         std::span<const unsigned char> object,
         std::span<const unsigned char> prng) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::BaseInstalled,
         SoftSpokenRolePhase::Seeded, SoftSpokenRolePhase::Base,
@@ -792,7 +815,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::vole_expanded(
         std::span<const unsigned char> prng,
         std::span<const unsigned char> seed) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::VoleExpanded,
         SoftSpokenRolePhase::Base, SoftSpokenRolePhase::Expanded,
@@ -803,7 +826,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::tape_consumed(
         std::span<const unsigned char> object,
         std::span<const unsigned char> prng) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::TapeConsumed,
         SoftSpokenRolePhase::Expanded, SoftSpokenRolePhase::Tape,
@@ -814,7 +837,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::challenge_bound(
         std::span<const unsigned char> object,
         std::span<const unsigned char> prng) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::ChallengeBound,
         SoftSpokenRolePhase::Tape, SoftSpokenRolePhase::Challenge,
@@ -826,7 +849,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::rtcr_bound(
         std::span<const unsigned char> prng,
         std::span<const unsigned char> transient) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::RtcrBound,
         SoftSpokenRolePhase::Challenge, SoftSpokenRolePhase::Rtcr,
@@ -836,7 +859,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::rtcr_bound(
 bool SoftSpokenRandomTapeStateSourceBridge::stage_check_transient(
         std::span<const unsigned char> transient) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     auto& state = role_state(*active, thread_context.role);
     if (state.phase != SoftSpokenRolePhase::Rtcr || transient.empty() ||
@@ -854,7 +877,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::check_derived(
         std::span<const unsigned char> prng,
         std::span<const unsigned char> transient) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     auto& state = role_state(*active, thread_context.role);
     const auto effective = transient.empty() ?
@@ -871,7 +894,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::check_terminal(
         std::span<const unsigned char> object,
         std::span<const unsigned char> prng) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::CheckTerminal,
         SoftSpokenRolePhase::CheckDerived,
@@ -884,7 +907,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::output_ready(
         std::span<const unsigned char> prng,
         std::span<const unsigned char> output) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     return transition_locked(*active, SoftSpokenEventKind::OutputReady,
         SoftSpokenRolePhase::CheckTerminal, SoftSpokenRolePhase::Output,
@@ -894,7 +917,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::output_ready(
 bool SoftSpokenRandomTapeStateSourceBridge::role_end(
         SoftSpokenRole role) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return active_capture != nullptr;
     if (thread_context.role != role) {
         poison_locked(*active, SoftSpokenAbortClass::WrongWorker, role);
@@ -995,7 +1018,7 @@ bool SoftSpokenRandomTapeStateSourceBridge::state_destructor_terminal(
 void SoftSpokenRandomTapeStateSourceBridge::abort_current_noexcept(
         SoftSpokenAbortClass abort, SoftSpokenRolePhase phase) noexcept {
     std::lock_guard lock(capture_mutex);
-    auto* active = current_locked();
+    auto* active = current_or_poison_locked();
     if (!active) return;
     poison_locked(*active, abort, thread_context.role, phase);
     thread_context = {};

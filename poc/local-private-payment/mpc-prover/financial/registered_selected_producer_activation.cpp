@@ -9,6 +9,7 @@
 
 #include <memory>
 #include <optional>
+#include <stdexcept>
 #include <utility>
 
 namespace kpi::mpc::financial::registered_driver {
@@ -16,6 +17,16 @@ namespace kpi::mpc::financial::registered_driver {
 namespace source =
     kpb::measurement::score_output_lineage_source;
 namespace policy = kpb::measurement::prelaunch_policy_domain;
+
+namespace {
+[[noreturn]] void refuse_capsule_compiler_transfer() {
+    throw std::runtime_error(
+        "registered-selected-activation-capsule-transfer-refused");
+}
+void need_capsule_compiler_transfer(bool value) {
+    if (!value) refuse_capsule_compiler_transfer();
+}
+} // namespace
 
 struct RegisteredSelectedProducerActivationAuthority::Storage final {
     // Declared before topology so reverse destruction settles the persistent
@@ -27,6 +38,7 @@ struct RegisteredSelectedProducerActivationAuthority::Storage final {
         prelaunch;
     std::optional<source::SelectedOwnerScoreLineageSourceTransferAuthority>
         lineage;
+    bool capsule_compiler_claimed{};
 };
 
 struct RegisteredSelectedProducerActivationFailureAuthority::Storage final {
@@ -53,6 +65,28 @@ RegisteredSelectedProducerActivationAuthority(
         RegisteredSelectedProducerActivationAuthority&&) noexcept = default;
 RegisteredSelectedProducerActivationAuthority::
 ~RegisteredSelectedProducerActivationAuthority() = default;
+
+const RegisteredSelectedProducerPrelaunchBindingAuthority&
+RegisteredSelectedProducerActivationAuthority::
+inspect_for_state_capsule_compiler() const {
+    need_capsule_compiler_transfer(
+        storage_ != nullptr && !storage_->capsule_compiler_claimed &&
+        storage_->mascot_prep_directory != nullptr &&
+        storage_->prelaunch.has_value());
+    need_capsule_compiler_transfer(
+        storage_->topology.has_value() && storage_->lineage.has_value());
+    return *storage_->prelaunch;
+}
+
+kpb::measurement::p1_state::P1MascotFreshPrepDirectoryAuthority
+RegisteredSelectedProducerActivationAuthority::
+claim_mascot_for_state_capsule_compiler() {
+    (void)inspect_for_state_capsule_compiler();
+    storage_->capsule_compiler_claimed = true;
+    auto result = std::move(*storage_->mascot_prep_directory);
+    storage_->mascot_prep_directory.reset();
+    return result;
+}
 
 RegisteredSelectedProducerActivationFailureAuthority::
 RegisteredSelectedProducerActivationFailureAuthority(
@@ -81,16 +115,14 @@ RegisteredSelectedProducerActivationResult(
 RegisteredSelectedProducerActivationResult::
 ~RegisteredSelectedProducerActivationResult() = default;
 
-#ifdef KPB_SELECTED_PRODUCER_ACTIVATION_TEST_SETUP
-bool RegisteredSelectedProducerActivationTestBridge::succeeded(
-        const RegisteredSelectedProducerActivationResult& result) noexcept {
-    return result.success_ != nullptr && result.failure_ == nullptr;
+RegisteredSelectedProducerActivationAuthority
+RegisteredSelectedProducerActivationResult::
+claim_success_for_state_capsule_compiler() && {
+    need_capsule_compiler_transfer(
+        success_ != nullptr && failure_ == nullptr);
+    auto success = std::move(success_);
+    return std::move(*success);
 }
-bool RegisteredSelectedProducerActivationTestBridge::failed(
-        const RegisteredSelectedProducerActivationResult& result) noexcept {
-    return result.failure_ != nullptr && result.success_ == nullptr;
-}
-#endif
 
 RegisteredSelectedProducerActivationResult
 RegisteredSelectedProducerActivationBridge::activate(

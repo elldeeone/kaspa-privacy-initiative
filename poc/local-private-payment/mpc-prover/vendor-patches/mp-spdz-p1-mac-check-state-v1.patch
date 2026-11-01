@@ -1,0 +1,170 @@
+diff --git a/Protocols/MAC_Check.hpp b/Protocols/MAC_Check.hpp
+index 927501cd..7f31a921 100644
+--- a/Protocols/MAC_Check.hpp
++++ b/Protocols/MAC_Check.hpp
+@@ -19,6 +19,10 @@
+ #include "mac_key.hpp"
+ #include "OT/MascotMacKey.hpp"
+ 
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++#include "p1_mac_check_source_capture.hpp"
++#endif
++
+ template<class T>
+ const char* TreeSum<T>::mc_timer_names[] = {
+         "sending",
+@@ -215,6 +219,10 @@ void MAC_Check_<U>::Check(const Player& P)
+ 
+   if (popen_cnt < 10 and debug)
+     {
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++      kpi::mpc::p1_private_state::MacCheckSourceBridge::
++          debug_branch_noexcept();
++#endif
+       // no random combination with few values
+       vector<typename U::mac_type> deltas;
+       Bundle<octetStream> bundle(P);
+@@ -241,10 +249,49 @@ void MAC_Check_<U>::Check(const Player& P)
+   else
+     {
+       // check random combination
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++      using kpi::mpc::p1_private_state::MacCheckSourceBridge;
++      octetStream kpb_alpha;
++      octetStream kpb_pending_values;
++      octetStream kpb_pending_macs;
++      try
++        {
++          this->alphai.pack(kpb_alpha);
++          for (const auto& value : vals)
++            value.pack(kpb_pending_values);
++          for (const auto& mac : macs)
++            mac.pack(kpb_pending_macs);
++        }
++      catch (...)
++        {
++          MacCheckSourceBridge::source_serialization_failure_noexcept();
++          throw;
++        }
++      auto kpb_mac_check_attempt = MacCheckSourceBridge::
++          check_begin_noexcept(
++              P.my_num(), P.num_players(), popen_cnt,
++              std::span<const unsigned char>(
++                  reinterpret_cast<const unsigned char*>(
++                      kpb_alpha.get_data()),
++                  kpb_alpha.get_length()),
++              std::span<const unsigned char>(
++                  reinterpret_cast<const unsigned char*>(
++                      kpb_pending_values.get_data()),
++                  kpb_pending_values.get_length()),
++              std::span<const unsigned char>(
++                  reinterpret_cast<const unsigned char*>(
++                      kpb_pending_macs.get_data()),
++                  kpb_pending_macs.get_length()));
++#endif
+       octet seed[SEED_SIZE];
+       this->timers[SEED].start();
+       Create_Random_Seed(seed,P,SEED_SIZE);
+       this->timers[SEED].stop();
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++      MacCheckSourceBridge::collective_seed_noexcept(
++          kpb_mac_check_attempt,
++          std::span<const unsigned char>(seed, SEED_SIZE));
++#endif
+       PRNG G;
+       G.SetSeed(seed);
+ 
+@@ -253,8 +300,22 @@ void MAC_Check_<U>::Check(const Player& P)
+       typename U::mac_type::Scalar h;
+       vector<typename U::mac_type> tau(P.num_players());
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++      octetStream kpb_coefficients;
++#endif
+       for (int i=0; i<popen_cnt; i++)
+         {
+           h.almost_randomize(G);
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++          try
++            {
++              h.pack(kpb_coefficients);
++            }
++          catch (...)
++            {
++              MacCheckSourceBridge::source_serialization_failure_noexcept();
++              throw;
++            }
++#endif
+           temp = vals[i] * h;
+           a = (a + temp);
+ 
+@@ -265,6 +323,29 @@ void MAC_Check_<U>::Check(const Player& P)
+       temp = this->alphai * a;
+       tau[P.my_num()] = (gami - temp);
+ 
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++      octetStream kpb_local_tau;
++      try
++        {
++          tau[P.my_num()].pack(kpb_local_tau);
++        }
++      catch (...)
++        {
++          MacCheckSourceBridge::source_serialization_failure_noexcept();
++          throw;
++        }
++      MacCheckSourceBridge::local_tau_noexcept(
++          kpb_mac_check_attempt, popen_cnt,
++          std::span<const unsigned char>(
++              reinterpret_cast<const unsigned char*>(
++                  kpb_coefficients.get_data()),
++              kpb_coefficients.get_length()),
++          std::span<const unsigned char>(
++              reinterpret_cast<const unsigned char*>(
++                  kpb_local_tau.get_data()),
++              kpb_local_tau.get_length()));
++#endif
++
+       //cerr << "\tCommit and Open" << endl;
+       this->timers[COMMIT].start();
+       Commit_And_Open(tau, P, *this->coordinator);
+@@ -275,9 +355,40 @@ void MAC_Check_<U>::Check(const Player& P)
+       typename U::mac_type t;
+       for (int i=0; i<P.num_players(); i++)
+         { t += tau[i]; }
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++      octetStream kpb_tau_sum;
++      try
++        {
++          t.pack(kpb_tau_sum);
++        }
++      catch (...)
++        {
++          MacCheckSourceBridge::source_serialization_failure_noexcept();
++          throw;
++        }
++#endif
+       reset();
+       if (t != 0)
++        {
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++          MacCheckSourceBridge::failure_reset_noexcept(
++              kpb_mac_check_attempt, popen_cnt,
++              std::span<const unsigned char>(
++                  reinterpret_cast<const unsigned char*>(
++                      kpb_tau_sum.get_data()),
++                  kpb_tau_sum.get_length()));
++#endif
+         mac_fail_remove<U>(P);
++        }
++#ifdef KPI_P1_MAC_CHECK_STATE_CAPTURE
++      else
++        MacCheckSourceBridge::success_reset_noexcept(
++            kpb_mac_check_attempt, popen_cnt,
++            std::span<const unsigned char>(
++                reinterpret_cast<const unsigned char*>(
++                    kpb_tau_sum.get_data()),
++                kpb_tau_sum.get_length()));
++#endif
+     }
+ 
+   this->coordinator->finished();

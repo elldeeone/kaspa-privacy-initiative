@@ -475,6 +475,65 @@ public:
         });
     }
 
+    static bool capture_seeded_prng(
+            const osuCrypto::block& seed,
+            const osuCrypto::PRNG& prng) noexcept {
+        try {
+            auto seed_bytes = serialize_seed(seed);
+            auto prng_bytes = serialize_prng(prng);
+            return state::SoftSpokenRandomTapeStateSourceBridge::seeded_prng(
+                seed_bytes.view(), prng_bytes.view());
+        } catch (...) {
+            state::SoftSpokenRandomTapeStateSourceBridge::
+                abort_current_noexcept(
+                    state::SoftSpokenAbortClass::SourceSerialization,
+                    state::SoftSpokenRolePhase::Begun);
+            return false;
+        }
+    }
+
+    template<class Object, class Blocks>
+    static bool capture_sender_base(
+            const Object& object, const osuCrypto::PRNG& prng,
+            const Blocks& messages,
+            const osuCrypto::BitVector& choices) noexcept {
+        try {
+            auto base_bytes = serialize_sender_base(messages, choices);
+            auto object_bytes = serialize_object(object);
+            auto prng_bytes = serialize_prng(prng);
+            return state::SoftSpokenRandomTapeStateSourceBridge::
+                base_installed(base_bytes.view(), object_bytes.view(),
+                               prng_bytes.view());
+        } catch (...) {
+            state::SoftSpokenRandomTapeStateSourceBridge::
+                abort_current_noexcept(
+                    state::SoftSpokenAbortClass::SourceSerialization,
+                    state::SoftSpokenRolePhase::Seeded);
+            return false;
+        }
+    }
+
+    template<class Object, class Pairs>
+    static bool capture_receiver_base(
+            const Object& object, const osuCrypto::PRNG& prng,
+            const Pairs& messages,
+            const osuCrypto::BitVector& choices) noexcept {
+        try {
+            auto base_bytes = serialize_receiver_base(messages, choices);
+            auto object_bytes = serialize_object(object);
+            auto prng_bytes = serialize_prng(prng);
+            return state::SoftSpokenRandomTapeStateSourceBridge::
+                base_installed(base_bytes.view(), object_bytes.view(),
+                               prng_bytes.view());
+        } catch (...) {
+            state::SoftSpokenRandomTapeStateSourceBridge::
+                abort_current_noexcept(
+                    state::SoftSpokenAbortClass::SourceSerialization,
+                    state::SoftSpokenRolePhase::Seeded);
+            return false;
+        }
+    }
+
     template<class Output>
     static detail::SecretBytes serialize_output(
             state::SoftSpokenRole role, const Output& output) {
@@ -578,14 +637,21 @@ public:
         }
     }
 
-    template<class Object>
+    template<class Object, class FirstRange, class... Ranges>
     static bool capture_check_derived(
-            const Object& object, const osuCrypto::PRNG& prng) noexcept {
+            const Object& object, const osuCrypto::PRNG& prng,
+            const FirstRange& first, const Ranges&... ranges) noexcept {
         try {
             auto object_bytes = serialize_object(object);
             auto prng_bytes = serialize_prng(prng);
+            auto transient = detail::encode_exact([&](auto& sink) {
+                sink.domain(CHECK_DOMAIN);
+                pack_object(sink, object);
+                pack_integrals(sink, first);
+                (pack_integrals(sink, ranges), ...);
+            });
             return state::SoftSpokenRandomTapeStateSourceBridge::check_derived(
-                object_bytes.view(), prng_bytes.view(), {});
+                object_bytes.view(), prng_bytes.view(), transient.view());
         } catch (...) {
             state::SoftSpokenRandomTapeStateSourceBridge::
                 abort_current_noexcept(
@@ -612,8 +678,35 @@ public:
         }
     }
 
+    template<class Object, class Output>
+    static bool capture_output(
+            state::SoftSpokenRole role, const Object& object,
+            const osuCrypto::PRNG& prng, const Output& output) noexcept {
+        try {
+            auto object_bytes = serialize_object(object);
+            auto prng_bytes = serialize_prng(prng);
+            auto output_bytes = serialize_output(role, output);
+            return state::SoftSpokenRandomTapeStateSourceBridge::output_ready(
+                object_bytes.view(), prng_bytes.view(), output_bytes.view());
+        } catch (...) {
+            state::SoftSpokenRandomTapeStateSourceBridge::
+                abort_current_noexcept(
+                    state::SoftSpokenAbortClass::SourceSerialization,
+                    state::SoftSpokenRolePhase::CheckTerminal);
+            return false;
+        }
+    }
+
     static void scrub_prng(osuCrypto::PRNG& value) noexcept {
         scrub_prng_impl(value);
+    }
+
+    static void scrub_bit_vector(osuCrypto::BitVector& value) noexcept {
+        if (value.data() && value.capacity())
+            detail::cleanse_bytes(
+                reinterpret_cast<unsigned char*>(value.data()),
+                static_cast<std::size_t>(value.capacity() / 8U));
+        value.reset();
     }
 
     template<class Object>
@@ -647,6 +740,59 @@ public:
         return false;
     }
 #endif
+};
+
+// Source-local cleanup guards erase copied role secrets on every return and
+// exception path.  They do not own upstream objects and never serialize.
+class PrngScrubGuard final {
+    osuCrypto::PRNG* value_{};
+public:
+    explicit PrngScrubGuard(osuCrypto::PRNG& value) noexcept
+        : value_(&value) {}
+    PrngScrubGuard(const PrngScrubGuard&) = delete;
+    PrngScrubGuard& operator=(const PrngScrubGuard&) = delete;
+    ~PrngScrubGuard() { SourceAccess::scrub_prng(*value_); }
+};
+
+template<class Object>
+class ObjectScrubGuard final {
+    Object* value_{};
+public:
+    explicit ObjectScrubGuard(Object& value) noexcept : value_(&value) {}
+    ObjectScrubGuard(const ObjectScrubGuard&) = delete;
+    ObjectScrubGuard& operator=(const ObjectScrubGuard&) = delete;
+    ~ObjectScrubGuard() { SourceAccess::scrub_object(*value_); }
+};
+
+template<class Range>
+class RangeScrubGuard final {
+    Range* value_{};
+public:
+    explicit RangeScrubGuard(Range& value) noexcept : value_(&value) {}
+    RangeScrubGuard(const RangeScrubGuard&) = delete;
+    RangeScrubGuard& operator=(const RangeScrubGuard&) = delete;
+    ~RangeScrubGuard() { SourceAccess::scrub_blocks(*value_); }
+};
+
+class BitVectorScrubGuard final {
+    osuCrypto::BitVector* value_{};
+public:
+    explicit BitVectorScrubGuard(osuCrypto::BitVector& value) noexcept
+        : value_(&value) {}
+    BitVectorScrubGuard(const BitVectorScrubGuard&) = delete;
+    BitVectorScrubGuard& operator=(const BitVectorScrubGuard&) = delete;
+    ~BitVectorScrubGuard() { SourceAccess::scrub_bit_vector(*value_); }
+};
+
+class RawScrubGuard final {
+    unsigned char* data_{};
+    std::size_t size_{};
+public:
+    RawScrubGuard(void* data, std::size_t size) noexcept
+        : data_(static_cast<unsigned char*>(data)), size_(size) {}
+    RawScrubGuard(const RawScrubGuard&) = delete;
+    RawScrubGuard& operator=(const RawScrubGuard&) = delete;
+    ~RawScrubGuard() { detail::cleanse_bytes(data_, size_); }
 };
 
 // Guards are source-owned so every constructor/coroutine exception produces a

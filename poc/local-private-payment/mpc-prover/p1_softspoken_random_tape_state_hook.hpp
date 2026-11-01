@@ -264,6 +264,7 @@ class SoftSpokenRandomTapeStateSourceBridge final {
 public:
     static bool capture_required_pointer_noexcept(
         const void* source_player) noexcept;
+    static bool capture_required_current_noexcept() noexcept;
     static bool path_selected(
         const void* source_player, std::uint64_t local_role,
         std::uint64_t peer_role, std::uint64_t ot_role_mask,

@@ -163,6 +163,119 @@ int main() { return 0; }
                             'registered C1 bridge redefinition compiled')
         self.assertIn('redefinition', result.stderr)
 
+    def test_bridge_header_completes_every_privileged_callsite_name(self):
+        attacks = {
+            'controller-selection': r'''
+class RegisteredC1ControllerSelectionCallsite final {
+public:
+    static auto forge(PublicRegisteredC1RoundLineage value) {
+        return RegisteredC1RoundLineageAuthority(std::move(value));
+    }
+};
+''',
+            'runtime-bridge': r'''
+class RegisteredC1RuntimeCallsiteBridge final {
+public:
+    static auto forge(PublicC1AcceptedControllerSelection value) {
+        return C1AcceptedControllerSelectionAuthority(std::move(value));
+    }
+};
+''',
+            'selected-launch': r'''
+class RegisteredC1SelectedLaunchCallsite final {};
+''',
+            'terminal-residual-theft': r'''
+class RegisteredC1TerminalCallsite final {
+public:
+    static auto steal(RegisteredC1PendingTerminalAuthority& pending) {
+        return std::move(*pending.residual_);
+    }
+};
+''',
+        }
+        for name, attack in attacks.items():
+            with self.subTest(name=name):
+                source = (Path(self.temporary.name) /
+                          f'hostile-privileged-{name}.cpp')
+                source.write_text(f'''
+#include "c1_registered_plan_route_bridge.hpp"
+#include <utility>
+namespace kpb::measurement::c1_capture {{
+{attack}
+}}
+int main() {{ return 0; }}
+''', encoding='utf-8')
+                result = self.compile_syntax(source)
+                self.assertNotEqual(
+                    result.returncode, 0,
+                    f'hostile {name} friend definition compiled')
+                self.assertIn('redefinition', result.stderr)
+
+        source = (Path(self.temporary.name) /
+                  'hostile-direct-residual-theft.cpp')
+        source.write_text(r'''
+#include "c1_registered_plan_route_bridge.hpp"
+#include <utility>
+using namespace kpb::measurement::c1_capture;
+auto steal(RegisteredC1PendingTerminalAuthority& pending) {
+    return std::move(*pending.residual_);
+}
+int main() { return 0; }
+''', encoding='utf-8')
+        result = self.compile_syntax(source)
+        self.assertNotEqual(result.returncode, 0,
+                            'direct pending residual theft compiled')
+        self.assertIn('private', result.stderr)
+
+    def test_macro_defined_fixture_cannot_steal_pending_residual(self):
+        source = (Path(self.temporary.name) /
+                  'hostile-macro-fixture-residual-theft.cpp')
+        source.write_text(r'''
+#define KPB_REGISTERED_C1_PLAN_ROUTE_TEST_SETUP
+#include "c1_registered_plan_route_bridge.hpp"
+#include <utility>
+namespace kpb::measurement::c1_capture {
+class RegisteredC1RouteMinterTestFixture final {
+public:
+    static auto steal(RegisteredC1PendingTerminalAuthority& pending) {
+        return std::move(*pending.residual_);
+    }
+};
+}
+int main() { return 0; }
+''', encoding='utf-8')
+        result = self.compile_syntax(source)
+        self.assertNotEqual(result.returncode, 0,
+                            'macro-defined fixture residual theft compiled')
+        self.assertIn('redefinition', result.stderr)
+        self.assertIn('RegisteredC1RouteMinterTestFixture', result.stderr)
+
+        source = (Path(self.temporary.name) /
+                  'hostile-macro-fixture-member-theft.cpp')
+        source.write_text(r'''
+#define KPB_REGISTERED_C1_PLAN_ROUTE_TEST_SETUP
+#include "c1_registered_plan_route_minters.hpp"
+#include <optional>
+#include <utility>
+namespace kpb::measurement::c1_capture {
+RegisteredC1PendingTerminalAuthority* hostile_pending = nullptr;
+std::optional<C1PostcaptureAdmissionAuthority> stolen_residual;
+C1Fd31OfferParseSourceAuthority
+RegisteredC1RouteMinterTestFixture::fd31_parse_source(
+        RegisteredC1TerminalCallsite&) {
+    stolen_residual.emplace(std::move(*hostile_pending->residual_));
+    throw 0;
+}
+}
+int main() { return 0; }
+''', encoding='utf-8')
+        result = self.compile_syntax(source)
+        self.assertNotEqual(
+            result.returncode, 0,
+            'hostile fixture member residual theft compiled')
+        self.assertIn('private', result.stderr)
+        self.assertIn('residual_', result.stderr)
+
     def test_direct_friend_headers_reject_exact_name_redefinition(self):
         for index, header in enumerate((
                 'c1_contact_value_authority_bridge_contract.hpp',
@@ -227,12 +340,24 @@ int main() { return 0; }
         self.assertNotIn('ActualReceiptAuthority', header)
         for needle in (
                 '.registered_prelaunch_split_core = false',
+                '.immutable_sealed_source_snapshot_core = true',
+                '.opaque_source_controller_selection_minter_core = true',
+                '.opaque_source_fd31_completion_ack_minter_core = true',
+                '.opaque_source_controller_terminal_minter_core = true',
+                '.opaque_source_observed_route_minter_core = true',
                 '.production_controller_selection_minter = false',
                 '.production_fd31_completion_ack_minter = false',
                 '.production_controller_terminal_minter = false',
                 '.production_observed_route_minter = false',
+                '.production_two_round_route_evidence_minter = false',
+                '.typed_launcher_terminal_callsite_contract_core = true',
+                '.two_round_route_evidence_join_core = true',
+                '.exact_launcher_terminal_callsite_contract = false',
+                '.fail_closed_two_round_route_join = true',
                 '.selected_launcher_consumes_offer = false',
                 '.selected_terminal_admission_callsite = false',
+                '.selected_two_round_route_callsite = false',
+                '.selected_consumer_uses_same_source_snapshot = false',
                 '.owner_truth_input = false',
                 '.actual_receipt_emitted = false',
                 '.configured = false',

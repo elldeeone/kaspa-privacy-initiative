@@ -899,8 +899,8 @@ RegisteredC1PlanRouteBridge::admit_terminal(
 
 RegisteredC1PlanRouteSourceStatus registered_c1_plan_route_source_status() {
     return {
-        .schema = "kpb-registered-c1-plan-route-source/v1",
-        .status = "UNQUALIFIED_SOURCE_BRIDGE_CONFIGURED0",
+        .schema = "kpb-registered-c1-plan-route-source/v2",
+        .status = "SOURCE_AUTHORITY_CORES_SELECTED_RUNTIME0",
         // The structural split exists, but the selected activation source
         // still cannot mint/consume it.  Keep the registered path false until
         // that genuine compiler/callsite lands.
@@ -917,12 +917,31 @@ RegisteredC1PlanRouteSourceStatus registered_c1_plan_route_source_status() {
         .retry_and_terminal_history_required = true,
         .archive_observer_admission_join_exists = true,
         .caller_event_or_digest_factory = false,
+        // The bridge consumes opaque source authorities and has no public
+        // event/FD/digest factory.  Production cannot mint those sources
+        // until the selected native/Python adapters and authenticated child
+        // completion channel land.  The core retains an immutable sealed
+        // snapshot, but the selected adapter must give that same snapshot to
+        // the actual consumer; no such cross-process continuity exists yet.
+        // All production-minter claims therefore stay false.
+        .immutable_sealed_source_snapshot_core = true,
+        .opaque_source_controller_selection_minter_core = true,
+        .opaque_source_fd31_completion_ack_minter_core = true,
+        .opaque_source_controller_terminal_minter_core = true,
+        .opaque_source_observed_route_minter_core = true,
         .production_controller_selection_minter = false,
         .production_fd31_completion_ack_minter = false,
         .production_controller_terminal_minter = false,
         .production_observed_route_minter = false,
+        .production_two_round_route_evidence_minter = false,
+        .typed_launcher_terminal_callsite_contract_core = true,
+        .two_round_route_evidence_join_core = true,
+        .exact_launcher_terminal_callsite_contract = false,
+        .fail_closed_two_round_route_join = true,
         .selected_launcher_consumes_offer = false,
         .selected_terminal_admission_callsite = false,
+        .selected_two_round_route_callsite = false,
+        .selected_consumer_uses_same_source_snapshot = false,
         .owner_truth_input = false,
         .actual_receipt_emitted = false,
         .configured = false,

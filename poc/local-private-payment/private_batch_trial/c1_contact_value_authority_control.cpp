@@ -5,6 +5,7 @@
 #include <cassert>
 #include <cerrno>
 #include <cstdint>
+#include <cstdlib>
 #include <fcntl.h>
 #include <openssl/sha.h>
 #include <span>
@@ -20,6 +21,10 @@
 using namespace kpb::measurement;
 using namespace kpb::measurement::c1_capture;
 using namespace kpb::measurement::producer_runtime;
+
+namespace kpb::measurement::c1_capture {
+void c1_contact_value_test_fail_next_get_seals();
+}
 
 namespace {
 
@@ -527,11 +532,13 @@ void sealed_install_control() {
                                   F_SEAL_GROW | F_SEAL_WRITE;
             const int flags = ::fcntl(C1_CONTACT_VALUE_OFFER_FIXED_FD,
                                       F_GETFD);
+            const int observed_seals = ::fcntl(
+                C1_CONTACT_VALUE_OFFER_FIXED_FD, F_GET_SEALS);
             if (::fstat(C1_CONTACT_VALUE_OFFER_FIXED_FD, &state) != 0 ||
                 !S_ISREG(state.st_mode) || state.st_size !=
                     static_cast<off_t>(C1_CONTACT_VALUE_OFFER_BYTES) ||
-                (::fcntl(C1_CONTACT_VALUE_OFFER_FIXED_FD, F_GET_SEALS) &
-                    seals) != seals || flags < 0 ||
+                observed_seals < 0 ||
+                (observed_seals & seals) != seals || flags < 0 ||
                 (flags & FD_CLOEXEC) != 0)
                 _exit(70);
             _exit(0);
@@ -540,6 +547,20 @@ void sealed_install_control() {
     int status = 0;
     assert(::waitpid(child, &status, 0) == child);
     assert(WIFEXITED(status) && WEXITSTATUS(status) == 0);
+}
+
+void seal_query_failure_is_refused() {
+    auto selected_plan = plan();
+    PipeSet pipes;
+    auto selected_parent = parent(pipes, selected_plan);
+    const auto selected_operations = operations();
+    const auto route = route_value(
+        selected_plan.binding, selected_operations);
+    c1_contact_value_test_fail_next_get_seals();
+    expect_refused([&] {
+        (void)prepare(selected_parent, selected_plan.binding,
+                      selected_operations, route);
+    });
 }
 
 C1ContactValueOfferAuthority install_fault_offer() {
@@ -597,6 +618,31 @@ void install_refusal_closes_and_invalidates_fds() {
     }
 }
 
+void ordinary_file_replacement_is_refused() {
+    auto offer = install_fault_offer();
+    const int source = offer.test_only_source_fd();
+    assert(source >= 0 && source != C1_CONTACT_VALUE_OFFER_FIXED_FD);
+
+    char path[] = "/tmp/kpb-c1-contact-ordinary-control-XXXXXX";
+    int ordinary = ::mkstemp(path);
+    assert(ordinary >= 0 && ordinary != source &&
+           ::unlink(path) == 0 && ::fchmod(ordinary, 0600) == 0 &&
+           ::ftruncate(
+               ordinary,
+               static_cast<off_t>(C1_CONTACT_VALUE_OFFER_BYTES)) == 0 &&
+           ::dup3(ordinary, source, O_CLOEXEC) == source);
+    close_fd(ordinary);
+
+    expect_refused([&] {
+        std::move(offer).install_for_child();
+    });
+    errno = 0;
+    assert(::fcntl(source, F_GETFD) == -1 && errno == EBADF);
+    errno = 0;
+    assert(::fcntl(C1_CONTACT_VALUE_OFFER_FIXED_FD, F_GETFD) == -1 &&
+           errno == EBADF);
+}
+
 } // namespace
 
 static_assert(!std::is_copy_constructible_v<
@@ -621,6 +667,8 @@ int main(int argc, char** argv) {
     positive_and_replay_controls();
     cross_binding_controls();
     sealed_install_control();
+    seal_query_failure_is_refused();
     install_refusal_closes_and_invalidates_fds();
+    ordinary_file_replacement_is_refused();
     return 0;
 }

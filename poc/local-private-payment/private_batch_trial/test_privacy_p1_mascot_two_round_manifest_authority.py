@@ -26,11 +26,7 @@ class MascotTwoRoundManifestControl(unittest.TestCase):
             binary = Path(raw) / "control"
             command = [
                 "c++", "-std=c++20", "-O1", "-g", "-Wall", "-Wextra",
-                "-Werror", "-DKPB_P1_STATE_CAPSULE_TEST_SETUP=1",
-                "-DKPB_P1_MASCOT_SECRET_STATE_HOOK_TEST_SETUP=1",
-                "-DKPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP=1",
-                "-DKPB_P1_MASCOT_TWO_ROUND_MANIFEST_TEST_SETUP=1",
-                str(SOURCE), str(FRESH), str(CAPSULE), str(HOOK),
+                "-Werror", str(SOURCE), str(FRESH), str(CAPSULE), str(HOOK),
                 str(MEASUREMENT), str(CHILD_OUTPUT), str(OUTPUT_ABI),
                 str(CONTROL), "-I", str(HERE), "-lcrypto", "-lpthread",
                 "-o", str(binary),
@@ -69,12 +65,31 @@ class MascotTwoRoundManifestControl(unittest.TestCase):
         result = self.hostile_compile(
             """
             #include "privacy_p1_mascot_two_round_manifest_authority.hpp"
-            int main() {
+            #include <utility>
+            void attempt(
+                kpb::measurement::p1_state::
+                    P1MascotFreshPrepDirectoryAuthority&& value) {
               using namespace kpb::measurement::p1_state;
-              P1MascotFreshPrepDirectoryAuthority value;
               auto manifest = P1MascotTwoRoundManifestCompilerBridge::compile(
                 std::move(value));
               (void)manifest;
+            }
+            """
+        )
+        self.assertNotEqual(result.returncode, 0)
+
+    def test_hostile_macro_cannot_define_removed_compile(self) -> None:
+        result = self.hostile_compile(
+            """
+            #define KPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP 1
+            #define KPB_P1_MASCOT_TWO_ROUND_MANIFEST_TEST_SETUP 1
+            #include "privacy_p1_mascot_two_round_manifest_authority.hpp"
+            namespace kpb::measurement::p1_state {
+            P1MascotTwoRoundManifestAuthority
+            P1MascotTwoRoundManifestCompilerBridge::test_only_compile(
+                P1MascotFreshPrepDirectoryAuthority&&) {
+              throw 1;
+            }
             }
             """
         )
@@ -92,6 +107,8 @@ class MascotTwoRoundManifestControl(unittest.TestCase):
             "std::string", "std::span", "int fd", "path",
         ):
             self.assertNotIn(forbidden, declaration)
+        self.assertNotIn("test_only", header)
+        self.assertNotIn("TEST_SETUP", header)
 
 
 if __name__ == "__main__":

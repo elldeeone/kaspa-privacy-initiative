@@ -1,0 +1,39 @@
+{
+  "schema": "kpb-p1-mac-check-source-patch-manifest/v1",
+  "upstream": {
+    "commit": "113c4e47dd94bca9ecab029d2f0abe649bea5c52",
+    "path": "Protocols/MAC_Check.hpp",
+    "sha256": "6aa24821e6dae6370cd89832f407523dc046d4648dcc281f36dd054d7cb723b8"
+  },
+  "patch": {
+    "path": "vendor-patches/mp-spdz-p1-mac-check-state-v1.patch",
+    "sha256": "c6ebd990d1ce060708e5c707b19b994d0f9b794e315adf20fea5c4359d718c5b"
+  },
+  "patched_source_sha256": "19ef2863526a22488e4eada07a30f325bde0fb1d3a1c33899f05aacd13fb006c",
+  "selection_macro": "KPI_P1_MAC_CHECK_STATE_CAPTURE",
+  "callsites": [
+    "MAC_Check_::Check:debug-branch-unavailable",
+    "MAC_Check_::Check:pending-state-pack",
+    "MAC_Check_::Check:begin",
+    "MAC_Check_::Check:Create_Random_Seed-returned",
+    "MAC_Check_::Check:coefficient-consumption",
+    "MAC_Check_::Check:local-tau-before-Commit_And_Open",
+    "MAC_Check_::Check:tau-sum-before-reset",
+    "MAC_Check_::Check:success-reset",
+    "MAC_Check_::Check:failure-reset-before-mac_fail_remove",
+    "MAC_Check_::Check:source-pack-failure"
+  ],
+  "compile_control": "financial/controls/p1_mac_check_pinned_source_compile_control.cpp",
+  "claims": {
+    "exact_patch_input_and_output_bound": true,
+    "patched_template_compiled_and_linked_offline": true,
+    "selected_financial_build": false,
+    "capsule_family_adapter": false,
+    "selected_role1_installation": false,
+    "complete_mac_check_family": false,
+    "complete_corrupt_p1_view": false,
+    "configured": false,
+    "runtime_exercised": false,
+    "privacy_proven": false
+  }
+}

@@ -109,6 +109,8 @@ class MacCheckSourceBridge final {
     static void failure_reset_noexcept(
         MacCheckAttemptScope&, std::uint64_t pending_after_reset,
         std::span<const unsigned char> exact_nonzero_tau_sum) noexcept;
+    static void debug_branch_noexcept() noexcept;
+    static void source_serialization_failure_noexcept() noexcept;
     template<class U> friend class ::MAC_Check_;
 
 #ifdef KPI_P1_MAC_CHECK_STATE_HOOK_TEST_SETUP
@@ -132,6 +134,8 @@ public:
     static void test_only_failure_reset(
         MacCheckAttemptScope&, std::uint64_t pending_after_reset,
         std::span<const unsigned char> exact_nonzero_tau_sum) noexcept;
+    static void test_only_debug_branch() noexcept;
+    static void test_only_source_serialization_failure() noexcept;
 #endif
 };
 

@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <array>
 #include <cstdint>
+#include <condition_variable>
+#include <mutex>
 #include <source_location>
 #include <stdexcept>
 #include <string>
@@ -103,7 +105,7 @@ std::unique_ptr<SoftSpokenRandomTapeStateScope> install(Hook& hook) {
 
 void begin_call(bool existing, std::uint64_t n = 257) {
     need(SoftSpokenRandomTapeStateSourceBridge::path_selected(
-        player(), 1, 0, 3, 2, false, false, false, false));
+        player(), 1, 0, 0x11, 2, false, false, false, false));
     need(SoftSpokenRandomTapeStateSourceBridge::state_lookup(
         player(), existing));
     if (!existing) {
@@ -251,7 +253,7 @@ void wrong_player() {
     Hook hook;
     auto scope = install(hook);
     need(SoftSpokenRandomTapeStateSourceBridge::path_selected(
-        player(), 1, 0, 3, 2, false, false, false, false));
+        player(), 1, 0, 0x11, 2, false, false, false, false));
     const auto* wrong = reinterpret_cast<const void*>(PLAYER_BITS + 1U);
     need(SoftSpokenRandomTapeStateSourceBridge::state_lookup(wrong, false));
     need(hook.unavailable_count == 1);
@@ -299,7 +301,7 @@ void peer_swap() {
     Hook hook;
     auto scope = install(hook);
     need(SoftSpokenRandomTapeStateSourceBridge::path_selected(
-        player(), 0, 1, 3, 2, false, false, false, false));
+        player(), 0, 1, 0x11, 2, false, false, false, false));
     need(hook.unavailable_count == 1);
 }
 
@@ -311,7 +313,8 @@ void rejected_path(SoftSpokenPathClass expected) {
     bool silent = expected == SoftSpokenPathClass::Silent;
     bool libote1 = expected == SoftSpokenPathClass::LibOte1;
     auto k = expected == SoftSpokenPathClass::HighOrOtherK ? 8U : 2U;
-    auto mask = expected == SoftSpokenPathClass::UnsupportedRole ? 1U : 3U;
+    auto mask = expected == SoftSpokenPathClass::UnsupportedRole ?
+        0x01U : 0x11U;
     need(SoftSpokenRandomTapeStateSourceBridge::path_selected(
         player(), 1, 0, mask, k, passive, kos, silent, libote1));
     need(hook.unavailable_count == 1);
@@ -368,6 +371,86 @@ void unlinked() {
     need(hook.unavailable_count == 1);
 }
 
+void poisoned_retry_stays_selected() {
+    Hook hook;
+    auto scope = install(hook);
+    begin_call(false);
+    complete_role(SoftSpokenRole::Sender, 0x10);
+    need(SoftSpokenRandomTapeStateSourceBridge::join(player()));
+    need(hook.unavailable_count == 1);
+    const auto records_after_poison = hook.records.size();
+
+    // A retry after the missing receiver must remain inside the poisoned
+    // capture scope.  It may not be reinterpreted as an unselected call.
+    need(SoftSpokenRandomTapeStateSourceBridge::
+        capture_required_pointer_noexcept(player()));
+    need(SoftSpokenRandomTapeStateSourceBridge::path_selected(
+        player(), 1, 0, 0x11, 2, false, false, false, false));
+    need(SoftSpokenRandomTapeStateSourceBridge::state_lookup(player(), true));
+    need(SoftSpokenRandomTapeStateSourceBridge::call_begin(
+        player(), 257, false));
+    need(hook.unavailable_count == 1 && hook.terminal_count == 0 &&
+         hook.records.size() == records_after_poison);
+}
+
+void unbound_worker_is_poisoned() {
+    Hook hook;
+    auto scope = install(hook);
+    begin_call(false);
+    std::thread unbound([] {
+        auto seed = bytes(0x31, 16);
+        auto prng = bytes(0x32, 96);
+        need(SoftSpokenRandomTapeStateSourceBridge::seeded_prng(
+            seed, prng));
+    });
+    unbound.join();
+    need(hook.unavailable_count == 1 &&
+         hook.records.back().kind == SoftSpokenEventKind::Abort &&
+         hook.records.back().role == SoftSpokenRole::None);
+}
+
+void delayed_prior_call_worker_is_poisoned() {
+    Hook hook;
+    auto scope = install(hook);
+    std::mutex mutex;
+    std::condition_variable changed;
+    bool first_done{};
+    bool run_delayed{};
+
+    begin_call(false);
+    std::thread worker([&] {
+        complete_role(SoftSpokenRole::Receiver, 0x80);
+        {
+            std::lock_guard lock(mutex);
+            first_done = true;
+        }
+        changed.notify_all();
+        {
+            std::unique_lock lock(mutex);
+            changed.wait(lock, [&] { return run_delayed; });
+        }
+        auto seed = bytes(0x71, 16);
+        auto prng = bytes(0x72, 96);
+        need(SoftSpokenRandomTapeStateSourceBridge::seeded_prng(
+            seed, prng));
+    });
+    complete_role(SoftSpokenRole::Sender, 0x10);
+    {
+        std::unique_lock lock(mutex);
+        changed.wait(lock, [&] { return first_done; });
+    }
+    finish_call();
+    begin_call(true, 511);
+    {
+        std::lock_guard lock(mutex);
+        run_delayed = true;
+    }
+    changed.notify_all();
+    worker.join();
+    need(hook.unavailable_count == 1 &&
+         hook.records.back().kind == SoftSpokenEventKind::Abort);
+}
+
 } // namespace
 
 int main(int argc, char** argv) {
@@ -393,5 +476,9 @@ int main(int argc, char** argv) {
     else if (mode == "hook-reject") hook_reject();
     else if (mode == "terminal-reject") terminal_reject();
     else if (mode == "unlinked") unlinked();
+    else if (mode == "poisoned-retry") poisoned_retry_stays_selected();
+    else if (mode == "unbound-worker") unbound_worker_is_poisoned();
+    else if (mode == "delayed-worker")
+        delayed_prior_call_worker_is_poisoned();
     else need(false);
 }

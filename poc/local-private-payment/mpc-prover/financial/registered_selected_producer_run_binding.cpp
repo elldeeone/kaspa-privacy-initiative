@@ -258,53 +258,6 @@ Digest authority_identity(const Plan& plan) {
     return result;
 }
 
-#ifdef KPB_OWNER_SCORE_LINEAGE_SOURCE_RECEIVER_TEST_SETUP
-void test_need(bool value, const char* category) {
-    if (!value) throw std::runtime_error(category);
-}
-Digest test_file_digest(int fd, bool executable) {
-    const auto flags = ::fcntl(fd, F_GETFL);
-    const auto descriptor_flags = ::fcntl(fd, F_GETFD);
-    struct stat info{};
-    test_need(fd >= 0 && flags >= 0 && (flags & O_ACCMODE) == O_RDONLY &&
-         descriptor_flags >= 0 && (descriptor_flags & FD_CLOEXEC) != 0 &&
-         ::fstat(fd, &info) == 0 && S_ISREG(info.st_mode) &&
-         info.st_uid == ::getuid() && info.st_size > 0 &&
-         (info.st_mode & 0022) == 0 &&
-         (!executable || (info.st_mode & 0100) != 0),
-         executable ? "lineage-test-worker-file" :
-                      "lineage-test-selection-file");
-    std::vector<unsigned char> bytes(static_cast<std::size_t>(info.st_size));
-    std::size_t offset{};
-    while (offset < bytes.size()) {
-        const auto count = ::pread(fd, bytes.data() + offset,
-            bytes.size() - offset, static_cast<off_t>(offset));
-        if (count < 0 && errno == EINTR) continue;
-        test_need(count > 0, "lineage-test-read");
-        offset += static_cast<std::size_t>(count);
-    }
-    Digest result{};
-    test_need(SHA256(bytes.data(), bytes.size(), result.data()) != nullptr &&
-         nonzero(result), "lineage-test-hash");
-    return result;
-}
-
-Digest test_lineage_identity(const Plan& plan, const Digest& worker) {
-    std::vector<unsigned char> bytes;
-    add(bytes, "KPB_OWNER_SCORE_LINEAGE_TEST_BINDING_V1\n");
-    for (const auto* value : {
-             &plan.comparison_selection, &plan.run_selection,
-             &plan.measurement_attempt, &plan.method,
-             &plan.source_closure, &plan.runtime, &worker})
-        add(bytes, *value);
-    add(bytes, plan.capture_trial_id);
-    Digest result{};
-    test_need(SHA256(bytes.data(), bytes.size(), result.data()) != nullptr &&
-         nonzero(result), "lineage-test-identity");
-    return result;
-}
-#endif
-
 } // namespace
 
 RegisteredSelectedProducerPrelaunchInputAuthority::
@@ -343,32 +296,14 @@ RegisteredSelectedProducerPrelaunchBindingAuthority() {
     if (lineage_worker_fd_ >= 0) ::close(lineage_worker_fd_);
 }
 
-#ifdef KPB_OWNER_SCORE_LINEAGE_SOURCE_RECEIVER_TEST_SETUP
-RegisteredSelectedProducerPrelaunchBindingAuthority
+const RegisteredSelectedProducerPrelaunchPlan&
 RegisteredSelectedProducerPrelaunchBindingAuthority::
-test_only_lineage_binding(RegisteredSelectedProducerPrelaunchPlan plan,
-                          int selection_fd, int worker_fd) {
-    try {
-        const auto selection = test_file_digest(selection_fd, false);
-        const auto worker = test_file_digest(worker_fd, true);
-        test_need(selection == plan.comparison_selection,
-                  "lineage-test-selection");
-        const auto identity = test_lineage_identity(plan, worker);
-        RegisteredSelectedProducerPrelaunchBindingAuthority result(
-            std::move(plan), identity);
-        result.lineage_selection_fd_ = selection_fd;
-        result.lineage_worker_fd_ = worker_fd;
-        result.lineage_worker_sha256_ = worker;
-        result.lineage_receiver_live_.store(true);
-        result.lineage_worker_selected_ = true;
-        return result;
-    } catch (...) {
-        if (selection_fd >= 0) ::close(selection_fd);
-        if (worker_fd >= 0) ::close(worker_fd);
-        throw;
-    }
+inspect_for_state_capsule_compiler() const {
+    need(live_.load() && nonzero(authority_identity_) &&
+         authority_identity_ == authority_identity(plan_));
+    require_plan(plan_);
+    return plan_;
 }
-#endif
 
 RegisteredSelectedProducerPrelaunchBindingAuthority
 RegisteredSelectedProducerPrelaunchBindingFactory::compile(
@@ -401,7 +336,7 @@ registered_selected_producer_run_binding_source_status() {
         .route_capability_policy_binding = true,
         .expected_exit_policy_binding = true,
         .caller_prelaunch_factory = false,
-        .post_reservation_activation_minter = false,
+        .post_reservation_activation_minter = true,
         .postrun_projection_residual = false,
         .postrun_pidfd_exit_residual = false,
         .observer_v5_preidentity_recorder = false,

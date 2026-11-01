@@ -79,7 +79,16 @@ class RegisteredPersistentFreshTrialActivationControls(unittest.TestCase):
             str(TRIAL /
                 'privacy_p1_mascot_fresh_prep_directory_authority.cpp'),
             str(TRIAL /
+                'privacy_p1_mascot_two_round_manifest_authority.cpp'),
+            str(TRIAL /
+                'privacy_p1_mascot_abort_terminal_manifest_authority.cpp'),
+            str(TRIAL /
+                'privacy_p1_state_capsule_prelaunch_compiler_contract.cpp'),
+            str(TRIAL /
+                'privacy_p1_corrupt_state_capsule_authority.cpp'),
+            str(TRIAL /
                 'privacy_prelaunch_policy_domain_authority.cpp'),
+            str(MPC / 'p1_mascot_secret_state_hook.cpp'),
             '-I', str(MPC), '-I', str(TRIAL), '-I', str(VENDOR),
             '-I', str(PREFIX), '-I', str(PREFIX / 'x86_64-linux-gnu'),
             str(VENDOR / 'libSPDZ.so'),
@@ -167,7 +176,7 @@ class RegisteredPersistentFreshTrialActivationControls(unittest.TestCase):
     def test_selected_join_burns_invalid_full_plan_and_typed_aborts_stage1(self):
         self.run_scenario('selected-invalid-plan')
 
-    def test_selected_join_retains_topology_policy_prep_and_kpbosl_source(self):
+    def test_selected_join_compiles_unavailable_and_burns_replay(self):
         self.run_scenario('selected-source-success')
 
     def test_selected_join_refuses_cross_trial_source_and_typed_aborts(self):

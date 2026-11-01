@@ -816,7 +816,6 @@ void hostile_terminal_controls() {
         ack.eof_identity = ack.writer_close_identity;
     });
 }
-
 void status_stays_false() {
     const auto value = registered_c1_plan_route_source_status();
     assert(!value.registered_prelaunch_split_core);
@@ -830,12 +829,24 @@ void status_stays_false() {
     assert(value.retry_and_terminal_history_required);
     assert(value.archive_observer_admission_join_exists);
     assert(!value.caller_event_or_digest_factory);
+    assert(value.immutable_sealed_source_snapshot_core);
+    assert(value.opaque_source_controller_selection_minter_core);
+    assert(value.opaque_source_fd31_completion_ack_minter_core);
+    assert(value.opaque_source_controller_terminal_minter_core);
+    assert(value.opaque_source_observed_route_minter_core);
     assert(!value.production_controller_selection_minter);
     assert(!value.production_fd31_completion_ack_minter);
     assert(!value.production_controller_terminal_minter);
     assert(!value.production_observed_route_minter);
+    assert(!value.production_two_round_route_evidence_minter);
+    assert(value.typed_launcher_terminal_callsite_contract_core);
+    assert(value.two_round_route_evidence_join_core);
+    assert(!value.exact_launcher_terminal_callsite_contract);
+    assert(value.fail_closed_two_round_route_join);
     assert(!value.selected_launcher_consumes_offer);
     assert(!value.selected_terminal_admission_callsite);
+    assert(!value.selected_two_round_route_callsite);
+    assert(!value.selected_consumer_uses_same_source_snapshot);
     assert(!value.owner_truth_input);
     assert(!value.actual_receipt_emitted);
     assert(!value.configured && !value.actual_launch && !value.complete);

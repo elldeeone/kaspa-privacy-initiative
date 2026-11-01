@@ -236,6 +236,32 @@ P1MascotAbortTerminalManifestAuthority(
 P1MascotAbortTerminalManifestAuthority::~
 P1MascotAbortTerminalManifestAuthority() = default;
 
+P1MascotAbortTerminalCompilerBinding
+P1MascotAbortTerminalManifestAuthority::
+inspect_for_capsule_compiler() const {
+    need(storage_ != nullptr && !storage_->compiler_consumed &&
+         storage_->combined_manifest_identity != Digest{});
+    return {
+        .round_prefixes = storage_->round_prefixes,
+        .variant_counts = storage_->variant_counts,
+        .manifest_identities = storage_->manifest_identities,
+        .combined_manifest_identity = storage_->combined_manifest_identity,
+        .exact_unlink_outcome = storage_->exact_unlink_outcome,
+        .exact_returned_worker_epochs =
+            storage_->exact_returned_worker_epochs,
+        .constructor_failure_join = storage_->constructor_failure_join,
+        .stuck_worker_terminal_closure =
+            storage_->stuck_worker_terminal_closure,
+        .selected_callsite = storage_->selected_callsite,
+    };
+}
+
+void P1MascotAbortTerminalManifestAuthority::claim_for_capsule_compiler(
+        const P1MascotAbortTerminalCompilerBinding& expected) {
+    need(inspect_for_capsule_compiler() == expected);
+    storage_->compiler_consumed = true;
+}
+
 P1MascotAbortTerminalManifestAuthority
 P1MascotAbortTerminalManifestCompilerBridge::compile() {
     auto storage =
@@ -283,32 +309,6 @@ P1MascotAbortTerminalManifestCompilerBridge::compile() {
     return P1MascotAbortTerminalManifestAuthority(std::move(storage));
 }
 
-#ifdef KPB_P1_MASCOT_ABORT_TERMINAL_MANIFEST_TEST_SETUP
-P1MascotAbortTerminalManifestAuthority
-P1MascotAbortTerminalManifestCompilerBridge::test_only_compile() {
-    return compile();
-}
-
-P1MascotAbortTerminalManifestAuthority::TestOnlySummary
-P1MascotAbortTerminalManifestAuthority::test_only_summary() const {
-    need(storage_ != nullptr);
-    return {
-        .round_prefixes = storage_->round_prefixes,
-        .variant_counts = storage_->variant_counts,
-        .manifest_identities = storage_->manifest_identities,
-        .combined_manifest_identity = storage_->combined_manifest_identity,
-        .exact_unlink_outcome = storage_->exact_unlink_outcome,
-        .exact_returned_worker_epochs =
-            storage_->exact_returned_worker_epochs,
-        .constructor_failure_join = storage_->constructor_failure_join,
-        .stuck_worker_terminal_closure =
-            storage_->stuck_worker_terminal_closure,
-        .selected_callsite = storage_->selected_callsite,
-        .compiler_consumed = storage_->compiler_consumed,
-    };
-}
-#endif
-
 P1MascotAbortTerminalManifestSourceStatus
 p1_mascot_abort_terminal_manifest_source_status() noexcept {
     return {
@@ -322,11 +322,11 @@ p1_mascot_abort_terminal_manifest_source_status() noexcept {
         .returned_worker_failure_publication_and_join = true,
         .constructor_failure_cleanup_and_join = true,
         .unbounded_stuck_worker_terminal_closure = false,
-        .all_family_compiler_consumes_authority = false,
+        .all_family_compiler_consumes_authority = true,
         .selected_role_child_callsite = false,
         .postrun_exact_abort_match = false,
         .configured = false,
-        .actual_abort_manifest_mint = false,
+        .actual_abort_manifest_mint = true,
     };
 }
 

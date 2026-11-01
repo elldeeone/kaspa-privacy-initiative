@@ -5,6 +5,7 @@
 #include "../registered_selected_parent_orchestrator.hpp"
 #include "../registered_selected_producer_run_binding.hpp"
 #include "../../../private_batch_trial/privacy_owner_score_lineage_source_authority.hpp"
+#include "../../../private_batch_trial/privacy_p1_state_capsule_prelaunch_compiler_contract.hpp"
 #include "../../../private_batch_trial/privacy_prelaunch_policy_domain_authority.hpp"
 #include "../../../private_batch_trial/privacy_registered_fresh_trial_capture_topology_reservation.hpp"
 
@@ -540,10 +541,15 @@ void selected_activation_burns_invalid_full_plan_and_aborts_stage1() {
             activate_selected_prelaunch(
             genuine_causal_activation(), std::move(policy),
             std::move(source));
-        assert(RegisteredSelectedProducerActivationTestBridge::failed(
-            result));
-        assert(!RegisteredSelectedProducerActivationTestBridge::succeeded(
-            result));
+        bool refused{};
+        try {
+            (void)kpb::measurement::p1_state::
+                P1StateCapsulePrelaunchCompilerBridge::compile(
+                    std::move(result));
+        } catch (...) {
+            refused = true;
+        }
+        assert(refused);
     }
     assert(open_descriptor_count() == before);
 }
@@ -691,10 +697,19 @@ void selected_activation_owns_topology_policy_source_prep_and_lineage(
             activate_selected_prelaunch(
             genuine_causal_activation(), std::move(policy),
             std::move(source));
-        assert(RegisteredSelectedProducerActivationTestBridge::succeeded(
-            result));
-        assert(!RegisteredSelectedProducerActivationTestBridge::failed(
-            result));
+        auto unavailable = kpb::measurement::p1_state::
+            P1StateCapsulePrelaunchCompilerBridge::compile(
+                std::move(result));
+        bool replay_refused{};
+        try {
+            (void)kpb::measurement::p1_state::
+                P1StateCapsulePrelaunchCompilerBridge::compile(
+                    std::move(result));
+        } catch (...) {
+            replay_refused = true;
+        }
+        assert(replay_refused);
+        (void)unavailable;
     }
     assert(open_descriptor_count() == before);
 }
@@ -724,8 +739,15 @@ void selected_activation_cross_trial_refuses_and_aborts_stage1() {
             activate_selected_prelaunch(
                 genuine_causal_activation(), std::move(policy),
                 std::move(source));
-        assert(RegisteredSelectedProducerActivationTestBridge::failed(
-            result));
+        bool refused{};
+        try {
+            (void)kpb::measurement::p1_state::
+                P1StateCapsulePrelaunchCompilerBridge::compile(
+                    std::move(result));
+        } catch (...) {
+            refused = true;
+        }
+        assert(refused);
     }
     assert(open_descriptor_count() == before);
 }
@@ -745,14 +767,29 @@ void selected_activation_replay_burns_each_linear_half() {
             activate_selected_prelaunch(
                 genuine_causal_activation(), std::move(policy),
                 std::move(source));
-        assert(RegisteredSelectedProducerActivationTestBridge::failed(first));
+        bool first_refused{};
+        try {
+            (void)kpb::measurement::p1_state::
+                P1StateCapsulePrelaunchCompilerBridge::compile(
+                    std::move(first));
+        } catch (...) {
+            first_refused = true;
+        }
+        assert(first_refused);
 
         auto second = RegisteredSelectedParentOrchestrator::
             activate_selected_prelaunch(
                 genuine_causal_activation(), std::move(policy),
                 std::move(source));
-        assert(RegisteredSelectedProducerActivationTestBridge::failed(
-            second));
+        bool second_refused{};
+        try {
+            (void)kpb::measurement::p1_state::
+                P1StateCapsulePrelaunchCompilerBridge::compile(
+                    std::move(second));
+        } catch (...) {
+            second_refused = true;
+        }
+        assert(second_refused);
     }
     assert(open_descriptor_count() == before);
 }

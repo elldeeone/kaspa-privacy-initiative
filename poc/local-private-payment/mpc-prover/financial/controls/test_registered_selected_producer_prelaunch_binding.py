@@ -237,7 +237,7 @@ int main() {{ return 0; }}
                 '.source_owned_outer_attempt_domain = false',
                 '.producer_plus_two_capsule_prelaunch_split = false',
                 '.round_capsule_prelaunch_children = false',
-                '.post_reservation_activation_minter = false',
+                '.post_reservation_activation_minter = true',
                 '.postrun_projection_residual = false',
                 '.postrun_pidfd_exit_residual = false',
                 '.observer_v5_preidentity_recorder = false',

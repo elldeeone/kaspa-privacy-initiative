@@ -27,8 +27,6 @@ class P1MascotAbortTerminalManifestControls(unittest.TestCase):
             command = [
                 "g++", "-std=c++20", "-O1", "-g0", "-Wall", "-Wextra",
                 "-Werror", "-Wpedantic", "-pthread",
-                "-DKPB_P1_MASCOT_ABORT_TERMINAL_MANIFEST_TEST_SETUP",
-                "-DKPB_P1_STATE_CAPSULE_TEST_SETUP",
             ]
             if sanitized:
                 command.extend([
@@ -60,10 +58,10 @@ class P1MascotAbortTerminalManifestControls(unittest.TestCase):
             self.assertEqual(
                 (run.returncode, run.stdout, run.stderr), (0, "", ""))
 
-    def test_canonical_manifest_normal(self):
+    def test_production_surface_normal(self):
         self.compile_and_run(False)
 
-    def test_canonical_manifest_sanitized(self):
+    def test_production_surface_sanitized(self):
         self.compile_and_run(True)
 
     def test_production_caller_cannot_compile_or_construct(self):
@@ -84,6 +82,16 @@ int main() {
       P1MascotAbortTerminalManifestAuthority;
   A value(std::unique_ptr<A::Storage>{});
   (void)value;
+}
+''',
+            "hostile_macro_definition": r'''
+#define KPB_P1_MASCOT_ABORT_TERMINAL_MANIFEST_TEST_SETUP 1
+#include "privacy_p1_mascot_abort_terminal_manifest_authority.hpp"
+namespace kpb::measurement::p1_state {
+P1MascotAbortTerminalManifestAuthority
+P1MascotAbortTerminalManifestCompilerBridge::test_only_compile() {
+  throw 1;
+}
 }
 ''',
         }
@@ -119,6 +127,8 @@ int main() {
         header = HEADER.read_text(encoding="utf-8")
         self.assertNotIn("get_manifest", header)
         self.assertNotIn("std::span", header)
+        self.assertNotIn("test_only", header)
+        self.assertNotIn("TEST_SETUP", header)
         implementation = IMPLEMENTATION.read_text(encoding="utf-8")
         self.assertIn("unbounded_stuck_worker_terminal_closure = false",
                       implementation)

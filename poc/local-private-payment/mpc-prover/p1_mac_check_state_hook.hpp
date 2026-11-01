@@ -55,6 +55,7 @@ enum class MacCheckUnavailableSite : std::uint8_t {
     CaptureTerminal = 8,
     CaptureScope = 9,
     DebugBranch = 10,
+    SourceSerialization = 11,
 };
 
 enum class MacCheckUnavailableReason : std::uint8_t {
@@ -77,6 +78,7 @@ enum class MacCheckUnavailableReason : std::uint8_t {
     CaptureScopeDropped = 17,
     UnsupportedDebugBranch = 18,
     AttemptUnwound = 19,
+    SourceSerializationFailure = 20,
 };
 
 inline constexpr std::string_view mac_check_source_domain(
@@ -122,6 +124,9 @@ inline constexpr std::string_view mac_check_unavailable_source_domain(
     case MacCheckUnavailableSite::DebugBranch:
         return "MP-SPDZ/Protocols/MAC_Check.hpp:MAC_Check_::Check:"
                "debug-mac-branch";
+    case MacCheckUnavailableSite::SourceSerialization:
+        return "MP-SPDZ/Protocols/MAC_Check.hpp:MAC_Check_::Check:"
+               "source-state-pack";
     }
     return {};
 }
@@ -398,6 +403,8 @@ inline bool unavailable_site_reason_match(
         return site == MacCheckUnavailableSite::CaptureScope;
     case MacCheckUnavailableReason::UnsupportedDebugBranch:
         return site == MacCheckUnavailableSite::DebugBranch;
+    case MacCheckUnavailableReason::SourceSerializationFailure:
+        return site == MacCheckUnavailableSite::SourceSerialization;
     }
     return false;
 }
@@ -405,7 +412,7 @@ inline bool unavailable_site_reason_match(
 inline void validate_unavailable(const MacCheckUnavailableView& value) {
     const auto site = static_cast<std::uint64_t>(value.site);
     const auto reason = static_cast<std::uint64_t>(value.reason);
-    if (site == 0 || site > 10 || reason == 0 || reason > 19 ||
+    if (site == 0 || site > 11 || reason == 0 || reason > 20 ||
         mac_check_unavailable_source_domain(value.site).empty() ||
         !unavailable_site_reason_match(value.site, value.reason) ||
         value.logical_process_epoch == 0 ||

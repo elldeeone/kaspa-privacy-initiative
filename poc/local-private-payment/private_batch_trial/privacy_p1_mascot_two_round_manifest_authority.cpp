@@ -107,6 +107,28 @@ P1MascotTwoRoundManifestAuthority::P1MascotTwoRoundManifestAuthority(
 P1MascotTwoRoundManifestAuthority::~P1MascotTwoRoundManifestAuthority() =
     default;
 
+P1MascotTwoRoundCompilerBinding
+P1MascotTwoRoundManifestAuthority::inspect_for_capsule_compiler() const {
+    need(storage_ != nullptr && storage_->fresh_directory.has_value() &&
+         !storage_->compiler_consumed &&
+         storage_->two_round_manifest_identity != Digest{});
+    return {
+        .branches = storage_->branches,
+        .inventories = storage_->inventories,
+        .two_round_manifest_identity = storage_->two_round_manifest_identity,
+        .abort_unlink_terminal_manifest_complete =
+            storage_->abort_unlink_terminal_manifest_complete,
+        .ot_worker_terminal_manifest_complete =
+            storage_->ot_worker_terminal_manifest_complete,
+    };
+}
+
+void P1MascotTwoRoundManifestAuthority::claim_for_capsule_compiler(
+        const P1MascotTwoRoundCompilerBinding& expected) {
+    need(inspect_for_capsule_compiler() == expected);
+    storage_->compiler_consumed = true;
+}
+
 P1MascotTwoRoundManifestAuthority
 P1MascotTwoRoundManifestCompilerBridge::compile(
         P1MascotFreshPrepDirectoryAuthority&& fresh) {
@@ -137,30 +159,6 @@ P1MascotTwoRoundManifestCompilerBridge::compile(
     return P1MascotTwoRoundManifestAuthority(std::move(storage));
 }
 
-#ifdef KPB_P1_MASCOT_TWO_ROUND_MANIFEST_TEST_SETUP
-P1MascotTwoRoundManifestAuthority
-P1MascotTwoRoundManifestCompilerBridge::test_only_compile(
-        P1MascotFreshPrepDirectoryAuthority&& fresh) {
-    return compile(std::move(fresh));
-}
-
-P1MascotTwoRoundManifestAuthority::TestOnlySummary
-P1MascotTwoRoundManifestAuthority::test_only_summary() const {
-    need(storage_ != nullptr && storage_->fresh_directory.has_value());
-    return {
-        .branches = storage_->branches,
-        .inventories = storage_->inventories,
-        .two_round_manifest_identity = storage_->two_round_manifest_identity,
-        .fresh_directory_retained = true,
-        .abort_unlink_terminal_manifest_complete =
-            storage_->abort_unlink_terminal_manifest_complete,
-        .ot_worker_terminal_manifest_complete =
-            storage_->ot_worker_terminal_manifest_complete,
-        .compiler_consumed = storage_->compiler_consumed,
-    };
-}
-#endif
-
 P1MascotTwoRoundManifestSourceStatus
 p1_mascot_two_round_manifest_source_status() noexcept {
     return {
@@ -172,11 +170,11 @@ p1_mascot_two_round_manifest_source_status() noexcept {
         .caller_branch_digest_count_path_or_fd = false,
         .abort_unlink_terminal_manifest_complete = false,
         .ot_worker_terminal_manifest_complete = false,
-        .all_family_capsule_compiler_consumes_authority = false,
+        .all_family_capsule_compiler_consumes_authority = true,
         .selected_persistent_child_callsite = false,
         .postrun_observed_branch_match = false,
         .configured = false,
-        .actual_two_round_manifest_mint = false,
+        .actual_two_round_manifest_mint = true,
     };
 }
 

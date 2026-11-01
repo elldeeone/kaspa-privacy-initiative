@@ -63,6 +63,20 @@ bool nonzero(const Digest& value) {
                        [](unsigned char byte) { return byte != 0; });
 }
 
+bool transition_allowed(StateFamily, TransitionKind);
+
+void need_allowed_transition_bitmap(
+        StateFamily family, std::uint64_t bitmap) {
+    for (unsigned value = 1;
+         value <= static_cast<unsigned>(TransitionKind::CheckerStage);
+         ++value) {
+        const auto bit = std::uint64_t{1} << (value - 1);
+        if ((bitmap & bit) != 0)
+            need(transition_allowed(
+                family, static_cast<TransitionKind>(value)));
+    }
+}
+
 void close_fd(int& fd) noexcept {
     if (fd < 0) return;
     while (::close(fd) != 0 && errno == EINTR) {}
@@ -308,6 +322,7 @@ void validate_plan(const StaticStateCapsulePlan& plan) {
                 static_cast<StateFamily>(index + 1)));
     need(canonical_missing_serializers.size() == STATE_FAMILY_COUNT);
     std::set<Digest> serializers;
+    bool all_families_missing = true;
     for (unsigned index = 0; index < STATE_FAMILY_COUNT; ++index) {
         const auto family = static_cast<StateFamily>(index + 1);
         const auto disposition = plan.source_family_dispositions[index];
@@ -322,10 +337,15 @@ void validate_plan(const StaticStateCapsulePlan& plan) {
                  inventory ==
                      canonical_missing_family_hook_inventory(family));
         } else {
+            all_families_missing = false;
             need(!canonical_missing_serializers.contains(serializer) &&
                  inventory.exact_object_count > 0 &&
-                 inventory.exact_event_count >=
-                     inventory.exact_object_count &&
+                 inventory.exact_object_count <=
+                     (std::numeric_limits<std::uint64_t>::max() -
+                      inventory.exact_transition_count) / 2 &&
+                 inventory.exact_event_count ==
+                     inventory.exact_transition_count +
+                         2 * inventory.exact_object_count &&
                  inventory.exact_transition_count > 0 &&
                  inventory.required_transition_bitmap > 0 &&
                  (inventory.required_transition_bitmap >>
@@ -336,7 +356,35 @@ void validate_plan(const StaticStateCapsulePlan& plan) {
                  nonzero(inventory.ordered_hook_manifest_identity) &&
                  nonzero(inventory.expected_event_sequence_identity) &&
                  nonzero(inventory.expected_transition_sequence_identity));
+            need_allowed_transition_bitmap(
+                family, inventory.required_transition_bitmap);
         }
+    }
+    if (all_families_missing) {
+        need(plan.mp_spdz_source_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::MpSpdzSource) &&
+             plan.simplest_ot_source_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::SimplestOtSource) &&
+             plan.libote_source_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::LibOteSource) &&
+             plan.crypto_tools_source_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::CryptoToolsSource) &&
+             plan.openssl_source_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::OpenSslSource) &&
+             plan.online_options_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::OnlineOptions) &&
+             plan.mascot_secrets_policy_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::MascotSecretsPolicy) &&
+             plan.archive_filesystem_identity ==
+                 canonical_missing_prelaunch_dependency_identity(
+                     PrelaunchDependency::ArchiveFilesystem));
     }
     need(!plan.abort_terminals.empty() &&
          recompute_abort_terminal_manifest_identity(plan.abort_terminals) ==
@@ -392,6 +440,8 @@ void validate_plan(const StaticStateCapsulePlan& plan) {
                      nonzero(expected.expected_event_sequence_identity) &&
                      nonzero(
                          expected.expected_transition_sequence_identity));
+                need_allowed_transition_bitmap(
+                    family, expected.required_transition_bitmap);
             }
             if (plan.source_family_dispositions[index] ==
                     SourceFamilyDisposition::Missing)
@@ -567,6 +617,18 @@ SourcePhase first_construction_phase(StateFamily family) {
         return SourcePhase::Construction;
     }
     refuse();
+}
+
+SourcePhase not_constructed_deadline_phase(StateFamily family) {
+    if (family == StateFamily::PlayerAllocation ||
+        family == StateFamily::TlsChannelState) {
+        // These may be constructed during RecorderStarted, but are only
+        // required before crossing into TlsAndPlayerBound. This preserves a
+        // genuine pre-player NotConstructed abort without delaying their
+        // valid construction window.
+        return SourcePhase::TlsAndPlayerBound;
+    }
+    return first_construction_phase(family);
 }
 
 void need_anonymous_disk_file(const struct stat& value) {
@@ -930,6 +992,21 @@ Digest canonical_missing_family_serializer_identity(StateFamily family) {
         "KPB_P1_STATE_MISSING_FAMILY_SERIALIZER_V1\n";
     bytes.insert(bytes.end(), domain.begin(), domain.end());
     append_u64(bytes, static_cast<unsigned>(family));
+    return hash(bytes);
+}
+
+Digest canonical_missing_prelaunch_dependency_identity(
+        PrelaunchDependency dependency) {
+    const auto ordinal = static_cast<unsigned>(dependency);
+    need(ordinal >= static_cast<unsigned>(
+             PrelaunchDependency::MpSpdzSource) &&
+         ordinal <= static_cast<unsigned>(
+             PrelaunchDependency::ArchiveFilesystem));
+    std::vector<unsigned char> bytes;
+    static constexpr std::string_view domain =
+        "KPB_P1_STATE_MISSING_PRELAUNCH_DEPENDENCY_V1\n";
+    bytes.insert(bytes.end(), domain.begin(), domain.end());
+    append_u64(bytes, ordinal);
     return hash(bytes);
 }
 
@@ -3596,7 +3673,8 @@ mark_family_not_constructed_before_abort(StateFamily family) {
             SourceFamilyDisposition::Missing;
     need(!ledger->abort_terminal_prepared &&
          static_cast<unsigned>(ledger->phase) <
-             static_cast<unsigned>(first_construction_phase(family)) &&
+             static_cast<unsigned>(
+                 not_constructed_deadline_phase(family)) &&
          (ledger->closed_family_bitmap & bit) == 0 &&
          (ledger->not_constructed_bitmap & bit) == 0 &&
          ((ledger->missing_family_bitmap & bit) == 0 || source_missing) &&

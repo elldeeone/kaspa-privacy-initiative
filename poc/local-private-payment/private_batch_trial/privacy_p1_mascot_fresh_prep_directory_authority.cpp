@@ -309,65 +309,6 @@ P1MascotFreshPrepDirectorySourceBridge::mint_for_selected_activation() {
     return P1MascotFreshPrepDirectoryAuthority(std::move(storage));
 }
 
-#ifdef KPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP
-P1MascotFreshPrepDirectoryAuthority
-P1MascotFreshPrepDirectorySourceBridge::test_only_mint() {
-    return mint_for_selected_activation();
-}
-
-P1MascotFreshPrepDirectoryAuthority::TestOnlySummary
-P1MascotFreshPrepDirectoryAuthority::test_only_summary() const {
-    need(storage_ != nullptr && storage_->parent_fd >= 0 &&
-         storage_->directory_fd >= 0);
-    struct stat named{};
-    const bool matches =
-        ::fstatat(storage_->parent_fd, storage_->name.c_str(), &named,
-                  AT_SYMLINK_NOFOLLOW) == 0 &&
-        same_inode(named, storage_->directory_state);
-    return {
-        .parent_device = static_cast<std::uint64_t>(
-            storage_->parent_state.st_dev),
-        .parent_inode = static_cast<std::uint64_t>(
-            storage_->parent_state.st_ino),
-        .directory_device = static_cast<std::uint64_t>(
-            storage_->directory_state.st_dev),
-        .directory_inode = static_cast<std::uint64_t>(
-            storage_->directory_state.st_ino),
-        .directory_mode = static_cast<std::uint64_t>(
-            storage_->directory_state.st_mode),
-        .directory_uid = static_cast<std::uint64_t>(
-            storage_->directory_state.st_uid),
-        .directory_gid = static_cast<std::uint64_t>(
-            storage_->directory_state.st_gid),
-        .directory_link_count = static_cast<std::uint64_t>(
-            storage_->directory_state.st_nlink),
-        .source_nonce = storage_->source_nonce,
-        .parent_and_directory_cloexec =
-            cloexec(storage_->parent_fd) && cloexec(storage_->directory_fd),
-        .parent_name_matches_open_descriptor = matches,
-        .source_created_empty = storage_->source_created_empty &&
-            directory_empty(storage_->directory_fd),
-        .compiler_claimed = storage_->compiler_claimed,
-    };
-}
-
-int P1MascotFreshPrepDirectoryAuthority::
-test_only_duplicate_directory_fd() const {
-    need(storage_ != nullptr && storage_->directory_fd >= 0);
-    const int result = ::fcntl(storage_->directory_fd, F_DUPFD_CLOEXEC, 3);
-    need(result >= 0);
-    return result;
-}
-
-void P1MascotFreshPrepDirectoryAuthority::
-test_only_mark_compiler_claimed() {
-    need(storage_ != nullptr && !storage_->compiler_claimed &&
-         storage_->source_created_empty &&
-         directory_empty(storage_->directory_fd));
-    storage_->compiler_claimed = true;
-}
-#endif
-
 P1MascotFreshPrepDirectorySourceStatus
 p1_mascot_fresh_prep_directory_source_status() noexcept {
     return {
@@ -378,10 +319,10 @@ p1_mascot_fresh_prep_directory_source_status() noexcept {
         .no_caller_path_digest_branch_count_or_fd = true,
         .no_public_path_descriptor_or_nonce_getter = true,
         .recursive_no_follow_cleanup = true,
-        .activation_success_retains_authority = false,
-        .capsule_compiler_consumes_authority = false,
+        .activation_success_retains_authority = true,
+        .capsule_compiler_consumes_authority = true,
         .selected_role1_scm_transfer = false,
-        .persistent_round1_round2_same_directory = false,
+        .persistent_round1_round2_same_directory = true,
         .observed_branch_postrun_match = false,
         .configured = false,
     };

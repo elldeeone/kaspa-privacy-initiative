@@ -393,6 +393,19 @@ bool failure(
     return retained;
 }
 
+bool source_unavailable(
+        MacCheckUnavailableSite site,
+        MacCheckUnavailableReason reason) noexcept {
+    std::lock_guard lock(capture_mutex);
+    auto* active = active_capture;
+    if (!active) return true;
+    if (!active->healthy) return false;
+    return mark_unavailable_locked(*active, {
+        .site = site,
+        .reason = reason,
+    });
+}
+
 void drop_attempt(
         std::uint64_t generation, std::uint64_t check_epoch) noexcept {
     std::lock_guard lock(capture_mutex);
@@ -733,6 +746,20 @@ void MacCheckSourceBridge::failure_reset_noexcept(
     scope.installed_ = false;
 }
 
+void MacCheckSourceBridge::debug_branch_noexcept() noexcept {
+    if (!mac_check_source_detail::source_unavailable(
+            MacCheckUnavailableSite::DebugBranch,
+            MacCheckUnavailableReason::UnsupportedDebugBranch))
+        std::abort();
+}
+
+void MacCheckSourceBridge::source_serialization_failure_noexcept() noexcept {
+    if (!mac_check_source_detail::source_unavailable(
+            MacCheckUnavailableSite::SourceSerialization,
+            MacCheckUnavailableReason::SourceSerializationFailure))
+        std::abort();
+}
+
 #ifdef KPI_P1_MAC_CHECK_STATE_HOOK_TEST_SETUP
 MacCheckSourceScope MacCheckScopeFactoryBridge::test_only_install(
         MacCheckStateHook& hook, std::uint64_t logical_process_epoch,
@@ -784,6 +811,14 @@ void MacCheckSourceBridge::test_only_failure_reset(
         std::span<const unsigned char> exact_nonzero_tau_sum) noexcept {
     failure_reset_noexcept(
         scope, pending_after_reset, exact_nonzero_tau_sum);
+}
+
+void MacCheckSourceBridge::test_only_debug_branch() noexcept {
+    debug_branch_noexcept();
+}
+
+void MacCheckSourceBridge::test_only_source_serialization_failure() noexcept {
+    source_serialization_failure_noexcept();
 }
 #endif
 

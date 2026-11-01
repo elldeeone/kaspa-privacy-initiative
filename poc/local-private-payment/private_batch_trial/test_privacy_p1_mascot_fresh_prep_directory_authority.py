@@ -21,8 +21,8 @@ class FreshPrepDirectoryAuthorityControl(unittest.TestCase):
             binary = pathlib.Path(tmp) / "control"
             command = [
                 "c++", "-std=c++20", "-O1", "-g", "-Wall", "-Wextra",
-                "-Werror", "-DKPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP=1",
-                str(SOURCE), str(CONTROL), "-I", str(ROOT), "-lcrypto",
+                "-Werror", str(SOURCE), str(CONTROL),
+                "-I", str(ROOT), "-lcrypto",
                 "-o", str(binary),
             ]
             if sanitize:
@@ -62,6 +62,9 @@ class FreshPrepDirectoryAuthorityControl(unittest.TestCase):
             self.assertIn("private", result.stderr)
 
     def test_no_production_test_surface(self) -> None:
+        header = SOURCE.with_suffix(".hpp").read_text(encoding="utf-8")
+        self.assertNotIn("test_only", header)
+        self.assertNotIn("TEST_SETUP", header)
         source = textwrap.dedent(
             """
             #include "poc/local-private-payment/private_batch_trial/privacy_p1_mascot_fresh_prep_directory_authority.hpp"
@@ -80,6 +83,40 @@ class FreshPrepDirectoryAuthorityControl(unittest.TestCase):
                 cwd=ROOT, text=True, capture_output=True,
             )
             self.assertNotEqual(result.returncode, 0)
+
+    def test_hostile_macro_cannot_define_removed_members(self) -> None:
+        probes = {
+            "mint": """
+                #define KPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP 1
+                #include "poc/local-private-payment/private_batch_trial/privacy_p1_mascot_fresh_prep_directory_authority.hpp"
+                namespace kpb::measurement::p1_state {
+                P1MascotFreshPrepDirectoryAuthority
+                P1MascotFreshPrepDirectorySourceBridge::test_only_mint() {
+                  throw 1;
+                }
+                }
+            """,
+            "claim": """
+                #define KPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP 1
+                #include "poc/local-private-payment/private_batch_trial/privacy_p1_mascot_fresh_prep_directory_authority.hpp"
+                namespace kpb::measurement::p1_state {
+                void P1MascotFreshPrepDirectoryAuthority::
+                    test_only_mark_compiler_claimed() {}
+                }
+            """,
+        }
+        with tempfile.TemporaryDirectory(
+                prefix="kpb-mascot-prep-hostile-macro-") as tmp:
+            root = pathlib.Path(tmp)
+            for name, body in probes.items():
+                unit = root / f"{name}.cpp"
+                unit.write_text(textwrap.dedent(body))
+                result = subprocess.run(
+                    ["c++", "-std=c++20", "-fsyntax-only", str(unit),
+                     "-I", str(ROOT)],
+                    cwd=ROOT, text=True, capture_output=True,
+                )
+                self.assertNotEqual(result.returncode, 0, name)
 
 
 if __name__ == "__main__":

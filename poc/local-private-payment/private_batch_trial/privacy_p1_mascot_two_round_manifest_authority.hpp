@@ -2,8 +2,9 @@
 
 // Opaque source manifest for the selected persistent P1's two MASCOT setup
 // rounds. It consumes the source-owned fresh PREP_DIR capability and derives,
-// rather than accepts, the only admissible successful branch sequence:
-// round 1 regenerates after a missing cache; round 2 reuses that exact cache.
+// rather than accepts, the expected branch sequence: round 1 regenerates
+// after a missing cache; round 2 reuses that exact cache. Missing terminal
+// closure and selected callsites keep the family unavailable for capture.
 
 #include "privacy_p1_corrupt_state_capsule_authority.hpp"
 #include "privacy_p1_mascot_fresh_prep_directory_authority.hpp"
@@ -14,12 +15,26 @@
 
 namespace kpb::measurement::p1_state {
 
+struct P1MascotTwoRoundCompilerBinding final {
+    std::array<kpi::mpc::p1_private_state::MascotCacheBranch, 2>
+        branches{};
+    std::array<p1_state_capsule::FamilyHookInventory, 2> inventories{};
+    Digest two_round_manifest_identity{};
+    bool abort_unlink_terminal_manifest_complete{};
+    bool ot_worker_terminal_manifest_complete{};
+    bool operator==(const P1MascotTwoRoundCompilerBinding&) const = default;
+};
+
 class P1MascotTwoRoundManifestAuthority final {
     struct Storage;
     std::unique_ptr<Storage> storage_;
     explicit P1MascotTwoRoundManifestAuthority(
         std::unique_ptr<Storage>) noexcept;
+    P1MascotTwoRoundCompilerBinding inspect_for_capsule_compiler() const;
+    void claim_for_capsule_compiler(
+        const P1MascotTwoRoundCompilerBinding&);
     friend class P1MascotTwoRoundManifestCompilerBridge;
+    friend class P1HookSerializerManifestSourceBridge;
     friend class P1StateCapsulePrelaunchCompilerBridge;
 public:
     P1MascotTwoRoundManifestAuthority(
@@ -31,21 +46,6 @@ public:
     P1MascotTwoRoundManifestAuthority& operator=(
         P1MascotTwoRoundManifestAuthority&&) = delete;
     ~P1MascotTwoRoundManifestAuthority();
-
-#ifdef KPB_P1_MASCOT_TWO_ROUND_MANIFEST_TEST_SETUP
-    struct TestOnlySummary final {
-        std::array<kpi::mpc::p1_private_state::MascotCacheBranch, 2>
-            branches{};
-        std::array<p1_state_capsule::FamilyHookInventory, 2>
-            inventories{};
-        Digest two_round_manifest_identity{};
-        bool fresh_directory_retained{};
-        bool abort_unlink_terminal_manifest_complete{};
-        bool ot_worker_terminal_manifest_complete{};
-        bool compiler_consumed{};
-    };
-    TestOnlySummary test_only_summary() const;
-#endif
 };
 
 struct P1MascotTwoRoundManifestSourceStatus final {

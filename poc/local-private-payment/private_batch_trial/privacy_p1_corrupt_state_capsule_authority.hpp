@@ -144,6 +144,23 @@ enum class SourceFamilyDisposition : std::uint8_t {
 FamilyHookInventory canonical_missing_family_hook_inventory(StateFamily);
 Digest canonical_missing_family_serializer_identity(StateFamily);
 
+// Prelaunch dependencies without a selected, source-owned binding use one
+// typed canonical Missing identity per field. They are distinguishable from
+// a captured pin and cannot be promoted by hashing an "unbound" label.
+enum class PrelaunchDependency : std::uint8_t {
+    MpSpdzSource = 1,
+    SimplestOtSource = 2,
+    LibOteSource = 3,
+    CryptoToolsSource = 4,
+    OpenSslSource = 5,
+    OnlineOptions = 6,
+    MascotSecretsPolicy = 7,
+    ArchiveFilesystem = 8,
+};
+
+Digest canonical_missing_prelaunch_dependency_identity(
+    PrelaunchDependency);
+
 enum class AbortFamilyDisposition : std::uint8_t {
     Closed = 1,
     NotConstructed = 2,
@@ -696,7 +713,7 @@ inline constexpr SourceStatus kSourceStatus{
     .chronology_correct_prelaunch_binding = true,
     .source_owned_prelaunch_minter = false,
     .role1_activation_attachment = false,
-    .role0_role2_compiletime_absence = false,
+    .role0_role2_compiletime_absence = true,
     .postrun_projection_exit_residual = false,
     .begins_before_player_construction = false,
     .typed_private_state_archive = true,
@@ -709,7 +726,7 @@ inline constexpr SourceStatus kSourceStatus{
     .hook_manifest_inventory_enforced = true,
     .source_family_missing_disposition_grammar = true,
     .missing_family_cannot_complete = true,
-    .source_owned_hook_manifest_minter = false,
+    .source_owned_hook_manifest_minter = true,
     .context_retry_capsule_adapter = true,
     .entropy_ingress_capsule_adapter = true,
     .player_tls_prefix_capsule_adapter = true,

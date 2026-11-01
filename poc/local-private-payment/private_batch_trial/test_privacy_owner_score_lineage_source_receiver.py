@@ -15,6 +15,7 @@ import unittest
 
 HERE = Path(__file__).resolve().parent
 FINANCIAL = HERE.parent / 'mpc-prover' / 'financial'
+SANITIZE = os.environ.get('KPI_SANITIZE') == '1'
 
 
 class OwnerScoreLineageSourceReceiverControls(unittest.TestCase):
@@ -27,40 +28,22 @@ class OwnerScoreLineageSourceReceiverControls(unittest.TestCase):
         cls.selection.write_bytes(b'exact-diagnostic-selection\n')
         cls.selection.chmod(0o400)
         cls.control = cls.root / 'receiver-control'
+        sanitizer_flags = (
+            ['-fsanitize=address,undefined', '-fno-omit-frame-pointer']
+            if SANITIZE else [])
         command = [
             'c++', '-std=c++20', '-Wall', '-Wextra', '-Werror',
             '-pedantic', '-ffunction-sections', '-fdata-sections',
-            '-DKPB_OWNER_SCORE_LINEAGE_SOURCE_TEST_SETUP',
-            '-DKPB_OWNER_SCORE_LINEAGE_SOURCE_RECEIVER_TEST_SETUP',
+            *sanitizer_flags,
             '-I', str(HERE), '-I', str(FINANCIAL.parent),
             str(HERE /
                 'privacy_owner_score_lineage_source_receiver_control.cpp'),
-            str(HERE /
-                'privacy_owner_score_lineage_source_receiver.cpp'),
-            str(HERE /
-                'privacy_owner_score_lineage_source_authority.cpp'),
-            str(FINANCIAL /
-                'registered_selected_producer_run_binding.cpp'),
             '-Wl,--gc-sections', '-lcrypto', '-o', str(cls.control),
         ]
         built = subprocess.run(command, capture_output=True, text=True,
                                check=False)
         if built.returncode != 0:
             raise AssertionError(built.stdout + built.stderr)
-        cls.workers = {}
-        worker_source = HERE / (
-            'privacy_owner_score_lineage_source_test_worker.cpp')
-        for fault in range(8):
-            worker = cls.root / f'worker-{fault}'
-            built = subprocess.run([
-                'c++', '-std=c++20', '-Wall', '-Wextra', '-Werror',
-                '-pedantic', f'-DKPB_LINEAGE_TEST_WORKER_FAULT={fault}',
-                '-I', str(HERE), str(worker_source), '-o', str(worker),
-            ], capture_output=True, text=True, check=False)
-            if built.returncode != 0:
-                raise AssertionError(built.stdout + built.stderr)
-            worker.chmod(0o500)
-            cls.workers[fault] = worker
 
     @classmethod
     def tearDownClass(cls):
@@ -127,35 +110,37 @@ int main() {}
                 'outer-attempt-source-authority-missing'):
             self.assertIn(required, source)
 
-    def run_control(self, mode, fault=0):
-        result = subprocess.run([
-            str(self.control), mode, str(self.selection),
-            str(self.workers[fault]),
-        ], capture_output=True, text=True, check=False,
-            env={**os.environ})
+    def test_status_surface_control(self):
+        result = subprocess.run(
+            [str(self.control)], capture_output=True, text=True, check=False)
         self.assertEqual(result.returncode, 0,
                          result.stdout + result.stderr)
+        self.assertEqual((result.stdout, result.stderr), ('', ''))
 
-    def test_credentialed_sealed_fd_transport_and_replay(self):
-        self.run_control('success')
+    def test_removed_lineage_binding_fixture_cannot_be_reintroduced_by_macro(self):
+        with tempfile.TemporaryDirectory(
+                prefix='kpb-lineage-hostile-macro-') as raw:
+            root = Path(raw)
+            source = root / 'hostile.cpp'
+            source.write_text(r'''
+#define KPB_OWNER_SCORE_LINEAGE_SOURCE_RECEIVER_TEST_SETUP
+#include "financial/registered_selected_producer_run_binding.hpp"
+using Binding = kpi::mpc::financial::registered_driver::
+    RegisteredSelectedProducerPrelaunchBindingAuthority;
+auto hostile() { return &Binding::test_only_lineage_binding; }
+''', encoding='utf-8')
+            compiled = self.compile(root / 'hostile.o', source)
+            self.assertNotEqual(compiled.returncode, 0)
+            self.assertIn('test_only_lineage_binding', compiled.stderr)
 
-    def test_fixed_fd_source_collision_is_staged_before_install(self):
-        self.run_control('fd-collision')
-
-    def test_mutable_same_uid_inputs_refuse_before_fork(self):
-        self.run_control('mutable-input')
-
-    def test_cross_binding_substitutions_burn_the_receiver_slot(self):
-        for mode in ('cross-method', 'cross-run', 'cross-source',
-                     'cross-runtime', 'cross-attempt-domain',
-                     'cross-trial', 'cross-class'):
-            with self.subTest(mode=mode):
-                self.run_control(mode)
-
-    def test_packet_descriptor_eof_and_exit_faults_refuse(self):
-        for fault in range(1, 8):
-            with self.subTest(fault=fault):
-                self.run_control('fault', fault)
+    def test_binding_sources_have_no_lineage_fixture_declaration(self):
+        for path in (
+                FINANCIAL / 'registered_selected_producer_run_binding.hpp',
+                FINANCIAL / 'registered_selected_producer_run_binding.cpp'):
+            source = path.read_text(encoding='utf-8')
+            self.assertNotIn('test_only_lineage_binding', source)
+            self.assertNotIn(
+                'KPB_OWNER_SCORE_LINEAGE_SOURCE_RECEIVER_TEST_SETUP', source)
 
     def test_python_fixed_fd_worker_sends_one_sealed_archive(self):
         import privacy_launch as launch

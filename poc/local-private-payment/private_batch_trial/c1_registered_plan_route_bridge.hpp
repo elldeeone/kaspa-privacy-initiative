@@ -5,8 +5,15 @@
 // This module deliberately does not parse lifecycle JSON and does not accept
 // operation IDs, contacts, route digests, or terminal claims as prepare()
 // arguments.  Those values can enter only through opaque source authorities.
-// The controller-source minters and selected launcher are still absent, so the
-// source status remains unconfigured and no actual receipt can be emitted.
+// Source-owned minter cores exist in c1_registered_plan_route_minters.*, but
+// the selected controller/launcher callsites are still absent.  The source
+// status therefore remains unconfigured and no actual receipt can be emitted.
+//
+// KPB_REGISTERED_C1_PLAN_ROUTE_TEST_SETUP is a legacy/synthetic control build,
+// never a selected production build.  No authority or receipt produced in
+// that build is eligible as actual evidence.  Production controls compile the
+// bridge/minter objects with the macro absent and verify that no fixture or
+// test-mint symbol is present.
 
 #include "c1_contact_value_authority.hpp"
 #include "c1_registered_plan_route_bridge_contract.hpp"
@@ -19,6 +26,133 @@
 #include <string>
 
 namespace kpb::measurement::c1_capture {
+
+enum class C1ControllerStage : std::uint8_t;
+class C1ControllerSelectionSourceAuthority;
+class C1Fd31OfferParseSourceAuthority;
+class C1ControllerTerminalSourceAuthority;
+class C1ObservedRouteSourceAuthority;
+class C1Fd31CompletionSourceAuthority;
+class RegisteredC1RoundLineageAuthority;
+class RegisteredC1ControllerSelectionCallsite;
+class RegisteredC1SelectedRound;
+class RegisteredC1SelectedLaunchCallsite;
+class RegisteredC1TerminalCallsite;
+class RegisteredC1TerminalAdmissionSplit;
+#ifdef KPB_REGISTERED_C1_PLAN_ROUTE_TEST_SETUP
+// The macro is caller-controlled, so this test-only friend must also be a
+// complete, non-extensible type in the first header that grants friendship.
+// Otherwise a hostile translation unit can define the exact fixture name and
+// use that friendship to extract a pending production residual.
+class RegisteredC1RouteMinterTestFixture final {
+    RegisteredC1RouteMinterTestFixture() = delete;
+public:
+    static C1ControllerSelectionSourceAuthority selection_source(
+        RegisteredC1ControllerSelectionCallsite&,
+        C1ControllerStage, std::string operation_id,
+        int controller_selection_fd);
+    static C1Fd31OfferParseSourceAuthority fd31_parse_source(
+        RegisteredC1TerminalCallsite&);
+    static C1ControllerTerminalSourceAuthority terminal_source(
+        RegisteredC1TerminalCallsite&, C1ControllerStage,
+        int controller_result_fd, int normalized_worker_exit_code);
+    static C1ObservedRouteSourceAuthority route_source(
+        RegisteredC1TerminalCallsite&, unsigned source_owner_component,
+        int observed_route_fd, int normalized_worker_exit_code = 0);
+    static C1Fd31CompletionSourceAuthority completion_source(
+        RegisteredC1TerminalCallsite&,
+        int normalized_supervisor_exit_code = 0,
+        unsigned observed_retry_count = 0);
+};
+#endif
+
+// These privileged callsite types must be complete before any authority grants
+// friendship to them.  A mere forward declaration lets an unrelated
+// translation unit include this header, define the exact friend name, and
+// acquire the private authority state.  Their pimpls keep the implementation
+// opaque while the complete class definitions make those names non-redefinable.
+class RegisteredC1RuntimeCallsiteBridge final {
+    RegisteredC1RuntimeCallsiteBridge() = delete;
+public:
+    static RegisteredC1ControllerSelectionCallsite
+    begin_controller_selection(
+        RegisteredC1RoundLineageAuthority&&,
+        std::string capture_identity);
+
+    static RegisteredC1SelectedLaunchCallsite prepare_selected(
+        producer_runtime::ParentTenReadEndsAuthority&,
+        RegisteredC1SelectedRound&&);
+};
+
+class RegisteredC1ControllerSelectionCallsite final {
+    struct Storage;
+    std::unique_ptr<Storage> storage_;
+    explicit RegisteredC1ControllerSelectionCallsite(
+        std::unique_ptr<Storage>);
+    friend class RegisteredC1RuntimeCallsiteBridge;
+#ifdef KPB_REGISTERED_C1_PLAN_ROUTE_TEST_SETUP
+    friend class RegisteredC1RouteMinterTestFixture;
+#endif
+public:
+    RegisteredC1ControllerSelectionCallsite(
+        const RegisteredC1ControllerSelectionCallsite&) = delete;
+    RegisteredC1ControllerSelectionCallsite& operator=(
+        const RegisteredC1ControllerSelectionCallsite&) = delete;
+    RegisteredC1ControllerSelectionCallsite(
+        RegisteredC1ControllerSelectionCallsite&&) noexcept;
+    RegisteredC1ControllerSelectionCallsite& operator=(
+        RegisteredC1ControllerSelectionCallsite&&) = delete;
+    ~RegisteredC1ControllerSelectionCallsite();
+
+    void observe_selected_stage(C1ControllerSelectionSourceAuthority&&);
+    RegisteredC1SelectedRound finish() &&;
+};
+
+class RegisteredC1SelectedLaunchCallsite final {
+    struct Storage;
+    std::unique_ptr<Storage> storage_;
+    explicit RegisteredC1SelectedLaunchCallsite(std::unique_ptr<Storage>);
+    friend class RegisteredC1RuntimeCallsiteBridge;
+public:
+    RegisteredC1SelectedLaunchCallsite(
+        const RegisteredC1SelectedLaunchCallsite&) = delete;
+    RegisteredC1SelectedLaunchCallsite& operator=(
+        const RegisteredC1SelectedLaunchCallsite&) = delete;
+    RegisteredC1SelectedLaunchCallsite(
+        RegisteredC1SelectedLaunchCallsite&&) noexcept;
+    RegisteredC1SelectedLaunchCallsite& operator=(
+        RegisteredC1SelectedLaunchCallsite&&) = delete;
+    ~RegisteredC1SelectedLaunchCallsite();
+
+    C1ContactValueOfferAuthority take_fd31_offer();
+    RegisteredC1TerminalCallsite take_terminal_callsite();
+};
+
+class RegisteredC1TerminalCallsite final {
+    struct Storage;
+    std::unique_ptr<Storage> storage_;
+    explicit RegisteredC1TerminalCallsite(std::unique_ptr<Storage>);
+    friend class RegisteredC1SelectedLaunchCallsite;
+#ifdef KPB_REGISTERED_C1_PLAN_ROUTE_TEST_SETUP
+    friend class RegisteredC1RouteMinterTestFixture;
+#endif
+public:
+    RegisteredC1TerminalCallsite(
+        const RegisteredC1TerminalCallsite&) = delete;
+    RegisteredC1TerminalCallsite& operator=(
+        const RegisteredC1TerminalCallsite&) = delete;
+    RegisteredC1TerminalCallsite(RegisteredC1TerminalCallsite&&) noexcept;
+    RegisteredC1TerminalCallsite& operator=(
+        RegisteredC1TerminalCallsite&&) = delete;
+    ~RegisteredC1TerminalCallsite();
+
+    void observe_fd31_offer_parse(C1Fd31OfferParseSourceAuthority&&);
+    void observe_controller_terminal(C1ControllerTerminalSourceAuthority&&);
+    void observe_route_artifact(C1ObservedRouteSourceAuthority&&);
+    void observe_authenticated_completion(
+        C1Fd31CompletionSourceAuthority&&);
+    RegisteredC1TerminalAdmissionSplit finish() &&;
+};
 
 // Exact registered/P1/public provenance copied into one round-scoped child by
 // split_registered_prelaunch().  Plain instances are data, never authority.
@@ -71,6 +205,8 @@ class RegisteredC1RoundLineageAuthority final {
     explicit RegisteredC1RoundLineageAuthority(
         PublicRegisteredC1RoundLineage);
     friend class RegisteredC1PlanRouteBridge;
+    friend class RegisteredC1ControllerSelectionCallsite;
+    friend class RegisteredC1RuntimeCallsiteBridge;
 public:
     RegisteredC1RoundLineageAuthority(
         const RegisteredC1RoundLineageAuthority&) = delete;
@@ -132,6 +268,8 @@ class C1AcceptedControllerSelectionAuthority final {
     explicit C1AcceptedControllerSelectionAuthority(
         PublicC1AcceptedControllerSelection);
     friend class RegisteredC1PlanRouteBridge;
+    friend class RegisteredC1ControllerSelectionCallsite;
+    friend class RegisteredC1RuntimeCallsiteBridge;
 public:
     C1AcceptedControllerSelectionAuthority(
         const C1AcceptedControllerSelectionAuthority&) = delete;
@@ -169,6 +307,7 @@ class RegisteredC1PendingTerminalAuthority final {
         WorkerBinding, Digest, Digest, std::uint64_t, std::uint64_t,
         Digest, Digest);
     friend class RegisteredC1PlanRouteBridge;
+    friend class RegisteredC1TerminalCallsite;
 public:
     RegisteredC1PendingTerminalAuthority(
         const RegisteredC1PendingTerminalAuthority&) = delete;
@@ -227,6 +366,7 @@ class C1Fd31QualifiedCompletionAckAuthority final {
     explicit C1Fd31QualifiedCompletionAckAuthority(
         PublicC1Fd31QualifiedCompletionAck);
     friend class RegisteredC1PlanRouteBridge;
+    friend class RegisteredC1TerminalCallsite;
 public:
     C1Fd31QualifiedCompletionAckAuthority(
         const C1Fd31QualifiedCompletionAckAuthority&) = delete;
@@ -287,6 +427,7 @@ class C1AcceptedControllerResultAuthority final {
     explicit C1AcceptedControllerResultAuthority(
         PublicC1AcceptedControllerResult);
     friend class RegisteredC1PlanRouteBridge;
+    friend class RegisteredC1TerminalCallsite;
 public:
     C1AcceptedControllerResultAuthority(
         const C1AcceptedControllerResultAuthority&) = delete;
@@ -342,6 +483,7 @@ class C1ObservedInvoiceRouteAuthority final {
     explicit C1ObservedInvoiceRouteAuthority(
         PublicC1ObservedInvoiceRoute);
     friend class RegisteredC1PlanRouteBridge;
+    friend class RegisteredC1TerminalCallsite;
 public:
     C1ObservedInvoiceRouteAuthority(
         const C1ObservedInvoiceRouteAuthority&) = delete;
@@ -373,12 +515,24 @@ struct RegisteredC1PlanRouteSourceStatus final {
     bool retry_and_terminal_history_required{};
     bool archive_observer_admission_join_exists{};
     bool caller_event_or_digest_factory{};
+    bool immutable_sealed_source_snapshot_core{};
+    bool opaque_source_controller_selection_minter_core{};
+    bool opaque_source_fd31_completion_ack_minter_core{};
+    bool opaque_source_controller_terminal_minter_core{};
+    bool opaque_source_observed_route_minter_core{};
     bool production_controller_selection_minter{};
     bool production_fd31_completion_ack_minter{};
     bool production_controller_terminal_minter{};
     bool production_observed_route_minter{};
+    bool production_two_round_route_evidence_minter{};
+    bool typed_launcher_terminal_callsite_contract_core{};
+    bool two_round_route_evidence_join_core{};
+    bool exact_launcher_terminal_callsite_contract{};
+    bool fail_closed_two_round_route_join{};
     bool selected_launcher_consumes_offer{};
     bool selected_terminal_admission_callsite{};
+    bool selected_two_round_route_callsite{};
+    bool selected_consumer_uses_same_source_snapshot{};
     bool owner_truth_input{};
     bool actual_receipt_emitted{};
     bool configured{};

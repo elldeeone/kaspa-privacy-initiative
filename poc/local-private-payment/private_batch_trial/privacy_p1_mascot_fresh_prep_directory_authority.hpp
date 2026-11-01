@@ -3,8 +3,10 @@
 // Source-owned fresh filesystem capability for the selected persistent P1
 // MASCOT setup. The selected activation creates the directory only after the
 // role processes have been reserved, so no child inherits an ambient alias.
-// A later capsule compiler may transfer the opaque capability to role 1. No
-// path, branch, digest, event count, or caller-owned descriptor is accepted.
+// The prelaunch compiler can consume and retain the opaque capability, but it
+// cannot transfer a plan to role 1 until the missing epoch authorities and
+// selected capture callsites exist. No path, branch, digest, event count, or
+// caller-owned descriptor is accepted.
 
 #include "../mpc-prover/financial/registered_selected_producer_activation_contract.hpp"
 #include "privacy_p1_state_capsule_prelaunch_compiler_contract.hpp"
@@ -40,11 +42,6 @@ class P1MascotTwoRoundManifestCompilerBridge final {
     static P1MascotTwoRoundManifestAuthority compile(
         P1MascotFreshPrepDirectoryAuthority&&);
     friend class P1StateCapsulePrelaunchCompilerBridge;
-public:
-#ifdef KPB_P1_MASCOT_TWO_ROUND_MANIFEST_TEST_SETUP
-    static P1MascotTwoRoundManifestAuthority test_only_compile(
-        P1MascotFreshPrepDirectoryAuthority&&);
-#endif
 };
 
 // Both privileged names are complete before friendship is granted below.
@@ -56,10 +53,6 @@ class P1MascotFreshPrepDirectorySourceBridge final {
     mint_for_selected_activation();
     friend class kpi::mpc::financial::registered_driver::
         RegisteredSelectedProducerActivationBridge;
-public:
-#ifdef KPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP
-    static P1MascotFreshPrepDirectoryAuthority test_only_mint();
-#endif
 };
 
 class P1MascotFreshPrepDirectoryAuthority final {
@@ -84,27 +77,6 @@ public:
     P1MascotFreshPrepDirectoryAuthority& operator=(
         P1MascotFreshPrepDirectoryAuthority&&) = delete;
     ~P1MascotFreshPrepDirectoryAuthority();
-
-#ifdef KPB_P1_MASCOT_FRESH_PREP_DIRECTORY_TEST_SETUP
-    struct TestOnlySummary final {
-        std::uint64_t parent_device{};
-        std::uint64_t parent_inode{};
-        std::uint64_t directory_device{};
-        std::uint64_t directory_inode{};
-        std::uint64_t directory_mode{};
-        std::uint64_t directory_uid{};
-        std::uint64_t directory_gid{};
-        std::uint64_t directory_link_count{};
-        std::array<unsigned char, 32> source_nonce{};
-        bool parent_and_directory_cloexec{};
-        bool parent_name_matches_open_descriptor{};
-        bool source_created_empty{};
-        bool compiler_claimed{};
-    };
-    TestOnlySummary test_only_summary() const;
-    int test_only_duplicate_directory_fd() const;
-    void test_only_mark_compiler_claimed();
-#endif
 };
 
 struct P1MascotFreshPrepDirectorySourceStatus final {

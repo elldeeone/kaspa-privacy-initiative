@@ -122,6 +122,8 @@ class RegisteredSelectedProducerPrelaunchBindingAuthority final {
     RegisteredSelectedProducerPrelaunchBindingAuthority(
         RegisteredSelectedProducerPrelaunchPlan,
         identity_registry::Digest);
+    const RegisteredSelectedProducerPrelaunchPlan&
+        inspect_for_state_capsule_compiler() const;
     friend class RegisteredSelectedProducerPrelaunchBindingFactory;
     friend class RegisteredSelectedProducerActivationBridge;
     friend class RegisteredFreshTrialProducerClosureBridge;
@@ -129,6 +131,8 @@ class RegisteredSelectedProducerPrelaunchBindingAuthority final {
         RegisteredC1PlanRouteBridge;
     friend class ::kpb::measurement::score_output_lineage_source::
         PrivacyLaunchLineageSourceReceiverBridge;
+    friend class ::kpb::measurement::p1_state::
+        P1StateCapsulePrelaunchCompilerBridge;
 public:
     RegisteredSelectedProducerPrelaunchBindingAuthority(
         const RegisteredSelectedProducerPrelaunchBindingAuthority&) = delete;
@@ -140,11 +144,6 @@ public:
         RegisteredSelectedProducerPrelaunchBindingAuthority&&) = delete;
     ~RegisteredSelectedProducerPrelaunchBindingAuthority();
 
-#ifdef KPB_OWNER_SCORE_LINEAGE_SOURCE_RECEIVER_TEST_SETUP
-    static RegisteredSelectedProducerPrelaunchBindingAuthority
-        test_only_lineage_binding(
-            RegisteredSelectedProducerPrelaunchPlan, int, int);
-#endif
 };
 
 class RegisteredSelectedProducerPrelaunchBindingFactory final {

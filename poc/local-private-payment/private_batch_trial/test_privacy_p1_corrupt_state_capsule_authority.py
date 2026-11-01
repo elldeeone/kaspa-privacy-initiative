@@ -205,7 +205,7 @@ static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.source_only_caps
 static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.chronology_correct_prelaunch_binding);
 static_assert(!kpb::measurement::p1_state_capsule::kSourceStatus.source_owned_prelaunch_minter);
 static_assert(!kpb::measurement::p1_state_capsule::kSourceStatus.role1_activation_attachment);
-static_assert(!kpb::measurement::p1_state_capsule::kSourceStatus.role0_role2_compiletime_absence);
+static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.role0_role2_compiletime_absence);
 static_assert(!kpb::measurement::p1_state_capsule::kSourceStatus.postrun_projection_exit_residual);
 static_assert(!kpb::measurement::p1_state_capsule::kSourceStatus.begins_before_player_construction);
 static_assert(!kpb::measurement::p1_state_capsule::kSourceStatus.success_and_abort_close);
@@ -217,7 +217,7 @@ static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.thread_join_requ
 static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.hook_manifest_inventory_enforced);
 static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.source_family_missing_disposition_grammar);
 static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.missing_family_cannot_complete);
-static_assert(!kpb::measurement::p1_state_capsule::kSourceStatus.source_owned_hook_manifest_minter);
+static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.source_owned_hook_manifest_minter);
 static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.context_retry_capsule_adapter);
 static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.entropy_ingress_capsule_adapter);
 static_assert(kpb::measurement::p1_state_capsule::kSourceStatus.player_tls_prefix_capsule_adapter);

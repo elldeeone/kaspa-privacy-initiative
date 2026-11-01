@@ -16,18 +16,33 @@ namespace kpb::measurement::score_output_lineage_source {
 class SelectedOwnerScoreLineagePrelaunchSourceAuthority;
 }
 
+namespace kpb::measurement::p1_state {
+class P1MascotFreshPrepDirectoryAuthority;
+class P1StateCapsulePrelaunchUnavailableAuthority;
+class P1StateCapsulePrelaunchSplit;
+class P1StateCapsulePrelaunchCompilerBridge;
+}
+
 namespace kpi::mpc::financial::fresh_owner_issuance {
 class FreshOwnerPersistentActivationAuthority;
 }
 
 namespace kpi::mpc::financial::registered_driver {
 
+class RegisteredSelectedProducerPrelaunchBindingAuthority;
+
 class RegisteredSelectedProducerActivationAuthority final {
     struct Storage;
     std::unique_ptr<Storage> storage_;
     explicit RegisteredSelectedProducerActivationAuthority(
         std::unique_ptr<Storage>) noexcept;
+    const RegisteredSelectedProducerPrelaunchBindingAuthority&
+        inspect_for_state_capsule_compiler() const;
+    kpb::measurement::p1_state::P1MascotFreshPrepDirectoryAuthority
+        claim_mascot_for_state_capsule_compiler();
     friend class RegisteredSelectedProducerActivationBridge;
+    friend class ::kpb::measurement::p1_state::
+        P1StateCapsulePrelaunchCompilerBridge;
 public:
     RegisteredSelectedProducerActivationAuthority(
         const RegisteredSelectedProducerActivationAuthority&) = delete;
@@ -68,10 +83,11 @@ class RegisteredSelectedProducerActivationResult final {
     explicit RegisteredSelectedProducerActivationResult(
         std::unique_ptr<RegisteredSelectedProducerActivationFailureAuthority>)
         noexcept;
+    RegisteredSelectedProducerActivationAuthority
+        claim_success_for_state_capsule_compiler() &&;
     friend class RegisteredSelectedProducerActivationBridge;
-#ifdef KPB_SELECTED_PRODUCER_ACTIVATION_TEST_SETUP
-    friend class RegisteredSelectedProducerActivationTestBridge;
-#endif
+    friend class ::kpb::measurement::p1_state::
+        P1StateCapsulePrelaunchCompilerBridge;
 public:
     RegisteredSelectedProducerActivationResult(
         const RegisteredSelectedProducerActivationResult&) = delete;
@@ -95,15 +111,40 @@ public:
             SelectedOwnerScoreLineagePrelaunchSourceAuthority&&);
 };
 
-#ifdef KPB_SELECTED_PRODUCER_ACTIVATION_TEST_SETUP
-class RegisteredSelectedProducerActivationTestBridge final {
-    RegisteredSelectedProducerActivationTestBridge() = delete;
-public:
-    static bool succeeded(
-        const RegisteredSelectedProducerActivationResult&) noexcept;
-    static bool failed(
-        const RegisteredSelectedProducerActivationResult&) noexcept;
-};
-#endif
-
 } // namespace kpi::mpc::financial::registered_driver
+
+namespace kpb::measurement::p1_state {
+
+// Complete before it appears in the public compiler signature. The opaque
+// storage retains the selected activation and exact Missing manifests without
+// exposing invented epoch values or a capsule-plan authority.
+class P1StateCapsulePrelaunchUnavailableAuthority final {
+    struct Storage;
+    std::unique_ptr<Storage> storage_;
+    explicit P1StateCapsulePrelaunchUnavailableAuthority(
+        std::unique_ptr<Storage>) noexcept;
+    friend class P1StateCapsulePrelaunchCompilerBridge;
+public:
+    P1StateCapsulePrelaunchUnavailableAuthority(
+        const P1StateCapsulePrelaunchUnavailableAuthority&) = delete;
+    P1StateCapsulePrelaunchUnavailableAuthority& operator=(
+        const P1StateCapsulePrelaunchUnavailableAuthority&) = delete;
+    P1StateCapsulePrelaunchUnavailableAuthority(
+        P1StateCapsulePrelaunchUnavailableAuthority&&) noexcept;
+    P1StateCapsulePrelaunchUnavailableAuthority& operator=(
+        P1StateCapsulePrelaunchUnavailableAuthority&&) = delete;
+    ~P1StateCapsulePrelaunchUnavailableAuthority();
+};
+
+// Complete only after the production input authority is complete. This keeps
+// the public compile signature immune to a hostile replacement definition
+// while preserving the narrow friendship declared above.
+class P1StateCapsulePrelaunchCompilerBridge final {
+    P1StateCapsulePrelaunchCompilerBridge() = delete;
+public:
+    static P1StateCapsulePrelaunchUnavailableAuthority compile(
+        kpi::mpc::financial::registered_driver::
+            RegisteredSelectedProducerActivationResult&&);
+};
+
+} // namespace kpb::measurement::p1_state

@@ -316,8 +316,60 @@ void protocol_failure_retains_prefix_and_nonzero_tau() {
     need(hook.unavailable_count == 1 && hook.terminal_count == 0);
 }
 
+void source_branch_failures_are_typed_unavailable() {
+    {
+        Hook hook;
+        auto scope = MacCheckScopeFactoryBridge::test_only_install(
+            hook, 76, 1, 106, 1, 3);
+        MacCheckSourceBridge::test_only_debug_branch();
+        need(hook.unavailable_count == 1 && hook.terminal_count == 0 &&
+             hook.last_unavailable_site ==
+                 MacCheckUnavailableSite::DebugBranch &&
+             hook.last_unavailable_reason ==
+                 MacCheckUnavailableReason::UnsupportedDebugBranch &&
+             hook.last_active_check_epoch == 0 &&
+             hook.last_completed_edge_count == 0);
+        need(!std::move(scope).finish_noexcept());
+    }
+    {
+        Hook hook;
+        auto scope = MacCheckScopeFactoryBridge::test_only_install(
+            hook, 77, 2, 107, 1, 3);
+        MacCheckSourceBridge::test_only_source_serialization_failure();
+        need(hook.unavailable_count == 1 && hook.terminal_count == 0 &&
+             hook.last_unavailable_site ==
+                 MacCheckUnavailableSite::SourceSerialization &&
+             hook.last_unavailable_reason ==
+                 MacCheckUnavailableReason::SourceSerializationFailure &&
+             hook.last_active_check_epoch == 0 &&
+             hook.last_completed_edge_count == 0);
+        need(!std::move(scope).finish_noexcept());
+    }
+    {
+        Fixture value;
+        Hook hook;
+        auto scope = MacCheckScopeFactoryBridge::test_only_install(
+            hook, 78, 1, 108, 1, 3);
+        auto attempt = MacCheckSourceBridge::test_only_check_begin(
+            1, 3, 2, value.alpha, value.values, value.macs);
+        MacCheckSourceBridge::test_only_collective_seed(attempt, value.seed);
+        MacCheckSourceBridge::test_only_source_serialization_failure();
+        need(hook.unavailable_count == 1 &&
+             hook.last_unavailable_site ==
+                 MacCheckUnavailableSite::SourceSerialization &&
+             hook.last_unavailable_reason ==
+                 MacCheckUnavailableReason::SourceSerializationFailure &&
+             hook.last_active_check_epoch == 1 &&
+             hook.last_completed_edge_count == 2 &&
+             hook.last_pending_open_count == 2);
+        need(!std::move(scope).finish_noexcept());
+    }
+}
+
 enum class AbortCase {
     WrongOrder,
+    DuplicateSeed,
+    ReplayCompletedAttempt,
     RejectedSeed,
     InvalidBeginWidth,
     UnboundWorker,
@@ -370,6 +422,20 @@ void expect_fail_stop(AbortCase selected) {
             if (selected == AbortCase::WrongOrder) {
                 MacCheckSourceBridge::test_only_local_tau(
                     attempt, 2, value.coefficients, value.tau);
+            } else if (selected == AbortCase::DuplicateSeed) {
+                MacCheckSourceBridge::test_only_collective_seed(
+                    attempt, value.seed);
+                MacCheckSourceBridge::test_only_collective_seed(
+                    attempt, value.seed);
+            } else if (selected == AbortCase::ReplayCompletedAttempt) {
+                MacCheckSourceBridge::test_only_collective_seed(
+                    attempt, value.seed);
+                MacCheckSourceBridge::test_only_local_tau(
+                    attempt, 2, value.coefficients, value.tau);
+                MacCheckSourceBridge::test_only_success_reset(
+                    attempt, 0, value.zero);
+                MacCheckSourceBridge::test_only_collective_seed(
+                    attempt, value.seed);
             } else if (selected == AbortCase::RejectedSeed) {
                 MacCheckSourceBridge::test_only_collective_seed(
                     attempt, value.seed);
@@ -420,8 +486,11 @@ void expect_fail_stop(AbortCase selected) {
     unsigned char marker{};
     const auto marker_size = ::read(marker_pipe[0], &marker, 1);
     need(::close(marker_pipe[0]) == 0);
-    need(marker_size == 1 && marker == 0xb8 && WIFSIGNALED(status) &&
-         WTERMSIG(status) == SIGABRT);
+    const bool replay_without_active_scope =
+        selected == AbortCase::ReplayCompletedAttempt;
+    need((replay_without_active_scope ? marker_size == 0 :
+              marker_size == 1 && marker == 0xb8) &&
+         WIFSIGNALED(status) && WTERMSIG(status) == SIGABRT);
 }
 
 void manifest_is_ordered_and_typed() {
@@ -448,8 +517,11 @@ int main() {
     exact_sequence_and_explicit_thread();
     dropped_and_terminal_refusal_are_unavailable();
     protocol_failure_retains_prefix_and_nonzero_tau();
+    source_branch_failures_are_typed_unavailable();
     for (const auto selected : {
              AbortCase::WrongOrder,
+             AbortCase::DuplicateSeed,
+             AbortCase::ReplayCompletedAttempt,
              AbortCase::RejectedSeed,
              AbortCase::InvalidBeginWidth,
              AbortCase::UnboundWorker,
