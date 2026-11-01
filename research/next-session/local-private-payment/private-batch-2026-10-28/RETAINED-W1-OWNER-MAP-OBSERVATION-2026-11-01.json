@@ -1,0 +1,201 @@
+{
+  "attack": "recover each owner-labelled input nullifier and link it to that owner's two created output tuples",
+  "classification": "OFFLINE_RETAINED_COMPONENT_OBSERVATION_ONLY",
+  "date": "2026-11-01",
+  "evaluator": {
+    "candidate_allowlist": [
+      "projection.bin",
+      "c1-residual.json"
+    ],
+    "candidate_excluded": [
+      "joint-ordering.json",
+      "w0-selection.json",
+      "owner-0-record.json",
+      "owner-1-record.json",
+      "owner-2-record.json"
+    ],
+    "method": "parse retained projection bytes with privacy_observer.batch_from_projection; translate only legitimate owner-1 C1 facts into constraints; enumerate with privacy_codec.assignments",
+    "source_sha256": {
+      "offline_w1_components.py": "666285ec8ceb4ea6e3574ef403b518a124d3cb1c2074d6de5ce7553f858ef527",
+      "offline_w1_fixture.py": "89e05932c5937e580b90863739a3a583e35b6881be4d17490f8c138777bfb828",
+      "privacy_codec.py": "78cf9c0021f4cc21f40dd84a00564393a8ebce4381780651b7146072ed642de6",
+      "privacy_observer.py": "aceadace4a5d6cbfaf20a3404e6690409bb15570f01a816914a0d7eb92cfc0eb"
+    }
+  },
+  "executable_paths": {
+    "current_source_constructor_control": {
+      "binary": "poc/local-private-payment/private-batch-relation/target/release/examples/compare_joint_core",
+      "binary_sha256": "a6f3042451c9d67a4094000356f9bce15cb0f89163f8931644d5aa9ac595737a",
+      "effect_bytes": 10364,
+      "graph_sha256": "d1cb0a9fe061d22be8f9e8d74749148286ced5463ea07c81770450ded462a8fd",
+      "invocations_exited_zero": 2,
+      "model_core_variables_compared": 12919677,
+      "scope": "PUBLIC_INVALID_CORE_ONLY_ORACLE_NO_PRIVATE_BODY",
+      "trace_operations": 15474590,
+      "trace_variables": 31296293
+    },
+    "intended_registered_path": {
+      "binary": ".local/registered-financial-selection-05/qualifier/mpc-registered-financial-gate",
+      "binary_sha256": "110e46e8471b7885b34fe3259bf32135c026751c7cd54e74e34b303ec6db3eea",
+      "observed_exit": 78,
+      "observed_stderr": "KPI_REGISTERED_FINANCIAL_UNCONFIGURED_REFUSED",
+      "owner_or_mpc_work_started": false,
+      "selected_configuration": false
+    },
+    "retained_component_path": {
+      "artifact_root": ".local/private-batch-offline-w1-components-20261029-01",
+      "classification": "OFFLINE_SYNTHETIC_UNBACKED_CLEAR_WITNESS_FEASIBILITY_ONLY",
+      "generator": "poc/local-private-payment/private_batch_trial/offline_w1_fixture.py with offline_w1_components.py",
+      "genuine_output_proofs": 12,
+      "genuine_signature_witnesses": 6,
+      "rounds": 2
+    }
+  },
+  "implementation_gap": {
+    "first_missing_production_definition": "int kpi::mpc::financial::selected_registered_financial_main()",
+    "first_missing_selection": "KPI_REGISTERED_FINANCIAL_CONFIGURED=1 plus KPI_REGISTERED_FINANCIAL_DRIVER_HEADER",
+    "further_requirements_for_complete_registered_trial": [
+      "production model-configuration and roster-authority minters",
+      "selected parent callsite",
+      "role-1 KPB_MP_SPDZ_P1_PLAYER_TLS_HOOK_V1 integration or a narrow decoupling from the bounded map observation",
+      "production retained projection-to-terminal handoff"
+    ],
+    "registered_gate_source": "poc/local-private-payment/mpc-prover/financial/registered_gate_main.cpp",
+    "selection_source": "poc/local-private-payment/mpc-prover/financial/registered_service_selection.hpp"
+  },
+  "integrity": {
+    "artifact_bytes_hashed": 526061629,
+    "artifact_leaves": 80,
+    "checkpoint_chain_status": "RETAINED_CHECKPOINT_CHAIN_INTEGRITY_OK",
+    "final_checkpoint_sha256": "d787de9f71e206850f3d30c45628d5f0affbbc0d55149605117a9fec2a9abdd2",
+    "stages": 7
+  },
+  "limitations": {
+    "aggregate_proof_present": false,
+    "current_full_semantic_validator": {
+      "category": "artifact-size-substitution",
+      "command_result": "OFFLINE_W1_REFUSED",
+      "source_drift": {
+        "Cargo.lock": {
+          "current_bytes": 38096,
+          "current_sha256": "bb692315172a2b3aff7941d1769ec3ef5f3641e3c3d7c0665db1f7e20b912eb0",
+          "pinned_bytes": 38060,
+          "pinned_sha256": "fe0af1b1ff77eba2acf57ea069b8942d0884b2b8e5ce728647373d5f768ec09f"
+        },
+        "Cargo.toml": {
+          "current_bytes": 1842,
+          "current_sha256": "858207219a85010363749e8fcf5a567ecc015956be98c8d53b73463703c168c6",
+          "pinned_bytes": 1181,
+          "pinned_sha256": "3d9b8b5cab53b3680f2ac5e1fb00d0d88293acecf65cb90dc74d21dfcd6c7ca6"
+        },
+        "src/lib.rs": {
+          "current_bytes": 6167,
+          "current_sha256": "4c00a14b5de1317a8d209c266af0dbb6db00496ef1f74e3809c1f6a9e9d02091",
+          "pinned_bytes": 3383,
+          "pinned_sha256": "716b238068027ad2d90f47838dd1fe178d4409fc91ef31c5986d722be109bc5a"
+        }
+      }
+    },
+    "live_c1_authority": false,
+    "registered_mpc_execution": false,
+    "testnet_or_production_privacy_claim": false
+  },
+  "result": {
+    "current_full_component_bundle_hides_map": false,
+    "current_full_component_bundle_reason": "joint-ordering.json, w0-selection.json and owner records reconstruct the exact map",
+    "projection_plus_legitimate_c1_view_hides_both_honest_complete_maps": true,
+    "projection_plus_legitimate_c1_view_is_enforced_by_current_offline_bundle": false,
+    "registered_end_to_end_result_available": false,
+    "summary": "the projection-only boundary hides the direct map; the current executable bundle does not enforce that boundary"
+  },
+  "rounds": [
+    {
+      "baseline": {
+        "honest_complete_maps_uniquely_recovered": 2,
+        "joint_candidates": 1,
+        "nf_to_created_pair_relations": 1
+      },
+      "c1_sha256": "4a1566d9c4caa501f7a6b82cb39d8c2ea58b42163d53f4fe95c7ce9ec6e6c8c0",
+      "candidate": {
+        "forbidden_direct_exports": 0,
+        "honest_complete_maps_uniquely_recovered": 0,
+        "honest_owner_candidate_output_pairs": {
+          "0": 6,
+          "2": 6
+        },
+        "joint_candidates": 6,
+        "nf_to_created_pair_relations": 6
+      },
+      "checkpoint_identity_sha256": "b097192b11b0c0928db7fcb30a4c72577fcc1bd2eb578e2b2efa3f1d1d16a9e3",
+      "contact_value_authority_was_live": false,
+      "joint_ordering_sha256": "2c1fca4c5f9436ecf23dfb7559c5e72df21e1e993ca90a174a9f70624dc6a1e0",
+      "projection_bytes": 10685,
+      "projection_sha256": "f92f902668c569085aa27b9c03a5aeecda45a0e0a307890391337e9fe1dca037",
+      "round": 1,
+      "truth_input_owner_order": [
+        1,
+        2,
+        0
+      ],
+      "truth_output_creator_order": [
+        1,
+        2,
+        1,
+        2,
+        0,
+        0
+      ],
+      "w0_selection_sha256": "b732da30e5e7a09da7ff390d878ebfbee91929325d53713d531ab32fdf0c2cef"
+    },
+    {
+      "baseline": {
+        "honest_complete_maps_uniquely_recovered": 2,
+        "joint_candidates": 1,
+        "nf_to_created_pair_relations": 1
+      },
+      "c1_sha256": "593c202f20c9f664c5a87e865a8ca780df5a7b0dff09e23a08207d5d78f75c8d",
+      "candidate": {
+        "forbidden_direct_exports": 0,
+        "honest_complete_maps_uniquely_recovered": 0,
+        "honest_owner_candidate_output_pairs": {
+          "0": 6,
+          "2": 6
+        },
+        "joint_candidates": 6,
+        "nf_to_created_pair_relations": 6
+      },
+      "checkpoint_identity_sha256": "3332832e9b2b51baae20ff972d2a1cb335d1cef43edcb2bd65a573319cac4cdd",
+      "contact_value_authority_was_live": false,
+      "joint_ordering_sha256": "ad00b523e1223c257f5b6569e9c4351526ef2c10ad74027afd2c56a28757716a",
+      "projection_bytes": 10685,
+      "projection_sha256": "913c82f44e75e4e908140f9c342feb7d222a977b9758a15acdeb77c598bf7b4d",
+      "round": 2,
+      "truth_input_owner_order": [
+        0,
+        2,
+        1
+      ],
+      "truth_output_creator_order": [
+        2,
+        2,
+        0,
+        1,
+        1,
+        0
+      ],
+      "w0_selection_sha256": "0c2287d4aee545ef499570f13b47fcd0b03a37d3c57276e64cbe1523ff1c85e2"
+    }
+  ],
+  "schema": "kpb-retained-owner-map-observation/v1",
+  "smallest_remaining_change": {
+    "for_corrupt_host_or_construction_root_privacy": "no output filter is sufficient; stop materializing the clear owner map outside MPC or isolate it behind an actually enforced private boundary",
+    "for_public_or_terminal_observer_privacy": "release only projection.bin plus legitimate C1 facts and make joint-ordering.json, w0-selection.json, owner records and preparation receipts inaccessible to that observer",
+    "measurement_framework_change_required": false,
+    "registered_path_assessment": "a genuine paired registered run is not a small change because the selected driver and required production authorities/callsites are absent"
+  },
+  "subject_source_commit": "f3c51589959dc18de9dc3a0fa6993a7c030f31a0",
+  "two_round": {
+    "baseline_graphs": 1,
+    "candidate_graphs_before_extra_cross_round_leakage": 36
+  }
+}
