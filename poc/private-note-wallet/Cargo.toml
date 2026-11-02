@@ -8,6 +8,8 @@ publish = false
 default = ["wallet"]
 wallet = ["dep:ark-relations", "dep:ark-r1cs-std", "dep:ark-crypto-primitives", "dep:crypto_box", "dep:rand", "ark-groth16/parallel"]
 tn10-rehearsal = []
+privacy-experiment-depth-4 = []
+tn10-full-drainage-depth-4 = []
 [[bin]]
 name = "kpi-private-note-wallet"
 path = "src/main.rs"

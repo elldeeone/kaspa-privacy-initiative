@@ -1,0 +1,68 @@
+{
+  "actualGrossHistoryRetainedByBalanceView": true,
+  "actualGrossHistoryRetainedByLineageView": true,
+  "balanceOnlyGrossHistoryCount": 2,
+  "candidateMergeGrossHistoryCount": 2,
+  "controls": {
+    "falseMToSIsUniqueWrong": true,
+    "sparseKnownOwnerRemainsUnique": true
+  },
+  "decision": {
+    "biggestDemonstratedDirectPaymentLeak": "known-owner full-drainage balances reveal B->M 20000000 sompi and constrain A->M to 30000000 or 40000000 sompi",
+    "blocker": "transparent complete withdrawals plus known-owner mappings preserve per-owner net balances; reserve consolidation cannot hide those balances",
+    "protocolFixReady": false,
+    "reserveLineageAddsExactFundingOriginLeak": true,
+    "reserveLineageReconstructsDirectGrossHistory": false,
+    "syntheticMergeImprovesDirectPaymentHistory": false,
+    "syntheticMergeImprovesFundingOriginAmbiguity": true
+  },
+  "frozenHypothesisConfirmed": false,
+  "fundingOriginCandidatesPerPayout": {
+    "baseline": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "syntheticCommonReserve": [
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "participantViews": {
+    "A": {
+      "executionTruthRetained": true,
+      "otherPaymentGrossHistoryCandidates": 2,
+      "otherUsersPrivateFactsSupplied": false,
+      "ownFactsKey": "A->M:30000000;A->S:10000000"
+    },
+    "B": {
+      "executionTruthRetained": true,
+      "otherPaymentGrossHistoryCandidates": 18,
+      "otherUsersPrivateFactsSupplied": false,
+      "ownFactsKey": "B->M:20000000"
+    },
+    "M": {
+      "executionTruthRetained": true,
+      "otherPaymentGrossHistoryCandidates": 2,
+      "otherUsersPrivateFactsSupplied": false,
+      "ownFactsKey": "A->M:30000000;B->M:20000000"
+    },
+    "S": {
+      "executionTruthRetained": true,
+      "otherPaymentGrossHistoryCandidates": 4,
+      "otherUsersPrivateFactsSupplied": false,
+      "ownFactsKey": "A->S:10000000"
+    }
+  },
+  "privateKeysBackupsOrWitnessesRead": false,
+  "privateTruthReadOnlyAfterSeal": true,
+  "reserveLineageGrossHistoryCount": 2,
+  "reserveLineageMatchesActualFundingOrigins": true,
+  "schema": "full-drainage-live-reserve-lineage-validation-v1",
+  "sealedPredictionsSha256": "2d83123dc3572c2fd686642473341ffbb8a109c984a65a17f5a6451f8206a20e"
+}

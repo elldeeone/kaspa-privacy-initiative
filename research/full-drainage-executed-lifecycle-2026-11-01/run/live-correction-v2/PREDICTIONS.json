@@ -1,0 +1,449 @@
+{
+  "boundary": {
+    "accountingAppliesOnlyToSuccessfulAttempt06NotEarlierTrials": true,
+    "amountsOwnerMappingsTransferCountAndTerminalNotesConstrainEnumeration": true,
+    "confirmationRecordsAreOfflineEvidenceNotFreshRPCVerification": true,
+    "contactGraphAndAmountGridAreRetainedWorkloadAssumptions": true,
+    "cryptographicOpacityAssumedNotProved": true,
+    "feesTimingSponsorBatchingAndPayloadShapesWereLoggedButNotUsedAsDiscriminatingLikelihoods": true,
+    "nativeOwnerPayoutsAlsoIncludePermissionRentRefunds": true,
+    "noGeneralAnonymityOrEqualPosteriorClaim": true,
+    "serviceViewHasNoIndependentlyImplementedNetworkAttributionAttack": true
+  },
+  "conditionalRelationshipSensitivities": {
+    "A->M": {
+      "amountUnitSompi": 10000000,
+      "eventSequenceCount": 9,
+      "grossHistories": [
+        [
+          [
+            "A",
+            "M",
+            3
+          ],
+          [
+            "A",
+            "S",
+            1
+          ],
+          [
+            "B",
+            "M",
+            2
+          ]
+        ],
+        [
+          [
+            "A",
+            "M",
+            4
+          ],
+          [
+            "B",
+            "M",
+            2
+          ],
+          [
+            "M",
+            "S",
+            1
+          ]
+        ]
+      ],
+      "grossHistoryCount": 2,
+      "paymentFacts": [
+        {
+          "amountSompiCandidates": [
+            30000000,
+            40000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "A"
+        },
+        {
+          "amountSompiCandidates": [
+            10000000
+          ],
+          "presentInEveryHistory": false,
+          "recipient": "S",
+          "sender": "A"
+        },
+        {
+          "amountSompiCandidates": [
+            20000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "B"
+        },
+        {
+          "amountSompiCandidates": [
+            10000000
+          ],
+          "presentInEveryHistory": false,
+          "recipient": "S",
+          "sender": "M"
+        }
+      ],
+      "provenance": "hypothetical additional external knowledge; not measured RPC/network evidence",
+      "relationshipAssumedKnown": [
+        "A",
+        "M"
+      ]
+    },
+    "A->S": {
+      "amountUnitSompi": 10000000,
+      "eventSequenceCount": 6,
+      "grossHistories": [
+        [
+          [
+            "A",
+            "M",
+            3
+          ],
+          [
+            "A",
+            "S",
+            1
+          ],
+          [
+            "B",
+            "M",
+            2
+          ]
+        ]
+      ],
+      "grossHistoryCount": 1,
+      "paymentFacts": [
+        {
+          "amountSompiCandidates": [
+            30000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "A"
+        },
+        {
+          "amountSompiCandidates": [
+            10000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "S",
+          "sender": "A"
+        },
+        {
+          "amountSompiCandidates": [
+            20000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "B"
+        }
+      ],
+      "provenance": "hypothetical additional external knowledge; not measured RPC/network evidence",
+      "relationshipAssumedKnown": [
+        "A",
+        "S"
+      ]
+    },
+    "B->M": {
+      "amountUnitSompi": 10000000,
+      "eventSequenceCount": 9,
+      "grossHistories": [
+        [
+          [
+            "A",
+            "M",
+            3
+          ],
+          [
+            "A",
+            "S",
+            1
+          ],
+          [
+            "B",
+            "M",
+            2
+          ]
+        ],
+        [
+          [
+            "A",
+            "M",
+            4
+          ],
+          [
+            "B",
+            "M",
+            2
+          ],
+          [
+            "M",
+            "S",
+            1
+          ]
+        ]
+      ],
+      "grossHistoryCount": 2,
+      "paymentFacts": [
+        {
+          "amountSompiCandidates": [
+            30000000,
+            40000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "A"
+        },
+        {
+          "amountSompiCandidates": [
+            10000000
+          ],
+          "presentInEveryHistory": false,
+          "recipient": "S",
+          "sender": "A"
+        },
+        {
+          "amountSompiCandidates": [
+            20000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "B"
+        },
+        {
+          "amountSompiCandidates": [
+            10000000
+          ],
+          "presentInEveryHistory": false,
+          "recipient": "S",
+          "sender": "M"
+        }
+      ],
+      "provenance": "hypothetical additional external knowledge; not measured RPC/network evidence",
+      "relationshipAssumedKnown": [
+        "B",
+        "M"
+      ]
+    },
+    "M->S": {
+      "amountUnitSompi": 10000000,
+      "eventSequenceCount": 3,
+      "grossHistories": [
+        [
+          [
+            "A",
+            "M",
+            4
+          ],
+          [
+            "B",
+            "M",
+            2
+          ],
+          [
+            "M",
+            "S",
+            1
+          ]
+        ]
+      ],
+      "grossHistoryCount": 1,
+      "paymentFacts": [
+        {
+          "amountSompiCandidates": [
+            40000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "A"
+        },
+        {
+          "amountSompiCandidates": [
+            20000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "M",
+          "sender": "B"
+        },
+        {
+          "amountSompiCandidates": [
+            10000000
+          ],
+          "presentInEveryHistory": true,
+          "recipient": "S",
+          "sender": "M"
+        }
+      ],
+      "provenance": "hypothetical additional external knowledge; not measured RPC/network evidence",
+      "relationshipAssumedKnown": [
+        "M",
+        "S"
+      ]
+    }
+  },
+  "evidenceSha256ByRelativePath": {
+    "batch-01-settlement-accepted.json": "47d76c6cb1637604b79652520e3a318949f1f469c06ab5e5a1d21cd299293a7f",
+    "batch-02-settlement-accepted.json": "4521c1d4c50c490acc554d5164851e55334b7c49f937025e84529bba2acaa98f",
+    "batch-03-settlement-accepted.json": "60cbbf9eedd63e072f9c9fb76ad7b2ca25ea8beae9151f59b1f46a5b8d49fed6",
+    "batch-04-settlement-accepted.json": "05dde68b4de784b5ef40dc301e9a826116301fa725fd4b6c344c146fcf782f3c",
+    "batch-05-settlement-accepted.json": "989b59167a377e3916084a211c6a0c1802b699e18c1b62d6f7bb59b04ed01934",
+    "batch-06-settlement-accepted.json": "5a0d1b95ec600f2b5f1139f1277398ca69aad3f4a3316086afe3f089231ee9fc",
+    "batch-07-settlement-accepted.json": "59b8050e41d6dc865538f174131e4e4b1c276b00e57d33424919989281c9e21a",
+    "deposit-a-accepted.json": "355285a2e1649b5fd25397d518ea097c17d819a78bb5cff27da9c594956b9e72",
+    "deposit-b-accepted.json": "8bf1f496679745f7100ad08a9b1fd988fc9561bddca2256ec0ca09d419ceb784",
+    "payout-01-accepted.json": "ed939c7a7b62a5bdedff0a1e0330374eeef315be0aba6af8441415a83e11363b",
+    "payout-02-accepted.json": "a8c6c4126ca8b02b929f48a05f5e58c1130bf9f47537efd2f3d502843e3bf6bc",
+    "payout-03-accepted.json": "caee7162fd3ac5e22f80a3554041caeb8765ba483ac0fa48ec79d85b3ead79cb",
+    "payout-04-accepted.json": "28af09f109f3997c44af437a3bd511496c58d267c813b6a193fb70fd900b5900",
+    "payout-05-accepted.json": "1607d6da291574fdb9724ab5e762ad55e270a670bac4870aa746f54ac254d28e",
+    "publish-01-accepted.json": "e814c3a8f485a826d9d0a7d163505d60d99f2331543455094dca7d06d3b3050a",
+    "publish-02-accepted.json": "c92373e3beb38fb5ffa320edf2120efea34eb6fc97d81ec972fc0f494e14dc35",
+    "publish-03-accepted.json": "d804898b80ed5da766acea437885f01cedf16ebc336cc2bac40951a249bf9e82",
+    "publish-04-accepted.json": "39480cab90fae4debcd38f08fbad62e84d319c5402c2e75a44036da5325362b3",
+    "publish-05-accepted.json": "7e317c8e2549724d1d10b0c9c52902a3c6237956dfe983eb7daf595de0ff3a15",
+    "publish-06-accepted.json": "fccaa32419ff2c1dc8971c0081d4b9f56d406473842ef26f27ed78807f0a3932",
+    "publish-07-accepted.json": "c7149a2f2ee5f2a827dfbb399a440259c4902d62fb196dd976bbfd4c8a774a02",
+    "publish-08-accepted.json": "771bffa0b443a0de4201266823783efd015e76a5a40390270b3396d938427f35",
+    "publish-09-accepted.json": "543302d0e1d1c2227c51d1bb912272f065f55bdf9c7c03883f1bfdba5db38e35",
+    "publish-10-accepted.json": "d5bf95714bc168d8082f8fc01772f9fe76227a96e69413536c7dc12f6ba2a946",
+    "wallet-public/known-owner-evidence.json": "11e2d70efc103fcc5d1c649f7f0436fe9170419a8661aaa1a7560c695c2c519d",
+    "wallet-public/operation-01.json": "59d8e2203cefe8ad7e482c8d16949ebc10fc46b439a0b48f51c36005dc5e58f9",
+    "wallet-public/operation-02.json": "5bc23e448f01ce23f80b94fdd8fc8ddacbf6f3cd7c7f65ccce619b0989c62ea2",
+    "wallet-public/operation-03.json": "6edc47a1609098bf0b9920ede4de46ac1ef6c229c390d44a60bcce0defb3f14c",
+    "wallet-public/operation-04.json": "8f65cb843ca9f12fcf0dc1f5427f0d8eeb1ad80edb3d4c6e7218e2c162ccc91b",
+    "wallet-public/operation-05.json": "1ef59bae63000c8867ccfb667ec955a8acd7abfb06e563142760ca4747ba5332",
+    "wallet-public/operation-06.json": "91a67a2c40a74ee03fadb8b1f9d24ed60a3b0fe90aa365fbccc2fcf0d8d7a162",
+    "wallet-public/operation-07.json": "be2074aed29ced56cb3ed63eb35adba9519c4cf1412d71b746cb0e63ac62ff5a",
+    "wallet-public/operation-08.json": "ed620ece1841c17ad78698119f42c18314cb496e0c3eb02be6878fec6a6304ff",
+    "wallet-public/operation-09.json": "2f0975e17efdc009305e68644fb75af109c5b55e8af3ee94c0fab213f5c0e4f4",
+    "wallet-public/operation-10.json": "fbebe335e2c6365041ef6a65db9724a7608062ebd4dd65921abdf80ab57fe242"
+  },
+  "oldStrongView": {
+    "relationshipAssumedKnown": [
+      "M",
+      "S"
+    ],
+    "retainedForTruthConsistencyValidation": true
+  },
+  "parent": {
+    "manifestSha256": "1259c42cb7cde08fac0b9da29176e46cc20dddc963682c680a19958eefd5b88c",
+    "verifiedOriginalFiles": 7
+  },
+  "plausibleKnownOwner": {
+    "amountUnitSompi": 10000000,
+    "eventSequenceCount": 9,
+    "grossHistories": [
+      [
+        [
+          "A",
+          "M",
+          3
+        ],
+        [
+          "A",
+          "S",
+          1
+        ],
+        [
+          "B",
+          "M",
+          2
+        ]
+      ],
+      [
+        [
+          "A",
+          "M",
+          4
+        ],
+        [
+          "B",
+          "M",
+          2
+        ],
+        [
+          "M",
+          "S",
+          1
+        ]
+      ]
+    ],
+    "grossHistoryCount": 2,
+    "paymentFacts": [
+      {
+        "amountSompiCandidates": [
+          30000000,
+          40000000
+        ],
+        "presentInEveryHistory": true,
+        "recipient": "M",
+        "sender": "A"
+      },
+      {
+        "amountSompiCandidates": [
+          10000000
+        ],
+        "presentInEveryHistory": false,
+        "recipient": "S",
+        "sender": "A"
+      },
+      {
+        "amountSompiCandidates": [
+          20000000
+        ],
+        "presentInEveryHistory": true,
+        "recipient": "M",
+        "sender": "B"
+      },
+      {
+        "amountSompiCandidates": [
+          10000000
+        ],
+        "presentInEveryHistory": false,
+        "recipient": "S",
+        "sender": "M"
+      }
+    ]
+  },
+  "predictionReadsExecutionTruth": false,
+  "publicEvidenceDerivedModel": {
+    "amountUnitSompi": 10000000,
+    "initialNotes": [
+      [
+        "A",
+        10
+      ],
+      [
+        "B",
+        10
+      ]
+    ],
+    "terminalNotes": [
+      [
+        "A",
+        6
+      ],
+      [
+        "B",
+        8
+      ],
+      [
+        "M",
+        3
+      ],
+      [
+        "M",
+        2
+      ],
+      [
+        "S",
+        1
+      ]
+    ],
+    "transferCount": 3
+  },
+  "schema": "full-drainage-live-score-correction-v2"
+}

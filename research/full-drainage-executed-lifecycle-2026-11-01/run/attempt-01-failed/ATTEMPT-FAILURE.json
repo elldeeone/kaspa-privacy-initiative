@@ -1,0 +1,12 @@
+{
+  "schema": "full-drainage-executed-attempt-failure-v1",
+  "attempt": 1,
+  "stage": "ledger initialization before any operation",
+  "error": "key must be a string",
+  "cause": "JSON cannot encode the Ledger BTreeMap fields whose keys are fixed 32-byte arrays",
+  "fix": "serialize internal public ledger snapshots with bincode while retaining JSON summaries and operations",
+  "walletOperationsCreated": 0,
+  "proofsCreated": 0,
+  "privacyResult": null,
+  "nativeAction": false
+}

@@ -1,0 +1,1578 @@
+{
+  "experiment": "wallet-local-private-spend-v2",
+  "jointHistoryEnumeration": true,
+  "runs": [
+    {
+      "arm": "continued",
+      "checkpoints": {
+        "post-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 4,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  278280357
+                ]
+              },
+              "endpointIdentity": [
+                "B"
+              ],
+              "historicalNote": [
+                "91e97aa98e1577b9d64fb023385d113fe7980dec9ebb4582c00a43ad327acbc9"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  60018845
+                ]
+              },
+              "endpointIdentity": [
+                "D"
+              ],
+              "historicalNote": [
+                "d3537b590e46423975120ffe4780d89d26cce8269e5f8d30bc5f513a8e7e0860",
+                "f95b5c4899be11d13010a3ed6e597c6357d724f1d8f61aa99e0a064a00f3bd5c"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "E"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "D"
+              ]
+            }
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 4,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  278280357
+                ]
+              },
+              "endpointIdentity": [
+                "B"
+              ],
+              "historicalNote": [
+                "91e97aa98e1577b9d64fb023385d113fe7980dec9ebb4582c00a43ad327acbc9"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  60018845
+                ]
+              },
+              "endpointIdentity": [
+                "D"
+              ],
+              "historicalNote": [
+                "d3537b590e46423975120ffe4780d89d26cce8269e5f8d30bc5f513a8e7e0860",
+                "f95b5c4899be11d13010a3ed6e597c6357d724f1d8f61aa99e0a064a00f3bd5c"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "E"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "D"
+              ]
+            }
+          }
+        },
+        "pre-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 10399999961600000032,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 899999998,
+                "kind": "integer-interval",
+                "maximum": 899999999,
+                "minimum": 2
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "5f7a995f58d0b8fe8f5c1c23bf1770f0cc0fd7b434ca1409ae2278c1971433f2",
+                "91e97aa98e1577b9d64fb023385d113fe7980dec9ebb4582c00a43ad327acbc9"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "C",
+                  "sender": "B"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 899999998,
+                "kind": "integer-interval",
+                "maximum": 899999998,
+                "minimum": 1
+              },
+              "endpointIdentity": [
+                "C",
+                "D"
+              ],
+              "historicalNote": [
+                "f95b5c4899be11d13010a3ed6e597c6357d724f1d8f61aa99e0a064a00f3bd5c",
+                "d3537b590e46423975120ffe4780d89d26cce8269e5f8d30bc5f513a8e7e0860"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "E",
+                "F"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "C",
+                "D"
+              ]
+            }
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 10399999961600000032,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 899999998,
+                "kind": "integer-interval",
+                "maximum": 899999999,
+                "minimum": 2
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "5f7a995f58d0b8fe8f5c1c23bf1770f0cc0fd7b434ca1409ae2278c1971433f2",
+                "91e97aa98e1577b9d64fb023385d113fe7980dec9ebb4582c00a43ad327acbc9"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "C",
+                  "sender": "B"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 899999998,
+                "kind": "integer-interval",
+                "maximum": 899999998,
+                "minimum": 1
+              },
+              "endpointIdentity": [
+                "C",
+                "D"
+              ],
+              "historicalNote": [
+                "f95b5c4899be11d13010a3ed6e597c6357d724f1d8f61aa99e0a064a00f3bd5c",
+                "d3537b590e46423975120ffe4780d89d26cce8269e5f8d30bc5f513a8e7e0860"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "E",
+                "F"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "C",
+                "D"
+              ]
+            }
+          }
+        }
+      },
+      "coverage": {
+        "allAccepted": true,
+        "captureCount": 8,
+        "complete": true,
+        "eventCount": 8,
+        "expectedEventCount": 8,
+        "preCashoutEventCount": 4,
+        "summaryOrdinalsMatch": true,
+        "zeroFinalReserveAndLiability": true
+      },
+      "pair": "pair-00",
+      "run": "pair-00/continued"
+    },
+    {
+      "arm": "control",
+      "checkpoints": {
+        "post-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 2,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  278280357
+                ]
+              },
+              "endpointIdentity": [
+                "B"
+              ],
+              "historicalNote": [
+                "7a46da1a98df2273304000ac7412623f0824f7aa405bfd18c166d8a06b3c1d94"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "D",
+                "firstSender": "B"
+              }
+            ],
+            "secondPayment": null
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 2,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  278280357
+                ]
+              },
+              "endpointIdentity": [
+                "B"
+              ],
+              "historicalNote": [
+                "7a46da1a98df2273304000ac7412623f0824f7aa405bfd18c166d8a06b3c1d94"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "D",
+                "firstSender": "B"
+              }
+            ],
+            "secondPayment": null
+          }
+        },
+        "pre-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 4,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  278280357
+                ]
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "dcc3e0c58b5d4ea84838f265ec43721793d432e5fa581ad94aadaea9d3c7324c",
+                "7a46da1a98df2273304000ac7412623f0824f7aa405bfd18c166d8a06b3c1d94"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "D",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B"
+              }
+            ],
+            "secondPayment": null
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 4,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  278280357
+                ]
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "dcc3e0c58b5d4ea84838f265ec43721793d432e5fa581ad94aadaea9d3c7324c",
+                "7a46da1a98df2273304000ac7412623f0824f7aa405bfd18c166d8a06b3c1d94"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "D",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B"
+              }
+            ],
+            "secondPayment": null
+          }
+        }
+      },
+      "coverage": {
+        "allAccepted": true,
+        "captureCount": 6,
+        "complete": true,
+        "eventCount": 6,
+        "expectedEventCount": 6,
+        "preCashoutEventCount": 4,
+        "summaryOrdinalsMatch": true,
+        "zeroFinalReserveAndLiability": true
+      },
+      "pair": "pair-00",
+      "run": "pair-00/control"
+    },
+    {
+      "arm": "continued",
+      "checkpoints": {
+        "post-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 96,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 3,
+                "kind": "set",
+                "values": [
+                  310913584,
+                  658183573,
+                  730902843
+                ]
+              },
+              "endpointIdentity": [
+                "A"
+              ],
+              "historicalNote": [
+                "b225cad433507411b43328fc175fe03d9d9deefb15505e892087edf08e605085"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                }
+              ],
+              "sender": [
+                "A"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 3,
+                "kind": "set",
+                "values": [
+                  119097157,
+                  191816427,
+                  539086416
+                ]
+              },
+              "endpointIdentity": [
+                "C",
+                "D"
+              ],
+              "historicalNote": [
+                "009fa9414b952d61afb52144c812fe035c1557dafa54c301896750d2fcd7ef78",
+                "4f6b96a782f926e490ef3b6f1a98025cd9974a6cfa1a4bb864e661483210833a"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "E",
+                "F"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "C",
+                "D"
+              ]
+            }
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 96,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 3,
+                "kind": "set",
+                "values": [
+                  310913584,
+                  658183573,
+                  730902843
+                ]
+              },
+              "endpointIdentity": [
+                "A"
+              ],
+              "historicalNote": [
+                "b225cad433507411b43328fc175fe03d9d9deefb15505e892087edf08e605085"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                }
+              ],
+              "sender": [
+                "A"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 3,
+                "kind": "set",
+                "values": [
+                  119097157,
+                  191816427,
+                  539086416
+                ]
+              },
+              "endpointIdentity": [
+                "C",
+                "D"
+              ],
+              "historicalNote": [
+                "009fa9414b952d61afb52144c812fe035c1557dafa54c301896750d2fcd7ef78",
+                "4f6b96a782f926e490ef3b6f1a98025cd9974a6cfa1a4bb864e661483210833a"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "E",
+                "F"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "C",
+                "D"
+              ]
+            }
+          }
+        },
+        "pre-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 9159999964000000032,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 849999998,
+                "kind": "integer-interval",
+                "maximum": 849999999,
+                "minimum": 2
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "b225cad433507411b43328fc175fe03d9d9deefb15505e892087edf08e605085",
+                "f9da5265d5b59f700136de10a13204347b80582cc76703b93b9417a1ed61d793"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "C",
+                  "sender": "B"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 849999998,
+                "kind": "integer-interval",
+                "maximum": 849999998,
+                "minimum": 1
+              },
+              "endpointIdentity": [
+                "C",
+                "D"
+              ],
+              "historicalNote": [
+                "009fa9414b952d61afb52144c812fe035c1557dafa54c301896750d2fcd7ef78",
+                "4f6b96a782f926e490ef3b6f1a98025cd9974a6cfa1a4bb864e661483210833a"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "E",
+                "F"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "C",
+                "D"
+              ]
+            }
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 9159999964000000032,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 849999998,
+                "kind": "integer-interval",
+                "maximum": 849999999,
+                "minimum": 2
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "b225cad433507411b43328fc175fe03d9d9deefb15505e892087edf08e605085",
+                "f9da5265d5b59f700136de10a13204347b80582cc76703b93b9417a1ed61d793"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "C",
+                  "sender": "B"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "E"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B",
+                "secondRecipient": "F"
+              }
+            ],
+            "secondPayment": {
+              "amountSompi": {
+                "count": 849999998,
+                "kind": "integer-interval",
+                "maximum": 849999998,
+                "minimum": 1
+              },
+              "endpointIdentity": [
+                "C",
+                "D"
+              ],
+              "historicalNote": [
+                "009fa9414b952d61afb52144c812fe035c1557dafa54c301896750d2fcd7ef78",
+                "4f6b96a782f926e490ef3b6f1a98025cd9974a6cfa1a4bb864e661483210833a"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "E",
+                "F"
+              ],
+              "relationship": [
+                {
+                  "recipient": "E",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "C"
+                },
+                {
+                  "recipient": "E",
+                  "sender": "D"
+                },
+                {
+                  "recipient": "F",
+                  "sender": "D"
+                }
+              ],
+              "sender": [
+                "C",
+                "D"
+              ]
+            }
+          }
+        }
+      },
+      "coverage": {
+        "allAccepted": true,
+        "captureCount": 8,
+        "complete": true,
+        "eventCount": 8,
+        "expectedEventCount": 8,
+        "preCashoutEventCount": 4,
+        "summaryOrdinalsMatch": true,
+        "zeroFinalReserveAndLiability": true
+      },
+      "pair": "pair-01",
+      "run": "pair-01/continued"
+    },
+    {
+      "arm": "control",
+      "checkpoints": {
+        "post-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 4,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  310913584
+                ]
+              },
+              "endpointIdentity": [
+                "A"
+              ],
+              "historicalNote": [
+                "48e57e813374bf2950a0b88e9e36958069423f15d42622e470bbd9a798671b27"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                }
+              ],
+              "sender": [
+                "A"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A"
+              }
+            ],
+            "secondPayment": null
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 4,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  310913584
+                ]
+              },
+              "endpointIdentity": [
+                "A"
+              ],
+              "historicalNote": [
+                "48e57e813374bf2950a0b88e9e36958069423f15d42622e470bbd9a798671b27"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                },
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                }
+              ],
+              "sender": [
+                "A"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A"
+              }
+            ],
+            "secondPayment": null
+          }
+        },
+        "pre-cashout": {
+          "O-public": {
+            "completeStructuralAssignmentCount": 8,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  310913584
+                ]
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "48e57e813374bf2950a0b88e9e36958069423f15d42622e470bbd9a798671b27",
+                "9135c6e98f3220ccaef9a5b349fa334cdfbfa82837a2cb92fa1e47db069832ae"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "C",
+                  "sender": "B"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B"
+              }
+            ],
+            "secondPayment": null
+          },
+          "O-service": {
+            "completeStructuralAssignmentCount": 8,
+            "firstPayment": {
+              "amountSompi": {
+                "count": 1,
+                "kind": "set",
+                "values": [
+                  310913584
+                ]
+              },
+              "endpointIdentity": [
+                "A",
+                "B"
+              ],
+              "historicalNote": [
+                "48e57e813374bf2950a0b88e9e36958069423f15d42622e470bbd9a798671b27",
+                "9135c6e98f3220ccaef9a5b349fa334cdfbfa82837a2cb92fa1e47db069832ae"
+              ],
+              "outputPartition": [
+                {
+                  "changeOutputIndex": 1,
+                  "paymentOutputIndex": 0
+                },
+                {
+                  "changeOutputIndex": 0,
+                  "paymentOutputIndex": 1
+                }
+              ],
+              "recipient": [
+                "C",
+                "D"
+              ],
+              "relationship": [
+                {
+                  "recipient": "C",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "A"
+                },
+                {
+                  "recipient": "C",
+                  "sender": "B"
+                },
+                {
+                  "recipient": "D",
+                  "sender": "B"
+                }
+              ],
+              "sender": [
+                "A",
+                "B"
+              ]
+            },
+            "jointRelationshipChain": [
+              {
+                "firstRecipient": "C",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "A"
+              },
+              {
+                "firstRecipient": "C",
+                "firstSender": "B"
+              },
+              {
+                "firstRecipient": "D",
+                "firstSender": "B"
+              }
+            ],
+            "secondPayment": null
+          }
+        }
+      },
+      "coverage": {
+        "allAccepted": true,
+        "captureCount": 6,
+        "complete": true,
+        "eventCount": 6,
+        "expectedEventCount": 6,
+        "preCashoutEventCount": 4,
+        "summaryOrdinalsMatch": true,
+        "zeroFinalReserveAndLiability": true
+      },
+      "pair": "pair-01",
+      "run": "pair-01/control"
+    }
+  ],
+  "schema": "wallet-local-private-spend-sealed-predictions-v1",
+  "truthRead": false
+}

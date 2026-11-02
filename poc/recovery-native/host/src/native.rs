@@ -110,10 +110,17 @@ pub fn settlement_template(
 }
 pub fn state_script(state: &State) -> Vec<u8> {
     use vprogs_zk_backend_risc0_covenant::script::{CommonPins, RedeemPins, SuccinctPins};
-    let image: H = hex::decode(include_str!("../../evidence/expected-image.txt").trim())
-        .unwrap()
-        .try_into()
-        .unwrap();
+    let old = *include_bytes!("../../../private-note-chain/pins/vk-id.bin");
+    let full_drainage =
+        *include_bytes!("../../../private-note-chain/pins-full-drainage-depth4-v1/vk-id.bin");
+    let image = if state.ledger.verifier == old {
+        include_str!("../../evidence/expected-image.txt")
+    } else if state.ledger.verifier == full_drainage {
+        include_str!("../../evidence-full-drainage-depth4-v1/expected-image.txt")
+    } else {
+        panic!("unsupported wallet verifier for native state script")
+    };
+    let image: H = hex::decode(image.trim()).unwrap().try_into().unwrap();
     let tx = hash(b"KPI-recovery-native-tx-domain-v1");
     let batch = hash(b"KPI-recovery-native-batch-domain-v1");
     let lane = kaspa_seq_commit::hashing::lane_key(&chain::LANE);

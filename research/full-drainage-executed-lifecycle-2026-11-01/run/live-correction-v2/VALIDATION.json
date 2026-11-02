@@ -1,0 +1,64 @@
+{
+  "conditionalRelationshipSensitivities": {
+    "A->M": {
+      "candidateCount": 2,
+      "coupledExecutionTruthRetained": true,
+      "externalFactConsistentWithExecution": true,
+      "status": "truth_retained_with_residual_ambiguity",
+      "successfulReconstruction": false,
+      "uniqueWrongPrediction": false
+    },
+    "A->S": {
+      "candidateCount": 1,
+      "coupledExecutionTruthRetained": true,
+      "externalFactConsistentWithExecution": true,
+      "status": "correct_unique_reconstruction_conditional_on_supplied_fact",
+      "successfulReconstruction": true,
+      "uniqueWrongPrediction": false
+    },
+    "B->M": {
+      "candidateCount": 2,
+      "coupledExecutionTruthRetained": true,
+      "externalFactConsistentWithExecution": true,
+      "status": "truth_retained_with_residual_ambiguity",
+      "successfulReconstruction": false,
+      "uniqueWrongPrediction": false
+    },
+    "M->S": {
+      "candidateCount": 1,
+      "coupledExecutionTruthRetained": false,
+      "externalFactConsistentWithExecution": false,
+      "status": "contradictory_external_fact_not_a_live_privacy_result",
+      "successfulReconstruction": false,
+      "uniqueWrongPrediction": true
+    }
+  },
+  "newTruthConsistentSensitivitiesAreNotPrespecifiedAttacks": true,
+  "originalEvidenceRecheckedUnchanged": {
+    "manifestSha256": "1259c42cb7cde08fac0b9da29176e46cc20dddc963682c680a19958eefd5b88c",
+    "verifiedOriginalFiles": 7
+  },
+  "plausibleKnownOwner": {
+    "candidateCount": 2,
+    "coupledExecutionTruthRetained": true,
+    "externalFactConsistentWithExecution": true,
+    "status": "truth_retained_with_residual_ambiguity",
+    "successfulReconstruction": false,
+    "uniqueWrongPrediction": false
+  },
+  "priorStrongObserverSuccessClaimWithdrawnForThisRun": true,
+  "privateKeysBackupsOrWitnessesRead": false,
+  "privatePaymentsExecuteToObservedTerminalNotes": true,
+  "privateWorkloadReadOnlyAfterPredictionSeal": true,
+  "schema": "full-drainage-live-truth-validation-v2",
+  "sealedPredictionsSha256": "04f58d69cf4ade18748043803f7af2a79b98179c76e03db81a4d2a111ae21d4d",
+  "terminalAccounting": {
+    "outstanding_permission_rent_excluded": 0,
+    "pending_deposits": 0,
+    "private_liability": 0,
+    "reserve_principal": 0,
+    "state_covenant_rent_excluded": 100000000,
+    "unpaid_exits": 0
+  },
+  "truthFileIsRetainedExecutionMetadataNotIndependentlyReprovedWitness": true
+}

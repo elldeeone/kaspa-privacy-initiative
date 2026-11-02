@@ -1,5 +1,5 @@
-import * as exactJSON from '/opt/kpi-tn10-preflight-20261019/capture-tool/exact-json.mjs';
-// Read-only native JSON wRPC capture. Run ON the VPS; no public RPC needed.
+import * as exactJSON from '../lane-completeness/integration/exact-json.mjs';
+// Read-only native JSON wRPC capture over the verified primary TN10 TLS route.
 // Raw response strings preserve every u64 (notably nonce and input sequence).
 import fs from 'node:fs';
 import zlib from 'node:zlib';
@@ -11,7 +11,9 @@ assert(out && /^[0-9a-f]{64}$/.test(laneKey), 'capture.mjs NEW_OUTPUT LANE_KEY [
 assert(!fs.existsSync(out), 'refuse to overwrite a capture');
 const depth = Number(depthText);
 assert(Number.isSafeInteger(depth) && depth >= 20);
-const socket = new WebSocket('ws://127.0.0.1:18210');
+const endpoint = 'wss://electron-10.kaspa.blue/kaspa/testnet-10/wrpc/json';
+const laneSubnetwork = '0044454600000000000000000000000000000000';
+const socket = new WebSocket(endpoint);
 const records = [];
 const pages=[];
 const pending = new Map();
@@ -39,7 +41,7 @@ function call(label, method, request = {}) {
 async function complete(label,start,end){
  const combined={removedChainBlockHashes:[],addedChainBlockHashes:[],chainBlockAcceptedTransactions:[]};
  let cursor=start;const seen=new Set([start]);
- for(let n=0;n<100;n++){
+ for(let n=0;n<10000;n++){
   const r=await call(label+'-page-'+n,'getVirtualChainFromBlockV2',{startHash:cursor,dataVerbosityLevel:'Full',minConfirmationCount:10});
   assert.equal(r.removedChainBlockHashes.length,0,'reorg in paginated interval');
   assert(r.chainBlockAcceptedTransactions.length>0,'endpoint not yet confirmed or empty page');
@@ -48,7 +50,13 @@ async function complete(label,start,end){
   for(let i=0;i<r.chainBlockAcceptedTransactions.length;i++){
    const b=r.chainBlockAcceptedTransactions[i],h=b.chainBlockHeader.hash;
    assert.equal(h,r.addedChainBlockHashes[i]);assert(!seen.has(h),'duplicate/nonprogressing chain page');seen.add(h);
-   combined.addedChainBlockHashes.push(h);combined.chainBlockAcceptedTransactions.push(b);cursor=h;
+   // Every native response page is retained above. The validator needs every
+   // selected-chain header, but non-lane-only transaction bodies cannot affect
+   // this lane. For a lane-active block retain the complete transaction list so
+   // the consensus merge index remains exact and end-proof reconstruction still
+   // rejects omission, reordering, or substitution.
+   const compact={...b,acceptedTransactions:b.acceptedTransactions.some(t=>t.subnetworkId===laneSubnetwork)?b.acceptedTransactions:[]};
+   combined.addedChainBlockHashes.push(h);combined.chainBlockAcceptedTransactions.push(compact);cursor=h;
    if(h===end){done=true;break;}
   }
   if(done){records.push({label,method:'getVirtualChainFromBlockV2-paginated',request:{startHash:start,endHash:end,dataVerbosityLevel:'Full',minConfirmationCount:10},raw:exactJSON.stringify({params:combined}),derivedFromRetainedNativePageResponses:true});return combined;}
@@ -103,13 +111,13 @@ try {
   const lanes = {};
   for (const b of blocks) for (const t of b.acceptedTransactions)
     lanes[t.subnetworkId] = (lanes[t.subnetworkId] ?? 0) + 1;
-  console.log(exactJSON.stringify({scope: 'TN10_LOCAL_RPC_READ_ONLY', start: start.header.hash,
+  console.log(exactJSON.stringify({scope: 'TN10_VERIFIED_TLS_RPC_READ_ONLY', start: start.header.hash,
     end: end.hash, blocks: blocks.length, laneKey, lanes}));
 } catch (error) {failure = error.message;}
 finally {
   socket.close();
   const f=fs.openSync(out,'wx');
-  fs.writeSync(f,exactJSON.stringify({kind:'TN10_NATIVE_JSON_RPC_CAPTURE_V1',observedAt:new Date().toISOString(),endpoint:'ws://127.0.0.1:18210',laneKey,intervalBlocks,failure:failure??null,paginationSourcePages:pages}).slice(0,-1)+',"records":[');
+  fs.writeSync(f,exactJSON.stringify({kind:'TN10_NATIVE_JSON_RPC_CAPTURE_V1',observedAt:new Date().toISOString(),endpoint,laneKey,intervalBlocks,failure:failure??null,paginationSourcePages:pages}).slice(0,-1)+',"records":[');
   for(let i=0;i<records.length;i++){if(i)fs.writeSync(f,',');fs.writeSync(f,exactJSON.stringify(records[i]));}
   fs.writeSync(f,']}\n');fs.fsyncSync(f);fs.closeSync(f);
 }

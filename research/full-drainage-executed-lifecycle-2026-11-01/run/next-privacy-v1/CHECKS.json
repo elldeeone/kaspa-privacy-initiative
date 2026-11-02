@@ -1,0 +1,67 @@
+{
+  "schema": "full-drainage-next-privacy-checks-v1",
+  "checkedAt": "2026-11-02T10:33:02Z",
+  "checks": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v test_reserve_lineage_privacy.py",
+      "result": "pass",
+      "testsPassed": 7
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v test_score_live_correction.py",
+      "result": "pass",
+      "testsPassed": 11
+    },
+    {
+      "command": "node --check inventory_live_attempts.mjs",
+      "result": "pass"
+    },
+    {
+      "command": "sha256(PREDICTIONS.json) == PREDICTIONS.sha256",
+      "result": "pass",
+      "sha256": "2d83123dc3572c2fd686642473341ffbb8a109c984a65a17f5a6451f8206a20e"
+    },
+    {
+      "command": "validation(actual evidence) == retained VALIDATION.json",
+      "result": "pass",
+      "stateSettlementsChecked": 7,
+      "uniquePermissionsConsumed": 5,
+      "sealedOutputsChanged": false
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "validation": {
+    "actualTruthRetained": true,
+    "falseMToSUniqueWrong": true,
+    "sparseKnownOwnerUnique": true,
+    "predictionReadPrivateTruth": false,
+    "validationReadPrivateTruthOnlyAfterSeal": true,
+    "keysBackupsOrWitnessesRead": false,
+    "directPaymentHistoriesBaseline": 2,
+    "directPaymentHistoriesCandidate": 2,
+    "fundingOriginCandidatesPerPayoutBaseline": 1,
+    "fundingOriginCandidatesPerPayoutCandidate": 2,
+    "protocolFixReady": false
+  },
+  "inventory": {
+    "network": "testnet-10",
+    "attempts": 6,
+    "independentEndpointsAgreed": true,
+    "earlierAttemptsWithReservePrincipal": 4,
+    "earlierReservePrincipalSompi": "550000000",
+    "mutationPerformed": false,
+    "recoveryPerformed": false,
+    "privateKeysRead": false
+  },
+  "scope": {
+    "newBroadcast": false,
+    "mainnetAction": false,
+    "mpcWork": false,
+    "forcedDelay": false,
+    "retainedUserPrincipalInCandidate": false,
+    "commitOrPush": false
+  }
+}

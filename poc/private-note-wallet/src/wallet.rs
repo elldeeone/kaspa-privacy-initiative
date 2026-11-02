@@ -236,6 +236,11 @@ impl Engine {
         self.pk.vk.serialize_compressed(&mut v).unwrap();
         v
     }
+    pub fn vk_uncompressed_bytes(&self) -> Vec<u8> {
+        let mut v = vec![];
+        self.pk.vk.serialize_uncompressed(&mut v).unwrap();
+        v
+    }
 }
 
 pub struct Verifier {

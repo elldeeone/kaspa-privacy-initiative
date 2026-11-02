@@ -1,0 +1,854 @@
+{
+  "entries": {
+    "README.md": {
+      "bytes": 4910,
+      "sha256": "636d76293741a84cd33c0f4b3f457ba78bfea71f4d167a61170590b467997f09"
+    },
+    "batch-01-local-gpu-oom.txt": {
+      "bytes": 1327,
+      "sha256": "b2a494f068cf992ded48e828b21d4dbf51f87dd2853a317e9a5437a2e3497c71"
+    },
+    "cpu/batch-01.json": {
+      "bytes": 400,
+      "sha256": "f73c36dedb9066477289e73202fb95f45692619f2baf380117707348e910a00a"
+    },
+    "cpu/batch-02.json": {
+      "bytes": 400,
+      "sha256": "68c160aa6f82e2df1bcd414ea8caf4fb4758f6482883a9905753dac1af6c64e7"
+    },
+    "cpu/batch-03.json": {
+      "bytes": 398,
+      "sha256": "010022878fee30d762e7f7dbe143a1b95d0bd094f0fd7b385a24042b07b073a0"
+    },
+    "cpu/batch-04.json": {
+      "bytes": 398,
+      "sha256": "f7b768e7bb308937c89163287e146bc74c794fb29cef6d22181d30a66fb9220b"
+    },
+    "cpu/batch-05.json": {
+      "bytes": 397,
+      "sha256": "1557c8837f82f6269ac2aacce4a01e2bb8705fd27376b160c6ff20352f73d766"
+    },
+    "cpu/batch-06.json": {
+      "bytes": 397,
+      "sha256": "ca6003919c39959875d37d333313be8f066dea21f0229a6ef386705811f5df95"
+    },
+    "cpu/batch-07.json": {
+      "bytes": 398,
+      "sha256": "7d9545ed9103a8ef17258400da8d2c774529cf921bb1a21b37750f045c25cffe"
+    },
+    "guest/guest.raw.elf": {
+      "bytes": 1537448,
+      "sha256": "b9f5cb8399f47b3c804ed1ca978dcdd99096db16aeeaf66343c08c00dd1b9a13"
+    },
+    "native-fixtures/batch-01.expected.bin": {
+      "bytes": 2496,
+      "sha256": "50549ed1f487682a41a6312d901a16413bf29bb82bcc1c5d431c573d45e79f2e"
+    },
+    "native-fixtures/batch-01.input.bin": {
+      "bytes": 4219,
+      "sha256": "eebd3fb4800a80bca3d0f23b58b2222202f9d7fc584ee4afc1d3e283804397b7"
+    },
+    "native-fixtures/batch-01.journal.bin": {
+      "bytes": 352,
+      "sha256": "4e374f745dda1e174f21a02983401531f6c8f8d7be81625eb15e4201f18a5919"
+    },
+    "native-fixtures/batch-01.state.bin": {
+      "bytes": 1638,
+      "sha256": "e55801f17915c3aaaee03d5b179433e354703e29cc0c2eafbdb61f1c76252f3d"
+    },
+    "native-fixtures/batch-01.template.bin": {
+      "bytes": 298,
+      "sha256": "24d51d556cb5a99b4036e13dfaa522dee6dac347e76efe93beaacbdd0a394be5"
+    },
+    "native-fixtures/batch-02.expected.bin": {
+      "bytes": 3826,
+      "sha256": "0eb5a677c5891f448e3c34353b7840112d9a388535c606266ea4511d5ffdc83b"
+    },
+    "native-fixtures/batch-02.input.bin": {
+      "bytes": 5389,
+      "sha256": "fc5a6cf633da87b2e69cf5e4b7d21acce3f8bd3ccaa44a84c3eba0869741aa00"
+    },
+    "native-fixtures/batch-02.journal.bin": {
+      "bytes": 352,
+      "sha256": "eb3b227599ced766a33318b8e5740cea1999f26f09ab02e3ca495d80c3fc10fe"
+    },
+    "native-fixtures/batch-02.state.bin": {
+      "bytes": 3031,
+      "sha256": "c899249d3345a94b1fa54042561aca0e6d3243958c836f7851f7806470e7aca1"
+    },
+    "native-fixtures/batch-02.template.bin": {
+      "bytes": 443,
+      "sha256": "0b22cfd98b87fb810f52a4e4bb96303e769374bca0ccefd96423ae49b38553b5"
+    },
+    "native-fixtures/batch-03.expected.bin": {
+      "bytes": 3962,
+      "sha256": "2e8a2e9ba4d585606a40431b75c15e82ec126a40ec9981eba444998b6b52c6c7"
+    },
+    "native-fixtures/batch-03.input.bin": {
+      "bytes": 5132,
+      "sha256": "f43900e60ed6faac43ccb0885dda0e286212d11b9a13367e7db889e31277aefa"
+    },
+    "native-fixtures/batch-03.journal.bin": {
+      "bytes": 352,
+      "sha256": "41b293d149f6d98c47cc93436ae72cef118180aca2bffe940040153537730e51"
+    },
+    "native-fixtures/batch-03.state.bin": {
+      "bytes": 3300,
+      "sha256": "0e8755406ec025a0c5988515618514d76c6a8c7564bf21af287d52bdcef4df38"
+    },
+    "native-fixtures/batch-03.template.bin": {
+      "bytes": 443,
+      "sha256": "087618584baea598d63542990a04d2a7f89e4fb83c5e0327358c2ce1a5637cb0"
+    },
+    "native-fixtures/batch-04.expected.bin": {
+      "bytes": 4231,
+      "sha256": "243967e5f56f9cbe260371b1143c5916740938ab11a3eb26ee09c8a0243a5329"
+    },
+    "native-fixtures/batch-04.input.bin": {
+      "bytes": 5401,
+      "sha256": "f59f4fe87d2b94850594f8add9508f7daa195d430bcfe7a906e06235d486ad0e"
+    },
+    "native-fixtures/batch-04.journal.bin": {
+      "bytes": 352,
+      "sha256": "08ab438d808936613cbbf062a7174f1f13f09931a281e027d450c4b673247270"
+    },
+    "native-fixtures/batch-04.state.bin": {
+      "bytes": 3569,
+      "sha256": "475383b8c49f185c30ed45812b41545b815f6524f81eed4282a755e55cea5298"
+    },
+    "native-fixtures/batch-04.template.bin": {
+      "bytes": 443,
+      "sha256": "db93af5b158713b35f51d573b450c8431f0988f573ea2d24277dc0fe80b2edcc"
+    },
+    "native-fixtures/batch-05.expected.bin": {
+      "bytes": 4500,
+      "sha256": "eb1b22ca9f7a507b0c5501e6736b8cbccec8d3f09d8f32a7cd0122f5d2c104bf"
+    },
+    "native-fixtures/batch-05.input.bin": {
+      "bytes": 5670,
+      "sha256": "24a966c67bd447fa3a1ec9902f3b9378f884b5ba412ac6d6fd22cc9c9eaea068"
+    },
+    "native-fixtures/batch-05.journal.bin": {
+      "bytes": 352,
+      "sha256": "12ea2b1900cbc7fc9e5a988848f69cbe0094c875f09a2714bf44934a657523cf"
+    },
+    "native-fixtures/batch-05.state.bin": {
+      "bytes": 3838,
+      "sha256": "7e446b910d6dd35353c534794a1ba14bbd30d24bd31e20c3d6e8d518fda5a276"
+    },
+    "native-fixtures/batch-05.template.bin": {
+      "bytes": 443,
+      "sha256": "74bba1d183c828c137391a90cc766655af6fc207bb2ef3be82d5cdde0713b393"
+    },
+    "native-fixtures/batch-06.expected.bin": {
+      "bytes": 4725,
+      "sha256": "9bbb634d325c061ce699819acdc56da688afd29d2f2e245f6ba818fbe3f9292e"
+    },
+    "native-fixtures/batch-06.input.bin": {
+      "bytes": 5885,
+      "sha256": "0bbbe3fa29c77de6d10bfde6245f942e5f8f26ec2b7fd9b992f0afcdd4e7dc05"
+    },
+    "native-fixtures/batch-06.journal.bin": {
+      "bytes": 352,
+      "sha256": "33a09fcaeda6338e101bb8458a456709b70fc0c52e4269c9ff874d0a4ffda9f1"
+    },
+    "native-fixtures/batch-06.state.bin": {
+      "bytes": 4063,
+      "sha256": "8b157733329cf0f6cd6e06446f6a08126bf8b67eef6da5a137a6c73d7ac4a506"
+    },
+    "native-fixtures/batch-06.template.bin": {
+      "bytes": 443,
+      "sha256": "4c95acbc27bbd0f94c2e46fcff10f5bc0cc8365ac4f10400e8d6dba7bf6d2de5"
+    },
+    "native-fixtures/batch-07.expected.bin": {
+      "bytes": 4615,
+      "sha256": "24109d876945dc42859ebc0796f8aec32c7fd7176f09675682509b46d0dab9ff"
+    },
+    "native-fixtures/batch-07.input.bin": {
+      "bytes": 5357,
+      "sha256": "7dc14eab16cb662aa9f289db3212669151565bcc072e6ce4e81b7306d816528a"
+    },
+    "native-fixtures/batch-07.journal.bin": {
+      "bytes": 352,
+      "sha256": "55eaed72f5c1e0276158a5a349f65efadf1187e667de0252d38b480fd56db935"
+    },
+    "native-fixtures/batch-07.state.bin": {
+      "bytes": 4051,
+      "sha256": "6e2db9265b802f8ee4f0d7d723d14e84309364433eca2139694764b6765745d8"
+    },
+    "native-fixtures/batch-07.template.bin": {
+      "bytes": 298,
+      "sha256": "f3c7e1d92ca94f98eec65dd8f06355aa5acac8b9d2fddce9986a84a8926f6425"
+    },
+    "native-fixtures/controls.json": {
+      "bytes": 1350,
+      "sha256": "2bb5254b1e07c3b51d2d5c715c13cb8a60201c50bbe04301b571a80e0ba5a41d"
+    },
+    "native-fixtures/lifecycle.json": {
+      "bytes": 3785,
+      "sha256": "8afdc602c0ef7b518f678bc07dff2a13027664bbbe2e275262904982dd739740"
+    },
+    "native-fixtures/native-history.json": {
+      "bytes": 70,
+      "sha256": "3020f54f7e76abb850fc978cc62d13745e2f138cad04bb621c7279ba81dd9215"
+    },
+    "native-fixtures/targets.json": {
+      "bytes": 8890,
+      "sha256": "55960f3e5078a01b0987fa606a02585493aee82ac6719a38f7e5bf6b4a8ba8ae"
+    },
+    "receipt-backed-rehearsal/rehearsal.json": {
+      "bytes": 3808,
+      "sha256": "97cc0b3baacfbb806a61a9c466f0111a990f9f8ee017649bc9eb5f7c9193e283"
+    },
+    "receipts/batch-01-started.json": {
+      "bytes": 259,
+      "sha256": "7e28bc73243f9acdb6c4923e289ec6d73004f96d9c1fafb40b4d88fc355e89c0"
+    },
+    "receipts/batch-07/complete.json": {
+      "bytes": 303,
+      "sha256": "c33588fb1891d7b2515be29d47ddb17507a3f3598affbe92f66a38277d68db7d"
+    },
+    "receipts/batch-07/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "27fc4776b83d473d867bb16a44b85653c492f3cc1ba9f8b4e28f16e493e1982f"
+    },
+    "receipts/batch-07/started.json": {
+      "bytes": 259,
+      "sha256": "9da7878d3cdfe85f25fc627fe584e03b03af86cbc04e585c56566c4bd9500f71"
+    },
+    "receipts/batch-07/stats.json": {
+      "bytes": 132,
+      "sha256": "55facae5dc3e483b6450623e032be6aab52930bdf12b55cf6327da28236cb045"
+    },
+    "receipts/batch-07/verification.json": {
+      "bytes": 583,
+      "sha256": "f4220cad7a366d6475ed8a4d503fca95419a62adf6302d18a484076329b545f2"
+    },
+    "receipts/local-p19/batch-01/complete.json": {
+      "bytes": 435,
+      "sha256": "f954a6264d86d17815b72baa5d046f01ef974cc241630bad1cbac6b9be7d0d72"
+    },
+    "receipts/local-p19/batch-01/memory.csv": {
+      "bytes": 21933,
+      "sha256": "7831e4b45c48d9cd305653750e2a3248559e6ded65e04bdbb74cab02fb098691"
+    },
+    "receipts/local-p19/batch-01/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "f1a87587b4ea1b3424d229639428ba98f1a53879edc81d5a6a80b2941e51e44c"
+    },
+    "receipts/local-p19/batch-01/stats.json": {
+      "bytes": 137,
+      "sha256": "d40da1937035e9a9c6cc2725b254aaf9713b0525ed4e0c15861161a0cfde7907"
+    },
+    "receipts/local-p19/batch-01/verification.json": {
+      "bytes": 583,
+      "sha256": "77e731dbdc46c9b30ab5e255a04b82b3000847643f881f9ac3f38dc9153f4d58"
+    },
+    "receipts/local-p19/batch-02/complete.json": {
+      "bytes": 435,
+      "sha256": "3ae2c1dcea29dd182b52be34b6a91dd727e861925787a90fe82223aaaa079e78"
+    },
+    "receipts/local-p19/batch-02/memory.csv": {
+      "bytes": 21774,
+      "sha256": "d6977f95e4f55fefde2f5d1106b74dfc0e6db3ca074761d59516c74928c35841"
+    },
+    "receipts/local-p19/batch-02/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "e0f1b3881656722f7fff2a50f5a758148ab11b5de09250ee89a5929062ad57b6"
+    },
+    "receipts/local-p19/batch-02/stats.json": {
+      "bytes": 137,
+      "sha256": "b942e35b90527a6264ebbbf84b0caf8fb55dd3486b32ececb2ca8413998b89f9"
+    },
+    "receipts/local-p19/batch-02/verification.json": {
+      "bytes": 583,
+      "sha256": "c241ba08435fa9c5330f3ce8c626b0304e78fa4e92f1e1691de789bb655c365e"
+    },
+    "receipts/local-p19/batch-03/complete.json": {
+      "bytes": 435,
+      "sha256": "ff7d747f18dd40388f788b608df1b5a9decc337ea889789fbf457a2e70b2a612"
+    },
+    "receipts/local-p19/batch-03/memory.csv": {
+      "bytes": 7325,
+      "sha256": "7f7e7ad7f34679a90e6e4392dc47d647ccd23d24d3b947d75d29291cfcc54ee1"
+    },
+    "receipts/local-p19/batch-03/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "dc1a71c67d3256146165063da05a7021a9cd137c446f85c00ad38466c1df49f5"
+    },
+    "receipts/local-p19/batch-03/stats.json": {
+      "bytes": 134,
+      "sha256": "1dc74c5a43766adcc89275287730310bd25e31d37de39e2871c042331b48abcd"
+    },
+    "receipts/local-p19/batch-03/verification.json": {
+      "bytes": 583,
+      "sha256": "ab87a2e9e577c64b34218feb2ab83fe6b5a0f1979820853ec71c88cb8c806985"
+    },
+    "receipts/local-p19/batch-04/complete.json": {
+      "bytes": 434,
+      "sha256": "4dbe58a6742b2b5312eb848aa893e78bf6d4296d5f66590d943b238b80bbc659"
+    },
+    "receipts/local-p19/batch-04/memory.csv": {
+      "bytes": 7365,
+      "sha256": "ad499160ec0293c3adec329889438b9638ac11de46e1dd1ea6f1def86ca9dff4"
+    },
+    "receipts/local-p19/batch-04/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "97dbf52c4473cbf9008fbf6c3db47844e540564126d11141b87d8f2fdcf0c4dc"
+    },
+    "receipts/local-p19/batch-04/stats.json": {
+      "bytes": 134,
+      "sha256": "5161381d9cbfcc708ce37f06717c89227a0d02eb4807e93e85c952fb77ceb6eb"
+    },
+    "receipts/local-p19/batch-04/verification.json": {
+      "bytes": 583,
+      "sha256": "3660405e1f4df7ddc5a5aa44666fd85c57d804034cc8393636b8a7a93feda2c2"
+    },
+    "receipts/local-p19/batch-05/complete.json": {
+      "bytes": 435,
+      "sha256": "58a19e92014f2551597eba475207d3eb79a6eb612af828072db3473e5a5032be"
+    },
+    "receipts/local-p19/batch-05/memory.csv": {
+      "bytes": 7399,
+      "sha256": "90a15e1c6257ce22a00393d7a3aa7c733d97262bfb92aaa03eacfcf964afd95e"
+    },
+    "receipts/local-p19/batch-05/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "585d9df5ee64d7b61e5386ec3fb0b81b8bc9c0f1320dfc8a62c605284e61a6c2"
+    },
+    "receipts/local-p19/batch-05/stats.json": {
+      "bytes": 134,
+      "sha256": "4d9a4c24220013b67fa768f64960319ffcabb49d4e1129e6110899e217f60502"
+    },
+    "receipts/local-p19/batch-05/verification.json": {
+      "bytes": 583,
+      "sha256": "a85d592c3f070819bcde550c21de4d1c12c4e856237ec81bc60204330fea016c"
+    },
+    "receipts/local-p19/batch-06/complete.json": {
+      "bytes": 435,
+      "sha256": "377451ec80c86ecb8fcac71450b64f4c8cfc3c9badf0fcd4bf16ff00b3de7456"
+    },
+    "receipts/local-p19/batch-06/memory.csv": {
+      "bytes": 7445,
+      "sha256": "f50b8fff57d47414e80e256f50fb118d2b9d9df51ff9cf9f3541194975637a16"
+    },
+    "receipts/local-p19/batch-06/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "b43b35c0d3e2aedb1de37c427753b35e7582945768b82537feefc6d015897159"
+    },
+    "receipts/local-p19/batch-06/stats.json": {
+      "bytes": 134,
+      "sha256": "ed2d508cecd9e5ebc06df9bb3e9802387d831bd23e44dc89bf974511c55096d4"
+    },
+    "receipts/local-p19/batch-06/verification.json": {
+      "bytes": 583,
+      "sha256": "2042c90f32caa88b16b3b1633019b7ff7aa20576a430dac3759fc46b1664eca4"
+    },
+    "receipts/local-p19/batch-07/complete.json": {
+      "bytes": 303,
+      "sha256": "c33588fb1891d7b2515be29d47ddb17507a3f3598affbe92f66a38277d68db7d"
+    },
+    "receipts/local-p19/batch-07/receipt.bin": {
+      "bytes": 223930,
+      "sha256": "27fc4776b83d473d867bb16a44b85653c492f3cc1ba9f8b4e28f16e493e1982f"
+    },
+    "receipts/local-p19/batch-07/stats.json": {
+      "bytes": 132,
+      "sha256": "55facae5dc3e483b6450623e032be6aab52930bdf12b55cf6327da28236cb045"
+    },
+    "receipts/local-p19/batch-07/verification.json": {
+      "bytes": 583,
+      "sha256": "f4220cad7a366d6475ed8a4d503fca95419a62adf6302d18a484076329b545f2"
+    },
+    "wallet-public/AUDIT.json": {
+      "bytes": 2649,
+      "sha256": "fe0c7571c681a5c09088f91ae8b5d35de86427133cc95c227da2d2f0d168e8dc"
+    },
+    "wallet-public/SCORE.json": {
+      "bytes": 449934,
+      "sha256": "c121053ec4dcf7dc313ea4cf06bfe3ed868c3787d5c698735559e43e2919ffba"
+    },
+    "wallet-public/setup.json": {
+      "bytes": 294,
+      "sha256": "e482507ce7103190192912d5435ecfcd245ab581432be6f2b8da9d37bad7e54f"
+    },
+    "wallet-public/summary.json": {
+      "bytes": 574,
+      "sha256": "3013eae27cc84ac1a3d5d4b87293260786d3be0311633b8c3acb34faa5bb2354"
+    },
+    "wallet-public/trial-a23e64a6a381f127/deposits.json": {
+      "bytes": 397,
+      "sha256": "632bfcb7ac35cfe9d20b344cbda7a2256bc1300fb4b1c5ab4dbef1edcfbe711a"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-01.json": {
+      "bytes": 2264,
+      "sha256": "41cbfe64fe8616c3f79eb6848ca9102d702a3a4bf26897dc1433e048e5b6ea68"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-02.json": {
+      "bytes": 2267,
+      "sha256": "274d15a8eea7673715ca9a6a12c898509c8bd9aaa9a264337a5efbfde5a00157"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-03.json": {
+      "bytes": 2261,
+      "sha256": "11211f5b36454fe3a8d72ce259960a28f6911cf26f19e759ed46d0e43961d4bf"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-04.json": {
+      "bytes": 2261,
+      "sha256": "81696ab8b51a439bab8a8859b0bcb1fd236d13caa09b132080c70f367d6da16e"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-05.json": {
+      "bytes": 2268,
+      "sha256": "c2785f00b69c5f05e6a38edd6ac0e1c6597f598d0a7ed2d745d435a400a07230"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-06.json": {
+      "bytes": 2270,
+      "sha256": "51b39d1c609d4376c414e72bb024c110b152662512deb87c676a7517d7fbc124"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-07.json": {
+      "bytes": 2270,
+      "sha256": "6dfeed67891df111dca9a57f5fe49e903fcc2ade0476e7cf64b2d64892e81c14"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-08.json": {
+      "bytes": 2268,
+      "sha256": "9a735b28d9c58d8534e5827adcd260e8ed89f899cdebfb7a3028bca8d95bbcc4"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-09.json": {
+      "bytes": 2268,
+      "sha256": "48294422bdcf2c1f07bbec2e507de20e2a15478d958e686aea76f4feaa706dbc"
+    },
+    "wallet-public/trial-a23e64a6a381f127/event-10.json": {
+      "bytes": 2263,
+      "sha256": "edcc57a6a8844f20e7d6f02655fc2ec40d1a5a5dfd4b8567a0d125e9b8518ea0"
+    },
+    "wallet-public/trial-a23e64a6a381f127/known-owner-evidence.json": {
+      "bytes": 666,
+      "sha256": "68d4f0ac9440a811f9fe802524759e8ba42e5a45dd88b779d6d9f23fe1b70f35"
+    },
+    "wallet-public/trial-a23e64a6a381f127/native-deposit-01.bin": {
+      "bytes": 247,
+      "sha256": "7abaac89d5703515769d5ec6b73d05cc0878ea64a187a88b024fcea79b8f4656"
+    },
+    "wallet-public/trial-a23e64a6a381f127/native-deposit-02.bin": {
+      "bytes": 247,
+      "sha256": "9068297ac60b912f9209ab62491cf8f8b0f608f558ebd4237f410696d6e3d825"
+    },
+    "wallet-public/trial-a23e64a6a381f127/native-exits.json": {
+      "bytes": 1063,
+      "sha256": "c05512b6de1bef42bf8737d4d76e7325e36dd64421816d0f7d7669fe2bcaada0"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-01.json": {
+      "bytes": 8864,
+      "sha256": "d8911c4f79333ecf5546f7193ac4eb1c0bd44890df245a419b6d9328557c96f4"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-02.json": {
+      "bytes": 8852,
+      "sha256": "c02426569927f30c50f27153e864945898e702cf8e393490062a79d7c7000604"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-03.json": {
+      "bytes": 11288,
+      "sha256": "ffd5da28bb2bd1799e041e8db4c467462af3e1f36d3d17a77b2d319067e274a0"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-04.json": {
+      "bytes": 11289,
+      "sha256": "65cba3ca783f0df710e46efe579c29181e9388ccefebec347eb5fafc23dce393"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-05.json": {
+      "bytes": 11267,
+      "sha256": "8622761d5204bee1690933833e863dafce0181da0a7e36a48d16ed53119bbe00"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-06.json": {
+      "bytes": 6375,
+      "sha256": "515b122109b435a86db92d183886aefc2b22fc55d8e9f3d10e0c0e509eeac799"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-07.json": {
+      "bytes": 6370,
+      "sha256": "cb3d5a55d8cd0aa6173ebb5e28ca2ed64458cbb854637a9195d4beff9659fe7e"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-08.json": {
+      "bytes": 6359,
+      "sha256": "cc6cef6d496e1aec3774fd41596fdd13338920d09bce6b3099d00fcd77887f81"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-09.json": {
+      "bytes": 6358,
+      "sha256": "1f1a862a2bc183cb03fb3798c253260feb9ac136593cea7b62011451db4ff4bd"
+    },
+    "wallet-public/trial-a23e64a6a381f127/operation-10.json": {
+      "bytes": 6372,
+      "sha256": "5687427b3d82f192c2dfff0a719125e127b237ed5fe7e5914e987cea967cf51d"
+    },
+    "wallet-public/trial-a23e64a6a381f127/payout-01.json": {
+      "bytes": 1254,
+      "sha256": "35da92a097bc3fd660227b30323e0a7558fd8512a7849e1862cd443db9b01fc0"
+    },
+    "wallet-public/trial-a23e64a6a381f127/payout-02.json": {
+      "bytes": 1251,
+      "sha256": "85cf81f319d1a4c69aa8b06401167a1e8e114e5116da4984110eec6e680e784f"
+    },
+    "wallet-public/trial-a23e64a6a381f127/payout-03.json": {
+      "bytes": 1250,
+      "sha256": "54da304d4cd676c78f4703dbb96a65b8fae8acad91c077ce33e132d743c4868c"
+    },
+    "wallet-public/trial-a23e64a6a381f127/payout-04.json": {
+      "bytes": 1250,
+      "sha256": "96129561010bb5377a293bc6570ab2cdf52594c6bad8f0dd0b2f8c20d0028412"
+    },
+    "wallet-public/trial-a23e64a6a381f127/payout-05.json": {
+      "bytes": 1231,
+      "sha256": "ed56aee4467f299e046bd29fb009942b08f91e7bd4327f110b63ff4a3c741ad3"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-default/capture-01.json": {
+      "bytes": 10849,
+      "sha256": "78436ba248c61269e579f3349aae69cc13352bb9b239872964ff54f4faa072e2"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-default/capture-02.json": {
+      "bytes": 10838,
+      "sha256": "f3a977f2bc369665293ae3013e3b9a69b9b97135de38e2bc8750ba700e7fa64c"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-default/capture-03.json": {
+      "bytes": 13646,
+      "sha256": "398954b134bd7a86f04f0fd28665292466be1213ba70fe17c1d4479b7bea5ab5"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-default/capture-04.json": {
+      "bytes": 13647,
+      "sha256": "660b337c2d06b0660041aeb5871d119f0c4d4ff5eec646ad0cd411b751e3e31d"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-default/capture-05.json": {
+      "bytes": 13625,
+      "sha256": "a033ae9bcec17a81ec85b1a230d07604cd0a42465fa0325ae54729ad466571e6"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-replacement/capture-01.json": {
+      "bytes": 7986,
+      "sha256": "99880572322727e9a7668e0849afcc12b4cddfa3d91733d9eb2b9c8f3dc0a2ae"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-replacement/capture-02.json": {
+      "bytes": 7984,
+      "sha256": "d2161e81420bc247a7911c33820dbb9b5c008723701e3738d470e822b5dfda0b"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-replacement/capture-03.json": {
+      "bytes": 7974,
+      "sha256": "233448f0606978cc581e13bbfa6546e8ef314c5a34479045d8eb50fcbf39f79d"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-replacement/capture-04.json": {
+      "bytes": 7973,
+      "sha256": "05f45a1270dff86ed758475e2a98f4c5c982c7c430e53e603d7eb812fd4f7912"
+    },
+    "wallet-public/trial-a23e64a6a381f127/relay-replacement/capture-05.json": {
+      "bytes": 7987,
+      "sha256": "19ef7e4020f903422b699af1b260d9e5d4d652ea7271c32cd8ff41644d9467e9"
+    },
+    "wallet-public/trial-a23e64a6a381f127/run-receipt.json": {
+      "bytes": 2085,
+      "sha256": "e7396e0a33603ff88fd2292a36ec50751151b095fc72201a618ce4ba193b364e"
+    },
+    "wallet-public/trial-a23e64a6a381f127/service-loss.json": {
+      "bytes": 590,
+      "sha256": "d8c37610d01ac2751e8fd6130d4d8dcd48b81046352d5c7ec4018f2f8d1fd5f8"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-00.bin": {
+      "bytes": 290,
+      "sha256": "b799343db8c1a22db1b38d8bde61500fb170adfe7f1818b5d622d21514ce9282"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-01.bin": {
+      "bytes": 579,
+      "sha256": "cf7c110be5db8398ddb3a8ffae8d6adc675bdbc73ada1670703e3ab12357c138"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-02.bin": {
+      "bytes": 868,
+      "sha256": "d537316a8fdc70a220b74117a3d8a34a86a22143ed611cc6a79cb7e83bbb9077"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-03.bin": {
+      "bytes": 1446,
+      "sha256": "42306ad45014e20217ecb0970de1fcd929dad67889bdd01d6e9885e1305632b5"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-04.bin": {
+      "bytes": 2024,
+      "sha256": "9c1df6a099e9d5c0c79786e62283866d714c3fe973d7270d6fee4015cc019e71"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-05.bin": {
+      "bytes": 2602,
+      "sha256": "7afa9b258cfef7d23d4b26fee058dbf259a045c7594456d92bb64c5b2baec97d"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-06.bin": {
+      "bytes": 2707,
+      "sha256": "bf63760addcc329760ead0143267d3cbac19f1365e1bcb60b7ff45b4b5fab05b"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-07.bin": {
+      "bytes": 2739,
+      "sha256": "b93316c17a38334eac3df9fa1fb61f70763ad36922e8426e61c8ae0bcd139a4d"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-08.bin": {
+      "bytes": 2844,
+      "sha256": "5ad09b00b4f95508834f2733e0848a77054d27ab7e5d21e43ea15d46c76ab368"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-09.bin": {
+      "bytes": 2876,
+      "sha256": "537bca62838da704389e0513e45871a17c15a71ed58eb64ba669ccf23d7a22ea"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-10.bin": {
+      "bytes": 2981,
+      "sha256": "1e4e3c59b69c9cd90e853821c2d580a4aa6f0a6995ca2d8fba7733a423a71f50"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-11.bin": {
+      "bytes": 3013,
+      "sha256": "7d06e047e62fb10ff93569417ce53d2982a4f4512823e7aecbee57d7d0558b8d"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-12.bin": {
+      "bytes": 3118,
+      "sha256": "5906cf570a2a41aa78bf4df4363bb0c5494c15d9e2d7f4fe346f04945ebb6414"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-13.bin": {
+      "bytes": 3150,
+      "sha256": "5f08ae15e75e3f7229fc747a0f08b0515cec8874b75c69c0e0d9ad60c0f2236a"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-14.bin": {
+      "bytes": 3255,
+      "sha256": "61b46dea6d6f1d0945378aded30378623933404989bdf1b466b348a6f04598f8"
+    },
+    "wallet-public/trial-a23e64a6a381f127/state-15.bin": {
+      "bytes": 3287,
+      "sha256": "9330e405c6e632bf83f91827737d3d2ad3f79e391c50a21af4ca6e36e46b3eb2"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/deposits.json": {
+      "bytes": 397,
+      "sha256": "7c9fe304b80319c3d51f87f929192f67fc0ba017fe8f2a591527b51936f46524"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-01.json": {
+      "bytes": 2264,
+      "sha256": "fb04fbe39bb9744a1eb564491ed534b89bca6d47925546e8df0e1b1e0265060e"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-02.json": {
+      "bytes": 2267,
+      "sha256": "3ae206e45dd92eb1f739b46baad02d0f0c62dd84e7c71b9f37bcf062cd40aa0a"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-03.json": {
+      "bytes": 2261,
+      "sha256": "d3340c0178712343c296507b4918463a19aaed426e6aafcf3785283ffbedb4de"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-04.json": {
+      "bytes": 2261,
+      "sha256": "3b1b622a6d07ff490e77c01f48e1cae058cd714307fb31e25081ca4da0609c78"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-05.json": {
+      "bytes": 2261,
+      "sha256": "fdcecdb28b51a26152c1cdbf6bcf2ecd31737d1b5df37d2473fcb6deaa858b4e"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-06.json": {
+      "bytes": 2270,
+      "sha256": "9f5af00833ae1833d7e89a4f1cbc7cd0c4f420ea6223beec6dfd5c0483faba60"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-07.json": {
+      "bytes": 2270,
+      "sha256": "16f8cb9915a3f19373c1683ccb6e3d75205859ceb00cc814502b5ee4af6bd087"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-08.json": {
+      "bytes": 2268,
+      "sha256": "61c32dbdfc3d8290aab16bda86efe8175503b8dfebdc868a63760ad338604a19"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-09.json": {
+      "bytes": 2268,
+      "sha256": "db4f9d0b0b2cd4f6cfe5d3e962a3efd72a190f50f87bb7500c2dc78498fe295f"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/event-10.json": {
+      "bytes": 2263,
+      "sha256": "d5aacf04d54f9a2def8631972c1ae0e18e1ab6b05842e249c3fd70ffa8e2b841"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/known-owner-evidence.json": {
+      "bytes": 666,
+      "sha256": "0228c5206bf5683205fd92ee7cad18bc34ccc92423f80080879bd32d3e3f0ad4"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/native-deposit-01.bin": {
+      "bytes": 247,
+      "sha256": "f8de0996c3db1a8ec50aebfa62565143613edf2a58df4af7869e71521901c533"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/native-deposit-02.bin": {
+      "bytes": 247,
+      "sha256": "3734b23806468b52e57d7f57fe8da623f74330036a7f6763cf4ef5b2b4084b71"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/native-exits.json": {
+      "bytes": 1063,
+      "sha256": "25fbe3dbe69bd2cd93ee704ad90a7d71a7e18487eef1ba820b61498bd5bb1de8"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-01.json": {
+      "bytes": 8854,
+      "sha256": "1732bde9b965b2ea6fa086e04f7b5a90679ec8dd12bf639f91c20a5ee6e45668"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-02.json": {
+      "bytes": 8847,
+      "sha256": "2fc15b3e141bf84b48dba35f62b7db491f901d664a7b8bca34f97f3bc57a47fa"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-03.json": {
+      "bytes": 11252,
+      "sha256": "25795e11810bfb1e733838722c80403235f73a3c2612795f1dacdaec0ecd510a"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-04.json": {
+      "bytes": 11280,
+      "sha256": "d6f3bc112603afa745c6713e063e3e37e44ac88dab5696a207bd44f806d6a11b"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-05.json": {
+      "bytes": 11263,
+      "sha256": "a450ad0b3136089f94ec32557bfe7746f4cba4c39b6bf523be5bfa09979b439c"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-06.json": {
+      "bytes": 6386,
+      "sha256": "d085fdb2777dd8ca491a74dc29bc120739f638820203a94cde81e114ba8b5b0e"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-07.json": {
+      "bytes": 6370,
+      "sha256": "a37e9b2a5020f4c93a381ed2a8446a4a241c8e6fae1b4295da97b9eee50201a8"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-08.json": {
+      "bytes": 6373,
+      "sha256": "c4fe9ed58e8381a7f415d7f4c75c4348b8889ada014367c44cac5e6e7dfcef03"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-09.json": {
+      "bytes": 6379,
+      "sha256": "875f6ec1f575ba36319c89f8e48c2d01e35334a799e2d44387893be6efb0ca74"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/operation-10.json": {
+      "bytes": 6369,
+      "sha256": "09b0bac0af655b6d7be25204a5681ed741b066bff61aec4cfe51ea7dbb73f3a4"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/payout-01.json": {
+      "bytes": 1254,
+      "sha256": "b40bdfb1823b9e73884ee1bff4c4550b7bce91f5c02550fd81cc1ee10f33234f"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/payout-02.json": {
+      "bytes": 1251,
+      "sha256": "f921c1fd29784744bf26bd35d7a9f4625381a4cce5e20552e442352ab75cbd6e"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/payout-03.json": {
+      "bytes": 1250,
+      "sha256": "841279ee53c413ccbe03a2f520cfa1395eb092272469f27348e8ff67e725206e"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/payout-04.json": {
+      "bytes": 1250,
+      "sha256": "1f7e5b2096803cf95a46b981b63676e317ae14aaaffa19414e4bbb448b9247d5"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/payout-05.json": {
+      "bytes": 1231,
+      "sha256": "46128a9999a977c0dab097c552b650978f86f3053b46312574d80ee801504c58"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-default/capture-01.json": {
+      "bytes": 10839,
+      "sha256": "d0b793fdadd072ccafdf6e83876ecb2d307d249cb47fbad0c36c2ab66118f111"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-default/capture-02.json": {
+      "bytes": 10833,
+      "sha256": "698385044388c52ed52e1940f6cd95f8736ce76bd24c432416fd60e7004d717a"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-default/capture-03.json": {
+      "bytes": 13610,
+      "sha256": "b0896f6d918638ec3754f39332902b335ce8b3ace2ea33c6941d3c879aa2d7f0"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-default/capture-04.json": {
+      "bytes": 13638,
+      "sha256": "5dc8b3d06f86aed401be6f853ba22a981a054473d1e284888cd69db6e74eabba"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-default/capture-05.json": {
+      "bytes": 13621,
+      "sha256": "0ece7e1ca6483f5e0e6007cfe492367f7ef23af96e4e413589198af9a846f1eb"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-replacement/capture-01.json": {
+      "bytes": 7997,
+      "sha256": "7786b450e8936b65401641d316ccad1e9ad219f3e307372de1bd3bb87296bc8d"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-replacement/capture-02.json": {
+      "bytes": 7984,
+      "sha256": "a46615b4d2784467eae86bc69eafa70e35400c5afd620524b6eb6c6a8634cb58"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-replacement/capture-03.json": {
+      "bytes": 7988,
+      "sha256": "286732fd34b93275f672224d2d4102e37d98dc2ec24ec19bc35266a8bbab0f97"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-replacement/capture-04.json": {
+      "bytes": 7994,
+      "sha256": "596d9cd0c3a751310922631838a3863394dbfbf350f0a2f8ccaac1f90026bc91"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/relay-replacement/capture-05.json": {
+      "bytes": 7984,
+      "sha256": "fde37e433cef456fc0e4b5040b086de0040dd87576cc98b0841d31476f0ea901"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/run-receipt.json": {
+      "bytes": 2080,
+      "sha256": "6b47f928b27afe838da38edb55681e4cab9cfd7e67d4b55a8982586b042ca9a2"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/service-loss.json": {
+      "bytes": 590,
+      "sha256": "10c2500edba98dddb9141fcc36ca20c68f3e505a6bf39112b6b6bb7082e519f9"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-00.bin": {
+      "bytes": 290,
+      "sha256": "31f6b77c2c6ace3c05ad055b405b31d886fa3c8d55c73ba16c874b9ee22fc462"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-01.bin": {
+      "bytes": 579,
+      "sha256": "2cbc18e73d1415c02d55b767e48574fbbc2ad668807079cfacee820d5bd2e728"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-02.bin": {
+      "bytes": 868,
+      "sha256": "a4a6c70f200fc6ad2dc2e2f0f6ace42eb204be086f7565f4a7f72248a82eabb4"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-03.bin": {
+      "bytes": 1446,
+      "sha256": "0c23cebb18ecdb75451a472cc3ecc609797a5fd6af2e5b8252687061333b730d"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-04.bin": {
+      "bytes": 2024,
+      "sha256": "fe5999868c4bda1e91b2e1250cdfcea0e3ca9c234e568ab15e16baa523cfcfe0"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-05.bin": {
+      "bytes": 2602,
+      "sha256": "f143e1137e894396dfef308ab4eedf230b85fbeb855e95a26186d423625da0af"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-06.bin": {
+      "bytes": 2707,
+      "sha256": "0bfae2e04c438e6b13dbabb21a2dbfe92bb70d8040726ba77a27270d977f4577"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-07.bin": {
+      "bytes": 2739,
+      "sha256": "9bba2b5712e713b32df09996f362dc23201feb83c587afbf5719405f0df66c95"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-08.bin": {
+      "bytes": 2844,
+      "sha256": "2ec5ad728508ccd827fe19f990dad2dd5bf8dedc6bd281727a096eb143624108"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-09.bin": {
+      "bytes": 2876,
+      "sha256": "3f18cc8bc7172098d0742791673ce4a3e39a8c28d8b51e7a1592a26aa398a905"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-10.bin": {
+      "bytes": 2981,
+      "sha256": "d1c0c93efe12d311398fd6c8e2b10c7584b5c44a15452942cc80bfb35ac09fbd"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-11.bin": {
+      "bytes": 3013,
+      "sha256": "d3142f72a606bafe201f2f59452a585ccfe4c7689d27d0dfda1381c4580c9aac"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-12.bin": {
+      "bytes": 3118,
+      "sha256": "e58e4cead9ff5eb66086cc5d0ca782eb7d4a085680298cf90fc58e7250b28213"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-13.bin": {
+      "bytes": 3150,
+      "sha256": "8fb7f7a3ef61924e7bb87196a192c8da9368de577c3d846c78d50fcafdfc6c8b"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-14.bin": {
+      "bytes": 3255,
+      "sha256": "e7f7c2e5e8cc8058e581c46f396f35bd50f25a287956bc5c58076f28a03ee355"
+    },
+    "wallet-public/trial-d4e5720c8b7ee26c/state-15.bin": {
+      "bytes": 3287,
+      "sha256": "e2b8b715e7918e89a61caf86772f8fb1f71dda01a1b3135c1bca4183904493f3"
+    },
+    "wallet-public/verifying-key-uncompressed.bin": {
+      "bytes": 1416,
+      "sha256": "1a8380108bb5f89e7f9be28ca4c37ae3a992a0b62994ff0970542bff150b33ea"
+    },
+    "wallet-public/verifying-key.bin": {
+      "bytes": 712,
+      "sha256": "97ef3a85e5d03956150f9802d42697a8dcbb338a32a30efc811d1b3898157e32"
+    }
+  },
+  "root": "research/full-drainage-executed-lifecycle-2026-11-01/tn10-depth4-preparation",
+  "schema": "full-drainage-executed-public-manifest-v1"
+}

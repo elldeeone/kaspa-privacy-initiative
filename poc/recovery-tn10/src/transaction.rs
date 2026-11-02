@@ -148,9 +148,12 @@ pub(crate) fn sign_fee_input(
 pub fn build(trial_path: &Path, request_path: &Path, key_file: &Path, out: &Path) -> Result<()> {
     let trial = read(trial_path)?;
     let r = read(request_path)?;
+    #[cfg(feature = "tn10-rehearsal")]
+    let expected_trial_schema = "KPI_RECOVERY_TN10_TRIAL_V1";
+    #[cfg(feature = "tn10-full-drainage-depth-4")]
+    let expected_trial_schema = "KPI_FULL_DRAINAGE_TN10_TRIAL_V1";
     require(
-        trial["schema"] == "KPI_RECOVERY_TN10_TRIAL_V1"
-            && trial["lane"] == hex::encode(chain::LANE),
+        trial["schema"] == expected_trial_schema && trial["lane"] == hex::encode(chain::LANE),
         "wrong trial",
     )?;
     require(
@@ -280,11 +283,21 @@ pub fn build(trial_path: &Path, request_path: &Path, key_file: &Path, out: &Path
                     && se.script_public_key == pay_to_script_hash_script(&state_script(&genesis)),
                 "initialized state no longer present / wrong deposit covenant",
             )?;
+            #[cfg(feature = "tn10-rehearsal")]
+            let (amount, owner) = (1_000_000_000, h(&trial["alice"]["owner"])?);
+            #[cfg(feature = "tn10-full-drainage-depth-4")]
+            let (amount, owner) = {
+                let label = r["depositLabel"].as_str().ok_or("deposit label")?;
+                require(label == "A" || label == "B", "deposit label A/B")?;
+                let amount = n(&r["depositAmountSompi"])?;
+                require(amount == 100_000_000, "fixed one-KAS depth-four deposit")?;
+                (amount, h(&trial["wallets"][label]["owner"])?)
+            };
             outputs.push(TransactionOutput::new(
-                1_000_000_000,
+                amount,
                 ScriptPublicKey::new(0, app::delegate(&cov).into()),
             ));
-            payload = chain::deposit_payload(h(&trial["alice"]["owner"])?, 0);
+            payload = chain::deposit_payload(owner, 0);
         }
         "activate" => {
             payload = [

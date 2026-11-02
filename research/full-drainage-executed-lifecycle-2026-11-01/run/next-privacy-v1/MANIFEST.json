@@ -1,0 +1,74 @@
+{
+  "schema": "full-drainage-next-privacy-manifest-v1",
+  "parentPublicResultManifestSha256": "1259c42cb7cde08fac0b9da29176e46cc20dddc963682c680a19958eefd5b88c",
+  "predictionSealSha256": "2d83123dc3572c2fd686642473341ffbb8a109c984a65a17f5a6451f8206a20e",
+  "finiteReviewedAllowlist": [
+    {
+      "path": "NEXT-PRIVACY-SELECTION.md",
+      "bytes": 3328,
+      "sha256": "c60b6a1f4e429011a049a60cff69dc8fd88e99c52d0ff7d909f6549a4da6da12"
+    },
+    {
+      "path": "NEXT-PRIVACY-RESULT.md",
+      "bytes": 6215,
+      "sha256": "16c101feba12b622d0885e059ce186a1742d0e5db164def7f5d3ca8c793dcc8f"
+    },
+    {
+      "path": "reserve_lineage_privacy.py",
+      "bytes": 22981,
+      "sha256": "e6b3be98b9c8307664ec517ff23f18fbad52a4e94391d5de39ccff521557089f"
+    },
+    {
+      "path": "test_reserve_lineage_privacy.py",
+      "bytes": 3467,
+      "sha256": "76b70158c9e73fd1be5faec888a0b750147a12d031433e14d7c4333fc9fb93cb"
+    },
+    {
+      "path": "inventory_live_attempts.mjs",
+      "bytes": 8252,
+      "sha256": "9e1b9475e19ae5547e5ca96d634caea7619b0ed0b72b010452186f824c184c84"
+    },
+    {
+      "path": "run/next-privacy-v1/PREDICTIONS.json",
+      "bytes": 79199,
+      "sha256": "2d83123dc3572c2fd686642473341ffbb8a109c984a65a17f5a6451f8206a20e"
+    },
+    {
+      "path": "run/next-privacy-v1/PREDICTIONS.sha256",
+      "bytes": 65,
+      "sha256": "dc6274034ac32b7dde9ebf11f79410b51b25e3c15c0a3d07f13868f9cdfcd7a3"
+    },
+    {
+      "path": "run/next-privacy-v1/VALIDATION.json",
+      "bytes": 2257,
+      "sha256": "b93cb0587fed59be2898eb563abf509ec6faa64c7b1a25032440e1b7943ac3c9"
+    },
+    {
+      "path": "run/next-privacy-v1/ATTEMPT-INVENTORY.json",
+      "bytes": 15592,
+      "sha256": "9be02fc337779ed96591f97668d768898335d1b5996cef41659dcd663938486e"
+    },
+    {
+      "path": "run/next-privacy-v1/CHECKS.json",
+      "bytes": 1982,
+      "sha256": "b7cfe79858a8aa6425637709e7112cc18c579a272944c7773114570c1bb6fd89"
+    }
+  ],
+  "excludedRetainedArtifacts": [
+    {
+      "path": "run/next-privacy-v1/ATTEMPT-INVENTORY.superseded-invalid.json",
+      "reason": "retained failed first inventory pass; reused owner addresses caused cross-attempt double counting"
+    },
+    {
+      "path": "/var/tmp/kpi-tn10-full-drainage-live-20261102-attempt-06/private",
+      "reason": "private execution truth and wallet material remain local and are not allowlisted"
+    }
+  ],
+  "boundaries": {
+    "commitCreated": false,
+    "pushPerformed": false,
+    "publicPostPerformed": false,
+    "privateKeysIncluded": false,
+    "privateTruthIncluded": false
+  }
+}

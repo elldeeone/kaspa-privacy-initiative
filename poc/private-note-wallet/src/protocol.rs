@@ -6,6 +6,24 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 pub type H = [u8; 32];
+#[cfg(any(
+    all(feature = "privacy-experiment-depth-4", feature = "tn10-rehearsal"),
+    all(
+        feature = "privacy-experiment-depth-4",
+        feature = "tn10-full-drainage-depth-4"
+    ),
+    all(feature = "tn10-rehearsal", feature = "tn10-full-drainage-depth-4")
+))]
+compile_error!("wallet experiment profiles are distinct domains");
+#[cfg(any(
+    feature = "privacy-experiment-depth-4",
+    feature = "tn10-full-drainage-depth-4"
+))]
+pub const DEPTH: usize = 4;
+#[cfg(not(any(
+    feature = "privacy-experiment-depth-4",
+    feature = "tn10-full-drainage-depth-4"
+)))]
 pub const DEPTH: usize = 2;
 pub const PUBLIC_LEN: usize = 410;
 pub const CREDIT: u8 = 1;
@@ -20,11 +38,27 @@ pub fn hash(b: &[u8]) -> H {
     Sha256::digest(b).into()
 }
 pub fn domain() -> H {
-    #[cfg(not(feature = "tn10-rehearsal"))]
+    #[cfg(feature = "tn10-full-drainage-depth-4")]
+    {
+        hash(b"KPI/TN10/native-KAS/full-drainage-depth4-v1")
+    }
+    #[cfg(feature = "privacy-experiment-depth-4")]
+    {
+        hash(b"KPI/LOCAL-NO-FUNDING/native-KAS/private-note-experiment-depth4-v1")
+    }
+    #[cfg(all(
+        not(feature = "privacy-experiment-depth-4"),
+        not(feature = "tn10-full-drainage-depth-4"),
+        not(feature = "tn10-rehearsal")
+    ))]
     {
         hash(b"KPI/LOCAL-NO-FUNDING/native-KAS/private-note-experiment-1")
     }
-    #[cfg(feature = "tn10-rehearsal")]
+    #[cfg(all(
+        not(feature = "privacy-experiment-depth-4"),
+        not(feature = "tn10-full-drainage-depth-4"),
+        feature = "tn10-rehearsal"
+    ))]
     {
         [
             0x0a, 0x71, 0x27, 0x63, 0xb5, 0x3b, 0x58, 0x72, 0xe2, 0x1f, 0x25, 0xea, 0x10, 0x94,

@@ -120,6 +120,23 @@ pub fn seed(validator: &Path, sha: &str, capture: &Path, out: &Path) -> Result<(
         "captureSha256":trusted::sha(&fs::read(capture)?),"validatorSha256":sha}),
     )
 }
+
+fn segment_profile(stage: &str) -> Result<(u64, u64)> {
+    #[cfg(feature = "tn10-rehearsal")]
+    let profile = match stage {
+        "deposit" | "bob-reconcile" | "alice-reconcile" => (16, 16),
+        "credit-transfer" | "bob-exit" | "alice-exit" => (20, 20),
+        _ => return Err("stage".into()),
+    };
+    #[cfg(feature = "tn10-full-drainage-depth-4")]
+    let profile = match stage {
+        "batch-01" | "batch-02" | "batch-03" | "batch-04" | "batch-05" | "batch-06" => (20, 19),
+        "batch-07" => (16, 16),
+        _ => return Err("stage".into()),
+    };
+    Ok(profile)
+}
+
 pub fn target(path: &Path, expected_sha: &str) -> Result<Value> {
     let bytes = fs::read(path)?;
     require(
@@ -135,17 +152,18 @@ pub fn target(path: &Path, expected_sha: &str) -> Result<Value> {
         "frozen identities",
     )?;
     let stage = t["stage"].as_str().ok_or("stage")?;
-    require(CASES.contains(&stage), "fixed six stages")?;
+    require(CASES.contains(&stage), "fixed stages")?;
+    let (pinned_po2, effective_po2) = segment_profile(stage)?;
+    #[cfg(feature = "tn10-rehearsal")]
+    let _ = pinned_po2;
+    #[cfg(feature = "tn10-rehearsal")]
+    let profile_ok = t["aggregateProofSeconds"] == 3600 && t["segmentPo2"] == effective_po2;
+    #[cfg(feature = "tn10-full-drainage-depth-4")]
+    let profile_ok = t["segmentPo2"] == effective_po2
+        && t["pinnedSegmentPo2"] == pinned_po2
+        && t["resourceProfileOverride"] == (effective_po2 != pinned_po2);
     require(
-        t["cycleLimit"] == 160000000
-            && t["aggregateProofSeconds"] == 3600
-            && t["automaticRetry"] == false
-            && t["segmentPo2"]
-                == if stage == "credit-transfer" || stage.ends_with("-exit") {
-                    20
-                } else {
-                    16
-                },
+        t["cycleLimit"] == 160000000 && t["automaticRetry"] == false && profile_ok,
         "fixed proof profile",
     )?;
     let j = hex::decode(t["journalHex"].as_str().ok_or("journal")?)?;
@@ -189,6 +207,7 @@ pub fn prove(path: &Path, sha: &str, out: &Path) -> Result<()> {
         std::env::var("RISC0_PROVER").as_deref() == Ok("ipc"),
         "real IPC prover required",
     )?;
+    #[cfg(feature = "tn10-rehearsal")]
     require(
         std::env::var("KPI_TN10_EXTERNAL_DEADLINE").as_deref() == Ok("3600"),
         "external shared process-group deadline required",
@@ -211,15 +230,8 @@ pub fn prove(path: &Path, sha: &str, out: &Path) -> Result<()> {
             && trusted::sha(&bincode::serialize(&expected.state)?) == t["stateSha256"],
         "CPU recomputation differs from trusted target",
     )?;
-    require(
-        t["cycleLimit"] == 160000000 && t["aggregateProofSeconds"] == 3600,
-        "fixed proof limits",
-    )?;
-    let po2 = match t["stage"].as_str() {
-        Some("deposit" | "bob-reconcile" | "alice-reconcile") => 16,
-        Some("credit-transfer" | "bob-exit" | "alice-exit") => 20,
-        _ => return Err("stage".into()),
-    };
+    require(t["cycleLimit"] == 160000000, "fixed proof limit")?;
+    let (_, po2) = segment_profile(t["stage"].as_str().ok_or("stage")?)?;
     require(t["segmentPo2"] == po2, "segment setting")?;
     mkdir(out)?;
     let start = Instant::now();
@@ -238,11 +250,12 @@ pub fn prove(path: &Path, sha: &str, out: &Path) -> Result<()> {
     save(&out.join("receipt.bin"), &receipt)?;
     report(
         &out.join("complete.json"),
-        &json!({"targetSha256":sha,"receiptSha256":trusted::sha(&receipt),"seconds":start.elapsed().as_secs_f64(),"independentCpuVerificationRequired":true,"nativeChainAcceptance":false}),
+        &json!({"targetSha256":sha,"receiptSha256":trusted::sha(&receipt),"seconds":start.elapsed().as_secs_f64(),"segmentPo2":po2,"pinnedSegmentPo2":t["pinnedSegmentPo2"],"resourceProfileOverride":t["resourceProfileOverride"],"independentCpuVerificationRequired":true,"nativeChainAcceptance":false}),
     )
 }
 pub(crate) fn lifecycle(stage: &str, s: &State) -> Result<()> {
     let a = s.accounting()?;
+    #[cfg(feature = "tn10-rehearsal")]
     let (reserve, private, pending, unpaid) = match stage {
         "deposit" => (1_000_000_000, 0, 1_000_000_000, 0),
         "credit-transfer" => (1_000_000_000, 1_000_000_000, 0, 0),
@@ -250,6 +263,17 @@ pub(crate) fn lifecycle(stage: &str, s: &State) -> Result<()> {
         "bob-reconcile" => (600_000_000, 600_000_000, 0, 0),
         "alice-exit" => (600_000_000, 0, 0, 600_000_000),
         "alice-reconcile" => (0, 0, 0, 0),
+        _ => return Err("unknown lifecycle stage".into()),
+    };
+    #[cfg(feature = "tn10-full-drainage-depth-4")]
+    let (reserve, private, pending, unpaid) = match stage {
+        "batch-01" => (200_000_000, 200_000_000, 0, 0),
+        "batch-02" => (200_000_000, 140_000_000, 0, 60_000_000),
+        "batch-03" => (140_000_000, 60_000_000, 0, 80_000_000),
+        "batch-04" => (60_000_000, 30_000_000, 0, 30_000_000),
+        "batch-05" => (30_000_000, 10_000_000, 0, 20_000_000),
+        "batch-06" => (10_000_000, 0, 0, 10_000_000),
+        "batch-07" => (0, 0, 0, 0),
         _ => return Err("unknown lifecycle stage".into()),
     };
     require(
@@ -277,6 +301,7 @@ pub fn freeze(
             && cp["status"] == "CAPTURED_NATIVE_ACCEPTANCE_OFFLINE_RECHECK_REQUIRED",
         "accepted checkpoint required",
     )?;
+    #[cfg(feature = "tn10-rehearsal")]
     let expected = match cp["completed"].as_str() {
         Some("initialize") => "deposit",
         Some("deposit") => "credit-transfer",
@@ -284,6 +309,17 @@ pub fn freeze(
         Some("bob-exit") => "bob-reconcile",
         Some("bob-reconcile") => "alice-exit",
         Some("alice-exit") => "alice-reconcile",
+        _ => return Err("checkpoint stage".into()),
+    };
+    #[cfg(feature = "tn10-full-drainage-depth-4")]
+    let expected = match cp["completed"].as_str() {
+        Some("initialize") => "batch-01",
+        Some("batch-01") => "batch-02",
+        Some("batch-02") => "batch-03",
+        Some("batch-03") => "batch-04",
+        Some("batch-04") => "batch-05",
+        Some("batch-05") => "batch-06",
+        Some("batch-06") => "batch-07",
         _ => return Err("checkpoint stage".into()),
     };
     require(stage == expected, "stage order")?;
@@ -334,13 +370,26 @@ pub fn freeze(
     save(&out.join("guest.program.bin"), &program_bytes)?;
     save(&out.join("prior-checkpoint.json"), &fs::read(checkpoint)?)?;
     let end = record(&c, "end-block")?["block"]["header"]["hash"].clone();
-    let t = json!({"schema":"KPI_RECOVERY_TN10_FROZEN_BATCH_V1","trial":cp["trial"],"stage":stage,"image":IMAGE,"join":JOIN,"programSha256":PROGRAM_SHA,
+    let (pinned_po2, effective_po2) = segment_profile(stage)?;
+    #[cfg(feature = "tn10-rehearsal")]
+    let _ = pinned_po2;
+    let mut t = json!({"schema":"KPI_RECOVERY_TN10_FROZEN_BATCH_V1","trial":cp["trial"],"stage":stage,"image":IMAGE,"join":JOIN,"programSha256":PROGRAM_SHA,
         "inputSha256":trusted::sha(&bytes),"priorStateSha256":trusted::sha(&fs::read(out.join("prior-state.bin"))?),"stateSha256":trusted::sha(&bincode::serialize(&output.state)?),
         "checkpointSha256":trusted::sha(&fs::read(checkpoint)?),"captureSha256":trusted::sha(&fs::read(out.join("capture.json"))?),"validatorSha256":sha,
         "stateOutpoint":cp["stateOutpoint"],"startBlock":cp["nextCaptureStart"],"endBlock":end,
         "journalHex":hex::encode(&output.journal),"journalSha256":trusted::sha(&output.journal),
-        "cycleLimit":160000000,"segmentPo2":if stage=="credit-transfer"||stage.ends_with("-exit"){20}else{16},
-        "aggregateProofSeconds":3600,"automaticRetry":false,"proofStarted":false,"networkAcceptance":false});
+        "cycleLimit":160000000,"segmentPo2":effective_po2,
+        "automaticRetry":false,"proofStarted":false,"networkAcceptance":false});
+    #[cfg(feature = "tn10-rehearsal")]
+    {
+        t["aggregateProofSeconds"] = json!(3600);
+    }
+    #[cfg(feature = "tn10-full-drainage-depth-4")]
+    {
+        t["pinnedSegmentPo2"] = json!(pinned_po2);
+        t["resourceProfileOverride"] = json!(effective_po2 != pinned_po2);
+        t["proverResourceChangeOnly"] = json!(true);
+    }
     report(&out.join("target.json"), &t)?;
     report(
         &out.join("freeze-report.json"),

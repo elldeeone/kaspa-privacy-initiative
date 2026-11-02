@@ -1,0 +1,15 @@
+[package]
+name = "wallet-local-shared-history-runner"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+kpi-private-note-wallet = { path = "../../../poc/private-note-wallet", features = ["privacy-experiment-depth-4"] }
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.145"
+hex = "=0.4.3"
+rand = "=0.8.5"
+

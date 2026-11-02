@@ -42,14 +42,20 @@ impl AcceleratedVerifier {
     }
     #[cfg(target_os = "zkvm")]
     pub fn pinned() -> Self {
+        #[cfg(not(feature = "tn10-full-drainage-depth-4"))]
         let bytes = include_bytes!("../../pins/vk-uncompressed.bin");
+        #[cfg(feature = "tn10-full-drainage-depth-4")]
+        let bytes = include_bytes!("../../pins-full-drainage-depth4-v1/vk-uncompressed.bin");
         // Checked and canonically re-encoded by the native generator before build.
         // The guest identity binds these immutable bytes; submitted proofs are checked.
         let vk = ark_groth16::VerifyingKey::<Bn254>::deserialize_uncompressed_unchecked(&bytes[..])
             .unwrap();
         let mut raw = vec![];
         vk.serialize_compressed(&mut raw).unwrap();
+        #[cfg(not(feature = "tn10-full-drainage-depth-4"))]
         let expected = include_bytes!("../../pins/vk-id.bin");
+        #[cfg(feature = "tn10-full-drainage-depth-4")]
+        let expected = include_bytes!("../../pins-full-drainage-depth4-v1/vk-id.bin");
         assert_eq!(hash(&raw), *expected);
         assert_eq!(vk.gamma_abc_g1.len(), 15);
         Self {

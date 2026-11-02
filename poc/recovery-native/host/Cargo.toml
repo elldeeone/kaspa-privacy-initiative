@@ -4,13 +4,15 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 [features]
-default = ["proof"]
+default = ["proof", "tn10-rehearsal"]
 proof = ["dep:kpi-private-note-proof"]
+tn10-rehearsal = ["kpi-recovery-native/tn10-rehearsal", "kpi-private-note-wallet/tn10-rehearsal"]
+tn10-full-drainage-depth-4 = ["kpi-recovery-native/tn10-full-drainage-depth-4", "kpi-private-note-wallet/tn10-full-drainage-depth-4"]
 [dependencies]
 rand = "=0.8.5"
 kpi-private-note-proof = { path = "../../private-note-proof", optional = true }
-kpi-recovery-native = { path = "../common" }
-kpi-private-note-wallet = { path = "../../private-note-wallet", features = ["tn10-rehearsal"] }
+kpi-recovery-native = { path = "../common", default-features = false }
+kpi-private-note-wallet = { path = "../../private-note-wallet", default-features = false, features = ["wallet"] }
 serde_json = "=1.0.145"
 bincode = "=1.3.3"
 hex = "=0.4.3"
@@ -29,5 +31,16 @@ vprogs-zk-backend-risc0-covenant = { path = "../../takeover/vendor/covenant" }
 
 
 [[bin]]
+name = "kpi-recovery-native-host"
+path = "src/main.rs"
+required-features = ["tn10-rehearsal"]
+
+[[bin]]
 name = "kpi-recovery-native-wallet"
 path = "src/bin/wallet.rs"
+required-features = ["tn10-rehearsal"]
+
+[[bin]]
+name = "kpi-full-drainage-native"
+path = "src/bin/full_drainage.rs"
+required-features = ["tn10-full-drainage-depth-4"]

@@ -1,0 +1,29 @@
+LOCAL GPU FAILURE RETAINED AS A RESOURCE BOUNDARY, NOT A PROOF REJECTION
+
+GPU: NVIDIA GeForce RTX 3070, 8192 MiB total, 7842 MiB free before launch
+Driver: 595.99.02
+Container image: kpi-local-cuda-build-cache@sha256:0f4ca73e9c2d4c4ae79735aad5e745bdf32ca0572d7b18ef04cf68144da7f743
+Stage: batch-01
+Guest image: b80aa1fa8b9553b2021be9987647046ff8c15aa77206a4db858f13bf9c9a8688
+Input SHA-256: eebd3fb4800a80bca3d0f23b58b2222202f9d7fc584ee4afc1d3e283804397b7
+Expected journal SHA-256: 4e374f745dda1e174f21a02983401531f6c8f8d7be81625eb15e4201f18a5919
+
+Guest progress before proving failure:
+PROFILE after_checked_proof_decode 10484902
+PROFILE after_conversion_and_public_inputs 21937325
+PROFILE after_pairing 46341478
+PROFILE after_checked_proof_decode 56561640
+PROFILE after_conversion_and_public_inputs 68013942
+PROFILE after_pairing 92418095
+PROFILE after_checked_proof_decode 102748734
+PROFILE after_conversion_and_public_inputs 114859982
+PROFILE after_pairing 139264146
+
+CUDA prover failure:
+called `Result::unwrap()` on an `Err` value: allocation failed on evaluated: 1728053248 bytes
+Caused by: "out of memory"
+Error: rx len failed
+Caused by: failed to fill whole buffer
+
+The separate exact CPU execution completed at 140,115,121 user cycles and
+matched the expected journal. No receipt was produced by this failed GPU run.

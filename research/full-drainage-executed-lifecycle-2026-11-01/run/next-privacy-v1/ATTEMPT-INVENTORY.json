@@ -1,0 +1,414 @@
+{
+  "schema": "full-drainage-live-attempt-inventory-v1",
+  "observedAt": "2026-11-02T10:29:26.184Z",
+  "network": "testnet-10",
+  "endpoints": [
+    "wss://electron-10.kaspa.blue/kaspa/testnet-10/wrpc/borsh",
+    "wss://vector-10.kaspa.green/kaspa/testnet-10/wrpc/borsh"
+  ],
+  "readsPrivateKeysOrTruth": false,
+  "performsMutation": false,
+  "attempts": [
+    {
+      "attempt": 1,
+      "trial": "7d3d40972fdd06433b0f5a7066618d76dc922665217c15b53a1be5826d11254f",
+      "sponsorAddress": "kaspatest:qz82pftjuuxhspt2x785kaptfh9xl737fuwk7kcgxymhkgy7h62ux68pfg88k",
+      "fundingTransactionId": "63e3bc787539c96911a71ea06fd3e953510c6114ea4bb315b9696124a9033194",
+      "acceptedTransactionRecords": 1,
+      "confirmedPayouts": 0,
+      "confirmedSettlements": 0,
+      "latestCheckpoint": null,
+      "currentUtxos": [
+        {
+          "outpoint": "338de52c7e4583fac0847df1878e68deb51dd8dcf16e7849c8da6b6e64976ff0:0",
+          "amountSompi": "999830500",
+          "category": "sponsorOrdinarySompi",
+          "producedBy": "activate"
+        }
+      ],
+      "currentBalances": {
+        "sponsorOrdinarySompi": "999830500",
+        "reservePrincipalSompi": "0",
+        "stateRentSompi": "0",
+        "permissionRentSompi": "0",
+        "ownerPayoutOutputsSompi": "0",
+        "otherSompi": "0"
+      },
+      "recoveryBoundary": {
+        "sponsorKeyPresentMode0600": true,
+        "sponsorOrdinaryRecoveryNotExecuted": true,
+        "covenantOrReserveRecoveryNotExecuted": true,
+        "ownerPayoutsAreOutsideSponsorRecovery": true
+      }
+    },
+    {
+      "attempt": 2,
+      "trial": "376128063e852f7679a8241e18818415859ee3cff3fe3c37f9e7ae987add13dc",
+      "sponsorAddress": "kaspatest:qptrlkgwvn49024e3ts5clsfqzyxg7nzp843e08vnes8lrgd3txtz4sacrhgq",
+      "fundingTransactionId": "af917534fb208e6d12e63d8d76f22ec099c0b5ae868792e2553bed3e1d0a2829",
+      "acceptedTransactionRecords": 5,
+      "confirmedPayouts": 0,
+      "confirmedSettlements": 0,
+      "latestCheckpoint": {
+        "completed": "initialize",
+        "accounting": {
+          "outstanding_permission_rent_excluded": 0,
+          "pending_deposits": 0,
+          "private_liability": 0,
+          "reserve_principal": 0,
+          "state_covenant_rent_excluded": 100000000,
+          "unpaid_exits": 0
+        },
+        "stateOutpoint": {
+          "index": 0,
+          "transactionId": "66e57bf007a7bfbae494b57fdfc4a13eed32aacadc65ee9a31c3f83a4d210541"
+        }
+      },
+      "currentUtxos": [
+        {
+          "outpoint": "66e57bf007a7bfbae494b57fdfc4a13eed32aacadc65ee9a31c3f83a4d210541:0",
+          "amountSompi": "100000000",
+          "category": "stateRentSompi",
+          "producedBy": "initialize"
+        },
+        {
+          "outpoint": "8e7a710dc723c8460500d677bf80579ef8f4cc9397dc202faf9a71651021d1f4:0",
+          "amountSompi": "100000000",
+          "category": "reservePrincipalSompi",
+          "producedBy": "deposit-a"
+        },
+        {
+          "outpoint": "be80ea7ecea52bc334d9ae33af63a5bb6145639d4d993b0eb372320dcb539714:0",
+          "amountSompi": "100000000",
+          "category": "reservePrincipalSompi",
+          "producedBy": "deposit-b"
+        },
+        {
+          "outpoint": "be80ea7ecea52bc334d9ae33af63a5bb6145639d4d993b0eb372320dcb539714:1",
+          "amountSompi": "690577700",
+          "category": "sponsorOrdinarySompi",
+          "producedBy": "deposit-b"
+        }
+      ],
+      "currentBalances": {
+        "sponsorOrdinarySompi": "690577700",
+        "reservePrincipalSompi": "200000000",
+        "stateRentSompi": "100000000",
+        "permissionRentSompi": "0",
+        "ownerPayoutOutputsSompi": "0",
+        "otherSompi": "0"
+      },
+      "recoveryBoundary": {
+        "sponsorKeyPresentMode0600": true,
+        "sponsorOrdinaryRecoveryNotExecuted": true,
+        "covenantOrReserveRecoveryNotExecuted": true,
+        "ownerPayoutsAreOutsideSponsorRecovery": true
+      }
+    },
+    {
+      "attempt": 3,
+      "trial": "7225f450edc4b3d368138dcd08e1a1caa15541c632409f635b0c73c892fde1d8",
+      "sponsorAddress": "kaspatest:qzva4uackav9wcgne8qs5nrzax75v9wahh6s0vz4ha5qys5pwwl87029ykffd",
+      "fundingTransactionId": "1a84a2989f5af016159b7f1691f60e0b46a906ecddc6273535ceb5e8234909f1",
+      "acceptedTransactionRecords": 9,
+      "confirmedPayouts": 0,
+      "confirmedSettlements": 1,
+      "latestCheckpoint": {
+        "completed": "initialize",
+        "accounting": {
+          "outstanding_permission_rent_excluded": 0,
+          "pending_deposits": 0,
+          "private_liability": 0,
+          "reserve_principal": 0,
+          "state_covenant_rent_excluded": 100000000,
+          "unpaid_exits": 0
+        },
+        "stateOutpoint": {
+          "index": 0,
+          "transactionId": "88e163a71eecf7deb871640506e0308182906a58de0b801773f20fcf6bef646d"
+        }
+      },
+      "currentUtxos": [
+        {
+          "outpoint": "8e8008fba7b4c6f2ce3ffae124806fb42d01f84fefedb08f8cd2682b39596b3e:0",
+          "amountSompi": "100000000",
+          "category": "reservePrincipalSompi",
+          "producedBy": "deposit-b"
+        },
+        {
+          "outpoint": "ac66177ac14fee70cc330c9bd4344075dfa2695732195be954bd67060ca0c68d:0",
+          "amountSompi": "100000000",
+          "category": "reservePrincipalSompi",
+          "producedBy": "deposit-a"
+        },
+        {
+          "outpoint": "befbd11a506af36eb3c939b9e855c969076dd38859b4884e7fd2acbbdba29250:0",
+          "amountSompi": "100000000",
+          "category": "stateRentSompi",
+          "producedBy": "batch-01-settlement"
+        },
+        {
+          "outpoint": "befbd11a506af36eb3c939b9e855c969076dd38859b4884e7fd2acbbdba29250:1",
+          "amountSompi": "642253600",
+          "category": "sponsorOrdinarySompi",
+          "producedBy": "batch-01-settlement"
+        }
+      ],
+      "currentBalances": {
+        "sponsorOrdinarySompi": "642253600",
+        "reservePrincipalSompi": "200000000",
+        "stateRentSompi": "100000000",
+        "permissionRentSompi": "0",
+        "ownerPayoutOutputsSompi": "0",
+        "otherSompi": "0"
+      },
+      "recoveryBoundary": {
+        "sponsorKeyPresentMode0600": true,
+        "sponsorOrdinaryRecoveryNotExecuted": true,
+        "covenantOrReserveRecoveryNotExecuted": true,
+        "ownerPayoutsAreOutsideSponsorRecovery": true
+      }
+    },
+    {
+      "attempt": 4,
+      "trial": "54f14e2f28de8631f6cfac66f7e08debab6db73df8f053aae3b196e8c8e91db8",
+      "sponsorAddress": "kaspatest:qpgs9trugqnkrsp44h9squqpcn6wun49a09djqwhlzzzhjk4hdxc5ueqmj0qd",
+      "fundingTransactionId": "c9dc2122e0e871335f8cda5a7e5545b535375ed9081a76b2672a917129ffb080",
+      "acceptedTransactionRecords": 16,
+      "confirmedPayouts": 1,
+      "confirmedSettlements": 3,
+      "latestCheckpoint": {
+        "completed": "batch-02",
+        "accounting": {
+          "outstanding_permission_rent_excluded": 0,
+          "pending_deposits": 0,
+          "private_liability": 140000000,
+          "reserve_principal": 200000000,
+          "state_covenant_rent_excluded": 100000000,
+          "unpaid_exits": 60000000
+        },
+        "stateOutpoint": {
+          "index": 0,
+          "transactionId": "4f3568dfa06e4d61c99f47e9f9018fa74d7da2ad8f4a4a8df954701a26d07fb1"
+        }
+      },
+      "currentUtxos": [
+        {
+          "outpoint": "3be85c3bbcf5f1e1a808a6254b36038f29a59c49ab03f09c52a8a1f2e727bd0b:0",
+          "amountSompi": "100000000",
+          "category": "stateRentSompi",
+          "producedBy": "batch-03-settlement"
+        },
+        {
+          "outpoint": "3be85c3bbcf5f1e1a808a6254b36038f29a59c49ab03f09c52a8a1f2e727bd0b:1",
+          "amountSompi": "50000000",
+          "category": "permissionRentSompi",
+          "producedBy": "batch-03-settlement"
+        },
+        {
+          "outpoint": "3be85c3bbcf5f1e1a808a6254b36038f29a59c49ab03f09c52a8a1f2e727bd0b:2",
+          "amountSompi": "444733900",
+          "category": "sponsorOrdinarySompi",
+          "producedBy": "batch-03-settlement"
+        },
+        {
+          "outpoint": "ad10927d7eab76604aa26c30b97e4880aaa6bd8bd4577989cf90ea8e0291a625:0",
+          "amountSompi": "110000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-01"
+        },
+        {
+          "outpoint": "ad10927d7eab76604aa26c30b97e4880aaa6bd8bd4577989cf90ea8e0291a625:1",
+          "amountSompi": "40000000",
+          "category": "reservePrincipalSompi",
+          "producedBy": "payout-01"
+        },
+        {
+          "outpoint": "dfdc3b50dbee591b2a1b077cb8c665238b40bd2a368e09be757a1a0850b6c1db:0",
+          "amountSompi": "100000000",
+          "category": "reservePrincipalSompi",
+          "producedBy": "deposit-a"
+        }
+      ],
+      "currentBalances": {
+        "sponsorOrdinarySompi": "444733900",
+        "reservePrincipalSompi": "140000000",
+        "stateRentSompi": "100000000",
+        "permissionRentSompi": "50000000",
+        "ownerPayoutOutputsSompi": "110000000",
+        "otherSompi": "0"
+      },
+      "recoveryBoundary": {
+        "sponsorKeyPresentMode0600": true,
+        "sponsorOrdinaryRecoveryNotExecuted": true,
+        "covenantOrReserveRecoveryNotExecuted": true,
+        "ownerPayoutsAreOutsideSponsorRecovery": true
+      }
+    },
+    {
+      "attempt": 5,
+      "trial": "072b9ad08a720ec5480308939b9813f64d595d0a7486504a2127ec0c2c420fb2",
+      "sponsorAddress": "kaspatest:qp9jlypu5k0hcush3v2xe5qnst0wpvamrqhp9y7klzd7vek63fu3x7d9drevt",
+      "fundingTransactionId": "7870c06e6805890caf89393b57e960c01df308c0c4796ae99d0c030f80c40ee6",
+      "acceptedTransactionRecords": 24,
+      "confirmedPayouts": 4,
+      "confirmedSettlements": 5,
+      "latestCheckpoint": {
+        "completed": "batch-05",
+        "accounting": {
+          "outstanding_permission_rent_excluded": 0,
+          "pending_deposits": 0,
+          "private_liability": 10000000,
+          "reserve_principal": 30000000,
+          "state_covenant_rent_excluded": 100000000,
+          "unpaid_exits": 20000000
+        },
+        "stateOutpoint": {
+          "index": 0,
+          "transactionId": "788a3bcbbf71af64532b6408276e08a7d2801d889d871db5f8e727850af568de"
+        }
+      },
+      "currentUtxos": [
+        {
+          "outpoint": "4804e757638ab03837d691e022bd525e29fb890e368b78073806e3b684003a59:0",
+          "amountSompi": "70000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-04"
+        },
+        {
+          "outpoint": "788a3bcbbf71af64532b6408276e08a7d2801d889d871db5f8e727850af568de:0",
+          "amountSompi": "100000000",
+          "category": "stateRentSompi",
+          "producedBy": "batch-05-settlement"
+        },
+        {
+          "outpoint": "bc341d439c1b0b2da8b5e5b90c256808ffc2723ded7146219597d01e990d1280:0",
+          "amountSompi": "80000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-03"
+        },
+        {
+          "outpoint": "bc341d439c1b0b2da8b5e5b90c256808ffc2723ded7146219597d01e990d1280:1",
+          "amountSompi": "10000000",
+          "category": "reservePrincipalSompi",
+          "producedBy": "payout-03"
+        },
+        {
+          "outpoint": "be2a0c6983e89c7a9708a017ab5bea2afb51cc6612e2b1dae38fc79119269057:0",
+          "amountSompi": "110000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-01"
+        },
+        {
+          "outpoint": "f4eda2059d74381c0bf265138902908b9783748b6e6e6a453f75431545a00df2:0",
+          "amountSompi": "237321200",
+          "category": "sponsorOrdinarySompi",
+          "producedBy": "publish-10"
+        },
+        {
+          "outpoint": "f7d44447b0ef3d865d5ccd0c1f8cd6bef159d731e716b9988dcf084b8f64b487:0",
+          "amountSompi": "130000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-02"
+        }
+      ],
+      "currentBalances": {
+        "sponsorOrdinarySompi": "237321200",
+        "reservePrincipalSompi": "10000000",
+        "stateRentSompi": "100000000",
+        "permissionRentSompi": "0",
+        "ownerPayoutOutputsSompi": "390000000",
+        "otherSompi": "0"
+      },
+      "recoveryBoundary": {
+        "sponsorKeyPresentMode0600": true,
+        "sponsorOrdinaryRecoveryNotExecuted": true,
+        "covenantOrReserveRecoveryNotExecuted": true,
+        "ownerPayoutsAreOutsideSponsorRecovery": true
+      }
+    },
+    {
+      "attempt": 6,
+      "trial": "2ccbeefa3f2bb0fdd57c29756bb27e6147f7c79f5e912203b67c657d7398a000",
+      "sponsorAddress": "kaspatest:qr33m7l9853jwgadk23mtrc6l4jsn5k7fsgu844uac3cpccdjr07kmtsp977c",
+      "fundingTransactionId": "087764ccc549e7d38190c3436658c29600e7017af3ce078d238831a889a8d36e",
+      "acceptedTransactionRecords": 27,
+      "confirmedPayouts": 5,
+      "confirmedSettlements": 7,
+      "latestCheckpoint": {
+        "completed": "batch-07",
+        "accounting": {
+          "outstanding_permission_rent_excluded": 0,
+          "pending_deposits": 0,
+          "private_liability": 0,
+          "reserve_principal": 0,
+          "state_covenant_rent_excluded": 100000000,
+          "unpaid_exits": 0
+        },
+        "stateOutpoint": {
+          "index": 0,
+          "transactionId": "12d1f43f63cb733342712488fa23055591cb1afe49080e745f3506f23470095e"
+        }
+      },
+      "currentUtxos": [
+        {
+          "outpoint": "12d1f43f63cb733342712488fa23055591cb1afe49080e745f3506f23470095e:0",
+          "amountSompi": "100000000",
+          "category": "stateRentSompi",
+          "producedBy": "batch-07-settlement"
+        },
+        {
+          "outpoint": "12d1f43f63cb733342712488fa23055591cb1afe49080e745f3506f23470095e:1",
+          "amountSompi": "91790900",
+          "category": "sponsorOrdinarySompi",
+          "producedBy": "batch-07-settlement"
+        },
+        {
+          "outpoint": "2130ad0cd0ca950308d03bd8ec60db04bbe89094a9d4c2292955920e54983a3b:0",
+          "amountSompi": "80000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-03"
+        },
+        {
+          "outpoint": "44d9708264db60ecb309d46a6a256df6e67494d5ec26a0415653b49642419012:0",
+          "amountSompi": "60000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-05"
+        },
+        {
+          "outpoint": "71270a8d7260d0826f3d51b186b867cbd043522b5fc2c29dc8f33069faf7f966:0",
+          "amountSompi": "130000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-02"
+        },
+        {
+          "outpoint": "e02332f23b27e9e76515f378772a38105de5d1838c515d0565fdcb2b883c35d6:0",
+          "amountSompi": "110000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-01"
+        },
+        {
+          "outpoint": "fc460c50f44141695ba361b9703c403d34a5a781bdb76754578c46735b7eb9d9:0",
+          "amountSompi": "70000000",
+          "category": "ownerPayoutOutputsSompi",
+          "producedBy": "payout-04"
+        }
+      ],
+      "currentBalances": {
+        "sponsorOrdinarySompi": "91790900",
+        "reservePrincipalSompi": "0",
+        "stateRentSompi": "100000000",
+        "permissionRentSompi": "0",
+        "ownerPayoutOutputsSompi": "450000000",
+        "otherSompi": "0"
+      },
+      "recoveryBoundary": {
+        "sponsorKeyPresentMode0600": true,
+        "sponsorOrdinaryRecoveryNotExecuted": true,
+        "covenantOrReserveRecoveryNotExecuted": true,
+        "ownerPayoutsAreOutsideSponsorRecovery": true
+      }
+    }
+  ],
+  "boundary": "Current UTXOs only; recovery capability was not exercised. Attempt 06 does not account for attempts 01-05."
+}

@@ -1,5 +1,9 @@
 # Staged TN10 recovery lifecycle preparation
 
+The newer isolated depth-four seven-stage mode is documented in
+[FULL-DRAINAGE.md](FULL-DRAINAGE.md). This file continues to describe the
+historical six-stage recovery trial.
+
 This adapts the existing four-stage actual-TN10 tooling to the unchanged PR56–58
 recovery guest and six stages. It imports public Alice/Bob receive files instead
 of creating operator-held user wallets. The owner reports successful local Mint

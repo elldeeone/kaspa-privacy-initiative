@@ -3,8 +3,12 @@ name = "kpi-private-note-chain"
 version = "0.1.0"
 edition = "2021"
 publish = false
+[features]
+default = ["tn10-rehearsal"]
+tn10-rehearsal = ["kpi-private-note-wallet/tn10-rehearsal"]
+tn10-full-drainage-depth-4 = ["kpi-private-note-wallet/tn10-full-drainage-depth-4"]
 [dependencies]
-kpi-private-note-wallet = { path = "../../private-note-wallet", default-features = false, features = ["tn10-rehearsal"] }
+kpi-private-note-wallet = { path = "../../private-note-wallet", default-features = false }
 kpi-accelerated-bn254 = { path = "../../accelerated-bn254/common" }
 kpi-lane-common = { path = "../../lane-completeness/common" }
 serde = { version = "=1.0.228", features = ["derive"] }

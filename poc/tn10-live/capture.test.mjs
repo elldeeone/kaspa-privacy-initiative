@@ -2,13 +2,24 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import * as exactJSON from '../lane-completeness/integration/exact-json.mjs';
 const source=fs.readFileSync(new URL('./capture.mjs',import.meta.url),'utf8');
+const laneSubnetwork=source.match(/^const laneSubnetwork = '([0-9a-f]+)';$/m)?.[1];
+assert(laneSubnetwork,'capture lane constant must be present');
 const body=source.slice(source.indexOf('async function complete('),source.indexOf('await new Promise((resolve, reject)'));
-const block=h=>({chainBlockHeader:{hash:h,nonce:18446744073709551615n},acceptedTransactions:[{verboseData:{transactionId:'tx-'+h}}]});
+const block=h=>({chainBlockHeader:{hash:h,nonce:18446744073709551615n},acceptedTransactions:[{subnetworkId:laneSubnetwork,verboseData:{transactionId:'tx-'+h}}]});
 const page=hashes=>({removedChainBlockHashes:[],addedChainBlockHashes:hashes,chainBlockAcceptedTransactions:hashes.map(block)});
-async function run(pages){const records=[],calls=[];const call=async(label,method,request)=>{calls.push(request.startHash);return pages.shift();};const complete=new Function('assert','exactJSON','records','call',body+';return complete;')(assert,exactJSON,records,call);return {result:await complete('accepted','a','d'),records,calls};}
+async function run(pages){const records=[],calls=[];const call=async(label,method,request)=>{calls.push(request.startHash);return pages.shift();};const complete=new Function('assert','exactJSON','records','call','laneSubnetwork',body+';return complete;')(assert,exactJSON,records,call,laneSubnetwork);return {result:await complete('accepted','a','d'),records,calls};}
 const r=await run([page(['b','c']),page(['d','e'])]);
 assert.deepEqual(r.calls,['a','c']);assert.deepEqual(r.result.addedChainBlockHashes,['b','c','d']);
 assert.deepEqual(exactJSON.parse(r.records[0].raw).params,r.result);assert.equal(r.result.chainBlockAcceptedTransactions[2].chainBlockHeader.nonce,18446744073709551615n);
+const mixed=page(['b','c','d']);
+const nonLane={subnetworkId:'00'.repeat(20),verboseData:{transactionId:'ordinary'}};
+mixed.chainBlockAcceptedTransactions[0].acceptedTransactions=[nonLane];
+mixed.chainBlockAcceptedTransactions[1].acceptedTransactions.unshift(nonLane);
+const compact=await run([mixed]);
+assert.deepEqual(compact.result.addedChainBlockHashes,['b','c','d']);
+assert.deepEqual(compact.result.chainBlockAcceptedTransactions[0].acceptedTransactions,[]);
+assert.deepEqual(compact.result.chainBlockAcceptedTransactions[1].acceptedTransactions,mixed.chainBlockAcceptedTransactions[1].acceptedTransactions,'retain complete merge order in lane-active blocks');
+assert.equal(mixed.chainBlockAcceptedTransactions[0].acceptedTransactions.length,1,'raw source page remains unchanged');
 await assert.rejects(run([page(['b']),page(['b'])]),/duplicate/);
 await assert.rejects(run([{...page(['b']),removedChainBlockHashes:['a']}]),/reorg/);
 await assert.rejects(run([page([])]),/empty page/);
