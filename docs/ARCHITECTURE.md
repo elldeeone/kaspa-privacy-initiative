@@ -4,6 +4,20 @@
 
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
+The original executed depth-four full-drainage wallet profile remains local-only
+and cannot authorize TN10 settlement. Its separate opt-in TN10 trial profile,
+seven-receipt schedule and additional threat assumptions are recorded in
+[RFC-0003](rfc/0003-depth-four-multi-user-tn10-profile.md) and
+[ADR-0019](adr/0019-depth-four-multi-user-tn10-trial.md). This bounded trial
+decision does not select a production candidate architecture. Local
+implementation now has all seven exact CPU targets, independently verified
+genuine receipts and the complete receipt-backed rehearsal. On 2026-11-02 a
+fresh TN10 identity also completed the two-deposit, three-transfer, five-exit,
+five-native-payout and seven-settlement lifecycle. Terminal principal and
+permission accounting reached zero, with state rent separate. This remains one
+bounded Testnet experiment, not a production architecture, privacy proof,
+cryptographic audit or mainnet-readiness claim.
+
 The [A0 feasibility experiment](poc-a0.md) investigates direct Groth16 proof
 authorization and native payout constraints for one terminal claim. Its local
 consensus-code evidence must be distinguished from funded TN10 acceptance and
@@ -441,6 +455,24 @@ new transaction/batch/aggregate program identities to the existing native
 Succinct verification ABI. A wallet receipt or the old 167-byte classifier
 journal cannot substitute for that native aggregate statement. User witnesses
 remain local; external executors/provers receive only public operations/state.
+
+### Depth-four continued-private-spend profile — 2026-11-01
+
+[ADR-0018](adr/0018-depth-four-private-spend-experiment.md) adds one opt-in,
+unfunded local wallet profile so a received note can be spent privately again in
+an executable privacy experiment. It raises only the Merkle depth from two to
+four and uses a distinct economic domain plus fresh Groth16 parameters/VK. The
+default depth-two and TN10 profiles, retained evidence and all authorization,
+nullifier, conservation, encryption and exit semantics remain unchanged. Larger
+capacity is not treated as effective anonymity or a production parameter choice.
+
+The follow-on TN10 design is tracked separately in
+[RFC-0003](rfc/0003-depth-four-multi-user-tn10-profile.md) and
+[ADR-0019](adr/0019-depth-four-multi-user-tn10-trial.md). The local-only domain
+and its proofs cannot authorize a testnet settlement. The selected trial reuses
+the ADR-0017 recovery-native state/permission/payout semantics behind a fresh
+depth-four TN10 verifier and guest identity; historical profiles and evidence
+remain incompatible regression controls.
 
 
 ## Private-state integration calibration — 2026-10-18
