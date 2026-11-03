@@ -2,8 +2,10 @@
 
 Instructions for Codex and other AI agents working in this repository.
 
-Before changing or resuming research, read `docs/PROJECT-STATUS.md`. For earlier
-experiments, follow `docs/RESEARCH-HISTORY.md` and the linked corrections.
+Before changing or resuming research, read `docs/PROJECT-STATUS.md` and the
+relevant task guide in `docs/research-knowledge/README.md`. Prior branch findings,
+failures, corrections and original document text are available locally there.
+Frozen historical text is evidence; current instructions and corrections govern.
 
 ## Mission
 

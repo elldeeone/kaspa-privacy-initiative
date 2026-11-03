@@ -9,7 +9,10 @@
 ## Start here
 
 Read the [current project status](docs/PROJECT-STATUS.md), then the
-[lessons and corrections](docs/RESEARCH-LESSONS.md). The
+[prior-knowledge guide](docs/research-knowledge/README.md) and
+[lessons and corrections](docs/RESEARCH-LESSONS.md). Original documents from all
+audited branches are now searchable on this branch without GitHub access or a
+branch switch. The
 [research history](docs/RESEARCH-HISTORY.md) identifies every archived branch
 and explains which implementation/evidence belongs to which profile.
 

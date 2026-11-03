@@ -23,8 +23,11 @@ relax that requirement or select a production protocol.
    preserve unmatched unfinished files before retiring local branches/worktrees.
    Keep raw private/runtime material outside Git and retain failed experiments.
 3. Keep current upstream main, the wallet-local research line and the paused
-   feasibility reference distinct. Reuse source-bound components selectively;
-   domain, setup, codec, invariant and evidence differences preclude a bulk merge.
+   feasibility source identity distinct. The active line contains the local
+   [knowledge library](../research-knowledge/README.md) from all audited histories;
+   the paused reference is an exact archive tag and detached/locked worktree.
+   Reuse source-bound components selectively; domain, setup, codec, invariant
+   and evidence differences preclude a bulk runtime merge.
 4. Retain the strong privacy requirement. The current wallet-local/direct-inline-
    ZK flow is a reference for confidential on-domain activity and transparent
    exits, not a solution to confidential completed ordinary payouts. The next
@@ -45,6 +48,14 @@ relax that requirement or select a production protocol.
 | Preserve history, centralize corrected results, retain the privacy requirement | Selected: makes prior work reusable without inflating its evidence or restarting the paused programme. |
 
 ## Evidence and security implications
+
+The knowledge-completion step on 3 November imports every distinct committed
+Markdown/rst revision across the 369-commit source checkpoint and 15 selected
+unfinished research notes. Task guides state what to carry, adapt or archive.
+Every original branch and pull history is represented in a locally verifiable
+ledger. The feasibility branch name is retired after that import; its source,
+paused worktree and rejected patch remain preserved. This changes document
+availability and repository organization, not protocol architecture or authority.
 
 The [preservation receipt](../research-preservation-2026-11-03.md) binds the
 audited tips and private file preservation. The [live correction](../../research/full-drainage-executed-lifecycle-2026-11-01/CORRECTION.md)

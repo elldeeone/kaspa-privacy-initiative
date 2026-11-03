@@ -5,7 +5,10 @@ financial-privacy, cost and independent-recovery requirements remain unmet.**
 
 This is the current entry point for the research fork. Read the
 [lessons and corrections](RESEARCH-LESSONS.md) before interpreting an old result,
-and the [history index](RESEARCH-HISTORY.md) before starting another subsystem.
+and the [prior-knowledge guide](research-knowledge/README.md) before extending a
+researched component. It includes local source text, task guides and explicit
+reuse decisions from every audited branch. The [history index](RESEARCH-HISTORY.md)
+records the preserved lineages.
 Upstream `main` remains a separate baseline at `7ffe8353`.
 
 ## What is demonstrated
@@ -54,7 +57,8 @@ Hiding a completed boundary requires a consensus-recognized confidential or
 shielded native-value representation; changing a prover, MPC committee, relayer
 or runtime does not change ordinary native output fields.
 
-MPC/private-construction work remains frozen at `4d54dc02`. Its bounded
+MPC/private-construction work remains frozen at `4d54dc02`, preserved by the
+`archive/2026-11-03/research/shielded-kas-feasibility` tag. Its bounded
 three-owner construction result is valuable, but its separate registered W1
 aggregate path remains incomplete and constructor-visible. Preserve its rejected
 vendor patch as rejected local work.
@@ -91,9 +95,14 @@ checks passed. The
 source closures and real process-group deadline controls. Old proof/binary pins
 and SECURITY-INVARIANTS.md remain unchanged.
 
-Twenty-one completed local branches and worktrees are
-[archived](research-history/consolidation-2026-11-03.json). Three local branches
-remain, with one active research checkout and the feasibility reference locked.
+The first consolidation [archived](research-history/consolidation-2026-11-03.json)
+21 completed local branches and worktrees. The subsequent
+[knowledge consolidation](research-history/knowledge-2026-11-03.json) brings
+2,326 committed document revisions and 15 unfinished research notes onto this
+branch, with a complete 369-commit ledger and offline coverage checks. The old
+feasibility branch name is retired; its exact tag, paused detached/locked
+worktree and rejected patch remain preserved. Two local branches remain:
+upstream `main` and this active research line.
 The [official source-head refresh](research-history/upstream-2026-11-03.json)
 confirms the consensus/output boundary's reviewed source identity; it is not a
 fresh runtime qualification.

@@ -5,6 +5,9 @@ Current qualifications and corrected privacy findings are in
 full transparent drainage remain in scope; confidential on-domain state does not
 remove their conservation-based disclosures. This consolidation changes no
 security invariant or spending rule.
+The local [privacy guide](docs/research-knowledge/privacy.md) and
+[recovery guide](docs/research-knowledge/recovery.md) carry earlier observer,
+availability and failure-model lessons into future reviews.
 
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 

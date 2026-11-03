@@ -19,3 +19,5 @@ jobs:
           persist-credentials: false
       - name: Check Markdown structure and relative paths
         run: python3 scripts/check_docs.py
+      - name: Verify historical research knowledge and coverage
+        run: python3 scripts/research_knowledge.py check

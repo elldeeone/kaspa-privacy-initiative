@@ -2,13 +2,19 @@
 
 Use [project status](PROJECT-STATUS.md) for current work and [lessons](RESEARCH-LESSONS.md) for corrected findings. This index preserves the relationship between experiments without importing their incompatible source trees.
 
+The [prior-knowledge guide](research-knowledge/README.md) contains local original
+document text and task guides from every audited history. Its
+[coverage ledger](research-knowledge/coverage.md) includes all 24 original local
+branches, 14 fork branches, upstream main and 42 merged pull histories. Reading
+earlier findings now requires neither switching branches nor GitHub access.
+
 ## Current references
 
 | Reference | Role |
 | --- | --- |
 | `main` at `7ffe8353` | Unmodified upstream baseline, including its final recovery features and CI. |
 | `research/native-kas-withdrawal-privacy` | Current wallet-local research and consolidation; production architecture remains open. |
-| `research/shielded-kas-feasibility` at `4d54dc02` | Frozen historical direct-L1, cost, recovery and private-construction reference. Read its owner-paused handoff before any reuse. |
+| `archive/2026-11-03/research/shielded-kas-feasibility` at `4d54dc02` | Exact frozen direct-L1, cost, recovery and private-construction reference. Its documents are local in the knowledge library; its original paused worktree remains detached/locked. |
 
 ## Retrieve a historical result
 
@@ -81,8 +87,11 @@ original status inventory was preserved, including untracked and ignored data.
 Compatibility symlinks preserve the old paths used by retained records and
 software. One stale worktree registration was pruned after metadata preservation.
 
-The three remaining local branches are `main`, the current wallet-local research
-line and the frozen feasibility reference. Only the current research checkout is
-active; the feasibility worktree is locked as owner-paused. Remote branches were
-not deleted or pushed by this local consolidation. The archive is on this machine
-and is not an independent backup.
+The first cleanup left three local branches. After the knowledge import, the
+feasibility branch name was also retired against its exact annotated archive tag.
+Its worktree was detached at the same commit and kept locked; its status and
+rejected patch bytes stayed unchanged. The
+[knowledge receipt](research-history/knowledge-2026-11-03.json) records that step.
+Two local branch names remain: `main` and the current wallet-local research line.
+Only the current research checkout is active. Remote branches were not deleted
+or pushed. The private archive is on this machine and is not an independent backup.

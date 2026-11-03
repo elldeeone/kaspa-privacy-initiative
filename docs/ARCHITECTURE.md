@@ -6,6 +6,9 @@ Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
 consolidated research posture. The strong privacy requirement remains; ordinary
 transparent exits are an unresolved boundary, not an accepted privacy exception.
+Before extending an earlier design, use the local
+[architecture lessons](research-knowledge/architecture.md) and
+[reuse decisions](research-knowledge/reuse.md).
 
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
