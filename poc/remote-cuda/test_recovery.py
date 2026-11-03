@@ -19,6 +19,7 @@ from service import App
 from recovery_service import RecoveryApp
 from test_remote import lease, TOKEN
 from historical_sources import source_closure
+from process_deadline import command as deadline_command
 import worker
 
 
@@ -164,7 +165,7 @@ class Recovery(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);pid=root/'descendant';guard=root/'watchdog'
             child='import subprocess,time;from pathlib import Path;p=subprocess.Popen(["sleep","60"]);'+f'Path({str(pid)!r}).write_text(str(p.pid));time.sleep(60)'
-            control='import subprocess,time;from pathlib import Path;p=subprocess.Popen('+repr(['/usr/bin/timeout','--signal=KILL','1.5s',sys.executable,'-c',child])+',start_new_session=True);'+f'Path({str(guard)!r}).write_text(str(p.pid));time.sleep(60)'
+            control='import subprocess,time;from pathlib import Path;p=subprocess.Popen('+repr(deadline_command(1.5,[sys.executable,'-c',child]))+',start_new_session=True);'+f'Path({str(guard)!r}).write_text(str(p.pid));time.sleep(60)'
             controller=subprocess.Popen([sys.executable,'-c',control],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
             try:
                 end=time.monotonic()+3

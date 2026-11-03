@@ -18,7 +18,7 @@ jobs:
         run: |
           python3 poc/remote-cuda/lifecycle_package.py restore-historical .local/lifecycle-image/lifecycle-dist
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s poc/remote-cuda -p 'test_*.py' -q
-          cp poc/remote-cuda/{Dockerfile.lifecycle,common.py,worker.py,service.py,package.py,lifecycle_package.py,lifecycle_runner.py,lifecycle_worker.py,lifecycle_service.py} .local/lifecycle-image/
+          cp poc/remote-cuda/{Dockerfile.lifecycle,common.py,worker.py,service.py,package.py,process_deadline.py,lifecycle_package.py,lifecycle_runner.py,lifecycle_worker.py,lifecycle_service.py} .local/lifecycle-image/
       - name: Build with previously qualified CUDA prover and check CPU startup
         run: |
           docker build -f .local/lifecycle-image/Dockerfile.lifecycle -t kpi-cuda-lifecycle:checked .local/lifecycle-image

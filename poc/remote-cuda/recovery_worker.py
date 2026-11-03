@@ -8,6 +8,7 @@ import time
 from common import atomic
 from recovery_package import SCOPE, CASES, check
 from worker import hardware, run_phase, snapshot
+from process_deadline import command as deadline_command
 
 
 def cuda_by_batch(output):
@@ -36,7 +37,7 @@ def execute(package, output, lease, update):
     shutil.copytree(package/'inputs',output/'assets')
     gpu=hardware()
     atomic(output/'hardware.json',gpu|{'scope':SCOPE,'cudaProverSha256':policy['cudaProverSha256'],
-           'startupSeconds':time.monotonic()-started,'aggregateExternalWatchdog':'GNU timeout --signal=KILL; same process group; survives service death'})
+           'startupSeconds':time.monotonic()-started,'aggregateExternalWatchdog':'owned-session Python deadline; SIGKILL to complete process group; survives service death'})
     done=threading.Event()
     def checkpoint():
         while not done.wait(15):
@@ -47,8 +48,8 @@ def execute(package, output, lease, update):
         update({'state':'running','phase':'six-batch-aggregate','artifact':snapshot(output)})
         # One external run_phase timer watches the entire runner process group,
         # including all sequential prover, compression, CPU and native children.
-        arguments=['/usr/bin/timeout','--signal=KILL',f'{max(0,deadline-time.monotonic()):.6f}s',
-                   os.sys.executable,str(Path(__file__).with_name('recovery_runner.py')),str(package),str(output)]
+        arguments=deadline_command(deadline-time.monotonic(),
+                   [os.sys.executable,str(Path(__file__).with_name('recovery_runner.py')),str(package),str(output)])
         report=run_phase(arguments,
                          3600,output/'aggregate',deadline,True,gpu['uuid'])
     finally:

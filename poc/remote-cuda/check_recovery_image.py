@@ -11,7 +11,7 @@ from check_image import check as base_check
 from common import sha
 from recovery_package import ROOT, BINS, CASES, SCOPE
 
-APP_FILES=('common.py','worker.py','service.py','package.py','recovery_package.py','recovery_runner.py','recovery_worker.py','recovery_service.py')
+APP_FILES=('common.py','worker.py','service.py','package.py','process_deadline.py','recovery_package.py','recovery_runner.py','recovery_worker.py','recovery_service.py')
 
 
 def check(image):

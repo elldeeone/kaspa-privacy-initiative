@@ -11,7 +11,7 @@ from check_image import check as base_check
 from common import sha
 from lifecycle_package import ROOT, BINS, CASES, SCOPE
 
-APP_FILES=('common.py','worker.py','service.py','package.py','lifecycle_package.py','lifecycle_runner.py','lifecycle_worker.py','lifecycle_service.py')
+APP_FILES=('common.py','worker.py','service.py','package.py','process_deadline.py','lifecycle_package.py','lifecycle_runner.py','lifecycle_worker.py','lifecycle_service.py')
 
 
 def check(image):

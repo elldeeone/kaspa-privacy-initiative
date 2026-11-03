@@ -18,7 +18,7 @@ jobs:
         run: |
           python3 poc/remote-cuda/recovery_package.py restore-historical .local/recovery-image/recovery-dist
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s poc/remote-cuda -p 'test_recovery.py' -q
-          cp poc/remote-cuda/{Dockerfile.recovery,common.py,worker.py,service.py,package.py,recovery_package.py,recovery_runner.py,recovery_worker.py,recovery_service.py} .local/recovery-image/
+          cp poc/remote-cuda/{Dockerfile.recovery,common.py,worker.py,service.py,package.py,process_deadline.py,recovery_package.py,recovery_runner.py,recovery_worker.py,recovery_service.py} .local/recovery-image/
       - name: Build with previously qualified CUDA prover and check CPU startup
         run: |
           docker build -f .local/recovery-image/Dockerfile.recovery -t kpi-cuda-recovery:checked .local/recovery-image
