@@ -7,8 +7,13 @@ and their annotated `archive/2026-11-03/` tags.
 
 ## Verified preservation
 
-- A self-contained Git bundle preserves 363 audited commits, including all
-  42 upstream pull-request histories and two otherwise unreachable commits.
+- The original self-contained Git bundle preserves 361 reachable audited
+  commits, including all 42 upstream pull-request histories. Final coverage
+  checking corrected the initial claim of 363: its reference list omitted two
+  otherwise unreachable commits retained in the audit mirror. The consolidated
+  history archive includes explicit references for both recovered commits,
+  all 363 original audited commits and the consolidation commits. Its private
+  completion receipt records the independently restored total and bundle hash.
 - All 149 unmatched files outside the identified build-output directory were
   copied into a private local archive. Every copied size and SHA-256 was checked.
   Their combined size is 7,741,505,192 bytes.

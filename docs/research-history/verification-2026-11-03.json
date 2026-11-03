@@ -1,0 +1,53 @@
+{
+  "schema": "research-consolidation-verification-v1",
+  "date": "2026-11-03",
+  "code_commit": "d97c5a91c9896495392380cd3a3072d65264690a",
+  "full_fast_checks": {
+    "command": "bash scripts/ci_fast.sh",
+    "exit_code": 0,
+    "python_cases": 179,
+    "python_passed": 177,
+    "python_skipped": 2,
+    "node_tests_passed": 13,
+    "log_sha256": "68f251244a86ffcdc8fa3aba2c1d6c86ae73fbfab9a6431bed569af3d49f48b2",
+    "requirements": "poc/shielded-design/requirements.txt; PyNaCl 1.5.0 installed task-locally"
+  },
+  "historical_replay": {
+    "original_identity_files_unchanged": true,
+    "original_binary_archives_unchanged": true,
+    "historical_source_files_verified": 163,
+    "current_source_drift_still_rejects": true
+  },
+  "archive_validation": {
+    "three_local_branches": true,
+    "all_archived_directories_and_aliases_same_inode": true,
+    "24_tags_match_original_tips": true,
+    "frozen_feasibility_tip_unchanged": true,
+    "invariants_unchanged": true,
+    "only_rejected_patch_dirty_in_paused_reference": true,
+    "private_archive_mode_0700": true
+  },
+  "private_file_verification": {
+    "files": 149,
+    "bytes": 7741505192,
+    "all_source_and_archive_hashes_match_after_retirement": true
+  },
+  "historical_links": {
+    "pinned_commit_paths_checked": 16,
+    "all_exist": true
+  },
+  "scope": {
+    "new_proofs": false,
+    "funded_trials": false,
+    "broadcasts": false,
+    "provider_actions": false,
+    "docker_image_build_or_publication": false,
+    "production_qualification": false,
+    "private_evidence_publication": false
+  },
+  "limits": [
+    "Two pre-existing native integration checks remain skipped because KPI_A1_TRIAL_INTEGRATION_CONFIG was not supplied.",
+    "This verifies local source, synthetic models, preserved packages and process behavior; it does not revalidate every historical chain observation.",
+    "The archive remains on this machine and is not an independent backup."
+  ]
+}

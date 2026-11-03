@@ -36,9 +36,9 @@ across halted attempts 02–05. No fresh balance check or recovery is claimed he
 3. **Independence and availability.** A seed, state root and old valid proof do
    not replace the exact public parameters, ciphertexts, accepted history and
    independent infrastructure needed to recover and make a new exit proof.
-4. **Reproducibility.** Consolidation reproduced 11 historical remote-tooling
-   test failures. Their repair and final validation are recorded below; no old
-   proof, image or binary pin may be relabelled as a new build.
+4. **Reproducibility.** The 11 reproduced historical remote-tooling failures
+   are repaired and the configured fast-check suite passes. Full independent
+   availability and production qualification remain separate open requirements.
 
 ## Research decision
 
@@ -82,5 +82,20 @@ results and corrections remain unchanged. Focused scoring controls were rerun:
 11 live-scoring tests, 17 role-conditioned assertions, 20 correction controls
 and 21 private-change controls passed.
 
-The final repository and CI verification will be added when the cleanup finishes.
+The [final verification receipt](research-history/verification-2026-11-03.json)
+records the configured fast-check result: 179 Python cases (177 passed, two
+pre-existing native integration checks skipped because their explicit local
+configuration was not supplied), 13 Node tests and the read-only/preparation
+checks passed. The
+[repair record](../poc/remote-cuda/CONSOLIDATION-REPAIR.md) explains the historical
+source closures and real process-group deadline controls. Old proof/binary pins
+and SECURITY-INVARIANTS.md remain unchanged.
+
+Twenty-one completed local branches and worktrees are
+[archived](research-history/consolidation-2026-11-03.json). Three local branches
+remain, with one active research checkout and the feasibility reference locked.
+The [official source-head refresh](research-history/upstream-2026-11-03.json)
+confirms the consensus/output boundary's reviewed source identity; it is not a
+fresh runtime qualification.
+
 No production-safety or cryptographic-correctness conclusion follows from tests.
