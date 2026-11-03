@@ -1,0 +1,77 @@
+{
+  "schema": "historical-package-sources-v1",
+  "profiles": [
+    {
+      "profile": "lifecycle",
+      "identityPath": "poc/private-native-proof/evidence/package-identity.json",
+      "identitySha256": "bfbcaa79ca849d202a1096526327bc6012a11098274c7f097ea23d4a3426df79",
+      "sourceArchive": "poc/remote-cuda/historical-sources/lifecycle.tar.gz",
+      "sourceArchiveSha256": "b83ce3e3ba7543cc5d870a755ddc5185b9f660daa03bd642bda7c3ddf7cb4efc",
+      "sourceFileCount": 54,
+      "archiveBytes": 198746,
+      "originalBinaryArchiveSha256": "f28dfcea27c8c357cece022b7036f013895d907a48b151c4e45d9700f3c2e5a0",
+      "recoveredHistoricalVersions": [
+        {
+          "commit": "7b4eb538357d11b1e5b6eec83765aa711774f3c2",
+          "path": "poc/private-note-chain/common/src/lib.rs",
+          "sha256": "f640acf4771227ea33812108b95ff0a1355cd996ec600f9b7ad833f53ef1158c",
+          "bytes": 11904
+        },
+        {
+          "commit": "7b4eb538357d11b1e5b6eec83765aa711774f3c2",
+          "path": "poc/private-note-wallet/src/protocol.rs",
+          "sha256": "2593052d61b4997e5f3d66e768edcaab51b6a4c862afe1368aa19c6d36a5708b",
+          "bytes": 10245
+        },
+        {
+          "commit": "7b4eb538357d11b1e5b6eec83765aa711774f3c2",
+          "path": "poc/private-note-wallet/src/wallet.rs",
+          "sha256": "48d30134e54aca4dbd3e64607722eee61fc74f6d5bb858fbdf936014b5167aa2",
+          "bytes": 8808
+        }
+      ]
+    },
+    {
+      "profile": "recovery",
+      "identityPath": "poc/recovery-proof/evidence/package-identity.json",
+      "identitySha256": "cf10673cb40e6d36308d3a227a60bc7faf3b2633fb868b8e0bed8c881a24563a",
+      "sourceArchive": "poc/remote-cuda/historical-sources/recovery.tar.gz",
+      "sourceArchiveSha256": "a02c80b30eb28d6acff98755b6ace823529f05fbeba7b140a1cb53625353646a",
+      "sourceFileCount": 109,
+      "archiveBytes": 817565,
+      "originalBinaryArchiveSha256": "42aae900499190386464c36208c0aa2a4b3e6c102e443ff99a714ef8469656c4",
+      "recoveredHistoricalVersions": [
+        {
+          "commit": "2010684bc40c482e69f0994229385a0a1e0ece78",
+          "path": "poc/recovery-native/build_guest.sh",
+          "sha256": "539b49eb11a09cd33674685c24ba36929e7d308377fb0b3471ba8f48632957aa",
+          "bytes": 1143
+        },
+        {
+          "commit": "2010684bc40c482e69f0994229385a0a1e0ece78",
+          "path": "poc/recovery-native/common/Cargo.toml",
+          "sha256": "101a0fef2c6032d63e0f0454bba3c11bfaf36755127c374311893c8fbc9bbfe3",
+          "bytes": 888
+        },
+        {
+          "commit": "2010684bc40c482e69f0994229385a0a1e0ece78",
+          "path": "poc/recovery-native/guest/Cargo.toml",
+          "sha256": "87c56c69555b1e83fb3898e37d51f84b65452d14ee03c50e655efcd70fb99647",
+          "bytes": 289
+        },
+        {
+          "commit": "2010684bc40c482e69f0994229385a0a1e0ece78",
+          "path": "poc/recovery-native/host/Cargo.toml",
+          "sha256": "53112e2d2e6d499d9ff8c1c4d2a01319d5bbe33f7f172d7691687a244dac5004",
+          "bytes": 1587
+        },
+        {
+          "commit": "2010684bc40c482e69f0994229385a0a1e0ece78",
+          "path": "poc/recovery-native/host/src/native.rs",
+          "sha256": "b0b0d9659d73f2cc8fec575c7f4af2ba28f1da4dcc740ec64f67a0d7739e453a",
+          "bytes": 14422
+        }
+      ]
+    }
+  ]
+}

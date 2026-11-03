@@ -100,11 +100,12 @@ def archive(package, destination):
     return {'sha256':sha(destination.read_bytes()),'bytes':destination.stat().st_size}
 
 
-def restore(out):
+def restore(out, *, source_root=None):
     e=ROOT/'poc/private-native-proof/evidence'
     identity=json.loads((e/'package-identity.json').read_text())
+    sources=ROOT if source_root is None else Path(source_root)
     for name,h in identity['sourceFiles'].items():
-        assert sha((ROOT/name).read_bytes()) == h, 'source/binary drift: '+name
+        assert sha((sources/name).read_bytes()) == h, 'source/binary drift: '+name
     data=checked_archive(e/'public-package.tar.gz',identity['archive']['sha256'])
     assert set(data)==allowed()
     out.mkdir(parents=True)
@@ -117,6 +118,10 @@ def restore(out):
 
 if __name__=='__main__':
     if sys.argv[1]=='restore':r=restore(Path(sys.argv[2]))
+    elif sys.argv[1]=='restore-historical':
+        from historical_sources import source_closure
+        with source_closure('lifecycle') as sources:r=restore(Path(sys.argv[2]),source_root=sources)
     elif sys.argv[1]=='build':r=build(Path(sys.argv[2]),Path(sys.argv[3]))
-    else:raise SystemExit('build REVIEWED_BINARY NEW_PACKAGE | restore NEW_PACKAGE')
-    print(json.dumps({'scope':r['scope'],'programImage':IMAGE,'cases':r['cases'],'proofStarted':False}))
+    else:raise SystemExit('build REVIEWED_BINARY NEW_PACKAGE | restore NEW_PACKAGE | restore-historical NEW_PACKAGE')
+    print(json.dumps({'scope':r['scope'],'programImage':IMAGE,'cases':r['cases'],'proofStarted':False,
+                      'sourceBinding':'historical' if sys.argv[1]=='restore-historical' else 'current'}))

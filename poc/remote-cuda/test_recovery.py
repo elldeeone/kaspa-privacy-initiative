@@ -18,6 +18,7 @@ from recovery_control import verify
 from service import App
 from recovery_service import RecoveryApp
 from test_remote import lease, TOKEN
+from historical_sources import source_closure
 import worker
 
 
@@ -28,7 +29,9 @@ def dead(pid):
 
 class Recovery(unittest.TestCase):
     def package(self,root):
-        p=root/'package';pkg.restore(p);return p
+        p=root/'package'
+        with source_closure('recovery') as sources:pkg.restore(p,source_root=sources)
+        return p
 
     def test_fixed_package_and_all_compiled_targets_without_execution(self):
         with tempfile.TemporaryDirectory() as d:

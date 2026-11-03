@@ -14,6 +14,7 @@ from common import sha
 import recovery_package as pkg
 import recovery_control as control
 import staged_archive
+from historical_sources import source_closure
 
 class RecoveryArchives(unittest.TestCase):
     def archive(self, rows, kind=None):
@@ -34,10 +35,11 @@ class RecoveryArchives(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);client=root/'b-client';client.mkdir()
             bindings=json.loads((pkg.ROOT/'poc/recovery-proof/runmanifest.json').read_text())['trustedBClientFiles']
-            for name,digest in bindings.items():
-                source=Path(__file__).parent/name
-                self.assertEqual(sha(source.read_bytes()),digest)
-                shutil.copy2(source,client/name)
+            with source_closure('recovery') as sources:
+                for name,digest in bindings.items():
+                    source=sources/'poc/remote-cuda'/name
+                    self.assertEqual(sha(source.read_bytes()),digest)
+                    shutil.copy2(source,client/name)
             raw=self.archive([('proofs/deposit/candidate-receipt.bin',b'SYNTHETIC-NOT-A-PROOF'),('stages/log.txt',b'log')])
             source=root/'result.tgz';source.write_bytes(raw)
             env={k:os.environ[k] for k in ('PATH','HOME','LD_LIBRARY_PATH') if k in os.environ}
