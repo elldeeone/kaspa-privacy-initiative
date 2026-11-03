@@ -19,6 +19,14 @@ format. It proves no ordinary funding, accepted native state or privacy target.
 The historical guest remains a different relation; the new package does not
 retroactively qualify its old proofs or missing parameters.
 
+The [native key specification](../spec/native-shielded/key-identity.md) now pins
+actual portable mathematical VK/parameter/constraint bytes and the existing
+transcript scalar, not Rust formatting as a new wire format. Upstream currently
+derives that scalar from Debug; retain it as fixed compatibility data rather
+than replace it with the capsule hash. Read-only export from copied pinned
+sources reproduced the capsule and reverified existing proofs. A native
+importer/backend and independent soundness review remain unimplemented gates.
+
 ## Preserve the evidence ladder
 
 Constraint satisfaction, local cryptographic verification, a zkVM segment,

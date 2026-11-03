@@ -570,3 +570,28 @@ spend prevention. Public fixture keys/seeds belong only to synthetic unfunded
 vectors. The diagnostic Rust Debug key fingerprint is not a portable consensus
 key format. Passing this package does not qualify privacy, complete costs,
 recovery, cryptographic soundness or production safety; invariants remain intact.
+
+## Native consensus draft — 4 November 2026
+
+[ADR-0103](docs/adr/0103-native-shielded-consensus-specification.md) records the
+[native draft](docs/spec/native-shielded/README.md), whose
+[adversarial review](docs/spec/native-shielded/CONFORMANCE.md) separates proposed
+mitigations from actual implementation. Standard key-controlled native funding
+and new complete actual-input/effects signing avoid silently applying new
+shielded-balance rules to arbitrary old contracts. Forest rollover retains old
+anchors and one global spent set; a full depth-32 tree must not strand exits.
+Current block qualification and mergeset conflict filtering remain distinct,
+with atomic ordinary/native/log/fee undo and no proof-cache absence shortcut.
+
+Header3 commits native state at the actual past-state point and in its PoW
+prehash. Replay requires ordinary funding/DAG context as well as retained native
+events. The proposed snapshot is restricted to an already independently qualified
+point; it supplies no new fresh-node trust shortcut. The portable mathematical
+VK capsule pins the actual compatibility scalar; substituting a new hash into
+the proof transcript is forbidden. Scalar provenance still records the upstream
+Debug derivation, and a native key importer/backend remains absent.
+
+All these are draft rules with hash/model conformance, not tested native guards
+or a soundness proof. No invariant amendment, network allocation/activation,
+approved mass prices, full recovery guarantee or privacy pass is adopted. New
+tree/anchor/fee metadata and later transparentization remain observer inputs.

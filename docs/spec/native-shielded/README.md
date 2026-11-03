@@ -36,7 +36,11 @@ transactions. No hidden native-maximum range gadget is added.
 
 Kaspa source is pinned at `b85380d16514e65136001530e7c717eef304e654`; docs at
 `0ac77d043a802fc8196abfd5812ac2afbd97a2b9`; KIPs at
-`d832dbd89347dcb16d3d83bf6755b081714cbcb2`. Official HEADs were rechecked.
+`d832dbd89347dcb16d3d83bf6755b081714cbcb2`. Official HEADs were rechecked;
+Kaspa then advanced to `af6ff23a0b3e8271407da3203ce4017dd188d7ec` during
+finalization. The [delta review](../../../research/native-shielded-upstream-delta-2026-11-04.md)
+records the new optional covenant UTXO RPC and verifies 25 relevant protocol
+files remain byte-identical. Baseline citations below remain exact source pins.
 The [source-bound review](../../../research/native-kas-consensus-boundary-2026-11-03.md)
 and [five-protocol reuse review](../../../research/native-kas-shielded-value-sources-2026-11-03.md)
 retain the evidence for Toccata, vProgs, Orchard, MWEB, Monero, Aztec and RAILGUN.

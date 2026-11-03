@@ -1,0 +1,305 @@
+{
+  "schema": "native-shielded-spec-verification-v1",
+  "date": "2026-11-04",
+  "date_timezone": "Australia/Sydney",
+  "baseline_commit": "3d17324e2145f2d7116a605502eb70a8151b0a2c",
+  "draft_commit": "26a3a68e",
+  "conformance_commit": "7e663dd6",
+  "classification": "Concrete native consensus specification proposal and portable artifact/byte/model conformance. No native implementation, activation, funding authentication, bootstrap qualification, invariant adoption or independent security approval.",
+  "source_heads_rechecked": {
+    "kaspanet/rusty-kaspa": "af6ff23a0b3e8271407da3203ce4017dd188d7ec",
+    "kaspanet/docs": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+    "kaspanet/kips": "d832dbd89347dcb16d3d83bf6755b081714cbcb2",
+    "zcash/orchard": "616a669df8c9a59c33d47064d3ce04b25d026b2e"
+  },
+  "key_id": "743fa19c541fa2c7881c4ed0e3340c82d88780dbbc549cc2f3bfd982c2e517e0",
+  "profile_id": "337249a87fd85d2212fd9f8ce5727d1795017f588b73b1c76ab1c474fd02aad2",
+  "compatibility_scalar_le32": "71522dd31238af3da22e6d9acbec2d03e0fedf2688553cf3be0bbe598fd4f70b",
+  "primary_source_checks": [
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/constants.rs#L1-L15",
+      "sha256": "e972b0582b2e40566cb0fc1140da7cd7de88d681104a0b6b63d7a5b2e06d3a2e",
+      "bytes": 2200
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/hashing/header.rs#L7-L30",
+      "sha256": "850399bdccfc57b1407bc29f6e9a3c3513d6c8a6e82bf97531041091542e4d34",
+      "bytes": 2325
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/hashing/sighash.rs#L250-L297",
+      "sha256": "b510118f3eedd2c9cd18ae872e6c1db9c26e9bd614eefc6bbd183f8ede5275ba",
+      "bytes": 33777
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/hashing/tx.rs",
+      "sha256": "b89996b5393a526dd4e1b8b7aeaee4f4dbad515252d9e12b6e2d288a7d8f6d4d",
+      "bytes": 17341
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/tx.rs",
+      "sha256": "23a2a831a1670505927bf660ac12d8bd76d240903bce5605fb0dc8454237c695",
+      "bytes": 51689
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/body_processor/body_validation_in_isolation.rs#L126-L151",
+      "sha256": "d8278a4e88859717eb369dc77eda66018ccb40d7530793db779e9745ca5ca218",
+      "bytes": 29098
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/utxo_validation.rs#L110-L265",
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "bytes": 32206
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/utxo_validation.rs#L221-L265",
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "bytes": 32206
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/utxo_validation.rs#L297-L350",
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "bytes": 32206
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/coinbase.rs#L80-L181",
+      "sha256": "db3929a6754b5092fcad081a6cf8af5ab75af854f839ebecc538ae1bb33c0e14",
+      "bytes": 30762
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/pruning_proof/apply.rs",
+      "sha256": "d61e22fb56ef3117f730817db01f8aff0264e6482e559673664e92332941d9aa",
+      "bytes": 16728
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs#L30-L65",
+      "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+      "bytes": 50222
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/crypto/txscript/src/standard.rs#L18-L30",
+      "sha256": "4b7f6132bc927c8daffdfd9d704cd55c338f9e15498c3a9ec39f79f0074ae765",
+      "bytes": 11078
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/plonk.rs#L42-L144",
+      "sha256": "12b80139f13e6d51eb5913855ec6e7de89534e43ea41f989b50ddfe02f1a9a95",
+      "bytes": 5277
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/plonk/circuit.rs#L930-L1053",
+      "sha256": "c6efa09bdbe9081861fe2bd469b8b9b547beeee1e95c4d66e6896050d5e45db0",
+      "bytes": 52203
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/plonk/circuit/fixture.rs#L160-L245",
+      "sha256": "b3df664c714babbad68664e5f0a14a1ca791ad3fdb7e6381c62ad719e5926799",
+      "bytes": 13111
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/plonk/fingerprint/vesta_lean.rs#L1-L40",
+      "sha256": "76d2861eef11278e774628949c3fdf34978bbd2a1f4eb3c49152d83524fafa2e",
+      "bytes": 74191
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/plonk/keygen.rs#L186-L259",
+      "sha256": "655240dcff4491d7adc10840831b2a57af0e1a3b64599f90f92dadc00ef8389f",
+      "bytes": 9607
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/plonk/permutation/verifier.rs#L37-L105",
+      "sha256": "09bc9b6ac9200d1c4e3015b3ed642737375f81ddda2f38ecebec98d5a528e179",
+      "bytes": 9027
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/plonk/verifier.rs#L72-L240",
+      "sha256": "8a3452866320e535570d78db098147838d015f985af214e6f3d60195606e2ef2",
+      "bytes": 17848
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/poly/commitment.rs#L28-L232",
+      "sha256": "9e1ebff98d5e531d03485afe1d8c52bf6c291c462f6efb751f2085daa6535653",
+      "bytes": 11738
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/poly/commitment/verifier.rs#L79-L169",
+      "sha256": "d9b79f66cdb6ee8b1e52adbc5bdcf98d133ee44e0c76e94b0728204e6de4476f",
+      "bytes": 5297
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/poly/multiopen/verifier.rs#L15-L148",
+      "sha256": "72cace4d1abfa1e1800c3bad8215f0b7b51ee49005fbf427c5be807b22a7c435",
+      "bytes": 5413
+    },
+    {
+      "url": "https://github.com/zcash/halo2/blob/8fa89d972dab7ee7314b5e1564e35edb5086f955/halo2_proofs/src/transcript.rs#L14-L146",
+      "sha256": "f5dbd474c532e9355271116ab4d3d7211e93ff2f661d27bdd4a56f026412a3ad",
+      "bytes": 10332
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/circuit.rs#L1079-L1111",
+      "sha256": "ce6506c490ce3ebea6ac833432052a8928051c5bea34bb5cdea22ce9ac49600c",
+      "bytes": 82824
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/circuit/fingerprint/mod.rs#L100-L147",
+      "sha256": "6e569b29e22118b994a56ce10d9f9db1018e9e69d799c3e4c5e743dffc9713d0",
+      "bytes": 9618
+    },
+    {
+      "url": "https://github.com/zcash/pasta_curves/blob/674bf82910d19fefdcad323d7dd05e8c77baa0bd/src/curves.rs#L1066-L1094",
+      "sha256": "91d74885713c0303372309c40ba46671dddf2399c0daf587f16b476eeb3364b8",
+      "bytes": 48594
+    },
+    {
+      "url": "https://github.com/zcash/pasta_curves/blob/674bf82910d19fefdcad323d7dd05e8c77baa0bd/src/curves.rs#L743-L792",
+      "sha256": "91d74885713c0303372309c40ba46671dddf2399c0daf587f16b476eeb3364b8",
+      "bytes": 48594
+    },
+    {
+      "url": "https://github.com/zcash/pasta_curves/blob/674bf82910d19fefdcad323d7dd05e8c77baa0bd/src/fields/fp.rs#L727-L746",
+      "sha256": "22e857ffb73dd92dbaf60fc0f618c3c663580b5f0cb3b681c7446fb1cba5db2b",
+      "bytes": 48780
+    },
+    {
+      "url": "https://github.com/zcash/pasta_curves/blob/674bf82910d19fefdcad323d7dd05e8c77baa0bd/src/fields/fp.rs#L904-L921",
+      "sha256": "22e857ffb73dd92dbaf60fc0f618c3c663580b5f0cb3b681c7446fb1cba5db2b",
+      "bytes": 48780
+    },
+    {
+      "url": "https://github.com/zcash/pasta_curves/blob/674bf82910d19fefdcad323d7dd05e8c77baa0bd/src/fields/fq.rs#L720-L739",
+      "sha256": "1a713f5e9d3b4d39edbe2fbc3e25d3ca63047f27592f62e20f29e4c19ab15408",
+      "bytes": 48429
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/af6ff23a0b3e8271407da3203ce4017dd188d7ec/rpc/core/src/api/rpc.rs#L406-L432",
+      "sha256": "a6eb6d32a7164900251d79eabc00ae75389caf1b06d55aa4ede5f4b3a77924dd",
+      "bytes": 26240
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/af6ff23a0b3e8271407da3203ce4017dd188d7ec/consensus/core/src/config/mod.rs#L44-L51",
+      "sha256": "f3ed9fba4e18e5f2063b0415d0838b2057c2513e149671aeb8af6972bf2e0ef2",
+      "bytes": 5039
+    },
+    {
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/af6ff23a0b3e8271407da3203ce4017dd188d7ec/rpc/core/src/convert/utxo.rs",
+      "sha256": "dfff63283c97b9675b16e096b1fb02cbc720295ee2a5f5a1ff8ca74dcfa4e323",
+      "bytes": 3238
+    }
+  ],
+  "checks": {
+    "native_byte_hash_accounting_and_symbolic_controls": 13,
+    "capsule_controls": [
+      "truncation",
+      "suffix",
+      "scalar",
+      "provenance",
+      "reordered_valid_points_change_fixed_identity"
+    ],
+    "copied_source_key_reproduction": "pass, complete capsule and provenance byte-identical",
+    "existing_complete_bundles_reverified": 3,
+    "new_proofs_constructed": 0,
+    "original_interop_files": "all recorded hashes unchanged",
+    "protected_invariants_runtime_ci": "unchanged",
+    "full_regression": {
+      "command": "bash scripts/ci_fast.sh",
+      "result": "pass",
+      "python_cases": 179,
+      "python_passed": 177,
+      "python_skipped": 2,
+      "skip_reason": "Existing opt-in integration tests lack explicit local configuration; no live RPC executed",
+      "node_passed": 13,
+      "log_sha256": "2c83eb6caaa18fc08a30633ae1f2f7cd121e45a950fb4fceb6f4cf2bf84c35c7"
+    },
+    "unchanged_interoperability": {
+      "command": "bash poc/orchard-interop/check.sh",
+      "rust_passed": 15,
+      "result": "pass",
+      "log_sha256": "29f108209db7203baa8bfd7a8057c97c23534ba0246e77eae5037723a6bdc61e"
+    },
+    "documentation": {
+      "markdown_files": 282,
+      "relative_links": 3894,
+      "result": "pass",
+      "local_heading_fragments_checked": 24
+    },
+    "historical_library": {
+      "commits": 369,
+      "document_versions": 2341,
+      "branch_refs": 39,
+      "pull_histories": 42,
+      "result": "pass"
+    },
+    "prior_arithmetic_and_symbolic_controls": "pass, original limited scope preserved",
+    "copied_source_reproduction_log_sha256": "98f657cb12345e785c6bd7f866b43b1dd24550ddadf422d7ba94d6ad934afec6",
+    "hosted_ci": "Native draft conformance workflow added; local equivalent passed. Hosted execution not asserted by this pre-push receipt."
+  },
+  "unset_deployment_parameters": [
+    "actual network transaction/header allocation approval",
+    "activation DAA score",
+    "measured approved mass coefficients and native resource limits"
+  ],
+  "preserved_files_sha256": {
+    "SECURITY-INVARIANTS.md": "44cf983d06c8895c61a492107f65487725331a1b2f93d1c89e7353fb5399733d",
+    "scripts/ci_fast.sh": "1103129837e1ade44d26212c213ba7eaec9f5904db932a96a8ea181b6e61a330",
+    ".github/workflows/code.yml": "3210289fa84d93591cee5b2cb9a01183554edd798b52733cd2c01d1e3efbbaa3"
+  },
+  "native_encoding_fixture": {
+    "native_acceptance": false,
+    "signatures_authorize_new_native_message": false,
+    "ordinary_input_and_header_authenticated": false,
+    "storage_mass_validated": false,
+    "scope": "Canonical encoding/hash input only, reused public experimental Action/proof data, fake input/header and placeholder mass."
+  },
+  "remaining_gates": [
+    "Independent cryptography/Kaspa review and I-1/I-2 proposal adoption",
+    "Native key import/backend, real ordinary signatures, node/wallet/SDK/P2P/RPC/state/DAG/store/undo/replay/bootstrap implementation",
+    "Approved activation and measured resource pricing",
+    "Matched privacy/cost/storage/throughput and independent service-loss recovery qualification"
+  ],
+  "artifact_files_sha256": {
+    "CONFORMANCE.md": "335d5756aca7d02ed91390c155831e6b4253b4ae37aea9187cb519ccaa8b9638",
+    "README.md": "1131cf1fecc187ddb8a822299879675914b301b60b41ff26498195ebf1880e26",
+    "accounting.md": "4e9bb6fe3efed7ff6bb04334294ac6b4c90e7f10639f5ec1ae3414f39edb48aa",
+    "artifacts/conformance.json": "11eb65b4583c2459246ad75a317e9dc1d6af66480caa4749ba3f32a82357d45f",
+    "artifacts/decoder-negative-checks.json": "99d92e1180062bbc19290e611d10990979cc313e8c4f6fe4a43ee5fd1adf6d4a",
+    "artifacts/export-result.json": "d533d3a68e1f50e49526fd2aa08770844c69a2c2077cbbff51e16ad1068a1933",
+    "artifacts/fixed-post-nu6-2.vk-capsule.bin": "743fa19c541fa2c7881c4ed0e3340c82d88780dbbc549cc2f3bfd982c2e517e0",
+    "artifacts/native-transaction-encoding.bin": "1be4eee573fd7a6de6488a58473f26ab592e8237f403aa60318efdf0b67ebe75",
+    "artifacts/portable-key-manifest.json": "128c17a29adf1601b6fe6fb6d08f49e5f4d8e48bce97692051e2143306a9a41c",
+    "artifacts/profile.bin": "20385945ed9461d6ded59e7b4bcc9a3e60829e68b8cc0863b8fde5d41f5db9cd",
+    "artifacts/profile.json": "332ad2f2eb073475ef04555e7b3cb541b2383e53dc15061473b35a8858a816f3",
+    "artifacts/upstream-delta.json": "444c50f4df018ed256bca311bdd1a22e03edded111fcb10c34e7a8e42ed2b711",
+    "artifacts/upstream-pinned-key-description.txt": "7ef7088012eb2af7364857550109b8c5560830025f0db9f06e714859b6541957",
+    "bootstrap.md": "98f0e47bea50b39d741b91a01f1abefc1746003bdf2f1328c0a86337745a9b29",
+    "key-export/Cargo.lock": "762f4a5af99dbc8108d13d4dd18c09f959bbed099fd9b5d74768a1c06241fec3",
+    "key-export/Cargo.toml.in": "291de58c84f25e9d0091a3ab68922a9813c7b502f2115d6c85b0067f232e82c7",
+    "key-export/README.md": "cf98f973c90b1c7a71effa4620372a8b6715483fa560493773adafdb948f58a0",
+    "key-export/check_capsule.py": "0b4b54567202dfb198c033775f4f887bcfed284433c92babb7e504293b2e9b94",
+    "key-export/diagnostic-export.patch": "884d895adcf77851ee17270b28ef3081492419ffc57c4fb32ff35991a22c2fc3",
+    "key-export/main.rs": "1039a2b854d34dcdf37093d006cb56d588dacdf813e58e4a80f021012f59dce2",
+    "key-export/reproduce.py": "98156b8335e5f72fced4affbbd16d591f22f14ee841fab95a4127b458a9fe833",
+    "key-export/source-inputs.json": "d4a6e2997e16ccf503fed1fec5c2a934a8d969c92aad9b652b1662fffbab75be",
+    "key-export/upstream-source-checks.json": "926cf96a620ed11d42dd269a29338af4f3b290e9c64298b803e3fff93d06ffc2",
+    "key-identity.md": "d310fccdb5dc9671b34e1204a1acdb8a0115c8c73ea00ca7ab0b1cdf21092b5d",
+    "state-header.md": "fd8f9977ae064643080318f844ea24698e41034d87c0247f57c7b44b87d710a3",
+    "transactions.md": "165aa72dfe6ea86606257f01644ab7640be99fe9cce197657bf9c33edd370e3b"
+  },
+  "verified_at_utc": "2026-11-03T14:50:36.596365+00:00",
+  "reviewed_kaspa_protocol_base": "b85380d16514e65136001530e7c717eef304e654",
+  "upstream_delta": {
+    "receipt": "artifacts/upstream-delta.json",
+    "sha256": "444c50f4df018ed256bca311bdd1a22e03edded111fcb10c34e7a8e42ed2b711",
+    "new_commits": 1,
+    "changed_paths": 47,
+    "relevant_protocol_files_byte_identical": 25,
+    "new_capability": "optional covenant UTXO index/paginated RPC; no native shielded state authentication"
+  },
+  "additional_files_sha256": {
+    "scripts/check_native_shielded_spec.py": "2e98035e69dd6443275de0ed5a6044a9a84dbe6f6223ef76e4d2c16af9eec5a3",
+    ".github/workflows/native-shielded-spec.yml": "64b18d2704672d5f92f8d453c20bce73643c6093779c9575071f48776bef3a4f",
+    "docs/adr/0103-native-shielded-consensus-specification.md": "0c019118a15b2b7d02b2eeb7e94208e61db996b5ee14b62ff5dceec7739dc181",
+    "research/native-shielded-key-identity-sources-2026-11-04.md": "689ed914cba18911280543b17ac06e2c86b1ef117fcadf95649b703d788c15e9",
+    "research/native-shielded-upstream-delta-2026-11-04.md": "542923e5db047e388a17a0cef54f756f01fbda9bfd9185d06042380b79516324"
+  }
+}

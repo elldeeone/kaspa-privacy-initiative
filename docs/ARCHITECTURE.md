@@ -31,6 +31,16 @@ format and diagnostic key identity. It authenticates no ordinary funding or
 native state and allocates no Kaspa format. Exact native mapping/bootstrap,
 portable key identity, metering and the invariant decision remain open.
 
+The [native specification draft](spec/native-shielded/README.md), under
+[ADR-0103](adr/0103-native-shielded-consensus-specification.md), now defines
+proposed transaction2/header3, actual-input-context signing, a depth-32 forest
+with global spentness, atomic accepted-state/header commitments, full replay and
+restricted qualified-point snapshots. A fixed mathematical key capsule replaces
+the temporary diagnostic as the draft identity while preserving proof transcript
+compatibility. Exact integer/accounting and proposed invariant wording are
+written; independent review/adoption, actual native integration, measured mass
+parameters and activation remain open. No production architecture is selected.
+
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
 The original executed depth-four full-drainage wallet profile remains local-only

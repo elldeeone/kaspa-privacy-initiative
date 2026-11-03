@@ -10,10 +10,12 @@ is complete. [ADR-0101](adr/0101-native-shielded-research-reference.md) selects
 complete repaired Orchard V2/native verification as the research reference.
 The [unfunded codec/verifier package](../poc/orchard-interop/README.md) is now
 complete: genuine full Halo2 and both signature roles, canonical experimental
-bytes, effects mutation checks and reproducible public vectors. Next is the
-exact native transaction/state/header/bootstrap specification, portable key
-identity and mass/activation rules. Native
-implementation still needs exact codec/state/bootstrap, reviewed invariant/
+bytes, effects mutation checks and reproducible public vectors. The subsequent
+[native draft](spec/native-shielded/README.md) now specifies transaction/state/
+header/bootstrap, portable mathematical key identity, forest rollover and
+accounting/resource formulas under ADR-0103. Next is independent review and,
+after the required accounting decision, actual unfunded native integration. Native
+implementation still needs independent review of this draft, invariant/
 accounting adoption and actual consensus integration. The unchanged common-price
 population cannot qualify its absolute privacy cap; independent human review and
 full privacy/cost/recovery qualification remain outstanding. Historical successes

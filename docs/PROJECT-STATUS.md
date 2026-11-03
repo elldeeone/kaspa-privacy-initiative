@@ -94,9 +94,10 @@ ceiling. That population cannot qualify unchanged, even with a transcript
 revealing nothing. Keep the negative evidence and strong requirement; any
 prospective qualification revision needs explicit owner direction.
 
-Native implementation still needs exact transaction/header/state codecs,
-authenticated bootstrap, actual verifier/DAG/storage/reward/undo integration
-and reviewed adoption of the proposed I-1/I-2 accounting interpretation. The
+The subsequent native draft below supplies transaction/header/state/bootstrap
+and portable identity rules. Native implementation still needs their independent
+review, actual verifier/DAG/storage/reward/undo integration and reviewed adoption
+of the proposed I-1/I-2 accounting interpretation. The
 upstream circuit proves `u64`, not `MAX_SOMPI`; the review proposes an explicit
 backing induction. Independent review, full costs/performance and complete
 service-loss recovery remain outstanding. No invariant file or historical
@@ -130,9 +131,43 @@ Supplied input values/state are not authenticated. The diagnostic key hash uses
 locked upstream Rust Debug, not a portable native key format. This closes local
 complete-verifier/codec compatibility, not privacy/cost/recovery qualification.
 
-Next: specify exact native transaction/state/header/bootstrap mapping, portable
-key identity and mass/activation rules. Reviewed invariant/accounting adoption
-and actual consensus integration remain prerequisites to native implementation.
+The subsequent draft below supplies that native specification. Reviewed
+invariant/accounting adoption and consensus integration remain separate gates.
+
+## Completed: native transaction/state/header/bootstrap specification draft
+
+[ADR-0103](adr/0103-native-shielded-consensus-specification.md) records the
+[concrete native draft](spec/native-shielded/README.md). It defines proposed
+transaction2/header3 bytes, actual-UTXO/all-effects signing, standard funding
+script scope, global spentness and depth-32 tree rollover, accepted DAG/atomic
+undo semantics, exact past-state header commitments, full-replay bootstrap and
+qualified-point snapshot format. Accounting includes the backing induction,
+explicit proposed I-1/I-2 wording and integer resource formulas; real activation
+and measured mass parameters remain unset. Invariant text is unchanged.
+
+The [portable mathematical key capsule](spec/native-shielded/key-identity.md)
+has a fixed SHA-256 identity and captured compatibility scalar. It reproduced
+from copied verified upstream sources and reverified all three existing complete
+synthetic bundles without changing the interop package/cache. A native key
+importer and consensus backend remain unimplemented.
+
+Run `python3 scripts/check_native_shielded_spec.py`. The
+[conformance/review](spec/native-shielded/CONFORMANCE.md) covers exact byte/hash
+vectors, integer equations, 13 negatives and symbolic rollover/undo. Its fake
+header/input and differently signed encoding fixture establish no native
+authorization, chain qualification, funding or bootstrap success. The
+[verification receipt](spec/native-shielded/VERIFICATION.json) retains the checks.
+
+Next: independent Kaspa/cryptography/accounting review, then an unfunded native
+consensus integration prototype with actual transaction/DAG/reorg/recovery
+evidence. Network allocation/activation, sustainable pricing and complete
+privacy/cost/independent-recovery qualification remain open.
+
+The final [upstream refresh](../research/native-shielded-upstream-delta-2026-11-04.md)
+records Kaspa's move to `af6ff23a` during this task: optional covenant UTXO
+index/pagination was added, while 25 relevant protocol files stayed byte-identical.
+It supplies discovery tooling, not native shielded state authentication or a
+reason to resume paused covenant work.
 
 ## Consolidation verification
 

@@ -1,0 +1,217 @@
+{
+  "baseline": "b85380d16514e65136001530e7c717eef304e654",
+  "refreshed_official_head": "af6ff23a0b3e8271407da3203ce4017dd188d7ec",
+  "new_commits": [
+    "af6ff23a0b3e8271407da3203ce4017dd188d7ec UtxoIndex: covenant id index, adds paginated GetUtxosByCovenantIds RPC (#1152)"
+  ],
+  "changed_paths": [
+    "M\tcli/src/modules/rpc.rs",
+    "M\tconsensus/core/src/config/mod.rs",
+    "M\tdatabase/src/registry.rs",
+    "M\tindexes/core/src/indexed_utxos.rs",
+    "M\tindexes/processor/src/processor.rs",
+    "M\tindexes/utxoindex/Cargo.toml",
+    "R074\tindexes/utxoindex/src/core/api/mod.rs\tindexes/utxoindex/src/core/api.rs",
+    "M\tindexes/utxoindex/src/core/errors.rs",
+    "M\tindexes/utxoindex/src/index.rs",
+    "R061\tindexes/utxoindex/src/stores/mod.rs\tindexes/utxoindex/src/stores.rs",
+    "A\tindexes/utxoindex/src/stores/covenant_ids.rs",
+    "R091\tindexes/utxoindex/src/stores/indexed_utxos.rs\tindexes/utxoindex/src/stores/script_public_keys.rs",
+    "M\tindexes/utxoindex/src/stores/store_manager.rs",
+    "M\tindexes/utxoindex/src/stores/tips.rs",
+    "M\tindexes/utxoindex/src/update_container.rs",
+    "M\tkaspad/src/args.rs",
+    "M\tkaspad/src/daemon.rs",
+    "M\trpc/core/src/api/ops.rs",
+    "M\trpc/core/src/api/rpc.rs",
+    "M\trpc/core/src/convert/utxo.rs",
+    "M\trpc/core/src/error.rs",
+    "M\trpc/core/src/model/message.rs",
+    "M\trpc/core/src/model/tests.rs",
+    "M\trpc/core/src/model/utxo_cursor.rs",
+    "M\trpc/core/src/wasm/convert.rs",
+    "M\trpc/core/src/wasm/message.rs",
+    "M\trpc/core/src/wasm/message/tests.rs",
+    "M\trpc/grpc/client/src/lib.rs",
+    "M\trpc/grpc/core/proto/messages.proto",
+    "M\trpc/grpc/core/proto/rpc.proto",
+    "M\trpc/grpc/core/src/convert/kaspad.rs",
+    "M\trpc/grpc/core/src/convert/message.rs",
+    "M\trpc/grpc/core/src/convert/tx.rs",
+    "M\trpc/grpc/core/src/convert/utxo_cursor.rs",
+    "M\trpc/grpc/core/src/ops.rs",
+    "M\trpc/grpc/server/src/request_handler/factory.rs",
+    "M\trpc/grpc/server/src/tests/rpc_core_mock.rs",
+    "M\trpc/service/src/converter/index.rs",
+    "M\trpc/service/src/service.rs",
+    "M\trpc/wrpc/client/src/client.rs",
+    "M\trpc/wrpc/server/src/router.rs",
+    "M\trpc/wrpc/wasm/src/client.rs",
+    "M\ttesting/integration/src/consensus_integration_tests.rs",
+    "M\ttesting/integration/src/rpc_tests.rs",
+    "M\ttesting/integration/src/tasks/daemon.rs",
+    "M\twallet/core/src/tests/rpc_core_mock.rs",
+    "A\twasm/examples/nodejs/javascript/general/get-utxos-by-covenant-ids.js"
+  ],
+  "unchanged_protocol_files": [
+    {
+      "path": "consensus/core/src/constants.rs",
+      "bytes": 2200,
+      "sha256": "e972b0582b2e40566cb0fc1140da7cd7de88d681104a0b6b63d7a5b2e06d3a2e",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/tx.rs",
+      "bytes": 51689,
+      "sha256": "23a2a831a1670505927bf660ac12d8bd76d240903bce5605fb0dc8454237c695",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/header.rs",
+      "bytes": 16486,
+      "sha256": "386a4fe50109c203a62b2f2549bb3a8c651482dbac5537ec35c6795312005d33",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/hashing/tx.rs",
+      "bytes": 17341,
+      "sha256": "b89996b5393a526dd4e1b8b7aeaee4f4dbad515252d9e12b6e2d288a7d8f6d4d",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/hashing/sighash.rs",
+      "bytes": 33777,
+      "sha256": "b510118f3eedd2c9cd18ae872e6c1db9c26e9bd614eefc6bbd183f8ede5275ba",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/hashing/header.rs",
+      "bytes": 2325,
+      "sha256": "850399bdccfc57b1407bc29f6e9a3c3513d6c8a6e82bf97531041091542e4d34",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/hashing/mod.rs",
+      "bytes": 2981,
+      "sha256": "06753f6981ab9b0d2a26598ca43e6599886a70fed75f767cb559b66b7bbcf213",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/mass/mod.rs",
+      "bytes": 39470,
+      "sha256": "044a6922ac8b3638ef720e90228323c578cad3a7236537513da8a9a423452718",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/mass/units.rs",
+      "bytes": 6942,
+      "sha256": "5880e8edea9d193989cad7bb6d1497f05f504b8748713b2aefb78fc327e31098",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/core/src/config/params.rs",
+      "bytes": 33052,
+      "sha256": "dde48b628f602de112eb999285901257347f74f7c3811caa8e8eb016e2ded233",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/pipeline/virtual_processor/utxo_validation.rs",
+      "bytes": 32206,
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/pipeline/virtual_processor/processor.rs",
+      "bytes": 80753,
+      "sha256": "51f0b7a678d6966d2c272d4fc853d01310364beaebbd596ff0b4e839e0d315c0",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/pipeline/body_processor/body_validation_in_isolation.rs",
+      "bytes": 29098,
+      "sha256": "d8278a4e88859717eb369dc77eda66018ccb40d7530793db779e9745ca5ca218",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/pipeline/body_processor/body_validation_in_context.rs",
+      "bytes": 11152,
+      "sha256": "69b316fe40aeb1f35b57258085cb2fa1fd0d8fd10251eb058568bfd2a864d2f0",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/model/stores/virtual_state.rs",
+      "bytes": 20911,
+      "sha256": "1151b8ccb2ea17e77d32dab746c7b00f13680300738d4863435bcceddc265d47",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/processes/coinbase.rs",
+      "bytes": 30762,
+      "sha256": "db3929a6754b5092fcad081a6cf8af5ab75af854f839ebecc538ae1bb33c0e14",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/processes/pruning_proof/apply.rs",
+      "bytes": 16728,
+      "sha256": "d61e22fb56ef3117f730817db01f8aff0264e6482e559673664e92332941d9aa",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/processes/pruning_proof/validate.rs",
+      "bytes": 20074,
+      "sha256": "cc6266ece406b8b29496159c1e1e27ead42470a628c2d88907e4e9014b6a26d0",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/processes/pruning_proof/build.rs",
+      "bytes": 32084,
+      "sha256": "37f4cb144cffd281a01300a722f2585680052cc5f8f3057c135a400cd3466fdf",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_isolation.rs",
+      "bytes": 20396,
+      "sha256": "820cc3ae6e3f7343154b21c455f21f22fecc3e0ab3324ab00e05abc741b8c847",
+      "unchanged": true
+    },
+    {
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+      "bytes": 50222,
+      "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+      "unchanged": true
+    },
+    {
+      "path": "crypto/txscript/src/zk_precompiles/tags.rs",
+      "bytes": 2497,
+      "sha256": "b3288d447e0ea09447e6564c921389bd6d5668d6d302c8d409ded7895919ef03",
+      "unchanged": true
+    },
+    {
+      "path": "crypto/txscript/src/lib.rs",
+      "bytes": 114465,
+      "sha256": "d1498f9ae5580406e9942bf73272d75d4d7fbc226fccfc90b8bf9fd92e8462dd",
+      "unchanged": true
+    },
+    {
+      "path": "crypto/txscript/src/standard.rs",
+      "bytes": 11078,
+      "sha256": "4b7f6132bc927c8daffdfd9d704cd55c338f9e15498c3a9ec39f79f0074ae765",
+      "unchanged": true
+    },
+    {
+      "path": "crypto/hashes/src/hashers.rs",
+      "bytes": 15077,
+      "sha256": "752f6e6353b1316732e3141c8ac8a92094be70314e47ea83bb6dd68d5ca951c5",
+      "unchanged": true
+    }
+  ],
+  "reviewed_delta_paths": [
+    "consensus/core/src/config/mod.rs",
+    "indexes/core/src/indexed_utxos.rs",
+    "rpc/core/src/api/rpc.rs",
+    "rpc/core/src/model/message.rs",
+    "rpc/core/src/convert/utxo.rs",
+    "rpc/grpc/core/src/convert/tx.rs"
+  ],
+  "conclusion": "One covenant UTXO index/paginated RPC commit; cited transaction/hash/signature/header/DAG/mass/pruning/verifier rules are byte-identical. Optional query is not native shielded state authentication. No RPC executed."
+}

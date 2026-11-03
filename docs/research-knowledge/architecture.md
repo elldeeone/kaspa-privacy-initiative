@@ -60,3 +60,10 @@ It closes that compatibility question while leaving native field/state/header
 mapping, portable key identity, bootstrap, invariant adoption and actual
 consensus integration open. Carry its exact public vectors and limitations;
 do not treat synthetic ordinary inputs as native backing.
+
+The [native specification draft](../spec/native-shielded/README.md) supplies
+proposed exact formats/algorithms and a portable mathematical key identity.
+It addresses the old single-tree capacity trap through rollover/global
+spentness and scopes first funding/payouts to standard key scripts. It records
+accounting/invariant review and full replay/retention explicitly; adoption,
+actual consensus integration, activation/pricing and qualification remain open.

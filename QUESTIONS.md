@@ -2,28 +2,23 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
-## Current review questions — 3 November 2026
+## Current review questions — 4 November 2026
 
-The completed internal technical [RFC-0004 Q1–Q10 review](docs/rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
-and [ADR-0101](docs/adr/0101-native-shielded-research-reference.md) narrow the
-research construction to complete repaired Orchard V2/native verification and
-answer identity, accepted effects, retained recovery data and fee-repricing
-questions. Remaining specification gaps are exact native transaction/header/
-state codecs, authenticated bootstrap, mass/activation rules and reviewed
-I-1/I-2 adoption. Actual consensus/verifier integration remains unimplemented.
-Local complete-verifier compatibility is now demonstrated by the
-[unfunded interoperability package](poc/orchard-interop/README.md): three genuine
-bundles, canonical experimental bytes, signed modeled effects and rejection
-controls. Its diagnostic Rust Debug key hash is not a portable native identity;
-supplied funding/state is not authenticated. Exact native mapping/activation,
-invariant adoption and consensus integration remain open.
-Independent human cryptography/consensus approval is outstanding. The retained
-common-price population cannot qualify the unchanged absolute cap because its
-prior alone exceeds it. No privacy requirement or invariant was amended; full
-privacy, costs/performance and independent recovery remain unqualified.
+[RFC-0004](docs/rfc/0004-native-kas-private-payment-boundary.md) and the
+[native specification draft](docs/spec/native-shielded/README.md) now contain
+concrete transaction/signing, forest/state/header/bootstrap, portable mathematical
+key and accounting rules. The [unfunded package](poc/orchard-interop/README.md)
+demonstrates complete local Halo2/RedPallas interoperability. Conformance vectors
+test the proposed bytes/hashes and model obligations, not native acceptance.
 
-The older work-package checkpoints below retain their historical scope. Current
-status and corrections are in [PROJECT-STATUS](docs/PROJECT-STATUS.md) and the
+Still open: independent review and I-1/I-2 adoption; actual native key importer,
+node/wallet/DAG/reorg/replay integration; approved activation and measured mass
+parameters; complete privacy/cost/storage/independent-recovery qualification.
+The retained common-price population cannot meet its unchanged 20% ceiling
+because the prior alone exceeds it. No requirement or invariant was amended.
+
+The older checkpoints below retain their historical scope. Current status and
+corrections are in [PROJECT-STATUS](docs/PROJECT-STATUS.md) and the
 [prior-knowledge guide](docs/research-knowledge/README.md).
 
 ## Earlier research questions and checkpoints

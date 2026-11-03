@@ -370,8 +370,41 @@ payments, a hidden `MAX_SOMPI` gadget or financial-privacy qualification. Exact
 source/dependencies, public vectors, diagnostic key fingerprint, commands and
 limitations are in the [receipt](../../poc/orchard-interop/VERIFICATION.json).
 The key fingerprint hashes public upstream Rust Debug under a locked build; a
-portable native verification-key identity remains to specify. No network
+portable native identity was not supplied by that package. The later native
+draft below supplies a mathematical capsule while preserving this historical
+diagnostic's scope. No network
 transaction/version/header/activation is allocated by this experimental format.
+
+### Concrete native consensus specification draft
+
+[ADR-0103](../adr/0103-native-shielded-consensus-specification.md) records the
+completed [native draft](../spec/native-shielded/README.md): proposed transaction
+2/header 3, exact ordinary/bundle bytes and complete signing messages using
+actual UTXO context, deterministic global spentness/forest state, atomic DAG
+acceptance/undo, past-state header commitments, replay-first bootstrap, restricted
+authenticated snapshots, integer resource/accounting rules and explicit proposed
+I-1/I-2 wording. Initial ordinary funding/payouts use standard P2PK/P2PK-ECDSA
+without covenants; broader old contracts are not silently reinterpreted.
+
+Automatic depth-32 tree rollover retains old anchors and one global N. A
+single full tree must not prevent later exits appending their required outputs.
+Unchanged bundles still use one spend anchor; cross-tree consolidation requires
+separate owner-authorized transitions. No administrator or fresh NF namespace.
+
+The [portable key](../spec/native-shielded/key-identity.md) is 206,564 canonical
+mathematical bytes, SHA-256
+`743fa19c541fa2c7881c4ed0e3340c82d88780dbbc549cc2f3bfd982c2e517e0`.
+It includes the actual existing compatibility transcript scalar. Hashing the
+capsule does not replace that scalar or alter existing proofs. Read-only export
+from copied sources reproduced it and reverified the three existing synthetic
+bundles; original interop source/cache stayed intact. A native importer/backend
+and independent cryptography review are still required.
+
+The [conformance package](../spec/native-shielded/CONFORMANCE.md) checks exact
+portable/profile/transaction/header/state/snapshot hashes, arithmetic and 13
+negative controls plus symbolic rollover/undo. Its encoding fixture is explicitly
+not a valid native authorization or qualified chain. No consensus implementation,
+invariant amendment, mass calibration, live activation or privacy pass follows.
 
 ### Capability and assumption table
 
@@ -382,7 +415,7 @@ transaction/version/header/activation is allocated by this experimental format.
 | Ordinary transparent exit | Output amount/script are public. | Still public when chosen. | No proposal conceals already published fields. |
 | Hidden native ownership after payment | Application-private claims remain inside a transparent reserve. | Consensus-native shielded notes; no per-owner public payout amount/script required. | Does not by itself pass the frozen financial-privacy target. |
 | Independent spending/exit | Requires accepted state, exact parameters/history and contention handling. | User's authority plus authenticated native state, available note data and compatible public artifacts. | Complete service-loss/fee/inclusion/retention model. |
-| Data after pruning | Ordinary UTXO/pruning data is insufficient to invent missing ciphertexts. | Additional authenticated shielded state and recovery records. | Bootstrap/retention specification and sustainable cost. |
+| Data after pruning | Ordinary UTXO/pruning data is insufficient to invent missing ciphertexts. | Exact native full-replay/retention and qualified-point snapshot draft. | Actual replay/import integration, independent availability and sustainable cost. |
 | Practical fees/throughput | Retained matched benchmark failed; specialized offline layout differed. | Public fees and bounded new verification/state work. | Actual mass, full lifecycle cost and useful concurrency. |
 | Quantum resistance | Existing proof and ownership layers have different properties. | Explicitly classical reference; per-layer inventory in review. | No complete PQ recovery/migration profile or quantum privacy guarantee. |
 
@@ -393,10 +426,11 @@ Proposed state is keyed by immutable network/genesis and native pool identity:
 | Component | Required meaning |
 | --- | --- |
 | `B` | Public integer-sompi native value reserved in this consensus domain, bounded by `MAX_SOMPI`. |
-| `C`, `n` | Ordered note-commitment accumulator/frontier and append count, including protocol-defined padding/multiplicity. |
+| `C`, `n` | Ordered depth-32 forest/active frontier and global append count, including padding/multiplicity. The concrete StateRecord names the global counter `g`. |
 | `N` | Current accepted nullifier set, or an authenticated representation with the same deterministic membership/uniqueness semantics. |
 | `A` | Consensus-defined accepted note anchors and their branch/order context; not arbitrary caller-supplied roots. |
 | `D` | Authenticated discovery/recovery record commitments and exact accepted order/positions. |
+| `L`, `e` | Complete accepted native event log and count; the draft derives discovery from its ordered Action records and commits all native authorization/proof bytes. |
 | `P` | Immutable creation-domain and permitted proof/encoding profiles, with explicit activation/migration rules. |
 
 Start an optional newly activated pool with `B=0`, empty spentness and a defined
@@ -421,7 +455,7 @@ are:
 
 | Field | Proposed encoding/meaning | Review boundary |
 | --- | --- | --- |
-| Transaction/profile discriminator | Consensus-allocated transaction version plus `u16` bundle version; fixed little-endian integer encoding. | Numeric allocations are unassigned; old formats keep their old rules. |
+| Transaction/profile discriminator | Draft transaction version 2, bundle schema 1; fixed little-endian integers. | Proposed values are not network allocations; header 3 is distinct from existing header 2. Old formats keep their rules. |
 | Network, pool and creation domain | Explicit identities bound to accepted native state and authorization/effects statement. | Preserve upstream inner note/NF derivations; inventing a prefix inside them changes the relation. Exact external digest remains to specify. |
 | Accepted anchor/context | Exact commitment root plus the context needed to disambiguate accepted history. | Anchor validity/retention window needs consensus specification. |
 | Public `b` | Canonical signed `i64` little-endian balance, bounded to `[-MAX_SOMPI, MAX_SOMPI]`; positive means value leaves the shielded pool. | Reject the signed minimum/out-of-range values before negation or narrowing. |
@@ -437,9 +471,10 @@ wrong-subgroup points and mismatched vector counts reject at the intended layer.
 Reject identity points where the reviewed construction forbids them for that
 specific role; a value commitment need not have the same rule as a signing key
 or proof element. Upstream role widths, version and two-Action proof size are
-fixed for the research reference by the cryptographic review. Final native byte
-offsets, digest, numeric allocations, parameter fingerprints and resource rules
-are **not frozen** here; a runnable native profile still requires them.
+fixed for the research reference by the cryptographic review. Exact proposed
+native layouts, hash/signature messages, mathematical key identity and resource
+formulas are now in the native draft. Approval, implementation, network version/
+activation assignment and measured mass coefficients remain outstanding.
 
 Define an effects digest covering network/pool/profile, all ordinary input
 outpoints and actual output amounts/scripts/covenants, `b`, `F`, anchors,
@@ -814,11 +849,11 @@ for the arguments, exact sources, objections and proposed invariant wording.
 | ID | Technical review outcome | Remaining gate |
 | --- | --- | --- |
 | Q1 | Native shielded ownership avoids a forced public payout; optional transparentization/legitimate owner facts still leak. The retained common-price prior alone achieves 21.10%, above the 20% cap. | This population cannot qualify unchanged. Any prospective qualification/requirement revision is explicit and owner-directed; no universal full-drainage privacy promise. |
-| Q2 | Complete repaired Orchard V2; two full Actions, standard recipient validation, all signature roles. Experimental codec/effects binding and genuine local interoperability now run under ADR-0102. | Exact native field mapping/codec, real ordinary authorization/state integration and independent cryptographic validation. |
-| Q3 | Prefer direct native Halo2/RedPallas verification. Full upstream local verifier and diagnostic key identity now reproduced; current Kaspa tags still do not accept it. Full-verifier wrapping remains unbuilt. | Portable native key/profile identity, deterministic consensus verifier integration/metering and activation. |
+| Q2 | Complete repaired Orchard V2 and genuine local interoperability; native draft now defines exact fields and all-effects/actual-input-context signing under ADR-0103. | Independent native format/policy review, real ordinary authorization/state implementation and cryptographic validation. |
+| Q3 | Complete local verifier plus canonical actual mathematical VK capsule/profile and preserved compatibility scalar now reproduced. Current Kaspa tags still do not accept it. | Native key importer/backend conformance, consensus integration/metering, independent review and activation. |
 | Q4 | Action-linked `rho`, position-independent note nullifier, all published markers unique, common immutable-origin spentness across accepting versions. | Native creation/migration enforcement and actual cross-version/domain/double-spend conformance. No legacy position-NF substitution. |
-| Q5 | Serial accepted native effects, explicit body conflicts, completed predecessor anchors and full atomic undo; cache only exact cryptographic validity. | New native state/header codec, anchor eligibility, actual DAG/storage/cache/reorg integration. Symbolic traces are not that integration. |
-| Q6 | Full retention first; validator replay needs ordinary funding context, wallet recovery needs authenticated native state and complete discovery data. | New authenticated bootstrap/header coverage, independently retrievable artifacts/history, cold recovery and sustainable storage. |
+| Q5 | Exact forest/global-N/A/log commitments, completed-batch anchors, body versus mergeset conflict rules, atomic undo and proposed header3 past-state layout now specified. | Independent Kaspa/state review and actual DAG/storage/cache/reorg implementation. Hash/symbolic vectors are not integration. |
+| Q6 | Exact full-replay contract and restricted qualified-point snapshot format specified; fresh-node fast-native snapshot import remains disabled in the draft. | Actual header/bootstrap/replay integration, independently retained complete data, cold recovery and storage qualification. |
 | Q7 | Owner rebuilds/re-authorizes complete effects at explicit `F`; owned shielded value or authorized ordinary contribution pays. | Native mass/replacement/relay implementation, measured affordability/inclusion; no arbitrary-future-fee guarantee. |
 | Q8 | Explicit cross-domain equations, native stock decreases by accepted `F` once, complete-construction backing induction and proposed I-2 wording. | Independent review and explicit adoption of invariant/accounting changes before native implementation; invariant file unchanged. |
 | Q9 | Classical per-layer profile; V3/ZIP 2005 is optional recovery preparation, not current PQ safety. | Complete authorized non-stranding migration/recovery if required; retain old note data and shared spentness. |
@@ -831,8 +866,8 @@ Kaspa DAG processing. The earlier accounting checker is likewise arithmetic-only
 its smaller supplied totals do not prove the upstream circuit has a native range
 constraint.
 
-**Native implementation is blocked** on complete codec/state/bootstrap rules,
-reviewed induction/invariant adoption and actual consensus integration. The
+**Native implementation is gated** on independent review/adoption of the concrete
+native draft and its induction/invariant proposal, then actual integration. The
 unachievable prior cap blocks qualification of that population, not all unfunded
 codec/verifier interoperability studies. ADR-0101 accepts only reversible
 research-reference choices. No production architecture or network activation is
@@ -890,15 +925,14 @@ custodians.
 
 ## Smallest next engineering step
 
-The internal review and unfunded complete-V2 interoperability package are
-complete within their stated scope. The next specification deliverable is an
-exact native field/state/header/bootstrap mapping, with a portable key identity
-and mass/activation rules. The experimental packet and diagnostic Rust Debug
-fingerprint are inputs to that work, not an allocated consensus format.
+The internal review, unfunded interoperability package and concrete native
+specification draft are complete within their scopes. Exact rules, portable
+mathematical key data and conformance artifacts are available on this branch.
+The experimental packet remains a comparator, not the new native wire format.
 
-Before native consensus implementation, finish the exact transaction/header/
-state codecs and bootstrap rules, review/adopt the explicit invariant/accounting
-proposal, then implement the state/body/cache/reward/undo integration and actual
+Before native consensus implementation, independently review/adopt the native
+draft and explicit invariant/accounting proposal, then implement its portable
+key/transaction/state/body/cache/reward/undo/bootstrap integration and actual
 DAG/recovery conformance. Keep Q10's privacy, complete-cost and independent-
 recovery gates separate; the retained prior-infeasible population remains failed.
 
@@ -914,6 +948,8 @@ campaign, infrastructure or MPC work is part of this documentation task.
 Open. ADR-0101 accepts a research reference only, with its alternatives,
 objections and reconsideration conditions. Independent human cryptography and
 Kaspa consensus approval remain outstanding.
+ADR-0103 records the native specification and conformance scope only; proposed
+version values and activation-bound pricing are not approved network parameters.
 The owner subsequently authorized the unfunded local codec/verifier package and
 genuine synthetic Halo2 interoperability proofs, recorded by ADR-0102. This RFC
 still accepts no native consensus implementation, funded trial, broadcast,

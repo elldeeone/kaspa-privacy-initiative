@@ -56,3 +56,11 @@ retention is the first research reference; exact native header/bootstrap
 authentication and independently available complete data remain unimplemented.
 Orchard's selected public proof keys are derivable from its circuit/constants;
 the old missing-Groth16-parameters failure is not the same setup requirement.
+
+The [native bootstrap draft](../spec/native-shielded/bootstrap.md) now specifies
+full ordinary/native replay first and a snapshot format restricted to already
+qualified state. It adds no fresh-node fast-sync trust shortcut. The
+[forest/state draft](../spec/native-shielded/state-header.md) preserves old-tree
+anchors and global markers when a depth-32 tree fills; old notes are not moved
+into a new NF namespace. Permanent data costs and real cold recovery remain
+unqualified, and the fixed mathematical key capsule is not a native importer.
