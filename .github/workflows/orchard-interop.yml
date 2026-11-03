@@ -1,0 +1,34 @@
+name: Unfunded Orchard interoperability
+
+on:
+  push:
+    branches: [main, research/native-kas-withdrawal-privacy]
+    paths:
+      - 'poc/orchard-interop/**'
+      - '.github/workflows/orchard-interop.yml'
+  pull_request:
+    paths:
+      - 'poc/orchard-interop/**'
+      - '.github/workflows/orchard-interop.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  interoperability:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install exact Rust toolchain
+        run: rustup toolchain install 1.95.0 --profile minimal --component rustfmt --component clippy
+      - name: Verify independent framing and digest vectors
+        run: python3 poc/orchard-interop/check_vectors.py
+      - name: Check format
+        run: cargo +1.95.0 fmt --manifest-path poc/orchard-interop/Cargo.toml -- --check
+      - name: Check lint
+        run: cargo +1.95.0 clippy --release --locked --manifest-path poc/orchard-interop/Cargo.toml --all-targets -- -D warnings
+      - name: Verify full proof and signature interoperability
+        run: cargo +1.95.0 test --release --locked --manifest-path poc/orchard-interop/Cargo.toml

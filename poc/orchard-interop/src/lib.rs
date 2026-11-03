@@ -3,6 +3,7 @@
 
 pub mod codec;
 pub mod effects;
+pub mod fixtures;
 pub mod verifier;
 
 pub const ORCHARD_REV: &str = "616a669df8c9a59c33d47064d3ce04b25d026b2e";
@@ -16,6 +17,7 @@ pub enum Error {
     Profile,
     Range,
     Balance,
+    DuplicateInput,
     Domain,
     Anchor,
     Spentness,

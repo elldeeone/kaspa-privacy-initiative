@@ -7,7 +7,8 @@ use sha2::{Digest, Sha256};
 use std::collections::BTreeSet;
 
 /// Caller-supplied context, NOT authenticated Kaspa chain state.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct SuppliedContext {
     pub network: [u8; 32],
     pub genesis: [u8; 32],
@@ -16,6 +17,7 @@ pub struct SuppliedContext {
     pub eligible_anchors: BTreeSet<[u8; 32]>,
     /// Immutable pool spentness: not namespaced by the current verifier version.
     pub spent: BTreeSet<[u8; 32]>,
+    #[serde(with = "decimal_u64")]
     pub pool_balance: u64,
 }
 
@@ -108,4 +110,21 @@ impl Verifier {
 
 pub fn key_fingerprint(key: &VerifyingKey) -> String {
     hex::encode(Sha256::digest(format!("{key:?}").as_bytes()))
+}
+
+mod decimal_u64 {
+    use serde::{Deserialize, Deserializer, Serializer};
+    pub fn serialize<S: Serializer>(value: &u64, serializer: S) -> Result<S::Ok, S::Error> {
+        serializer.serialize_str(&value.to_string())
+    }
+    pub fn deserialize<'de, D: Deserializer<'de>>(deserializer: D) -> Result<u64, D::Error> {
+        let value = String::deserialize(deserializer)?;
+        if value.is_empty()
+            || (value.len() > 1 && value.starts_with('0'))
+            || !value.bytes().all(|b| b.is_ascii_digit())
+        {
+            return Err(serde::de::Error::custom("noncanonical decimal sompi"));
+        }
+        value.parse().map_err(serde::de::Error::custom)
+    }
 }

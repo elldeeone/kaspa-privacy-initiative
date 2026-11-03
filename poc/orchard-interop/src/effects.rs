@@ -41,6 +41,11 @@ pub struct Effects {
 
 impl Effects {
     pub fn validate(&self, balance: i64) -> Result<(), Error> {
+        let outpoints: std::collections::BTreeSet<_> =
+            self.inputs.iter().map(|i| (i.txid, i.index)).collect();
+        if outpoints.len() != self.inputs.len() {
+            return Err(Error::DuplicateInput);
+        }
         if self.fee > MAX_SOMPI || balance.unsigned_abs() > MAX_SOMPI {
             return Err(Error::Range);
         }
