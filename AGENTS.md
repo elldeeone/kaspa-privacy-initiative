@@ -2,6 +2,9 @@
 
 Instructions for Codex and other AI agents working in this repository.
 
+Before changing or resuming research, read `docs/PROJECT-STATUS.md`. For earlier
+experiments, follow `docs/RESEARCH-HISTORY.md` and the linked corrections.
+
 ## Mission
 
 Help the Kaspa Privacy Initiative determine whether native KAS can support a trust-minimized, optional shielded domain with strong privacy and permissionless exits.

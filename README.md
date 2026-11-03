@@ -6,26 +6,30 @@
 
 **Status:** early public research. No production protocol exists here yet. Do not use experimental code with real funds.
 
-## Start here and help shape the research
+## Start here
 
-The [scoped Based App feasibility milestone](docs/based-app-feasibility-2026-10-17.md) is complete: PRs #31–#33 demonstrate real TN10 lane ordering through proved execution and accepted settlement, including native payout and same-endpoint omission rejection. The development focus now moves to [shielded native KAS and financial privacy](docs/shielded-kas-next.md). No production architecture or privacy protocol has been accepted. Developers, researchers and security reviewers are welcome.
+Read the [current project status](docs/PROJECT-STATUS.md), then the
+[lessons and corrections](docs/RESEARCH-LESSONS.md). The
+[research history](docs/RESEARCH-HISTORY.md) identifies every archived branch
+and explains which implementation/evidence belongs to which profile.
 
-**Latest testnet result, 2026-10-19:** the [actual private/native TN10 cycle](poc/tn10-live/README.md) completed with four new outer proofs and accepted native settlements. Bob received 4 test-KAS plus 0.5 test-KAS rent refund; 6 test-KAS backing remains for 6 test-KAS private value. This was a bounded, operator-controlled trial; independent custody and the shutdown/recovery gate below remain unproven.
+**Current checkpoint, 3 November 2026:** bounded native test-KAS lifecycles,
+private receiving/re-spending and recovery mechanisms have been demonstrated.
+The latest trial completed five native payouts with zero remaining user
+principal/liabilities. Strong financial privacy, complete costs and general
+independent recovery remain unmet. Transparent exits can reveal prior payment
+facts; original results must be read with their retained corrections.
 
-- Start with the compact [external reviewer guide](docs/REVIEWER-GUIDE.md): three small review tasks and reproduction commands.
-- Review the [first shielded-KAS specification and local experiments](poc/shielded-design/README.md): model results, real proof-composition measurements and remaining blockers before a funded privacy trial.
-- The [proof-byte classification follow-up](poc/proof-classification/RESULTS.md) executes the correct sequence but exposes an 880-segment proof-cost blocker; no outer classification receipt or funded privacy trial is claimed.
-- The [specialized Groth16 comparison](poc/groth16-comparison/RESULTS.md) measures real 128-byte wallet proofs and compact operations; in-guest verification still exceeds its agreed budget, with no outer receipt or funded privacy trial.
-- The [accelerated BN254 qualification](poc/accelerated-bn254/RESULTS.md) completes the same real-proof sequence in a 117.47M-cycle calibration; it still exceeds the declared 32M practical target, so no outer proof was attempted.
-- The [approved 128M outer-proof experiment](poc/outer-proof-128m/RESULTS.md) passes all 24 full/narrow execution checks; its single real proof attempt stops at one hour without returning a receipt.
-- The [bounded phase diagnostics](poc/proof-phase-diagnostics/RESULTS.md) retain two segment proofs, two lifts and a valid join, independently reverified. Measured segment proving dominates these probes; a complete classifier receipt remains open.
-- The [remote CUDA preparation](poc/remote-cuda/README.md) packages those same five phases for one bounded L40S qualification, with an independent rental watchdog and CPU claim comparison. No GPU rental or CUDA execution is claimed by the preparation.
-- Read the [candidate architectures](docs/ARCHITECTURE.md) and [open RFC-0001](docs/rfc/0001-state-architecture.md).
-- Challenge the [security invariants](SECURITY-INVARIANTS.md), [threat model](THREAT-MODEL.md), and [open questions](QUESTIONS.md) with evidence.
-- Join the [welcome discussion](https://github.com/olafweller/kaspa-privacy-initiative/discussions/17) for ideas and questions, or use [Issues](https://github.com/olafweller/kaspa-privacy-initiative/issues) for concrete research tasks and corrections.
-- Suggest a documentation change through a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md) for a short walkthrough.
+The [Based App feasibility milestone](docs/based-app-feasibility-2026-10-17.md)
+is complete for its public-account experiment. It does not select the shielded
+architecture. [RFC-0001](docs/rfc/0001-state-architecture.md) and the
+[transparent-exit boundary proposal](docs/rfc/0004-native-kas-private-payment-boundary.md)
+remain open. MPC/private-construction research remains paused.
 
-Feedback is most useful when it identifies an assumption, links a specification or exact upstream file/commit, and explains what would validate or falsify the idea. You do not need a finished implementation to contribute.
+For contribution tasks, use the [reviewer guide](docs/REVIEWER-GUIDE.md),
+[research issues](https://github.com/olafweller/kaspa-privacy-initiative/issues)
+and [contribution guide](CONTRIBUTING.md). Keep source facts, experiment results
+and architectural recommendations distinct.
 
 ## First falsifiable milestone
 

@@ -1,5 +1,11 @@
 # Threat Model
 
+Current qualifications and corrected privacy findings are in
+[project status](docs/PROJECT-STATUS.md). Legitimate payout-owner knowledge and
+full transparent drainage remain in scope; confidential on-domain state does not
+remove their conservation-based disclosures. This consolidation changes no
+security invariant or spending rule.
+
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
 ## Assets to protect

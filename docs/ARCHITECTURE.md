@@ -2,6 +2,11 @@
 
 **Status:** exploratory. No architecture has been selected.
 
+Use [project status](PROJECT-STATUS.md) for current qualifications and
+[ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
+consolidated research posture. The strong privacy requirement remains; ordinary
+transparent exits are an unresolved boundary, not an accepted privacy exception.
+
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
 The original executed depth-four full-drainage wallet profile remains local-only

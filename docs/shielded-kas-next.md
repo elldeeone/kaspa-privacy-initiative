@@ -1,5 +1,9 @@
 # Next focus: shielded native KAS and financial privacy
 
+**Current entry point:** [project status](PROJECT-STATUS.md). The dated work-package
+checkpoints below are historical; use the [lessons/corrections](RESEARCH-LESSONS.md)
+and [history index](RESEARCH-HISTORY.md) before resuming an old path.
+
 ## Current checkpoint — 2026-10-19
 
 The [actual TN10 private/native lifecycle](../poc/tn10-live/README.md) completed
