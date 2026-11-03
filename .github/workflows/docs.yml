@@ -23,3 +23,5 @@ jobs:
         run: python3 scripts/research_knowledge.py check
       - name: Check RFC-0004 specification arithmetic
         run: python3 scripts/check_rfc0004_accounting.py
+      - name: Check RFC-0004 public review arithmetic and symbolic state traces
+        run: python3 scripts/check_rfc0004_review.py

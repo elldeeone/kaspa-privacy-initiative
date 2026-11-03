@@ -4,13 +4,17 @@ The initiative should treat these as questions to answer, not conclusions to def
 
 ## Current review questions — 3 November 2026
 
-Use [RFC-0004 Q1–Q10](docs/rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
-for the next native shielded-value review: distinguish private native ownership
-from transparentization; select reviewed primitives/backend and exact encodings;
-resolve note identity/nullifiers/upgrades, accepted DAG state and atomic supply
-accounting, public recovery/pruning data, fee liveness and per-layer quantum
-assumptions. The current I-1/I-2 boundary interpretation is not amended by the
-proposal. Full privacy, cost and independent-recovery targets remain unqualified.
+The completed internal technical [RFC-0004 Q1–Q10 review](docs/rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
+and [ADR-0101](docs/adr/0101-native-shielded-research-reference.md) narrow the
+research construction to complete repaired Orchard V2/native verification and
+answer identity, accepted effects, retained recovery data and fee-repricing
+questions. Remaining specification gaps are exact native transaction/header/
+state codecs, authenticated bootstrap, mass/activation rules and reviewed
+I-1/I-2 adoption. Actual consensus/verifier integration remains unimplemented.
+Independent human cryptography/consensus approval is outstanding. The retained
+common-price population cannot qualify the unchanged absolute cap because its
+prior alone exceeds it. No privacy requirement or invariant was amended; full
+privacy, costs/performance and independent recovery remain unqualified.
 
 The older work-package checkpoints below retain their historical scope. Current
 status and corrections are in [PROJECT-STATUS](docs/PROJECT-STATUS.md) and the

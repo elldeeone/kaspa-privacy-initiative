@@ -1,6 +1,6 @@
 # Candidate Architecture
 
-**Status:** exploratory. No architecture has been selected.
+**Status:** exploratory. No production architecture has been selected.
 
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
@@ -13,11 +13,16 @@ Before extending an earlier design, use the local
 The [3 November RFC-0004 extension](rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
 adds a proposed consensus-native shielded value pool as a review candidate.
 It distinguishes native private ownership from later transparent withdrawal,
-specifies cross-domain balance and atomic native state requirements, and leaves
-cryptography, I-1/I-2 interpretation, consensus activation and recovery/pruning
-unresolved. It is a different native value representation, not an accepted
-variant of the current covenant/runtime candidates. No architecture or
-security-invariant change is adopted.
+specifies cross-domain balance and atomic native state requirements. The
+[Q1–Q10 internal review](rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
+and [ADR-0101](adr/0101-native-shielded-research-reference.md) now choose complete
+repaired Orchard V2 and preferred native Halo2/RedPallas verification as the
+research reference, with current all-slot spentness, serial effects/full undo,
+full recovery retention and owner repricing. Exact native codecs/bootstrap,
+consensus integration and reviewed I-1/I-2 adoption remain open. The retained
+common-price population exceeds the privacy cap from its prior alone. This is a
+different native representation; no production architecture, invariant change,
+independent specialist approval or privacy qualification is adopted.
 
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 

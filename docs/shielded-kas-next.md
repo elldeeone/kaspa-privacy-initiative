@@ -4,12 +4,16 @@
 checkpoints below are historical; use the [lessons/corrections](RESEARCH-LESSONS.md)
 and [history index](RESEARCH-HISTORY.md) before resuming an old path.
 
-**Current next task, 3 November:** specialist review of
-[RFC-0004's native-value proposal](rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal).
-The source-bound requirements extension is complete as a draft. Resolve its
-privacy boundary, cryptographic profile, consensus accounting/order and recovery
-questions before protocol implementation. Historical successful prototypes and
-the checkpoints below do not adopt that proposal or restart MPC/proving work.
+**Current checkpoint, 3 November:** the internal AI technical review of
+[RFC-0004 Q1–Q10](rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
+is complete. [ADR-0101](adr/0101-native-shielded-research-reference.md) selects
+complete repaired Orchard V2/native verification as the research reference.
+The next bounded study is unfunded codec/verifier interoperability. Native
+implementation still needs exact codec/state/bootstrap, reviewed invariant/
+accounting adoption and actual consensus integration. The unchanged common-price
+population cannot qualify its absolute privacy cap; independent human review and
+full privacy/cost/recovery qualification remain outstanding. Historical successes
+and this review do not activate the proposal or restart MPC/proving work.
 
 ## Current checkpoint — 2026-10-19
 

@@ -1,0 +1,507 @@
+{
+  "schema": "rfc0004-internal-review-verification-v1",
+  "date": "2026-11-03",
+  "classification": "Internal AI technical/source review. Not independent human specialist approval, cryptographic soundness proof, native integration or qualification.",
+  "start_commit": "e00e47427a96e134069e796ac504d945ba22f1a5",
+  "privacy_review_commit": "63864cfc",
+  "research_reference_commit": "ca3c3247",
+  "official_heads_rechecked_this_review": [
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "head": "b85380d16514e65136001530e7c717eef304e654"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "head": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9"
+    },
+    {
+      "repository": "kaspanet/kips",
+      "head": "d832dbd89347dcb16d3d83bf6755b081714cbcb2"
+    },
+    {
+      "repository": "kaspanet/vprogs",
+      "head": "f9b84a863a7c7c20586a9cf947550475e894f72e"
+    },
+    {
+      "repository": "kaspanet/research",
+      "head": "c923faca11a49148fa7d912d27ce00197a5c5a4a"
+    }
+  ],
+  "additional_protocol_pins": {
+    "zcash/orchard": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+    "zcash/zips": "ff594de6e95bb9e9e7d2ace09510281531c30447"
+  },
+  "sources": [
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-VERSION",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/bundle.rs#L52-L186",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/bundle.rs",
+      "sha256": "2b2071844373ac89aed0533ec5734ba9f241a977158ced05f9f1734b80215737",
+      "bytes": 72629
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-CIRCUIT",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/circuit.rs#L75-L175",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/circuit.rs",
+      "sha256": "ce6506c490ce3ebea6ac833432052a8928051c5bea34bb5cdea22ce9ac49600c",
+      "bytes": 82824
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-VERIFY",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/circuit.rs#L1353-L1380",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/circuit.rs",
+      "sha256": "ce6506c490ce3ebea6ac833432052a8928051c5bea34bb5cdea22ce9ac49600c",
+      "bytes": 82824
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-KEYBUILD",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/circuit.rs#L1079-L1160",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/circuit.rs",
+      "sha256": "ce6506c490ce3ebea6ac833432052a8928051c5bea34bb5cdea22ce9ac49600c",
+      "bytes": 82824
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-KEYS",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/keys.rs#L45-L146",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/keys.rs",
+      "sha256": "ed5c26bc7907a928134f07612af322c2f55dd5da28b452660bff77f959c287ba",
+      "bytes": 46924
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-FVK",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/keys.rs#L495-L525",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/keys.rs",
+      "sha256": "ed5c26bc7907a928134f07612af322c2f55dd5da28b452660bff77f959c287ba",
+      "bytes": 46924
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-IVK",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/keys.rs#L714-L734",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/keys.rs",
+      "sha256": "ed5c26bc7907a928134f07612af322c2f55dd5da28b452660bff77f959c287ba",
+      "bytes": 46924
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-ADDR",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/address.rs#L68-L92",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/address.rs",
+      "sha256": "a0c93310d2fd64c0f2b32e0dfdf667e4e02b6f235852eed2ef07108b98012250",
+      "bytes": 3822
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-PLAIN",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/note_encryption.rs#L25-L98",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/note_encryption.rs",
+      "sha256": "0e1785ecb66dfbb343674afa8e8e037710f1b26d340804ce03aa502a33e464f3",
+      "bytes": 39339
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-RHO",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/note.rs#L32-L104",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/note.rs",
+      "sha256": "fdd312b64b14071c15b6a460776bc9a94d7d3cc245b3b379aff42c28830e22cc",
+      "bytes": 19564
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-RCM",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/note.rs#L168-L237",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/note.rs",
+      "sha256": "fdd312b64b14071c15b6a460776bc9a94d7d3cc245b3b379aff42c28830e22cc",
+      "bytes": 19564
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-NF",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/note/nullifier.rs#L38-L86",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/note/nullifier.rs",
+      "sha256": "860747577a477fa387af512262c7f391593d74f4ac619a86b5c6c897bf18c659",
+      "bytes": 4037
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-CREATE",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/circuit.rs#L668-L830",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/circuit.rs",
+      "sha256": "ce6506c490ce3ebea6ac833432052a8928051c5bea34bb5cdea22ce9ac49600c",
+      "bytes": 82824
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-ACTION",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/action.rs#L18-L123",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/action.rs",
+      "sha256": "3f80c4d1ee3bed8fc4548c26fddd425c6727cea87758b4f4fe8843fec98902af",
+      "bytes": 14533
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-VALUE",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/value.rs",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/value.rs",
+      "sha256": "7ef315a72f6ff6fe0ff6c13bb71fed1fab59dde7658a7d9bd6917347808e90cb",
+      "bytes": 17365
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-SIG",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/primitives/redpallas.rs#L160-L194",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/primitives/redpallas.rs",
+      "sha256": "f9bde36b81685daaa0076e730d4b3e52bbb1a4958d8de9279124e9b1584b32fa",
+      "bytes": 8190
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-TREE",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/tree.rs#L90-L175",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/tree.rs",
+      "sha256": "7602ebde6aeadac78d401131900a3ef06469bc27a7e2d69f68173220cc89d39b",
+      "bytes": 19280
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-PROOF",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/lib.rs#L142-L163",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/lib.rs",
+      "sha256": "a484249961efb89dff7c2febe014c6d2d9e37a584319ab44e8e93483108fca73",
+      "bytes": 7014
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-BATCH",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/bundle/batch.rs#L50-L145",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "src/bundle/batch.rs",
+      "sha256": "3358e5fdd1400d3801b8df3b7ea36acd21a1d04ee53665e4da1d40c3fc16a880",
+      "bytes": 7297
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "O-CARGO",
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/Cargo.toml#L1-L35",
+      "repository": "zcash/orchard",
+      "commit": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+      "path": "Cargo.toml",
+      "sha256": "7e77f561f41a9f281617490ad26bd4c9776b25e8685d51727031016ea73c08ae",
+      "bytes": 4121
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "Z-ACTION",
+      "url": "https://github.com/zcash/zips/blob/ff594de6e95bb9e9e7d2ace09510281531c30447/protocol/protocol.tex#L14371-L14439",
+      "repository": "zcash/zips",
+      "commit": "ff594de6e95bb9e9e7d2ace09510281531c30447",
+      "path": "protocol/protocol.tex",
+      "sha256": "0af94d713734b31ecd9d68e98e5ccd2cdbc2f59eb26081cdcc6e20e980d3e83a",
+      "bytes": 1026547
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "Z-BALANCE",
+      "url": "https://github.com/zcash/zips/blob/ff594de6e95bb9e9e7d2ace09510281531c30447/protocol/protocol.tex#L7480-L7560",
+      "repository": "zcash/zips",
+      "commit": "ff594de6e95bb9e9e7d2ace09510281531c30447",
+      "path": "protocol/protocol.tex",
+      "sha256": "0af94d713734b31ecd9d68e98e5ccd2cdbc2f59eb26081cdcc6e20e980d3e83a",
+      "bytes": 1026547
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "Z-2005",
+      "url": "https://github.com/zcash/zips/blob/ff594de6e95bb9e9e7d2ace09510281531c30447/zips/zip-2005.md#L1-L226",
+      "repository": "zcash/zips",
+      "commit": "ff594de6e95bb9e9e7d2ace09510281531c30447",
+      "path": "zips/zip-2005.md",
+      "sha256": "dca1d8aa82f7e7b4028a99b5b041a60f52f7c19a30c9fe7bca8b22ec54ef46be",
+      "bytes": 127488
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "K-TAGS",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/crypto/txscript/src/zk_precompiles/tags.rs#L5-L21",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "crypto/txscript/src/zk_precompiles/tags.rs",
+      "sha256": "b3288d447e0ea09447e6564c921389bd6d5668d6d302c8d409ded7895919ef03",
+      "bytes": 2497
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "K-GROTH",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/crypto/txscript/src/zk_precompiles/groth16/mod.rs#L20-L125",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "crypto/txscript/src/zk_precompiles/groth16/mod.rs",
+      "sha256": "cb9fa14115d445c727cb8639ba384bde37d9a01f6c6f7fd1c92f77861f8a388d",
+      "bytes": 12801
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "K-RISC",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/crypto/txscript/src/zk_precompiles/risc0/mod.rs#L90-L138",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "crypto/txscript/src/zk_precompiles/risc0/mod.rs",
+      "sha256": "7d67128ac18975fcddf8f85167e81b962b0a42732f7db3bedbcaf19c43b19ba8",
+      "bytes": 5540
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "L-WALLET",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/blob/b41141733ed04b3ef6086ab1a98e75b00372f424/poc/private-payment/wallet-core/src/lib.rs#L18-L142",
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "commit": "b41141733ed04b3ef6086ab1a98e75b00372f424",
+      "path": "poc/private-payment/wallet-core/src/lib.rs",
+      "sha256": "09a984d88b52f7c4202e33a928613c74f4fc90bc2bfb419cc81842ebb5143cba",
+      "bytes": 5222
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "L-WALLET-CARGO",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/blob/b41141733ed04b3ef6086ab1a98e75b00372f424/poc/private-payment/wallet-core/Cargo.toml#L8-L14",
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "commit": "b41141733ed04b3ef6086ab1a98e75b00372f424",
+      "path": "poc/private-payment/wallet-core/Cargo.toml",
+      "sha256": "010edd4c0d280684cc302ab68d9681852d7cb6e5787c89335a2e4633d1251175",
+      "bytes": 468
+    },
+    {
+      "document": "research/rfc0004-cryptographic-profile-review-2026-11-03.md",
+      "reference": "L-V6",
+      "url": "https://github.com/olafweller/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/poc/shared-pool/src/two_input/circuit.rs#L178-L215",
+      "repository": "olafweller/kaspa-privacy-initiative",
+      "commit": "4d54dc026098506dd56dc568b20cab269be2b447",
+      "path": "poc/shared-pool/src/two_input/circuit.rs",
+      "sha256": "59071901c3abc25daab68c982ef065f8755c09abbb2ce30e6010d821813dd2a7",
+      "bytes": 11896
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-ORDER",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/utxo_validation.rs#L110-L175",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/pipeline/virtual_processor/utxo_validation.rs",
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "bytes": 32206
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-HEADER-CHECK",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/utxo_validation.rs#L180-L265",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/pipeline/virtual_processor/utxo_validation.rs",
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "bytes": 32206
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-PARALLEL",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/utxo_validation.rs#L297-L350",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/pipeline/virtual_processor/utxo_validation.rs",
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "bytes": 32206
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-BODY",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/body_processor/body_validation_in_isolation.rs#L126-L151",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/pipeline/body_processor/body_validation_in_isolation.rs",
+      "sha256": "d8278a4e88859717eb369dc77eda66018ccb40d7530793db779e9745ca5ca218",
+      "bytes": 29098
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-HEADER",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/header.rs#L158-L190",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/core/src/header.rs",
+      "sha256": "386a4fe50109c203a62b2f2549bb3a8c651482dbac5537ec35c6795312005d33",
+      "bytes": 16486
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-VIRTUAL",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/model/stores/virtual_state.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/model/stores/virtual_state.rs",
+      "sha256": "1151b8ccb2ea17e77d32dab746c7b00f13680300738d4863435bcceddc265d47",
+      "bytes": 20911
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-PRUNING",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/pruning_proof/apply.rs",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/processes/pruning_proof/apply.rs",
+      "sha256": "d61e22fb56ef3117f730817db01f8aff0264e6482e559673664e92332941d9aa",
+      "bytes": 16728
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-FEE",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs#L30-L165",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+      "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+      "bytes": 50222
+    },
+    {
+      "document": "research/rfc0004-consensus-accounting-review-2026-11-03.md",
+      "reference": "K-REWARD",
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/coinbase.rs#L80-L181",
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/processes/coinbase.rs",
+      "sha256": "db3929a6754b5092fcad081a6cf8af5ab75af854f839ebecc538ae1bb33c0e14",
+      "bytes": 30762
+    }
+  ],
+  "checks": {
+    "pinned_review_references": 38,
+    "local_heading_fragments": 25,
+    "documentation_markdown_files": 268,
+    "relative_links": 3808,
+    "knowledge_library": {
+      "commits": 369,
+      "document_versions": 2341,
+      "branch_refs": 39,
+      "pull_histories": 42,
+      "result": "pass"
+    },
+    "accounting": {
+      "positive": 9,
+      "negative": 13,
+      "sequence_steps": 4,
+      "scope": "Supplied totals arithmetic only",
+      "result": "pass"
+    },
+    "review_arithmetic": {
+      "prior_floor": "21103/100025",
+      "absolute_cap": "1/5",
+      "prior_exceeds_cap": true,
+      "conditional_boundary_amount": "40",
+      "result": "pass"
+    },
+    "symbolic_state_traces": {
+      "count": 12,
+      "scope": "Supplied predecessor, externally assumed cryptographic statements, symbolic labels; not native validation",
+      "result": "pass"
+    },
+    "negative_checker_controls": {
+      "corrupted_public_vectors_rejected": [
+        "wrong_prior_count",
+        "false_probability",
+        "false_boundary"
+      ],
+      "missing_current_spentness_rejected": true
+    },
+    "whitespace": "pass"
+  },
+  "scope_limits": [
+    "No native transaction, proof, setup, wallet, funded trial, broadcast, deployment, MPC or new recovery experiment.",
+    "Symbolic traces assume a supplied predecessor and externally verified statements; no actual UTXOs, roots, DAG/store/undo implementation or cryptography is checked.",
+    "Old profiles, seeds, frozen scores, runtime pins and invariant text preserved.",
+    "Chosen research reference does not adopt production architecture, change privacy requirements or approve invariant amendments."
+  ],
+  "invariants_sha256": "44cf983d06c8895c61a492107f65487725331a1b2f93d1c89e7353fb5399733d",
+  "tests": {
+    "command": "bash scripts/ci_fast.sh",
+    "exit_code": 0,
+    "python_cases": 179,
+    "python_passed": 177,
+    "python_skipped": 2,
+    "skip_reason": "Existing opt-in native integration checks lack explicit local integration configuration. No live RPC was executed.",
+    "node_passed": 13,
+    "python_syntax": "pass",
+    "exact_json_and_rpc_derivatives": "pass",
+    "read_only_allowlist": "pass",
+    "historical_preparation_source_bindings": "pass",
+    "log_sha256": "4b002775187aa2f5a430408de848726c145738396ae5e1ed6defdefcff647ebc",
+    "scope": "Configured offline regression suite; not the new native pool or cryptographic/production qualification."
+  },
+  "review_files_sha256": {
+    ".github/workflows/docs.yml": "723f3ee864a4daa396b4e314d145ffd9d0ad3081cfd5318a4f558765d119fdc0",
+    "QUESTIONS.md": "deec4584953acb21f6e0956a37566973bac26d61fc95e64d1bfe80163e0760a8",
+    "THREAT-MODEL.md": "65376938898112450fd5c168b2bced6e677a86a04eeb14ad4efeaf7e2f6d7fbf",
+    "docs/ARCHITECTURE.md": "6ebb990a0ca0b08df81ed92d3175f637680bd566a3ba7ee88db0087eea725647",
+    "docs/PROJECT-STATUS.md": "7c65f11a2f74238d8fe7610aadb4ea86dda9a99867993496333cd52c3f4d8e89",
+    "docs/RESEARCH-LESSONS.md": "16fd9ca09633dc865f3a8d02029d55f16c11c0ffeefdb66929ba53deb4c911a8",
+    "docs/adr/0101-native-shielded-research-reference.md": "241b9b8be512d17f3043e766c068c46503591dff7234f0f510d02d64bfd74b7c",
+    "docs/adr/README.md": "b889b722ee9404db90f0cadc0857e0d56cf5056909b7b99d5391e8085fe4cc7f",
+    "docs/research-knowledge/architecture.md": "fcfa9cac24195de749b33d5ff40856b3a13a27fcde0676a63a6c5413002fb56a",
+    "docs/research-knowledge/privacy.md": "6ff051396eb1cdb94673e84be788656d259188d8a85c82912cec37d4534280bf",
+    "docs/research-knowledge/proofs.md": "81db12b4762308b2cce59dc729629a670a534b0ddd823d8cbc3006dbb18f96f8",
+    "docs/research-knowledge/recovery.md": "83641bbf92b6f38f324c1b3f275d510622a218def03a8c2e5168844b404c6db3",
+    "docs/rfc/0004-native-kas-private-payment-boundary.md": "89ec167ea2c88f07a4c4e6b3ea49b29579593fd6c18e350f8ae55536f9002b35",
+    "docs/rfc/README.md": "d61a0ad019c0c5055d7c9e7f2258db05a1ae4f6e87ee481a677cca7fdb7e1bb1",
+    "docs/shielded-kas-next.md": "9a34ea63e0c168368406dbe37ec9320224fc29e0c277b12d99eae722cd3ada15",
+    "research/rfc0004-consensus-accounting-review-2026-11-03.md": "ecd1a82838f0e1aecc1c22e36de5877aefe3d8aacc8328b2869ce5a74169b71c",
+    "research/rfc0004-cryptographic-profile-review-2026-11-03.md": "10efe906f8516bde8c33529fac433d7a4c98d121b6be5c79245a236d1d16ab67",
+    "research/rfc0004-privacy-feasibility-review-2026-11-03.md": "7deb1ea5207a50c02f01bb5390c9480804004b4220c93a9d5c7189668e93388d",
+    "research/rfc0004-privacy-feasibility-vectors-2026-11-03.json": "0ac5e60a1444dd98f07db8b3d927e43283512061243129e795e748e5d9457bce",
+    "scripts/check_rfc0004_review.py": "963278c85cb15b560ef169a79ea9e438b3effae788a06ad5c40d3f04b025305b"
+  },
+  "verified_at_utc": "2026-11-03T13:00:09.513845+00:00",
+  "preserved_files_sha256": {
+    "SECURITY-INVARIANTS.md": "44cf983d06c8895c61a492107f65487725331a1b2f93d1c89e7353fb5399733d",
+    "scripts/ci_fast.sh": "1103129837e1ade44d26212c213ba7eaec9f5904db932a96a8ea181b6e61a330",
+    ".github/workflows/code.yml": "3210289fa84d93591cee5b2cb9a01183554edd798b52733cd2c01d1e3efbbaa3"
+  }
+}

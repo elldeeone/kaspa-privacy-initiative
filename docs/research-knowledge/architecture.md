@@ -46,7 +46,10 @@ Refresh exact Kaspa/Toccata/vProgs upstream identities before new semantic work.
 
 The [extended native-value proposal](../rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
 now records the source-bound requirements, accounting and prior-learning
-constraints. The next deliverable is specialist resolution of its Q1–Q9 review
-questions before a runnable profile or architecture decision. Application proofs,
-a different prover or a larger runtime cannot conceal ordinary transparent-output
-fields. The requirements draft establishes no new privacy or implementation result.
+constraints. The completed [Q1–Q10 internal review](../rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
+and [ADR-0101](../adr/0101-native-shielded-research-reference.md) select a complete
+repaired Orchard V2/native-verifier research reference. Exact native codecs,
+authenticated bootstrap, reviewed invariant/accounting adoption and actual
+consensus integration remain open. Application proofs, a different prover or a
+larger runtime cannot conceal ordinary transparent-output fields. This review
+establishes no independent specialist approval or implementation/privacy result.

@@ -28,12 +28,16 @@ spend keys; they still require exact identity and independent retention.
 
 ## Scanner and state identity
 
-[position-based replay design](documents/9d86936076da220e649e7057237c0cd4e8c58a1d.txt) preserves a subtle lesson absent from branch names: identify
-claims by **global commitment position**, not commitment/ciphertext equality.
+[position-based replay design](documents/9d86936076da220e649e7057237c0cd4e8c58a1d.txt) preserves a subtle lesson absent from branch names: **that legacy profile** identifies
+claims by global commitment position, not commitment/ciphertext equality.
 Equal records at different positions are separate claims with separately derived
 nullifiers and membership witnesses. Do not deduplicate them into one owned note.
 This was a proposed adaptation; its old scanner control did not execute the new
-paired branch or test every identical-ciphertext case.
+paired branch or test every identical-ciphertext case. It is not a universal
+note-identity rule. The [RFC-0004 crypto review](../../research/rfc0004-cryptographic-profile-review-2026-11-03.md#creation-identity-duplicates-and-version-races)
+selects Orchard's Action-linked freshness and **position-independent** nullifier.
+Keep positions for authenticated replay/witnesses, but never credit the same
+Orchard spend identity twice. Reusing the old positional NF changes the relation.
 
 Replay ordinary, paired and exit branches using their exact framing. Preserve
 record multiplicity, sequential nullifier/commitment updates and historical
@@ -44,3 +48,11 @@ pretending to re-execute hidden inner witnesses.
 The complete N-user/all-normal-service-loss gate in the [current roadmap](../ROADMAP.md)
 remains unqualified for one current design. Reuse these mechanisms and negative
 lessons without replacing that gate with a narrower successful trial.
+
+The [Q6 review](../../research/rfc0004-consensus-accounting-review-2026-11-03.md#q6-recoverable-data-and-authenticated-bootstrap)
+distinguishes full validator replay, which additionally needs ordinary funding
+context, from wallet recovery on consensus-authenticated native state. Full
+retention is the first research reference; exact native header/bootstrap
+authentication and independently available complete data remain unimplemented.
+Orchard's selected public proof keys are derivable from its circuit/constants;
+the old missing-Groth16-parameters failure is not the same setup requirement.

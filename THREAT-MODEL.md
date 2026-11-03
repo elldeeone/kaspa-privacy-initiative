@@ -517,21 +517,23 @@ open qualifications, with no rescue-key fallback.
 ## Proposed native shielded-value domain — 3 November 2026
 
 The [RFC-0004 extension](docs/rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
-is a requirements-level consensus proposal. It does not deploy a pool, choose
-cryptography, amend an invariant or establish privacy/security qualification.
+is a consensus research proposal with a completed internal AI technical review.
+[ADR-0101](docs/adr/0101-native-shielded-research-reference.md) chooses complete
+repaired Orchard V2/native verification as the research reference. It does not
+deploy a pool, amend an invariant or establish privacy/security qualification.
 The current covenant experiments keep their own scopes. A native pool would
 need separate exact validity, state, supply and data-availability arguments.
 
 | Threat / failure | Required design obligation | Current review limit |
 | --- | --- | --- |
-| Hidden inflation or reserve double counting | Tie bounded hidden notes to exact signed public balance; count consensus pool KAS once; reject underflow/overflow and route fees once. | Native-reserve interpretation and I-2 boundary generalization are explicit unresolved proposals. |
+| Hidden inflation or reserve double counting | Complete `u64` note/binding construction, authentic zero genesis and explicit native-backing induction; count KAS once, reject underflow/overflow and route fees once. | Upstream circuit does not prove `MAX_SOMPI`; induction and proposed I-1/I-2 interpretation await independent review/adoption and native enforcement. |
 | Replay/double spending across DAG blocks or versions | One current spent set/domain across mutually accepting profiles; deterministic atomic accepted-order effects and complete undo. | Cached/parallel proof checks cannot establish current marker absence; implementation is absent. |
 | Payout, fee or delivery substitution | Authorization binds actual native effects, ordered encrypted outputs, amounts/fees and domains; every old transaction format retains its old rules. | Exact signing/profile encodings and fee-contribution design require review. |
-| Valid-looking but unspendable delivery | Recipient validates framing, decryption, commitment and scheme-specific ownership/identity before credit. | Proven versus detectably malformed delivery must be selected; equal records/positions cannot be blindly deduplicated. |
+| Valid-looking but unspendable delivery | Standard Orchard recipient validates plaintext/commitment/key consistency before credit. All-slot uniqueness and Action-linked freshness prevent duplicate spend identities. | Unchanged proof does not prove correct encryption. Native delivery binding/recipient integration remain; old position-derived nullifiers cannot be reused. |
 | Public totals, isolated activity and counterparty disclosures | Preserve the legitimate observer, public b/B, boundary amounts and fee/query/network metadata in privacy analysis. | Hidden note fields do not guarantee hidden inferred balances or relationships; later ordinary payouts remain public. |
 | Pruned or withheld history/parameters | Independently retained authenticated discovery/spentness data, exact public artifacts and compatible owner backups. | A root or server-signed snapshot does not recover missing bytes; at least one sufficient independent data source remains an availability assumption. |
 | Fixed-fee lockup, service loss or ciphertext-dependent recovery | Wallet-owned authority and usable fee/repricing path; no required sponsor/admin rescue; distinguish validity, affordability, relay acceptance and inclusion. | Complete service-loss and future fee conditions remain unqualified; no free-exit or guaranteed inclusion claim. |
-| Upgrade, setup or quantum failure | Explicit per-layer assumptions, immutable claim identity/common spentness and non-stranding authorized migration. | No final backend, trusted setup, PQ guarantee or privileged recovery authority is adopted. |
+| Upgrade, setup or quantum failure | Explicit classical Halo2/RedPallas/ECDH assumptions, immutable claim identity/common spentness and exact authorized migration. | Native verifier remains unimplemented; Proposed ZIP 2005 prepares future recovery and supplies no current end-to-end PQ guarantee. |
 
 Safety under unverifiable state still requires rejection/halting. That is not
 sufficient for I-10: the full recovery contract must show that every valid user
@@ -539,3 +541,13 @@ can obtain and use the declared public data independently. The
 [agent source/spec self-review](research/native-kas-shielded-value-review-2026-11-03.md)
 records two corrected wording/compatibility issues; it is not specialist approval
 or an audit. Frozen historical failures and corrected scores remain unchanged.
+
+The completed [Q1 privacy review](research/rfc0004-privacy-feasibility-review-2026-11-03.md)
+also proves a prior-only lower bound above the retained population's absolute
+cap. It blocks that population's qualification, not every diagnostic study.
+The [crypto](research/rfc0004-cryptographic-profile-review-2026-11-03.md) and
+[consensus/accounting review](research/rfc0004-consensus-accounting-review-2026-11-03.md)
+record exact current assumptions, header/bootstrap gaps and an adversarial second
+pass. Twelve symbolic traces exercise model obligations only; they validate no
+cryptographic soundness, actual DAG/store undo or independent data availability.
+Independent human cryptography/consensus approval remains outstanding.

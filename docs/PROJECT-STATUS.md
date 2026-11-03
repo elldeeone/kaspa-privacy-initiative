@@ -68,7 +68,7 @@ three-owner construction result is valuable, but its separate registered W1
 aggregate path remains incomplete and constructor-visible. Preserve its rejected
 vendor patch as rejected local work.
 
-## Next deliverable: specialist review of the extended RFC
+## Completed: internal technical review of RFC-0004 Q1–Q10
 
 The requirements-level [RFC-0004 extension](rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
 now specifies the proposed native pool, bundle/effect bindings, signed boundary
@@ -80,16 +80,37 @@ and [five-protocol review](../research/native-kas-shielded-value-sources-2026-11
 pin the primary evidence. [Arithmetic vectors](rfc/0004-native-value-accounting-vectors.json)
 check specification equations only, not proof or native transaction validity.
 
-Review Q1–Q9 before choosing a runnable cryptographic/consensus profile: the
-privacy boundary, exact primitives/backend/encodings, spentness and migration,
-DAG acceptance, authenticated pruning/bootstrap, available recovery data, fee
-liveness and explicit I-1/I-2 boundary accounting all require resolution. No
-invariant file or production architecture changed. Q10 retains matched privacy,
-full-fee and independent-recovery qualification after design review. No MPC,
-framework, proof campaign or funded trial was restarted by this extension.
-The [verification receipt](../research/native-kas-shielded-value-verification-2026-11-03.json)
-records source/link checks, arithmetic-only vectors, the bounded agent self-review
-and the passing configured fast suite. Specialist approval remains outstanding.
+All ten questions now have [explicit review outcomes](rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions).
+[ADR-0101](adr/0101-native-shielded-research-reference.md) selects complete repaired
+Orchard V2, two full Actions and preferred native Halo2/RedPallas verification
+as the reversible research reference. It specifies note identity/current
+spentness, serial atomic accepted effects, full retained recovery data and
+owner-controlled fee repricing. This is internal AI technical review, not
+independent human cryptography/consensus approval or production adoption.
+
+The [privacy review](../research/rfc0004-privacy-feasibility-review-2026-11-03.md)
+establishes a 21.10% prior-only amount-guessing floor against the retained 20%
+ceiling. That population cannot qualify unchanged, even with a transcript
+revealing nothing. Keep the negative evidence and strong requirement; any
+prospective qualification revision needs explicit owner direction.
+
+Native implementation still needs exact transaction/header/state codecs,
+authenticated bootstrap, actual verifier/DAG/storage/reward/undo integration
+and reviewed adoption of the proposed I-1/I-2 accounting interpretation. The
+upstream circuit proves `u64`, not `MAX_SOMPI`; the review proposes an explicit
+backing induction. Independent review, full costs/performance and complete
+service-loss recovery remain outstanding. No invariant file or historical
+runtime changed; MPC/proof campaigns and funded trials remain paused.
+
+The next bounded engineering study is unfunded complete-V2 codec/verifier
+interoperability, with reproducible exact key identities and effects-mutation
+vectors. It can investigate compatibility without claiming qualification or
+activating a native pool. The [review checks](../scripts/check_rfc0004_review.py)
+validate public arithmetic and 12 symbolic state traces only. The previous
+[extension receipt](../research/native-kas-shielded-value-verification-2026-11-03.json)
+retains its original scope; the new
+[review receipt](../research/rfc0004-review-verification-2026-11-03.json)
+records this review's checks and source identities.
 
 ## Consolidation verification
 

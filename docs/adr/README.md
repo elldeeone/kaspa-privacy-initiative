@@ -58,3 +58,4 @@ The open state architecture comparison is [RFC-0001](../rfc/0001-state-architect
 - [ADR-0019: opt-in depth-four multi-user TN10 trial](0019-depth-four-multi-user-tn10-trial.md)
 
 - [ADR-0100: research consolidation and the transparent-exit boundary](0100-research-consolidation-and-privacy-boundary.md)
+- [ADR-0101: native shielded-value research reference](0101-native-shielded-research-reference.md)

@@ -278,8 +278,9 @@ verifier is unresolved specialist work, not a claimed port.
 
 ## Reviewable native shielded-value proposal
 
-**Classification:** proposed consensus design for specialist review. This is a
-requirements-level specification, not an allocated transaction version, final
+**Classification:** proposed consensus design with a completed internal AI
+technical review, not independent human specialist approval. This is a
+research specification, not an allocated transaction version, final
 cryptographic relation, accepted KIP, implemented capability or privacy pass.
 The [Kaspa source refresh](../../research/native-kas-consensus-boundary-2026-11-03.md)
 and [mature-protocol review](../../research/native-kas-shielded-value-sources-2026-11-03.md)
@@ -322,18 +323,46 @@ and may retain mapped output ownership. The native note-pool candidate is
 preferred **for this review** because hidden membership and recipient discovery
 address additional relationship channels. No production choice is accepted.
 
+### Research reference after technical review
+
+[ADR-0101](../adr/0101-native-shielded-research-reference.md) narrows the
+research reference to complete repaired **Orchard V2**, at
+`616a669df8c9a59c33d47064d3ce04b25d026b2e`: `orchard_v2()`,
+`FixedPostNu6_2`, note V2, unrestricted cross-address use and exactly two
+complete Actions including zero padding. Preserve its note/key/tree/nullifier,
+standard encryption/recipient validation, Halo2 proof, RedPallas spend
+authorization and binding signature together. Prefer a native complete
+Halo2/RedPallas verifier; a full-verifier RISC0 wrapper remains a secondary
+engineering alternative, not an existing drop-in component.
+
+The [cryptographic review](../../research/rfc0004-cryptographic-profile-review-2026-11-03.md)
+extracts exact source roles/encodings: 32-byte canonical nullifiers/commitments,
+43-byte raw receivers, 564-byte plaintexts, `epk[32]`, recipient ciphertext[580],
+outgoing ciphertext[80], 64-byte signatures and a 7,264-byte two-Action proof.
+These are upstream roles, not a complete native wire format or transaction size.
+Native version allocations, effects digest, key fingerprints and state/header
+codec still need specification and conformance checks. The unchanged circuit
+proves `u64` values; the smaller native monetary bound uses the explicit induction
+argument below, not a nonexistent upstream `MAX_SOMPI` range constraint.
+
+Do not substitute `orchard_v3` for unrestricted transfers: that variant restricts
+cross-address transfers. Ironwood V3 is an optional complete-construction
+comparison for Proposed ZIP 2005 recovery preparation. Neither current choice
+is an end-to-end post-quantum design. Selecting a reversible research reference
+does not adopt a production architecture, amend an invariant or activate Kaspa.
+
 ### Capability and assumption table
 
 | Requirement | Current Kaspa reference | Proposed native pool | Still unresolved |
 | --- | --- | --- | --- |
-| Native asset/backing | Covenant holds ordinary KAS against private claims. | Consensus recognizes pool KAS once, with public aggregate balance and hidden ownership. | Inductive supply/backing argument and I-1 mapping. |
-| Hidden internal amount/recipient | Encrypted note ledger and exact proof/settlement bindings. | Hidden notes, commitments, nullifiers and encrypted discovery records. | Concrete reviewed primitives/relation; effective privacy. |
+| Native asset/backing | Covenant holds ordinary KAS against private claims. | Consensus recognizes pool KAS once, with public aggregate balance and hidden ownership. | Review/adoption of the explicit induction, I-1/I-2 mapping and native enforcement. |
+| Hidden internal amount/recipient | Encrypted note ledger and exact proof/settlement bindings. | Complete repaired Orchard V2 research construction. | Native integration, independent specialist validation and effective privacy. |
 | Ordinary transparent exit | Output amount/script are public. | Still public when chosen. | No proposal conceals already published fields. |
 | Hidden native ownership after payment | Application-private claims remain inside a transparent reserve. | Consensus-native shielded notes; no per-owner public payout amount/script required. | Does not by itself pass the frozen financial-privacy target. |
 | Independent spending/exit | Requires accepted state, exact parameters/history and contention handling. | User's authority plus authenticated native state, available note data and compatible public artifacts. | Complete service-loss/fee/inclusion/retention model. |
 | Data after pruning | Ordinary UTXO/pruning data is insufficient to invent missing ciphertexts. | Additional authenticated shielded state and recovery records. | Bootstrap/retention specification and sustainable cost. |
 | Practical fees/throughput | Retained matched benchmark failed; specialized offline layout differed. | Public fees and bounded new verification/state work. | Actual mass, full lifecycle cost and useful concurrency. |
-| Quantum resistance | Existing proof and ownership layers have different properties. | Unselected; explicitly versioned profile. | Proof, signatures, encryption and migration inventory, not one PQ label. |
+| Quantum resistance | Existing proof and ownership layers have different properties. | Explicitly classical reference; per-layer inventory in review. | No complete PQ recovery/migration profile or quantum privacy guarantee. |
 
 ### Native state and bootstrap
 
@@ -371,12 +400,12 @@ are:
 | Field | Proposed encoding/meaning | Review boundary |
 | --- | --- | --- |
 | Transaction/profile discriminator | Consensus-allocated transaction version plus `u16` bundle version; fixed little-endian integer encoding. | Numeric allocations are unassigned; old formats keep their old rules. |
-| Network, pool and creation domain | Explicit identities bound to the proof/signing statement and note derivation. | Exact digest construction must reuse reviewed primitives. |
+| Network, pool and creation domain | Explicit identities bound to accepted native state and authorization/effects statement. | Preserve upstream inner note/NF derivations; inventing a prefix inside them changes the relation. Exact external digest remains to specify. |
 | Accepted anchor/context | Exact commitment root plus the context needed to disambiguate accepted history. | Anchor validity/retention window needs consensus specification. |
 | Public `b` | Canonical signed `i64` little-endian balance, bounded to `[-MAX_SOMPI, MAX_SOMPI]`; positive means value leaves the shielded pool. | Reject the signed minimum/out-of-range values before negation or narrowing. |
 | Public `F` | `u64` little-endian network fee, bounded to `[0, MAX_SOMPI]`; it must equal the contextual balance equation. | A public fee is deliberate; it exposes cost/shape metadata. |
-| Spends | Bounded length-prefixed vector of nullifiers, spend-authorization material and profile-required public fields. | Final count type/limits, dummy-action rules and point/scalar lengths await profile review. |
-| Outputs | Ordered commitments, ephemeral delivery keys, ciphertexts and optional profile-defined recovery data. | No public recipient script/value inside a shielded note; exact encryption/framing is unselected. |
+| Actions | Exactly two complete paired spend/output Actions in the research reference, with upstream cryptographic role encodings. | Native count/length framing and complete signature/effects codec remain unallocated. Every published marker, including padding, is unique/currently unspent. |
+| Outputs | Each Action's ordered commitment, standard ephemeral key and recipient/outgoing ciphertexts. | No public recipient script/value inside a shielded note; standard recipient validation precedes credit. Circuit validity alone does not prove ciphertext correctness. |
 | Proof and binding authorization | Exact profile/key or image identity, public statement and effect-binding authorization. | No witness-selected verifier or assumption-bearing development receipt. |
 
 Every length and cryptographic encoding must be canonical, fully consumed and
@@ -385,9 +414,10 @@ encodings, wrong arity, trailing data, invalid field/group encodings,
 wrong-subgroup points and mismatched vector counts reject at the intended layer.
 Reject identity points where the reviewed construction forbids them for that
 specific role; a value commitment need not have the same rule as a signing key
-or proof element. Final byte offsets,
-cryptographic constants, action limits and proof sizes are **not frozen** here;
-Q2/Q3 must close them before a runnable protocol profile is proposed.
+or proof element. Upstream role widths, version and two-Action proof size are
+fixed for the research reference by the cryptographic review. Final native byte
+offsets, digest, numeric allocations, parameter fingerprints and resource rules
+are **not frozen** here; a runnable native profile still requires them.
 
 Define an effects digest covering network/pool/profile, all ordinary input
 outpoints and actual output amounts/scripts/covenants, `b`, `F`, anchors,
@@ -430,12 +460,24 @@ T_in + b    = T_out + F
 B_next      = B - b
 ```
 
-Require each real note and each total to be in its selected monetary range,
-`0 <= B_next <= MAX_SOMPI`, and all public amounts to obey their existing native
-range rules. Use checked wide host arithmetic (`i128`/`u128` as appropriate) and
-proved integer/aggregate bounds; equality modulo a curve field alone is
-insufficient. No implicit wrapping, absolute-value overflow, negative output,
-truncation, floating sompi or unchecked signed-to-unsigned conversion is allowed.
+The unchanged Orchard relation constrains each note to nonnegative `u64`,
+not `MAX_SOMPI`. Its Action differences can exceed `i64`; do not confuse them
+with the bounded public bundle `b`. Two Actions bound each private side below
+`2^65`. Use the complete binding construction and an explicit integer-lifting
+argument, not equality modulo a field alone. Checked host arithmetic uses
+`i128`/`u128`, bounds public `b` to `[-MAX_SOMPI, MAX_SOMPI]`, and requires
+`0 <= B_next <= MAX_SOMPI` with existing native public-amount rules. Reject
+wrapping, signed-minimum negation, negative outputs, truncation, floating sompi
+and unchecked signed-to-unsigned conversion.
+
+The reference proposes **zero-genesis induction**: sound complete proofs,
+unique backed creations and current single spending, exact binding/no group-wrap,
+and the native equations preserve total outstanding note value equal to `B`.
+Consequently each live note and distinct consumed-note sum is at most native
+`MAX_SOMPI`, despite the wider local `u64` range. The crypto/accounting reviews
+state the premises explicitly. This is a design argument awaiting independent
+validation, not a formal proof. If those premises cannot be accepted, a new
+explicit hidden-value range relation and its changed circuit/key are required.
 
 A proof of hidden-note validity plus an established aggregate binding/balance
 construction must tie the exact public `b` to those bounded private totals.
@@ -470,7 +512,11 @@ adopted here. The equations above are an explicit candidate generalization for
 boundary actions. A purely shielded transfer paying `F` from shielded value
 reduces to existing I-2. Deposit/withdrawal classification, native-reserve meaning
 under I-1, pending claims and any necessary wording change require a reviewed
-ADR and explicit invariant change before implementation. Payout principal must
+ADR and explicit invariant change before native implementation. The
+[accounting review](../../research/rfc0004-consensus-accounting-review-2026-11-03.md#q8-backing-conservation-and-the-proposed-invariant-change)
+now supplies concrete proposed I-2 boundary wording and I-1 reserve interpretation.
+ADR-0101 records their pending adoption; it does not accept an amendment.
+Payout principal must
 never be disguised as an allowed fee to make the current text appear satisfied.
 
 For an ordinary accepted non-coinbase transaction, represented native stock
@@ -499,7 +545,8 @@ A candidate validity statement must establish all of the following together:
    distinct within the transaction and absent from the **current** accepted
    spent set. An unreviewed dummy-marker exception cannot bypass these checks.
    Historical membership does not prove current unspentness.
-3. Note values, aggregate sums and fee/boundary arithmetic are bounded integers.
+3. Note values, aggregate sums and fee/boundary arithmetic are bounded integers,
+   using the selected `u64` relation plus the explicit backing induction above.
    Output commitments bind the intended spendable notes; the aggregate proof and
    binding authorization agree on the exact `b` and full transaction effects.
 4. No malformed padding/dummy input creates credit, bypasses ownership or passes
@@ -510,11 +557,14 @@ A candidate validity statement must establish all of the following together:
    spentness across every mutually accepting version.
 
 Existing Groth16/RISC Zero tags do not accept Orchard Halo2/Pasta proofs as-is.
-Candidate review choices are an independently reviewed relation adaptation to a
-supported backend, a reviewed wrapper of an established verifier, or a new
-consensus verifier. Each adds correctness, setup, memory, cost and upgrade
-obligations. No backend, curve, hash instantiation, ceremony or trusted setup is
-selected here. Historical development keys are not production parameters.
+The research reference prefers a new native complete Halo2/RedPallas verifier.
+A full-verifier wrapper remains an alternative; the historical Orchard-derived
+RISC0 guest reexecutes a different relation and is not that wrapper. Both options
+still need exact integration, artifacts, determinism, metering and compatibility
+evidence. Upstream Orchard keys derive from the fixed circuit/constants; do not
+misapply the old circuit-specific Groth16 ceremony failure to them. Historical
+development keys are not production parameters. No proof backend supplies native
+credit/state rules automatically.
 
 The versioning rule is substantive: changing only a verifier/profile identifier
 must not give an already consumed note a fresh nullifier. Preserve its immutable
@@ -545,6 +595,16 @@ statement; it must not skip current nullifier membership, pool balance, anchor
 acceptance or actual transaction-effect checks in a different context. Existing
 script-skip/parallel-validation paths need explicit auditing for this new state.
 
+The [Q5 review](../../research/rfc0004-consensus-accounting-review-2026-11-03.md#q5-accepted-state-conflicts-and-undo)
+finds that current parallel paths rely on independence checked using ordinary
+outpoints. Specify native body duplicate-marker checks, serial accepted effects
+and the distinction between current-block qualification and mergeset conflict
+filtering. The reference uses authenticated completed predecessor anchors, not
+an intermediate current-block append. Propose an explicit new versioned native
+state/header commitment at the correct past-state point; current UTXO MuHash and
+KIP-21 roots do not already authenticate the new components. Exact codec,
+eligibility window, storage/undo and activation remain implementation blockers.
+
 Mempool policy indexes both ordinary input conflicts and shielded nullifiers,
 validates profile/size/fee rules, and handles anchors that leave the accepted set.
 An obsolete anchor causes witness refresh/reproof or rejection, not acceptance
@@ -567,8 +627,9 @@ whatever ownership/spendability checks the reviewed construction requires.
 Bind delivered bytes into authorized effects. Choose explicitly between proved
 correct delivery and sender-malformed delivery that the recipient deterministically
 rejects before acceptance; mere decryption success or a view-tag hit is insufficient
-for I-14. Current Aztec offers materially different constrained/unconstrained
-modes; its refreshed source must accompany this choice.
+for I-14. The research reference chooses standard Orchard recipient checks
+before credit, not proved encryption correctness. Current Aztec's materially
+different constrained/unconstrained delivery modes remain comparative evidence.
 
 Preserve record **multiplicity and global positions**. The legacy v6 scanner
 allowed equal openings at different positions with separately positioned
@@ -577,7 +638,13 @@ rule. A native profile must choose one coherent note-freshness/nullifier scheme
 and prove that each counted output gives the intended spendable claim. Do not
 silently deduplicate equal commitments/ciphertexts, or count two liabilities
 whose chosen marker scheme permits only one to be spent. Duplicate-record and
-cross-position controls belong in Q4/I-14 review.
+cross-position controls belong in Q4/I-14 review. The selected Orchard rule is
+`rho_new = nf_old` in each Action, with every published marker unique, including
+dummy slots. Its note nullifier does not include global position. Replaying a
+creation repeats its marker; two positions for one note do not create two
+separately spendable claims. Wallets retain authenticated positions without
+double-counting a spend identity. All verifier versions accepting the same notes
+share immutable-origin spentness; do not namespace it by the active verifier.
 
 A minimal versioned owner backup records spending/viewing derivation material,
 network/genesis/pool/creation/profile identifiers and recovery start context.
@@ -594,6 +661,14 @@ state. The draft's conservative recovery reference is to retain the complete
 accepted shielded commitment/delivery log plus enough accepted ordering and
 spentness data to reconstruct witnesses from activation. This retention has an
 unmeasured permanent cost and is not a production scalability claim.
+
+The [Q6 review](../../research/rfc0004-consensus-accounting-review-2026-11-03.md#q6-recoverable-data-and-authenticated-bootstrap)
+separates full validator replay from wallet recovery. Independent revalidation
+of native deposits additionally needs authenticated activation UTXO state and
+sufficient ordinary Kaspa DAG/funding history; a shielded log alone cannot prove
+that credits were funded. A wallet may instead consume consensus-authenticated
+current native state plus complete discovery/witness data and its keys. Exact
+new header/state authentication and cold recovery remain absent.
 
 | Recovery material | Reference source/retention obligation | Authentication and failure behavior |
 | --- | --- | --- |
@@ -627,6 +702,14 @@ contributor; no designated sponsor is required. If a claim cannot cover prevaili
 fees without additional value, do not promise a free economic exit or silently
 skim its principal. Distinguish authorization to exit, fee affordability, relay
 acceptance and timely inclusion. Q7 and public issue #23 remain open.
+
+The research mechanism for repricing is owner rebuilding and re-authorizing a
+complete transaction with explicit revised `F`, change/payout and optional
+authorized contribution. Regenerate the proof when its inputs/relation change.
+Competing replacements consume the same real note marker; consensus accepts at
+most one. No fixed branch fee or designated sponsor is required by this design.
+Native replacement/relay policy and fee mass still need implementation; this is
+not a guarantee that any small claim can afford arbitrary future fees.
 
 Relays can submit an already authorized complete transaction and may censor it;
 they cannot alter recipients, boundaries or fees. Any compensation is an explicit
@@ -698,25 +781,40 @@ amount removed from a hypothetical dataset is not an executed privacy result.
 
 ### Review questions and stop conditions
 
-| ID | Question requiring an explicit answer | Required reviewer/evidence |
-| --- | --- | --- |
-| Q1 | What is independent native ownership versus transparentization under the unchanged known-owner/full-drainage requirement? | Owner/privacy review; retain counterparty knowledge, public entry/exit arithmetic and the fixed target/price-prior tension. |
-| Q2 | Which established note/value-commitment, encryption, nullifier and authorization construction is selected? | Cryptography review of bounded balance, complete effects, delivery/I-14 and note identity; no mixed-protocol primitive substitution. |
-| Q3 | Adapt to current tags, wrap a verifier or add a verifier? What are exact bytes, curve/setup/parameters, resource bounds and activation rules? | Kaspa/ZK review; later complete positive/negative proof and native qualification under one profile. |
-| Q4 | How do creation identity, padding, duplicate commitments/positions, current nullifiers and upgrades interact? | Cross-version/cross-domain/double-spend and recipient-spendability argument plus vectors. |
-| Q5 | How are `B`, note state, spentness, effects and fees accepted/undone across the DAG and parallel/cache paths? | Consensus/storage review and deterministic conflicting-block/reorg vectors. |
-| Q6 | What authenticates new bootstrap/pruning state and guarantees retrievable note/parameter data? | Full replay or reviewed authenticated snapshot; clean independent recovery with normal services gone; measured retention cost. |
-| Q7 | How do users reprice/pay exits without a designated sponsor, hidden haircut or fixed-fee lockup? | Fee/mempool review under issue #23, separated from consensus validity and inclusion guarantees. |
-| Q8 | Does the boundary accounting generalization preserve I-1/I-2/I-7/I-12 and the emission/reward rules? | Explicit invariant/ADR review before any implementation; include pending liabilities, fees, rent and migration. |
-| Q9 | What classical/PQ and upgrade assumptions apply separately to proof, ownership, encryption and long-lived data? | Primitive inventory and authorized, non-stranding migration; no PQ conclusion from one verifier tag. |
-| Q10 | Does a complete fresh profile meet privacy, full fees, recovery, memory and useful throughput targets together? | Frozen observer/truth/metrics and matched lifecycle evidence after the design gates; no retuning failed historical runs. |
+The internal technical review worked through all ten questions. Q1 is an
+information-limit result; Q2–Q9 have narrowed research answers and explicit
+remaining obligations; Q10 remains unqualified. This is not independent human
+cryptography/consensus signoff. Read the [privacy review](../../research/rfc0004-privacy-feasibility-review-2026-11-03.md),
+[crypto review](../../research/rfc0004-cryptographic-profile-review-2026-11-03.md)
+and [consensus/accounting review](../../research/rfc0004-consensus-accounting-review-2026-11-03.md)
+for the arguments, exact sources, objections and proposed invariant wording.
 
-**Stop implementation** while the selected primitive/profile, soundness and
-native supply/balance rules, accepted state semantics, necessary invariant
-resolution or recoverable data contract remain undefined. A review-ready RFC
-may be complete with these questions open; a consensus implementation cannot
-claim readiness from that document. No architecture is adopted and no accepted
-ADR is created by this extension.
+| ID | Technical review outcome | Remaining gate |
+| --- | --- | --- |
+| Q1 | Native shielded ownership avoids a forced public payout; optional transparentization/legitimate owner facts still leak. The retained common-price prior alone achieves 21.10%, above the 20% cap. | This population cannot qualify unchanged. Any prospective qualification/requirement revision is explicit and owner-directed; no universal full-drainage privacy promise. |
+| Q2 | Complete repaired Orchard V2; two full Actions, standard recipient validation, all signature roles and exact upstream role encodings. | Exact native codec/effects binding, interoperability and independent cryptographic validation. |
+| Q3 | Prefer direct native Halo2/RedPallas verification. Existing tags do not accept it; full-verifier wrapping is secondary and unbuilt. | Exact key/profile fingerprints, deterministic verifier integration/metering and native activation. |
+| Q4 | Action-linked `rho`, position-independent note nullifier, all published markers unique, common immutable-origin spentness across accepting versions. | Native creation/migration enforcement and actual cross-version/domain/double-spend conformance. No legacy position-NF substitution. |
+| Q5 | Serial accepted native effects, explicit body conflicts, completed predecessor anchors and full atomic undo; cache only exact cryptographic validity. | New native state/header codec, anchor eligibility, actual DAG/storage/cache/reorg integration. Symbolic traces are not that integration. |
+| Q6 | Full retention first; validator replay needs ordinary funding context, wallet recovery needs authenticated native state and complete discovery data. | New authenticated bootstrap/header coverage, independently retrievable artifacts/history, cold recovery and sustainable storage. |
+| Q7 | Owner rebuilds/re-authorizes complete effects at explicit `F`; owned shielded value or authorized ordinary contribution pays. | Native mass/replacement/relay implementation, measured affordability/inclusion; no arbitrary-future-fee guarantee. |
+| Q8 | Explicit cross-domain equations, native stock decreases by accepted `F` once, complete-construction backing induction and proposed I-2 wording. | Independent review and explicit adoption of invariant/accounting changes before native implementation; invariant file unchanged. |
+| Q9 | Classical per-layer profile; V3/ZIP 2005 is optional recovery preparation, not current PQ safety. | Complete authorized non-stranding migration/recovery if required; retain old note data and shared spentness. |
+| Q10 | Not qualified: existing privacy/cost/recovery results do not qualify the new complete profile. | Feasible declared claim/population, frozen observer/metrics, matched full lifecycle, all fees/storage, native performance and independent service-loss recovery. |
+
+Run `python3 scripts/check_rfc0004_review.py` for the exact public prior/boundary
+arithmetic and 12 symbolic current-state/rejection/replacement/undo traces.
+Labels and supplied sums are not proofs, authenticated roots, actual UTXOs or
+Kaspa DAG processing. The earlier accounting checker is likewise arithmetic-only;
+its smaller supplied totals do not prove the upstream circuit has a native range
+constraint.
+
+**Native implementation is blocked** on complete codec/state/bootstrap rules,
+reviewed induction/invariant adoption and actual consensus integration. The
+unachievable prior cap blocks qualification of that population, not all unfunded
+codec/verifier interoperability studies. ADR-0101 accepts only reversible
+research-reference choices. No production architecture or network activation is
+adopted by completing this review.
 
 
 ## Property classification
@@ -770,11 +868,17 @@ custodians.
 
 ## Smallest next engineering step
 
-The requirements-level extension is ready for specialist review, not adoption.
-Resolve Q1–Q9 into one exact profile and reviewed invariant/accounting decision
-before proposing protocol implementation. Produce fixed encoding, boundary,
-DAG/reorg and recovery vectors alongside that decision. Keep Q10's privacy,
-cost and independent-recovery gates explicit.
+The internal review is complete. The next bounded engineering study is an
+unfunded complete-V2 codec/verifier interoperability package: reproducible key
+fingerprints, upstream positive/negative vectors and complete-effects mutation
+checks. It can investigate compatibility without claiming native consensus or
+privacy qualification. No new study was run by this review.
+
+Before native consensus implementation, finish the exact transaction/header/
+state codecs and bootstrap rules, review/adopt the explicit invariant/accounting
+proposal, then implement the state/body/cache/reward/undo integration and actual
+DAG/recovery conformance. Keep Q10's privacy, complete-cost and independent-
+recovery gates separate; the retained prior-infeasible population remains failed.
 
 A subsequent prototype would use synthetic values/test KAS only and compare
 shielded native ownership with optional ordinary transparent withdrawal under
@@ -785,7 +889,9 @@ campaign, infrastructure or MPC work is part of this documentation task.
 
 ## Outcome, when known
 
-Open. No ADR is created until review accepts or rejects this recommendation.
+Open. ADR-0101 accepts a research reference only, with its alternatives,
+objections and reconsideration conditions. Independent human cryptography and
+Kaspa consensus approval remain outstanding.
 This RFC accepts no implementation, funded trial, broadcast, proof campaign,
 runtime deployment or recovery action. The owner authorized this documentation
 extension and logical commits; that authorization does not adopt the proposal

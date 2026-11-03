@@ -37,7 +37,9 @@ their exact committed version rather than depend on a moving branch.
 - [Price-prior calibration][price]: 512 fresh ledgers found the chosen heuristic
   worse than price guessing. This bounds that heuristic, not all available
   transaction information. The known approximately 21.10% prior also exceeds
-  the unchanged 20% absolute target; that requirements tension remains explicit.
+  the unchanged 20% absolute target. The [Q1 review](../research/rfc0004-privacy-feasibility-review-2026-11-03.md)
+  now derives the exact prior floor: this population cannot qualify unchanged,
+  even with no transcript leakage. Keep it unqualified; do not retune old evidence.
 - [Participant-disclosure screen][participant] and [address reuse][address]:
   counterparty knowledge and ordinary script reuse can disclose facts even when
   proof, encryption and nullifier primitives are assumed to work.
@@ -73,6 +75,14 @@ fresh scoring. Use exact integer sompi and complete joint truth retention.
 Report source review, constraint checks, local proof verification, native Full
 validation, historical chain observations and actual independent recovery as
 different evidence levels. Their boundaries are part of the result.
+
+The [Q1–Q10 review](rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
+also records three compatibility lessons: the old position-derived nullifier is
+not Orchard's note identity; a reexecuted Orchard-derived relation is not a full
+Halo2 verifier wrapper; and Orchard's `u64` range is not a native `MAX_SOMPI`
+constraint. The research reference preserves a complete repaired construction
+and proposes an explicit backing induction. Native integration and independent
+specialist approval remain open.
 
 [working]: research-knowledge/documents/c8f4c9560f157dce4e97190cadeba02133070b6f.txt
 [price]: research-knowledge/documents/567b363e0c6151c6d5754b7f79296cc81507a4ba.txt

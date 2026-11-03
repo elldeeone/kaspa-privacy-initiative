@@ -2,6 +2,14 @@
 
 [Knowledge guide](README.md) · [Costs](costs.md) · [Unfinished reviews](unfinished.md)
 
+The [RFC-0004 crypto review](../../research/rfc0004-cryptographic-profile-review-2026-11-03.md)
+now pins the complete repaired Orchard V2 research reference, exact role widths,
+two-Action shape and preferred native Halo2/RedPallas verification. The archived
+Orchard-derived guest is a different relation, not a complete Halo2 wrapper.
+The unchanged circuit proves `u64` values; native monetary bounds need the
+explicit backing induction. No existing Kaspa tag accepts the full construction.
+Independent specialist approval and native integration remain outstanding.
+
 ## Preserve the evidence ladder
 
 Constraint satisfaction, local cryptographic verification, a zkVM segment,

@@ -38,6 +38,13 @@ roles/events and verify hidden-label renaming leaves the financial score
 unchanged. Require the complete candidate history to retain execution truth.
 Separate value/relationship disclosure from commitment-position ambiguity.
 
+The [RFC-0004 Q1 review](../../research/rfc0004-privacy-feasibility-review-2026-11-03.md)
+derives an exact 21.10% prior-only amount-guessing floor for the retained
+common-price population, above its 20% absolute cap. That population stays
+unqualified even if no transcript information leaks. This is not universal
+reconstruction of every payment history or permission to change old thresholds.
+Any prospective qualification revision needs explicit owner direction.
+
 Use fresh controls that remove a claimed privacy mechanism, challenge assumed
 contact edges and expose participant knowledge. Report search/resource limits
 as limits, not privacy evidence. Operational rules for new trials come from
