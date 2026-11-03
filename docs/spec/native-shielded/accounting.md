@@ -131,9 +131,14 @@ committed_storage_mass = ordinary_augmented_storage + native_storage
 
 The sparse/anchor charges reserve worst-case work; sharing/batching never
 changes validity or grants a negative storage refund. Count new bytes in
-transient mass using the existing byte factor. Check each additional native
-block resource total in exact integer arithmetic against the manifest limits,
-in addition to retained ordinary Kaspa block checks. Reject arithmetic overflow.
+transient mass using the existing byte factor. For v2, the existing ordinary
+noncontextual size term uses the full Wire length exactly once; retain its
+remaining ordinary script/declared-budget terms, then add native_compute.
+Contextual storage is committed_storage_mass. Existing block checks consume
+these extended component vectors for v2 and unchanged vectors for old formats.
+Additionally check sums of native_compute, native_storage and the incremental
+native-extension byte transient mass against their respective manifest limits
+in exact integer arithmetic. Reject arithmetic overflow.
 Permanent event, global-marker and recovery retention are charged; the formula
 does not claim actual disk usage or validated sustainable economics. No float
 fee threshold enters consensus. Existing mempool floating fee-rate policy is

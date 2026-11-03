@@ -14,6 +14,7 @@ Origin and unchanged privacy boundary: [RFC-0004](../../rfc/0004-native-kas-priv
 | [Bootstrap](bootstrap.md) | Activation, full replay, authenticated state export/import, wallet recovery and retention. |
 | [Key identity](key-identity.md) | Portable actual VK/parameter capsule, compatibility transcript scalar and profile identity. |
 | [Accounting](accounting.md) | Exact native equations, induction, reward flow, resource accounting and proposed invariant wording. |
+| [Conformance and review](CONFORMANCE.md) | Exact public vectors/checker, adversarial review and remaining implementation/activation gates. |
 
 `MUST`, `REJECT` and `MAY` are requirements of **this draft**, not statements
 about today's network. No production choice, activation DAA score, priced mass

@@ -79,7 +79,8 @@ U64(event_index) || origin_block_hash[32] || U32(index_within_block)
 Indices are exact and contiguous from zero. `first_global_cm_position=2*index`.
 Record actual full authorization/proof bytes, not only an economic ID. L is a
 binary append accumulator of depth 64, indexed by U64 event index (MSB first).
-Its present leaf is `H("EventLeaf",event_bytes)`, absent depth-64 leaf
+Its path is numeric index bits 63,62,...,0, independently of the little-endian
+index field inside event bytes. Its present leaf is `H("EventLeaf",event_bytes)`, absent depth-64 leaf
 `H("EventEmpty",empty)`, internal node at depth d is
 `H("EventNode",U16(d)||left||right)`. Empty subtrees recurse identically.
 This log root/count authenticates full recovery bytes, their order and their

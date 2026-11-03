@@ -1,0 +1,30 @@
+name: Native shielded specification conformance
+
+on:
+  push:
+    branches: [main, research/native-kas-withdrawal-privacy]
+    paths:
+      - 'docs/spec/native-shielded/**'
+      - 'scripts/check_native_shielded_spec.py'
+      - '.github/workflows/native-shielded-spec.yml'
+  pull_request:
+    paths:
+      - 'docs/spec/native-shielded/**'
+      - 'scripts/check_native_shielded_spec.py'
+      - '.github/workflows/native-shielded-spec.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Check source document links
+        run: python3 scripts/check_docs.py
+      - name: Check portable key and native draft conformance
+        run: python3 scripts/check_native_shielded_spec.py
