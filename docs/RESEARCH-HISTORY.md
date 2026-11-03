@@ -19,7 +19,7 @@ git show archive/2026-11-03/shielded-kas-research:poc/shared-pool/PRICE-LEAKAGE.
 git show archive/2026-11-03/research/shielded-kas-feasibility:docs/checkpoints/2026-10-27.md
 ```
 
-The tags retain exact source/evidence identities; they do not qualify an old implementation for a new domain, key, wallet or trial. Original remote branches remain historical upstream/fork references. Local lane retirement is recorded in the final consolidation receipt.
+The tags retain exact source/evidence identities; they do not qualify an old implementation for a new domain, key, wallet or trial. Original remote branches remain historical upstream/fork references. Local lane retirement is complete and recorded in the [consolidation receipt](research-history/consolidation-2026-11-03.json).
 
 ## Every original branch
 
@@ -71,3 +71,18 @@ The separate offline-wallet line reuses some numbers too. Use exact commit, path
 
 Public source histories and the private unfinished-file archive have separate manifests. Wallets, proving parameters, raw observations and ignored runtime state remain private. The [preservation checkpoint](research-preservation-2026-11-03.md) states what was verified and the same-machine limitation. Generated build outputs and raw runtime directories are not publication candidates merely because their branch is archived.
 
+
+## Local retirement completed
+
+Twenty-one completed local branches were retired after their exact tips were
+verified against the annotated tags. Their 21 worktrees were moved atomically
+on the same filesystem into a private archive, detached and locked. Every
+original status inventory was preserved, including untracked and ignored data.
+Compatibility symlinks preserve the old paths used by retained records and
+software. One stale worktree registration was pruned after metadata preservation.
+
+The three remaining local branches are `main`, the current wallet-local research
+line and the frozen feasibility reference. Only the current research checkout is
+active; the feasibility worktree is locked as owner-paused. Remote branches were
+not deleted or pushed by this local consolidation. The archive is on this machine
+and is not an independent backup.
