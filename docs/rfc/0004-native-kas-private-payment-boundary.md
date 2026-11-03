@@ -232,10 +232,12 @@ and script and add maturity, so that boundary is rejected for this requirement.
 [MWEB consensus][M-CONSENSUS], [kernel peg-outs][M-KERNELS], [stealth
 outputs][M-STEALTH].
 
-For Kaspa, hiding the full-drainage arithmetic would require the reserve and
-payout sides to use confidential commitments under consensus rules; a public
-reserve change would reveal the committed payout by subtraction. Ownership
-would still be linkable if a valid observer maps the output key.
+In a confidential-UTXO design, a public reserve change, known fees and other
+known flows reveal the aggregate confidential outflow by subtraction. With only
+one unknown payout, that determines its amount; with several, individual amounts
+depend on further information. Confidential reserve/value commitments remove
+that explicit observation but do not establish full-drainage privacy. Ownership
+can still be linked if a valid observer maps the output key.
 
 **Native shielded KAS pool.** Orchard demonstrates wallet-held notes, encrypted
 recipients, note commitments, nullifiers, homomorphic value commitments and a
@@ -458,6 +460,8 @@ negatives and a four-step zero-ending arithmetic sequence. Supplied private
 totals in these vectors are not verified notes; passing their arithmetic is not
 proof, native acceptance or a new fee/privacy result. Amount strings are decoded
 once to exact bounded integers at the JSON boundary.
+Run `python3 scripts/check_rfc0004_accounting.py` from the repository root to
+repeat this arithmetic-only check; documentation CI runs it as well.
 
 **I-2 is unresolved, not amended.** Its literal current private-transition
 equation omits native boundary credits/debits. The archived feasibility branch
@@ -490,9 +494,11 @@ A candidate validity statement must establish all of the following together:
 
 1. Every real spend has authenticated membership under an allowed accepted
    anchor, correct network/pool/creation scope and wallet-held spend authority.
-2. Its nullifier is correctly derived, not caller-chosen. All real spend markers
-   are distinct within the transaction and absent from the **current** accepted
-   spent set. Historical membership does not prove current unspentness.
+2. Its nullifier is correctly derived, not caller-chosen. All published spend
+   markers, including padded-slot markers if the profile publishes them, are
+   distinct within the transaction and absent from the **current** accepted
+   spent set. An unreviewed dummy-marker exception cannot bypass these checks.
+   Historical membership does not prove current unspentness.
 3. Note values, aggregate sums and fee/boundary arithmetic are bounded integers.
    Output commitments bind the intended spendable notes; the aggregate proof and
    binding authorization agree on the exact `b` and full transaction effects.
@@ -728,7 +734,7 @@ ADR is created by this extension.
 | Singleton-state contention is acceptable | Unresolved | Safety can fail closed; useful throughput and retry privacy unknown |
 | vProgs supplies no-trust immediate independent exits | Unresolved/currently unsupported | Prototype path requires proved settlement and public permission payout |
 | Consensus-native confidential/shielded KAS | Proposed consensus direction | Exact current output/validation capability is missing |
-| Every ordinary transparent exit conceals its past | No candidate meets | Boundary amount/script are public; valid owner mapping remains valid |
+| Amount/script of an already ordinary transparent payout stay hidden | Incompatible with that representation | Published fields remain public; inference about earlier payments is observer/workload-specific |
 
 ## Reuse, adapt and reject
 

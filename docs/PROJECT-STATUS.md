@@ -56,9 +56,11 @@ and [RFC-0004](rfc/0004-native-kas-private-payment-boundary.md) remain open.
 Wallet-local proofs and direct inline-ZK settlement remain the minimum current-
 Kaspa reference for confidential on-domain activity and independent transparent
 exits. That reference does not meet the stronger known-owner/full-drainage goal.
-Hiding a completed boundary requires a consensus-recognized confidential or
-shielded native-value representation; changing a prover, MPC committee, relayer
-or runtime does not change ordinary native output fields.
+Hidden native ownership requires a consensus-recognized confidential or shielded
+value representation; a later ordinary transparent payout still exposes that
+boundary. Changing a prover, MPC committee, relayer or runtime does not change
+ordinary native output fields. The extended RFC proposes a native note-pool
+candidate for review, without a production decision or measured privacy pass.
 
 MPC/private-construction work remains frozen at `4d54dc02`, preserved by the
 `archive/2026-11-03/research/shielded-kas-feasibility` tag. Its bounded
@@ -66,20 +68,25 @@ three-owner construction result is valuable, but its separate registered W1
 aggregate path remains incomplete and constructor-visible. Preserve its rejected
 vendor patch as rejected local work.
 
-## Next deliverable
+## Next deliverable: specialist review of the extended RFC
 
-Produce a source-bound requirements/specification review for native confidential
-or shielded KAS outputs: identify affected serialization, value conservation,
-supply accounting, proof verification, fees, pruning/discovery and recovery
-rules; reuse established protocol mechanisms; compare them with the current
-transparent-exit reference. Clearly distinguish staying shielded from later
-conversion into an ordinary transparent output.
+The requirements-level [RFC-0004 extension](rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
+now specifies the proposed native pool, bundle/effect bindings, signed boundary
+balance, fees/supply, current nullifiers, DAG/reorg rules, recipient discovery and
+independent recovery/retention contract. It includes a capability/assumption table,
+prior-learning traceability and ten explicit review questions. The
+[Kaspa source refresh](../research/native-kas-consensus-boundary-2026-11-03.md)
+and [five-protocol review](../research/native-kas-shielded-value-sources-2026-11-03.md)
+pin the primary evidence. [Arithmetic vectors](rfc/0004-native-value-accounting-vectors.json)
+check specification equations only, not proof or native transaction validity.
 
-Completion requires an explicit capability/assumption table and unresolved
-questions suitable for specialist review. It requires no new application
-framework, MPC integration, proof campaign or funded demonstration. A narrower
-privacy claim would require an explicit owner decision; this consolidation does
-not make that change.
+Review Q1–Q9 before choosing a runnable cryptographic/consensus profile: the
+privacy boundary, exact primitives/backend/encodings, spentness and migration,
+DAG acceptance, authenticated pruning/bootstrap, available recovery data, fee
+liveness and explicit I-1/I-2 boundary accounting all require resolution. No
+invariant file or production architecture changed. Q10 retains matched privacy,
+full-fee and independent-recovery qualification after design review. No MPC,
+framework, proof campaign or funded trial was restarted by this extension.
 
 ## Consolidation verification
 

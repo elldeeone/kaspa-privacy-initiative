@@ -10,6 +10,15 @@ Before extending an earlier design, use the local
 [architecture lessons](research-knowledge/architecture.md) and
 [reuse decisions](research-knowledge/reuse.md).
 
+The [3 November RFC-0004 extension](rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
+adds a proposed consensus-native shielded value pool as a review candidate.
+It distinguishes native private ownership from later transparent withdrawal,
+specifies cross-domain balance and atomic native state requirements, and leaves
+cryptography, I-1/I-2 interpretation, consensus activation and recovery/pruning
+unresolved. It is a different native value representation, not an accepted
+variant of the current covenant/runtime candidates. No architecture or
+security-invariant change is adopted.
+
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
 The original executed depth-four full-drainage wallet profile remains local-only

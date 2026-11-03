@@ -2,6 +2,22 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
+## Current review questions — 3 November 2026
+
+Use [RFC-0004 Q1–Q10](docs/rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
+for the next native shielded-value review: distinguish private native ownership
+from transparentization; select reviewed primitives/backend and exact encodings;
+resolve note identity/nullifiers/upgrades, accepted DAG state and atomic supply
+accounting, public recovery/pruning data, fee liveness and per-layer quantum
+assumptions. The current I-1/I-2 boundary interpretation is not amended by the
+proposal. Full privacy, cost and independent-recovery targets remain unqualified.
+
+The older work-package checkpoints below retain their historical scope. Current
+status and corrections are in [PROJECT-STATUS](docs/PROJECT-STATUS.md) and the
+[prior-knowledge guide](docs/research-knowledge/README.md).
+
+## Earlier research questions and checkpoints
+
 The [local receipt-classification follow-up](poc/proof-classification/RESULTS.md)
 executes valid-invalid-valid processing, but needs 880 proof segments; no outer
 receipt or actual accepted-lane integration is demonstrated. Affordable proved

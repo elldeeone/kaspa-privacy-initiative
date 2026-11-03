@@ -512,3 +512,30 @@ retains user-held secrets and independent-root checks. No old funded pool is
 upgraded; a fresh native instance and actual chain proofs are required. Data
 availability, current anchors, independent custody and shutdown liveness remain
 open qualifications, with no rescue-key fallback.
+
+
+## Proposed native shielded-value domain — 3 November 2026
+
+The [RFC-0004 extension](docs/rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
+is a requirements-level consensus proposal. It does not deploy a pool, choose
+cryptography, amend an invariant or establish privacy/security qualification.
+The current covenant experiments keep their own scopes. A native pool would
+need separate exact validity, state, supply and data-availability arguments.
+
+| Threat / failure | Required design obligation | Current review limit |
+| --- | --- | --- |
+| Hidden inflation or reserve double counting | Tie bounded hidden notes to exact signed public balance; count consensus pool KAS once; reject underflow/overflow and route fees once. | Native-reserve interpretation and I-2 boundary generalization are explicit unresolved proposals. |
+| Replay/double spending across DAG blocks or versions | One current spent set/domain across mutually accepting profiles; deterministic atomic accepted-order effects and complete undo. | Cached/parallel proof checks cannot establish current marker absence; implementation is absent. |
+| Payout, fee or delivery substitution | Authorization binds actual native effects, ordered encrypted outputs, amounts/fees and domains; every old transaction format retains its old rules. | Exact signing/profile encodings and fee-contribution design require review. |
+| Valid-looking but unspendable delivery | Recipient validates framing, decryption, commitment and scheme-specific ownership/identity before credit. | Proven versus detectably malformed delivery must be selected; equal records/positions cannot be blindly deduplicated. |
+| Public totals, isolated activity and counterparty disclosures | Preserve the legitimate observer, public b/B, boundary amounts and fee/query/network metadata in privacy analysis. | Hidden note fields do not guarantee hidden inferred balances or relationships; later ordinary payouts remain public. |
+| Pruned or withheld history/parameters | Independently retained authenticated discovery/spentness data, exact public artifacts and compatible owner backups. | A root or server-signed snapshot does not recover missing bytes; at least one sufficient independent data source remains an availability assumption. |
+| Fixed-fee lockup, service loss or ciphertext-dependent recovery | Wallet-owned authority and usable fee/repricing path; no required sponsor/admin rescue; distinguish validity, affordability, relay acceptance and inclusion. | Complete service-loss and future fee conditions remain unqualified; no free-exit or guaranteed inclusion claim. |
+| Upgrade, setup or quantum failure | Explicit per-layer assumptions, immutable claim identity/common spentness and non-stranding authorized migration. | No final backend, trusted setup, PQ guarantee or privileged recovery authority is adopted. |
+
+Safety under unverifiable state still requires rejection/halting. That is not
+sufficient for I-10: the full recovery contract must show that every valid user
+can obtain and use the declared public data independently. The
+[agent source/spec self-review](research/native-kas-shielded-value-review-2026-11-03.md)
+records two corrected wording/compatibility issues; it is not specialist approval
+or an audit. Frozen historical failures and corrected scores remain unchanged.

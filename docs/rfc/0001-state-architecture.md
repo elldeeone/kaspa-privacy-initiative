@@ -6,6 +6,13 @@
 
 **Review owner:** project review; no architecture accepted by this draft.
 
+The [extended RFC-0004](0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
+separately specifies a proposed consensus-native shielded value domain for the
+stronger financial-privacy question. It does not select A/B/C, make ordinary
+transparent outputs confidential or silently amend the current invariants.
+Native boundary accounting, cryptographic profile, DAG state and recoverable
+data rules need specialist review before an implementation decision.
+
 ## Context
 
 We need to determine the smallest architecture that can demonstrate:

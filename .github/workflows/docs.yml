@@ -21,3 +21,5 @@ jobs:
         run: python3 scripts/check_docs.py
       - name: Verify historical research knowledge and coverage
         run: python3 scripts/research_knowledge.py check
+      - name: Check RFC-0004 specification arithmetic
+        run: python3 scripts/check_rfc0004_accounting.py
