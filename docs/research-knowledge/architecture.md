@@ -44,6 +44,9 @@ are design inputs, not evidence that those systems' assumptions hold on Kaspa.
 [privacy surface source review](documents/abe50a0f21b547dab4131289e3f69a791a93e526.txt) and the local historical RFCs preserve the earlier comparisons.
 Refresh exact Kaspa/Toccata/vProgs upstream identities before new semantic work.
 
-The next architecture deliverable remains a source-bound confidential/shielded
-native-value requirements review. Application proofs, a different prover or a
-larger runtime cannot conceal ordinary transparent-output fields.
+The [extended native-value proposal](../rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
+now records the source-bound requirements, accounting and prior-learning
+constraints. The next deliverable is specialist resolution of its Q1–Q9 review
+questions before a runnable profile or architecture decision. Application proofs,
+a different prover or a larger runtime cannot conceal ordinary transparent-output
+fields. The requirements draft establishes no new privacy or implementation result.

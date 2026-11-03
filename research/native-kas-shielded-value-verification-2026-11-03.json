@@ -1,0 +1,76 @@
+{
+  "schema": "rfc0004-extension-verification-v1",
+  "date": "2026-11-03",
+  "source_start_commit": "9abfc8f987d036a2e7047074bdcd84d5a833b7ea",
+  "code_and_review_commit": "9a701d8dc0f2d20160a80ada1f9828b0b271e955",
+  "rfc_sha256": "26e29b2c4285fdb649b7f2e0a26f4566d85e80998e1c1460be7662dab83d8d73",
+  "status": "Open; requirements proposal for specialist review, not architecture adoption",
+  "source_checks": {
+    "official_kaspa_repository_heads": 5,
+    "kaspa_file_hashes": 21,
+    "pinned_primary_file_links_and_ranges": 78,
+    "mature_protocol_families": [
+      "Zcash Orchard",
+      "Litecoin MWEB",
+      "Monero",
+      "Aztec",
+      "RAILGUN"
+    ],
+    "local_heading_fragments_checked": 18
+  },
+  "specification_arithmetic": {
+    "positive_vectors": 9,
+    "negative_vectors": 13,
+    "sequence_steps": 4,
+    "modeled_final_pool_balance": 0,
+    "modeled_network_fees": 4,
+    "checker_corruption_scenarios_rejected": 4,
+    "command": "python3 scripts/check_rfc0004_accounting.py",
+    "scope": "Supplied integer model values only; no note/proof/native/chain/privacy validation."
+  },
+  "agent_self_review": {
+    "finding_ids": [
+      "C1",
+      "C2"
+    ],
+    "resolved": true,
+    "resolution_scope": "Explicit payout fields versus economic inference; role-specific point validation, with aggregate subtraction qualified.",
+    "independent_specialist_review": false,
+    "security_audit": false
+  },
+  "configured_fast_suite": {
+    "command": "bash scripts/ci_fast.sh",
+    "exit_code": 0,
+    "python_cases": 179,
+    "python_passed": 177,
+    "python_skipped": 2,
+    "node_passed": 13,
+    "log_sha256": "7bfc5df8830ffc5532d5d8d603f79224d954c02522a8b11124c0a26430a03003",
+    "skip_reason": "Two existing native integration tests require explicit local configuration."
+  },
+  "preservation": {
+    "security_invariants_sha256": "44cf983d06c8895c61a492107f65487725331a1b2f93d1c89e7353fb5399733d",
+    "security_invariants_changed": false,
+    "protocol_runtime_source_changed": false,
+    "historical_fast_script_and_trial_pins_changed": false,
+    "frozen_knowledge_document_bytes_changed": false
+  },
+  "remaining_review_gates": [
+    "Q1: native shielded ownership versus known-owner full transparentization",
+    "Q2-Q4: primitive/profile/encoding and note/spend identity",
+    "Q5-Q6: accepted DAG state and authenticated/available recovery data",
+    "Q7-Q8: fee liveness, native supply and explicit I-1/I-2 resolution",
+    "Q9: per-layer crypto/quantum/migration assumptions",
+    "Q10: later matched lifecycle privacy/cost/recovery qualification"
+  ],
+  "scope": {
+    "new_cryptographic_primitive": false,
+    "new_setup_or_proof": false,
+    "node_or_chain_trial": false,
+    "mainnet_or_real_funds": false,
+    "provider_deployment": false,
+    "mpc_resume": false,
+    "external_review_request_sent": false,
+    "accepted_architecture_ADR_created": false
+  }
+}

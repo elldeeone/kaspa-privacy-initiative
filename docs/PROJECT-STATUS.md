@@ -87,6 +87,9 @@ liveness and explicit I-1/I-2 boundary accounting all require resolution. No
 invariant file or production architecture changed. Q10 retains matched privacy,
 full-fee and independent-recovery qualification after design review. No MPC,
 framework, proof campaign or funded trial was restarted by this extension.
+The [verification receipt](../research/native-kas-shielded-value-verification-2026-11-03.json)
+records source/link checks, arithmetic-only vectors, the bounded agent self-review
+and the passing configured fast suite. Specialist approval remains outstanding.
 
 ## Consolidation verification
 
