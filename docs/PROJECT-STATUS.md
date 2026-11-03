@@ -103,6 +103,11 @@ branch, with a complete 369-commit ledger and offline coverage checks. The old
 feasibility branch name is retired; its exact tag, paused detached/locked
 worktree and rejected patch remain preserved. Two local branches remain:
 upstream `main` and this active research line.
+The [knowledge verification receipt](research-history/knowledge-verification-2026-11-03.json)
+records standalone read/search checks, missing/corrupt coverage failures,
+cross-checks of all 369 original document trees and the passing configured fast
+suite. The documentation workflow validates the library without changing the
+historically pinned fast-check script.
 The [official source-head refresh](research-history/upstream-2026-11-03.json)
 confirms the consensus/output boundary's reviewed source identity; it is not a
 fresh runtime qualification.

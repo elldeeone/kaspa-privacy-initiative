@@ -41,3 +41,5 @@ Every original branch is represented in [coverage](coverage.md). Branch aliases
 share committed knowledge; unique uncommitted work is handled by the preserved
 notes and private archive, not inferred from matching HEADs. There is no pending
 requirement to merge every experimental runtime merely to access these lessons.
+The [regression contracts](controls.md) carry concrete cases from the code-only
+native, admission, relation, capacity and verifier-control branches.

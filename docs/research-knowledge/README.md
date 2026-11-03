@@ -12,6 +12,7 @@ worktree, audit directory or GitHub access.
 | Choose an architecture or settlement boundary | [Architecture](architecture.md) | Treating a feasible component as an accepted production system. |
 | Evaluate sender, recipient or amount privacy | [Privacy](privacy.md) and [current corrections](../RESEARCH-LESSONS.md) | Reusing invalid scores or repeating rejected cashout policies. |
 | Change proofs, encodings, batching or parameter loading | [Proofs](proofs.md) | Reusing incompatible keys/claims or confusing partial and complete proofs. |
+| Extend native guards, relation boundaries or tree capacity | [Regression contracts](controls.md) | Counting the wrong failure layer or losing code-only branch lessons. |
 | Build scanning, backups, recovery or exits | [Recovery](recovery.md) | Assuming a seed/root replaces missing history or public proving parameters. |
 | Quote cost, throughput or proving performance | [Costs](costs.md) | Combining incompatible profiles or estimated and actually paid fees. |
 | Run a trial, maintain tooling or replay evidence | [Operations](operations.md) | Losing exact integer semantics, error isolation or historical source bindings. |
@@ -59,3 +60,8 @@ when a new result changes an interpretation. Preserve the earlier result and
 its scope. Add a new frozen snapshot when widening historical coverage; this
 manifest's 369-commit boundary is explicit and does not automatically include
 future commits. A document hash proves copied bytes, not the truth of its claims.
+
+The [verification receipt](../research-history/knowledge-verification-2026-11-03.json)
+records the standalone positive/negative checks, original Git-tree comparison
+and configured fast-suite result. Documentation CI checks the frozen library's
+hashes and coverage; the historical fast-check script and trial pins stay intact.

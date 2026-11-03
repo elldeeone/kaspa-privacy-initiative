@@ -1,0 +1,48 @@
+{
+  "schema": "research-knowledge-verification-v1",
+  "date": "2026-11-03",
+  "code_commit": "5d1a516a1a1b8e3807e01ade6ecda8092a37efb7",
+  "standalone_library": {
+    "commits": 369,
+    "document_versions": 2341,
+    "source_git_trees_cross_checked": 369,
+    "original_local_branches": 24,
+    "fork_branches": 14,
+    "upstream_branches": 1,
+    "merged_pull_histories": 42,
+    "unfinished_notes": 15,
+    "works_without_git_network_private_audit_or_original_worktrees": true,
+    "verification_scenarios_passed": 9,
+    "rejected_corrupt_or_missing_document_branch_commit_and_ambiguous_selection": true
+  },
+  "full_fast_checks": {
+    "command": "bash scripts/ci_fast.sh",
+    "exit_code": 0,
+    "python_cases": 179,
+    "python_passed": 177,
+    "python_skipped": 2,
+    "node_passed": 13,
+    "log_sha256": "b03883bff500d53c6c2f8ae3bd6a9b5764ca9d415b66178f82caee1e0f0bc97a"
+  },
+  "ci_integration": {
+    "workflow": ".github/workflows/docs.yml",
+    "command": "python3 scripts/research_knowledge.py check",
+    "historical_ci_fast_script_unchanged": true,
+    "original_source_and_trial_manifest_pins_unchanged": true
+  },
+  "scope": {
+    "runtime_protocol_source_unchanged": true,
+    "security_invariants_unchanged": true,
+    "new_proofs": false,
+    "new_chain_or_provider_actions": false,
+    "paused_mpc_restarted": false,
+    "remote_push": false
+  },
+  "limits": [
+    "Historical claims remain scoped, including superseded results and proposals. Copy hashes and coverage checks do not prove those claims.",
+    "Code-only commits have local learned regression contracts and metadata; their old runtimes were not bulk-integrated.",
+    "Raw private evidence, binaries, parameters and other unfinished drafts remain privately preserved.",
+    "Two existing native integration tests require explicit local configuration and remain skipped.",
+    "The private preservation archive is still on this machine, not an off-host backup."
+  ]
+}
