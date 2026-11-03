@@ -1,0 +1,356 @@
+{
+  "schema": "rfc0004-arithmetic-vectors-v1",
+  "scope": "Specification arithmetic only. Supplied S values are model witnesses, not verified notes; no proof, native transaction, accepted state, fee quote or privacy result is represented. Decimal strings preserve exact sompi at JSON boundaries; decode once to bounded integers.",
+  "max_sompi": "2900000000000000000",
+  "balance_sign": "b = S_in - S_out; positive leaves pool",
+  "cases": [
+    {
+      "name": "shield",
+      "values": {
+        "T_in": "101",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "100",
+        "F": "1",
+        "b": "-100",
+        "B": "500"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "600"
+    },
+    {
+      "name": "private-transfer-shielded-fee",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "100",
+        "S_out": "99",
+        "F": "1",
+        "b": "1",
+        "B": "500"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "499"
+    },
+    {
+      "name": "partial-transparent-withdrawal",
+      "values": {
+        "T_in": "0",
+        "T_out": "59",
+        "S_in": "100",
+        "S_out": "40",
+        "F": "1",
+        "b": "60",
+        "B": "500"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "440"
+    },
+    {
+      "name": "full-remaining-transparent-withdrawal",
+      "values": {
+        "T_in": "0",
+        "T_out": "39",
+        "S_in": "40",
+        "S_out": "0",
+        "F": "1",
+        "b": "40",
+        "B": "500"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "460"
+    },
+    {
+      "name": "external-fee-contribution",
+      "values": {
+        "T_in": "1",
+        "T_out": "0",
+        "S_in": "100",
+        "S_out": "100",
+        "F": "1",
+        "b": "0",
+        "B": "500"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "500"
+    },
+    {
+      "name": "ordinary-only-no-shielded-effects",
+      "values": {
+        "T_in": "100",
+        "T_out": "99",
+        "S_in": "0",
+        "S_out": "0",
+        "F": "1",
+        "b": "0",
+        "B": "0"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "0"
+    },
+    {
+      "name": "zero-fee-arithmetic-is-not-relay-policy",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "100",
+        "S_out": "100",
+        "F": "0",
+        "b": "0",
+        "B": "500"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "500"
+    },
+    {
+      "name": "maximum-shield",
+      "values": {
+        "T_in": "2900000000000000000",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "2900000000000000000",
+        "F": "0",
+        "b": "-2900000000000000000",
+        "B": "0"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "2900000000000000000"
+    },
+    {
+      "name": "maximum-withdrawal",
+      "values": {
+        "T_in": "0",
+        "T_out": "2900000000000000000",
+        "S_in": "2900000000000000000",
+        "S_out": "0",
+        "F": "0",
+        "b": "2900000000000000000",
+        "B": "2900000000000000000"
+      },
+      "arithmetic_valid": true,
+      "expected_B_next": "0"
+    },
+    {
+      "name": "wrong-shield-balance-sign",
+      "values": {
+        "T_in": "101",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "100",
+        "F": "1",
+        "b": "100",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "hidden_balance"
+    },
+    {
+      "name": "wrong-hidden-balance",
+      "values": {
+        "T_in": "101",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "100",
+        "F": "1",
+        "b": "-99",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "hidden_balance"
+    },
+    {
+      "name": "fee-counted-twice",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "100",
+        "S_out": "99",
+        "F": "2",
+        "b": "1",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "public_balance"
+    },
+    {
+      "name": "public-output-inflation",
+      "values": {
+        "T_in": "0",
+        "T_out": "2",
+        "S_in": "100",
+        "S_out": "99",
+        "F": "0",
+        "b": "1",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "public_balance"
+    },
+    {
+      "name": "pool-underflow",
+      "values": {
+        "T_in": "0",
+        "T_out": "39",
+        "S_in": "40",
+        "S_out": "0",
+        "F": "1",
+        "b": "40",
+        "B": "20"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "pool_balance"
+    },
+    {
+      "name": "pool-overflow",
+      "values": {
+        "T_in": "1",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "1",
+        "F": "0",
+        "b": "-1",
+        "B": "2900000000000000000"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "pool_balance"
+    },
+    {
+      "name": "negative-fee",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "0",
+        "F": "-1",
+        "b": "0",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "range"
+    },
+    {
+      "name": "amount-above-monetary-bound",
+      "values": {
+        "T_in": "2900000000000000001",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "2900000000000000001",
+        "F": "0",
+        "b": "-2900000000000000001",
+        "B": "0"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "range"
+    },
+    {
+      "name": "balance-i64-minimum",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "0",
+        "F": "0",
+        "b": "-9223372036854775808",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "range"
+    },
+    {
+      "name": "negative-private-output",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "-1",
+        "F": "0",
+        "b": "1",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "range"
+    },
+    {
+      "name": "noncanonical-leading-zero",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "0",
+        "F": "00",
+        "b": "0",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "encoding"
+    },
+    {
+      "name": "float-amount-rejected",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "0",
+        "F": 0.0,
+        "b": "0",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "encoding"
+    },
+    {
+      "name": "boolean-amount-rejected",
+      "values": {
+        "T_in": "0",
+        "T_out": "0",
+        "S_in": "0",
+        "S_out": "0",
+        "F": false,
+        "b": "0",
+        "B": "500"
+      },
+      "arithmetic_valid": false,
+      "expected_rejection": "encoding"
+    }
+  ],
+  "arithmetic_sequence": [
+    {
+      "T_in": "101",
+      "T_out": "0",
+      "S_in": "0",
+      "S_out": "100",
+      "F": "1",
+      "b": "-100",
+      "B": "0"
+    },
+    {
+      "T_in": "0",
+      "T_out": "0",
+      "S_in": "100",
+      "S_out": "99",
+      "F": "1",
+      "b": "1",
+      "B": "100"
+    },
+    {
+      "T_in": "0",
+      "T_out": "58",
+      "S_in": "99",
+      "S_out": "40",
+      "F": "1",
+      "b": "59",
+      "B": "99"
+    },
+    {
+      "T_in": "0",
+      "T_out": "39",
+      "S_in": "40",
+      "S_out": "0",
+      "F": "1",
+      "b": "40",
+      "B": "40"
+    }
+  ],
+  "sequence_expected_final_pool_balance": "0",
+  "sequence_expected_total_network_fee": "4"
+}
