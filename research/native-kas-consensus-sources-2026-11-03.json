@@ -1,0 +1,219 @@
+{
+  "schema": "rfc0004-kaspa-source-review-v1",
+  "review_date": "2026-11-03",
+  "method": "Official remote HEAD resolution and fresh shallow source checkout; file hashes and exact Git blobs; no runtime, node or prover execution.",
+  "heads": [
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "head": "b85380d16514e65136001530e7c717eef304e654"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "head": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9"
+    },
+    {
+      "repository": "kaspanet/kips",
+      "head": "d832dbd89347dcb16d3d83bf6755b081714cbcb2"
+    },
+    {
+      "repository": "kaspanet/vprogs",
+      "head": "f9b84a863a7c7c20586a9cf947550475e894f72e"
+    },
+    {
+      "repository": "kaspanet/research",
+      "head": "c923faca11a49148fa7d912d27ce00197a5c5a4a"
+    }
+  ],
+  "files": [
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/core/src/tx.rs",
+      "git_blob": "863f4e04cc09d421c690605499ddce3cb9ff0ed6",
+      "sha256": "23a2a831a1670505927bf660ac12d8bd76d240903bce5605fb0dc8454237c695",
+      "bytes": 51689,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/tx.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/core/src/constants.rs",
+      "git_blob": "dd49fe31412b33189454af8a844d3eb3c60f68d4",
+      "sha256": "e972b0582b2e40566cb0fc1140da7cd7de88d681104a0b6b63d7a5b2e06d3a2e",
+      "bytes": 2200,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/constants.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/core/src/hashing/tx.rs",
+      "git_blob": "f35033c910c848d844d19ed7ad359ece0a06d20e",
+      "sha256": "b89996b5393a526dd4e1b8b7aeaee4f4dbad515252d9e12b6e2d288a7d8f6d4d",
+      "bytes": 17341,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/hashing/tx.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/core/src/hashing/sighash.rs",
+      "git_blob": "e7dd1464a1cb6a89edc313a94018b11a194d9646",
+      "sha256": "b510118f3eedd2c9cd18ae872e6c1db9c26e9bd614eefc6bbd183f8ede5275ba",
+      "bytes": 33777,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/hashing/sighash.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/core/src/mass/mod.rs",
+      "git_blob": "44f89db9ee3b35eefbcfef6fc8a2fe5d5e447cef",
+      "sha256": "044a6922ac8b3638ef720e90228323c578cad3a7236537513da8a9a423452718",
+      "bytes": 39470,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/core/src/mass/mod.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_isolation.rs",
+      "git_blob": "f5e282d3062a1a290d3f61f115e5c17931bd74cf",
+      "sha256": "820cc3ae6e3f7343154b21c455f21f22fecc3e0ab3324ab00e05abc741b8c847",
+      "bytes": 20396,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/transaction_validator/tx_validation_in_isolation.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs",
+      "git_blob": "477101933095872c5fdee38806a00ea369a87056",
+      "sha256": "8e6f22b0f0280df9c3baad39654e3ce15c0b25cc5a97b720add1bbdc721e6786",
+      "bytes": 50222,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/transaction_validator/tx_validation_in_utxo_context.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/pipeline/virtual_processor/utxo_validation.rs",
+      "git_blob": "0f20bd86d3cb6f22a99a4aaecd12649e753426f5",
+      "sha256": "dc018541a13ddf7f06eaae96d6f427eff57d3ab63302cfab3fc5bbbcd8bcd2a0",
+      "bytes": 32206,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/utxo_validation.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/pipeline/virtual_processor/processor.rs",
+      "git_blob": "ce87653ea453fcd731a2a7d580d0a8546563d3e0",
+      "sha256": "51f0b7a678d6966d2c272d4fc853d01310364beaebbd596ff0b4e839e0d315c0",
+      "bytes": 80753,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/pipeline/virtual_processor/processor.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/model/stores/virtual_state.rs",
+      "git_blob": "a34756aaba5f90438d0e3b8aa7318e36eda51e08",
+      "sha256": "1151b8ccb2ea17e77d32dab746c7b00f13680300738d4863435bcceddc265d47",
+      "bytes": 20911,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/model/stores/virtual_state.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/processes/pruning_proof/apply.rs",
+      "git_blob": "690839ad6740d6ae1ad2b67fad983eb0911ebf74",
+      "sha256": "d61e22fb56ef3117f730817db01f8aff0264e6482e559673664e92332941d9aa",
+      "bytes": 16728,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/pruning_proof/apply.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "consensus/src/processes/coinbase.rs",
+      "git_blob": "b122e836fc097f014d9856d13da3e4d8104927fd",
+      "sha256": "db3929a6754b5092fcad081a6cf8af5ab75af854f839ebecc538ae1bb33c0e14",
+      "bytes": 30762,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/consensus/src/processes/coinbase.rs"
+    },
+    {
+      "repository": "kaspanet/rusty-kaspa",
+      "commit": "b85380d16514e65136001530e7c717eef304e654",
+      "path": "crypto/txscript/src/zk_precompiles/tags.rs",
+      "git_blob": "803bb3211b737855176b1aa58b027af57669b90b",
+      "sha256": "b3288d447e0ea09447e6564c921389bd6d5668d6d302c8d409ded7895919ef03",
+      "bytes": 2497,
+      "url": "https://github.com/kaspanet/rusty-kaspa/blob/b85380d16514e65136001530e7c717eef304e654/crypto/txscript/src/zk_precompiles/tags.rs"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "commit": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+      "path": "content/docs/toccata/decision-guide.mdx",
+      "git_blob": "f2aee494f10300a7b01455c47267edd93f4f41ff",
+      "sha256": "023206bce55241713b24389d96d025facdc7d191e39d6742bf9386fe218be46a",
+      "bytes": 6570,
+      "url": "https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/decision-guide.mdx"
+    },
+    {
+      "repository": "kaspanet/docs",
+      "commit": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+      "path": "content/docs/toccata/inline-zk.mdx",
+      "git_blob": "7b30fa59eeaace9f324b92abdc433bdea39d105d",
+      "sha256": "9d982ad45b186923af6a0ed72fbeb6e976bf9945a0d4e44fa970d839962337fc",
+      "bytes": 5175,
+      "url": "https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/inline-zk.mdx"
+    },
+    {
+      "repository": "kaspanet/kips",
+      "commit": "d832dbd89347dcb16d3d83bf6755b081714cbcb2",
+      "path": "kip-0021.md",
+      "git_blob": "2bab3636758cc51c6a903c8552256f31289910a2",
+      "sha256": "dfad1bd3953a1ab80e03ea7f52c529e9cba7b9ee513206a402206062c408c783",
+      "bytes": 38541,
+      "url": "https://github.com/kaspanet/kips/blob/d832dbd89347dcb16d3d83bf6755b081714cbcb2/kip-0021.md"
+    },
+    {
+      "repository": "kaspanet/vprogs",
+      "commit": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "path": "README.md",
+      "git_blob": "3aa0c7fb1515715d123ac5bcb3d7d4a0e6b2d3d7",
+      "sha256": "0f171c036bb2c62dcf100eda76867b42fc1bdba203045e8cde6238be0fb8c7d9",
+      "bytes": 7981,
+      "url": "https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/README.md"
+    },
+    {
+      "repository": "kaspanet/vprogs",
+      "commit": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "path": "zk/backend/risc0/runtime-processor/src/action/withdraw.rs",
+      "git_blob": "6c536cf28cbe452dbf7ce54f0617545396fdc246",
+      "sha256": "f79f6c43fcbe32c48fbf91897999245e9f144d0f2e84ce517fc26b347a7bc573",
+      "bytes": 2888,
+      "url": "https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/zk/backend/risc0/runtime-processor/src/action/withdraw.rs"
+    },
+    {
+      "repository": "kaspanet/vprogs",
+      "commit": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+      "path": "zk/backend/risc0/api/src/permission_script.rs",
+      "git_blob": "1d9d615708711fbea586e15ceff4c70d35d896ab",
+      "sha256": "f23c746cc15203e3f52c64dc66c2b651b688ddc49e62722a067b6178f5c13d5e",
+      "bytes": 33826,
+      "url": "https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/zk/backend/risc0/api/src/permission_script.rs"
+    },
+    {
+      "repository": "kaspanet/research",
+      "commit": "c923faca11a49148fa7d912d27ce00197a5c5a4a",
+      "path": "README.md",
+      "git_blob": "903a44389d36cc66f489194579b3733fb17d18b6",
+      "sha256": "fa73396af352e5f4b591bbe31ec643939a61d7ff8322f3d765c0d3aa05a5ae8b",
+      "bytes": 447,
+      "url": "https://github.com/kaspanet/research/blob/c923faca11a49148fa7d912d27ce00197a5c5a4a/README.md"
+    },
+    {
+      "repository": "kaspanet/research",
+      "commit": "c923faca11a49148fa7d912d27ce00197a5c5a4a",
+      "path": "vProgs/main.tex",
+      "git_blob": "8b6eb80f7e803b8edfc28f71ed27e2abf0be49d0",
+      "sha256": "dd8e426439fe26f03c7b31d6cb9ee4616b1638cc04ca80f91f6130b22b095c37",
+      "bytes": 49161,
+      "url": "https://github.com/kaspanet/research/blob/c923faca11a49148fa7d912d27ce00197a5c5a4a/vProgs/main.tex"
+    }
+  ],
+  "source_head_identity_does_not_establish_network_activation": true
+}
