@@ -5,3 +5,9 @@ poc/a1/evidence/official-trial-2026-10-08/source/** -whitespace -text
 
 # Exact historical document bytes; research_knowledge.py verifies both hashes.
 docs/research-knowledge/documents/*.txt -whitespace -text
+
+# Exact public mathematical verifier artifacts and transcript provenance.
+docs/spec/native-shielded/artifacts/*.bin binary
+docs/spec/native-shielded/artifacts/upstream-pinned-key-description.txt -text
+# Unified-diff blank context lines contain a required single space.
+docs/spec/native-shielded/key-export/diagnostic-export.patch -whitespace -text

@@ -1,0 +1,351 @@
+{
+  "schema": "KASPVK01/1",
+  "curve": "Vesta",
+  "fixed_circuit": "FixedPostNu6_2",
+  "capsule_bytes": 206564,
+  "capsule_sha256": "743fa19c541fa2c7881c4ed0e3340c82d88780dbbc549cc2f3bfd982c2e517e0",
+  "params_bytes": 131140,
+  "params_sha256": "1eab6f93a080ce41b908d935c04bd2e3ed1ac23f277c15d11c499d56d28fa0f7",
+  "compatibility_transcript_scalar_le32": "71522dd31238af3da22e6d9acbec2d03e0fedf2688553cf3be0bbe598fd4f70b",
+  "compatibility_transcript_scalar_offset": 131440,
+  "domain": {
+    "k": 11,
+    "n": 2048,
+    "extended_k": 14,
+    "quotient_degree": 8,
+    "omega_le32": "1378a1ad5a5428ef4ec2a1aabc889b7a0b606d4295d3cb319e11325fad501b18"
+  },
+  "cs": {
+    "degree": 9,
+    "blinding_factors": 5,
+    "minimum_rows": 8,
+    "fixed_columns": 29,
+    "advice_columns": 10,
+    "instance_columns": 1,
+    "selectors_before_compression": 56,
+    "minimum_degree": null,
+    "constant_column_indices": [
+      3
+    ],
+    "advice_query_counts_per_column": [
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "query_layouts": {
+      "advice": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
+          -1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          6,
+          -1
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          -1
+        ],
+        [
+          8,
+          -1
+        ]
+      ],
+      "fixed": [
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          19,
+          0
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          21,
+          0
+        ],
+        [
+          22,
+          0
+        ],
+        [
+          23,
+          0
+        ],
+        [
+          24,
+          0
+        ],
+        [
+          25,
+          0
+        ],
+        [
+          26,
+          0
+        ],
+        [
+          27,
+          0
+        ],
+        [
+          28,
+          0
+        ]
+      ],
+      "instance": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "permutation_column_layout": [
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ]
+    ],
+    "gate_groups": 55,
+    "gate_polynomials": 193,
+    "lookup_arguments": 3,
+    "query_counts": {
+      "advice": 25,
+      "fixed": 29,
+      "instance": 1
+    },
+    "permutation_columns": 15,
+    "permutation_chunk_len": 7,
+    "expression_nodes": 7672
+  },
+  "checks": {
+    "canonical_complete_decode": true,
+    "field_and_curve_encodings": true,
+    "domain_query_ast_degree_consistency": true,
+    "upstream_compatibility_scalar_provenance": true
+  },
+  "limitations": "not an independent Halo2 verifier, constraint soundness proof, native key import or activation"
+}

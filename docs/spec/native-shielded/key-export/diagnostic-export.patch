@@ -1,0 +1,171 @@
+--- a/orchard/src/circuit.rs
++++ b/orchard/src/circuit.rs
+@@ -1087,6 +1087,21 @@
+ }
+ 
+ impl VerifyingKey {
++    /// Diagnostic capture only, compiled solely with verifier-fingerprint.
++    #[cfg(feature = "verifier-fingerprint")]
++    pub fn write_portable_key_diagnostic(&self, writer: &mut impl std::io::Write) -> std::io::Result<()> {
++        if self.circuit_version != OrchardCircuitVersion::FixedPostNu6_2 {
++            return Err(std::io::Error::other("portable research profile requires FixedPostNu6_2"));
++        }
++        self.vk.write_portable_vesta_diagnostic(&self.params, writer)
++    }
++
++    /// Upstream Debug preimage provenance only; not a portable key encoding.
++    #[cfg(feature = "verifier-fingerprint")]
++    pub fn portable_diagnostic_upstream_description(&self) -> std::string::String {
++        self.vk.portable_diagnostic_upstream_description()
++    }
++
+     /// Builds the verifying key for the given circuit version.
+     ///
+     /// See [`OrchardCircuitVersion`] for which version to use.
+--- a/halo2_proofs/src/plonk.rs
++++ b/halo2_proofs/src/plonk.rs
+@@ -38,6 +38,9 @@
+ pub use verifier::*;
+ 
+ use std::io;
++
++#[cfg(feature = "unstable-verifier-fingerprint")]
++mod portable;
+ 
+ /// This is a verifying key which allows for the verification of proofs for a
+ /// particular circuit.
+--- a/halo2_proofs/src/plonk/circuit.rs
++++ b/halo2_proofs/src/plonk/circuit.rs
+@@ -1015,6 +1015,9 @@
+ }
+ 
+ impl<F: Field> ConstraintSystem<F> {
++    #[cfg(feature = "unstable-verifier-fingerprint")]
++    pub(crate) fn portable_advice_query_counts(&self) -> &[usize] { &self.num_advice_queries }
++
+     /// Obtain a pinned version of this constraint system; a structure with the
+     /// minimal parameters needed to determine the rest of the constraint
+     /// system.
+--- a/halo2_proofs/src/poly/domain.rs
++++ b/halo2_proofs/src/poly/domain.rs
+@@ -478,6 +478,11 @@
+ }
+ 
+ impl<F: WithSmallOrderMulGroup<3>> EvaluationDomain<F> {
++    #[cfg(feature = "unstable-verifier-fingerprint")]
++    pub(crate) fn portable_diagnostic(&self) -> (u32,u32,F,F,F,u64) {
++        (self.k,self.extended_k,self.omega,self.extended_omega,self.g_coset,self.quotient_poly_degree)
++    }
++
+     /// Gets the quotient polynomial's degree (as a multiple of n)
+     pub fn get_quotient_poly_degree(&self) -> usize {
+         self.quotient_poly_degree as usize
+--- /dev/null
++++ b/halo2_proofs/src/plonk/portable.rs
+@@ -0,0 +1,106 @@
++//! Diagnostic-only portable VK capture. Does not read/import keys or alter verification.
++use std::io::{self, Write};
++use ff::{PrimeField, FromUniformBytes, WithSmallOrderMulGroup};
++use group::GroupEncoding;
++use crate::pasta::{EqAffine, Fp, Fq};
++use crate::poly::commitment::Params;
++use super::{Any, Expression, VerifyingKey};
++
++fn number(w: &mut impl Write, n: usize) -> io::Result<()> {
++    let n = u32::try_from(n).map_err(|_| io::Error::other("diagnostic count exceeds u32"))?;
++    w.write_all(&n.to_le_bytes())
++}
++fn modulus(w: &mut impl Write, s: &str) -> io::Result<()> {
++    let s = s.strip_prefix("0x").ok_or_else(|| io::Error::other("modulus hex prefix"))?;
++    if s.len() != 64 { return Err(io::Error::other("modulus width")); }
++    for i in (0..32).rev() {
++        let byte = u8::from_str_radix(&s[2*i..2*i+2], 16).map_err(io::Error::other)?;
++        w.write_all(&[byte])?;
++    }
++    Ok(())
++}
++fn scalar(w: &mut impl Write, s: Fp) -> io::Result<()> { w.write_all(s.to_repr().as_ref()) }
++fn query(w: &mut impl Write, index: usize, column: usize, rotation: i32) -> io::Result<()> {
++    number(w, index)?; number(w, column)?; w.write_all(&rotation.to_le_bytes())
++}
++fn expression(w: &mut impl Write, e: &Expression<Fp>) -> io::Result<()> {
++    match e {
++        Expression::Constant(s) => { w.write_all(&[0])?; scalar(w, *s) }
++        Expression::Selector(s) => { w.write_all(&[1])?; number(w, s.0)?; w.write_all(&[u8::from(s.is_simple())]) }
++        Expression::Fixed(q) => { w.write_all(&[2])?; query(w, q.index, q.column_index, q.rotation.0) }
++        Expression::Advice(q) => { w.write_all(&[3])?; query(w, q.index, q.column_index, q.rotation.0) }
++        Expression::Instance(q) => { w.write_all(&[4])?; query(w, q.index, q.column_index, q.rotation.0) }
++        Expression::Negated(a) => { w.write_all(&[5])?; expression(w, a) }
++        Expression::Sum(a,b) => { w.write_all(&[6])?; expression(w,a)?; expression(w,b) }
++        Expression::Product(a,b) => { w.write_all(&[7])?; expression(w,a)?; expression(w,b) }
++        Expression::Scaled(a,s) => { w.write_all(&[8])?; scalar(w,*s)?; expression(w,a) }
++    }
++}
++fn points(w: &mut impl Write, values: &[EqAffine]) -> io::Result<()> {
++    number(w, values.len())?;
++    for value in values { w.write_all(value.to_bytes().as_ref())?; }
++    Ok(())
++}
++
++impl VerifyingKey<EqAffine> {
++    /// Feature-gated export of actual mathematical fields and the EXISTING transcript scalar.
++    /// Research format KASPVK01. Not a native protocol allocation or deserialization API.
++    pub fn write_portable_vesta_diagnostic(&self, params: &Params<EqAffine>, w: &mut impl Write) -> io::Result<()> {
++        let (k, extended_k, omega, extended_omega, g_coset, quotient_degree) = self.domain.portable_diagnostic();
++        if k != params.k() { return Err(io::Error::other("domain/parameter k mismatch")); }
++        let cs = &self.cs;
++        // Confirm capture is for the actual upstream transcript domain, without making Debug portable.
++        let description = format!("{:?}", self.pinned());
++        let mut hash = blake2b_simd::Params::new().hash_length(64).personal(b"Halo2-Verify-Key").to_state();
++        hash.update(&(description.len() as u64).to_le_bytes()); hash.update(description.as_bytes());
++        if Fp::from_uniform_bytes(hash.finalize().as_array()) != self.transcript_repr {
++            return Err(io::Error::other("upstream transcript representative provenance mismatch"));
++        }
++        w.write_all(b"KASPVK01")?;
++        // schema=1; curve=Vesta; circuit=FixedPostNu6_2; transcript=upstream compatibility.
++        for value in [1u16, 1, 1, 1] { w.write_all(&value.to_le_bytes())?; }
++        modulus(w, Fq::MODULUS)?; modulus(w, Fp::MODULUS)?;
++        scalar(w,Fp::ROOT_OF_UNITY)?; scalar(w,Fp::DELTA)?; scalar(w,Fp::ZETA)?;
++        let mut encoded_params = Vec::new(); params.write(&mut encoded_params)?;
++        number(w,encoded_params.len())?; w.write_all(&encoded_params)?;
++        number(w,k as usize)?; number(w,extended_k as usize)?;
++        scalar(w,omega)?; scalar(w,extended_omega)?; scalar(w,g_coset)?;
++        number(w,quotient_degree as usize)?; number(w,self.cs_degree)?;
++        number(w,cs.blinding_factors())?; number(w,cs.minimum_rows())?;
++        scalar(w,self.transcript_repr)?;
++        for n in [cs.num_fixed_columns,cs.num_advice_columns,cs.num_instance_columns,cs.num_selectors] { number(w,n)?; }
++        let counts=cs.portable_advice_query_counts(); number(w,counts.len())?;
++        for n in counts { number(w,*n)?; }
++        match cs.minimum_degree { None => w.write_all(&[0])?, Some(n) => { w.write_all(&[1])?; number(w,n)?; } }
++        number(w,cs.constants.len())?; for c in &cs.constants { number(w,c.index())?; }
++        // selector_map is a dev-only cache, excluded from upstream pinned VK as well.
++        number(w,cs.advice_queries.len())?;
++        for (c,r) in &cs.advice_queries { number(w,c.index())?; w.write_all(&r.0.to_le_bytes())?; }
++        number(w,cs.fixed_queries.len())?;
++        for (c,r) in &cs.fixed_queries { number(w,c.index())?; w.write_all(&r.0.to_le_bytes())?; }
++        number(w,cs.instance_queries.len())?;
++        for (c,r) in &cs.instance_queries { number(w,c.index())?; w.write_all(&r.0.to_le_bytes())?; }
++        number(w,cs.gates.len())?;
++        for gate in &cs.gates {
++            number(w,gate.polynomials().len())?;
++            for e in gate.polynomials() { expression(w,e)?; }
++        }
++        number(w,cs.lookups.len())?;
++        for lookup in &cs.lookups {
++            for expressions in [&lookup.input_expressions,&lookup.table_expressions] {
++                number(w,expressions.len())?;
++                for e in expressions { expression(w,e)?; }
++            }
++        }
++        let columns=cs.permutation.get_columns(); number(w,columns.len())?;
++        for column in columns {
++            w.write_all(&[match column.column_type() { Any::Advice=>0,Any::Fixed=>1,Any::Instance=>2 }])?;
++            number(w,column.index())?;
++        }
++        points(w,&self.fixed_commitments)?;
++        points(w,self.permutation.commitments())
++    }
++
++    /// Provenance text only; never included as the mathematical key's portable encoding.
++    pub fn portable_diagnostic_upstream_description(&self) -> String { format!("{:?}",self.pinned()) }
++}
