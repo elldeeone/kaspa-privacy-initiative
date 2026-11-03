@@ -211,6 +211,25 @@ fn proof_corruption_and_both_signature_roles_reject_at_expected_layers() {
         verifier().verify_crypto(&Envelope::decode(&bytes).unwrap()),
         Err(Error::BindingSignature)
     );
+    // b is outside the Action circuit but bound by the signed effects and BVK.
+    // Hold the original message fixed to isolate the aggregate binding key.
+    let old_digest = effect_digest(&env.effects, &env.bundle).unwrap();
+    let mut bytes = packet("transfer");
+    let at = prefix(&env) - 1640 - 41;
+    bytes[at..at + 8].copy_from_slice(&2i64.to_le_bytes());
+    let changed = Envelope::decode(&bytes).unwrap();
+    assert_eq!(
+        verifier().verify_crypto(&changed),
+        Err(Error::SpendSignature)
+    );
+    assert!(changed
+        .bundle
+        .binding_validating_key()
+        .verify(
+            &old_digest,
+            changed.bundle.authorization().binding_signature()
+        )
+        .is_err());
 }
 
 #[test]
@@ -352,6 +371,14 @@ fn current_context_rechecked_after_genuine_crypto_pass() {
             .map(|a| a.nullifier().to_bytes()),
     );
     assert_eq!(verifier().verify(&bytes, &replay), Err(Error::Spentness));
+    let mut duplicate = bytes.clone();
+    let first = prefix(&env) - 1640;
+    let nf = duplicate[first + 32..first + 64].to_vec();
+    duplicate[first + 820 + 32..first + 820 + 64].copy_from_slice(&nf);
+    assert_eq!(
+        verifier().verify(&duplicate, &original),
+        Err(Error::Spentness)
+    );
 }
 
 #[test]

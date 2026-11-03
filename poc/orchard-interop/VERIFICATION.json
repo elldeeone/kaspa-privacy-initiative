@@ -1,0 +1,216 @@
+{
+  "schema": "kpi-orchard-interop-verification-v1",
+  "date": "2026-11-04",
+  "date_timezone": "Australia/Sydney",
+  "baseline_commit": "ef09341343c3cbb5f4ede052bcc50a05b549b6c1",
+  "codec_commit": "6e92a0bf",
+  "genuine_vectors_commit": "6009dc1c",
+  "classification": "Unfunded local complete Orchard V2 interoperability. Not native acceptance, funding authentication, cryptographic soundness or privacy/cost/recovery qualification.",
+  "profile": {
+    "actions": 2,
+    "cargo_lock_sha256": "706325889afacb6e0483cc02b6b50a0545c868d026423c3bdf0924727253d5cb",
+    "circuit": "FixedPostNu6_2",
+    "classification": "PUBLIC UNFUNDED SYNTHETIC FIXTURES; not native acceptance or privacy qualification",
+    "key_fingerprint_scope": "SHA-256 of public upstream Rust Debug, exact locked build; not portable serialized VK",
+    "note_version": 2,
+    "orchard_revision": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+    "profile_id": "8949a40444aa9f8ecd915a0a6f1143953ac24483443f807f866b0ffcbde99785",
+    "proof_bytes": 7264,
+    "public_alice_key_hex": "4141414141414141414141414141414141414141414141414141414141414141",
+    "public_bob_key_hex": "4242424242424242424242424242424242424242424242424242424242424242",
+    "public_fixture_seed_hex": "5252525252525252525252525252525252525252525252525252525252525252",
+    "schema": "kpi-orchard-interop-v1",
+    "vectors": [
+      {
+        "bytes": 9456,
+        "effects_digest": "86b87ed51dd30b10d8429315062fd895c250af9077fe666a490d14c9b75ca185",
+        "expected_pool_next": "100",
+        "name": "deposit",
+        "public_balance": "-100",
+        "sha256": "76372ed98fd12522bfa204e7a366083a393440f1c051242f96b164b7bad2555f"
+      },
+      {
+        "bytes": 9395,
+        "effects_digest": "d34a7e9d262f745a8eb1ed2d06660083d4699c3fa8fc2c1966e5755aaf36c1d8",
+        "expected_pool_next": "99",
+        "name": "transfer",
+        "public_balance": "1",
+        "sha256": "71579a2436343f903a45b7659dd99ce35f77afad45c2196d277a4441e17e876d"
+      },
+      {
+        "bytes": 9413,
+        "effects_digest": "1ee1acef16b6e7d1cc03a92a05e411847d9a2ccb4c0edb6a621dac8a38634ac5",
+        "expected_pool_next": "39",
+        "name": "withdraw",
+        "public_balance": "60",
+        "sha256": "a6263ffb59a49f0af14d8c60fcd90c8c272f2e4128e4dac1148153dfea9c9141"
+      }
+    ],
+    "vk_debug_sha256": "eafbdf6694e6da29789e105a15ce9509b957dd9f5ca3a1fa4c468bb6546686af"
+  },
+  "upstream_heads_rechecked": {
+    "zcash/orchard": "616a669df8c9a59c33d47064d3ce04b25d026b2e",
+    "kaspanet/rusty-kaspa": "b85380d16514e65136001530e7c717eef304e654",
+    "kaspanet/docs": "0ac77d043a802fc8196abfd5812ac2afbd97a2b9",
+    "kaspanet/vprogs": "f9b84a863a7c7c20586a9cf947550475e894f72e",
+    "kaspanet/research": "c923faca11a49148fa7d912d27ce00197a5c5a4a"
+  },
+  "reviewed_upstream_files": [
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/Cargo.toml",
+      "sha256": "7e77f561f41a9f281617490ad26bd4c9776b25e8685d51727031016ea73c08ae",
+      "bytes": 4121
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/action.rs",
+      "sha256": "3f80c4d1ee3bed8fc4548c26fddd425c6727cea87758b4f4fe8843fec98902af",
+      "bytes": 14533
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/bundle.rs",
+      "sha256": "2b2071844373ac89aed0533ec5734ba9f241a977158ced05f9f1734b80215737",
+      "bytes": 72629
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/builder.rs",
+      "sha256": "4535e4fd73b38529e6d3ac88b337a335df35eb64734cba074a506554640a4a81",
+      "bytes": 129594
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/circuit.rs",
+      "sha256": "ce6506c490ce3ebea6ac833432052a8928051c5bea34bb5cdea22ce9ac49600c",
+      "bytes": 82824
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/keys.rs",
+      "sha256": "ed5c26bc7907a928134f07612af322c2f55dd5da28b452660bff77f959c287ba",
+      "bytes": 46924
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/note.rs",
+      "sha256": "fdd312b64b14071c15b6a460776bc9a94d7d3cc245b3b379aff42c28830e22cc",
+      "bytes": 19564
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/note/nullifier.rs",
+      "sha256": "860747577a477fa387af512262c7f391593d74f4ac619a86b5c6c897bf18c659",
+      "bytes": 4037
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/note_encryption.rs",
+      "sha256": "0e1785ecb66dfbb343674afa8e8e037710f1b26d340804ce03aa502a33e464f3",
+      "bytes": 39339
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/primitives/redpallas.rs",
+      "sha256": "f9bde36b81685daaa0076e730d4b3e52bbb1a4958d8de9279124e9b1584b32fa",
+      "bytes": 8190
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/tree.rs",
+      "sha256": "7602ebde6aeadac78d401131900a3ef06469bc27a7e2d69f68173220cc89d39b",
+      "bytes": 19280
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/value.rs",
+      "sha256": "7ef315a72f6ff6fe0ff6c13bb71fed1fab59dde7658a7d9bd6917347808e90cb",
+      "bytes": 17365
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/test_vectors/keys.rs",
+      "sha256": "b0cc0f79ef82765e219b8484edcf979162bf68e40ea0a23730611aaa4e83525a",
+      "bytes": 55799
+    },
+    {
+      "url": "https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/LICENSE-MIT",
+      "sha256": "d57777b4f9633cb259ba967bb95562766611157dcc2d2113077871162fd38c43",
+      "bytes": 1143
+    }
+  ],
+  "dependency_packages_in_lockfile": 109,
+  "rust_toolchain": "1.95.0",
+  "checks": {
+    "genuine_halo2_bundles": 3,
+    "individual_spend_signatures_per_bundle": 2,
+    "binding_signatures_per_bundle": 1,
+    "rust_integration_tests": 15,
+    "deterministic_bitflip_cases": 96,
+    "upstream_known_answer_vectors": 1,
+    "python_independent_framing_and_digest_vectors": 3,
+    "byte_identical_reproduced_files": 10,
+    "fresh_process_packet_verifications": 3,
+    "independent_key_constructions_match": true,
+    "format": "pass",
+    "clippy_warnings_denied": "pass",
+    "full_repository_regression": {
+      "command": "bash scripts/ci_fast.sh",
+      "exit_code": 0,
+      "python_cases": 179,
+      "python_passed": 177,
+      "python_skipped": 2,
+      "skip_scope": "Existing opt-in native integration checks without explicit local configuration",
+      "node_passed": 13,
+      "log_sha256": "8141caab807ae7727092cf2c6e3df5bc1b879ba09fe271535ee2531e3b75b48d"
+    },
+    "package_command": "bash poc/orchard-interop/check.sh",
+    "package_log_sha256": "6218da4ab75e1fc952b9a18433aea71b8e8129d8b13797bad50d0cd973e9cccd",
+    "documents": {
+      "markdown_files": 271,
+      "relative_links": 3834,
+      "result": "pass"
+    },
+    "historical_knowledge": {
+      "commits": 369,
+      "document_versions": 2341,
+      "branch_refs": 39,
+      "pull_histories": 42,
+      "result": "pass"
+    },
+    "prior_rfc_arithmetic_and_symbolic_checks": "pass, unchanged scope; not native validation",
+    "hosted_ci": "Dedicated workflow added; local equivalent passed. Hosted execution is not asserted by this receipt."
+  },
+  "preserved_files_sha256": {
+    "SECURITY-INVARIANTS.md": "44cf983d06c8895c61a492107f65487725331a1b2f93d1c89e7353fb5399733d",
+    "scripts/ci_fast.sh": "1103129837e1ade44d26212c213ba7eaec9f5904db932a96a8ea181b6e61a330",
+    ".github/workflows/code.yml": "3210289fa84d93591cee5b2cb9a01183554edd798b52733cd2c01d1e3efbbaa3"
+  },
+  "limitations": [
+    "Experimental format/digest only; no native version allocation, Kaspa SIGHASH integration or portable native key format.",
+    "Verifier identity is SHA-256 of public upstream Rust Debug under the locked profile, not serialized VK.",
+    "Ordinary input values, UTXO authorization, current anchors/nullifiers/balance and predecessor are supplied context; no actual chain authentication.",
+    "No durable state transition, reorg/undo, archive/bootstrap/recovery, consensus metering or network activation.",
+    "Upstream hidden values remain u64; no MAX_SOMPI range gadget added and invariant/accounting adoption remains open.",
+    "Public synthetic keys/seeds and vectors only; no wallet data, funds, broadcasts, RPCs, MPC, zkVM or provider work.",
+    "Same-host/process reproduction and negative tests are not independent human review, production safety or cryptographic proof."
+  ],
+  "package_files_sha256": {
+    "Cargo.lock": "706325889afacb6e0483cc02b6b50a0545c868d026423c3bdf0924727253d5cb",
+    "Cargo.toml": "2627d1002d4a80054ac4eb0945c444580c94ed11eaf55de2bc0dfb932e7a8e0d",
+    "README.md": "d6849e7282e5877127b9c340a10865d72609af3092e6648d07a2a189c31f81d5",
+    "REVIEW.md": "04d8b5ad7228765e3d99114fba8ac4839c39e4d395a657f00d4928878bf6736f",
+    "UPSTREAM-LICENSE-MIT": "d57777b4f9633cb259ba967bb95562766611157dcc2d2113077871162fd38c43",
+    "check.sh": "1e4920a0518142a990facce7e94eceda93d824f2403f98bba4775bc68f9cc0c4",
+    "check_vectors.py": "857bb4962083b41a904f8af9601d82130c595c1f581c68ff4ad847a31ffdaae1",
+    "rust-toolchain.toml": "28ba63ba51f7635afd6b0663f2613a1037ab602a039a889e991b1164b84d4714",
+    "src/codec.rs": "2dacd2b1ead24297bb62606eb2610793362da423cb7f8dadabf640cf138e8dde",
+    "src/effects.rs": "04d1e65e5862aa6b0d6346dca860ad3e61bf06174e8677db0cf7a3a239d7795c",
+    "src/fixtures.rs": "6141e53bb29d4c17978906f47d99567907ee2cbcec78752e026119da387cdbcd",
+    "src/lib.rs": "c8977f5f2f93c1519df8b4fecae10772e46da36f2d0e501f3f776d31da2657a2",
+    "src/main.rs": "b8e4196b932f4fbf57aa6ed7e2bf3cecf3b6a7988d1f1b1d5982c84d52d29ecc",
+    "src/verifier.rs": "3cb14cf6a137a1daa9386471a6ef76eec5e0c714912c197c9565a7dcbf58f75a",
+    "tests/interoperability.rs": "0bb612a204ba4a4c22c28d18f8e6e14f91d00de6c7b2ef8b8a6fdb13b4eb1475",
+    "vectors/deposit.bin": "76372ed98fd12522bfa204e7a366083a393440f1c051242f96b164b7bad2555f",
+    "vectors/deposit.context.json": "1c2945862b087e18b1bff3085d37220c56d2d04cbf5bf96f2a24e2e7bc402d95",
+    "vectors/deposit.effects.hex": "f77f5622a540a6e8c90cd6efe6043dc11dd8d4559efba4b89f13734885090b49",
+    "vectors/manifest.json": "90ea78c6d6c63a228567237b07cb6bff67f9f778bede9a28c7eaf98b82433cb9",
+    "vectors/transfer.bin": "71579a2436343f903a45b7659dd99ce35f77afad45c2196d277a4441e17e876d",
+    "vectors/transfer.context.json": "d9d4f07cc6c42a0be1df5f522f59d8ed35e2b469e0763ab90ea8e7d6b50d8e87",
+    "vectors/transfer.effects.hex": "b7aeff6d72aa2f977ef70c3272c44ca2c73afb4fc4f7fee42355c0f1b52e5bd8",
+    "vectors/upstream-key-note.json": "0688db0563873acf4aeae81a10824ef545d06b2598506d4d8b4f0a4f51a6d793",
+    "vectors/withdraw.bin": "a6263ffb59a49f0af14d8c60fcd90c8c272f2e4128e4dac1148153dfea9c9141",
+    "vectors/withdraw.context.json": "f86cf5523de6f2eb7d1ee6623f035b1419e1dd45f7672b59a331a139fbaf87bc",
+    "vectors/withdraw.effects.hex": "fff038fb7d457fb9a9923d7128a7a809225e8246d9f15af5447e8d15d4e8828a"
+  },
+  "workflow_sha256": "a168040a03c53d7a084b3acddf8321f9122aa69a9b3450bf95a0507a6103a504",
+  "verified_at_utc": "2026-11-03T13:32:06.769143+00:00"
+}

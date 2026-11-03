@@ -551,3 +551,22 @@ record exact current assumptions, header/bootstrap gaps and an adversarial secon
 pass. Twelve symbolic traces exercise model obligations only; they validate no
 cryptographic soundness, actual DAG/store undo or independent data availability.
 Independent human cryptography/consensus approval remains outstanding.
+
+## Unfunded complete-Orchard codec/verifier — 4 November 2026
+
+The [ADR-0102 package](poc/orchard-interop/README.md) checks genuine full Halo2
+and both signature roles for an experimental complete modeled-effects digest.
+Untrusted packet fields cannot select another verifier/version. Canonical
+role/length parsing, bounded allocation, signed delivery/economic fields,
+duplicate supplied outpoints, all-slot spentness and stale supplied-context
+checks have explicit negative coverage. Its [adversarial review](poc/orchard-interop/REVIEW.md)
+records the attack paths and remaining boundaries.
+
+Ordinary input amounts/authorization, roots, predecessor and spentness are
+supplied inputs, not authenticated native state. No UTXO/script execution,
+durable acceptance/undo, archive availability, native mint/release or funded
+payment is implemented. Reusing old supplied context is not stateful double-
+spend prevention. Public fixture keys/seeds belong only to synthetic unfunded
+vectors. The diagnostic Rust Debug key fingerprint is not a portable consensus
+key format. Passing this package does not qualify privacy, complete costs,
+recovery, cryptographic soundness or production safety; invariants remain intact.

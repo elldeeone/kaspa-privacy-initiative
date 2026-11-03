@@ -10,6 +10,15 @@ The unchanged circuit proves `u64` values; native monetary bounds need the
 explicit backing induction. No existing Kaspa tag accepts the full construction.
 Independent specialist approval and native integration remain outstanding.
 
+The next authorized [unfunded interoperability package](../../poc/orchard-interop/README.md)
+now supplies real complete Halo2 bundles, both signature roles, an experimental
+effects/codec contract and actual proof/signature rejection tests. Public
+artifacts reproduce byte for byte; a Python parser cross-checks framing/digests.
+Its key fingerprint is a locked Rust Debug diagnostic, not a portable consensus
+format. It proves no ordinary funding, accepted native state or privacy target.
+The historical guest remains a different relation; the new package does not
+retroactively qualify its old proofs or missing parameters.
+
 ## Preserve the evidence ladder
 
 Constraint satisfaction, local cryptographic verification, a zkVM segment,

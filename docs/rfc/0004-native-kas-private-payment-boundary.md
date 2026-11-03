@@ -351,6 +351,28 @@ comparison for Proposed ZIP 2005 recovery preparation. Neither current choice
 is an end-to-end post-quantum design. Selecting a reversible research reference
 does not adopt a production architecture, amend an invariant or activate Kaspa.
 
+### Unfunded codec/verifier interoperability result
+
+The owner-authorized [package](../../poc/orchard-interop/README.md) under
+[ADR-0102](../adr/0102-unfunded-orchard-interoperability.md) now implements a
+bounded experimental two-Action codec and complete modeled-effects digest.
+Three genuine upstream Halo2 bundles cover deposit, real-spend transfer/change
+and real-spend withdrawal. Individual spend and binding signatures verify the
+same digest. Fifteen integration tests include actual changed-public-input and
+wrong-key Halo2 rejection, effects/signature mutations, malformed role/length
+encodings, standard recipient checks and 96 deterministic bit flips. Python
+independently reproduces framing/digests. Ten generated files reproduce byte
+for byte, with matching independently constructed verifier diagnostics.
+
+This is runnable **local interoperability**, not Kaspa transaction serialization,
+ordinary-input authorization, authenticated state, DAG acceptance, funded native
+payments, a hidden `MAX_SOMPI` gadget or financial-privacy qualification. Exact
+source/dependencies, public vectors, diagnostic key fingerprint, commands and
+limitations are in the [receipt](../../poc/orchard-interop/VERIFICATION.json).
+The key fingerprint hashes public upstream Rust Debug under a locked build; a
+portable native verification-key identity remains to specify. No network
+transaction/version/header/activation is allocated by this experimental format.
+
 ### Capability and assumption table
 
 | Requirement | Current Kaspa reference | Proposed native pool | Still unresolved |
@@ -792,8 +814,8 @@ for the arguments, exact sources, objections and proposed invariant wording.
 | ID | Technical review outcome | Remaining gate |
 | --- | --- | --- |
 | Q1 | Native shielded ownership avoids a forced public payout; optional transparentization/legitimate owner facts still leak. The retained common-price prior alone achieves 21.10%, above the 20% cap. | This population cannot qualify unchanged. Any prospective qualification/requirement revision is explicit and owner-directed; no universal full-drainage privacy promise. |
-| Q2 | Complete repaired Orchard V2; two full Actions, standard recipient validation, all signature roles and exact upstream role encodings. | Exact native codec/effects binding, interoperability and independent cryptographic validation. |
-| Q3 | Prefer direct native Halo2/RedPallas verification. Existing tags do not accept it; full-verifier wrapping is secondary and unbuilt. | Exact key/profile fingerprints, deterministic verifier integration/metering and native activation. |
+| Q2 | Complete repaired Orchard V2; two full Actions, standard recipient validation, all signature roles. Experimental codec/effects binding and genuine local interoperability now run under ADR-0102. | Exact native field mapping/codec, real ordinary authorization/state integration and independent cryptographic validation. |
+| Q3 | Prefer direct native Halo2/RedPallas verification. Full upstream local verifier and diagnostic key identity now reproduced; current Kaspa tags still do not accept it. Full-verifier wrapping remains unbuilt. | Portable native key/profile identity, deterministic consensus verifier integration/metering and activation. |
 | Q4 | Action-linked `rho`, position-independent note nullifier, all published markers unique, common immutable-origin spentness across accepting versions. | Native creation/migration enforcement and actual cross-version/domain/double-spend conformance. No legacy position-NF substitution. |
 | Q5 | Serial accepted native effects, explicit body conflicts, completed predecessor anchors and full atomic undo; cache only exact cryptographic validity. | New native state/header codec, anchor eligibility, actual DAG/storage/cache/reorg integration. Symbolic traces are not that integration. |
 | Q6 | Full retention first; validator replay needs ordinary funding context, wallet recovery needs authenticated native state and complete discovery data. | New authenticated bootstrap/header coverage, independently retrievable artifacts/history, cold recovery and sustainable storage. |
@@ -868,11 +890,11 @@ custodians.
 
 ## Smallest next engineering step
 
-The internal review is complete. The next bounded engineering study is an
-unfunded complete-V2 codec/verifier interoperability package: reproducible key
-fingerprints, upstream positive/negative vectors and complete-effects mutation
-checks. It can investigate compatibility without claiming native consensus or
-privacy qualification. No new study was run by this review.
+The internal review and unfunded complete-V2 interoperability package are
+complete within their stated scope. The next specification deliverable is an
+exact native field/state/header/bootstrap mapping, with a portable key identity
+and mass/activation rules. The experimental packet and diagnostic Rust Debug
+fingerprint are inputs to that work, not an allocated consensus format.
 
 Before native consensus implementation, finish the exact transaction/header/
 state codecs and bootstrap rules, review/adopt the explicit invariant/accounting
@@ -892,10 +914,11 @@ campaign, infrastructure or MPC work is part of this documentation task.
 Open. ADR-0101 accepts a research reference only, with its alternatives,
 objections and reconsideration conditions. Independent human cryptography and
 Kaspa consensus approval remain outstanding.
-This RFC accepts no implementation, funded trial, broadcast, proof campaign,
-runtime deployment or recovery action. The owner authorized this documentation
-extension and logical commits; that authorization does not adopt the proposal
-or restart paused MPC work.
+The owner subsequently authorized the unfunded local codec/verifier package and
+genuine synthetic Halo2 interoperability proofs, recorded by ADR-0102. This RFC
+still accepts no native consensus implementation, funded trial, broadcast,
+runtime deployment or recovery action. Neither authorization adopts production
+architecture or restarts paused MPC/zkVM/provider work.
 
 ## Current source pins
 

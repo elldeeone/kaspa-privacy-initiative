@@ -4,11 +4,15 @@
 checkpoints below are historical; use the [lessons/corrections](RESEARCH-LESSONS.md)
 and [history index](RESEARCH-HISTORY.md) before resuming an old path.
 
-**Current checkpoint, 3 November:** the internal AI technical review of
+**Current checkpoint, 4 November:** the internal AI technical review of
 [RFC-0004 Q1–Q10](rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
 is complete. [ADR-0101](adr/0101-native-shielded-research-reference.md) selects
 complete repaired Orchard V2/native verification as the research reference.
-The next bounded study is unfunded codec/verifier interoperability. Native
+The [unfunded codec/verifier package](../poc/orchard-interop/README.md) is now
+complete: genuine full Halo2 and both signature roles, canonical experimental
+bytes, effects mutation checks and reproducible public vectors. Next is the
+exact native transaction/state/header/bootstrap specification, portable key
+identity and mass/activation rules. Native
 implementation still needs exact codec/state/bootstrap, reviewed invariant/
 accounting adoption and actual consensus integration. The unchanged common-price
 population cannot qualify its absolute privacy cap; independent human review and

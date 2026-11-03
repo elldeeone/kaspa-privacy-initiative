@@ -11,6 +11,12 @@ answer identity, accepted effects, retained recovery data and fee-repricing
 questions. Remaining specification gaps are exact native transaction/header/
 state codecs, authenticated bootstrap, mass/activation rules and reviewed
 I-1/I-2 adoption. Actual consensus/verifier integration remains unimplemented.
+Local complete-verifier compatibility is now demonstrated by the
+[unfunded interoperability package](poc/orchard-interop/README.md): three genuine
+bundles, canonical experimental bytes, signed modeled effects and rejection
+controls. Its diagnostic Rust Debug key hash is not a portable native identity;
+supplied funding/state is not authenticated. Exact native mapping/activation,
+invariant adoption and consensus integration remain open.
 Independent human cryptography/consensus approval is outstanding. The retained
 common-price population cannot qualify the unchanged absolute cap because its
 prior alone exceeds it. No privacy requirement or invariant was amended; full

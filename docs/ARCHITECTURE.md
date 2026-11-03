@@ -24,6 +24,13 @@ common-price population exceeds the privacy cap from its prior alone. This is a
 different native representation; no production architecture, invariant change,
 independent specialist approval or privacy qualification is adopted.
 
+[ADR-0102](adr/0102-unfunded-orchard-interoperability.md) now records the
+completed [unfunded codec/verifier package](../poc/orchard-interop/README.md):
+genuine complete Halo2/RedPallas interoperability, an experimental signed-effects
+format and diagnostic key identity. It authenticates no ordinary funding or
+native state and allocates no Kaspa format. Exact native mapping/bootstrap,
+portable key identity, metering and the invariant decision remain open.
+
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
 The original executed depth-four full-drainage wallet profile remains local-only

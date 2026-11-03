@@ -53,3 +53,10 @@ authenticated bootstrap, reviewed invariant/accounting adoption and actual
 consensus integration remain open. Application proofs, a different prover or a
 larger runtime cannot conceal ordinary transparent-output fields. This review
 establishes no independent specialist approval or implementation/privacy result.
+
+The later [unfunded interoperability result](../../poc/orchard-interop/README.md)
+demonstrates the complete repaired-V2 verifier and experimental codec locally.
+It closes that compatibility question while leaving native field/state/header
+mapping, portable key identity, bootstrap, invariant adoption and actual
+consensus integration open. Carry its exact public vectors and limitations;
+do not treat synthetic ordinary inputs as native backing.

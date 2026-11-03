@@ -2,8 +2,80 @@
 
 Unfunded local interoperability package for [RFC-0004](../../docs/rfc/0004-native-kas-private-payment-boundary.md)
 and [ADR-0102](../../docs/adr/0102-unfunded-orchard-interoperability.md).
-Implementation/verification results will be recorded here as the package is completed.
+**Result, 4 November 2026 (Australia/Sydney):** three genuine two-Action Halo2
+bundles (deposit, real-spend transfer, real-spend withdrawal) serialize, parse and
+verify with individual spend/binding signatures. Fifteen integration tests pass,
+including actual changed-input/wrong-key/proof rejection, signed economic-effect
+mutations, role-specific malformed encodings, recipient checks, stale/spent
+supplied context and 96 deterministic bit flips. Python independently checks
+framing and digests. Ten generated files reproduce byte for byte; separate
+processes reconstruct the same verifier and verify all three bundles.
+
 This format does not authorize native KAS or authenticate supplied chain state.
+All keys, values and random seeds in these fixtures are public synthetic test
+data, never imported from a wallet or funded instance. The
+[verification receipt](VERIFICATION.json) records exact identities and scope.
+
+## Run
+
+Requires Rust 1.95.0 with rustfmt/clippy, Python 3 and initial Cargo dependency
+access (or the exact cached dependencies). From the repository root:
+
+```sh
+bash poc/orchard-interop/check.sh
+```
+
+This parses/cross-checks the public vectors, checks format/lints and verifies
+the full cryptography and negatives. It makes no RPC requests. Default build
+artifacts go under ignored `.local/orchard-interop/target`.
+
+Verify a packet in a fresh process:
+
+```sh
+cargo +1.95.0 run --release --locked --manifest-path poc/orchard-interop/Cargo.toml -- verify poc/orchard-interop/vectors/transfer.bin poc/orchard-interop/vectors/transfer.context.json
+```
+
+Construct independent public keys/proofs/bytes in a new local output folder:
+
+```sh
+cargo +1.95.0 run --release --locked --manifest-path poc/orchard-interop/Cargo.toml -- generate .local/orchard-interop/reproduced-vectors
+```
+
+The fixed synthetic RNG/keys are in `fixtures.rs` and the manifest. The generator
+derives the proving/verifying keys from the selected upstream circuit, creates
+three real proofs, checks decryption and complete bundle verification, and writes
+only public vectors. It does not use a ceremony coordinator or any old setup.
+`fingerprint` prints the independently constructed verifier's diagnostic identity.
+The dedicated [CI workflow](../../.github/workflows/orchard-interop.yml) runs
+the verifier/negative checks without proof generation or RPCs.
+
+## Evidence and limits
+
+| Evidence | What it establishes / limitation |
+| --- | --- |
+| Three genuine complete bundles | Full upstream Halo2, two spend signatures and binding signature under one fixed V2 key. Supplied inputs are not real UTXOs or authorized funding. |
+| Known-answer key/note vector | Public first vector extracted from pinned upstream `src/test_vectors/keys.rs`, with exact source hash. It tests key/address/commitment/NF compatibility, not received-note validation or Kaspa's smaller monetary limit. |
+| Changed public inputs | Canonical cv/NF/rk/cmx/anchor changes and a wrong circuit key reject in the actual Halo2 verifier, rather than only failing a fixture hash. |
+| Changed economic/delivery effects | Original proof remains valid for non-circuit effects, but actual spend signatures reject the changed digest. Binding-signature corruption rejects separately. |
+| Supplied context | Current all-slot spentness, anchor/domain, ordinary arithmetic and pool range checks; no authenticated chain ancestry, real UTXO lookup or durable state update. Reusing the same supplied context is not a stateful double-spend prevention service. |
+| Reproduction and Python parser | Exact local bytes/digests/key identity across new processes; not independent-host recovery or an audit. |
+
+Key fingerprint: `eafbdf6694e6da29789e105a15ce9509b957dd9f5ca3a1fa4c468bb6546686af`.
+This is SHA-256 of the constructed **public upstream Rust Debug** representation
+under the locked dependency/toolchain profile. It is diagnostic, not a portable
+serialized verification key or allocated consensus identifier. The verifier API
+fixes its key/version; no packet can choose a different key. A future portable
+native codec must define a reviewed identity independent of Rust Debug output.
+
+This is not a wallet, native transaction, UTXO/script validator, DAG database,
+reorg implementation, archive/bootstrap/recovery system, mass schedule, privacy
+pass or cryptographic soundness proof. Scripts/covenants and ordinary input
+authorization are not executed. The native invariant/accounting decision remains
+open. No smaller hidden-value range gadget is added. The unchanged price-prior
+qualification failure remains. See the [adversarial review](REVIEW.md).
+
+The upstream vector excerpt is attributed to Zcash's Orchard repository at the
+pinned revision and distributed under its [MIT license](UPSTREAM-LICENSE-MIT).
 
 ## Format v1
 

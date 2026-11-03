@@ -1,4 +1,4 @@
-# Project status — 3 November 2026
+# Project status — 4 November 2026
 
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
@@ -100,17 +100,39 @@ and reviewed adoption of the proposed I-1/I-2 accounting interpretation. The
 upstream circuit proves `u64`, not `MAX_SOMPI`; the review proposes an explicit
 backing induction. Independent review, full costs/performance and complete
 service-loss recovery remain outstanding. No invariant file or historical
-runtime changed; MPC/proof campaigns and funded trials remain paused.
+runtime changed; MPC/zkVM/provider work and funded trials remain paused. The
+subsequent local Halo2 package follows the specific owner authorization below.
 
-The next bounded engineering study is unfunded complete-V2 codec/verifier
-interoperability, with reproducible exact key identities and effects-mutation
-vectors. It can investigate compatibility without claiming qualification or
-activating a native pool. The [review checks](../scripts/check_rfc0004_review.py)
+The [review checks](../scripts/check_rfc0004_review.py)
 validate public arithmetic and 12 symbolic state traces only. The previous
 [extension receipt](../research/native-kas-shielded-value-verification-2026-11-03.json)
 retains its original scope; the new
 [review receipt](../research/rfc0004-review-verification-2026-11-03.json)
 records this review's checks and source identities.
+
+## Completed: unfunded codec/verifier interoperability
+
+The [Orchard interoperability package](../poc/orchard-interop/README.md), under
+[ADR-0102](adr/0102-unfunded-orchard-interoperability.md), now provides a runnable
+experimental codec, complete modeled-effects digest and fixed repaired-V2
+Halo2/RedPallas verifier. Three genuine synthetic bundles cover deposit,
+real-spend transfer/change and withdrawal. Fifteen integration tests pass,
+including actual proof/signature rejection, malformed encodings, recipient
+validation, stale/spent supplied context and 96 bit flips. Python independently
+checks framing/digests. Ten generated files reproduce byte for byte; fresh
+processes construct matching verifier diagnostics and verify all three bundles.
+
+Run `bash poc/orchard-interop/check.sh`. The
+[receipt](../poc/orchard-interop/VERIFICATION.json) records exact public artifacts,
+source/dependency identities and the [adversarial review](../poc/orchard-interop/REVIEW.md).
+No funds, RPCs, native consensus changes or old wallet material were used.
+Supplied input values/state are not authenticated. The diagnostic key hash uses
+locked upstream Rust Debug, not a portable native key format. This closes local
+complete-verifier/codec compatibility, not privacy/cost/recovery qualification.
+
+Next: specify exact native transaction/state/header/bootstrap mapping, portable
+key identity and mass/activation rules. Reviewed invariant/accounting adoption
+and actual consensus integration remain prerequisites to native implementation.
 
 ## Consolidation verification
 
