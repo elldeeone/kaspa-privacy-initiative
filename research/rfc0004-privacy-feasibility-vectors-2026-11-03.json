@@ -1,0 +1,38 @@
+{
+  "scope": "Deterministic arithmetic on public declared assumptions only. No private seeds, raw truth, historical rescoring or protocol experiment.",
+  "price_prior": {
+    "guess_centi_tkas": "4500",
+    "uniform_grid_first": "1000",
+    "uniform_grid_last": "5000",
+    "uniform_grid_count": 4001,
+    "success_tolerance": "abs(guess - true) <= true / 10",
+    "successful_grid_values": 910,
+    "first_success": "4091",
+    "last_success": "5000",
+    "success_probability": {
+      "numerator": 21103,
+      "denominator": 100025
+    },
+    "absolute_cap": {
+      "numerator": 1,
+      "denominator": 5
+    },
+    "cap_is_achievable_for_this_population": false
+  },
+  "one_edge_boundary_counterexample": {
+    "unit": "integer sompi; arithmetic-only example",
+    "A": {
+      "deposit": "100",
+      "withdrawal": "59",
+      "known_fee": "1"
+    },
+    "B": {
+      "deposit": "0",
+      "withdrawal": "39",
+      "known_fee": "1"
+    },
+    "assumption": "One admitted A-to-B payment; no other flows or retained positive claims",
+    "payment_inferred_from_each_owner": "40",
+    "all_ledgers_uniquely_reconstructable": false
+  }
+}
