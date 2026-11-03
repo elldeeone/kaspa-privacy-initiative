@@ -10,6 +10,9 @@ researched component. It includes local source text, task guides and explicit
 reuse decisions from every audited branch. The [history index](RESEARCH-HISTORY.md)
 records the preserved lineages.
 Upstream `main` remains a separate baseline at `7ffe8353`.
+The fork's GitHub default is `research/native-kas-withdrawal-privacy`.
+The [remote cleanup](research-history/remote-retirement-2026-11-03.json) retired
+the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
 

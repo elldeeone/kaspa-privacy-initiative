@@ -13,7 +13,7 @@ earlier findings now requires neither switching branches nor GitHub access.
 | Reference | Role |
 | --- | --- |
 | `main` at `7ffe8353` | Unmodified upstream baseline, including its final recovery features and CI. |
-| `research/native-kas-withdrawal-privacy` | Current wallet-local research and consolidation; production architecture remains open. |
+| `research/native-kas-withdrawal-privacy` | GitHub default and active research branch; current wallet-local research and consolidated knowledge. Production architecture remains open. |
 | `archive/2026-11-03/research/shielded-kas-feasibility` at `4d54dc02` | Exact frozen direct-L1, cost, recovery and private-construction reference. Its documents are local in the knowledge library; its original paused worktree remains detached/locked. |
 
 ## Retrieve a historical result
@@ -93,5 +93,22 @@ Its worktree was detached at the same commit and kept locked; its status and
 rejected patch bytes stayed unchanged. The
 [knowledge receipt](research-history/knowledge-2026-11-03.json) records that step.
 Two local branch names remain: `main` and the current wallet-local research line.
-Only the current research checkout is active. Remote branches were not deleted
-or pushed. The private archive is on this machine and is not an independent backup.
+Only the current research checkout is active. The initial local cleanup left
+remote branches untouched. The private archive is on this machine and is not an
+independent backup.
+
+## Remote retirement completed
+
+After the consolidated research branch and all 24 archive tags were pushed,
+the 13 retired GitHub branches were removed. Every deleted tip was first
+verified as equal to, or an ancestor of, its corresponding pushed archive tag;
+no open pull requests depended on those branches. The deletion checked each
+expected tip atomically so a concurrently moved branch would prevent the batch.
+
+GitHub now defaults to `research/native-kas-withdrawal-privacy`. It and the
+unmodified upstream baseline `main` are the only remaining remote branches.
+Archive tags and their targets are unchanged; the private worktrees, notes and
+rejected patch remain preserved. The
+[remote-retirement receipt](research-history/remote-retirement-2026-11-03.json)
+records each removed branch, its exact tip and its retained archive identity.
+The upstream repository was not changed.
