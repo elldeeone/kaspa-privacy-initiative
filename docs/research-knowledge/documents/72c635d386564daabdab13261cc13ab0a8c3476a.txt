@@ -1,0 +1,53 @@
+# Publication audit: standalone native validator and receipt extractor
+
+Audit time: 2026-10-22, approximately 21:00–21:10 UTC. Scope is the two closed packets in the integration worktree, read-only. No frozen file, Git index, branch, runtime result or dependency was changed; no executable was run or build repeated. This is a source/artifact publication assessment, not legal clearance or a new protocol result.
+
+**Publish source, lockfiles, public inputs and results with explicit upstream notices. Keep the two frozen executables local until their linked dependency notices are assembled.** Use an additive publication selection/omission record; retain the original closed manifests unchanged as historical identities. Omitting a binary means the published subset is not the entire original self-contained executable packet.
+
+## Exact packets checked
+
+| Packet | Closed manifest SHA256 | Files / bytes | Frozen executable |
+|---|---|---:|---:|
+| `poc/public-state-consensus-check` | `8c8f1d790675dd67c2a733d09ec401808d9f7509ec107fe93177574e3bf33928` | 35 / 25,749,849 | 25,528,984 B, `424d8f7b93864611ef2ada293fb69a8d810f1ea6f52cacbd4f109d9e0bf65b9a` |
+| `poc/public-receipt-proof-extract` | `562827461d5aaa6016e6df9d05a189acba9f3c7f2e42460782fbca8daf141813` | 30 / 7,364,561 | 7,257,424 B, `b3778d8db2ceebeae111c3318bce597636d3d028a7f03fbf4775146d470bb2d8` |
+
+Every manifest-listed file rehashed to its recorded size and SHA256. Each tree contained exactly the listed files plus the manifest itself: no unlisted files, symlinks, targets or dependency caches. Excluding only `evidence/frozen-checker` from each publication selection leaves **63 files / 328,002 bytes**, while preserving every source, input, result and historical build/runtime record. This is a conservative evidence-preserving selection, not a claim that every log is needed to rebuild.
+
+Source: integration [Full manifest](../../integration/poc/public-state-consensus-check/evidence/closed-packet-manifest.json) and [extractor manifest](../../integration/poc/public-receipt-proof-extract/evidence/closed-packet-manifest.json), independently rehashed during this audit. These links are relative to the research worktree; public copies should link within their selected publication tree.
+
+## Minimum useful source and evidence selection
+
+For both components retain `Cargo.toml`, the exact `Cargo.lock`, every `src/*.rs`, README, applicable notices and the original closed manifest. Keep source/build freezes and independent review records so the published code can be related to the actually executed binary. Preserve failed build-launch records as observations, not as successful build instructions.
+
+For the Full validator retain all three `evidence/frozen-inputs/*` files: exact transaction Borsh (2,910 B), predecessor redeem (1,383 B), reconstructed J336 (336 B). Keep `historical-state-consensus-01/report.json`, supplied UTXO/context evidence, consumed body, runtime metadata and independent source/result/recount notes. The result remains official isolation followed by `TxValidationFlags::Full` over caller-supplied synthetic UTXO/DAA context, plus separately labeled source-adapted policy cases. No chain, mempool, backing or owner-exit evidence is added by publication.
+
+For the extractor retain `evidence/frozen-inputs/{receipt.bin,journal.bin}`, the pre-decode statement selection, actual launch freeze, `fresh-profile-01/report.json` and the generated proof128/VK424/public-scalars160/J336/seal256 artifacts. The actual expected tuple is image `e21ab79e3aebdaba0355680d6a17bf0142bf0b3b5bbb687a6f2726499282a0d3`, J SHA `699697f07565d28faad6e45b9e6daa0a09dbcea3f475d51880a75289f7e49b57`, claim `88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa`, receipt SHA `e13eaa36d1149bfe873938acf829a9e47d93a6a8014eb61fdad9cb09c6e273f2`. The proof128 SHA is `ef70b661190742b88a6030ca5b102bd680d9eb8996bab57f9f4493df44fed811`. This component establishes SDK verification and checked byte conversion only.
+
+## Dependency and notice findings
+
+Both local packages declare Apache-2.0 and `publish = false`; the repository includes the Apache license text. This does not describe every linked third-party component.
+
+The Full lock has 428 package entries: the local package, 21 packages from public `kaspanet/rusty-kaspa` revision `01b532e8b553523216471682649693af92f0fd16`, and 406 registry entries. It has no path dependency or private Git source. The copied policy predicates are explicitly source-adapted from native Kaspa. Its exact upstream license is **ISC, copyright 2022–2024 Kaspa developers**; the closed helper has no local NOTICE. Add an explicit publication-side attribution/license copy for that pinned upstream rather than altering the frozen Rust source or manifest. [Pinned native license](https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/LICENSE), [pinned policy source](https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/mining/src/mempool/check_transaction_standard.rs).
+
+The extractor lock has 238 entries: its local package and 237 registry entries, no Git or path dependency. Its existing `NOTICE` preserves the vProgs ISC permission/disclaimer and 2022–2026 copyright for the adapted witness/key/point mappings. Retain it with the source. Direct dependencies pin SDK `risc0-zkvm = 3.0.3`, verifier components `3.0.4`, recursion `4.0.4` and Arkworks `0.6.0`; do not normalize these versions after the fact. The relevant RISC0 SDK license is Apache-2.0. [Pinned vProgs license](https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/LICENSE), [SDK release source license](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/LICENSE).
+
+The executable redistribution assessment is **incomplete**, and neither existing packet supplies a complete linked dependency notice bundle:
+
+- Native executable read-only `nm -C` inspection finds 30,645 `rocksdb::` symbols. Its locked native dependencies include RocksDB/LevelDB/Snappy, Zstd and secp256k1 code with additional Apache/MIT/BSD attribution material; root Apache text alone does not inventory these notices.
+- `kaspa-math` locks `malachite-base` and `malachite-nz` 0.9.2, each declaring `LGPL-3.0-only`. No matching demangled symbol was found in this executable. **Lock presence is not evidence of actual linkage**, and the audit does not infer a copyleft obligation from it. Actual retained objects and applicable redistribution terms need resolving before distributing this binary. Similarly, do not infer a GPL/AGPL requirement merely from unrelated or alternative-license files in the vendored RocksDB source tree.
+- The extractor links RISC0/Arkworks and other registry code. Its vProgs NOTICE does not inventory all third-party binary notices. The lock-level source inventory includes MIT, BSD-3-Clause, Zlib and Unicode license expressions as well as Apache alternatives. Some lock entries are target-specific, procedural macros or build dependencies; a lock inventory is a conservative superset, not the set of linked code.
+- Published crate metadata was inspected from the existing local cache, without installation. Five registry entries in each lock were absent locally (`jiff-static 0.2.38`, `jiff-tzdb 0.1.9`, `jiff-tzdb-platform 0.1.3`, `portable-atomic 1.14.0`, `portable-atomic-util 0.2.8`). No complete binary-notice attestation can be made from this cache-only check.
+
+These are reasons to select source/artifacts separately now, not reasons to replace dependencies, strip a historical executable, rewrite a frozen manifest, or retune a result. If a source/vendor archive or executable is later selected for release, assemble its exact third-party notices and any applicable source/relinking materials as a separate reviewed package. No SDK/toolchain/prover binaries or downloaded compression assets belong in this source publication selection.
+
+## Public-material and portability checks
+
+All 65 files were checked for credential/private-key filename patterns and bounded common credential/PEM token shapes, including the two executables without executing them. No match was found. The manifest allowlists contain no wallet seed, signing key, proving key, evaluation dataset, cloud credential file or private input directory. The 424-byte key is the pinned **public verification key**; the proof/seal, J336, roots, amounts, outpoint, declared synthetic UTXO and transaction are intentionally public research artifacts. This is a bounded inventory/content check, not a general secret-detection guarantee.
+
+No `include_bytes!`, `include_str!`, `include!`, compile-time environment path, private crate path or external runtime asset dependency was found in these helper sources. The source trees and locks can be built against public upstream sources; the closed executable is not required for that. The evidence logs deliberately retain historical `/home/luke/...` paths. Those paths are provenance, not portable commands or a dependency on private contents. Select fresh output directories for any later repetition, and preserve the exact expected tuple and inputs.
+
+The retained builds used an existing dependency cache, ordinary OS/C++ tooling and offline Cargo. This audit does not claim that a cache-free build was reproduced or that Cargo.lock alone reproduces identical binary bytes; toolchain, target, native compiler and environment also matter. No rebuild, proof generation, native VM run, network/funded action or blocked owner/recovery workflow occurred in this audit.
+
+## Publication handoff
+
+The publication selector should record both original manifest hashes, selected file hashes, the two omitted executable hashes/sizes and the reason for omission. Keep the original manifests and reports byte-identical and label them as records of the closed local packets. Include the repository Apache license, existing extractor ISC NOTICE and explicit pinned-native ISC attribution in the publication-side notice material. This preserves the actual result while making the source-only publication boundary clear.

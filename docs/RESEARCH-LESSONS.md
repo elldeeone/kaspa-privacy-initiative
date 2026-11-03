@@ -74,19 +74,19 @@ Report source review, constraint checks, local proof verification, native Full
 validation, historical chain observations and actual independent recovery as
 different evidence levels. Their boundaries are part of the result.
 
-[working]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/ec6aa15d586bcc8a90f7232b433fd48d8c73d509/poc/shared-pool/WORKING-BALANCE-PRIVACY.md
-[price]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/ec6aa15d586bcc8a90f7232b433fd48d8c73d509/poc/shared-pool/PRICE-LEAKAGE.md
-[participant]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/ec6aa15d586bcc8a90f7232b433fd48d8c73d509/poc/shared-pool/PARTICIPANT-PRIVACY.md
-[address]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/ec6aa15d586bcc8a90f7232b433fd48d8c73d509/poc/shared-pool/ADDRESS-REUSE.md
-[handoff]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/research/next-session/local-private-payment/SESSION-HANDOFF-2026-11-01.md
-[reproduction]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/a0ef8fb82263fd6604d1a10a546ebd8ce2fc735f/poc/upstream-reproduction/README.md
-[self-funded]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/poc/self-funded/README.md
-[journal]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/ec6aa15d586bcc8a90f7232b433fd48d8c73d509/docs/RESEARCH-JOURNAL.md
-[compression]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/85e39398fd97ff0299e07fad8899cd3f4cc454ac/poc/two-v6-binding/RESULTS.md
-[cache]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/research/next-session/private-integration/uncompressed-cache/RESULTS.md
-[integration]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/research/next-session/private-integration/RESULTS.md
-[reveal]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/research/next-session/exit-fee/RESULTS.md
-[hmac]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/research/next-session/selected-hmac-cost/RESULTS.md
-[encoding]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/poc/arkworks-public-differential/PUBLIC-ENCODING-DIFFERENTIAL.md
-[availability]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/e86e2a277ad53b28fc3bfc4aea40c24d858259fb/research/p10-recovery/REPORT.md
-[checkpoint]: https://github.com/elldeeone/kaspa-privacy-initiative/blob/4d54dc026098506dd56dc568b20cab269be2b447/docs/checkpoints/2026-10-27.md
+[working]: research-knowledge/documents/c8f4c9560f157dce4e97190cadeba02133070b6f.txt
+[price]: research-knowledge/documents/567b363e0c6151c6d5754b7f79296cc81507a4ba.txt
+[participant]: research-knowledge/documents/bd8f75b9b970b58f9f777314514847c5e8999829.txt
+[address]: research-knowledge/documents/2571bc032d3c4d3c2c5e55d3264d482b887ca351.txt
+[handoff]: research-knowledge/documents/8afbd3d859a68dc4d80194cbdc3f0cc36e5e9961.txt
+[reproduction]: research-knowledge/documents/b3ed0a758e9200456318a9e26b8342db78d5c327.txt
+[self-funded]: research-knowledge/documents/014b5ea21d0f081ff7d490033d77095a57e44930.txt
+[journal]: research-knowledge/documents/a99d0c7618070857506be9bfaa31780dadf32d56.txt
+[compression]: research-knowledge/documents/832da77252bdfb3f3b56bd920b236442143f8c2e.txt
+[cache]: research-knowledge/documents/90a8571364109e2cb5f360b33e966fedd0ca7308.txt
+[integration]: research-knowledge/documents/e26b3bf00641382ebabf9b4b577cc31ee1c27d7d.txt
+[reveal]: research-knowledge/documents/33ec1c21fd325c288ffbc8f1dce471e5113e9f9c.txt
+[hmac]: research-knowledge/documents/7eb487100c8e69f48abe417e7bcd98c681b24e3b.txt
+[encoding]: research-knowledge/documents/1849f7b489e307a5b02a1b15182d259c64e8819f.txt
+[availability]: research-knowledge/documents/203ff134e8bff0bc6e049227675f5ab4056b2124.txt
+[checkpoint]: research-knowledge/documents/fdfd544f40bd93450cab30c7bda64dcab3ec69fa.txt

@@ -1,0 +1,47 @@
+# One-invoice compact payment: design 01
+
+**Status:** Wallet-only preparation design reviewed by the independent adversarial lane; implementation still needs source review. Root narrowed execution to a useful independently authorized/shared-settlement preparation seam and any newly selected coldbuild/release boundary. **No redundant three-proof campaign is selected.** Source base `5aaf99532d8714e510d421102df719f60f54d073`; existing KPX4 compact relation, domain, matrices, PK/VK and native policy remain unchanged.
+
+**Goal:** supply an explicit owner-facing preparation API for the **existing serial compact behavior**: one independently authorized compact2 private transfer serves exactly **one recipient invoice**, with positive sender-owned private change as the other output. The API is reentrant from seed-recovered change and can support two distinct invoice requests for change-propagation analysis. Reuse this preparation in the new exact-state/shared-settlement transcript; do not treat old Auths as reusable intents for another state or fee. Recipient backup recovery/exit and sender change recovery/terminal drainage are existing mechanics to reuse at a newly selected integration boundary, not a standalone repeated campaign. This is not a new multipayer anonymity protocol or a demonstrated privacy improvement.
+
+Owned paths only: `poc/independent-single-payment/` and this `privacy-wallet/` evidence directory. No old source/evidence edits, commit, push, funding or network access.
+
+## Reuse and explicit boundary
+
+Reuse the exact selected compact-batch `actions.assemble`, original positioned real NF, actual-slot dummy HMAC, shuffled CM/CF pairs, SalsaBox receipts, V2 derivation/scanning, sparse history replay, complete actual-body quote/proof substitution and Native Full validation. Reuse existing full cashout for receiver and terminal sender actions. Authenticate/reconcile selected source identities; snapshot only required public code into each namespace.
+
+The [source refresh](../sources/SOURCE-REFRESH.md) and earlier [private change](../../private-change/PLAN.md) provide research/reuse context. This wallet can call the existing compact relation for two positive outputs; it requires no new cryptographic primitive, matrix, setup, parameter/domain or native branch. It deliberately does not use wide32 and never pools owners' witnesses.
+
+The root-supplied public canary at `independent-payment-public-recovery-canary-01` is a synthetic1,000,000,000-sompi GN with descriptor SHA256 `61e0f955850f199305bb50ec57ad389aafbc645de2685ff3572d76f11d864ed8` and history SHA256 `a88b183ce9ac9a0faad831fd4dac88fa9fe269618ea5c634ee45a5f9381520a4`. Its original payer seed is explicitly public/unsafe. Use a new deterministic public unsafe receiver seed derived from a unique `INDEPENDENT_SINGLE_PAYMENT_DO_NOT_FUND_01` label, under the same selected D. Labels select fresh test keys; they are not a new protocol domain. All material remains DO_NOT_FUND and disjoint from main identities. No code opens main seeds, controller plans, ownership maps or other owners' witnesses.
+
+## Wallet contract
+
+A single-payment request contains only an exact canonical recipient Invoice208, **net useful principal**, exact reference fee rate100 and separately selected public instance/software pins. The payer receives no recipient secret.
+
+1. Authenticate selected descriptor, compact manifest/prover/whole PK and exact READY before first own-backup read. Replay supplied public history and recognize exactly one current own claim. Reject private/public inode aliases and symlinks before caller-selected public hashing/copying; fresh owner output remains outside Git.
+2. Parse/re-encode the one invoice, verify domain and all nonzero fields, and reject a recipient belonging to the payer or reusing consumed/previous own receive fields. Derive one fresh own change invoice from the same seed, excluding historical own indices and recipient/consumed receive fields. Recovery remains seed-only scanning; no index map is saved.
+3. Plan the recipient's **continuing** full-exit credit at the exact current program shape, gross=net+credit. Choose the existing compact P0 transfer fee from shape, then change=input−gross−fee. Require net/gross/change within exact integer ranges and floors, positive sender change, and all existing conservation/capacity checks. Reject overspend or dust; never clip net, donate change or silently select a fullclaim mode.
+4. Pass exactly the two output specs to existing assemble. It privately shuffles CM/CF pairs and independently selects the real input slot. Construct one legal immutable candidate and obtain the actual official body quote before witness serialization; any shape-fee mismatch aborts without exporting a sizing/alternative Auth/NF pair.
+5. Send only that payer's witness over the existing inherited FD to the compact prover. Authenticate exact output proof/Auth/VK, substitute only proof and derived ID, and require Native Full plus every input engine. Append only this chosen verified body/context to history.
+6. In separate cold namespaces, recipient and sender each get only their own original backup, public descriptor/history/selection/software and compact PK. Recipient first recognizes its gross claim and exits for the exact net amount; sender independently recognizes the change and terminally exits to R0. No previous private candidate, receiver secret, other backup or operator/controller namespace is mounted.
+
+For the public1B canary and illustrative net200,000,000 sompi, expected unchanged-shape fees are compact P0=18,826,500, recipient continuing exit=18,867,700 and sender terminal=18,718,200. The root canary's actual entry fee is217,300. These are planning values: actual quotes/official storage must agree before witness send, then every actual fee is retained. No 2% target is expected to pass. Sender refund/change is never useful payment demand.
+
+## Planned modules and controls
+
+- `payment.py`: strict one-invoice request, fresh change derivation and exactly conserving compact candidate using selected existing helpers; no file/prover/network API.
+- `owner.py` and `run_owner.py`: narrow adapted authenticated owner flow and network-off namespace, one backup and one compact PK. Fixed action selection is payment or existing full cashout; no witness-controlled role or native relaxation.
+- `prepare.py`: strict public request/instance interface and optional public unsafe receiver identity/invoice, with exact state/outpoint/fee semantics retained for the shared-settlement lane. It must not read both owners' backups or collect witnesses. A virtual transition is explicitly not a current native spend or reusable signed intent; any new relation/policy requires its own selection. Ordinary public history/report handling remains separate from owner work.
+- `reuse.py`/source receipt: select exact existing public helper bytes and expose reuse identity. Snapshot new and reused source plus selected runtime/software identities; no private input/backup/witness hashes in publication.
+- Focused controls: exact gross/net/change/fee equation; original-backup receipt recovery and spentness; both private output permutations; wrong-domain/malformed/self/duplicate-own invoice; insufficient/dust/overflow amount; repeated NF/spent claim; root-canary/pin/currentness rejection; public/backup hardlink/symlink before reads. Reuse existing quote mutation/Full checks; tests do not mirror cryptographic soundness.
+
+No proof/native/PK job starts until root selects the meaningful new integration boundary and grants the coordinated heavy window. Light source/preparation controls default2CPU/3GiB. Record actual operational resource failures honestly; do not weaken relation or identity checks. Source-level preparation controls are the initial deliverable. If root later selects a full lifecycle run, its evidence needs genuine compact proofs, complete selected body contexts, recipient and sender cold recognition, Native Full for every chosen action and exact source/fee/payout reconciliation to zero reserve. A partial preparation/proof pass is not complete, and no full-lifecycle completion is claimed from the initial deliverable.
+
+## Privacy and reporting limits
+
+Keep full Auth528, ordered CM/CF partition, NF pair, physical indices/gaps, roots/counts/reserve, integer fees/payout/SPK and order/timing available to the declared observer. No global output-purpose/owner/source map is added. A legitimate participant can know its own invoice payer and receipt, infer a positive sibling is payer change under this declared policy, and propagate through later globally forced spends. The new packaging avoids the wide single-issuer32-unrelated-recipient cohort but can still leak sender change, amount and funding ancestry.
+
+This public known-seed development canary is not a blinded privacy study. It supplies no privacy score or weaker observer, and cannot become heldout truth. A future blinded workload needs separately generated hidden truth and the linkage lane's frozen observer/baselines/stop rules. Preserve singleton/staggered funding negatives and every old incomplete/failing view.
+
+All evidence is supplied-context local integration: no accepted-chain backing/currentness, confirmed payout, independent provider, long-term retention, cryptographic audit or production/privacy qualification. A later live trial needs fresh domain/parameters/backups and separate authorization. No admin exit or automatic REVEAL fallback is introduced.
+

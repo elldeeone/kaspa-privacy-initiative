@@ -1,0 +1,90 @@
+# Official Groth16 compression assets for RISC Zero 3.0.3
+
+Checked 2026-10-22 UTC. This file concerns official public compression components only. The authorized native component is downloaded, authenticated and copied task-locally. No compression, proof generation, GPU operation, global installation, image pull or execution of downloaded artifacts has been performed by this research subtask.
+
+## Decisive facts
+
+- SDK release `v3.0.3` is commit `14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6`. Its native CUDA wrapper explicitly requests **rzup component `risc0-groth16` version `0.1.0`**. The SDK crate version and the component version are different version namespaces. [Release](https://github.com/risc0/risc0/releases/tag/v3.0.3), [pinned CUDA wrapper](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16/src/prove/cuda.rs#L28-L36).
+- The component's official signed manifest currently publishes one target agnostic archive. Its RSA-PSS/SHA256 signature was verified locally against the public key embedded in the pinned SDK source, using salt length 32; OpenSSL returned `Verified OK`. The exact manifest, key, signable bytes, signature and verification receipt are retained alongside this file. [Official manifest](https://risc0-artifacts.s3.us-west-2.amazonaws.com/rzup/components/risc0-groth16/distribution_manifest.json), [pinned key](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/rzup/src/distribution/public_key.pem), [manifest verification implementation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/rzup/src/distribution/s3.rs#L73-L101).
+- Native CUDA needs `preprocessed_coeffs.bin`, `fuzzed_msm_results.bin`, `stark_verify_final.zkey` and `stark_verify_graph.bin` at the component root. There is no need to regenerate ceremony material. [Pinned parameter paths](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16-sys/src/lib.rs#L25-L49).
+
+## Native component download
+
+| Property | Published or observed value |
+| --- | --- |
+| Version | `risc0-groth16` `0.1.0` |
+| Published archive SHA256 | `4b4f2b2fb8380369ed14f0dc48380a1bbcbc82c7d553f1888b47d0a9f8e72e4d` |
+| Official HEAD Content-Length | `2,335,797,480` bytes; approximately 2.336 GB or 2.175 GiB |
+| Official HEAD Last-Modified | `2025-08-01 17:31:33 GMT` |
+| Archive type | `tar.xz`, as selected by pinned rzup component code |
+| Download status | Complete: 2,335,797,480 bytes; computed full SHA256 matches the signed manifest; elapsed 320.084 seconds. See `official-download-metadata.json`. |
+| Expanded TAR bytes from XZ index | `5,314,635,776` |
+| Retained archive plus expanded TAR equivalent | `7,650,433,256` bytes (7.650 GB), below the approximately 10 GB limit before minor metadata |
+
+[Download the exact official content-addressed archive](https://risc0-artifacts.s3.us-west-2.amazonaws.com/rzup/components/risc0-groth16/sha256/4b4f2b2fb8380369ed14f0dc48380a1bbcbc82c7d553f1888b47d0a9f8e72e4d). The filename is not part of the official URL; this task saves it as `risc0-groth16-v0.1.0.tar.xz`. [Pinned rzup URL construction and complete-download SHA256 check](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/rzup/src/distribution/s3.rs#L559-L600).
+
+The official release manifest publishes the archive digest, not independent digests for each internal file. This task must verify the full archive against that digest before treating any member as authenticated. ETag is recorded only as transport metadata, not used as a SHA256 substitute.
+
+The authenticated archive contains exactly the following four regular files at its root, with no links or unexpected members. Their digests were computed while streaming the archive, then checked again while copying only those four files to the authorized task-local component directory. No `extractall` or downloaded code was used. The compressed archive is retained.
+
+| Member | Bytes | Locally computed SHA256 within authenticated archive |
+| --- | ---: | --- |
+| `stark_verify_final.zkey` | `3,620,786,504` | `f525bfbcadcd01339a243db59213f213a357adbaaff7b4203c9c57ce25e91d5c` |
+| `fuzzed_msm_results.bin` | `576` | `5c31207007ab5489bddf60594434c161739baca4cde6786f493ffa44aaebcc43` |
+| `preprocessed_coeffs.bin` | `1,442,123,704` | `424368948ad64d7cdd6632fc9efa9b1a52f45ea8b5bf1d568682a7eaa91efbb0` |
+| `stark_verify_graph.bin` | `251,721,088` | `51020d6fd9ded9627ed08044fb428bca46ee2bfcc90f5819469601564050315f` |
+
+Final component root: `/home/luke/projects/kpi-intensive-2026-10-22/observer/artifacts/groth16-compression-preparation/risc0-home/extensions/v0.1.0-risc0-groth16/`.
+
+Expanded regular files total `5,314,631,872` bytes. Archive plus these files total `7,650,429,352` bytes (7.650 GB); minor source/metadata files add less than 1 MB at completion. `official-archive-inspection.json` and `official-extraction-metadata.json` retain the complete member checks and result. The component directory alone is not evidence that the local SDK/worker selects it correctly; parent owns that compatibility and isolation check.
+
+## CPU/Docker fallback metadata
+
+Without the `cuda` feature the SDK selects a Docker wrapper, while `cuda` selects the native implementation at compile time. The Docker wrapper runs the exact tag `risczero/risc0-groth16-prover:v2025-04-03.1`. [Pinned dispatch](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16/src/prove/mod.rs#L17-L35), [pinned Docker wrapper](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16/src/prove/docker.rs#L49-L63).
+
+Read-only requests to the official publisher's Docker registry produced these values; the metadata bodies' computed SHA256 digests match the registry/index values. No image layers were downloaded.
+
+| Official image metadata | Digest / size |
+| --- | --- |
+| Tag manifest-list digest | `sha256:a4f80ce2e0b8e2bb7637a93c37136a6776ac00ec843a3fdf1c67b1d5ffea64ee` |
+| Linux amd64 manifest digest | `sha256:7f173963196570b7a71816ed70565a4579264c5d2e3e0ecb028102538ad0e331` |
+| Linux amd64 compressed layer sum | `2,399,158,367` bytes |
+| Linux amd64 config digest | `sha256:f6f756b0899c29d869d6a01fbbded3887a8f51429653177ee4b3ffad294324cd` |
+| Linux arm64/v8 manifest digest | `sha256:55236d558d1e16e27f86f73237215c49f686521cab7652931c61c96d62cabcfc` |
+| Linux arm64 compressed layer sum | `2,401,600,243` bytes |
+
+[Official registry tag endpoint](https://registry-1.docker.io/v2/risczero/risc0-groth16-prover/manifests/v2025-04-03.1), [official Docker Hub repository](https://hub.docker.com/r/risczero/risc0-groth16-prover).
+
+The source's Docker-only and x86-only comments are stale relative to the native CUDA dispatch and the registry's currently published arm64 manifest. The observed registry architecture is metadata evidence, not a successful runtime test.
+
+The image bundles the witness generator, gnark prover, converted constraint system, converted proving key, and witness generator data. Its entrypoint is `/app/prover.sh`, which raises stack size to 16,384 KiB, streams the witness through a FIFO and runs the gnark prover. The published Dockerfile obtains its original compressed proving key from the official URL below with an explicit build-time SHA256 checksum. These inputs describe image provenance, not additional files needed for the native component route. [Pinned Dockerfile](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/groth16_proof/docker/prover.Dockerfile#L48-L81), [pinned entrypoint](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/groth16_proof/scripts/prover.sh).
+
+- Original compressed key URL: [official `stark_verify_final.zkey.gz`](https://risc0-artifacts.s3.us-west-2.amazonaws.com/zkey/2024-05-17.1/stark_verify_final.zkey.gz).
+- Published Dockerfile checksum for that gzip file: `69c6056451ea814b37e30ccbc44639dbaafef73540cbfbff6ec7e68e2d325735`.
+
+## Setup provenance and licensing boundary
+
+The pinned SDK's trusted-setup documentation identifies the compressed URL above as the mirror of its STARK-to-SNARK ceremony transcript. Its native component builder downloads that same URL before deriving `fuzzed_msm_results.bin` and `preprocessed_coeffs.bin`; its Dockerfile also pins that URL and checksum. This links the official component build route to RISC Zero's published outer wrapper setup, independently of any application's inner circuit key. [Pinned ceremony documentation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/website/api/trusted-setup-ceremony.md#L24-L31), [pinned component builder](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/xtask/src/setup_groth16.rs#L39-L49), [derived component preprocessing](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/xtask/src/setup_groth16.rs#L87-L88).
+
+RISC Zero describes a ceremony coordinated with PSE, publishes a [ceremony page](https://ceremony.pse.dev/projects/RISC%20Zero%20STARK-to-SNARK%20Prover), and documents circuit/transcript/contributor-attestation checks. This task authenticated distribution metadata; it did **not** independently verify that transcript or contributor attestations, prove that setup secrets were destroyed, or audit the wrapper circuit. The repository's local `run_ceremony.sh` explicitly uses a pretend contribution; that script was not run and is not evidence about the published ceremony. [Pinned ceremony description](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/website/api/trusted-setup-ceremony.md#L33-L55), [local example ceremony script](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/groth16_proof/scripts/run_ceremony.sh#L18-L22).
+
+The pinned repository uses Apache License 2.0, and the inspected Rust sources carry Apache-2.0 headers. Neither the signed manifest nor the four-file archive provides a separate parameter-artifact license; no broader licensing claim is made from that metadata alone. [Pinned repository LICENSE](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/LICENSE).
+
+## Remaining checks
+
+Archive authentication, safe-member inspection, member hashing and authorized task-local copying are complete. Parent owns local SDK/worker compatibility and any further isolated preparation. Successful metadata authentication does not establish that compression fits this machine or runs successfully.
+
+## Official timing and resource evidence
+
+RISC Zero's immutable benchmark snapshot at ghpages commit `0f43ffca39a92660d9c21fc916f4f0146669d923` records SDK commit `14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6`, exactly matching `v3.0.3`. The matching RTX 4090 JSON and SDK identity marker are retained alongside this file. [Official benchmark identity](https://raw.githubusercontent.com/risc0/ghpages/0f43ffca39a92660d9c21fc916f4f0146669d923/dev/datasheet/COMMIT_HASH.txt), [official RTX 4090 benchmark JSON](https://raw.githubusercontent.com/risc0/ghpages/0f43ffca39a92660d9c21fc916f4f0146669d923/dev/datasheet/Linux-nvidia_rtx_4090.json).
+
+| Exact-version RTX 4090 row | Recorded duration | Meaning |
+| --- | --- | --- |
+| `shrink_wrap` | `3,995,798,310` ns (3.996 seconds) | Final compression of a prepared `identity_p254` receipt, including native witness calculation. Its 262,144 cycle field is the fixed recursion circuit size. |
+| `groth16` | `3,719,050,884` ns (3.719 seconds) | Separate end-to-end LOOP_ELF execution, proving and compression run, with 65,536 loop iterations and 262,144 reported guest cycles. |
+
+These rows are separate runs and must not be added as consecutive stages or extrapolated into an RTX 3070 time estimate. [Pinned benchmark implementation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/zkvm/examples/datasheet.rs#L423-L490).
+
+The `shrink_wrap` row explicitly writes `ram: 0`, meaning unmeasured. The end-to-end `groth16` row records `2,381,942,084` bytes through the RISC Zero HAL allocation tracker. Native Groth16 separately calls C++ `gpu.Dmalloc`, so that metric cannot establish total process RAM or peak VRAM and cannot prove 8 GB GPU compatibility. Exact SDK 3.0.3 Groth16 peak RAM and VRAM remain unknown. [Pinned benchmark metric](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/zkvm/examples/datasheet.rs#L448), [HAL tracker](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/zkp/src/hal/cuda.rs#L240), [native allocations](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16-sys/kernels/cuda/groth16_prover.cuh#L233).
+
+CUDA kernel builds default to `-arch=native` unless `NVCC_PREPEND_FLAGS` or `NVCC_APPEND_FLAGS` is supplied; pinned CI uses `sm_89` on an RTX 4000 Ada. No official exact-version sm86 minimum, RTX 3070 fit guarantee, or CPU/Docker timing was found. Docker's 16 MiB stack setting is not a RAM requirement. General zkVM segment-size guidance also does not establish Groth16 compression requirements. [Kernel build logic](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/build_kernel/src/lib.rs#L142), [pinned CI](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/.github/workflows/main.yml#L230), [general local proving guidance](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/website/api/generating-proofs/local-proving.md#L20).

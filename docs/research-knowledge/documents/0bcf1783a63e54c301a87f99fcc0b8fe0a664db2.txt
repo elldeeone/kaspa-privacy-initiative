@@ -1,0 +1,75 @@
+# New Output and AuthExit component results
+
+Actual execution on 2026-10-28 with deliberately public, unfunded seed vectors.
+The selected new domain/profile is recorded in
+[the prospective descriptor](../../../research/next-session/local-private-payment/private-batch-2026-10-28/PROFILE-DESCRIPTOR.json).
+The [aggregate result record](EXECUTED-COMPONENTS-2026-10-28.json) binds source,
+matrix, parameter, VK and retained local runtime identities.
+
+| Complete relation | Actual rows | Fresh public parameters | Result |
+| --- | ---: | ---: | --- |
+| New Output | 217,807 | 85,578,096 bytes | Genuine proof accepted in a separate public-input verification process; changed statement rejected. |
+| Joined new AuthExit | 1,483,816 | 604,078,768 bytes | Genuine proof accepted in a separate public-input verification process; changed statement rejected. |
+
+Eight AuthExit controls matched their frozen expected residual regions:
+baseline and deliberate fee reconsent satisfied all rows; recipient redirection
+failed two signature rows; one-sompi inflation, high membership position and
+wrong original NF each failed a native row; a valid signature under the wrong
+key failed all 64 key links; `S+Q` failed a signature row. These checks evaluated
+the actual complete matrices, rather than crediting generator refusals.
+
+The [owner-local Output producer](output_producer.py) reuses the genuine new
+Output parameters and emits complete ciphertext/proof tuples. A separate
+[delivery/restoration run](run_output_recovery.py) generated two genuine proofs,
+closed the original authority process and restored both notes in a fresh owner
+process from the original public test seed. Nine checks passed, including
+stable NFs without creator blinding, unclassified output roles, wrong seed,
+changed CF/proof, coherent CF rehash, duplicate CM and wrong CM root.
+
+Exact public parameters and receipts are retained durably under
+`.local/private-batch-component-parameters/`; full runtime records remain outside
+Git. Setup entropy was not retained. No actual wallet Original or funded private
+state was used.
+The Python receiving/proving API keeps note/blinding material owner-local and
+passes private requests through stdin without logging them. Public verification
+in that API has no proving-key mount.
+
+The initial AuthExit proof used a deliberately non-native policy tail. A
+separate actual-policy branch probe then generated two fresh authorizations and
+proofs against the actual 8,211-byte policy: terminal reserve200M and continuing
+reserve260M→60M, both consuming a200M note. Distinct nonpalindromic outpoints
+and indexes3/7 were bound. The measured100-sompi/mass reference quotes selected
+fees19,050,800 and19,093,100; these are not measured network minimums.
+
+Both cases passed actual NativeFull and every input ScriptEngine; all21 mutated
+cases were rejected by actual scripts. The result is explicitly conditional:
+payment image/component metadata are opaque and unselected, there is no
+aggregate key or selected complete financial manifest, and the continuing
+case is a separate overcollateralized supplied context. This is native Exit
+branch evidence, not an accepted deposit/history, complete private batch,
+confirmed payout, mainnet action, fee saving or privacy qualification.
+
+A three-worker first-batch rehearsal then produced six genuine Output tuples
+using the same setup, three real 1,460-byte intent signatures, three normalized
+signature witnesses, and three owner-only auxiliary files with 2,635,409 values
+each. The controller read only public receipts; each worker verified all six
+Output proofs and restored its two unclassified outputs. The public head uses
+the selected single synthetic pool/outpoint, three 20-KAS initial notes,
+5-KAS forward payments and provisional 7,000,000-sompi fees per owner.
+
+The result is retained at `.local/private-batch-unfunded-components-05/` with
+result SHA256 `2c6d8005358de21c90dbf85f04b9af62b288f0a27cce29b80f365830a5ae354a`.
+Its public preparation receipts reveal creator-to-tuple associations and the
+recovery root covers the six component outputs only. These exact fixtures do
+not qualify ownership privacy, accepted financial state or final stable NFs.
+
+A separate [one-command private Original bootstrap](PRIVATE-BOOTSTRAP.md)
+completed in 52.46 seconds. Three isolated owners generated fresh private seeds,
+three genuine encrypted 20-KAS Output proofs passed independent public
+verification, and three new namespaces recovered those notes from one Original
+leaf each. The strict new backup version binds the new domain/ProfileID/KDF;
+seven public-fixture boundary tests passed. The controller never read or hashed
+private backups, notes, logs or witnesses. The
+[public bootstrap result](EXECUTED-PRIVATE-BOOTSTRAP-2026-10-28.json) records the
+bounded outcome. No mining, funding, broadcast, accepted history, complete
+private transfer or privacy experiment occurred in that bootstrap.

@@ -1,0 +1,19 @@
+# Fresh initial-pair Succinct receipt: independent software verification
+
+2026-10-22. PASS using only the existing immutable selected host, after root's explicit actual-receipt selection/release. No build, proof generation, native execution, owner CLI, ledger replay or DRAIN workflow by this reviewer.
+
+* Receipt: 223898 bytes, SHA256 `345568d0dd58de73f384aa616b5698a7d535c7aaa5335ff74c7a0a94a1b583ce`.
+* Selected verifier: `f00ce3545c326758de12768043617b26f799134ff247a90df5121dbdfaa9e40e`; selected manifest `943ad0c7a1de1824a87f771cfba65fa636a1d945374f5ab3f8c0f8a5b75330e3`; root receipt selection `e66fb3cd8eaee97dec7729bcc0d74c71f6d39660520d7c5d4cd89c478329d9b9`.
+* Exact image `e21ab79e3aebdaba0355680d6a17bf0142bf0b3b5bbb687a6f2726499282a0d3`; J336 SHA256 `699697f07565d28faad6e45b9e6daa0a09dbcea3f475d51880a75289f7e49b57`; independently derived claim `88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa`; P1088 SHA256 `70d89b257a6ec611db4775b4c8b0c0db2372cf8f75d084325be89d7d455c6cca`.
+
+The exact successful assumption-free SDK claim, development mode disabled, and official STARK callback's decoded JOIN `7a8f24092c34ed3eb81b3d0a0b796c588c615d3488ef9e61c21dbd1e4b83ea6e` plus allowed-control root passed. Output P/J matched the independent full-tree/public-tuple oracle byte-for-byte. This is the new actual n5/m2→n9/m6, R1660M→1580M initial-pair context, not the historical fixture or old J42.
+
+Builtin controls reject wrong image, eleven outer-journal offsets, corrupted seal, malformed control inclusion and wrong expected control through the actual seal verifier. Eight additional field controls mutate only the serialized outer journal's pool ID, actual txid/index, prior/next state, R/R′ and high R′ byte, preserving the proved inner claim. Every one returned the exact SDK ClaimDigestMismatch string containing the independently recomputed changed-context digest and the unchanged proved claim; no panic, parse failure or resource failure counted.
+
+Driver `verify_s7_saved_receipt.py` SHA256 `9ed8d97eeec636573555cd6b0199a207e8b160d6af3a34b8f74aeb635df12289` was frozen before the receipt. It used one core, one thread, a 2 GiB address-space cap and a 600-second overall deadline. The full run finished in under one second. Positive/negative logs, inputs and results are retained in `s7-fresh-receipt-independent-01/`; main independent report SHA256 is `1c2da95e9a3f211ecc1a79b8c7d4f0d6049090d3f0e5af830bd6a86005dec008`.
+
+All 35 selected source files matched both current files and immutable archives before verification; all 35 current sources and all four selected binaries were rehashed afterward with no change. The only stage00→selected changes were three late host publication pins; guest/program remained unchanged. Receipt and executable before/after identities also matched.
+
+Independent producer cleanup review found the proof unit inactive/dead, MainPID0 and empty cgroup; all four observed PID/start-time identities were gone in `/proc`. The retained terminal result records exit0, 303.1 seconds, matching GPU peak6096 MiB, cgroup memory peak503586816 bytes and zero swap. These are sampled/process-scoped measurements with their recorded limits; they do not imply a global GPU-idle claim during later work.
+
+This establishes the tested fresh public statement and verifier path under its explicit untrusted test-setup and proof-system assumptions. Supplied native-prefix evidence is separate from an accepted funding lineage. Owner exits, accepted ancestry/backing, a complete lifecycle, privacy qualification, the original published instance and production safety remain unestablished.

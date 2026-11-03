@@ -1,0 +1,11 @@
+# Shared-prefix controls outcome 02
+
+The frozen nonlive control run passed all 12 required families, exit 0, with empty stderr. The control process took 16.43 seconds; guarded source-envelope preparation is excluded from that timing. This is not a full-baseline performance benchmark.
+
+The run exercised the actual new source functions through isolated source clones: one preparation across failed-first/successful-second peers, independent nested state, before/after baseline identity/hash snapshots, primary and post-query path mapping, full fallback, malformed/alias paths, tampered gzip rejection, fingerprint and runtime-lineage rejection, and exact seven-member acquisition sidecar binding. Public RPC, SDK, admission and discovery seams were mocked. Their successful assertions do not qualify real financial admission, Native replay, consensus or recovery.
+
+A separate real ordinary-file control ran unchanged parallel preparation on two tiny new public gzip pages through unchanged helper09 on tmpfs. It checked read-only ordinary single-link output files and equality with the unchanged serial fingerprint. It used six prototype helper invocations; source-envelope reads are additional. No live baseline, RPC, Original, profile materialization or campaign launch occurred. No root disk was freed or large history copied by this experiment.
+
+The original unexecuted test48c is preserved. Independent pre-run review found a missing public fixture scope and missing before/after snapshot; test02 fixed those and added an explicit runtime-lineage negative before the first control run. Production source pins never changed. A separate syntax orchestration attempt used an absent /usr/bin/node and failed before program start; installed Node was then selected without source changes. The typed receipt retains that distinction.
+
+SOURCE-FREEZE-01.json and its four production pins remain exact. CONTROLS-02-RESULT.json is an exact copy of the retained run receipt e58b2291819e9f44dd65bbf20b9f4e06b1b2845d62cf8d380f5f1515f03bf353. Root and independent result review precede actual adoption. This outcome selects no live profile and makes no financial, privacy, fee, production or general security claim.

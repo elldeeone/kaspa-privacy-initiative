@@ -1,0 +1,236 @@
+# Smallest state-aware paired-journal experiment
+
+**Status: proposed, source/design only.** No implementation, build, proof,
+funding, broadcast or pool change is released by this note. It refines the
+state-aware option in OPEN RFC-0018; it does not change the established J42
+statement or adopt a settlement architecture. Date: 2026-10-23 Australia/Sydney.
+
+## Recommendation and current limits
+
+Add one separate state-aware relation that reuses the complete checked paired
+binding core, then proves historical membership, four current NF insertions,
+four CM appends, two prefix-history appends and exact reserve/fee arithmetic.
+Start with an ordinary-host oracle and guest execution on the existing public
+development proofs. Only after those checks and review should a new outer
+receipt/native transaction-context fixture be considered. No fresh inner VK
+setup or original proving material is needed to verify the retained proofs.
+
+The current J42 guest/image and native predicate remain nonsettling. The native
+checker `poc/public-receipt-native-check/src/main.rs` fixes image
+`50ceec8e…7693d832`, exact J42 and the JOIN control, and invokes
+`TxScriptEngine::from_script`. Its retained positive plus eight negative controls
+verify the actual `0x21` seal/claim boundary, **without a transaction, UTXO,
+bounded input meter, reserve or successor context**. It is a reusable predicate,
+not the missing application contract.
+
+Do not combine that `0x21` receipt with two direct inner `0x20` verifications
+in a proposed native transaction: their verifier-only compute floor is
+`250000 + 2*(140000+3*2500) = 545000` grams, above the pinned 500000 block cap.
+Larger fees or splitting the checks across inputs of one transaction do not
+fix the transaction's total. A state-aware guest needs one native outer check;
+its complete body/size/mass/fee fit remains unqualified.
+
+## Exact current state and trust boundary
+
+The v6 `tree::State` has **no public balance or private-liability counter**.
+Its exact 105-byte layout is:
+
+| Bytes, half-open | Value |
+| --- | --- |
+| 0…1 | version `0x06` |
+| 1…5, 5…9 | u32le CM count n, NF count m (sentinel excluded) |
+| 9…41, 41…73, 73…105 | CM root, indexed NF root, historical-prefix root |
+
+Current checks require odd `1 <= n < 65536`, even m and `m <= 2*n`.
+The native reserve R is the actual UTXO amount, not a state field. A new
+experimental state may retain this shape with separately selected version
+`0x07`; old `State::parse` and old redeem-script offsets do not accept it.
+The experiment is a fresh synthetic context, never an old-reserve upgrade.
+
+Native UTXO consensus must authenticate the current predecessor. A guest can
+prove a transition **from supplied S/R**, but cannot make that state accepted
+by echoing it. The new native checker must derive S from the executing redeem
+script authenticated by the actual input P2SH, and compare the proved outpoint
+and R to input 0. Initial backing and valid genesis/admission lineage remain
+an induction premise; a synthetic root/amount cannot prove that premise.
+
+## What is proved, public or sidecar
+
+| Data | Required handling |
+| --- | --- |
+| Full paired input I[2846] | Verify the unchanged exact P/A/Q/C/bijection contract once with the fixed program key/domain. The supplied A/Q/C partition remains guest witness; its private fields are not appended to the journal. |
+| Common count a/anchor | Derive from those verified authorizations. Prove `history_leaf(a,anchor)` at `(a-1)/2` under S.history_root, with odd `1 <= a <= n`. It cannot be an unauthenticated public sidecar beside old J42. |
+| Prior S, reserve R and outpoint | Validate/prove all transition calculations; include them in the new journal. Native code separately binds them to its current input. They are public context, not secret wallet state. |
+| NF predecessor leaves and Merkle paths | Untrusted fixed-size guest witness. Verify every old membership, strict predecessor relation, pointer bound, changed predecessor and empty append slot sequentially. A host-computed NF root is not authority. |
+| CM/history paths | Untrusted guest witness. Verify empty slots and each intermediate root. Derive the next roots and counters, rather than accept them as host verdicts. |
+| P and next state | Complete public payload, native-bound by the new journal. P's sorted records plus old n determine output positions; multiplicity is retained. A digest without available matching P fails publication/reconstruction. |
+| Full public records/tree leaves | May remain outside the guest input as reconstructible public history; their roots/updated leaves are checked via paths. Complete accepted logs must remain available to independent owners. |
+| Intermediate roots | Derived in the guest. They need no extra journal field; r2/r4 and NF pointers can be independently recomputed from public records. |
+| Individual fees, original proof hashes, grouping indices | Witness only. Publish the exact P fee sum, not new per-bundle handles. The collector still sees the witness; no privacy benefit follows. |
+| Transaction budget, mass, locktime, lane, shape and output metadata | Native validation/introspection duties. They cannot remain unchecked host JSON, but need not be restated as private cryptographic witnesses. |
+| Wallet secrets, note openings and proving key | Not inputs to this experiment. No search for them, new setup or saved-exit fabrication. |
+
+## Proposed exact input and journal
+
+Keep the established I[2846] unchanged and first. The minimal private input
+proposal adds no redundant framing; the selected program, fixed total length
+and versioned inner/public/state formats distinguish the new assertion:
+
+```text
+I[2846] || prior_outpoint[36] || prior_state[105] || u64le(R)
+|| common_anchor_path[16*32]
+|| NF_update[4*1160] || CM_append_path[4*16*32]
+|| history_append_path[2*16*32]                   # exactly 11,219 bytes
+```
+
+Each NF_update reuses the existing v6 order:
+`u32le(pred_index)[4] || predecessor_leaf[68] || predecessor_path[17*32]
+|| empty_append_path[17*32]`. A leaf is
+`value[32] || u32le(next_index)[4] || next_value[32]`.
+Every dimension is exact; trailing bytes and alternate encodings reject.
+
+One new journal proposal is:
+
+```text
+"KPI2V6S1" || u16le(1) || SHA256(P)[32] || fixed_pool_id[32]
+|| prior_outpoint[36] || prior_state[105] || next_state[105]
+|| u64le(R) || u64le(R')                         # exactly 336 bytes
+```
+
+Outpoint bytes are the consensus raw 32-byte transaction ID plus u32le index,
+not a reversed hex display. `fixed_pool_id`, domain, VK digest and policy are
+independently selected program/script constants, not input-selected parameters
+or a circular hash of a transaction containing its own script. The actual
+native journal argument is SHA256(all 336 journal bytes), never SHA256(P).
+No image ID or control for this new program exists yet.
+
+For the simplest native public framing, propose
+`"KPI2V6T1" || u16le(1) || P[1088] || next_state[105]` (1,203 bytes).
+This is a new format; it is not `KPICR06` or the existing 5,228-byte payload.
+Owners reconstruct all four positions/ciphertexts from that complete payload.
+
+## Required state algorithm
+
+1. Verify the complete paired binding and both real proofs under the existing
+   selected development VK/domain. Reuse the shared core, including original
+   ordered ciphertext hashes and raw-byte sorted public records; no callback
+   may substitute a host-provided proof verdict. Checked static-key preparation
+   and an image-bound immutable-key optimization retain their existing review
+   conditions. Submitted proofs remain checked.
+2. Parse/range-check S and authenticate the actual authorizations' common
+   historical anchor. Counts are bounded before index arithmetic. No assumed
+   chain acceptance is inferred from this local check.
+3. Insert P.NF[k] in public P order, for k=0…3. The append index is m+k+1.
+   Require `pred_index < append_index`, authenticated old leaf/path and
+   `pred.value < NF < pred.next_value`, with the existing zero-next sentinel
+   rule. Update that predecessor, prove the new position empty under the
+   changed root, insert the new leaf carrying the old successor and continue
+   from this updated root. **Indexed-set comparison is little-endian numeric;
+   P sorting is raw-byte lexicographic.** They are different conventions.
+4. Append CM_leaf(P.O[k].CM) at n+k, each after an authenticated zero leaf.
+   Empty leaves are raw zero digests, not CM_leaf(zero) or a zero NF-leaf hash.
+   Save r2 after two appends and r4 after all four. Duplicate complete record
+   bytes at different positions remain separate positions.
+5. With h=(n+1)/2, append `history_leaf(n+2,r2)` at h and
+   `history_leaf(n+4,r4)` at h+1, proving both old slots empty sequentially.
+   New counts are n+4/m+4; new roots are r4/final-NF/final-history. Require all
+   state/tree bounds, including n+4<65536. History denotes **accepted commitment
+   prefixes**: r2 is not a separate UTXO settlement. If that semantic convention
+   is rejected, stop and specify an explicit history-count format instead.
+6. F comes from the exact checked P sum. Require its upper eight u128 bytes
+   zero, `F <= MAX_SOMPI`, `0 < F < R <= MAX_SOMPI`, and checked `R'=R-F`.
+   Emit the derived S'/R' in the exact new journal. This preserves backing
+   conditionally on a valid backed predecessor and the existing inner relation.
+
+## Native checker contract
+
+The follow-on checker must run a **transaction input**, using the actual
+`PopulatedTransaction`/UTXO and its committed meter; `from_script` alone cannot
+test the following contract:
+
+- Require exactly the designated reserve input and one positive continuation
+  output, v1, fixed sequence/subnetwork/gas/locktime and no alternate metadata,
+  payout, admission, sponsor input or operator output in this narrow branch.
+- Obtain current S from the input's authenticated redeem preimage; require
+  the selected new state/policy version. Obtain outpoint and R from native
+  introspection and S'/R' from the sole actual output/payload. Reconstruct the
+  complete 336-byte journal and verify it against fixed new image/control.
+- Hash complete P from the exact 1,203-byte public payload. Independently reject
+  u128 fee truncation and enforce R'=R-F and actual fee F. Preserve every
+  immutable verifier, domain, pool and direct-exit pin in the successor SPK.
+- Use proper signature/receipt witness parsing. Old v6's fixed 128-byte proof
+  and `R=133` redeem offset cannot be used for a variable-size R0 seal. The
+  existing checker supplies only receipt stack mapping; it does not solve
+  transaction-context framing, current-state extraction or continuation.
+- Run full isolation/UTXO-context validation, canonical transport round trips,
+  measured script units/budget and final compute/transient/storage/relay mass.
+  Bare precompile acceptance and a covering budget are not total transaction fit.
+
+A valid receipt may become stale if an owner exit spends input 0 while the
+pair is proving. Native outpoint binding must reject it. Refreshing public
+state/witnesses and producing another outer proof can improve liveness; no
+collector lock or restriction on owner exit is introduced to protect the pair.
+
+## Owner exits and irreducible gap
+
+Current deployed owners/descriptors/exit proofs are unchanged. A future new
+experimental reserve must retain a direct single-owner DRAIN branch under the
+same inner relation/VK, with authentic history/current NF checks, exact owner
+payout and shared state continuation or exact terminal drain. It must not call
+the paired guest, need its receipt, wait for another user, require collector
+permission or depend on that collector's prover. All branches share NF/history
+state, so a paired spend and direct exit cannot consume the same note twice.
+
+This requires a new native adapter/replay/scanner for the new format; copying
+the old branch's offsets is insufficient. Prove the positive-note/count bound
+and test direct exits at CM capacity before any funding. Public ciphertext/NF
+history, positions and public proving parameters must be independently available.
+
+The development VK's proving key was not retained, and its only genuine proofs
+are zero-payout SPENDs. Public wallet labels cannot produce a DRAIN proof without
+that key. Therefore **a genuine exit-positive test and a funded lifecycle are
+outside this experiment**, unless independently existing compatible exit evidence
+or public parameters become available. No fresh setup or privileged fallback
+is proposed to conceal this gap.
+
+## Executable acceptance controls to freeze before implementation
+
+| Layer | Positive and exact required rejection controls |
+| --- | --- |
+| Host algorithm | Actual public pair; independently recomputed prior/next NF/CM/history roots and exact journal bytes. Keep the original 14 binding controls. Require current-anchor counts 3/2→7/6, F=80M, R=1.7B→1.62B sompi in the labelled synthetic fixture. A second synthetic predecessor with CM count 5 must accept the unchanged count-3 proofs through genuine historical membership; its exact NF set, roots and amounts must be independently frozen, not claimed as an accepted native lineage. |
+| Parser/identity | Each section truncation and one trailing byte; wrong version, domain/VK or pool; malformed/identity proof and altered authorization must fail at their named parser/profile/cryptographic layer, not from missing files. |
+| Anchor/current NF | Wrong common historical path; count>n/even/zero; current versus stale NF root; already-present NF; same predecessor path reused after an intervening update; bad next pointer/range and zero-slot substitution. |
+| CM/history | Wrong n offset, occupied append slot, record omission/dedup/re-pair, swapped CM paths, one history append only, r2/r4 swap and wrong history index. Preserve prefix/multiplicity and the deliberate P-order/NF-comparator disagreement case. |
+| Bounds/money | n+4 capacity boundary, NF/history slot bounds, malformed m/parity; F upper-word truncation, R<=F, overflow, incorrect fee/reserve amount and attempted zero reserve. Synthetic boundary states are not reachable-state or exit evidence. |
+| Native context | Same public transition under different predecessor outpoint/S/R, old J42 image/journal, changed successor policy, extra/diverted output, mixed branch witness or stale receipt after a competing spend. Require actual full transaction-context checks. |
+| Receipt | Genuine new-state receipt positive only after separate review; wrong image/control/claim/J, corrupt seal/inclusion and wrong expected success must reject through the actual native verifier. No fake receipt substitutes for that positive. |
+
+Use typed semantic expectations. Resource limits, timeout, allocation, absent
+parameters, parser infrastructure errors and unexpected panics are failures,
+not successful attack rejections. Freeze exact source/key/tool/input/journal/
+image identities before each new execution gate. A useful first result is the
+host/guest state assertion agreeing with the independent oracle; it does not
+close canonical-chain, native settlement, independent exit or privacy gates.
+
+## Source anchors inspected
+
+- v6 `poc/shared-pool/src/two_input/tree.rs`: State 107–150; public history
+  174–203; current witness insertion/appends 209–292. Indexed leaf bytes and
+  little-endian comparator: `compact/tree.rs:44–49`.
+- v6 `covenant.rs`: authenticated current state/framing 200–290; history
+  membership 355–383; NF updates 385–453; CM/history updates 495–538;
+  successor/value and proof termination 555–621. `mod.rs:158–263` constructs
+  exact reserve amount/payload and `wallet.rs:501–535` constructs direct DRAIN.
+- Native checking: `poc/shared-pool/src/native.rs:334–430` separates full
+  context validation, per-input bounded script units, metrics and relay policy.
+- Current shared paired core and compiled program:
+  `proof/poc/two-v6-binding/common/src/{lib.rs,compiled.rs}` and
+  `host/src/main.rs`; exact existing J42 is not changed by this proposal.
+- Current native predicate:
+  `research/poc/public-receipt-native-check/src/main.rs`, SHA256
+  `e7aed53557362d59d1354dae4b92cb93b0b58872f1a25dd6611818520586baa9`;
+  retained actual predicate report `evidence/paired-succinct/report.json`.
+- Native source pin `01b532e8b553523216471682649693af92f0fd16`:
+  `crypto/txscript/src/zk_precompiles/{tags.rs,risc0/*,groth16/mod.rs}` and
+  `consensus/core/src/{mass/mod.rs,config/params.rs}`. Public v6 relation pin
+  remains `ec6aa15d586bcc8a90f7232b433fd48d8c73d509`.

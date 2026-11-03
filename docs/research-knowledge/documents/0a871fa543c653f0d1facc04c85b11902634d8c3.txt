@@ -1,0 +1,16 @@
+# Fresh S7 initial-four-proof producer: independent source pass
+
+2026-10-22. Source only; no build, setup, proof or native execution by this reviewer. This is the permitted partial initial fixture, not a completed owner lifecycle. The owner CLI, ledger replay and owner DRAIN-proof workflow remain parked.
+
+Reviewed producer `lifecycle/poc/shared-pool/src/s7_lifecycle/fixture.rs` SHA256 `32f2044f22a3df0ddc315dbdcefd480779f6907c038faf2aa61bef6a0df061f7` and `profile.rs` `4f11ec7c3624105daff52d762082962a1c25650fce9540dd1b99671e1ef874c5`, with unchanged v6 circuit, note delivery and tree sources. No setup/accounting source blocker found.
+
+* Wallet seed material is deliberately deterministic PUBLIC DO_NOT_FUND label material. Notes, padding randomness, setup and proofs use existing randomness; setup directly uses `OsRng`. No RNG state or toxic setup scalar is serialized. This remains a single-party untrusted test setup, without an erasure or ceremony claim.
+* Prepare constructs exactly bootstrap, ADMIT and two same-count/anchor SPEND statements. Both prepare and setup decrypt all eight ciphertexts against fixed recipient matrix AA/BB/BA/AB, compare exact plaintexts and bound commitments. This is fixture delivery consistency only.
+* Bootstrap 800M = 400M + 360M + 40M; ADMIT 940M = 450M + 450M + 40M. Pair0 760M = Bob400M + Alice320M + 40M; pair1 900M = Alice500M + Bob360M + 40M. Reserves through the permitted pair are 800M → 760M → 1660M → 1580M. Distinct paired NFs are explicitly checked against the current pre-pair set.
+* The real Bob funding parent is reserve/image independent and uses an explicitly supplied synthetic seed UTXO. It is not evidence of accepted ancestry. Its own ordinary funding fee is reported separately from pool fees.
+* VK and its phase descriptor are written/fsynced before the large public PK is streamed through a bounded writer and independently streamed through SHA-256. Proofs are synthesized, require exactly 4,372,824 constraints and satisfaction, then are generated and pairing-verified individually. Final publication requires exact 328-byte VK/IC3, 128-byte proofs and 875-byte raw bundles.
+* Create-new outputs preserve failed/partial attempts. The prepared plan hash must match at setup consumption. Root separately freezes source and prepared plan identities before releasing setup; a self-authored local manifest alone is not an external trust anchor.
+
+The independent parameter plan `2b2fa60ad7211e9233f0a85cb514bcc59f53935944f112aa8c6be143a66e2c9f` and vectors `8c337963cf38c180d2b77d1be807a96f744fcb57ba3e9012a57cf48212366620` agree with counts (1,0) → (3,2) → (5,2) → (9,6), output positions 5–8 and history prefixes 1,3,5,7,9. Prefix 7 is a commitment-history prefix, not an intermediate accepted UTXO. Later 780M/720M payouts and 1740M = 1500M + 240M are explicitly unexecuted arithmetic. No owner exit, funding lineage, chain acceptance or privacy qualification follows.
+
+The new native policy is a separate review gate. Its source initially contained an independently confirmed valid-path blocker: P's domain is at 12..44, but both host framing and emitted paired check used 8..40. Root discovered the emitted occurrence; this reviewer identified the second host occurrence and notified the owner. Native runtime release requires both corrections and emitted/Full qualification.

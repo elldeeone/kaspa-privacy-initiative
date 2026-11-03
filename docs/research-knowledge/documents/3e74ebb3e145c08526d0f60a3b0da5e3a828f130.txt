@@ -1,0 +1,452 @@
+# Next focus: shielded native KAS and financial privacy
+
+## Current checkpoint: six payments and nine payouts
+
+The owner-selected [RFC-0029](rfc/0029-local-native-kas-private-transfer.md)/
+[ADR-0066](adr/0066-local-native-kas-payment-prototype.md) rehearsal completed six
+payments, nine independent native payouts, zero reserve/null outpoint and three
+Original terminal cold scans using downloaded finite recovery software.
+[Independent accounting](checkpoints/2026-10-27.md)
+passed 19 Native Full cases (16 pool/3 ordinary), 15 commitments/16 nullifiers. See the
+[financial, fee and three-observer result](checkpoints/2026-10-27.md).
+
+Financial privacy remains unqualified: Native 1 NF/two-output grouping and the
+constructor map persist. The three frozen public observers narrow feasible
+models, with conditional source-policy predictions rather than measured owner
+accuracy. Paid fees are 2.64166 test KAS/21 useful test KAS (about 12.5793%);2% FAIL remains.
+Even free payments leave 1.487956 test KAS of current exit/GEN3/prefunding costs,
+so independent exits also need cheaper handling. No new architecture is selected.
+
+At this source freeze, final DATA 9-Original canaries and Tor readback remain
+pending. Three wallet cold scans, same-host isolation and one-admin GitHub
+hosting do not establish independent long-term availability or off-host recovery.
+
+## Earlier batch — sender privacy, fees and external recovery
+
+The owner authorizes [RFC-0028](rfc/0028-sender-private-native-kas.md) and
+[ADR-0065](adr/0065-sender-private-admission.md): remove direct public/coordinator
+input associations through private admission and private authorization mixing,
+freeze and run the attack study, measure genuinely cheaper independent exits,
+then complete a fresh native testnet lifecycle with all payouts confirmed.
+Retain the existing financial relation and exact-effects/native checks under
+fresh trial, pool, seeds and sessions. Privacy measurements precede the expensive
+full rehearsal. The [active abort/intersection diagnostic](../research/next-session/sender-private-lifecycle/review/ACTIVE-RETRY-EXPERIMENT-RECORD.md)
+measured a bounded wire-fixture failure; its mitigation remains unresolved.
+Bounded passive-view improvement cannot close that gate.
+
+Actual seed recovery on another physical machine and separately administered
+public history/parameter storage require identified external destinations.
+Forge isolation and same-administrator GitHub replay are retained evidence,
+without being substituted for either external result.
+
+## Prior ADR-64 checkpoint — integrated financial lifecycle complete
+
+The owner-selected steps 1, 2, 3, 5 under
+[RFC-0027](rfc/0027-owner-private-native-kas-lifecycle.md) and
+[ADR-0064](adr/0064-owner-private-native-kas-lifecycle.md) now have a complete
+actual TN10 result: 60 KAS GN3, both genuine 3-spend/6-output rounds, recovered
+received-payment/private-change spending, nine direct native exits and zero
+reserve. Three further fresh original-seed restores/full-prefix scans reconciled
+all owned claims and historical payout keys. Original coordinator/shared R0/
+writers were unavailable; replacement clients used downloaded public
+software/history/keys with original paths absent. The
+[result index](../research/next-session/owner-private-lifecycle/RESULTS.md) and
+[neutral final accounting](../research/next-session/owner-private-lifecycle/accounting/PUBLIC-LIVE-TERMINAL-01.json)
+keep these actual observations separate from earlier local/profile results.
+
+Initial complete 64-object recovery HTTPS/replay passed. Following terminal
+publication, [fresh hosted public CI](https://github.com/elldeeone/kaspa-privacy-initiative/actions/runs/40163954168)
+passed HTTPS retrieval and unchanged twelve-case native replay at source
+`a4578ae994105620a62becdb5cef802fc43f49ae`. This is public verification,
+not off-host seed recovery. Same-host recovery and
+same-admin hosting do not establish independent custody, administration or
+long-term retention. The old ADR-0063 prototype remains deliberately unfunded;
+its bounded grouping result does not qualify the integrated profile's privacy.
+Expanded privacy-study step4 was not selected in this execution batch.
+
+Complete fees are 2.156935 KAS / frozen 21 KAS = 10.2711190476%; the unchanged 2%
+target fails. The [fee finding](../research/next-session/owner-private-lifecycle/fees/FEE-RATE-FINDING-01.md)
+points to native verification/withdrawal cost rather than demonstrated rate
+padding. The [eleven confirmed proof cases](../research/next-session/owner-private-lifecycle/fees/CONFIRMED-ENGINE-BUDGET-01.json)
+use roughly 82–87% of the selected allowance. No safe lower-budget/rate candidate
+was tested; headroom trimming has limited potential. Preserve the fixed useful
+payment denominator and independent exit requirement in the next fee design.
+
+## Retained multiparty privacy question
+
+Hide public funding/session-pseudonym-to-mixed-spend NF/CV ordering and the
+coordinator's separate READY-admission pairing while retaining sound Spend
+proofs, complete-effects authorization and native settlement. The existing
+88-byte acquisition marker exposes a caller-supplied pseudonym; the same roster
+order survives into public mixed inputs. Removing the harness marker alone
+cannot close that ordering channel. The
+[source-only trace](../research/next-session/owner-private-lifecycle/review/FUNDING-MARKER-PARTICIPANT-LINKAGE-SOURCE-01.json)
+constructs no actual participant/NF/payout map and does not by itself map shuffled
+outputs/change/receivers or terminal payout owners. It is not civil identity.
+
+Keep the narrower output-grouping assumptions, one-sompi fee-remainder channel,
+timing/amount/endpoint/ancestry leakage and trusted-host/setup limits separate.
+Financial privacy remains unqualified. This is an open design/source follow-up,
+not a new architecture decision, cryptographic implementation, privacy attack
+cohort or retuning of the completed trial. Separately administered public
+history/parameter retention also remains an external availability gate.
+
+## Completed gate — four-wallet accepted testnet lifecycle
+
+The [four-wallet rehearsal](../research/next-session/four-wallet-testnet/RESULTS.md)
+now completes on actual accepted TN10 history: two genuine payments, a real
+combined GPU proof, four independent original-backup withdrawals, four
+confirmed native payouts, four final recovery scans and zero reserve. One exit
+uses restored software and the complete copied proving key with original host
+paths absent. Complete fees including ordinary acquisition are **4.521645%**
+of 20 useful net KAS; the unchanged 2% target fails. The earlier local result
+remains separate at 4.35123%.
+
+That checkpoint's construction question is now answered by the separate
+ADR-0063 prototype above: separate Spend/Output proofs and whole-effect
+authorization genuinely execute under a new unfunded relation. The original
+[decision question](../research/next-session/private-construction/full-tuple/NEXT-CONSTRUCTION.md)
+and exact-field component result remain historical evidence. The funded
+four-wallet profile still exposes its action/output groups; its own privacy
+failure is unchanged. Integration now follows ADR-0064, with real independent
+retention still requiring a destination and access.
+
+The owner authorizes the next three tracks to completion. Follow
+[RFC0025](rfc/0025-four-wallet-testnet-funding-and-accepted-recovery.md),
+[ADR0060](adr/0060-four-wallet-gn2-testnet-rehearsal.md) and the
+[execution plan](../research/next-session/four-wallet-testnet/PLAN.md): strict
+two-owner GN2 funding, fresh financial assets, accepted actual W heads, A→B and
+C→D, coordinator/prover loss, four original backups and all confirmed payouts.
+Separate privacy construction and actual independently controlled public storage
+continue in parallel. The old public profile stays DO NOT FUND; all prior fee/
+privacy failures stand. The accepted lifecycle result closes this bounded
+rehearsal, without closing privacy, fee or independent-retention gates.
+
+## Earlier checkpoint — independent payments and recovery
+
+The owner authorizes all four tracks in
+[RFC-0024](rfc/0024-independent-private-payment-settlement-and-recovery.md):
+actual public settlement semantics and complete independent-sender fees,
+changed payment behavior addressing invoice/timing linkage, cold recovery with
+independent public distribution, and private exits at CM/NF capacity.
+[ADR-0058](adr/0058-private-full-note-exits-without-commitment-appends.md)
+selects only a new unfunded full-note no-append exit experiment; old instances
+are unchanged. The [execution gates](../research/next-session/independent-payments/PLAN.md)
+keep actual proof/native results, model evidence, provider retention and accepted
+testnet terminal payouts separate. The
+[new checkpoint](../research/next-session/independent-payments/RESULTS.md)
+now closes the bounded full-tree no-append proof/native gate and completes a
+public-release/clean-HTTPS-software-and-PK/original-backup/private-terminal
+withdrawal in supplied contexts. Independent retention/currentness remains
+open. ADR-0059 now has genuine two-owner scheduled private proofs, a 408.730-second
+CUDA Succinct receipt, same-claim compression and actual immutable W native Full
+acceptance at an 18,508,000-sompi outer fee. The current private prover also
+cold-rebuilds byte for byte from public source/dependencies. Both original
+backups now recover incoming payment/change on that profile and generate genuine two-real-input private exits from downloaded software/PK,
+ending at zero reserve. Outer plus private-exit fees total 52,512,100 sompi
+(2.625605% of the two declared 10-KAS synthetic payments before entry costs).
+The stronger privacy controls and actual upstream MWEB recipient/spend component
+retain the demonstrated observer failures; original fee/privacy failures
+remain. No product gate is marked complete merely because a bounded component passed.
+
+The next implementation package is strict two-owner GN2 funding and accepted-W
+history/current-head reconciliation on a fresh fundable profile; see the
+[source-reviewed readiness design](../research/next-session/independent-payments/testnet-next/DESIGN-READINESS.md).
+For privacy, first resolve the established owner-private construction/binding
+contract in the [decision note](../research/next-session/independent-payments/privacy-next/DECISION-NEXT.md),
+before another prover or heldout study. Independent recovery retention still
+requires a separately controlled destination.
+
+## Previous checkpoint — 2026-10-23
+
+The [matched batch result](../research/next-session/compact-batch/RESULTS.md)
+under ADR0057 now completes 33 genuine proofs and 34 native Full transactions:
+32 useful 10-KAS payments, 32 independent original-backup withdrawals and zero
+terminal reserve. Complete supplied-context fees are **1.9486784375%**. The
+first withdrawal actually restores the 1.308GB compact PK through a fallback
+with the original source/cache absent. All 32 original backups subsequently
+recognize their spent receipts and rederive the per-claim payout keys. This is
+local integration evidence; there are no new accepted-chain payouts or durable
+independent-provider claims. The source-frozen 96-view linkage study is complete:
+61 views complete and 35 incomplete; it does not qualify financial privacy.
+Its completed wide C+1 cells expose payer-role labeling through legitimate
+invoice metadata; staggered use exposes some funding ancestry. Address these
+channels in the next design, while preserving the unresolved compact views.
+Existing privacy failures and completed testnet instances stand.
+Fixed 1 GiB chunk pack/restore also roundtrips both real proving keys without
+original source/cache paths. Four corrected transport APIs retain the same
+file-alias exclusions across repeated reads; 46 current controls pass. Independent
+provider retention, accepted-state currentness and full-capacity exits stay open.
+
+The [individual fee blocker](../research/next-session/compact-batch/fees/NEXT-FEE-BLOCKER-01.md)
+is architectural: two separate private verifications already cost at least
+2.95% of 10 KAS at rate100 before bytes, storage and native checks. Fewer L1
+verifications per genuine payment are the largest fee lever. Compare established
+aggregation/shared settlement with the minimal native route while pricing
+unilateral exits, data availability and delay; do not assume vProgs is required
+or unnecessary. Budget reduction remains an unimplemented secondary experiment.
+The [aggregation compatibility memo](../research/next-session/compact-batch/fees/AGGREGATION-COMPATIBILITY-01.md)
+shows why a verifier wrapper alone does not authorize combined state, nullifier,
+payout and fee effects. Specify a two-action public transcript before choosing
+new cryptographic implementation. Fresh complete testnet rehearsal and durable
+independent public-data/software distribution remain separate delivery gates.
+
+The [private-change extension](../research/next-session/private-change/PLAN.md)
+is now confirmed under ADR-0055: partial cashout, restore change, spend it
+privately, restore again and finish both remaining native exits. All three
+payouts are confirmed, ending with zero reserve; the original backups recovered
+two successive change notes without saved index/maps. The earlier completed
+checkpoint below remains unchanged. Native fee compaction and stronger arithmetic inference are
+parallel experiments; neither is treated as financial privacy qualification.
+The complete compact-policy emitter under ADR-0056 now passes55 expected
+native outcomes. Its23575-byte program/source execution bound projects1.9491%
+complete fees for32 simultaneous10-KAS payments plus independent exits. The
+matched-circuit/proof and bounded recovery gates are now closed by ADR0057's
+local result above; capacity, durable availability and fresh live settlement
+remain open. Separate-time two-output payments still exceed target. A smaller
+200M live functional change/recovery pilot is confirmed; the10-KAS targets
+stay unchanged.
+
+The [fresh Auth528 rehearsal](../research/next-session/private-service-loss/RESULTS.md)
+now confirms both proof-private native payouts after operator-prover shutdown.
+Each cold owner reconstructed fresh public history, loaded authenticated public
+parameters and generated a new proof locally from one seed-only backup. The
+payouts are 41,000,100 and 41,042,400 sompi; terminal reserve is zero.
+
+The preceding whole-claim wallet exposed its consumed value through payout
+plus fee. ADR0055 now implements and confirms private change/repeated spending
+and original-backup change recovery. The next privacy measurement is the new
+prospectively frozen stronger observer study; change alone did not qualify
+financial privacy.
+See the [source-grounded next step](../research/next-session/private-service-loss/privacy/NEXT-BLOCKER-01.md).
+The unchanged financial-privacy targets still fail. Earlier unamortized fee
+profiles remain failures; the new32-payment matched batch passes only its
+bounded supplied-context fee workload. Setup honesty and retained public
+parameters/history remain assumptions; independent consensus is unverified.
+
+## Earlier checkpoint — 2026-10-23
+
+The previous native-KAS pilot completed both confirmed TN10 payouts. The next
+[privacy and recovery results](../research/next-session/privacy-recovery/RESULTS.md)
+now add descriptor-only network discovery, backup-only historical recovery and
+an unfunded proof-private cashout prototype with private change, terminal payout
+and both competing-spend controls. The new program has five genuine proofs and
+seven mainline native Full operations; these are supplied-context results.
+The separate fresh service-loss trial now confirms both independently
+reconstructed revealing exits. A final fresh descriptor-only public replay
+checks both payouts unspent and zero reserve; each cold client used only its
+own backup and fresh public chain data, with no operator archive or prover.
+
+The remaining product gates are financial privacy through complete cashout,
+the unchanged 2% complete-fee target, and integrated network recovery/private
+proving for the new program. The current direct-verifier fee floor already
+fails the 10-KAS target. Neither additional CPU nor successful local tests closes
+that architecture constraint. Follow RFC-0022 and ADRs 0049–0052; preserve prior
+failed privacy measurements and all funded instances.
+
+## Historical checkpoint — 2026-10-18
+
+PR42 and PR43 are merged. The [complete classifier receipt](../poc/remote-cuda/FULL-RESULTS.md)
+closes the outer-receipt blocker for the existing compact-wallet test model:
+117,473,222 user cycles, one real succinct receipt, independent CPU verification
+and actual wrong-image/journal/seal rejection. The complete GPU worker took
+256 seconds; the provider stop was confirmed. Both GPU archives were subsequently
+restored from B and verified again before the two stopped Pods/local volumes
+were deleted. Evidence and source pins remain preserved.
+
+The owner has resumed the local private-payment work. Concrete experimental
+choices are recorded in [ADR-0011](adr/0011-local-private-note-wallet.md): hidden
+note membership/authority/conservation, economic nullifiers across batches,
+recipient validation and an atomic application kernel. The small new wallet
+circuit is separate from the completed PR43 classifier. The
+[local result](../poc/private-note-wallet/RESULTS.md) contains five real wallet
+proofs, nine passing tests and separate pinned-key verification; full outer/native
+integration remains a subsequent gate. No new GPU rental, native funding or
+TN10 transaction is part of this local implementation.
+
+PR44 is now merged with the equation-level intent-binding review controls.
+The [private-state integration calibration](../poc/private-note-chain/RESULTS.md)
+uses a new explicitly selected unfunded TN10 domain, real wallet VK and guest.
+Twenty-one selected guest cases pass, including linked previous-state/current-NF
+and native deposit-output controls; the full valid-invalid-valid sequence hits
+128M before its third pairing completes. No budget is raised, receipt produced
+or GPU rented. Separate-process Bob recovery/public-parameter reload now work
+locally; native acceptance/payout and durable independent availability remain
+open. See the [binding map](../poc/private-note-chain/BINDINGS.md) and
+[CPU-before-GPU proposal](../poc/private-note-chain/GPU-PROPOSAL.md).
+
+The owner-approved [single 160M follow-up](../poc/private-note-chain/calibration-160m/RESULTS.md)
+now completes that same sequence at 139,763,284 cycles / 143 segments, exactly
+matching its 352-byte reference journal. The 128M failure remains unchanged.
+The [next precise task](../poc/private-note-chain/NEXT-PROOF.md) is one genuine
+Succinct receipt plus independent CPU/native fixture verification after local
+producer/package preparation and separate GPU release. This measured scenario
+has no Bob exit, actual native deposit acceptance or payout.
+
+That task is now completed by the separately owner-released
+[single private-note GPU result](../poc/private-note-proof/gpu-2026-10-18/RESULTS.md):
+243.088 seconds, exact genuine receipt, independent CPU verification and local
+native positive/fifteen-negative checks. Provider stop/deletion followed verified
+external preservation. The next substantive gap is actual native deposit lineage
+and Bob's authorized exit/payout with complete reserve accounting, before a
+separately released full TN10 rehearsal. No additional rental follows automatically.
+
+The subsequent [local native/private lifecycle package](../poc/private-native/RESULTS.md)
+now implements and execution-tests that accounting path with actual wallet
+proofs, Bob's separate recovery/proof process and native payout scripts. Four
+positive batches and seventeen additional positive/rejection/abort cases pass. Accepted native
+events remain fixtures; no new outer receipt or TN10 transaction was made.
+Review [ADR-0014](adr/0014-private-native-lifecycle.md) and the
+[concrete transaction/proof plan](../poc/private-native/TN10-PLAN.md) before
+releasing new proof packaging/rental or the terminal native rehearsal.
+
+Owner-directed priority, 2026-10-17, after the scoped
+[Based App feasibility milestone](based-app-feasibility-2026-10-17.md).
+The next deliverable is a reviewable private-payment specification and executable
+model, followed by a minimal TN10 privacy experiment. No production architecture
+or proof system is selected here; [RFC-0001](rfc/0001-state-architecture.md) remains
+Open. Native KAS is the sole backing asset; there is no new privacy token.
+
+## Historical local work-package checkpoints, 2026-10-17
+
+The following sequence is preserved as dated research. Pending outer-receipt
+statements below are superseded by the completed GPU result above.
+
+The first [local package](../poc/shielded-design/README.md) now supplies
+[RFC-0002](rfc/0002-shielded-payment.md), a visibility contract, executable model,
+adversarial tests, source/reuse review and real bounded wallet-to-batch proof
+composition. No funded privacy trial was run. The current recursive syscall does
+not prove an invalid-operation no-op; that classifier, complete private relation,
+noncircular proof-carrying payload and authenticated deposit recovery require
+review before the [conditional TN10 proposal](../poc/shielded-design/TN10-PROPOSAL.md).
+The model/proxy proof do not establish financial privacy or close the issues below.
+
+The [classification follow-up](../poc/proof-classification/RESULTS.md) executes
+the correct valid-invalid-valid sequence using ordinary verification of real
+wallet proof bytes. It costs 870,829,938 user cycles / 880 segments; no outer
+classification proof was produced. A complete proxy native operation already
+uses 89.7% of the pinned block transient capacity. Compare the previously named
+specialized proof route before building the full private relation around this
+path. Keep real accepted-lane integration, private economics and funding gated.
+
+The [Groth16 follow-up](../poc/groth16-comparison/RESULTS.md) produces actual
+specialized 128-byte wallet proofs with the same small predicate, but the outer
+classifier exceeds its 32-million-cycle budget. Next resolve the maintained
+BN254 backend/budget question and produce one complete outer receipt before
+expanding to the private note circuit. No new funded TN10 experiment is ready.
+
+The [bounded accelerated backend](../poc/accelerated-bn254/RESULTS.md) now completes
+the real-proof sequence at 117.47M cycles (121 segments) in its separate calibration.
+It is compatible with the existing pinned VM but does not meet the 32M practical
+cap; no outer proof ran. The next concrete budget decision is a declared 128M
+practical experiment, retaining full adversarial controls and the one-hour proof
+limit, before connecting private notes or actual native settlement.
+
+The [approved 128M proof attempt](../poc/outer-proof-128m/RESULTS.md) completes all
+24 required execution cases, then reaches the one-hour proof-job stop without a
+receipt. No budget is automatically increased. Next profile actual segment
+proving/recursive compression and memory behavior; the compact wallet candidate
+and execution qualification remain useful, while the real outer-receipt gate
+and the full private-note/native-integration gates remain open.
+
+## First work package: define the private payment statement
+
+Work through existing issues rather than inventing a second backlog:
+
+| Priority | Existing issues | Concrete deliverable and completion condition |
+| --- | --- | --- |
+| 1: privacy and spendable notes | [P04/#4](https://github.com/olafweller/kaspa-privacy-initiative/issues/4), [P13/#13](https://github.com/olafweller/kaspa-privacy-initiative/issues/13) | Specify which values/owners/links are hidden from chain observers, executors, provers and RPC providers. Compare established note/ownership/encryption designs, recipient spendability and delivery requirements. Include an explicit public/private data table and linkability risks at entry/exit. |
+| 2: conservation and spentness | [P05/#5](https://github.com/olafweller/kaspa-privacy-initiative/issues/5), [P06/#6](https://github.com/olafweller/kaspa-privacy-initiative/issues/6) | State exact integer-sompi ranges, deposits, hidden transfers, nullifiers, pending exits, completed payouts, rent and fees. Bind proof version/domain, accepted note anchors, current spentness and actual native reserve/payout. Executable adversarial vectors must reject inflation, overflow, wrong ownership, duplicate spends within/across batches and replay across domains. |
+| 3: native entry and exits | [P07/#7](https://github.com/olafweller/kaspa-privacy-initiative/issues/7), [P08/#8](https://github.com/olafweller/kaspa-privacy-initiative/issues/8), [#23](https://github.com/olafweller/kaspa-privacy-initiative/issues/23) | Map a native deposit to one private claim and an authorized spent claim to an exactly bound native payout. Keep unpaid liabilities counted. Specify user-accessible fee handling and exit data; no operator withdrawal signature or privileged rescue path. |
+| 4: witness privacy, delivery and retained data | [P10/#10](https://github.com/olafweller/kaspa-privacy-initiative/issues/10), [P11/#11](https://github.com/olafweller/kaspa-privacy-initiative/issues/11), [P12/#12](https://github.com/olafweller/kaspa-privacy-initiative/issues/12), [P09/#9](https://github.com/olafweller/kaspa-privacy-initiative/issues/9) | Define how private proofs are generated without exposing another user's secrets to an executor or hosted prover. Inventory commitments, spentness, ciphertexts, accepted updates, witnesses and user backups. Specify complete discovery and safe handling of missing/corrupt data; identify a falsifiable later independent recovery test. |
+
+These are coupled requirements, not four isolated implementations. Public-account
+balances cannot be made into a private payment protocol merely by encrypting a
+JSON file or putting their existing execution inside a ZK VM. Public payloads,
+resource identifiers, fee inputs, timing and note retrieval can still reveal the
+payment graph. A service that receives plaintext witnesses is within the privacy
+threat model even if the resulting on-chain proof reveals less.
+
+## Reuse and comparison before implementation
+
+The [Phase 1 comparison](../research/phase1-source-review-2026-10-08.md) and its
+[Orchard](../research/zcash-orchard.md), [Aztec](../research/aztec.md),
+[RAILGUN](../research/railgun.md), [Monero](../research/monero.md) and
+[MWEB](../research/litecoin-mweb.md) notes are the starting point. Refresh exact
+upstream state and the [existing Kaspa privacy inventory](../research/existing-kaspa-privacy.md)
+before selecting constructions; the prior source reviews are dated evidence.
+Record reused components, required adaptations, rejected alternatives, license
+constraints and assumptions. Do not invent new cryptographic primitives.
+
+Use the tested Based App ordering, recursive proof and native bridge path as a
+candidate backend. Keep Candidate A as a comparison for cost, native bindings
+and witness/recovery needs. A single logical privacy domain is the initial
+comparison workload; add sharding, a full runtime or operator network only when
+measurements or an explicit requirement justify it. A note/nullifier or settlement
+design decision requires RFC review and an ADR before substantial cryptographic
+implementation, with [all invariants](../SECURITY-INVARIANTS.md) preserved.
+
+## Next experiment's falsifiable target
+
+After reviewing that statement/model, the minimal experiment should demonstrate:
+
+```text
+native test-KAS deposit
+-> recipient-spendable private claim
+-> private value-conserving transfer to another user
+-> deterministic duplicate-spend rejection
+-> authorized exit claim with backing preserved
+-> confirmed native test-KAS payout
+```
+
+It must use real proofs with pinned identities and disabled development mode.
+Report the exact number of users/notes, public observations, hidden witnesses,
+proof time/memory/fees and every unpaid liability. Include unauthorized spend,
+wrong-root, overflow/inflation, same-note duplicate, cross-domain replay,
+recipient substitution, malformed proof and underpaid/diverted payout controls.
+Neither encrypted transport nor a hidden amount alone establishes payment
+unlinkability; report residual timing/amount/network/service correlations.
+
+This work package does not require building an independent operator network now.
+It does require specifying the data and user secrets needed to replace services.
+The [N-user shutdown and exit gate](ROADMAP.md#early-exit-and-recovery-gate) stays
+mandatory before treating an architecture as credible. Same-node replay does
+not satisfy it, and private transfers do not excuse an unavailable exit.
+
+## What counts as progress now
+
+The immediate gate is complete private construction and authority with a hidden
+constructor map, lower measured lifecycle fees and independently available
+recovery data. The completed functional rehearsal and component checks do not
+close those privacy/availability questions.
+Further public-account runtime expansion is secondary to a demonstrated private
+protocol requirement. Existing issues remain open until their own acceptance
+criteria are met; completing the Based App milestone closes none by implication.
+
+
+### Completed rehearsal and next integration (2026-10-27)
+
+The financial rehearsal and 19-case accounting are complete. Successful shared
+prefix acquisition closes the prior first-payment/cache bottleneck; it preserves
+13 financial sources, lawful boundary recompression, seven-source sidecars and full
+verification of external imports. [Final results](checkpoints/2026-10-27.md)
+retain the original adapter failure, reviewed 21-control sibling and all three
+unchanged observer policies.
+
+1. Build and falsify a complete private-construction/authority relation that removes
+   public grouping and hides the constructor map while preserving delivery,
+   current-state/replay rules, original-seed recovery and independent exits.
+  49/29 consent/aggregate,42 encoding and 15 one-Output matrix controls are bounded
+   components. Recursive and direct Native Arkworks 0.6 paths remain source options,
+   with signature-gadget/full-witness MPC/authority gaps; no architecture is chosen.
+2. Reduce actual full-lifecycle cost, including exits. Preserve the 21 KAS useful
+   denominator and 2% FAIL; payment proof savings alone cannot meet that target.
+3. Finish the frozen 9-Original publication audits and public Tor readback, then
+   obtain separate physical recovery and independently administered retention
+   evidence. Later completion belongs in separately selected generated records;
+   do not silently alter source bytes after the final canary freeze.
+
+Keep the changed-cohort retry counterexample and all old fee/privacy failures.
+Source-policy exits 4/5 predictions remain conditional, without owner-truth or
+posterior claims. No component result substitutes for native private batching,
+independent availability, cryptographic review or production safety.

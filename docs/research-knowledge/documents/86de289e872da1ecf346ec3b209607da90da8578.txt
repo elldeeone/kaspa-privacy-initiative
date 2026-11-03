@@ -1,0 +1,13 @@
+# Fresh initial-pair compressed receipt: independent verification
+
+2026-10-22. PASS after root selected the saved Groth16 receipt and released verification only. No build, proving, guest replay, native VM, owner CLI, ledger replay or DRAIN workflow by this reviewer.
+
+The 1169-byte receipt SHA256 is `e13eaa36d1149bfe873938acf829a9e47d93a6a8014eb61fdad9cb09c6e273f2`. Existing immutable CPU verifier `c2e51e9896afa991f63af5b220e9e5b0a85e027a88a7d5cf0c4fec7d156b2d27` verified the exact image `e21ab79e3aebdaba0355680d6a17bf0142bf0b3b5bbb687a6f2726499282a0d3`, J336 SHA `699697f07565d28faad6e45b9e6daa0a09dbcea3f475d51880a75289f7e49b57`, P1088 SHA `70d89b257a6ec611db4775b4c8b0c0db2372cf8f75d084325be89d7d455c6cca` and independent successful assumption-free claim `88f54f54030b2fc884c777a872262679fa15bffca8e613a0f6d40f7d90e92aaa`.
+
+Development mode was disabled. Wrong image, eleven journal field offsets, corrupted seal and fake receipt were rejected: fourteen controls. The runtime was under one second, constrained to one core/thread, 2 GiB address space and 120 seconds. Executable and receipt hashes matched before/after. Evidence is `s7-fresh-compressed-receipt-independent-01/`; main independent report SHA256 `83fdcf530c7126c6e3e60e184e4c1b78ef93c4cc0fb25a75b8cc336db6346423`.
+
+The retained compression record names exact source Succinct SHA `345568d0dd58de73f384aa616b5698a7d535c7aaa5335ff74c7a0a94a1b583ce`, identical source/output claim and J, and no guest replay. Reviewed compression source has only the retained-receipt compression call. This combines software statement verification with source/job provenance; the compressed proof alone does not identify a unique source proof artifact.
+
+Independent cleanup checks found the compression unit inactive/dead, MainPID0 and empty cgroup, with all four recorded PID/start identities absent. All 35 selected sources and four selected binaries still matched the frozen manifest. Exact cleanup/provenance metadata is retained separately in the packet.
+
+This verifies the same fresh public initial-pair assertion. Actual native proof encoding/Full execution is a separate gate. Accepted ancestry/backing, owner exits, a complete lifecycle, privacy and production safety remain unestablished.

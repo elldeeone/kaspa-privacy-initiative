@@ -1,0 +1,42 @@
+# Public development fixtures for two-v6 host binding
+
+The fresh test-only setup and both genuine wallet proofs completed successfully.
+Each unchanged v6 circuit has 4,372,824 constraints. Both proofs were accepted
+by Arkworks 0.6.0 and each encrypted output passed its recipient's decryption,
+commitment and plaintext checks. No proving key or wallet file was serialized.
+
+The fixtures use a new domain and a new single-party, untrusted development VK.
+Their public wallet seeds are fixed do-not-fund labels in the producer source.
+The common count-3 membership context is synthetic and has no accepted native
+history. These fixtures do not qualify the original rehearsal instance, native
+backing/current spentness, zkVM execution, a receipt, settlement or privacy.
+
+- Producer: `poc/shared-pool/src/bin/public_two_v6_fixture.rs`, source SHA-256
+  `a6a261078ee4f60c4b271eeffd22e5c0cee77c9da2062624a23402197bf0dfd7`.
+- Binary SHA-256: `2a539045b073179cb24816bebb530f3215013882e80a68aeb675ec3f38faf390`.
+- Fresh domain: `d47cb91ef9ac74dda71c7db1519381526c3dfac5f525b904f744b97a7df713bd`.
+- VK SHA-256: `2a9acd1639fb7b454384c65fb317a139695f5a2cbb3ebd941dd13b5f6045a2f4`.
+
+Public bytes are under `public/`. `manifest.json` describes the two 875-byte
+bundles and 328-byte VK. The separate `derive_public_contract.py` independently
+checks their exact byte profile, common anchor/count, four distinct active
+nullifiers, ordered ciphertext digests and paired-record permutations. It emits
+`expected-public.bin` (1,088 bytes), `expected-journal.bin` (42 bytes) and
+`expected-input.bin` (2,846 bytes). This script does byte checks only; it performs
+no cryptographic verification. Exact identities are in `independent-contract.json`.
+
+The P digest is `9ac720aa55e7bd6eaec674788d418aa3314bc7af1010b7c9f09a493d9aa76ce9`.
+The digest of actual J bytes is
+`5d667b709f35191c6fc98e6aa0b79bd934e39a40ef4edfea582fcef3b06d4ac7`.
+
+The one setup/two-proof process ran 204.282 seconds, using 1,816.213 CPU seconds
+and 7,200,669,696 bytes peak cgroup memory. Its bounds were 12 CPUs, 14 GiB,
+zero swap and 30 minutes. Setup took 22.554 seconds; the proofs took 16.373 and
+16.120 seconds. Both pre-setup constraint checks account for most remaining time.
+The unit is stopped, MainPID/ControlPID are zero, and its cgroup is absent.
+`launch.json`, `resource-samples.jsonl`, `terminal-result.json` and `cleanup.txt`
+retain supervision and identity evidence.
+
+The earlier authorized source audit found no qualifying pair in the fixed
+published rehearsal: its only complete-profile SPEND bundles are rows 6 and 8,
+whose count/anchor differ. The new development fixtures preserve that limitation.

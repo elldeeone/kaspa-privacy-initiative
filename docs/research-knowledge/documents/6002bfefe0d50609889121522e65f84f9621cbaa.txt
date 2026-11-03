@@ -1,0 +1,3 @@
+This public packet retains two public component records and their checked R0 claim, with neutral stage numbers. The actual guest, genuine receipts, independent CPU verification, canonical native proof, global financial projection and journal are joined by hashes. Resource observations omit command arguments and machine paths.
+
+The supplied starting contexts are unfunded local premises. Aggregate Native Full, unchanged proof-slot binding, owner exits and recovery are covered separately by the lifecycle packet. No chain currentness, confirmed payout, privacy or cryptographic soundness claim follows from this packet.

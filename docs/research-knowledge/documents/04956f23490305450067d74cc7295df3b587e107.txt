@@ -1,0 +1,269 @@
+# Kaspa Privacy Initiative
+
+> Researching permissionless, optional privacy for native KAS.
+
+**Kaspa Privacy Initiative is an independent, community-led research initiative and is not an official Kaspa Core project.**
+
+**Status:** early public research. No production protocol exists here yet. Do not use experimental code with real funds.
+
+The [22 October public checkpoint](PUBLICATION.md) indexes the retained native
+proof-composition results, their limits and the separate fresh-profile branch.
+See [REPRODUCE.md](REPRODUCE.md) for the published source/data view and rechecks.
+
+## Start here and help shape the research
+
+The [shared-pool branch plan](docs/SHARED-POOL-PLAN.md) gives the direct-L1 work's
+phases, current status and completion/stop criteria. The
+[independent research journal](docs/RESEARCH-JOURNAL.md) tracks its native-KAS
+hypotheses, funded experiments, findings and unresolved questions.
+
+The [scoped Based App feasibility milestone](docs/based-app-feasibility-2026-10-17.md) is complete: PRs #31–#33 demonstrate real TN10 lane ordering through proved execution and accepted settlement, including native payout and same-endpoint omission rejection. The development focus now moves to [shielded native KAS and financial privacy](docs/shielded-kas-next.md). No production architecture or privacy protocol has been accepted. Developers, researchers and security reviewers are welcome.
+
+- Start with the compact [external reviewer guide](docs/REVIEWER-GUIDE.md): three small review tasks and reproduction commands.
+- Review the [first shielded-KAS specification and local experiments](poc/shielded-design/README.md): model results, real proof-composition measurements and remaining blockers before a funded privacy trial.
+- The [proof-byte classification follow-up](poc/proof-classification/RESULTS.md) executes the correct sequence but exposes an 880-segment proof-cost blocker; no outer classification receipt or funded privacy trial is claimed.
+- The [specialized Groth16 comparison](poc/groth16-comparison/RESULTS.md) measures real 128-byte wallet proofs and compact operations; in-guest verification still exceeds its agreed budget, with no outer receipt or funded privacy trial.
+- The [accelerated BN254 qualification](poc/accelerated-bn254/RESULTS.md) completes the same real-proof sequence in a 117.47M-cycle calibration; it still exceeds the declared 32M practical target, so no outer proof was attempted.
+- The [approved 128M outer-proof experiment](poc/outer-proof-128m/RESULTS.md) passes all 24 full/narrow execution checks; its single real proof attempt stops at one hour without returning a receipt.
+- The [bounded phase diagnostics](poc/proof-phase-diagnostics/RESULTS.md) retain two segment proofs, two lifts and a valid join, independently reverified. Measured segment proving dominates these probes; a complete classifier receipt remains open.
+- The [remote CUDA preparation](poc/remote-cuda/README.md) packages those same five phases for one bounded L40S qualification, with an independent rental watchdog and CPU claim comparison. No GPU rental or CUDA execution is claimed by the preparation.
+- Read the [candidate architectures](docs/ARCHITECTURE.md) and [open RFC-0001](docs/rfc/0001-state-architecture.md).
+- Challenge the [security invariants](SECURITY-INVARIANTS.md), [threat model](THREAT-MODEL.md), and [open questions](QUESTIONS.md) with evidence.
+- Join the [welcome discussion](https://github.com/olafweller/kaspa-privacy-initiative/discussions/17) for ideas and questions, or use [Issues](https://github.com/olafweller/kaspa-privacy-initiative/issues) for concrete research tasks and corrections.
+- Suggest a documentation change through a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md) for a short walkthrough.
+
+Feedback is most useful when it identifies an assumption, links a specification or exact upstream file/commit, and explains what would validate or falsify the idea. You do not need a finished implementation to contribute.
+
+## First falsifiable milestone
+
+> N users shield test KAS. All normal operators, provers, executors, and hosted state services are then shut down. Using only public or independently reconstructable protocol data, their own wallet secrets/backups, and independent software/infrastructure, every user must still be able to recover and exit to native test KAS. No privileged operator data or cooperation is allowed.
+
+Deposits and private transfers are not enough: a candidate architecture is only credible if users can ultimately recover native KAS without a privileged operator. Failure of this test means the candidate needs redesign.
+
+> **What exactly authorizes the reserve to release native KAS?**
+
+The project must specify what proof or condition is verified, where it is verified, and how that cryptographically authorizes the native-KAS payout.
+
+See the [detailed recovery/exit gate](docs/ROADMAP.md#early-exit-and-recovery-gate) and [exit architecture and candidate designs](docs/ARCHITECTURE.md).
+
+## The idea
+
+Kaspa is transparent by default. The Kaspa Privacy Initiative (KPI) explores whether native KAS can support a trust-minimized shielded domain where balances, transfer amounts, and ownership relationships are private, while remaining fully backed by native KAS. Permissionless entry, transfers, and exits are research targets, not implemented guarantees.
+
+The long-term user experience could be as simple as:
+
+```text
+Public KAS  ->  Shield  ->  Private KAS  ->  Send privately  ->  Unshield  ->  Public KAS
+```
+
+The goal is **not** to create another cryptocurrency.
+
+The goal is to make **native KAS optionally private**.
+
+## Core concept
+
+If 10,000 KAS is shielded, the public Kaspa network may see that deposit. Inside the shielded domain, however, later transfers should not require 5,000 public KAS to visibly move when a user privately pays 5,000 KAS.
+
+Instead, native KAS remains locked under protocol rules while cryptographic state changes who can validly claim portions of that backing.
+
+The fundamental accounting invariant is:
+
+```text
+total outstanding user liabilities <= native KAS reserved for users
+```
+
+Outstanding user liabilities include:
+
+- spendable shielded value;
+- valid withdrawal/exit claims that have been created but not yet paid.
+
+Consuming a private note into a withdrawal request must not make the protocol forget that it still owes the user native KAS. That liability remains outstanding until the valid withdrawal/exit claim is paid.
+
+Shielded notes or claims are therefore **not a new token**. They are private cryptographic claims on native KAS held under protocol-enforced conditions.
+
+## What this project is
+
+This repository is for:
+
+- protocol research;
+- threat modelling;
+- candidate architecture design;
+- comparison with existing privacy systems;
+- testnet proof-of-concept work;
+- open technical discussion;
+- security, economic, governance, and legal-operational research.
+
+It is not yet:
+
+- a production privacy system;
+- an audited protocol;
+- a mainnet pool;
+- a financial service;
+- a wallet for real funds;
+- a promise that any particular architecture will work.
+
+## Why now?
+
+Kaspa's Toccata programmability upgrade is live and provides important primitives including covenants, transaction introspection, zero-knowledge verification, and sequencing support for based applications. Full vProgs remain under active development as a shared-state execution/proving framework.
+
+That creates a useful research question:
+
+> **What is the minimal architecture for shielded native KAS using current Toccata primitives, and which parts actually require a based-app/vProgs architecture?**
+
+We do not want to assume the answer in advance.
+
+## Candidate architecture family
+
+A simplified model looks like this:
+
+```text
+                 KASPA L1
+                    |
+              deposit native KAS
+                    |
+                    v
+            settlement / covenant
+                    |
+          +---------+---------+
+          |                   |
+      locked KAS         public commitments
+                              |
+                              v
+                     SHIELDED STATE
+                              |
+                     private transfers
+                              |
+                 commitments + nullifiers
+                              |
+                           ZK proof
+                              |
+                              v
+                     updated state root
+                              |
+                           unshield
+                              |
+                              v
+                         native KAS
+```
+
+The exact architecture is intentionally undecided. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## What must remain true
+
+Regardless of architecture:
+
+- no one may create unbacked shielded KAS;
+- no note may be spent twice;
+- no administrator may arbitrarily seize or freeze valid user funds;
+- loss of a specific prover/operator should not allow theft;
+- infrastructure failure should threaten liveness before it threatens fund safety;
+- protocol rules should be independently verifiable;
+- critical state should be recoverable or reconstructable without trusting one company.
+
+See [SECURITY-INVARIANTS.md](SECURITY-INVARIANTS.md).
+
+## Existing work first
+
+We should not reinvent what already exists.
+
+Before choosing an architecture, this project will map:
+
+- Kaspa's current Toccata capabilities;
+- the evolving vProgs runtime;
+- existing Kaspa privacy experiments and claims;
+- the recent Kaspa Research proposal for an optional privacy layer;
+- mature privacy designs such as Zcash Orchard, RAILGUN, Aztec, Monero, and Litecoin MWEB.
+
+See [research/README.md](research/README.md) and [research/existing-kaspa-privacy.md](research/existing-kaspa-privacy.md).
+
+## First PoC
+
+The broader first PoC is a reproducible testnet experiment testing native KAS deposits, private ownership transfers, and withdrawals under the required accounting and authorization rules. The [first falsifiable milestone](#first-falsifiable-milestone) above is its decisive early test. Passing these tests would not prove cryptographic correctness or production security.
+
+See [poc/README.md](poc/README.md).
+
+## Project principles
+
+In short:
+
+- native KAS only;
+- no new privacy token;
+- privacy is optional;
+- self-custody;
+- no permanent privileged withdrawal authority;
+- open specifications and open-source implementations;
+- multiple independent implementations are encouraged;
+- sustainable development funding is allowed;
+- user funds and development treasury funds must remain separate;
+- contributors may be paid for work, but there should be no permanent founder rent;
+- minimal governance;
+- security before growth;
+- testnet before mainnet.
+
+See [PRINCIPLES.md](PRINCIPLES.md).
+
+## Current technical context
+
+As of October 2026:
+
+- Toccata is live on Kaspa mainnet.
+- Kaspa documents covenants, transaction introspection, ZK verification, and sequencing support for based apps as live capabilities.
+- vProgs is an evolving reference runtime for based computation and is still described as early/prototype infrastructure with APIs and architecture subject to change.
+
+The [upstream evidence map](research/kaspa-toccata-vprogs.md) pins the sources reviewed on October 2, 2026 and distinguishes implemented primitives from unvalidated pool behavior. The later [A0/A0.5 report](docs/poc-a0.md) records a real Groth16 proof spending a funded TN10 test reserve and an observed native test-KAS payout. The own node did **not** have complete UTXO sync; live UTXO/acceptance observations relied on public native RPC endpoints. This was not independent recovery, a privacy pool, an audit, production safety or architecture acceptance.
+
+A1 implementation is tracked in [PR #22](https://github.com/olafweller/kaspa-privacy-initiative/pull/22): G1–G4 local/native-synthetic evidence exists, with supplemental-negative and fee-receipt qualification repairs described there. [Live attempt 1](docs/poc-a1-live-attempt-1.md) failed before B armed or A loss. [Live attempt 2](docs/poc-a1-live-attempt-2.md) passed physical whole-A loss and autonomous B start but failed at checkpoint parsing before B lineage/proving: **G5 FAILED — autonomous recovery did not complete during that live run.** Later replay, owner exits and new trials do not change those failed outcomes.
+
+**Update 2026-10-08 (S1):** the [official trial](docs/poc-a1-official-trial-2026-10-08.md) passed the scoped S1 scenario on TN10: after physical loss of A, B recovered independently and an autonomous fresh-proof terminal payout was accepted.
+
+**Update 2026-10-08 (S0):** the [S0 report and public evidence](docs/poc-a1-s0-trials-2026-10-08.md) record a complete paid-out rehearsal and three successful scoped trials: B recovery with A physically off, direct A exit, and an ordered terminal-versus-terminal competing spend. B was accepted; A's later candidate was rejected, with submission intents 1.4 seconds apart. Each successful case returned 22.1 native test KAS with exact accounting/body checks and a later recheck after at least 120 seconds. Full G5/G6 remains open: live archive/artifact-loss, provider faults, controlled reorg/rollback, the other competing-branch variants and future fee/resource liveness are unproved. C-node and single-party setup trust remain assumptions; these results make no anonymity or production-safety claim. The [CI scope](docs/CI.md) distinguishes automated checks from retained experiment evidence.
+
+Candidate A is the **current experimental baseline**, because it is the smallest falsifiable use of current L1 primitives. RFC-0001 remains open; A0/A1 evaluate Candidate A without accepting a production architecture. Notes, nullifiers and private transfers may require major redesign or another architecture.
+
+BN254/Groth16 uses the current verifier for this experiment; it is not a final proof-system choice and is not post-quantum. Per-instance fixed-context setups are not the intended scalable private-pool architecture. Single-party setup provenance remains a trust assumption. Fixed-fee exit liveness is an [open production blocker (#23)](https://github.com/olafweller/kaspa-privacy-initiative/issues/23).
+
+AI-assisted adversarial review has occurred. It is not independent human security review; external Kaspa/ZK review remains wanted before escalating toward production claims.
+
+Primary sources:
+
+- [Kaspa builder overview](https://kaspa.org/build)
+- [Kaspa based-app documentation](https://github.com/kaspanet/docs/blob/main/content/docs/toccata/based-apps.mdx)
+- [kaspanet/vprogs](https://github.com/kaspanet/vprogs)
+- [Kaspa Research: Optional Privacy Layer for Kaspa](https://research.kas.pa/t/optional-privacy-layer-for-kaspa-similar-to-litecoin-mweb/522)
+
+## Contributing
+
+We especially welcome people who can challenge assumptions rather than merely agree with them.
+
+Useful backgrounds include:
+
+- Kaspa/Toccata engineering;
+- zero-knowledge systems;
+- privacy protocol design;
+- wallet engineering;
+- distributed systems;
+- security review;
+- economic mechanism design;
+- legal and operational analysis.
+
+AI-assisted contributions are welcome, but AI-generated security-critical code is not considered reviewed merely because it compiles or passes generated tests.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md).
+
+## Project stewardship
+
+Initiated by **Olaf Weller**.
+
+Current role: **initiator / project steward** — coordinating research, contributors, documentation, and the path toward a technically credible open protocol.
+
+The long-term objective is that the protocol does not depend on Olaf, any founder, any company, or any single implementation.
+
+## Important warning
+
+Privacy protocols are difficult to design safely. A subtle cryptographic, circuit, wallet, state-availability, or exit bug can lead to privacy loss, theft, inflation, or permanently inaccessible funds.
+
+Nothing in this repository should be treated as production-ready until it has passed substantial independent review and audit.
+
+## License
+
+Original repository documentation, tooling, and code are licensed under [Apache-2.0](LICENSE), unless explicitly stated otherwise. Linked upstream projects retain their own licenses. See [LICENSING.md](LICENSING.md).

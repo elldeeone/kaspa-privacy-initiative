@@ -1,0 +1,7 @@
+# Genuine public outer proof evidence
+
+Unfunded ADR0063 prototype only. Three genuine Spend proofs and six genuine Output proofs are verified by the new R0 program/image. The same journal104 is carried through genuine succinct proving, same-claim Groth16 compression, separate CPU receipt verification, and canonical native128 encoding. The component profile and the independently selected program/image remain distinct from trial data.
+
+The CPU guest executed 487,068,688 user cycles. Succinct proving took 1,854.358 seconds and used 1,051 segments (551,026,688 total cycles); compression took 4.616 seconds. Resource records cover owned cgroups; GPU values are sampled owned-process maxima, not guaranteed lifetime peaks. All four owned units exited successfully and were stopped with MainPID0 and no observed original process identities remaining. Short verify/encoding jobs can finish before the first resource sample; their final cgroup counters are retained.
+
+This packet establishes the new genuine public proof chain. It does not claim native VM acceptance, chain acceptance, funded lifecycle completion, cryptographic correctness or production safety. Native Full validation and unchanged-proof mutation controls are separate evidence. No owner seed, private witness, secret openings, per-owner output subset, hidden permutation map, PK blob, private controller plan or launch arguments are selected here. All paths in execution-selection.json refer only to global public assets. Earlier financial domains, assets and sealed packets are unchanged.

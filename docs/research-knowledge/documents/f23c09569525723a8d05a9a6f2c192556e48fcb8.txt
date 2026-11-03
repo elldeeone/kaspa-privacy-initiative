@@ -1,0 +1,49 @@
+> Imported documentation snapshot. [Canonical status and ownership](../README.md). Original artifact hashes inside this document refer to its source artifacts; [PROVENANCE.json](../PROVENANCE.json) records the imported bytes. Commands and paths retained from experiments are historical documentation, not execution approval or a runnable package here.
+
+# Current v2 backup / v6 exit-race composition: independent source review
+
+**Disposition: scoped static acceptance; no remaining source blocker identified. Execution remains unreleased and unqualified.** The frozen runner tests the intended current-version composition without substituting old saved-proof recovery or changing the core relation. The earlier unbounded-wait concern is now addressed by a separate finite systemd cgroup envelope, SIGTERM handling and exact-unit cleanup audit. Neither that envelope nor compilation/proving has been exercised by this review.
+
+## Frozen identity and method
+
+Reviewed `/home/luke/projects/kpi-orchestration/2026-10-22/exit-recovery-review/implementation-v1`, with detached worktree at base `9e0dca5851f80a3c9fd9e09db1cc7f340aaf8e02`.
+
+- `prepared-manifest.json`: `a78c3dda3fab1d0240c987a34484b3e129ea4b3faf9e2cc18a50287462addbd5`.
+- `PROTOCOL.md`: `3b30f42a5554c7c42f6f7e4a88926d8c2d39f3a08d647af5122ade0266c07e39`.
+- `execute-gated.py`: `f5447b050a77c6f709720afbafbe1324ce958275b752aef4908bd4a34e8992b5`.
+- New Python runner: `96dae0538fd5eb8baabe5b2f76c8d2715a8f5930b68545cd1d16e076ba7863f2`.
+- New Rust adapter: `da5399081f72bcbe91bfd4a781602abd1ad643329f1e16ee719fd3de57ef33c0`.
+
+Independently verified all 65 source hashes and three lane-artifact hashes, unchanged HEAD and empty tracked diff. All crate Rust source files are included in the manifest. Only the declared two additive source files are new in the checkout; the lane launcher is outside it. No inputs, release, build-target, launches or runs directory/file existed at verification. Read [AGENTS.md](../../../../AGENTS.md) and [SECURITY-INVARIANTS.md](../../../../SECURITY-INVARIANTS.md). Review used source text, Git metadata and independent data-only hash/JSON inspection; no package imports, compilation, proof, test, installation, parameter-file read or live/private evaluation read occurred.
+
+For the source references below, `runner` means worktree `poc/shared-pool/recovery-race.py`; `adapter` means `poc/shared-pool/src/bin/kpi-two-input-recovery-race.rs`; other crate paths are under `poc/shared-pool/src/`.
+
+## Test validity and version lineage
+
+| Required claim | Source trace and assessment |
+|---|---|
+| A current v2 backup predates B's receipt | Runner 233-243 creates B, hashes/seals its backup, then requests the payment. `two_input/wallet.rs:814-823` creates `Backup::fresh`; the typed backup contains keys and optional founder opening, not later notes/witnesses/proofs (96-135). Adapter 26-34 explicitly rejects a non-v2 format or wrong funding/payout derivation profile. Runner 276 and 291/376 check the original backup bytes. |
+| First fresh exits after the original worker disappears | Runner 245-250 stops and records the original worker before restoration. It creates ordinary byte-verified copies of only the five public files, public parameters and each original backup (251-275). Each restore is a separate sequential namespace receiving only its own backup, public history and PK. Adapter 35-60 scans owned notes, derives the single unspent position and native index internally, prepares a fresh exit, loads the pinned prover and proves it. No controller-supplied note/index/request or earlier exit proof is mounted. A's original founder backup has a legitimate founder opening; B's fresh backup has none. |
+| Exactly four genuine proof requests | Runner 227-243 sends two persistent-worker requests: bootstrap and A-to-B payment. Runner 269-285 invokes two one-shot restore-exit calls. Wallet `serve` calls `Prover::prove` once per request (`wallet.rs:848-855`); each restore calls it once (`adapter:59-60`). The unchanged proof path reaches `harness.rs:134-142`, which makes one Groth16 proof and verifies it locally. Founder/checkpoint/inspect/append/rebase paths do not generate proofs. Thus four requests and three parameter loads are supported by the source; successful execution evidence is still absent. |
+| Both winner orders are genuine reserve-input races | Runner 293-300 branches the same head H into A-first and B-first alternatives. `adapter:121-140` appends using full replay. The stale loser's old transaction must fail `reserve lineage discontinuity`; unchanged replay checks the consumed reserve outpoint before reconstruction/native validation (`replay.rs:263-300`). This is stronger than verifying an old body against its old input context, but remains two counterfactual offline histories. |
+| Public replay can rebase the loser without another proof | Runner 307-319 mounts only current public state and the newly created claimant capability. Adapter 73-118 calls unchanged settlement, checks the serialized authorization and proof bytes, native-validates the result, and has no prover/PK/key path. The controller separately checks both hashes. “Public-only rebase” means public refresh plus the claimant's held capability; it does not mean the capability is public or unnecessary. |
+| Conservation and exact drainage | A's recovered balance is 1,860,000,000 sompi; B's is 60,000,000. Fixed fees produce payouts 1,820,000,000 and 20,000,000. Runner 322-341 requires each branch to satisfy 2,000,000,000 initial = 1,840,000,000 payouts + 160,000,000 pool fees + zero reserve, and scans both wallets to zero remaining liability. Unchanged replay also checks conservation at every step (`replay.rs:303-320`). Ordinary synthetic funding/founding fees are separate. |
+| Known minimum-claim fee failure is retained | Runner 163-175 costs actual B-exit mining mass for baseline/2x/5x rates and requires the minimum claim to fail the 2x/5x fee-plus-payout-floor envelope. Runner 336 selects B's actual continuing or terminal metrics for the appropriate branch. No minimum/fee/cryptographic relation is changed or subsidized. A future baseline pass must retain this limitation. |
+
+The intended negative cases check specific error causes, not merely nonzero status: stale reserve input, already spent nullifiers, after-drain use, wrong endpoint, missing body/parent, wrong VK/pool pin and a damaged genuine proof. The relation's recorded constraint count and 128-byte proof shape are additionally checked, but those alone are not security evidence.
+
+## Isolation, provenance and finite execution plan
+
+The manifest pins unchanged wallet/circuit/covenant/replay/harness/native sources and Cargo lock/config. The added Rust helper only composes those existing functions. Existing lineage evidence from compact-v4 independent recovery, v6 saved capability and same-host original-backup recovery must remain distinct; this proposed fixture specifically fills the current pre-receipt-v2/fresh-exit/race-rebase composition gap, if it passes.
+
+Public parameter input is restricted to exactly `pk.bin`/`vk.bin` under this lane's explicit `inputs` export and checked against the retained identities. The runner reads the frozen evaluation's service status only; it does not read its data or outputs. Recovery/rebase workers use the unchanged network/mount/PID isolation helper and explicit mount allowlists. The controller orchestrates synthetic material on the same physical host, so this is neither malicious-controller isolation nor physical-host independence. All run artifacts—including backups, local views and unused capabilities—remain private, with no automatic export.
+
+The unchanged lifecycle support still has unbounded synchronous waits. The frozen protocol now makes `execute-gated.py` the execution entrypoint; the direct runner independently refuses a missing/mismatched exact run-service cgroup (`runner:106-116,190-194`). Each build/proof phase requests a unique user-service cgroup: 12 GiB, no swap, 256 tasks, two hours, 30-second stop grace and control-group SIGKILL; build gets two CPU quota/two Cargo jobs, proof gets four CPU quota/four Rayon threads/one prover. The entrypoint reads the actual cgroup limits before work (`execute-gated.py:94-109`). This supersedes the earlier 8-GiB planning headroom and does not assume overlap with the GPU lane.
+
+The launcher now handles SIGTERM, interruption and outer timeout; stop/KILL commands target only the recorded UUID unit, and final unit state plus recursive membership are retained. Survivors/unknown state are explicitly blocked (`execute-gated.py:112-155,183-212`). These are nominal finite control paths, not proof that a kernel/systemd failure cannot leave an unkillable task. Actual controller/timer/cleanup behavior remains a separate prerequisite. Resource termination means incomplete evidence, not semantic recovery failure.
+
+## Parent scheduling decision still required
+
+Retain the frozen identity for review. The next legitimate steps are actual terminal completion of the frozen evaluation, a fresh aggregate capacity decision for the proposed 12-GiB envelope, cgroup/timer/cleanup qualification, separate locked offline build, exact public-parameter export, and then the four-proof fixture with preserved logs. Check build success and capacity before the distinct proof phase; no missing-dependency installation or shared active target fallback is authorized by this review.
+
+A future pass establishes only the stated offline current-v2/v6 composition. It does not establish accepted-chain freshness, RPC/finality, public archive durability, reorg/pruning resilience, sustained contention fairness, another physical host, general native payout/index discovery, increased-fee usability, cryptographic assurance or privacy. There is presently no proof result and no execution release.

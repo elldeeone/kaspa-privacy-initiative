@@ -1,0 +1,225 @@
+# Independent source review: offline S7 paired lifecycle
+
+**No source-level accounting, shared-state or known native-size obstruction
+was found for the proposed separate DO-NOT-FUND offline experiment.** The
+proposal is conditional design feasibility, not an implemented continuing pool,
+qualified budget or permission to generate parameters/proofs. Keep the current
+one-shot diagnostic and all existing receipts/parameters unchanged.
+
+Reviewed proposal:
+`binding/research/intensive-2026-10-22/OFFLINE-PAIRED-OWNER-LIFECYCLE-FEASIBILITY.md`,
+SHA256 `e5f17ca5cc3dc7bcdcaffe904aff655b5d83f00534a640b659dc0648b2f9a47c`.
+Checked fixed-v6 ec6aa15 sources, integration's budget1600 source, native
+01b532e source, actual public rehearsal bytecode and the current one-shot S7
+script. A source-hash transcription typo in the draft was corrected before
+this reviewed version. No native/prover job, setup or implementation was run.
+
+## Accounting and initialized state
+
+Ownership must be exactly the declared arrangement, not merely matching totals:
+Alice bootstrap outputs are both Alice-owned; both 450M ADMIT notes are Bob-owned.
+The compatible pair consumes two real notes per proof. Millions of sompi below
+are integers:
+
+| Transition | Reserve before/after | Positive private liabilities after | CM / NF counts |
+| --- | --- | --- | --- |
+| Founding | supplied ordinary inputs →800 | Alice800 | 1 / 0 |
+| Bootstrap | 800→760, f40 | Alice400+360 | 3 / 2 |
+| ADMIT940 | 760+940→1660, f40 | Alice400+360; Bob450+450 | 5 / 2 |
+| Pair | 1660→1580, F80 | Alice320+500; Bob400+360 | 9 / 6 |
+| Alice direct DRAIN | 1580→760, P780/f40 | Bob400+360 | 9 / 8 |
+| Bob terminal DRAIN | 760→0, P720/f40 | none | logical9 / 10 |
+
+Each row has reserve equal to outstanding private liabilities, conditional on
+the supplied initial ordinary-UTXO context. Total pool input is 1740M, payouts
+1500M and pool fees 240M. Ordinary funding/change/miner fees remain separately
+accounted; 240M is not an all-in lifecycle fee measurement. There are **six inner
+proofs, five pool spends and a founding transaction**; paired native settlement
+charges the aggregate80M once.
+
+The old bootstrap source checks n=1/m=0, sentinel-only NF root, exactly count 1
+history, the unique initial note and `authorization.bootstrap==actual reserve`.
+It establishes initial liability only after that real proof/native transition.
+Do not treat an arbitrary n=5/m=2 root as initialized genesis, or use the current
+state gate's m>=2 parser for founding. Ordinary ADMIT and paired SPEND require
+initialized state; legitimate founder DRAIN stays owner-authorized under the
+existing bootstrap relation. Native validation of generated ordinary funding
+and ADMIT signatures still starts from explicitly supplied offline seed UTXOs,
+not an assertion of accepted chain ancestry.
+[Bootstrap source](/home/luke/projects/kpi-intensive-2026-10-22/observer/poc/shared-pool/src/two_input/covenant.rs:455),
+[inner relation](/home/luke/projects/kpi-intensive-2026-10-22/observer/poc/shared-pool/src/two_input/circuit.rs:110).
+
+## One shared state, direct exits and positions
+
+History prefixes are 1,3,5 after founding/bootstrap/ADMIT. The pair's sorted
+complete records append at positions 5..8; history must add both `(7,r2)` and
+`(9,r4)`. Count 7 is an accepted CM prefix within one atomic transition, not a
+separate reserve checkpoint. DRAIN creates no CM/history leaves. Both native
+branches must update **one shared current NF root/count** and preserve the
+entire same immutable policy in every positive reserve successor.
+
+Current NF state, not historical CM membership, rejects spent claims. The
+paired gate inserts all four real NFs in public raw-byte order, while indexed
+predecessors compare little-endian numeric values. Later owner DRAINs insert
+their own two real NFs against the then-current tree. A Bob authorization at
+anchor 9 may remain unchanged across Alice's DRAIN, but Bob's public NF witness
+must be rebuilt after Alice's transition. A stale witness or conflicting
+reserve-outpoint spend must reject; a valid alternative owner order is not
+itself a replay failure.
+
+The direct branch must retain all ordinary bootstrap/ADMIT/SPEND/DRAIN rules,
+not only paste a payout path into the paired diagnostic. After the pair,
+Alice and Bob must construct genuine DRAINs using their own backup, public
+records/state and fresh retained public proving parameters, with collector and
+outer-prover access removed. Neither owner needs the other owner's keys,
+hidden A/Q/grouping, a separate prover-side SDK receipt artifact or a privileged
+signature. The paired transaction's public compressed outer proof remains in
+the ledger for actual native replay. The generic owner CLI must not embed other
+wallet seeds; mount only that owner's wallet, public ledger, public PK and code.
+All test seeds are public outside the process boundary: this tests dependencies
+and liveness, not secrecy. This remains a bounded local software experiment,
+not independent-human or recovery readiness.
+
+Public replay must follow every actual reserve outpoint, validate complete
+transaction bodies and reconstruct the new S7 roots/amounts. The scanner must
+parse both branch formats and process P's four complete CM/ciphertext records
+in public order, preserving every occurrence by position. Equal records must
+not be deduplicated: real NF derivation includes position. Existing old-v6
+replay/scanner formats cannot silently accept the new descriptor/payload.
+Public replay cannot call the private-input StateGate on P alone. It rebuilds
+public NF/CM/history updates from P and authenticates their exact J/native
+context with the public outer proof; it does not pretend to re-execute hidden
+inner A/Q verification. Require the replay to work with A/Q unavailable.
+[Position-based scanner](/home/luke/projects/kpi-intensive-2026-10-22/observer/poc/shared-pool/src/two_input/wallet.rs:300),
+[old public replay boundary](/home/luke/projects/kpi-intensive-2026-10-22/observer/poc/shared-pool/src/two_input/replay.rs:1).
+
+The stated capacity induction is valid as a conservative bound: each active
+proof consumes at least one positive claim; SPEND adds at most two, ADMIT adds
+at most two without NFs, and DRAIN adds none. Thus positive claims<=n-m/2 is
+preserved from initialized genesis, also for two-proof pairs. If a positive
+claim remains at n=65535, even m<=131068 leaves room for its two-NF DRAIN. This
+requires authenticated reachable history; syntactic counts alone do not prove
+it. The proposed small trace does not measure arbitrary capacity behavior.
+
+## Identity and predecessor binding
+
+Choose a fresh explicit inner domain, poolID and test setup/VK, separately
+compiled fixed state guest and new image. Keep old compiled/default instances
+unchanged. Inner authorizations remain 377-byte KPICU06 statements; domain
+matching and the new VK exclude old-instance proofs. PoolID and image must be
+fixed independently of prover input; J336 binds actual prior outpoint, prior/
+next S7, P and native amounts. Shared NF state plus the actual reserve lineage
+prevents replay through the other branch. A descriptor and authentic chain
+view are explicit wallet trust inputs; the offline trace provides neither a
+live accepted-chain guarantee nor global discovery of every same-script UTXO.
+
+The proposed prefix stores poolID rather than inner domain. This is acceptable
+only if every adapted ordinary domain comparison uses the separately fixed D;
+blind old bytecode concatenation would compare A.domain to the wrong value.
+Both branch successors must preserve the complete immutable suffix, including
+both keys, image, selectors and direct exit. Removing the one-shot literal
+designated-outpoint guard is a security-contract change; actual-outpoint J
+binding and initialized tracked lineage replace it in the new experiment.
+
+Avoid an identity cycle with this construction order:
+
+1. Select public-test D/poolID and complete fresh inner setup/VK.
+2. Compile the fixed state guest and independently freeze its image.
+3. Construct/review the immutable native body with that image and keys.
+4. Construct the supplied-UTXO founding/bootstrap/ADMIT transactions.
+5. Derive pair J336 from the actual predecessor, then prove/compress it.
+
+The guest cannot hardcode a not-yet-known founding/pair outpoint or the final
+native-script hash. PoolID is chosen independently; native introspection binds
+the actual predecessor. Fresh test proving parameters must survive until both
+post-pair owner proofs are complete; the old discarded PK supplies nothing.
+Use fresh OsRng for the setup, with toxic scalars/RNG state neither serialized
+nor retained; only test wallet seeds are deterministic/public. Stream-save the
+public PK and pin its hash/VK. This remains an unqualified single-party test
+setup, with no secure-erasure or cryptographic-safety claim. Produce the first
+four inner proofs for bootstrap/ADMIT/pair, then stop the producer/collector
+and outer worker before isolated owners generate the two fresh DRAIN proofs.
+
+## Bytecode, framing, stack and budget
+
+I independently reran the read-only opcode parser on the named public rehearsal
+file SHA256 `75ad01a25b1c534a59f5690c69556584a72e31cb6afeb914530104f00962b3b8`.
+All 13 redeems contain 16,499 nonpadding bytes and 8077 decoded trailing NOPs;
+embedded data bytes were skipped. The output exactly reproduced the proposal's
+size artifact. Parser SHA256 is
+`2e1a927eaf7c8865914911f397e35ec37bfb3acf836f67632e66bb609e584482`.
+
+The current compressed one-shot body is 1383 bytes, artifact SHA256
+`4692b76504462ca985630499fa87394e53946023592ef41a7a48e1d58d973f83`;
+source SHA256
+`9d7710e2efdc5d542746a5288f1de7f2c5bcc33af5a678e67429b0dbc8157df2`.
+It demonstrates useful source seams, not continuing ownership. The proposed
+16,499+4096+512=21,107-byte design allocation fits a 24,576-byte target in
+principle. Actual new emission, offsets and stack behavior remain unqualified.
+
+For L=24576 the exact scriptSig is
+`4c80 || proof128 || 4d0060 || redeem24576`: 24,709 bytes, redeem offset 133,
+state bytes at 133+36. Put the branch selector in the exact payload header,
+not another scriptSig push. Ordinary 5231 and pair 1204 payload lengths/offsets
+in the proposal add correctly. Each branch must consume its own proof and
+leave one true result with no unused altstack items or selector data.
+
+At native 01b532e, script and element limits are1,000,000 bytes; combined main/
+alt stack is 244 **after every opcode**; opcode cap is 1,000,000. Consensus caps
+scriptSig 250,000 and output script 10,000. Use the 35-byte raw P2SH output,
+not a 24 KiB bare output script. PUSHDATA2 supports this length; at 65536 its
+prefix changes and offset 133 no longer applies. These bounds do not establish
+full compute/storage/transient mass or relay/inclusion fee adequacy.
+[VM limits](https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/crypto/txscript/src/lib.rs#L76-L80),
+[per-op stack enforcement](https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/crypto/txscript/src/lib.rs#L615-L638),
+[transaction limits](https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/consensus/core/src/config/params.rs#L618-L626),
+[push encoding](https://github.com/kaspanet/rusty-kaspa/blob/01b532e8b553523216471682649693af92f0fd16/crypto/txscript/src/script_builder.rs#L255-L267).
+
+I checked the conditional new paired envelope: one five-input wrapper call
+15,500,001; generic32*24576; P2SH 49185; successor Blake 49184; four SHA inputs
+bounded by 1088 giving 4480; and 100,000 wide-copy excess. Total 16,489,282;
+budget 1700 allows 17,009,999, a conditional 520,717 margin. Current one-shot
+source hashes P1088, J336, an output98 and a claim170; its full wide-copy/CAT
+inventory is below 53k. The old direct source envelope 15,857,502 remains a
+reasonable **conditional design estimate** if only the described offsets,
+domain comparison and dispatcher change at the same padded length.
+
+This is not a universal new-script bound: inspect emitted code, enumerate
+every changed runtime push/hash and check all intermediate stacks before
+qualification. The old 1600 margin is insufficient for the proposed paired
+envelope and cannot be inherited. The chosen outer route is compressed 0x20
+with 128-byte proof, not a large 0x21 seal. Do not silently substitute routes or
+count a resource failure as a semantic rejection.
+
+## Minimal reviewable next stage and blockers
+
+No setup/proof/execution is authorized by this review. The smallest next
+reviewable stage, if separately authorized, is an additive pure public
+state/codec/dispatcher/native-builder implementation with an independent
+genesis-to-terminal oracle, **before** allocating fresh setup or guest proving.
+Freeze the ADR/identity graph, exact two-branch ABI, source/lock hashes, new
+script length/budget and required semantic controls. Reuse existing source
+primitives; preserve every old format and one-shot artifact.
+
+Blocking gates for a complete result remain:
+
+- A real emitted shared policy with exact full-suffix continuation, stack and
+  charge inventory; native whole-transaction and mass/fee qualification.
+- One separately retained public-test setup and six genuine inner proofs;
+  a separately pinned state-aware image/receipt under the fresh inner VK.
+- Full public reconstruction/scanning through paired positions and both
+  genuine isolated owner DRAINs after collector/outer-prover removal, including
+  Bob's refreshed current NF witness and terminal payout.
+
+The direct-SPEND control may reuse one new genuine pair bundle on a separate
+offline fork; keep that fork distinct from the paired main lineage. Negative
+controls must cover initialization, wrong identities/branch framing, altered
+suffix/removal of exits, current-NF and outpoint replay, history/record
+multiplicity, payout/amount/fee errors, capacity and native resource limits.
+
+Successful bounded offline composition would not satisfy the adopted CPU/
+memory/timing/fee/recovery/privacy requirements or authorize real funding.
+Fixed 40M direct fees can fail higher research fee rates even if native script
+validation succeeds. The separate higher-fee options note does not change that
+target or this profile. No token, privileged rescue, old-pool upgrade, live
+broadcast, archived private parameters or rejected experiment is involved.

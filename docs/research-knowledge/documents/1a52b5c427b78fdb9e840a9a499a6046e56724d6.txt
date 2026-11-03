@@ -1,0 +1,50 @@
+# Primary-source note: multi-input consolidation for bounded full drainage
+
+Checked 2026-11-01. Local working tree: `7ffe8353437604322f8bdd6e8d0c4f5b15a55ee1` plus existing uncommitted depth/domain edits in `protocol.rs`. Upstream heads checked directly: Kaspa docs `0ac77d043a802fc8196abfd5812ac2afbd97a2b9`, vProgs `f9b84a863a7c7c20586a9cf947550475e894f72e`, Orchard `616a669df8c9a59c33d47064d3ce04b25d026b2e`, Zcash protocol `ff594de6e95bb9e9e7d2ace09510281531c30447`, Aztec packages `3614971ee06151494e4265bfb1b4b634fbb2f524`, and RAILGUN circuits-v2 `0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb`.
+
+## Decision summary
+
+1. **The current local wallet cannot merge notes.** Its spend witness has one secret, one input note, one Merkle path, and two output notes; the circuit derives one root and one nullifier. The public statement and ledger likewise carry/apply one nullifier. TRANSFER requires two active, non-zero outputs, so merely adding a second input would still not create a true `2 -> 1` consolidation operation. See [`circuit.rs`](../../poc/private-note-wallet/src/circuit.rs#L13-L20), [`circuit.rs`](../../poc/private-note-wallet/src/circuit.rs#L98-L173), [`protocol.rs`](../../poc/private-note-wallet/src/protocol.rs#L124-L160), [`protocol.rs`](../../poc/private-note-wallet/src/protocol.rs#L196-L203), [`wallet.rs`](../../poc/private-note-wallet/src/wallet.rs#L61-L74), and [`ledger.rs`](../../poc/private-note-wallet/src/ledger.rs#L134-L191).
+
+2. **A two-input consolidation is first a shielded-domain protocol change, not evidence by itself of a Kaspa consensus change.** It requires a new circuit/verification key and corresponding statement serialization, wallet input selection, proof construction, atomic nullifier application, output-arity rules, and recovery/scanning support. The official Toccata guide already describes input/output introspection, covenant lineage, lineages that can merge, and inline verification of a private local transition; it routes globally shared state, batching, and activity-derived exits toward a based app instead. [Toccata overview](https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/index.mdx#L45-L65), [decision guide](https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/decision-guide.mdx#L42-L69), [inline ZK](https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/inline-zk.mdx#L6-L25), [architecture boundary](https://github.com/kaspanet/docs/blob/0ac77d043a802fc8196abfd5812ac2afbd97a2b9/content/docs/toccata/inline-zk.mdx#L85-L127).
+
+3. **The cautious conclusion is “no consensus-change requirement found,” not “deployment proven.”** Whether the whole note tree/nullifier set can be safely expressed as parallel covenant state, needs coordinated covenant transitions, or needs a based-app state machine remains a state-layout decision. vProgs is explicitly early/prototype software, so it is architecture evidence, not production-readiness evidence. [vProgs README](https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/README.md#L1-L7).
+
+## Minimum security contract for a `2 -> 1` merge
+
+These are requirements to preserve the repository's [security invariants](../../SECURITY-INVARIANTS.md#L24-L60), not a claim that the present code implements them.
+
+1. **Two authenticated inputs:** recompute both note commitments; prove both membership paths against the same explicitly accepted anchor; constrain all path directions and note fields. If consolidation is same-owner-only, prove the same spend authority controls both notes. If mixed owners are allowed, require independent authorization for each; never let authorization of input 0 cover input 1 implicitly.
+
+2. **Two independently derived nullifiers:** bind both nullifiers to their respective input commitment and spend authority. Require them to be non-zero, pairwise distinct, and absent from accepted state. The state transition must insert both atomically; otherwise the same note can be counted twice within one proof or one input can remain spendable after contributing value.
+
+3. **Integer value conservation:** range-constrain each input and output value and prove, without field-wrap ambiguity,
+
+   ```text
+   input_0 + input_1 + admitted_deposit
+     = private_outputs + authorized_exit + explicit_fee
+   ```
+
+   Use checked integer accounting again when updating reserve liability. Adding a second bounded `u64` input still fits far below BN254's scalar modulus, but that bound must be stated and tested rather than assumed.
+
+4. **Real output arity:** a consolidation must permit fewer real outputs than real inputs. If fixed slots are retained, every inactive commitment, delivery hash, ciphertext, value, and note witness must have one canonical absent representation. Bind each active output commitment to its encrypted delivery so the recipient cannot receive an undecryptable or different note.
+
+5. **Full intent and replay binding:** the proof/public statement must bind version, domain, exact verifier key/program, operation kind, accepted anchor, both nullifiers, active-output bitmap/count, all output commitments and delivery hashes, exit destination/value, and fee fields. Settlement must bind the proven successor state/output. A stale-root, cross-domain, cross-lane, or cross-verifier proof must fail.
+
+6. **Atomic state/backing update:** verify both unspent checks before committing either; then insert both nullifiers, append real outputs, record any exit, and update liabilities as one transition. Any malformed second path, duplicate nullifier, overflow, invalid output, or backing failure must leave state unchanged.
+
+7. **Adversarial cases:** same note in both slots; two paths to one commitment; one valid and one invalid path; same nullifier with different witnesses; wrong/stale root; unauthorized second owner; maximum values; inactive-slot malleability; changed ciphertext; replay under another verifier/domain; and failure after the first nullifier is staged.
+
+The current ledger's clone-then-commit pattern is a useful atomicity starting point, but it only checks and inserts one nullifier today. [`ledger.rs`](../../poc/private-note-wallet/src/ledger.rs#L134-L191). Exact verifier binding matters: the Zcash specification records an Orchard circuit soundness bug that could have allowed balance violation and required a different verification key for the corrected circuit. [Zcash protocol source](https://github.com/zcash/zips/blob/ff594de6e95bb9e9e7d2ace09510281531c30447/protocol/protocol.tex#L8299-L8307).
+
+## Mature-design comparison
+
+| Design | Primary-source pattern | Relevant lesson; limit of comparison |
+|---|---|---|
+| Zcash Orchard | One Action combines one spend and one output, while a transaction contains a bundle of Actions; transaction-level value commitments and a binding signature balance total spends and outputs. [Orchard design](https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/book/src/design/actions.md#L1-L19), [protocol balance rule](https://github.com/zcash/zips/blob/ff594de6e95bb9e9e7d2ace09510281531c30447/protocol/protocol.tex#L7413-L7454), [builder aggregation](https://github.com/zcash/orchard/blob/616a669df8c9a59c33d47064d3ce04b25d026b2e/src/builder.rs#L1106-L1135). | Multiple input notes need not live in one monolithic `2-in` circuit: aggregation can occur across a bundle. Each input still has membership, nullifier, and spend-authority conditions, and the bundle must balance. This is a design analogue, not code that can be transplanted into Kaspa. |
+| Aztec | Private state is append-only note state: updates nullify old records and create new notes. Its official token tutorial explicitly describes consuming two value notes and creating recipient and change notes. [state model](https://github.com/AztecProtocol/aztec-packages/blob/3614971ee06151494e4265bfb1b4b634fbb2f524/docs/docs-developers/docs/foundational-topics/state_management.md#L23-L45), [two-note example](https://github.com/AztecProtocol/aztec-packages/blob/3614971ee06151494e4265bfb1b4b634fbb2f524/docs/docs-developers/docs/tutorials/contract_tutorials/token_contract.md#L258-L273), [private transfer source](https://github.com/AztecProtocol/aztec-packages/blob/3614971ee06151494e4265bfb1b4b634fbb2f524/docs/examples/contracts/bob_token_contract/src/main.nr#L104-L117). | Multi-note selection/consumption belongs to the private application state transition. Aztec's kernel/runtime supplies different infrastructure, so this supports the capability classification, not Kaspa deployability. |
+| RAILGUN circuits-v2 | `JoinSplit(nInputs, nOutputs, ...)` has per-input nullifiers, values, leaf indices and paths; it verifies every membership proof and enforces `sumIn === sumOut`. [JoinSplit source](https://github.com/Railgun-Privacy/circuits-v2/blob/0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb/src/library/joinsplit.circom#L6-L25), [per-input checks and balance](https://github.com/Railgun-Privacy/circuits-v2/blob/0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb/src/library/joinsplit.circom#L58-L119). | This is the closest structural analogue for a parameterized multi-input note circuit. It is evidence for the predicates above, not reusable code: the repository states that no license is granted. [License](https://github.com/Railgun-Privacy/circuits-v2/blob/0aa2d13763a9fcfbb7b7ea9c02e004e71f1394bb/License.md#L1). |
+
+## Bounded conclusion for the history-ambiguity decision
+
+A private multi-input transition would remove the current implementation's **mechanical fragmentation blocker**: two owned notes could become one private note, or could fund one explicitly defined exit if that operation is designed and proved. It does **not** by itself prove history ambiguity or unlinkability. Input/output count, timing, the public native-KAS payout, amount uniqueness, and surrounding activity can still correlate the owner. Any privacy claim therefore remains experiment-specific and observer-specific.

@@ -1,0 +1,212 @@
+# Roadmap
+
+This roadmap is intentionally research-first. Phases are research gates, not delivery promises. No state architecture or scaling path has been accepted.
+
+## Current focus, 2026-10-18
+
+The [complete compact-wallet classifier receipt](../poc/remote-cuda/FULL-RESULTS.md)
+is independently verified; merged PR42/43 close that test-model proving gate.
+The [local wallet result](../poc/private-note-wallet/RESULTS.md) under
+[ADR-0011](adr/0011-local-private-note-wallet.md) provides real note
+membership/authority/conservation proofs, recipient discovery and current
+spentness/accounting across batches. Full private-state proofs, native integration,
+funded privacy trials and independent recovery remain separate open gates.
+
+The five-criterion [Based App feasibility assessment](based-app-feasibility-2026-10-17.md)
+is complete for the public-account TN10 experiment in PRs #31–#33: accepted L1
+ordering, correct execution, real proofs, confirmed settlement/payout and native
+rejection of omission at the same endpoint. This is a scoped integration result,
+not completion of the privacy protocol, I-10 or the N-user recovery gate.
+
+Development now prioritizes [shielded native KAS and financial privacy](shielded-kas-next.md):
+a reviewed private-payment statement, established note/nullifier/delivery
+mechanisms, exact backing and fees, private witness handling and a minimal
+private-transfer-to-native-exit experiment. Existing Based App components are a
+tested candidate backend; neither a full runtime nor an independent operator
+network is the immediate deliverable. Phase 1 source refresh and Phase 2 design
+review support this privacy work. All later exit/recovery requirements remain.
+
+## Earlier A0/A1 evidence, 2026-10-08
+
+A0/A0.5 demonstrated a real Groth16-authorized funded TN10 reserve release and observed native test-KAS payout. The own node lacked complete UTXO sync; public native RPC endpoints supplied live UTXO/acceptance observations. This was not independent recovery, a privacy pool, an audit, production safety or architecture acceptance.
+
+A1 has answered its core research question for the finite same-owner covenant: independent recovery and native exit from both [S0](poc-a1-s0-trials-2026-10-08.md) and [S1](poc-a1-official-trial-2026-10-08.md) were demonstrated on TN10 with the original machine physically off. The S0 trials also demonstrated direct exit and a competing-spend test: one terminal spend was accepted and the later candidate rejected, with submission intents about 1.4 seconds apart. These results are included in merged [PR #22](https://github.com/olafweller/kaspa-privacy-initiative/pull/22).
+
+The full G5/G6 matrix remains open. Remaining A1 tests will be targeted later only where they answer a still-relevant question. The research focus shifts to the multi-user privacy protocol, beginning with Phase 1's existing-work and feasibility map. A1 does not establish privacy or pass the broader N-user gate below. C/history availability and single-party setup remain trust assumptions; artifact/history-loss recovery, fixed-fee exit liveness [#23](https://github.com/olafweller/kaspa-privacy-initiative/issues/23), scalability and independent security review remain open. No state architecture is accepted by these results.
+
+## Phase 0 — Public foundation
+
+**Goal:** create a credible open research home.
+
+Deliverables:
+
+- repository structure;
+- principles;
+- threat model;
+- security invariants;
+- candidate architecture document;
+- existing-work inventory;
+- contributor/AI workflow;
+- initial GitHub issues.
+
+Exit condition: a technically literate contributor can understand the idea, the unknowns, and the safety bar without speaking to the initiator.
+
+## Phase 1 — Existing-work and feasibility map
+
+**Goal:** learn what Kaspa can already do and what has already been built.
+
+Tasks:
+
+- map Toccata live primitives;
+- inspect current vProgs state;
+- locate and inspect public Kaspa shielded-pool work;
+- review the Kaspa Research privacy proposal;
+- compare Orchard, Aztec, RAILGUN, Monero, and MWEB patterns;
+- collect Kaspa core/community developer feedback.
+
+Exit condition: RFC-0001 can compare candidate architectures with concrete upstream references rather than assumptions.
+
+## Phase 2 — Architecture decision + executable model
+
+**Goal:** choose the smallest architecture worth testing.
+
+Deliverables:
+
+- RFC-0001 state architecture review and an ADR recording the decision;
+- draft note/commitment/nullifier model;
+- state-machine model or simulator;
+- executable value-conservation tests;
+- explicit exit authorization and recovery-data requirements;
+- a falsifiable test plan for recovery and exit after default infrastructure shutdown;
+- explicit trust assumptions.
+
+Exit condition: the design, including its permissionless exit/recovery path, can be attacked on paper and in tests before substantial testnet code exists. A candidate remains provisional until it passes the early exit/recovery gate in Phase 3.
+
+## Phase 3 — PoC A: fund-safety path
+
+**Goal:** demonstrate the basic private-value lifecycle and independent recovery/exit using test KAS under a documented model.
+
+Target flow:
+
+```text
+deposit
+-> private claim
+-> private value-conserving transfer
+-> nullifier/double-spend protection
+-> authorized exit
+-> test KAS withdrawal
+```
+
+Required tests:
+
+- unauthorized withdrawal fails;
+- duplicate spend fails;
+- wrong state root fails;
+- malformed proof fails;
+- value inflation fails;
+- stale/replayed proof fails.
+
+### Early exit and recovery gate
+
+Before a candidate is treated as credible, run this falsifiable test:
+
+> N users shield test KAS. All normal operators, provers, executors, and hosted state services are then shut down. Using only public or independently reconstructable protocol data, their own wallet secrets/backups, and independent software/infrastructure, every user can recover and exit to native test KAS. No privileged operator data or cooperation is required.
+
+Record N, the shutdown conditions, required data and backups, independent infrastructure, time limits, and each user's payout result. Missing required data or a failed exit blocks this gate. Successful deposits, private transfers, and proof verification alone do not establish architecture viability.
+
+Exit condition: documented tests demonstrate the required fund-safety properties and pass the shutdown recovery/exit gate in a reproducible testnet experiment using real proofs. Passing tests does not establish cryptographic correctness or production security.
+
+## Phase 4 — PoC B: failure and decentralization
+
+**Goal:** extend the Phase 3 recovery/exit gate with broader failure, failover, and censorship experiments.
+
+Experiments:
+
+- repeat the shutdown recovery/exit test under varied state, backup, and pruning conditions;
+- stop the normal prover;
+- replace the prover;
+- rebuild required state on a clean machine;
+- recover a wallet from documented backup material;
+- test censorship/liveness behavior;
+- test state/witness corruption handling.
+
+Exit condition: failure assumptions are measured instead of merely claimed.
+
+### Testnet evidence to collect
+
+Across the PoCs and privacy analysis, measure:
+
+- operator/prover failover time, from shutdown to independently accepted progress;
+- successful native test KAS exit after default infrastructure shutdown, reporting every user's result;
+- percentage of required protocol state reconstructable independently, against a documented inventory, with user-held secrets/backups listed separately;
+- whether private operations require a publicly linkable user fee payment;
+- observable timing correlation under low activity;
+- censorship recovery / resubmission success through independent infrastructure.
+
+Record test conditions, observation windows, and success criteria. These are research measurements, not production guarantees; a high state-reconstruction percentage cannot excuse missing data required for an exit.
+
+## Phase 5 — Privacy analysis
+
+**Goal:** move beyond "the circuit hides the amount."
+
+Study:
+
+- deposit/withdrawal correlation;
+- timing leakage;
+- amount uniqueness;
+- note discovery;
+- RPC leakage;
+- transaction broadcast;
+- wallet fingerprints;
+- anonymity-set metrics.
+
+Exit condition: privacy claims are explicit and evidence-based.
+
+## Phase 6 — Developer and wallet prototype
+
+**Goal:** make the protocol usable without exposing users to cryptographic details.
+
+Potential UX:
+
+```text
+Public balance
+Private balance
+Shield
+Private send
+Private receive
+Unshield
+Privacy warnings
+```
+
+Exit condition: a testnet user can use the system safely without manually constructing proofs.
+
+## Phase 7 — Economics, audit, legal-operational design
+
+**Goal:** determine what a sustainable production project would require.
+
+Tasks:
+
+- benchmark real operating costs;
+- evaluate fee/funding models;
+- design treasury isolation;
+- commission independent cryptographic/security review;
+- obtain specialist legal advice for intended operational roles;
+- establish private vulnerability reporting;
+- design bug bounty and incident response.
+
+Exit condition: no unresolved critical security or operational questions are being hidden behind "decentralized" marketing language.
+
+## Phase 8 — Mainnet candidate
+
+Only consider mainnet after:
+
+- stable specification;
+- mature testnet history;
+- independent audit(s);
+- reproducible builds/test vectors;
+- clear exit/recovery model;
+- clear operational/legal model;
+- documented upgrade process;
+- community review.
+
+A mainnet launch is not a roadmap requirement. If research finds that the architecture is unsafe or unsuitable, the correct outcome may be to stop or redesign.

@@ -1,0 +1,269 @@
+# Compressing the retained two-v6 receipt with the established Groth16 wrapper
+
+Status: the established route compressed the retained paired Succinct receipt
+on the RTX 3070 in **4.448 seconds**, without guest re-execution. Independent
+CPU SDK verification and the pinned native **0x20 bare predicate** both passed.
+The output receipt is 581 bytes; the checked native proof is 128 bytes. This
+qualifies a public pair claim, not a state transition or funded pool. Source
+and evidence checked 2026-10-22 UTC.
+
+## Decision and executable boundary
+
+Use the existing **RISC Zero 3.0.3 IPC CUDA worker** to compress the retained
+paired receipt directly. Do not execute the guest or repeat its STARK proof.
+`Prover::compress(&ProverOpts::groth16(), &receipt)` accepts an existing
+`InnerReceipt::Succinct`; its implementation runs `identity_p254`, then the
+standard Groth16 STARK verifier, while preserving the top-level claim and exact
+journal bytes. The identity operation is an additional fixed recursion proof,
+not execution of the private-payment guest. [Versioned API](https://docs.rs/risc0-zkvm/3.0.3/risc0_zkvm/trait.Prover.html#tymethod.compress),
+[pinned SDK implementation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/zkvm/src/host/server/prove/mod.rs#L192-L240),
+[identity program](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/zkvm/src/host/recursion/prove/mod.rs#L352-L388).
+
+The prepared driver is
+`artifacts/groth16-compression-preparation/compress_retained.rs`, SHA256
+`61c35817178bd7e28c6792907654ca72fa3bb3e905ec0511e2b6b5472d3d5d1f`.
+It is an additive binary for the existing pair proof host, with no new dependency
+or guest change. It requires an externally frozen input-receipt SHA256, checks
+the source Succinct receipt with the established SDK plus explicit JOIN-control
+verification, calls only `compress`, durably saves a candidate before checking
+it, then requires Groth16 output, SDK verification, identical claim digest and
+identical journal. Wrong image, journal and seal must each be rejected.
+
+The selected public development claim is fixed independently:
+
+| Item | Fixed identity |
+| --- | --- |
+| Pair image | `50ceec8ebb91edd01028c4aec9b495e7d77eb9e3b39e065910c0600f7693d832` |
+| Original Succinct control | `7a8f24092c34ed3eb81b3d0a0b796c588c615d3488ef9e61c21dbd1e4b83ea6e` |
+| Exact journal | 42 bytes, SHA256 `5d667b709f35191c6fc98e6aa0b79bd934e39a40ef4edfea582fcef3b06d4ac7` |
+| Public projection | 1,088 bytes, SHA256 `9ac720aa55e7bd6eaec674788d418aa3314bc7af1010b7c9f09a493d9aa76ce9` |
+| Existing CUDA worker | `/home/luke/projects/kpi-intensive-2026-10-22/proof-target/tools/r0vm-cuda` |
+| Worker size | `165,756,672` bytes |
+| Worker SHA256 | `3f22b68b6d32904fe766e14e62ce011febdc946dd98d015747f40ce5fb5fffc7` |
+| Retained input | `/home/luke/projects/kpi-intensive-2026-10-22/proof-target/two-v6-proof/receipt.bin`; SHA256 `51a2f69e9986179696141ef106401109a3c7bf58fe87c8b0a645e29c49c4a3ec` |
+
+These pins identify the fresh public development pair. They do not qualify the
+original rehearsal's missing compatible pair or a funded pool.
+
+## Exact software and setup graph
+
+The worker's official source identity is SDK `v3.0.3`, commit
+`14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6`. That workspace lock has
+`risc0-groth16 3.0.2`, `risc0-groth16-sys 0.1.0`, `circom-witnesscalc 0.2.1`
+and `rzup 0.5.1`. The existing host/native graph separately resolves
+`risc0-zkvm 3.0.3`, `risc0-groth16 3.0.4`, `risc0-binfmt 3.0.4`,
+`risc0-zkp 3.0.4` and `risc0-circuit-recursion 4.0.4`. These are separate
+package versions, not a claim that every dependency is version 3.0.3.
+[Pinned workspace lock](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/Cargo.lock).
+
+The SDK303 source `risc0/groth16/src/verifier.rs` is byte-identical to cached
+`risc0-groth16 3.0.4/src/verifier.rs`: SHA256
+`719f697b351f6f619840351fb2b674118a5cf4be8f55e404b01e64b5bfb60aa1`.
+All 26 decimal key-coordinate constants match. This checks source/key identity;
+the actual compressed receipt still needs verification under the host and native
+verifiers. The comparison receipt is
+`artifacts/groth16-compression-preparation/sdk303-to-host304-key-comparison.json`.
+[Pinned verifier](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16/src/verifier.rs).
+
+CUDA compression requires the separate **rzup component
+`risc0-groth16 v0.1.0`**, not another guest or a fresh setup ceremony. The
+native wrapper computes a Circom witness from the fixed graph and passes it to
+the existing `risc0-groth16-sys` CUDA implementation. Its four required files
+are `stark_verify_graph.bin`, `stark_verify_final.zkey`,
+`preprocessed_coeffs.bin` and `fuzzed_msm_results.bin`.
+[Component selection and witness calculation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16/src/prove/cuda.rs),
+[exact file paths](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16-sys/src/lib.rs#L25-L49).
+
+The official signed manifest authenticates a content-addressed archive:
+
+| Artifact | Published or observed identity |
+| --- | --- |
+| Archive SHA256 | `4b4f2b2fb8380369ed14f0dc48380a1bbcbc82c7d553f1888b47d0a9f8e72e4d` |
+| Download length | `2,335,797,480` bytes |
+| Manifest authentication | RSA-PSS/SHA256, salt length 32; verified against the public key in pinned SDK source, OpenSSL `Verified OK` |
+| Extraction status | Complete: four regular members, exact streaming hashes verified; archive plus member data `7,650,429,352` bytes |
+
+[Official signed manifest](https://risc0-artifacts.s3.us-west-2.amazonaws.com/rzup/components/risc0-groth16/distribution_manifest.json),
+[exact archive](https://risc0-artifacts.s3.us-west-2.amazonaws.com/rzup/components/risc0-groth16/sha256/4b4f2b2fb8380369ed14f0dc48380a1bbcbc82c7d553f1888b47d0a9f8e72e4d),
+[pinned signature verification](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/rzup/src/distribution/s3.rs#L73-L101).
+The archive digest authenticates its members. Transport ETag is not treated as
+a SHA256 substitute. The safe extraction copied only these four expected root
+regular files, rejecting links, duplicate/unexpected paths and size mismatches:
+
+| Member | Bytes | SHA256 |
+| --- | ---: | --- |
+| `stark_verify_final.zkey` | 3,620,786,504 | `f525bfbcadcd01339a243db59213f213a357adbaaff7b4203c9c57ce25e91d5c` |
+| `preprocessed_coeffs.bin` | 1,442,123,704 | `424368948ad64d7cdd6632fc9efa9b1a52f45ea8b5bf1d568682a7eaa91efbb0` |
+| `stark_verify_graph.bin` | 251,721,088 | `51020d6fd9ded9627ed08044fb428bca46ee2bfcc90f5819469601564050315f` |
+| `fuzzed_msm_results.bin` | 576 | `5c31207007ab5489bddf60594434c161739baca4cde6786f493ffa44aaebcc43` |
+
+The signed-manifest receipt, full-download receipt, archive inspection and
+extraction evidence are retained under
+`artifacts/groth16-compression-preparation/`. Total retained data including
+metadata was 7,651,000,429 bytes at extraction completion, below 10 GB. No
+physical intermediate TAR was retained.
+
+The official setup source uses the ceremony-derived
+`zkey/2024-05-17.1/stark_verify_final.zkey.gz`; the pinned Dockerfile requires
+gzip SHA256 `69c6056451ea814b37e30ccbc44639dbaafef73540cbfbff6ec7e68e2d325735`.
+This task has not independently checked the ceremony transcript, attestations
+or destroyed-secret assumptions. That standard outer setup is separate from the
+fresh single-party, test-only inner-wallet setup used by this public pair.
+[Official setup description](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/website/api/trusted-setup-ceremony.md),
+[component preparation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/xtask/src/setup_groth16.rs),
+[Dockerfile checksum](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/groth16_proof/docker/prover.Dockerfile#L48-L81).
+
+## Task-local execution layout
+
+The authenticated task-local layout is prepared:
+
+```text
+artifacts/groth16-compression-preparation/
+  risc0-home/
+    .rzup
+    tmp/
+    extensions/v0.1.0-risc0-groth16/
+      stark_verify_final.zkey
+      stark_verify_graph.bin
+      preprocessed_coeffs.bin
+      fuzzed_msm_results.bin
+  compression-work/                  # new, writable public-proof scratch
+  compression-run/                   # must not already exist
+```
+
+Set `RISC0_PROVER=ipc`, `RISC0_SERVER_PATH` to the fixed CUDA worker,
+`RISC0_HOME` to this task-local component root, `RISC0_WORK_DIR` to the new
+scratch directory, and `GITHUB_TOKEN` to the empty string. The last setting
+prevents rzup from reading the user's gh credential file. `RISC0_DEV_MODE` must
+be absent. Do not change `HOME`, `RUSTUP_HOME` or global installations. Recursion
+programs are already embedded in the existing worker; no recursion download is
+required by `identity_p254`.
+[IPC compression](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/zkvm/src/host/client/prove/external.rs#L64-L84),
+[rzup environment](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/rzup/src/env.rs),
+[embedded recursion programs](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/circuit/recursion/src/prove/zkr.rs).
+
+Build the driver in the existing pair-host graph, then run it only after a
+separate resource release:
+
+```text
+compress_retained SOURCE_RECEIPT FROZEN_SOURCE_SHA256 NEW_OUTPUT_DIRECTORY
+```
+
+The controller must pin the actual executable, source receipt and extracted
+component files, keep the component read-only, disable network access, watch
+CPU/RAM/VRAM and retain the candidate on failure. A timeout, memory failure or
+missing component is an operational failure, not rejection of the payment
+relation. No automatic guest reproving follows from a compression failure.
+
+## Resource evidence and the CPU fallback
+
+An official immutable SDK303 RTX 4090 snapshot records `shrink_wrap` at 3.996
+seconds. This is the final prepared-identity compression stage, not the new
+pair's entire direct-compression time. Its RAM row is explicitly unmeasured;
+the separate end-to-end Groth16 benchmark's HAL allocation counter excludes
+native C++ `gpu.Dmalloc` allocations. There is no qualified exact-version peak
+RAM/VRAM or RTX 3070/8 GiB fit result here. Existing sm86 worker code establishes
+an available compiled route, not sufficient free memory or successful execution.
+[Exact SDK identity](https://raw.githubusercontent.com/risc0/ghpages/0f43ffca39a92660d9c21fc916f4f0146669d923/dev/datasheet/COMMIT_HASH.txt),
+[official benchmark](https://raw.githubusercontent.com/risc0/ghpages/0f43ffca39a92660d9c21fc916f4f0146669d923/dev/datasheet/Linux-nvidia_rtx_4090.json),
+[benchmark implementation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/zkvm/examples/datasheet.rs#L423-L490),
+[native GPU allocations](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16-sys/kernels/cuda/groth16_prover.cuh#L213-L233).
+
+A tiny read-only parse of the authenticated public zkey/header gives 5,635,930
+variables, five public inputs and domain size `2^23`. The explicit standard
+Groth16 CUDA allocations below total **4,948,497,688 bytes (4.609 GiB)**:
+
+| Explicit concurrently owned term | Bytes |
+| --- | ---: |
+| Five SRS affine-point arrays | 2,340,368,128 |
+| Preprocessed coefficient and index arrays | 1,442,123,672 |
+| Three domain polynomials | 805,306,368 |
+| Witness scalars | 180,349,760 |
+| Fuzz scalars | 180,349,760 |
+
+This is an allocation **subtotal**, not a VRAM upper bound. It excludes Sppark
+G1/G2 MSM workspace, partial twiddles, CUDA context/allocator overhead and any
+memory retained across the preceding identity-p254 stage. It neither proves nor
+rules out an 8 GiB device. The zkey's 3.62 GB file size must not be added directly
+to other file sizes as a VRAM formula: source maps the file and copies selected
+point sections. Host graph deserialization, encoded/decoded witness copies and
+file-backed page accounting also leave peak host RAM unqualified. Exact header
+values and arithmetic are retained in
+`artifacts/groth16-compression-preparation/groth16-explicit-allocation-arithmetic.json`.
+[SRS section loading](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16-sys/kernels/cuda/groth16_srs.cuh#L233-L287),
+[coefficient arrays](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16-sys/kernels/cuda/groth16_coeffs.cuh#L145-L169).
+
+The non-CUDA SDK build uses `risczero/risc0-groth16-prover:v2025-04-03.1`.
+The official registry's linux/amd64 manifest is
+`sha256:7f173963196570b7a71816ed70565a4579264c5d2e3e0ecb028102538ad0e331`;
+compressed layers total `2,399,158,367` bytes. No image was pulled. This fallback
+needs a non-CUDA worker/build route because selection is compile-time, and the
+SDK's hardcoded Docker tag should be resolved to the verified digest before a
+future run. The container bundles witness generation, gnark constraints/key
+and prover; its 16 MiB stack setting is not a measured RAM requirement. No
+credible exact-version CPU duration or peak RAM was found, so this is a pinned
+fallback inventory rather than a ready execution release.
+[Compile-time dispatch](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16/src/prove/mod.rs),
+[Docker invocation](https://github.com/risc0/risc0/blob/14b5d588dd01cf4f7ba804d8bb0a61264e6ae2c6/risc0/groth16/src/prove/docker.rs),
+[official image metadata](https://registry-1.docker.io/v2/risczero/risc0-groth16-prover/manifests/v2025-04-03.1).
+
+## Native consequence and remaining gates
+
+The established vProgs adapter converts a RISC Zero Groth16 seal into a
+**128-byte compressed native BN254 proof**. The SDK seal itself uses a different
+representation; do not call the raw seal 128 bytes. The existing covenant binds
+five public inputs to the standard control root, exact receipt claim and BN254
+identity control under its fixed wrapper key. The five-input native base/key
+cost is 155,000 mass before covenant, payload and storage costs. This source
+bound differs from the large Succinct seal route; it is not a measured pair
+settlement cost.
+[Witness conversion](https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/zk/backend/risc0/api/src/witness.rs),
+[five-input covenant](https://github.com/kaspanet/vprogs/blob/f9b84a863a7c7c20586a9cf947550475e894f72e/zk/backend/risc0/covenant/src/script.rs#L947-L1030).
+
+## Retained qualification result
+
+The built additive driver SHA256 was
+`d562367308bebfc2d3e23c1669245468d438ad169b6d73ed97a996eaeb1cfb7b`.
+It compressed the exact 223,310-byte retained source above. The 581-byte output
+is `proof-target/two-v6-compression-2/groth16-receipt.bin`, SHA256
+`7ace0642e77fadacf9bc704e7500a97f2c8ea6a0b81a043ae5049eefbd1b97ff`.
+Its SDK seal is 256 bytes, SHA256
+`f530a0cc679dba0b554da80681e5800c7917717d8ddc4c6289f7944cb2f7d3dc`.
+Source and output have the exact same claim digest
+`7e5bed968ae55ede2c88edb1021b5bb718d8785061d8df761050badd2210b2e3`
+and unchanged exact J42. Producer SDK verification and three controls passed.
+`compression-result.json` SHA256 is
+`fe25201e60acce1fc24777f6376a6f36b840ee0981aaeb47c084b2d7dccf457e`.
+
+The independent review is
+`review/research/intensive-2026-10-22/review/COMPRESSED-RECEIPT-INDEPENDENT-VERIFICATION.md`
+with separate CPU output `compressed-receipt-independent-01/verified.json`.
+It used a verification-only binary, no prover, and retained seven negative
+controls with their verification-layer distinctions. No unresolved assumptions
+were accepted. The retained official wrapper setup trust remains explicit.
+
+The actual pinned native result is
+`research/poc/public-receipt-native-check/evidence/paired-groth16/report.json`,
+SHA256 `56f42f88e8f1037f32ab51294229df691a3d68b7fa95f9649b841df1faa1c94f`.
+All eight expected outcomes passed, including actual pairing failures and
+canonical framing errors. Checked conversion produced the 128-byte proof
+SHA256 `823c2d5329c6f4e2356b0c3c03a0fcdc46db0ba9fb6a2a2e8afcfc9992b80a18`;
+the fixed outer VK is 424 bytes, SHA256
+`78886245c5d55b850f2ac26af823802cd128eb4a43d6c52c8a62af46d54306a4`.
+The bare predicate was 728 bytes and used 15,500,001 script units, covered by
+budget 1550 with the input free allowance. Its committed budget is 155,000
+grams; ceil(used units/100) is 155,001. These are distinct quantities and neither
+is a measured complete transaction cost.
+
+The producer monitor recorded sampled VRAM peak 5,332 MiB and cgroup RAM peak
+1,783,631,872 bytes, no swap. Sampling can miss brief device peaks. The first
+attempt failed because the clean environment omitted HOME: rzup needs the
+unchanged inherited HOME even with explicit RISC0_HOME. A fresh operational
+attempt preserved that environment value, with task-local component paths,
+read-only assets and an empty token. Independent cleanup confirmed the owned
+unit and processes stopped and no GPU compute process remained.
+
+Separate settlement/economic tests remain. Compression supplies no native
+backing, current spentness, independent exits, recovery, scale or anonymity
+result. The old J42 also cannot be relabelled the distinct proposed state-aware
+J336 assertion.
