@@ -956,6 +956,18 @@ still accepts no native consensus implementation, funded trial, broadcast,
 runtime deployment or recovery action. Neither authorization adopts production
 architecture or restarts paused MPC/zkVM/provider work.
 
+## Local native-message authorization result
+
+The owner-directed continuation produced the separate
+[unfunded native-draft authorization package](../../poc/native-tx-validation/README.md),
+recorded in [ADR-0104](../adr/0104-unfunded-native-draft-authorization.md).
+Three fresh complete proofs and ordinary/shielded signatures authorize the
+proposed v2 effects/input-context message. Twenty integration tests and exact
+public reproduction establish local compatibility. Its context is synthetic,
+mass is unvalidated, and the backend constructs rather than imports the key.
+This implements no native accepted-state transition and adopts no invariant or
+accounting amendment. The independent review and consensus/recovery gates remain.
+
 ## Current source pins
 
 The [Kaspa source manifest](../../research/native-kas-consensus-sources-2026-11-03.json)

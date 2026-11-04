@@ -41,6 +41,15 @@ compatibility. Exact integer/accounting and proposed invariant wording are
 written; independent review/adoption, actual native integration, measured mass
 parameters and activation remain open. No production architecture is selected.
 
+[ADR-0104](adr/0104-unfunded-native-draft-authorization.md) now records actual
+[local native-message authorization](../poc/native-tx-validation/README.md):
+fresh complete proofs plus Schnorr/ECDSA/RedPallas signatures over the proposed
+v2 message, with independent byte/hash comparison and adversarial controls.
+UTXO/state context remains synthetic; no consensus transition, native key
+importer, resource validation or invariant amendment is implemented. This
+compatibility result does not satisfy the independent review gate for native
+accounting/state adoption.
+
 The open comparison is in [RFC-0001](rfc/0001-state-architecture.md), pending review.
 
 The original executed depth-four full-drainage wallet profile remains local-only

@@ -580,3 +580,135 @@ fn deterministic_bitflip_corpus_never_passes_local_authorization() {
         );
     }
 }
+
+#[test]
+fn distinct_valid_funding_authorization_preserves_economic_id() {
+    use secp256k1::{Keypair, Message, Secp256k1};
+    let t = tx("deposit");
+    let context = view("deposit");
+    let s = signing_message(&t.effects, &t.bundle, &context.utxos).unwrap();
+    let message = Message::from_digest(input_hash(s, 0, false));
+    let secp = Secp256k1::new();
+    let key = Keypair::from_secret_key(&secp, &fixtures::funding_key(false));
+    let signature = secp.sign_schnorr_with_aux_rand(&message, &key, &[0x33; 32]);
+    let mut changed = t.clone();
+    changed.effects.inputs[0].signature_script[1..65].copy_from_slice(signature.as_ref());
+    assert_ne!(
+        t.effects.inputs[0].signature_script,
+        changed.effects.inputs[0].signature_script
+    );
+    assert_eq!(
+        verifier()
+            .verify_local(&changed.encode().unwrap(), &context)
+            .unwrap()
+            .txid,
+        t.txid().unwrap()
+    );
+    assert_ne!(changed.txhash().unwrap(), t.txhash().unwrap());
+}
+
+#[test]
+fn exact_maximum_public_arithmetic_is_a_context_control_only() {
+    // Change b without making a proof: this tests public range/equation controls,
+    // not authorization or the existence of a maximum-value native note.
+    let mut t = tx("transfer");
+    t.effects.fee = MAX_SOMPI;
+    let mut bytes = t.encode().unwrap();
+    let at = end(&t) - 8;
+    bytes[at..at + 8].copy_from_slice(&(MAX_SOMPI as i64).to_le_bytes());
+    let t = Transaction::decode(&bytes).unwrap();
+    let mut context = view("transfer");
+    context.balance = MAX_SOMPI;
+    assert_eq!(verifier().check_synthetic_context(&t, &context), Ok(()));
+    assert_eq!(
+        verifier().verify_shielded_signatures(&t, &context),
+        Err(Error::SpendSignature)
+    );
+    context.balance = MAX_SOMPI - 1;
+    assert_eq!(
+        verifier().check_synthetic_context(&t, &context),
+        Err(Error::PoolBalance)
+    );
+    let mut t = tx("deposit");
+    t.effects.inputs.truncate(1);
+    t.effects.outputs.clear();
+    t.effects.fee = 0;
+    let mut context = view("deposit");
+    context
+        .utxos
+        .get_mut(&t.effects.inputs[0].previous)
+        .unwrap()
+        .amount = MAX_SOMPI;
+    let mut bytes = t.encode().unwrap();
+    let at = end(&t) - 8;
+    bytes[at..at + 8].copy_from_slice(&(-(MAX_SOMPI as i64)).to_le_bytes());
+    let t = Transaction::decode(&bytes).unwrap();
+    assert_eq!(verifier().check_synthetic_context(&t, &context), Ok(()));
+    context.balance = 1;
+    assert_eq!(
+        verifier().check_synthetic_context(&t, &context),
+        Err(Error::PoolBalance)
+    );
+}
+
+#[test]
+fn every_strict_prefix_and_unsupported_profile_or_length_rejects() {
+    let bytes = packet("deposit");
+    let t = tx("deposit");
+    for length in 0..bytes.len() {
+        assert!(
+            Transaction::decode(&bytes[..length]).is_err(),
+            "prefix {length}"
+        );
+    }
+    for version in [0u16, 1, 3, u16::MAX] {
+        let mut bad = bytes.clone();
+        bad[..2].copy_from_slice(&version.to_le_bytes());
+        assert_eq!(Transaction::decode(&bad).unwrap_err(), Error::Profile);
+    }
+    let first = end(&t) - 8 - 1640;
+    for offset in [first - 124, first - 90, first - 2, first - 1] {
+        // bundle schema/profile/flags/count
+        let mut bad = bytes.clone();
+        bad[offset] ^= 0x80;
+        assert_eq!(Transaction::decode(&bad).unwrap_err(), Error::Profile);
+    }
+    let mut bad = bytes.clone();
+    bad[46..54].copy_from_slice(&u64::MAX.to_le_bytes());
+    assert_eq!(
+        Transaction::decode(&bad).unwrap_err(),
+        Error::Decode("blob bound")
+    );
+    for count in [1u64, (1u64 << 32) + 2, u64::MAX] {
+        let mut bad = bytes.clone();
+        bad[first - 42..first - 34].copy_from_slice(&count.to_le_bytes());
+        assert_eq!(Transaction::decode(&bad).unwrap_err(), Error::Anchor);
+    }
+}
+
+#[test]
+fn standard_recipient_decryption_detects_corrupt_delivery() {
+    use orchard::keys::{FullViewingKey, Scope, SpendingKey};
+    let t = tx("deposit");
+    let ivk =
+        FullViewingKey::from(&SpendingKey::from_bytes([0x41; 32]).unwrap()).to_ivk(Scope::External);
+    let (index, _, note, _, _) = t
+        .bundle
+        .decrypt_outputs_with_keys(std::slice::from_ref(&ivk))
+        .into_iter()
+        .find(|(_, _, n, _, _)| n.value().inner() == 100)
+        .unwrap();
+    assert_eq!(note.value().inner(), 100);
+    let mut bytes = packet("deposit");
+    bytes[end(&t) - 8 - 1640 + index * 820 + 160] ^= 1;
+    let changed = Transaction::decode(&bytes).unwrap();
+    assert!(changed
+        .bundle
+        .decrypt_output_with_key(index, &ivk)
+        .is_none());
+    assert_eq!(verifier().verify_proof(&changed), Ok(()));
+    assert_eq!(
+        verifier().verify_shielded_signatures(&changed, &view("deposit")),
+        Err(Error::SpendSignature)
+    );
+}

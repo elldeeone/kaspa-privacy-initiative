@@ -13,13 +13,18 @@ complete: genuine full Halo2 and both signature roles, canonical experimental
 bytes, effects mutation checks and reproducible public vectors. The subsequent
 [native draft](spec/native-shielded/README.md) now specifies transaction/state/
 header/bootstrap, portable mathematical key identity, forest rollover and
-accounting/resource formulas under ADR-0103. Next is independent review and,
-after the required accounting decision, actual unfunded native integration. Native
+accounting/resource formulas under ADR-0103. The subsequent
+[native-message authorization package](../poc/native-tx-validation/README.md)
+now supplies fresh genuine proofs and Schnorr/ECDSA/RedPallas signatures over
+the draft v2 message, twenty passing tests and exact public reproduction under
+ADR-0104. Context remains synthetic; mass validation and portable key import
+are absent. Next is independent review and, after the required accounting
+decision, actual unfunded native integration. Native
 implementation still needs independent review of this draft, invariant/
 accounting adoption and actual consensus integration. The unchanged common-price
 population cannot qualify its absolute privacy cap; independent human review and
 full privacy/cost/recovery qualification remain outstanding. Historical successes
-and this review do not activate the proposal or restart MPC/proving work.
+and this review do not activate the proposal or restart MPC/zkVM/provider work.
 
 ## Current checkpoint — 2026-10-19
 

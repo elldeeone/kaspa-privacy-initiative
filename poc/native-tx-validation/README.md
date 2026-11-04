@@ -26,6 +26,11 @@ Python independently reconstructs Q, ordered input context, IDs and signature
 preimages and checks the earlier frozen specification comparator. Rust tests
 exercise actual proof/signature rejection separately from contextual failures.
 The [adversarial review](REVIEW.md) records the evidence boundary.
+The [verification receipt](VERIFICATION.json) binds exact artifacts, dependency
+identities, prior-file preservation and executed checks.
+Twenty integration tests pass, including all 9,641 strict prefixes of the
+deposit packet, 96 deterministic bit flips and a distinct valid Schnorr
+authorization with unchanged economic ID and changed full hash.
 
 Regenerate into a separate ignored folder and compare the 10 files:
 
@@ -35,6 +40,10 @@ cargo +1.95.0 run --release --locked --manifest-path poc/native-tx-validation/Ca
 diff -r poc/native-tx-validation/vectors .local/native-authorization-reproduction
 cargo +1.95.0 run --release --locked --manifest-path poc/native-tx-validation/Cargo.toml -- check-fixtures poc/native-tx-validation/vectors
 ```
+
+`python3 poc/native-tx-validation/reproduce.py` performs generation, exact
+comparison, independent parsing and fresh-process verification in a unique
+ignored directory. CI runs the checks and this complete reproduction.
 
 `check-fixtures` uses the fixed public synthetic funding map. Its roots and
 balance are test inputs; it does not replay or authenticate the history. A local

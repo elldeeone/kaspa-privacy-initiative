@@ -1,0 +1,34 @@
+name: Unfunded native draft authorization
+
+on:
+  push:
+    branches: [main, research/native-kas-withdrawal-privacy]
+    paths:
+      - 'poc/native-tx-validation/**'
+      - 'docs/spec/native-shielded/**'
+      - '.github/workflows/native-tx-validation.yml'
+  pull_request:
+    paths:
+      - 'poc/native-tx-validation/**'
+      - 'docs/spec/native-shielded/**'
+      - '.github/workflows/native-tx-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authorization:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install exact Rust toolchain
+        run: rustup toolchain install 1.95.0 --profile minimal --component rustfmt --component clippy
+      - name: Check exact draft and portable artifacts
+        run: python3 scripts/check_native_shielded_spec.py
+      - name: Check framing, full proof and all signature roles
+        run: bash poc/native-tx-validation/check.sh
+      - name: Reproduce genuine synthetic proofs and authorizations
+        run: python3 poc/native-tx-validation/reproduce.py

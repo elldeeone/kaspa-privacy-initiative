@@ -169,6 +169,31 @@ index/pagination was added, while 25 relevant protocol files stayed byte-identic
 It supplies discovery tooling, not native shielded state authentication or a
 reason to resume paused covenant work.
 
+## Completed: unfunded native-draft message authorization
+
+The subsequent [native-draft authorization package](../poc/native-tx-validation/README.md),
+under [ADR-0104](adr/0104-unfunded-native-draft-authorization.md), supplies three
+freshly proved and signed native-v2 encoding examples. They verify actual
+Schnorr/ECDSA funding signatures, complete repaired Orchard V2 Halo2 and both
+RedPallas roles over the proposed complete-effects/ordered-input-context message.
+Twenty integration tests cover changed effects/input context, real proof and
+signature negatives, current supplied-context rejection, maximum public bounds,
+recipient validation, every truncated prefix and 96 bit flips. Python checks
+framing/hash preimages independently; all ten public fixture files reproduce
+exactly and verify in fresh processes.
+
+This closes **local native-message authorization compatibility**. Funding,
+anchors/spentness and balances are explicitly synthetic. Mass is a signed
+placeholder; conditional locks/coinbase inputs refuse locally. The backend
+constructs the pinned upstream key and does not import the portable capsule.
+There is no native state application, accepted chain or invariant amendment.
+Independent accounting/cryptography/Kaspa review and the gated consensus/store/
+reorg/recovery work above remain required. Run
+`bash poc/native-tx-validation/check.sh`; the
+[review](../poc/native-tx-validation/REVIEW.md) records the adversarial checks.
+The [receipt](../poc/native-tx-validation/VERIFICATION.json) records source/artifact
+identities, preserved prior files and passing configured checks.
+
 ## Consolidation verification
 
 The [preservation receipt](research-preservation-2026-11-03.md) binds all original

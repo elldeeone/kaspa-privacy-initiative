@@ -11,6 +11,16 @@ availability and failure-model lessons into future reviews.
 
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
+The [native-draft authorization package](poc/native-tx-validation/README.md)
+adds local proof/signature rejection evidence under
+[ADR-0104](docs/adr/0104-unfunded-native-draft-authorization.md). Its entire UTXO/
+anchor/spentness/balance view is synthetic. A forged server could supply a
+self-consistent view; valid signatures under it establish no native backing or
+accepted history. The package cannot mutate consensus state. Signed mass is not
+validated pricing, and a fixed key-constructor diagnostic is not a portable key
+importer. The [second-pass review](poc/native-tx-validation/REVIEW.md) records
+the executed attacks and remaining independent-review/consensus/recovery gates.
+
 ## Assets to protect
 
 1. Native KAS backing the shielded system.

@@ -1,0 +1,179 @@
+{
+  "schema": "native-draft-authorization-verification-v1",
+  "date": "2026-11-04",
+  "baseline_commit": "698a7de49f3d13a81542ffde3d93f41b7b25a3cc",
+  "initial_package_commit": "fd3eac64540c1021507b278ac76bd44189e676b9",
+  "classification": "Unfunded local proposed-v2 message/codec/Halo2/Schnorr/ECDSA/RedPallas interoperability. Synthetic UTXO/state; no native consensus acceptance.",
+  "verified_at_utc": "2026-11-04T12:03:46.986708+00:00",
+  "source_heads_rechecked": {
+    "rusty-kaspa": "af6ff23a0b3e8271407da3203ce4017dd188d7ec",
+    "orchard": "616a669df8c9a59c33d47064d3ce04b25d026b2e"
+  },
+  "rust_toolchain": "1.95.0",
+  "dependency_packages_in_lockfile": 114,
+  "existing_locked_dependencies_retained": 108,
+  "added_dependencies": [
+    {
+      "name": "cc",
+      "version": "1.11.0",
+      "checksum": "375989decec1a0fa424442bed520fa12ede43a48475ce8c7417d2c69b32b5f6b"
+    },
+    {
+      "name": "find-msvc-tools",
+      "version": "0.1.15",
+      "checksum": "1c66915cc5391097de7a2b0b972e8505aa33c0df401fd3a6811dbdb32881ba48"
+    },
+    {
+      "name": "secp256k1",
+      "version": "0.29.1",
+      "checksum": "9465315bc9d4566e1724f0fffcbcc446268cb522e60f9a27bcded6b19c108113"
+    },
+    {
+      "name": "secp256k1-sys",
+      "version": "0.10.1",
+      "checksum": "d4387882333d3aa8cb20530a17c69a3752e97837832f34f6dccc760e715001d9"
+    },
+    {
+      "name": "shlex",
+      "version": "2.0.1",
+      "checksum": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba"
+    }
+  ],
+  "checks": {
+    "new_rust_integration_tests": {
+      "passed": 20,
+      "skipped": 0
+    },
+    "genuine_fresh_bundles": 3,
+    "funding_signature_algorithms": [
+      "BIP340 Schnorr",
+      "low-S compact ECDSA"
+    ],
+    "shielded_crypto": [
+      "complete FixedPostNu6_2 Halo2",
+      "both SpendAuth slots",
+      "binding signature"
+    ],
+    "strict_prefixes_rejected": 9641,
+    "bitflip_rejections": 96,
+    "actual_changed_public_input_proof_rejection": true,
+    "changed_b_passes_action_proof_but_rejects_signatures_and_binding_key": true,
+    "distinct_valid_authorization_same_txid_different_full_hash": true,
+    "python_independent_framing_and_message_vectors": 3,
+    "frozen_native_encoding_comparator": true,
+    "fresh_process_reproduction": {
+      "exact_files": 10,
+      "verified_bundles": 3,
+      "method": "python3 poc/native-tx-validation/reproduce.py"
+    },
+    "format_and_clippy": "passed with -D warnings",
+    "existing_interop_rust_tests_passed": 15,
+    "native_spec_conformance": "passed: portable capsule; 13 negatives; symbolic rollover/undo",
+    "research_knowledge": "369 commits; 2341 documents; 39 refs; 42 PR histories",
+    "repository_fast_check": {
+      "python_cases": 179,
+      "passed": 177,
+      "existing_opt_in_skips": 2,
+      "node_tests": 13,
+      "no_rpc_executed": true
+    },
+    "documentation": "285 Markdown files; 3920 relative links"
+  },
+  "immutable_prior_files_sha256": {
+    "docs/spec/native-shielded/CONFORMANCE.md": "335d5756aca7d02ed91390c155831e6b4253b4ae37aea9187cb519ccaa8b9638",
+    "docs/spec/native-shielded/README.md": "1131cf1fecc187ddb8a822299879675914b301b60b41ff26498195ebf1880e26",
+    "docs/spec/native-shielded/VERIFICATION.json": "38e285b0884999c06aeefb2c7ee1a9f7f4a779c561c62d5f75880fb3e0c25232",
+    "docs/spec/native-shielded/accounting.md": "4e9bb6fe3efed7ff6bb04334294ac6b4c90e7f10639f5ec1ae3414f39edb48aa",
+    "docs/spec/native-shielded/artifacts/conformance.json": "11eb65b4583c2459246ad75a317e9dc1d6af66480caa4749ba3f32a82357d45f",
+    "docs/spec/native-shielded/artifacts/decoder-negative-checks.json": "99d92e1180062bbc19290e611d10990979cc313e8c4f6fe4a43ee5fd1adf6d4a",
+    "docs/spec/native-shielded/artifacts/export-result.json": "d533d3a68e1f50e49526fd2aa08770844c69a2c2077cbbff51e16ad1068a1933",
+    "docs/spec/native-shielded/artifacts/fixed-post-nu6-2.vk-capsule.bin": "743fa19c541fa2c7881c4ed0e3340c82d88780dbbc549cc2f3bfd982c2e517e0",
+    "docs/spec/native-shielded/artifacts/native-transaction-encoding.bin": "1be4eee573fd7a6de6488a58473f26ab592e8237f403aa60318efdf0b67ebe75",
+    "docs/spec/native-shielded/artifacts/portable-key-manifest.json": "128c17a29adf1601b6fe6fb6d08f49e5f4d8e48bce97692051e2143306a9a41c",
+    "docs/spec/native-shielded/artifacts/profile.bin": "20385945ed9461d6ded59e7b4bcc9a3e60829e68b8cc0863b8fde5d41f5db9cd",
+    "docs/spec/native-shielded/artifacts/profile.json": "332ad2f2eb073475ef04555e7b3cb541b2383e53dc15061473b35a8858a816f3",
+    "docs/spec/native-shielded/artifacts/upstream-delta.json": "444c50f4df018ed256bca311bdd1a22e03edded111fcb10c34e7a8e42ed2b711",
+    "docs/spec/native-shielded/artifacts/upstream-pinned-key-description.txt": "7ef7088012eb2af7364857550109b8c5560830025f0db9f06e714859b6541957",
+    "docs/spec/native-shielded/bootstrap.md": "98f0e47bea50b39d741b91a01f1abefc1746003bdf2f1328c0a86337745a9b29",
+    "docs/spec/native-shielded/key-export/Cargo.lock": "762f4a5af99dbc8108d13d4dd18c09f959bbed099fd9b5d74768a1c06241fec3",
+    "docs/spec/native-shielded/key-export/Cargo.toml.in": "291de58c84f25e9d0091a3ab68922a9813c7b502f2115d6c85b0067f232e82c7",
+    "docs/spec/native-shielded/key-export/README.md": "cf98f973c90b1c7a71effa4620372a8b6715483fa560493773adafdb948f58a0",
+    "docs/spec/native-shielded/key-export/check_capsule.py": "0b4b54567202dfb198c033775f4f887bcfed284433c92babb7e504293b2e9b94",
+    "docs/spec/native-shielded/key-export/diagnostic-export.patch": "884d895adcf77851ee17270b28ef3081492419ffc57c4fb32ff35991a22c2fc3",
+    "docs/spec/native-shielded/key-export/main.rs": "1039a2b854d34dcdf37093d006cb56d588dacdf813e58e4a80f021012f59dce2",
+    "docs/spec/native-shielded/key-export/reproduce.py": "98156b8335e5f72fced4affbbd16d591f22f14ee841fab95a4127b458a9fe833",
+    "docs/spec/native-shielded/key-export/source-inputs.json": "d4a6e2997e16ccf503fed1fec5c2a934a8d969c92aad9b652b1662fffbab75be",
+    "docs/spec/native-shielded/key-export/upstream-source-checks.json": "926cf96a620ed11d42dd269a29338af4f3b290e9c64298b803e3fff93d06ffc2",
+    "docs/spec/native-shielded/key-identity.md": "d310fccdb5dc9671b34e1204a1acdb8a0115c8c73ea00ca7ab0b1cdf21092b5d",
+    "docs/spec/native-shielded/state-header.md": "fd8f9977ae064643080318f844ea24698e41034d87c0247f57c7b44b87d710a3",
+    "docs/spec/native-shielded/transactions.md": "165aa72dfe6ea86606257f01644ab7640be99fe9cce197657bf9c33edd370e3b",
+    "poc/orchard-interop/Cargo.lock": "706325889afacb6e0483cc02b6b50a0545c868d026423c3bdf0924727253d5cb",
+    "poc/orchard-interop/Cargo.toml": "2627d1002d4a80054ac4eb0945c444580c94ed11eaf55de2bc0dfb932e7a8e0d",
+    "poc/orchard-interop/README.md": "d6849e7282e5877127b9c340a10865d72609af3092e6648d07a2a189c31f81d5",
+    "poc/orchard-interop/REVIEW.md": "04d8b5ad7228765e3d99114fba8ac4839c39e4d395a657f00d4928878bf6736f",
+    "poc/orchard-interop/UPSTREAM-LICENSE-MIT": "d57777b4f9633cb259ba967bb95562766611157dcc2d2113077871162fd38c43",
+    "poc/orchard-interop/VERIFICATION.json": "344d2ab12388b73f869111b9ffb2aa00fb422b08a7af11cf9f951322bdbe2c57",
+    "poc/orchard-interop/check.sh": "1e4920a0518142a990facce7e94eceda93d824f2403f98bba4775bc68f9cc0c4",
+    "poc/orchard-interop/check_vectors.py": "857bb4962083b41a904f8af9601d82130c595c1f581c68ff4ad847a31ffdaae1",
+    "poc/orchard-interop/rust-toolchain.toml": "28ba63ba51f7635afd6b0663f2613a1037ab602a039a889e991b1164b84d4714",
+    "poc/orchard-interop/src/codec.rs": "2dacd2b1ead24297bb62606eb2610793362da423cb7f8dadabf640cf138e8dde",
+    "poc/orchard-interop/src/effects.rs": "04d1e65e5862aa6b0d6346dca860ad3e61bf06174e8677db0cf7a3a239d7795c",
+    "poc/orchard-interop/src/fixtures.rs": "6141e53bb29d4c17978906f47d99567907ee2cbcec78752e026119da387cdbcd",
+    "poc/orchard-interop/src/lib.rs": "c8977f5f2f93c1519df8b4fecae10772e46da36f2d0e501f3f776d31da2657a2",
+    "poc/orchard-interop/src/main.rs": "b8e4196b932f4fbf57aa6ed7e2bf3cecf3b6a7988d1f1b1d5982c84d52d29ecc",
+    "poc/orchard-interop/src/verifier.rs": "3cb14cf6a137a1daa9386471a6ef76eec5e0c714912c197c9565a7dcbf58f75a",
+    "poc/orchard-interop/tests/interoperability.rs": "0bb612a204ba4a4c22c28d18f8e6e14f91d00de6c7b2ef8b8a6fdb13b4eb1475",
+    "poc/orchard-interop/vectors/deposit.bin": "76372ed98fd12522bfa204e7a366083a393440f1c051242f96b164b7bad2555f",
+    "poc/orchard-interop/vectors/deposit.context.json": "1c2945862b087e18b1bff3085d37220c56d2d04cbf5bf96f2a24e2e7bc402d95",
+    "poc/orchard-interop/vectors/deposit.effects.hex": "f77f5622a540a6e8c90cd6efe6043dc11dd8d4559efba4b89f13734885090b49",
+    "poc/orchard-interop/vectors/manifest.json": "90ea78c6d6c63a228567237b07cb6bff67f9f778bede9a28c7eaf98b82433cb9",
+    "poc/orchard-interop/vectors/transfer.bin": "71579a2436343f903a45b7659dd99ce35f77afad45c2196d277a4441e17e876d",
+    "poc/orchard-interop/vectors/transfer.context.json": "d9d4f07cc6c42a0be1df5f522f59d8ed35e2b469e0763ab90ea8e7d6b50d8e87",
+    "poc/orchard-interop/vectors/transfer.effects.hex": "b7aeff6d72aa2f977ef70c3272c44ca2c73afb4fc4f7fee42355c0f1b52e5bd8",
+    "poc/orchard-interop/vectors/upstream-key-note.json": "0688db0563873acf4aeae81a10824ef545d06b2598506d4d8b4f0a4f51a6d793",
+    "poc/orchard-interop/vectors/withdraw.bin": "a6263ffb59a49f0af14d8c60fcd90c8c272f2e4128e4dac1148153dfea9c9141",
+    "poc/orchard-interop/vectors/withdraw.context.json": "f86cf5523de6f2eb7d1ee6623f035b1419e1dd45f7672b59a331a139fbaf87bc",
+    "poc/orchard-interop/vectors/withdraw.effects.hex": "fff038fb7d457fb9a9923d7128a7a809225e8246d9f15af5447e8d15d4e8828a",
+    "SECURITY-INVARIANTS.md": "44cf983d06c8895c61a492107f65487725331a1b2f93d1c89e7353fb5399733d",
+    "scripts/ci_fast.sh": "1103129837e1ade44d26212c213ba7eaec9f5904db932a96a8ea181b6e61a330",
+    ".github/workflows/code.yml": "3210289fa84d93591cee5b2cb9a01183554edd798b52733cd2c01d1e3efbbaa3"
+  },
+  "package_files_sha256": {
+    "poc/native-tx-validation/Cargo.lock": "87a44a3f74c4f8dc24a734b446d1cc30789bee81b2fa03b7e68f1a75935f0488",
+    "poc/native-tx-validation/Cargo.toml": "bbfda5c6869ddbd209af42a97e810533574ecd0471dd2fcac947a01a6960f207",
+    "poc/native-tx-validation/README.md": "c9507414e0a32d5657335d0ec73e6f913b7786674b513d3ffb406bdf340881a3",
+    "poc/native-tx-validation/REVIEW.md": "4fcf19c8b34b50c517837fd6908c104d5438f0cd6d48428ef7b54ac53279216e",
+    "poc/native-tx-validation/check.sh": "7dda035d9f23044115ea659099aa50e756a1a67eb1c694f193c6e6b101c62d01",
+    "poc/native-tx-validation/check_vectors.py": "46a5cb2cd8fec5b33f8e0ec9ea1b3ab701f27bc09e2a5b12c17c27abfa1fe955",
+    "poc/native-tx-validation/reproduce.py": "1163a402511477cce721bdfb6a635bed562176f43dcc80aefacfdc762e547082",
+    "poc/native-tx-validation/src/codec.rs": "1fa8666307b1d44817e0fe74fcddff3a8ecf301fa4b4eed08bcb4d06fc2c301d",
+    "poc/native-tx-validation/src/fixtures.rs": "9c4f5c60c8519e2bec1cc01950657505d838d6e519974c9b69425aa4a80504ef",
+    "poc/native-tx-validation/src/lib.rs": "d4047016970d4fad8cbad69ece027146686741eb6781f3b84d0d8fe75bfe6d50",
+    "poc/native-tx-validation/src/main.rs": "928541df7118dd12761994a4248e7bc20d445d0d337de30b78c5d6aa25cad899",
+    "poc/native-tx-validation/src/signing.rs": "b35487bbd99b7c09dfbe44d64fd41252fb32865b0dcf0a1dbf2ec268b4bc9c07",
+    "poc/native-tx-validation/src/verifier.rs": "00c79f723ae9ad5da809adabd6e87109a14088d63b0649da0ece104dd26cb534",
+    "poc/native-tx-validation/tests/authorization.rs": "3e5bc0b6303f4d2eec02df55e9e1efaff042697068fdd8543f1eb11de0835189",
+    "poc/native-tx-validation/vectors/deposit.bin": "ef94721c2fadd001fad820efe8f041a3c23fb864b3f7ceff96033ecc600299df",
+    "poc/native-tx-validation/vectors/deposit.q.bin": "c7de8381d8c6fe89f75af7330afbdc66fedb59749c4d7dea4b7611965987f39d",
+    "poc/native-tx-validation/vectors/deposit.synthetic-view.json": "5f245cf7256471d1755123d1b738ee9843156f5c65e4ec9a5f56e8f0ae6169f9",
+    "poc/native-tx-validation/vectors/manifest.json": "113226bef72ec959b652e2f18fb8d18e2af2727e2d8a775727619c7503305ee9",
+    "poc/native-tx-validation/vectors/transfer.bin": "cd8eb1637d4ea2c4bbe91023c8d6ae0e2558bd107ca6585b409caf48daf543f2",
+    "poc/native-tx-validation/vectors/transfer.q.bin": "c6db2e8b2da8772060d0f4e915bc24666e8705efb36c67a74bb76b5734854ba9",
+    "poc/native-tx-validation/vectors/transfer.synthetic-view.json": "9a4e6580f57766cfc7277c16061b07733977066b40181af9112ec86270aa1746",
+    "poc/native-tx-validation/vectors/withdraw.bin": "fcf33d3a93aab3b13a78089c80b8f5f5c5d8894779abcf3c409753e20b27d059",
+    "poc/native-tx-validation/vectors/withdraw.q.bin": "214199a7db8c3bca2ffc8b82610016b171c65b2b708fd6a94b807a61bda003a5",
+    "poc/native-tx-validation/vectors/withdraw.synthetic-view.json": "83444203ca04e64ef62b1063ae4df9eb837ee1d88d0ac1df16d06600184c182d"
+  },
+  "workflow_sha256": {
+    ".github/workflows/native-tx-validation.yml": "8261d2a04ee1407e95d174cb7abc31b448d3b21c37b162120dc6ee1332fa3917"
+  },
+  "limitations": {
+    "native_acceptance": false,
+    "funding_or_history_authenticated": false,
+    "portable_key_import": false,
+    "mass_validated": false,
+    "state_transition_implemented": false,
+    "independent_review_or_invariant_adoption": false,
+    "privacy_cost_or_recovery_qualified": false
+  }
+}

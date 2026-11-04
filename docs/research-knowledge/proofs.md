@@ -27,6 +27,15 @@ than replace it with the capsule hash. Read-only export from copied pinned
 sources reproduced the capsule and reverified existing proofs. A native
 importer/backend and independent soundness review remain unimplemented gates.
 
+The later [native authorization result](../../poc/native-tx-validation/README.md)
+uses the proposed v2 bytes and message with fresh complete Halo2, both RedPallas
+roles and standard Schnorr/ECDSA signatures. It compares the old encoding vector
+without relabeling its original signatures as native authorization. Actual
+changed-statement/proof/signature negatives, supplied-context replay checks,
+all-prefix rejection and exact regeneration pass. Carry this message-compatibility
+evidence; its synthetic view, unpriced mass and upstream key constructor still
+provide no accepted backing/state, portable import or recovery qualification.
+
 ## Preserve the evidence ladder
 
 Constraint satisfaction, local cryptographic verification, a zkVM segment,

@@ -24,6 +24,13 @@ historical runtime is modified. There is no reserve-release API, alternate
 withdrawal key, network client, broadcast or funded trial. A successful local
 authorization is insufficient to apply any consensus state.
 
+The second pass additionally verifies every one of the deposit packet's 9,641
+strict prefixes rejects, invalid profile/schema/flags/count/length bounds fail,
+and exact +/-M public arithmetic is separated from actual authorization. A
+fresh valid Schnorr authorization over unchanged S passes with the same txid
+and a different full hash; this tests the ID rule using two actual valid
+representations. Standard recipient decryption rejects corrupted delivery.
+
 Primary source refresh on 4 November 2026 confirmed official Kaspa HEAD
 `af6ff23a0b3e8271407da3203ce4017dd188d7ec` and Orchard HEAD
 `616a669df8c9a59c33d47064d3ce04b25d026b2e`, unchanged since the

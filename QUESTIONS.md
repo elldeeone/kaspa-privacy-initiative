@@ -11,6 +11,12 @@ key and accounting rules. The [unfunded package](poc/orchard-interop/README.md)
 demonstrates complete local Halo2/RedPallas interoperability. Conformance vectors
 test the proposed bytes/hashes and model obligations, not native acceptance.
 
+The later [native authorization package](poc/native-tx-validation/README.md)
+now verifies real Schnorr/ECDSA funding and Halo2/RedPallas over the proposed
+v2 signing message, with three fresh public synthetic bundles. Twenty tests and
+independent framing/hash/reproduction checks pass. It does not authenticate
+funding/history, import the portable key, validate mass or apply native state.
+
 Still open: independent review and I-1/I-2 adoption; actual native key importer,
 node/wallet/DAG/reorg/replay integration; approved activation and measured mass
 parameters; complete privacy/cost/storage/independent-recovery qualification.
