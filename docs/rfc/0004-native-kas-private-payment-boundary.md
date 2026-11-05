@@ -6,6 +6,13 @@
 
 ## Decision in plain language
 
+**Latest owner work-selection rule:** [ADR-0106](../adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
+requires a demonstrated comparative privacy advantage to justify a separate
+direction; otherwise contribute to the shared upstream effort. No candidate has
+earned that advantage. The [local P13 draft](../../research/upstream-p13-contribution-2026-11-05.md)
+packages retained leakage findings and observer controls for that shared goal.
+This supersedes the direct-settlement-first priority, not the constraints below.
+
 **Owner direction, 5 November:** maximize native-KAS privacy **without any
 consensus changes**. [ADR-0105](../adr/0105-maximize-privacy-without-consensus-changes.md)
 supersedes the forward native-consensus plan. Use the
@@ -936,11 +943,12 @@ custodians.
 
 ## Smallest next engineering step
 
-Under ADR-0105, compare complete **current-rule** privacy designs using the
-executed wallet-local/direct-inline-ZK reference. First remove avoidable key,
-fee, query and construction metadata links; separately screen optional
-cooperative output unlinking. A channel or based-app alternative must justify
-its privacy/latency/cost/recovery tradeoffs without custody or forced waiting.
+Under ADR-0106, prepare a focused contribution to the current upstream
+investigation, starting with the P13 leakage evidence and truth-preserving
+observer controls. Reuse the shared implementation and existing Based App
+integration. A separate current-rule privacy candidate requires a named
+mechanism, fixed baseline, matched criteria and bounded falsification step
+before expanding; it has no demonstrated superiority at present.
 
 Freeze the observer/workload before a fresh comparison under the
 [study plan](../../research/current-rules-privacy-study-2026-11-05.md).

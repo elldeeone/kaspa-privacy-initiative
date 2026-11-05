@@ -2,6 +2,14 @@
 
 **Status:** exploratory. No production architecture has been selected.
 
+**Active work selection:** [ADR-0106](adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
+sets contribution to the shared upstream KPI/Based App investigation as the
+default. A separate direction must earn a measured privacy advantage against
+the same baseline and requirements. No candidate has done so. Direct settlement
+remains a comparison mechanism; its simpler structure is not evidence of
+superior end-to-end privacy or grounds for another runtime. Upstream's A/B/C
+architecture decision remains open.
+
 **Owner constraint, 5 November:** maximize privacy using unchanged Kaspa
 consensus. [ADR-0105](adr/0105-maximize-privacy-without-consensus-changes.md)
 supersedes the forward native-consensus plan. The current-rule reference is

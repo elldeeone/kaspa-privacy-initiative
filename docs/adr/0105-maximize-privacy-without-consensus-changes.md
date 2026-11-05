@@ -3,6 +3,11 @@
 **Status:** Accepted owner constraint and research direction; no production design selected.
 **Date:** 5 November 2026.
 
+**Subsequent owner direction:** [ADR-0106](0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
+supersedes this document's direct-settlement-first work priority. Contribute to
+the shared KPI direction by default; alternatives need a concrete comparative
+privacy case. The no-consensus-change constraint and safety requirements remain.
+
 ## Owner direction
 
 The owner explicitly requires the highest available privacy **without any

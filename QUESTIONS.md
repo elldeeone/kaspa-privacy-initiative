@@ -4,6 +4,13 @@ The initiative should treat these as questions to answer, not conclusions to def
 
 ## Active question — 5 November 2026
 
+[ADR-0106](docs/adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
+now makes contributions to the shared upstream direction the default. No
+alternative has demonstrated better privacy. The first scoped contribution is
+[P13 evidence and observer controls](research/upstream-p13-contribution-2026-11-05.md),
+prepared locally and not submitted. The architecture questions below are
+reference questions, not authority for an open-ended separate implementation.
+
 What is the strongest defensible native-KAS privacy under **unchanged consensus**,
 wallet-controlled spending and independent exits? The owner excludes consensus
 changes under [ADR-0105](docs/adr/0105-maximize-privacy-without-consensus-changes.md).

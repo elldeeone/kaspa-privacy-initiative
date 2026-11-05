@@ -5,6 +5,12 @@
 **Authority:** [ADR-0105](../docs/adr/0105-maximize-privacy-without-consensus-changes.md).
 **Sources:** [current-rule options](current-rules-privacy-options-2026-11-05.md).
 
+**Subsequent work-selection rule:** [ADR-0106](../docs/adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
+makes contribution to the shared upstream effort the default. This prospective
+comparison remains reference material; do not start it as an open-ended new
+programme. A specific challenger needs a privacy hypothesis, fixed baseline,
+bounded test and stop rule before it earns further work.
+
 ## Question and starting evidence
 
 Which feasible, noncustodial current-rule design best protects sender,

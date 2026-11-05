@@ -3,6 +3,16 @@
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
 
+**Active work-selection rule:** contribute to the shared KPI direction unless a
+concrete alternative demonstrates better privacy against a fixed baseline.
+[ADR-0106](adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
+records the owner's decision. No alternative has earned that claim, so the
+default is focused contributions to the existing upstream/Based App effort.
+The first [local contribution draft](../research/upstream-p13-contribution-2026-11-05.md)
+targets upstream P13 with corrected withdrawal-leakage findings and observer
+controls. It has not been posted or submitted upstream. This adopts no final
+architecture or privacy qualification.
+
 **Active owner constraint: maximize native-KAS privacy without any consensus
 changes.** [ADR-0105](adr/0105-maximize-privacy-without-consensus-changes.md)
 supersedes the forward consensus-native plan. The native-v2/header3/Halo2
@@ -10,7 +20,9 @@ specifications and prototypes below stay preserved as research; native consensus
 integration and portable native-key import are not current implementation goals.
 The [current-rule options review](../research/current-rules-privacy-options-2026-11-05.md)
 and [lifecycle comparison plan](../research/current-rules-privacy-study-2026-11-05.md)
-govern the next privacy work. No old observer, threshold or invariant is relaxed.
+remain reference material. A separate candidate study must first meet ADR-0106's
+specific hypothesis and stop-rule gate. No old observer, threshold or invariant
+is relaxed.
 
 This is the current entry point for the research fork. Read the
 [lessons and corrections](RESEARCH-LESSONS.md) before interpreting an old result,

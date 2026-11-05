@@ -4,7 +4,16 @@
 checkpoints below are historical; use the [lessons/corrections](RESEARCH-LESSONS.md)
 and [history index](RESEARCH-HISTORY.md) before resuming an old path.
 
-**Current direction, 5 November:** find the strongest defensible native-KAS
+**Active work, 5 November:** contribute to the shared upstream KPI direction
+unless an alternative demonstrates a privacy advantage under
+[ADR-0106](adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md).
+No alternative has earned that claim. Use the existing implementation/Based App
+work as the common baseline; start with the focused
+[P13 evidence contribution draft](../research/upstream-p13-contribution-2026-11-05.md).
+Do not start a competing runtime or open-ended architecture campaign. Upstream
+scope agreement precedes substantial implementation; the draft is not submitted.
+
+**Retained constraint and earlier plan, 5 November:** find the strongest defensible native-KAS
 privacy using **unchanged consensus**, under
 [ADR-0105](adr/0105-maximize-privacy-without-consensus-changes.md).
 Use the [current-rule comparison](../research/current-rules-privacy-options-2026-11-05.md)

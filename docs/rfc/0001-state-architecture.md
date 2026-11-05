@@ -6,6 +6,12 @@
 
 **Review owner:** project review; no architecture accepted by this draft.
 
+**Fork work direction, 5 November:** [ADR-0106](../adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
+makes contributing to the shared upstream investigation the default unless an
+alternative earns a comparative privacy advantage. A/B/C remain open. The
+owner's no-consensus-change requirement excludes the retained native proposal
+below from active implementation; no upstream architecture adoption is implied.
+
 The [extended RFC-0004](0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)
 separately specifies a proposed consensus-native shielded value domain for the
 stronger financial-privacy question. It does not select A/B/C, make ordinary
