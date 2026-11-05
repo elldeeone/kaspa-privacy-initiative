@@ -1,12 +1,21 @@
 # RFC-0004: Native-KAS private payments and the transparent-exit boundary
 
-**Status:** Open — current-Kaspa reference and proposed native shielded-value consensus design; not accepted
+**Status:** Open — active current-rule privacy research; consensus-native proposal retained outside active scope.
 
 **Date:** 2026-11-02; extended 2026-11-03 using consolidated prior research and refreshed primary sources.
 
 ## Decision in plain language
 
-The 3 November extension develops a **consensus-native shielded-value proposal**
+**Owner direction, 5 November:** maximize native-KAS privacy **without any
+consensus changes**. [ADR-0105](../adr/0105-maximize-privacy-without-consensus-changes.md)
+supersedes the forward native-consensus plan. Use the
+[current-rule source comparison](../../research/current-rules-privacy-options-2026-11-05.md)
+and [complete-lifecycle study](../../research/current-rules-privacy-study-2026-11-05.md).
+The consensus-native sections and artifacts below remain preserved research;
+native transaction/header/verifier integration is not the next task. No old
+privacy observer, threshold, independent-exit rule or invariant changes.
+
+The retained 3 November extension develops a **consensus-native shielded-value proposal**
 for review. Its [capability table](#capability-and-assumption-table),
 [accounting](#value-conservation-public-balance-and-supply),
 [prior-learning traceability](#prior-learning-traceability) and
@@ -38,6 +47,8 @@ consensus rules rather than a covenant/vProgs configuration change.
 
 ## Fixed requirements
 
+- No consensus changes, new native transaction/header formats or mandatory new
+  verifier precompiles in the active solution (ADR-0105).
 - Native KAS is the backing asset; no new privacy token.
 - Spending and recovery secrets remain in user wallets.
 - No fixed MPC/server committee has spending authority.
@@ -87,8 +98,8 @@ separate claims.
 |---|---|---|---|---|
 | Wallet-local notes + one inline-ZK state covenant | Yes as a proposed adaptation of current primitives; production qualification remains open | Yes from the latest accepted state, subject to ordinary UTXO contention and proof refresh | Deposits, nullifiers/commitments, state transitions, fees, timing, and ordinary exit amount/script | **Current reference** |
 | Based app/vProgs carrying the same note state | Prototype/runtime components exist; complete private semantics and recovery remain application work | Only if a valid user can advance or exit from the latest settled state without the default operator | Lane activity, settlement cadence, proofs, permission outputs, ordinary exit amount/script | Defer until shared-state throughput requires it |
-| Consensus-native confidential KAS UTXOs | No current output type or validation rule | Could be, with wallet-held keys and consensus validation | Ownership may remain visible if scripts are mapped; amounts can be hidden | Stronger amount-privacy research direction |
-| Consensus-native shielded KAS pool | No current output type/value-pool rules | Could be, with wallet-held notes/nullifiers and public recovery data | Pool crossings, timing, fees and later transparentization | Strongest established pattern; consensus change |
+| Consensus-native confidential KAS UTXOs | No current output type or validation rule | Could be, with wallet-held keys and consensus validation | Ownership may remain visible if scripts are mapped; amounts can be hidden | Retained background; excluded by ADR-0105 |
+| Consensus-native shielded KAS pool | No current output type/value-pool rules | Could be, with wallet-held notes/nullifiers and public recovery data | Pool crossings, timing, fees and later transparentization | Retained background; excluded by ADR-0105 |
 
 No row makes a later ordinary transparent output private by assertion. A fresh
 address or relay is useful hygiene but does not defeat an observer already given
@@ -925,27 +936,29 @@ custodians.
 
 ## Smallest next engineering step
 
-The internal review, unfunded interoperability package and concrete native
-specification draft are complete within their scopes. Exact rules, portable
-mathematical key data and conformance artifacts are available on this branch.
-The experimental packet remains a comparator, not the new native wire format.
+Under ADR-0105, compare complete **current-rule** privacy designs using the
+executed wallet-local/direct-inline-ZK reference. First remove avoidable key,
+fee, query and construction metadata links; separately screen optional
+cooperative output unlinking. A channel or based-app alternative must justify
+its privacy/latency/cost/recovery tradeoffs without custody or forced waiting.
 
-Before native consensus implementation, independently review/adopt the native
-draft and explicit invariant/accounting proposal, then implement its portable
-key/transaction/state/body/cache/reward/undo/bootstrap integration and actual
-DAG/recovery conformance. Keep Q10's privacy, complete-cost and independent-
-recovery gates separate; the retained prior-infeasible population remains failed.
+Freeze the observer/workload before a fresh comparison under the
+[study plan](../../research/current-rules-privacy-study-2026-11-05.md).
+Require real improvement in protected payment facts across partial withdrawals,
+later remainder withdrawal and full drainage. Do not substitute opaque record
+counts, assumed peers, absence of logs or a passing verifier for that evidence.
 
-A subsequent prototype would use synthetic values/test KAS only and compare
-shielded native ownership with optional ordinary transparent withdrawal under
-the same declared observer. A current-Kaspa direct-inline-ZK experiment may
-remain a reference for transparent exits, but is not a substitute demonstration
-of the missing confidential native representation. No new trial, setup, proof
-campaign, infrastructure or MPC work is part of this documentation task.
+The complete Orchard/native format/key packages stay preserved as compatibility
+research. Do not continue native consensus integration or assume full Halo2 is
+accepted by current proof tags. The source comparison, confidentiality inside
+the app, public-boundary unlinking and prior-feasibility limits are separate
+facts. No funded trial, provider or paused MPC work follows from this plan.
 
 ## Outcome, when known
 
-Open. ADR-0101 accepts a research reference only, with its alternatives,
+Open. ADR-0105 now governs active work without consensus changes. The following
+earlier native-candidate decisions are retained background outside active scope.
+ADR-0101 accepts a research reference only, with its alternatives,
 objections and reconsideration conditions. Independent human cryptography and
 Kaspa consensus approval remain outstanding.
 ADR-0103 records the native specification and conformance scope only; proposed

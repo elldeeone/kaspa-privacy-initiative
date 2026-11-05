@@ -4,6 +4,13 @@
 
 ## Current decision boundary
 
+The owner's 5 November direction in
+[ADR-0105](../adr/0105-maximize-privacy-without-consensus-changes.md) excludes
+consensus changes. The current-rule confidential-claim reference and
+[comparative source review](../../research/current-rules-privacy-options-2026-11-05.md)
+govern active work. Later native consensus formats/Halo2/key artifacts described
+below are preserved research outside active implementation scope.
+
 The project has demonstrated native test-KAS deposit/payment/withdrawal
 components. Strong financial privacy, the complete cost target and complete
 independent recovery remain open. The current [architecture](../ARCHITECTURE.md),

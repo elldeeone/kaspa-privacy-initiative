@@ -4,7 +4,19 @@
 checkpoints below are historical; use the [lessons/corrections](RESEARCH-LESSONS.md)
 and [history index](RESEARCH-HISTORY.md) before resuming an old path.
 
-**Current checkpoint, 4 November:** the internal AI technical review of
+**Current direction, 5 November:** find the strongest defensible native-KAS
+privacy using **unchanged consensus**, under
+[ADR-0105](adr/0105-maximize-privacy-without-consensus-changes.md).
+Use the [current-rule comparison](../research/current-rules-privacy-options-2026-11-05.md)
+and [full-lifecycle study plan](../research/current-rules-privacy-study-2026-11-05.md).
+Start from the executed wallet-local/direct-inline-ZK reference; compare metadata
+protection and optional cooperative boundary unlinking. Preserve independent
+exits and the known-owner/full-drainage observer. Do not resume native consensus
+integration, portable native-key import, MPC or provider work. The completed
+native specification and local Orchard packages remain useful retained research,
+not the next product dependency. No new privacy qualification is claimed.
+
+**Historical checkpoint, 4 November; forward plan superseded:** the internal AI technical review of
 [RFC-0004 Q1–Q10](rfc/0004-native-kas-private-payment-boundary.md#review-questions-and-stop-conditions)
 is complete. [ADR-0101](adr/0101-native-shielded-research-reference.md) selects
 complete repaired Orchard V2/native verification as the research reference.

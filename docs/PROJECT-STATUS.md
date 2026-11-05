@@ -1,7 +1,16 @@
-# Project status — 4 November 2026
+# Project status — 5 November 2026
 
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
+
+**Active owner constraint: maximize native-KAS privacy without any consensus
+changes.** [ADR-0105](adr/0105-maximize-privacy-without-consensus-changes.md)
+supersedes the forward consensus-native plan. The native-v2/header3/Halo2
+specifications and prototypes below stay preserved as research; native consensus
+integration and portable native-key import are not current implementation goals.
+The [current-rule options review](../research/current-rules-privacy-options-2026-11-05.md)
+and [lifecycle comparison plan](../research/current-rules-privacy-study-2026-11-05.md)
+govern the next privacy work. No old observer, threshold or invariant is relaxed.
 
 This is the current entry point for the research fork. Read the
 [lessons and corrections](RESEARCH-LESSONS.md) before interpreting an old result,
@@ -59,8 +68,11 @@ exits. That reference does not meet the stronger known-owner/full-drainage goal.
 Hidden native ownership requires a consensus-recognized confidential or shielded
 value representation; a later ordinary transparent payout still exposes that
 boundary. Changing a prover, MPC committee, relayer or runtime does not change
-ordinary native output fields. The extended RFC proposes a native note-pool
-candidate for review, without a production decision or measured privacy pass.
+ordinary native output fields. The extended RFC's native-consensus note-pool
+candidate remains historical research outside active scope. The current-rule
+direction investigates confidential application claims, avoidable metadata links
+and cooperative unlinking of public boundaries, with measured limitations rather
+than a guarantee that known transparent fields become secret.
 
 MPC/private-construction work remains frozen at `4d54dc02`, preserved by the
 `archive/2026-11-03/research/shielded-kas-feasibility` tag. Its bounded
@@ -158,10 +170,9 @@ header/input and differently signed encoding fixture establish no native
 authorization, chain qualification, funding or bootstrap success. The
 [verification receipt](spec/native-shielded/VERIFICATION.json) retains the checks.
 
-Next: independent Kaspa/cryptography/accounting review, then an unfunded native
-consensus integration prototype with actual transaction/DAG/reorg/recovery
-evidence. Network allocation/activation, sustainable pricing and complete
-privacy/cost/independent-recovery qualification remain open.
+Those native-consensus integration/activation steps are outside the active
+owner-directed scope under ADR-0105. Preserve the proposal and its independent
+review, pricing and qualification gaps; do not continue that implementation.
 
 The final [upstream refresh](../research/native-shielded-upstream-delta-2026-11-04.md)
 records Kaspa's move to `af6ff23a` during this task: optional covenant UTXO
@@ -187,8 +198,8 @@ anchors/spentness and balances are explicitly synthetic. Mass is a signed
 placeholder; conditional locks/coinbase inputs refuse locally. The backend
 constructs the pinned upstream key and does not import the portable capsule.
 There is no native state application, accepted chain or invariant amendment.
-Independent accounting/cryptography/Kaspa review and the gated consensus/store/
-reorg/recovery work above remain required. Run
+Its independent accounting/cryptography/Kaspa review and native integration gaps
+remain recorded; this consensus-dependent package is outside active scope. Run
 `bash poc/native-tx-validation/check.sh`; the
 [review](../poc/native-tx-validation/REVIEW.md) records the adversarial checks.
 The [receipt](../poc/native-tx-validation/VERIFICATION.json) records source/artifact

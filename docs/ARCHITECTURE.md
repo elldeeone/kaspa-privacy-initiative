@@ -2,6 +2,17 @@
 
 **Status:** exploratory. No production architecture has been selected.
 
+**Owner constraint, 5 November:** maximize privacy using unchanged Kaspa
+consensus. [ADR-0105](adr/0105-maximize-privacy-without-consensus-changes.md)
+supersedes the forward native-consensus plan. The current-rule reference is
+wallet-held confidential claims over proof-enforced native-KAS covenant backing,
+with independent exits. Compare boundary unlinking, transaction/network metadata
+and channels using the [current-rule source review](../research/current-rules-privacy-options-2026-11-05.md)
+and [lifecycle plan](../research/current-rules-privacy-study-2026-11-05.md).
+The native-v2/header3/verifier prototypes below are retained research, outside
+active scope. No token, custody, mandatory waiting or revised privacy score is
+introduced by this direction.
+
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
 consolidated research posture. The strong privacy requirement remains; ordinary

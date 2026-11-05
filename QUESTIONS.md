@@ -2,7 +2,19 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
-## Current review questions — 4 November 2026
+## Active question — 5 November 2026
+
+What is the strongest defensible native-KAS privacy under **unchanged consensus**,
+wallet-controlled spending and independent exits? The owner excludes consensus
+changes under [ADR-0105](docs/adr/0105-maximize-privacy-without-consensus-changes.md).
+Compare confidential application claims, metadata protection and cooperative
+boundary unlinking using the [source review](research/current-rules-privacy-options-2026-11-05.md)
+and [lifecycle study](research/current-rules-privacy-study-2026-11-05.md).
+No native-v2/header3/key-import implementation is the next step. Ordinary public
+fields and legitimate known-owner information stay in the attack model; no
+privacy threshold, custody rule or independent-exit requirement is relaxed.
+
+## Prior review questions — 4 November 2026
 
 [RFC-0004](docs/rfc/0004-native-kas-private-payment-boundary.md) and the
 [native specification draft](docs/spec/native-shielded/README.md) now contain

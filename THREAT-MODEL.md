@@ -11,6 +11,17 @@ availability and failure-model lessons into future reviews.
 
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
+**Active scope, 5 November:** unchanged Kaspa consensus under
+[ADR-0105](docs/adr/0105-maximize-privacy-without-consensus-changes.md).
+Compare public-chain, known-owner/counterparty and service/network adversaries
+separately across the complete lifecycle. A cooperative output protocol may
+reduce attribution only with an adequate honest cohort and protected registration/
+transport; coordinator transcripts, collusion, unequal amounts/change, aborts and
+immediate independent fallback exits remain attacks. No cover participants,
+unknown owner mappings, persistent balances or forced batching are assumed into
+existence. Preserve the corrected conservation attacks and prior-only floor.
+The native-consensus prototypes below remain historical local evidence only.
+
 The [native-draft authorization package](poc/native-tx-validation/README.md)
 adds local proof/signature rejection evidence under
 [ADR-0104](docs/adr/0104-unfunded-native-draft-authorization.md). Its entire UTXO/

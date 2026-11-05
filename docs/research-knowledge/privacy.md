@@ -2,6 +2,12 @@
 
 [Knowledge guide](README.md) · [Authoritative corrections](../RESEARCH-LESSONS.md)
 
+**Current direction, 5 November:** [ADR-0105](../adr/0105-maximize-privacy-without-consensus-changes.md)
+requires maximum feasible privacy without consensus changes. Carry the negative
+results below into the [current-rule comparison](../../research/current-rules-privacy-options-2026-11-05.md)
+and [complete-lifecycle plan](../../research/current-rules-privacy-study-2026-11-05.md).
+This changes architectural scope, not truthful observer knowledge or old gates.
+
 ## What earlier studies closed
 
 | Study/mechanism | Lesson for the next study | Local source |
