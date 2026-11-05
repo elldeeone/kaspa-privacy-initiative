@@ -30,6 +30,13 @@ for review. Its [capability table](#capability-and-assumption-table),
 facts, proposed rules and unresolved work. It does not select a production
 architecture, amend an invariant or claim the financial-privacy target is met.
 
+The subsequent owner-authorized [joint-withdrawal feasibility gate](../../research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
+rejects batching/shuffling the current individually public EXIT destinations.
+A replacement whole-output-set authorization and protected registration protocol
+is an open current-L1 application question; no such path was implemented or
+qualified, and the conditional full comparison was not run. This finding does
+not establish impossibility of a redesigned current-rule application.
+
 For current Kaspa, use a **wallet-local shielded note ledger with a direct
 inline-ZK covenant settlement path** as the minimum-trust reference
 architecture. Wallets keep spending secrets, construct their own proofs and can

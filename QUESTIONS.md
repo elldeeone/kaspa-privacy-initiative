@@ -21,6 +21,14 @@ No native-v2/header3/key-import implementation is the next step. Ordinary public
 fields and legitimate known-owner information stay in the attack model; no
 privacy threshold, custody rule or independent-exit requirement is relaxed.
 
+The owner-authorized [joint-withdrawal check](research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
+rejected the existing public-EXIT wrapper before the conditional comparison.
+Can a replacement current-L1 application bind every owner's authorization to
+one complete payout set while preserving independent exits and concealing the
+registration-service assignment? Existing proof/output-inspection hooks are
+available; a concrete protected registration and native authorization path
+remain missing. This is an open design question, not an implementation pass.
+
 ## Prior review questions — 4 November 2026
 
 [RFC-0004](docs/rfc/0004-native-kas-private-payment-boundary.md) and the

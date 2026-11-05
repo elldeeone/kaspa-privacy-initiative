@@ -25,6 +25,13 @@ This changes architectural scope, not truthful observer knowledge or old gates.
 
 ## Current corrections override older pass language
 
+The later [joint-withdrawal feasibility audit](../../research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
+traces five retained public EXIT requests to their payouts by script bytes.
+Batching/shuffling those requests does not conceal their published assignment;
+post-exit mixing cannot retract earlier facts. A replacement common-set protocol
+is unimplemented, not ruled out by current L1. No favorable complete-lifecycle
+comparison ran by assuming anonymous registration or deleting public fields.
+
 The [current lessons](../RESEARCH-LESSONS.md) carry three distinct analyzer
 corrections: inserted known answers, hidden-label ambiguity counted as privacy,
 and a live observer's wrong contact edge excluding execution truth. They also

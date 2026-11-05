@@ -92,6 +92,18 @@ three-owner construction result is valuable, but its separate registered W1
 aggregate path remains incomplete and constructor-visible. Preserve its rejected
 vendor patch as rejected local work.
 
+## Completed: joint-withdrawal feasibility gate
+
+The owner-authorized [joint-withdrawal check](../research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
+rejects batching/shuffling around the existing public EXIT path. All five
+retained request-to-payout links remain exact by public recipient script, even
+without permission/payout labels and through all 120 output reorderings.
+Human-owner attribution additionally uses the explicit auxiliary owner map.
+The conditional complete-lifecycle comparison was not run: current requests
+already expose the assignment, and a replacement common-set authorization plus
+protected registration remains an unimplemented application-design question.
+Current L1 is not ruled out; no consensus, invariant or spending rule changed.
+
 ## Completed: internal technical review of RFC-0004 Q1–Q10
 
 The requirements-level [RFC-0004 extension](rfc/0004-native-kas-private-payment-boundary.md#reviewable-native-shielded-value-proposal)

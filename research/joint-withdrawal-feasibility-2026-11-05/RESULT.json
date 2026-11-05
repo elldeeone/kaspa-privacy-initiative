@@ -1,0 +1,105 @@
+{
+  "allPermutationsRetainAllPublicRecipientLinks": true,
+  "archiveFilesVerified": 100,
+  "archiveManifestSha256": "3bd5d1c2dea949bb043bd94fe65da0a2182ab9e5f8e80ab05706227e08a670da",
+  "baseCommit": "00018b9898ae2f09c9bca59ede632aee54c940ec",
+  "conditionalCompleteLifecycleComparisonRun": false,
+  "cryptographicProofsGeneratedOrReverified": false,
+  "decision": "existing-exit-wrapper-fails-exposure-gate",
+  "limits": [
+    "Historical hash-bound evidence; no fresh chain observation or independent consensus replay.",
+    "Public request-to-script linkage alone does not identify a human owner.",
+    "Output permutations are an exposure control, not valid joint transactions.",
+    "No anonymous-registration or replacement common-set proof protocol was implemented.",
+    "Failure of this wrapper does not establish impossibility of a redesigned current-L1 application."
+  ],
+  "linksWithoutPermissionOrPayoutPayloadTags": 5,
+  "newCandidateNativeValidationRun": false,
+  "outputPermutationsChecked": 120,
+  "ownersKnownOnlyWithSuppliedMapping": 5,
+  "paths": [
+    {
+      "intentId": "90c387768076cfca8e4d48630aed1bd0151ac0468ad0393b29e9acf654a8b11a",
+      "nativeOutputSompi": 110000000,
+      "ownerWithSuppliedAuxiliaryMapping": "A",
+      "payoutOutpoint": {
+        "index": 0,
+        "transactionId": "e02332f23b27e9e76515f378772a38105de5d1838c515d0565fdcb2b883c35d6"
+      },
+      "permissionOutpoint": {
+        "index": 1,
+        "transactionId": "e772a6f92ead6be96902b16a8c2a4ce456563592e79478aa54e29f4829aa3476"
+      },
+      "principalSompi": 60000000,
+      "publicRequestTransactionId": "e48432b6d9f74cd1d63201e3ffdaca2adc4ccf1ccb04ab96a7836a907c06e977"
+    },
+    {
+      "intentId": "7b0ae1bed74379b4f6e512af35565ec825c7ba8db948dbfd11c7b33b393da012",
+      "nativeOutputSompi": 130000000,
+      "ownerWithSuppliedAuxiliaryMapping": "B",
+      "payoutOutpoint": {
+        "index": 0,
+        "transactionId": "71270a8d7260d0826f3d51b186b867cbd043522b5fc2c29dc8f33069faf7f966"
+      },
+      "permissionOutpoint": {
+        "index": 1,
+        "transactionId": "e585b34f6c29143756585bfde5bf615e81b4504a5bc17670e237267d8d7e62e2"
+      },
+      "principalSompi": 80000000,
+      "publicRequestTransactionId": "0b3366feb04ea0bc60e857d871561ef38082d32beae6b87e853318acb8c0cba0"
+    },
+    {
+      "intentId": "e161db050b5599504f8eb77eb5358d3ed2377e6b304e429af160ce03c3413b64",
+      "nativeOutputSompi": 80000000,
+      "ownerWithSuppliedAuxiliaryMapping": "M",
+      "payoutOutpoint": {
+        "index": 0,
+        "transactionId": "2130ad0cd0ca950308d03bd8ec60db04bbe89094a9d4c2292955920e54983a3b"
+      },
+      "permissionOutpoint": {
+        "index": 1,
+        "transactionId": "0a592f66f75fda4e3a3ff7935b87b06088f798bedbd9f31993d808896d36e392"
+      },
+      "principalSompi": 30000000,
+      "publicRequestTransactionId": "a7ed0dbb2ae312a4df6a527e385fb7d4fe2f1056d88ed461fe68fa9f4a1ebd69"
+    },
+    {
+      "intentId": "d06b0f7a1fb7549350bb2c8490085d2a0ba77c6036251df8bca717c7956088c2",
+      "nativeOutputSompi": 70000000,
+      "ownerWithSuppliedAuxiliaryMapping": "M",
+      "payoutOutpoint": {
+        "index": 0,
+        "transactionId": "fc460c50f44141695ba361b9703c403d34a5a781bdb76754578c46735b7eb9d9"
+      },
+      "permissionOutpoint": {
+        "index": 1,
+        "transactionId": "70deb246fbf3bd6ebd482f05c1e3cbbe303caa762f707f0e9be51062188ec15c"
+      },
+      "principalSompi": 20000000,
+      "publicRequestTransactionId": "185dd76a7c84c1bab0d536deb05f761c83c9cb68d7a5bbf16600cf03003335eb"
+    },
+    {
+      "intentId": "48eb0b077c7c7abb2755d016fff9fdb3e6967b03c94d83d2ed7b2d397170eaa3",
+      "nativeOutputSompi": 60000000,
+      "ownerWithSuppliedAuxiliaryMapping": "S",
+      "payoutOutpoint": {
+        "index": 0,
+        "transactionId": "44d9708264db60ecb309d46a6a256df6e67494d5ec26a0415653b49642419012"
+      },
+      "permissionOutpoint": {
+        "index": 1,
+        "transactionId": "56bb46820d65aa9a78d4bd27e749989a1c40e998f8869389d28054b001e9b5e6"
+      },
+      "principalSompi": 10000000,
+      "publicRequestTransactionId": "0ea714b20e27f32407ae38cc3bea4cf9d6f07ea8be20a0872773c0d32e9c2b68"
+    }
+  ],
+  "publicRequestToPayoutLinks": 5,
+  "schema": "joint-withdrawal-feasibility-audit-v1",
+  "sourceFiles": {
+    "poc/private-note-chain/common/src/lib.rs": "6c159135955c1adc5bd61a4bd54ec190ca161cd71b891cbf7ba12cb051fd12bf",
+    "poc/private-note-wallet/src/protocol.rs": "2bf0e6e9d22acc68c61121671beb3b2ff2332e15ff06a0b4b5d75e4a5a0b5526",
+    "poc/recovery-native/common/src/lib.rs": "500f07594a670a37ab7cf466139217e9e61a35eebedcfa0313c8a1420e7e23a4",
+    "poc/recovery-native/common/src/restricted.rs": "8bcb0c7d23e2eff28d0025a00da1357c06b48de280df6c8162b0909299038ca0"
+  }
+}

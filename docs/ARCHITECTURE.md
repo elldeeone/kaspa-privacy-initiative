@@ -21,6 +21,13 @@ The native-v2/header3/verifier prototypes below are retained research, outside
 active scope. No token, custody, mandatory waiting or revised privacy score is
 introduced by this direction.
 
+The [joint-withdrawal feasibility result](../research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
+rejects a batching/shuffling wrapper around the existing public EXIT statements:
+their individual destinations already identify their payouts. A different
+common-output-set authorization and protected registration protocol may fit
+existing L1 primitives, but has no implemented or native-verified path here.
+No architecture is adopted and no safety check is weakened by this result.
+
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
 consolidated research posture. The strong privacy requirement remains; ordinary

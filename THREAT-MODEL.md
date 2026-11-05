@@ -22,6 +22,14 @@ unknown owner mappings, persistent balances or forced batching are assumed into
 existence. Preserve the corrected conservation attacks and prior-only floor.
 The native-consensus prototypes below remain historical local evidence only.
 
+The [joint-withdrawal audit](research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
+derives request-to-payout links from already public recipient keys/scripts;
+human ownership still requires explicit auxiliary information. Removing labels
+or shuffling outputs cannot erase an earlier public link. Mixing after the
+original payout retains all previously disclosed facts. A replacement protocol
+must account for what the registration service actually receives, not assume
+an anonymous-registration oracle. This gate adopts no new protocol or trust role.
+
 The [native-draft authorization package](poc/native-tx-validation/README.md)
 adds local proof/signature rejection evidence under
 [ADR-0104](docs/adr/0104-unfunded-native-draft-authorization.md). Its entire UTXO/
