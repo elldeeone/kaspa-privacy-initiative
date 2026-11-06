@@ -9,6 +9,19 @@ The local [privacy guide](docs/research-knowledge/privacy.md) and
 [recovery guide](docs/research-knowledge/recovery.md) carry earlier observer,
 availability and failure-model lessons into future reviews.
 
+The [6 November batched comparison](research/batched-payment-costs-2026-11-06/RESULT.md)
+retains complete public state/prover inputs and actual native fee refunds. Its
+six payout-key assignments assume blind registration, fresh independent keys,
+protected logical redemption and a suitable honest cohort. Real eligibility
+proofs still disclose the identified claimants' withdrawal amounts. Prior known
+destinations, origins and all-but-one collusion collapse the benefit. The native
+adapter binds exact current effects/old-new state/operation payload and preserves
+NFs after paid-record normalization. Outpoint-bound approvals can become stale;
+active-pool races, fee top-ups, later admission and independent data/parameter
+availability are not qualified. Pricing local work at a reference tariff does
+not establish an invoice, idle utilization or a fully priced anonymous service.
+No privileged recovery or withdrawal key is introduced.
+
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
 **Active scope, 5 November:** unchanged Kaspa consensus under
@@ -29,6 +42,27 @@ or shuffling outputs cannot erase an earlier public link. Mixing after the
 original payout retains all previously disclosed facts. A replacement protocol
 must account for what the registration service actually receives, not assume
 an anonymous-registration oracle. This gate adopts no new protocol or trust role.
+
+The subsequent [finite common-set experiment](research/common-set-withdrawal-2026-11-05/RESULT.md)
+uses real blind registration with one pinned issuer mode/key and a round-wide
+issuance barrier. Client randomizers/blinding factors must remain absent from
+identified issuance; origin/randomizer leakage, externally mapped payouts and
+all-but-one collusion remove the measured ownership ambiguity. Native spending
+requires owner proofs over the whole actual transaction; issuer signatures are
+coordination only. Solo exits retain the same reserve/spentness protection.
+Experimental setup, supplied unconfirmed state, disclosed input claim identities,
+same-host roles and unmeasured network/timing/Sybil attacks remain explicit trust
+limits. The prototype does not establish complete financial privacy or recovery.
+
+The [actual-wallet extension](research/payment-set-withdrawal-2026-11-05/RESULT.md)
+retains the complete original relation while exposing a SHA256 digest of all
+canonical statement bytes as two 128-bit public limbs. Native predicates must
+reconstruct those bytes, including actual full-effects context, current root,
+economic nullifier, VK/domain and amounts; a host-provided hash is insufficient.
+Public Operation delivery binding and current kernel NF checks remain mandatory.
+The finite predecessor is supplied at the locally executed kernel's root; it
+does not authenticate accepted native ancestry or upgrade the old guest/parser.
+Direct-route fee floors cannot be applied to the separately batched architecture.
 
 The [native-draft authorization package](poc/native-tx-validation/README.md)
 adds local proof/signature rejection evidence under

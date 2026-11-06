@@ -12,3 +12,9 @@ When a durable architecture or design decision is reached, record its rationale 
 - [RFC-0002: Shielded payment protocol](0002-shielded-payment.md) — Open; proposed protocol and unresolved security choices.
 - [RFC-0003: Depth-four multi-user TN10 trial profile](0003-depth-four-multi-user-tn10-profile.md) — Accepted for one bounded experiment by ADR-0019; execution evidence remains separate.
 - [RFC-0004: Native-KAS private payments and the transparent-exit boundary](0004-native-kas-private-payment-boundary.md) — Open; review, unfunded interoperability and concrete native transaction/state/header/bootstrap/key/accounting draft complete under ADR-0101–0103. Independent review/invariant adoption, native integration, activation/pricing and qualification remain open; no production adoption.
+- [RFC-0005: Common-set withdrawal authorization under current L1](0005-common-set-withdrawals.md) — Open; the finite offline diagnostic exercises blind registration, native joint authorization and solo exits. [Bounded ownership result](../../research/common-set-withdrawal-2026-11-05/RESULT.md); shielded-ledger integration and network privacy remain open.
+
+The subsequent [ADR-0108 actual-wallet test](../adr/0108-real-wallet-common-set-integration.md)
+preserves the ownership benefit after genuine private payments, but the selected
+direct route fails the 2% cost target. Full native/outer-guest integration and
+network anonymity remain open; see its [result](../../research/payment-set-withdrawal-2026-11-05/RESULT.md).

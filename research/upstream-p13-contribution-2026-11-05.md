@@ -17,6 +17,23 @@ The reviewed upstream baseline is
 already distinguishes internal confidentiality from public deposit/withdrawal
 boundaries. These results sharpen the tests for that existing scope.
 
+## 6 November local follow-up
+
+The [complete offline batching comparison](batched-payment-costs-2026-11-06/RESULT.md)
+now uses genuine private receiving/re-spending, full wallet relations, complete
+compressed receipts and native Full validation. Matched named/common-set batches
+have identical native fees; the latter retains six payout-key assignments while
+still revealing identified withdrawal amounts. This is narrow optional exit
+work to contribute to the shared path. It is not an overall privacy win over an
+executed current upstream implementation. Fee/prover models, cohort/state-race
+limits and recovery controls are retained separately. This draft remains local;
+no comment, message or pull request has been posted.
+
+Upstream `main` was read again through GitHub on 6 November and still resolves to
+`7ffe8353437604322f8bdd6e8d0c4f5b15a55ee1`; the baseline above is current for that
+ref. This does not turn our matched wallet-path experiment into an execution of
+all upstream deployment/runtime behavior.
+
 ## Retained findings
 
 | Finding | Evidence and exact limit |

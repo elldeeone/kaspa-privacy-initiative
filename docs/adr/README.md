@@ -36,6 +36,13 @@ Use [0000-template.md](0000-template.md).
 
 ## Records
 
+- [ADR-0109: complete costs and genuine batched payouts](0109-complete-cost-and-batched-payout-test.md)
+- [ADR-0108: actual-wallet common-set integration and cost test](0108-real-wallet-common-set-integration.md)
+  ([ownership benefit and negative direct-cost result](../../research/payment-set-withdrawal-2026-11-05/RESULT.md)).
+
+- [ADR-0107: finite common-set withdrawal diagnostic](0107-finite-common-set-withdrawal-diagnostic.md)
+  ([bounded result](../../research/common-set-withdrawal-2026-11-05/RESULT.md)).
+
 - [ADR-0002: A0 terminal reserve-release experiment](0002-a0-reserve-release-experiment.md)
 - [ADR-0003: A1 finite successor reserve and independent terminal exit](0003-a1-successor-reserve.md)
 - [ADR-0007: bounded local proof-byte classification experiment](0007-local-proof-classification.md)

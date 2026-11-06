@@ -1,0 +1,48 @@
+# ADR-0109: Measure complete offline lifecycle costs with real batching
+
+Status: accepted for the owner's 6 November 2026 experiment, not production use.
+
+The owner explicitly requested complete costs, genuine batching with the actual
+private-payment system, a cost/privacy decision and unchanged consensus. This
+supersedes the earlier experiment's forward stop recommendation. Keep every
+earlier frozen test, threshold and failed result intact.
+
+Reuse the existing depth-four wallet, full wallet relation, encrypted discovery,
+economic nullifiers, Ledger and accelerated BN254 verifier. Batch those public
+wallet proofs inside the existing RISC Zero 3.0.3 proving stack, then use its
+established Groth16 compression and current native tag 0x20. Do not invent an
+aggregation primitive, share spending witnesses, resume MPC or change consensus.
+Use the available local RTX 3070 and cached checked tools/parameters; no rentals.
+
+Add one isolated unfunded native bank adapter. It binds old/new canonical state,
+actual input outpoint/value, every actual output and canonical public operation
+payload to the guest journal. A successor must preserve the exact script suffix
+and verifier/program, replacing only its state-root prefix. Reuse the existing
+covenant's suffix extraction and RISC Zero claim/codec implementation. Native
+Full validation and a labelled local UTXO model must check all transactions.
+Native fees come only from an explicit prepaid fee allowance, never principal;
+unused allowance returns to its declared separate refund key at terminal exit.
+
+The new application admits the measured initial native deposit into an isolated
+configured state. Do not claim arbitrary later deposit admission, old-pool upgrade,
+accepted DAG lineage or live chain execution. Its supplied initial funding UTXO
+is explicit; subsequent deposits/transitions/payouts are actual linked transactions.
+
+Whole-set withdrawal authorizations replace individual destinations in the new
+mode. The direct comparison retains original destination commitments. All wallets
+check their own entire payout before proving; solo withdrawal and pending-deposit
+refund require only the owner's proof. No issuer/operator key can spend.
+
+Canonical continuation removes ONLY fully paid exit/payout bookkeeping after
+native-effect reconciliation. Keep every economic nullifier, note/anchor,
+deposit status and outstanding liability. Retain public operation history for
+recovery; no unpaid claim can be discarded. Bind reconciliation to the actual
+transaction effects/current input, so old records cannot discharge a new claim.
+This normalization avoids context-dependent paid-records in subsequent roots;
+test replay and atomic refusal explicitly. Do not modify the old Ledger source.
+
+Price the complete finite path, exact default relay rule, all fees/refunds and
+aborted-round/retry work. Report physical proving time/memory/energy and any
+valuation assumptions separately from native KAS fees. Do not silently price
+unmeasured hardware/service costs as zero or call offline quotes paid fees.
+No funded trial, RPC, broadcast, provider action or mainnet experiment follows.

@@ -1,0 +1,73 @@
+{
+  "batching": {
+    "historicallyExecutedMechanism": true,
+    "newCommonSetGuestAndCompleteReceiptExecuted": false,
+    "newCompleteCostMeasured": false
+  },
+  "completePrivacyQualified": false,
+  "counterfactualSameWorkAmounts": [
+    {
+      "arithmeticFloorPercent": 3.075,
+      "completeFeeMeasured": false,
+      "otherCostsHeadroomUnder2PercentSompi": -32250000,
+      "sameWorkAssumptionExecuted": true,
+      "unchangedWorkFeeFloorSompi": 92250000,
+      "usefulPaymentSompi": 3000000000
+    },
+    {
+      "arithmeticFloorPercent": 1.5375,
+      "completeFeeMeasured": false,
+      "otherCostsHeadroomUnder2PercentSompi": 27750000,
+      "sameWorkAssumptionExecuted": false,
+      "unchangedWorkFeeFloorSompi": 92250000,
+      "usefulPaymentSompi": 6000000000
+    },
+    {
+      "arithmeticFloorPercent": 1.23,
+      "completeFeeMeasured": false,
+      "otherCostsHeadroomUnder2PercentSompi": 57750000,
+      "sameWorkAssumptionExecuted": false,
+      "unchangedWorkFeeFloorSompi": 92250000,
+      "usefulPaymentSompi": 7500000000
+    },
+    {
+      "arithmeticFloorPercent": 0.9225,
+      "completeFeeMeasured": false,
+      "otherCostsHeadroomUnder2PercentSompi": 107750000,
+      "sameWorkAssumptionExecuted": false,
+      "unchangedWorkFeeFloorSompi": 92250000,
+      "usefulPaymentSompi": 10000000000
+    },
+    {
+      "arithmeticFloorPercent": 0.3075,
+      "completeFeeMeasured": false,
+      "otherCostsHeadroomUnder2PercentSompi": 507750000,
+      "sameWorkAssumptionExecuted": false,
+      "unchangedWorkFeeFloorSompi": 92250000,
+      "usefulPaymentSompi": 30000000000
+    }
+  ],
+  "date": "2026-11-06 Australia/Sydney",
+  "defaultRelayPolicy": {
+    "admissionSourceSha256": "9de15e3df1d932520c3051712c0a0cbcd66fd734b4727e82f7722d996656e571",
+    "commit": "4863866fce8439d0305b410fc4d802e7261d54d0",
+    "configSha256": "862f3161f6561c300de83a6d97f2b1ede25e7c2a30117f78737fb44502a23bf7",
+    "sompiPerKilogram": 100000,
+    "sompiPerMass": 100,
+    "sourceUrl": "https://github.com/kaspanet/rusty-kaspa/blob/4863866fce8439d0305b410fc4d802e7261d54d0/mining/src/mempool/config.rs"
+  },
+  "newConsensusChanges": false,
+  "old2PercentResultPreserved": "failed at frozen 30-KAS workload and 100 sompi/mass",
+  "originalExecutionSha256": "07eaa54d5907c1d534c42c5071806f60623ba64dd76f743ebe66d9c03d3d99e4",
+  "productDecision": "continue bounded complete-cost investigation; this benchmark failure alone does not establish unusability",
+  "schema": "common-set-cost-reassessment-v1",
+  "scope": "source inspection and arithmetic from frozen actual-wallet experiment; no new proof or privacy trial",
+  "separateCapitalNotAutomaticallyAFee": [
+    "Refundable or recoverable state/permission deposits and rent locked in UTXOs"
+  ],
+  "unmeasuredCosts": [
+    "Other transaction bytes and guards, funding/admission/settlement transactions",
+    "Proving resources and relay/coordinator service charges",
+    "Failed rounds, retries and recovery costs"
+  ]
+}

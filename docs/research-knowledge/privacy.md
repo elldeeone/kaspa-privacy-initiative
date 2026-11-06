@@ -32,6 +32,24 @@ post-exit mixing cannot retract earlier facts. A replacement common-set protocol
 is unimplemented, not ruled out by current L1. No favorable complete-lifecycle
 comparison ran by assuming anonymous registration or deleting public fields.
 
+The subsequent owner-authorized [finite replacement](../../research/common-set-withdrawal-2026-11-05/RESULT.md)
+uses a different common-set relation and real blind registration messages.
+Known input owners retain six payout-key ownership assignments under its
+declared view, or two with one legitimate participant; mapped output owners,
+all-but-one collusion and leaked origin/randomizer controls collapse to one.
+These are actual output-owner assignments under stated cryptographic assumptions,
+not hidden note labels or a proof of network anonymity. Current native VM joint
+and solo paths work for the supplied finite instance; real shielded state,
+Full validation, costs, recovery and broader privacy remain unqualified.
+
+The later [actual-wallet integration](../../research/payment-set-withdrawal-2026-11-05/RESULT.md)
+executes the original wallet's private payment, recipient re-spend, encrypted
+discovery and atomic Ledger. The same narrow ownership counts survive its finite
+native boundary. It does not authenticate native state ancestry, upgrade the
+old outer guest, establish network anonymity or hide known-owner drainage facts.
+Its direct-route fee floor fails the unchanged 2% target; cost conclusions must
+remain separate from the ownership result and the shared batching architecture.
+
 The [current lessons](../RESEARCH-LESSONS.md) carry three distinct analyzer
 corrections: inserted known answers, hidden-label ambiguity counted as privacy,
 and a live observer's wrong contact edge excluding execution truth. They also
@@ -63,3 +81,14 @@ contact edges and expose participant knowledge. Report search/resource limits
 as limits, not privacy evidence. Operational rules for new trials come from
 current AGENTS.md, not superseded frozen approval procedures. These principles
 carry forward [adopted payment requirements](documents/ebe24ffeae63c107e173773daa75e63cebf02b2e.txt) without silently retuning an adopted threshold.
+
+## 6 November batched ownership follow-up
+
+The [complete offline comparison](../../research/batched-payment-costs-2026-11-06/RESULT.md)
+now validates the full actual-wallet path and native transactions with real
+outer proofs. Six payout-key assignments, or two with one participant disclosure,
+survive the declared public view. Matched named batching retains one. Exact
+identified withdrawal amounts remain in real eligibility proofs: this is not a
+six-payment-history result. Prior destinations/origins/randomizers and
+all-but-one knowledge defeat the gain. Retain refunds and public prover state;
+do not call the same-host counterfactual study independent-network privacy.

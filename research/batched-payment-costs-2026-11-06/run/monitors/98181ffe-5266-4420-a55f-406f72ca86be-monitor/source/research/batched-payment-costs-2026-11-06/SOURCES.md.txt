@@ -1,0 +1,50 @@
+# Source and reuse record
+
+The actual wallet/kernel is `poc/private-note-wallet`, local depth-four profile.
+Reuse the complete digest-packed relation from the isolated
+`poc/payment-set-withdrawal` experiment, preserving its source comparison and
+all original wallet constraints. Actual encrypted discovery and recipient
+re-spend are mandatory, not host-generated note-ownership assertions.
+
+Reuse `poc/accelerated-bn254/common` for checked Groth16 verification inside the
+guest, the established RISC Zero 3.0.3 proof/compression stack and existing
+`poc/takeover/vendor/covenant/src/script.rs` claim-hash, suffix and codec helpers.
+The [prior local RTX 3070 reproduction](../../docs/research-knowledge/documents/b3ed0a758e9200456318a9e26b8342db78d5c327.txt)
+and retained compression source establish available mechanisms/tools, not proofs
+of this new guest or new native state path. New program/proofs are required.
+
+Current primary documentation was read through the GitHub connector during this
+task: [Inline ZK](https://github.com/kaspanet/docs/blob/main/content/docs/toccata/inline-zk.mdx)
+requires both proof/state binding and actual output enforcement and documents
+existing 0x20/0x21 tags. The node's
+[default fee configuration](https://github.com/kaspanet/rusty-kaspa/blob/master/mining/src/mempool/config.rs)
+still specifies 100 sompi/mass. Compile exact pinned node revision
+4863866fce8439d0305b410fc4d802e7261d54d0; record any source delta before changing it.
+
+The [same-day replacement review](../common-set-withdrawal-2026-11-05/SOURCES.md)
+and [five-protocol review](../native-kas-shielded-value-sources-2026-11-03.md)
+provide Orchard/RAILGUN conservation/effects separation, Aztec's metadata caution,
+and Monero/MWEB's boundary distinction. No native confidential-output rules,
+Halo2 tag, EVM custody, new token or MPC spending authority is imported. RFC9474
+registration remains an actual reused coordination primitive without spend power.
+
+Source lookup corrected an old documentation branch name: Kaspa docs uses main,
+not master. No social claim supplies a protocol fact. A source/policy check is not
+live relay admission, accepted funding or a cryptographic audit.
+
+For illustrative USD conversion, retain the timestamped public
+[Kraken KAS/USD ticker](https://api.kraken.com/0/public/Ticker?pair=KASUSD)
+in `VALUATION-ASSUMPTIONS.json`. This is a last-trade snapshot, not a fee quote.
+The [provider's current pricing page](https://www.runpod.io/pricing) was checked;
+it does not establish an RTX 3070 offer, performance, invoice or availability for
+this run. Use explicitly hypothetical hourly-rate sensitivity instead of
+claiming a rented GPU at an unverified price. Electricity tariffs are also
+assumptions; device-wide GPU telemetry is not a whole-host power meter.
+
+A subsequent unauthenticated read of Runpod's public GraphQL catalogue returned
+`communityPrice: 0.13` for `NVIDIA GeForce RTX 3070`, with all current
+`lowestPrice`/stock fields null. Preserve the exact read-only query and result in
+`PROVIDER-REFERENCE.json`. Add that catalogue rate as a conditional sensitivity;
+it is not an executable offer, capacity confirmation, measured remote speed or
+invoice. Keep the original hypothetical rates and the earlier frozen KAS/USD
+snapshot unchanged. No provider resource was allocated.

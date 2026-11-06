@@ -1,0 +1,30 @@
+[
+  {
+    "case": "redeem_before_all_issuance",
+    "rejection": "issuance barrier not reached"
+  },
+  {
+    "case": "duplicate_eligibility_and_changed_blind_signature",
+    "rejected": true
+  },
+  {
+    "case": "wrong_round",
+    "rejection": "registration round/key/mode/denomination"
+  },
+  {
+    "case": "wrong_denomination",
+    "rejection": "registration round/key/mode/denomination"
+  },
+  {
+    "case": "changed_recipient_reaches_real_credential_verification",
+    "rejection": "credential verification:Verification failed"
+  },
+  {
+    "case": "missing_randomizer_and_truncated_message",
+    "rejected": true
+  },
+  {
+    "case": "replayed_credential_output",
+    "rejected": true
+  }
+]

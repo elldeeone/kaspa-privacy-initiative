@@ -1,0 +1,26 @@
+{
+  "endpoint": "https://api.runpod.io/graphql",
+  "retrievedAtUtc": "2026-11-06T01:04:44.404114+00:00",
+  "query": "{ gpuTypes(input: {id: \"NVIDIA GeForce RTX 3070\"}) { id displayName memoryInGb communityPrice securePrice communitySpotPrice secureSpotPrice lowestPrice(input: {gpuCount: 1}) { minimumBidPrice uninterruptablePrice stockStatus } } }",
+  "response": {
+    "data": {
+      "gpuTypes": [
+        {
+          "id": "NVIDIA GeForce RTX 3070",
+          "displayName": "RTX 3070",
+          "memoryInGb": 8,
+          "communityPrice": 0.13,
+          "securePrice": 0,
+          "communitySpotPrice": null,
+          "secureSpotPrice": null,
+          "lowestPrice": {
+            "minimumBidPrice": null,
+            "uninterruptablePrice": null,
+            "stockStatus": null
+          }
+        }
+      ]
+    }
+  },
+  "scope": "read-only public catalogue reference; no allocation, funded account or executable offer; null lowestPrice does not establish capacity"
+}

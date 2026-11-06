@@ -2,11 +2,11 @@
 
 The initiative should treat these as questions to answer, not conclusions to defend.
 
-## Active question — 5 November 2026
+## Active question — 6 November 2026
 
 [ADR-0106](docs/adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
 now makes contributions to the shared upstream direction the default. No
-alternative has demonstrated better privacy. The first scoped contribution is
+alternative has qualified better complete-lifecycle privacy. The first scoped contribution is
 [P13 evidence and observer controls](research/upstream-p13-contribution-2026-11-05.md),
 prepared locally and not submitted. The architecture questions below are
 reference questions, not authority for an open-ended separate implementation.
@@ -26,8 +26,32 @@ rejected the existing public-EXIT wrapper before the conditional comparison.
 Can a replacement current-L1 application bind every owner's authorization to
 one complete payout set while preserving independent exits and concealing the
 registration-service assignment? Existing proof/output-inspection hooks are
-available; a concrete protected registration and native authorization path
-remain missing. This is an open design question, not an implementation pass.
+available. The [replacement diagnostic](research/common-set-withdrawal-2026-11-05/RESULT.md)
+now exercises those seams for three synthetic public claims: six payout-owner
+assignments survive its declared view, or two with one participant's output known.
+Can this benefit survive integration with the real shielded ledger and protected
+network registration at useful costs/cohort sizes? The finite native test and
+mass quote do not establish full node acceptance, general scaling or financial
+privacy; four separate same-profile proofs exceed the current compute limit.
+
+The [actual-wallet test](research/payment-set-withdrawal-2026-11-05/RESULT.md) now
+preserves this narrow benefit after private payment and recipient re-spend, using
+the original wallet/kernel. Full-statement digest packing fits three owner proofs
+on current L1, but the direct route's optimistic 3.075% fee floor fails 2% at the
+declared 100 sompi/mass. Can the existing shared outer-proof batching preserve
+common-set/solo authority and exact effects within complete costs? The old parser
+and receipts do not already implement it. Network anonymity and authenticated
+native state integration also remain open.
+
+The [complete batched comparison](research/batched-payment-costs-2026-11-06/RESULT.md)
+now answers that finite integration question: real outer proofs and native Full
+validation preserve payout-key ambiguity at exactly the native fee of named
+batching. The open question is broader: can honest independent cohorts,
+protected registration, availability and state-contention handling deliver this
+benefit at a fully priced service cost? Identified claim amounts remain public;
+six key assignments do not qualify six private-payment histories. Continue
+within the shared direction under ADR-0109. The 2% complete-cost target and the
+strong financial-privacy requirement remain unqualified.
 
 ## Prior review questions — 4 November 2026
 

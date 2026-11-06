@@ -1,4 +1,4 @@
-# Project status — 5 November 2026
+# Project status — 6 November 2026
 
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
@@ -36,6 +36,52 @@ The [remote cleanup](research-history/remote-retirement-2026-11-03.json) retired
 the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
+
+**6 November batching measurement:** the actual-wallet
+[complete offline comparison](../research/batched-payment-costs-2026-11-06/RESULT.md)
+reduces native fee quotes from 0.981488 KAS (3.2716% of 30 useful KAS) to
+0.333552 KAS (1.1118%), with genuine complete receipts and native Full validation.
+Common-set and matched named batches have exactly the same native fee. Common-set
+payout keys retain six owner assignments, but the registered owners' withdrawal
+amounts remain exact. The larger 75-KAS case costs 0.4447% in native fees; local
+measured work priced at the conditional $0.13/hour reference gives about 2.34%
+including network/prover/active disk, before unpriced service/availability costs.
+Outer proving still takes about 17.7 minutes. The 2% complete-cost and stronger
+financial-privacy requirements remain unqualified. Keep the optional mechanism
+within shared batching; no overall challenger architecture is selected. All
+funding sources are supplied synthetic UTXOs; no chain acceptance or funds used.
+
+**Cost judgement update, 6 November:** the owner asked to push further rather
+than reject a potentially useful privacy improvement near 3%. The
+[additive cost review](../research/payment-set-withdrawal-2026-11-06-cost-review/RESULT.md)
+distinguishes the 3.075% lower bound from unknown total costs and recommends a
+bounded complete-cost comparison. The old 2% failure remains; larger same-work
+payments and shared batching are unqualified opportunities, not measured savings.
+The benchmark price matches the verified default minimum relay fee, so lowering
+the fee price is not a reliable default-policy optimisation.
+
+The subsequent [actual-wallet integration](../research/payment-set-withdrawal-2026-11-05/RESULT.md)
+executes genuine private payments, recipient re-spend and the real Ledger kernel
+before finite native common-set withdrawals. Six payout-owner assignments survive
+its declared view, or two with one participant's payout known. Digest packing
+reduces the full wallet proof's public inputs from fourteen to two; three native
+checks now fit, using 91.53% of the block compute limit. **Cheapness fails** for
+the selected direct route: the optimistic floor is 3.075% at 100 sompi/mass,
+against the unchanged 2% complete-cost target. This is offline wallet/kernel
+integration with a supplied native predecessor, not an authenticated full native
+adapter or accepted chain. Existing outer-proof batching remains a separate
+unqualified cost alternative for the replacement; contribute to the shared path.
+
+The owner subsequently authorized a replacement after committing the wrapper
+audit at `9dd72bbb`. The [finite common-set diagnostic](../research/common-set-withdrawal-2026-11-05/RESULT.md)
+now exercises real blind output registration and genuine whole-set owner proofs
+in the current native script engine, including independently authorized solo
+exits. Its declared application/native view retains six payout-owner assignments,
+or two with one participant's payout known; mapped owners and all-but-one collusion
+collapse that ambiguity. This is a narrow ownership-channel result from synthetic
+public claims, not a complete shielded lifecycle or an overall privacy advantage
+over upstream. Native Full validation, network privacy and real ledger integration
+remain unqualified. Three proofs nearly fill the current block compute limit.
 
 | Capability | Strongest relevant evidence | Limit |
 | --- | --- | --- |
@@ -77,9 +123,11 @@ and [RFC-0004](rfc/0004-native-kas-private-payment-boundary.md) remain open.
 Wallet-local proofs and direct inline-ZK settlement remain the minimum current-
 Kaspa reference for confidential on-domain activity and independent transparent
 exits. That reference does not meet the stronger known-owner/full-drainage goal.
-Hidden native ownership requires a consensus-recognized confidential or shielded
-value representation; a later ordinary transparent payout still exposes that
-boundary. Changing a prover, MPC committee, relayer or runtime does not change
+Confidential native amounts require a native representation unavailable under
+the current constraint. Payout-key ownership can be conditionally unlinked by
+cooperative whole-set authorization and protected registration on current L1;
+identified withdrawals and later revealed owner maps still expose amounts and
+conservation facts. That distinction does not qualify strong financial privacy. Changing a prover, MPC committee, relayer or runtime does not change
 ordinary native output fields. The extended RFC's native-consensus note-pool
 candidate remains historical research outside active scope. The current-rule
 direction investigates confidential application claims, avoidable metadata links

@@ -1,0 +1,140 @@
+# RFC-0005: Common-set withdrawal authorization under current L1
+
+**Status:** Open; finite unfunded diagnostic authorized by the owner, no production
+architecture selected. **Date:** 5 November 2026 (Australia/Sydney).
+
+## Question and specific replacement
+
+Can wallets approve the same complete payout transaction without publishing a
+per-wallet destination, while an actual registration protocol keeps that
+assignment out of the coordinator's application transcript?
+
+The [previous gate](../../research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
+rejected wrapping the existing public EXIT statements. This replacement creates
+new authorizations; it does not pretend old statements disappeared. Current
+Groth16 verification and output introspection must suffice. No consensus changes,
+new asset, privileged spending key, real funds, network trial or paused MPC work.
+
+## 6 November actual-wallet batching update
+
+[ADR-0109](../adr/0109-complete-cost-and-batched-payout-test.md) and the
+[complete offline comparison](../../research/batched-payment-costs-2026-11-06/RESULT.md)
+now exercise genuine wallet claims/payments and compressed complete outer
+receipts with native Full validation. The finite synthetic-claim design below
+remains the original diagnostic, not the new adapter's state/admission model.
+The new adapter binds canonical before/after state, full actual effects and the
+public operation payload; it retains every NF/deposit while removing only fully
+reconciled paid bookkeeping. Fees use a separate refundable allowance.
+
+Six payout-key owner assignments survive the declared common-set view at exactly
+the same native fee as named batching. Identified eligibility still reveals each
+claimant's withdrawal amount. This does not resolve complete financial privacy.
+Open work includes protected/independent registration, active-state contention
+and stale reapproval costs, variable balances/denominations, independent public
+parameter/history availability and fee funding beyond the finite initial bank.
+Reuse the existing checked/pinned parameter path as a separately measured cost
+candidate; do not claim its saving before testing. No consensus change follows.
+
+## Smallest testable instance
+
+Use three explicitly synthetic, equal-principal native claims. Each has a public
+commitment `SHA256(secret)` and publicly known input owner. The commitment is the
+finite instance's claim identifier, not a new private-note or nullifier design.
+One common Groth16 relation proves the claimant knows its preimage and computes
+a domain-separated RFC2104 HMAC authorization over a full-effects context.
+Public proof inputs are claim commitment, context and authorization tag, each
+encoded by two canonical 128-bit limbs. There is no chosen recipient field.
+
+All authorizers approve the same transaction. Each wallet separately checks
+that **all** of its expected payouts, with correct amounts and multiplicity,
+are present before proving. An untrusted coordinator cannot acquire spending
+authority by registering, substituting, duplicating or inventing outputs.
+
+The context binds genesis/domain, exact current reserve outpoint, active claim
+set, principal and fee allowances, branch, all actual output values/scripts and
+the complete successor policy. Native script reconstructs it from transaction
+introspection. A host-computed digest alone is insufficient.
+
+## Finite spentness and independent fallback
+
+There is one reserve UTXO containing `n * (D + F)` for `n` active claims. `D` is
+user principal; `F` is a separately declared per-claim fee allowance. No allowance
+is counted as private principal. The finite diagnostic precomputes the seven
+nonempty subsets of its three public claim identifiers:
+
+- Joint branch: every active owner supplies a proof for the same complete
+  effects; exactly `n` distinct recipient outputs of `D` are created, and the
+  reserve fully drains. The native fee is exactly `n * F`.
+- Solo branch: one active owner supplies a proof, receiving `D` plus a successor
+  reserve of `(n-1)*(D+F)` under the exact smaller-subset policy. Final solo exit
+  has no successor. The native fee is exactly `F`.
+- Current input spentness resolves conflicting joint/solo proposals. A proof
+  for a stale outpoint or different subset/context must fail. No other owner,
+  registration server or issuer signature is required for a solo exit.
+
+Every script must pin exact input/output counts, amounts, scripts, active claim
+authorizations and successor. Test actual current native script execution and
+report local supplied-UTXO/spentness evidence separately from consensus/chain
+acceptance. This finite state enumeration is not a scalable pool or a completed
+deposit/private-payment protocol.
+
+## Output registration without issuing an asset
+
+Exercise an existing RFC9474 RSABSSA implementation, using its randomized
+SHA384/PSS mode and one common issuer key/configuration for the entire round.
+These are ephemeral coordination credentials; they confer no claim to native
+funds, are not a new token, and are not checked as spending authority by L1.
+
+1. Each identified eligible claimant sends only a blinded registration message
+   and an owner-local authorization binding its blind request and round. The
+   coordinator verifies the claim and issues at most one credential per claim.
+2. The client unblinds and verifies locally. Blinding state and message randomizer
+   stay client-local during identified issuance.
+3. Redemption supplies the signed canonical round/denomination/recipient message,
+   final signature and randomizer through a separate logical interface carrying
+   no owner identifier or issuance session marker. Reject duplicate/context-
+   mismatched redemptions. Sort the final public outputs canonically.
+4. Owners inspect the complete transaction and create their spending proofs only
+   after their full expected entitlement is included.
+
+Extra credentials, issuer loss and withheld registration can prevent a joint
+round, but cannot release the reserve or disable solo exits. Cryptographic
+blindness relies on the established primitive/library; successful local tests
+are not a proof of blindness or an audit of that library.
+
+Logical interface separation does **not** establish network anonymity. The
+diagnostic must disclose that an observer joining IPs, authenticated cookies,
+randomizers leaked at issuance, timing or retries can recover the assignment.
+Do not claim protection from the trusted same-host test controller.
+
+## Bounded comparison and controls
+
+Record the exact observer/workload and stop rules in a selection before fresh
+execution. Compare actual individually registered and blind-registered application
+transcripts with the same sampled output keys and three known input owners.
+Derive compatible owner-to-real-output assignments from observable constraints;
+never count note labels, input positions or opaque proof slots as payment privacy.
+
+Include one legitimate participant's output, all-but-one collusion, externally
+known payout owners, deliberately linkable registration, leaked issuance
+randomizers, original public EXIT records, and unequal-amount/solo-fallback
+limitations. Do not silently remove truthful ownership data to obtain a gain.
+Full known-owner drainage and the existing absolute privacy targets remain
+unqualified; this screen measures only a named payout-ownership channel.
+
+Required negatives include wrong owner/secret, changed complete output set,
+diversion, duplicate payouts/authorizations, malformed proof/field encoding,
+wrong root/claim set/domain/outpoint, replay/double spend, successor substitution,
+principal/fee/range errors, server loss, and joint/solo conflict. Negative controls
+must reach the intended proof/native rejection layer; unrelated build failures
+are not successes.
+
+## Open obligations
+
+Integration with the actual shielded ledger's authenticated accepted roots and
+nullifiers, ordinary deposits/private transfers, pruning/history recovery,
+arbitrary denominations, independently operated clients, real network privacy,
+proof/setup review, full native transaction validation/relay/mass qualification,
+paid lifecycle cost and production security remain separate obligations.
+No existing invariant is amended. The source/reuse review and experiment
+decision must precede prototype execution.

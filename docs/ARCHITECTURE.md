@@ -5,7 +5,8 @@
 **Active work selection:** [ADR-0106](adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
 sets contribution to the shared upstream KPI/Based App investigation as the
 default. A separate direction must earn a measured privacy advantage against
-the same baseline and requirements. No candidate has done so. Direct settlement
+the same baseline and requirements. No candidate has qualified the complete
+financial-privacy goal. Direct settlement
 remains a comparison mechanism; its simpler structure is not evidence of
 superior end-to-end privacy or grounds for another runtime. Upstream's A/B/C
 architecture decision remains open.
@@ -24,9 +25,38 @@ introduced by this direction.
 The [joint-withdrawal feasibility result](../research/joint-withdrawal-feasibility-2026-11-05/RESULT.md)
 rejects a batching/shuffling wrapper around the existing public EXIT statements:
 their individual destinations already identify their payouts. A different
-common-output-set authorization and protected registration protocol may fit
-existing L1 primitives, but has no implemented or native-verified path here.
-No architecture is adopted and no safety check is weakened by this result.
+common-output-set authorization is now exercised by the subsequent
+[finite replacement diagnostic](../research/common-set-withdrawal-2026-11-05/RESULT.md)
+under [ADR-0107](adr/0107-finite-common-set-withdrawal-diagnostic.md) and
+[RFC-0005](rfc/0005-common-set-withdrawals.md): real RFC9474 registration, genuine
+owner-local Groth16 proofs, exact native outputs and solo subset successors.
+Its synthetic public claims, same-host logical interfaces and three-owner
+resource limit do not qualify a production shielded architecture or network
+registration privacy. No safety check or invariant is weakened.
+
+[ADR-0108](adr/0108-real-wallet-common-set-integration.md) subsequently integrates
+the actual private-wallet relation, recipient re-spend and Ledger with that finite
+withdrawal boundary. [Results](../research/payment-set-withdrawal-2026-11-05/RESULT.md)
+retain the ownership benefit, but the selected direct-verification route fails
+the 2% fee target even at an optimistic floor. The original native parser and
+permissions do not accept common-set digests unchanged; no new outer receipt or
+authenticated adapter was built. Existing shared batching is the cost alternative
+to qualify, not a reason to adopt another direct runtime.
+
+The subsequent [batched actual-wallet experiment](../research/batched-payment-costs-2026-11-06/RESULT.md),
+under [ADR-0109](adr/0109-complete-cost-and-batched-payout-test.md), now supplies
+that new outer receipt and a finite authenticated native adapter. It reuses
+RISC Zero compression and current tag 0x20. Old/new state, actual input/effects
+and canonical public packet are bound separately; native successors preserve the
+exact verifier suffix. Temporary paid records are cleared only after atomic
+native reconciliation, retaining every economic NF and deposit status. Explicit
+prepaid fees never reduce principal and return unused on terminal exit. Named
+and common-set batches have the same measured native fee. This is an unfunded,
+serialized initial-bank experiment: later admission/top-ups, availability,
+contention and complete financial privacy remain unqualified. Registered amount
+facts remain public even when payout-key ownership is ambiguous. It is an
+optional mechanism to contribute within the shared direction, not a competing
+production runtime or a consensus modification.
 
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the

@@ -1,0 +1,15 @@
+{
+  "changes": [
+    "Circuit: unchanged protocol, witness type imported; replace public limb loop with SHA256(canonical statement) as two limbs.",
+    "Native: expected claims are actual economic nullifiers; bind actual kernel root/VK, reconstruct full wallet statement; proof-only witnesses; budget 4500.",
+    "Registration: replace synthetic preimage eligibility with genuine full wallet proof for blinded-request context.",
+    "Observer: retain real public ledger operations; revised native profile and full-wallet proof event fields."
+  ],
+  "schema": "real-wallet-source-adaptation-v1",
+  "sources": {
+    "poc/common-set-withdrawal/observe.py": "62f169a1d5a3605cec2159584f04c9a2b74a2f92e2ea6930f2d363d302ff1a62",
+    "poc/common-set-withdrawal/src/native.rs": "c0e19c05b09ce72d82070d4744b39b43f5fe810f1037e3759d47557a7f63579d",
+    "poc/common-set-withdrawal/src/registration.rs": "e5d6a735cc037a030d29f8f0d5a2b3123620126a2c5fad50e3264d42797c4878",
+    "poc/private-note-wallet/src/circuit.rs": "2522a17d8a4251472bf06947860f028ec1658733f6db11b62e22385857fd5cdf"
+  }
+}

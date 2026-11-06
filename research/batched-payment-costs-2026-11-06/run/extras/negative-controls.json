@@ -1,0 +1,122 @@
+[
+  {
+    "case": "owner_approval_bound_to_exact_bank_outpoint",
+    "error": "complete native effects authorization",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "stale_owner_approval_guest",
+    "error": "Guest panicked: called `Result::unwrap()` on an `Err` value: \"complete native effects authorization\"",
+    "layer": "real guest executor"
+  },
+  {
+    "case": "actual_input_amount_mismatch",
+    "error": "full:SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+    "layer": "native Full"
+  },
+  {
+    "case": "actual_prior_state_root_mismatch",
+    "error": "full:SignatureInvalid(EvalFalse)",
+    "layer": "native Full"
+  },
+  {
+    "case": "payout_destination",
+    "error": "full:SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+    "layer": "native Full"
+  },
+  {
+    "case": "payout_amount",
+    "error": "full:SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+    "layer": "native Full"
+  },
+  {
+    "case": "input_outpoint",
+    "error": "full:SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+    "layer": "native Full"
+  },
+  {
+    "case": "public_payload",
+    "error": "full:SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+    "layer": "native Full"
+  },
+  {
+    "case": "new_root",
+    "error": "full:SignatureInvalid(VerifyError)",
+    "layer": "native Full"
+  },
+  {
+    "case": "compressed_proof",
+    "error": "full:SignatureInvalid(ZkIntegrity(\"ARK serialization error: the input buffer contained invalid data\"))",
+    "layer": "native Full"
+  },
+  {
+    "case": "changed_authorized_amount",
+    "error": "invalid proof",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "duplicate_nullifier",
+    "error": "current economic nullifier spent",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "partial_group_cannot_pay_three",
+    "error": "native complete output shape",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "partial_group_guest",
+    "error": "Guest panicked: called `Result::unwrap()` on an `Err` value: \"native complete output shape\"",
+    "layer": "real guest executor"
+  },
+  {
+    "case": "already_spent_current_nullifier",
+    "error": "complete native effects authorization",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "native_input_above_money_supply",
+    "error": "native input range",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "native_zero_output",
+    "error": "native output range",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "output_sum_overflow",
+    "error": "native output sum overflow",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "native_principal_underbacking",
+    "error": "native input backing",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "fee_cannot_take_principal_or_exceed_cap",
+    "error": "fee allowance/principal separation",
+    "layer": "real wallet kernel"
+  },
+  {
+    "case": "wrong_guest_image",
+    "error": "claim digest does not match the expected digest 21be453c99342fc08d15fc8c3accd5e1a1e6739e1fd9991e542d7e42131dfb01; expected 03c707dfc09ad416f97f7bbd794341512f3698b275217f5e414093a0a0770ec1",
+    "layer": "strict SDK complete receipt"
+  },
+  {
+    "case": "wrong_exact_journal",
+    "error": "exact independent journal",
+    "layer": "strict SDK complete receipt"
+  },
+  {
+    "case": "changed_successor_program",
+    "error": "full:SignatureInvalid(VerifyError)",
+    "layer": "native Full"
+  },
+  {
+    "case": "changed_successor_state_root",
+    "error": "full:SignatureInvalid(VerifyError)",
+    "layer": "native Full"
+  }
+]

@@ -9,7 +9,7 @@
 **Latest owner work-selection rule:** [ADR-0106](../adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
 requires a demonstrated comparative privacy advantage to justify a separate
 direction; otherwise contribute to the shared upstream effort. No candidate has
-earned that advantage. The [local P13 draft](../../research/upstream-p13-contribution-2026-11-05.md)
+qualified that complete-lifecycle advantage. The [local P13 draft](../../research/upstream-p13-contribution-2026-11-05.md)
 packages retained leakage findings and observer controls for that shared goal.
 This supersedes the direct-settlement-first priority, not the constraints below.
 
@@ -36,6 +36,33 @@ A replacement whole-output-set authorization and protected registration protocol
 is an open current-L1 application question; no such path was implemented or
 qualified, and the conditional full comparison was not run. This finding does
 not establish impossibility of a redesigned current-rule application.
+
+The owner then authorized the replacement in
+[RFC-0005](0005-common-set-withdrawals.md) / [ADR-0107](../adr/0107-finite-common-set-withdrawal-diagnostic.md).
+Its [finite result](../../research/common-set-withdrawal-2026-11-05/RESULT.md)
+executes real blind registration, genuine common-set owner authorizations and
+native joint/solo branches. The declared payout-ownership channel improves, but
+public amounts, externally known payout owners and complete-lifecycle obligations
+remain. This does not retroactively run or qualify the rejected wrapper.
+
+The [actual-wallet extension](../../research/payment-set-withdrawal-2026-11-05/RESULT.md)
+under [ADR-0108](../adr/0108-real-wallet-common-set-integration.md) preserves the
+narrow payout-ownership benefit after genuine private payment and recipient
+re-spend. The selected direct-verification layout fails the retained complete-cost
+target even at an optimistic floor. Existing shared batching remains a separate
+integration question; neither result hides ordinary public amounts or qualifies
+known-owner full-drainage privacy.
+
+The [6 November complete batched experiment](../../research/batched-payment-costs-2026-11-06/RESULT.md)
+under [ADR-0109](../adr/0109-complete-cost-and-batched-payout-test.md) now exercises
+that integration using the real wallet, complete compressed receipts and native
+Full validation. Named/common-set batches have identical native fees; six
+payout-key assignments remain, but identified withdrawal amounts remain exact.
+Reference-rate economics are conditional, not paid chain fees or a qualified
+2% total cost. Active-pool contention, independent honest peers and availability
+remain open. Preserve every earlier failed route and its original threshold.
+This is an optional application mechanism for the shared batching effort, not a
+selected replacement architecture or a consensus proposal.
 
 For current Kaspa, use a **wallet-local shielded note ledger with a direct
 inline-ZK covenant settlement path** as the minimum-trust reference

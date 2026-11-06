@@ -1,0 +1,26 @@
+{
+  "adaptations": [
+    "Real blind registration uses the workload denomination as an explicit round parameter.",
+    "RISC Zero receipt script and build-time wrapper verification key reuse the existing SDK claim/codec helpers.",
+    "Isolated canonical bank state retains economic NFs and deposits; clears only atomically reconciled paid bookkeeping.",
+    "Every native transition binds full current outpoint/effects and canonical public packet; continuation preserves the verifier suffix.",
+    "Named exits also support matched batches, with each individual destination still publicly bound."
+  ],
+  "exactCopies": {
+    "host/src/circuit.rs": "poc/payment-set-withdrawal/src/circuit.rs",
+    "host/src/proof.rs": "poc/payment-set-withdrawal/src/proof.rs"
+  },
+  "noNewCryptographicPrimitive": true,
+  "noOriginalWalletEdits": true,
+  "schema": "batched-payment-source-reuse-v1",
+  "sources": {
+    "poc/accelerated-bn254/common/src/lib.rs": "ff8ef9d2ea1ef93440cadcfaac086ebafad33b2ae505ba3880b596b34660041e",
+    "poc/payment-set-withdrawal/src/circuit.rs": "a572d7d7fc24bdf898af8955ec976f647715139b7b0dd25072874a359a600258",
+    "poc/payment-set-withdrawal/src/proof.rs": "8336ca258a609b39086e82025646915fd7a2a6ce0b585ceb6362d885afa181f6",
+    "poc/payment-set-withdrawal/src/registration.rs": "154db3ac2334d7331f557350589cc8d8a458dd07122763eeb3f5574e2d51529f",
+    "poc/private-note-wallet/src/ledger.rs": "11ac3222d0aceada2502c368646f96f2becd3fe7ca635b13e783d2ad1fb9f5d5",
+    "poc/private-note-wallet/src/protocol.rs": "2bf0e6e9d22acc68c61121671beb3b2ff2332e15ff06a0b4b5d75e4a5a0b5526",
+    "poc/takeover/vendor/covenant/build.rs": "302ef26cbd5ff681051bd3d432d9cc6a897b781ec7518742d1a23da17ff45651",
+    "poc/takeover/vendor/covenant/src/script.rs": "94955037b54200fb5894574ec3cee3fdb64b1360f3d2a7c730b954df5d90cf0c"
+  }
+}

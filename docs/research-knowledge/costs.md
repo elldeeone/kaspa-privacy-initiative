@@ -6,6 +6,7 @@
 
 | Retained result | What it says | What it does not say |
 | --- | --- | --- |
+| [Actual-wallet common-set integration](../../research/payment-set-withdrawal-2026-11-05/RESULT.md) | Full-statement digest packing reduces verification floor 177,500 to 147,500 mass; three withdrawals fit at 457,671 quoted compute mass. The selected route still has an optimistic 3.075% floor at 100 sompi/mass against 2%. | No complete-route/paid fee pass, general cohort scaling, or lower bound on the separate outer-proof batching architecture. |
 | [matched lifecycle checkpoint](documents/fdfd544f40bd93450cab30c7bda64dcab3ec69fa.txt) | Six payments/nine payouts paid 264,166,000 sompi on 2,100,000,000 useful sompi: 12.5793%, failing 2%. | Faster payment proving alone cannot repair the measured fee gap: other costs alone remain 148,795,600 sompi, above 42,000,000. |
 | [two-recipient offline layout](documents/e26b3bf00641382ebabf9b4b577cc31ee1c27d7d.txt) | The separate offline supplied-UTXO layout with two useful 10-KAS recipients calculated approximately 1.85% per payment. | It was not broadcast, is not the same benchmark, and one useful recipient plus change failed. |
 | [authenticated cache measurement](documents/90a8571364109e2cb5f360b33e966fedd0ca7308.txt) | Parameter loading fell from 156.38 seconds to roughly six seconds; one genuine load/prove/verify run took 30.87 seconds. | About 5.39 GiB and missed warm-proof/memory targets remain; cache/CPU conditions prevent a universal speedup claim. |
@@ -21,6 +22,13 @@ A cheaper bare verifier is not a cheaper complete lifecycle.
 
 ## Carry into the next measurement
 
+The [6 November cost review](../../research/payment-set-withdrawal-2026-11-06-cost-review/RESULT.md)
+corrects an overly categorical stop recommendation: 3.075% was a lower bound at
+one workload, not a measured total or product impossibility. Keep the old 2%
+failure. The pinned default relay minimum is 100 sompi/mass; earlier 1/10-price
+sensitivities are not default-relay savings. Larger same-work payment amounts
+and existing batching remain opportunities to measure with complete costs.
+
 Use integer sompi end to end. Include deposits, funding, private transfers,
 change, all exits, rent, pool/sponsor fees and useful-recipient value under the
 same declared accounting scope. Report remaining principal, liabilities and
@@ -31,3 +39,15 @@ Current tool/process repairs improve reproducibility; they establish no new
 GPU benchmark, cryptographic performance result or paid-fee result. A useful
 optimization is a candidate to assess when its component is needed, not a reason
 to restart an unrelated proving campaign.
+
+## 6 November measured batching follow-up
+
+The [actual-wallet batched comparison](../../research/batched-payment-costs-2026-11-06/RESULT.md)
+uses genuine compressed outer proofs and native Full validation. Complete native
+quotes fall from 3.2716% to 1.1118% for 30 useful KAS; named and common-set batches
+have identical native fees. At 75 useful KAS the native share is 0.4447%. Proving
+still takes about 17.7 minutes; the conditional reference valuation including
+network/prover/active disk is about 5.87% at 30 KAS and 2.34% at 75 KAS. Keep
+hypothetical/reference pricing separate from actual invoices, GPU-only energy
+from whole-host cost, refunded allowance from fees, and the quiet fixture from
+active-pool/cohort delays. The original 2% complete-cost target remains open.
