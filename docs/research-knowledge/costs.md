@@ -51,3 +51,18 @@ network/prover/active disk is about 5.87% at 30 KAS and 2.34% at 75 KAS. Keep
 hypothetical/reference pricing separate from actual invoices, GPU-only energy
 from whole-host cost, refunded allowance from fees, and the quiet fixture from
 active-pool/cohort delays. The original 2% complete-cost target remains open.
+
+
+## Requester and pinned-key follow-up
+
+The [subsequent complete quiet path](../../research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
+uses actual onion-registered keys, genuine complete receipts and native Full
+validation. Existing program-key pinning reduces proving 17.73 to 14.35 minutes
+(19.11%); the exact-input control separately saves 20.73% wall time and 19.93%
+total cycles. Native fees stay 0.333552 KAS. Holding earlier tariff/valuation and
+non-outer overhead constant gives a 5.04% warm subtotal at 30 KAS, or 2.02% when
+extrapolating unchanged work to 75 KAS. The new 75-KAS case was not executed;
+Tor/operator/availability remain unpriced. No two-percent complete-cost pass.
+An unrelated accepted update wastes 18.465 seconds of two owner approvals, with
+no stale-transaction fee. The 0.821538-KAS stress-route quote also includes an
+extra self-payment and two solo exits: do not attribute all of it to contention.

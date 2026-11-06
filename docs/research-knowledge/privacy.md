@@ -63,6 +63,16 @@ into ordinary transparent KAS are separate observation boundaries.
 
 ## Carry into the next experiment
 
+The [6 November requester experiment](../../research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
+removes the identified roster API itself and uses genuine eligibility/credentials
+through our own actual onion service. Retain complete operator logs and separate
+counterfactual views: direct identified sources give one payout-owner assignment,
+onion service logs six, labelled client timing/later ownership one. Published
+direct control keys also collapse the shared fixture. Known NF owners and unique
+expected amounts remain attacks. The genuine unequal-wallet drainage control
+reconstructs 23/9-KAS payments after later owner maps; that case is host-kernel
+evidence, not native acceptance or independent-user anonymity.
+
 Freeze the observer's legitimate knowledge, workload/truth commitment, target,
 amount grid, priors, metrics and stop rule before scoring. Score observable
 roles/events and verify hidden-label renaming leaves the financial score

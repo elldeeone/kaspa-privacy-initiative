@@ -22,6 +22,22 @@ availability are not qualified. Pricing local work at a reference tariff does
 not establish an invoice, idle utilization or a fully priced anonymous service.
 No privileged recovery or withdrawal key is introduced.
 
+The subsequent [requester test](research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
+uses an actual onion service and removes human identifiers from the eligibility
+API itself. Its service-only view has six owner assignments; measured labelled
+client activity or later ownership disclosures collapse them. Known NF owners
+still expose exact eligible amounts, and distinct known entitlements map public
+payout values. These are local-client counterfactuals, not a global-network,
+independent-user, Sybil or timing-anonymity qualification. Combining the published
+direct control with its shared candidate keys also identifies them. Fixed-key
+loading applies only to fully checked immutable program points; submitted proof
+checks and the native program/effects bindings stay intact. Actual Tor-registered
+keys and eligibility notes now match a complete native Full-validated payout;
+restored native-key spending passes. Approval transport remains local/unqualified.
+A genuine unrelated payment invalidates outstanding approvals despite untouched
+cohort notes; fresh retry and restored independent exits recover all principal.
+This safe collision test does not establish liveness under sustained contention.
+
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
 **Active scope, 5 November:** unchanged Kaspa consensus under

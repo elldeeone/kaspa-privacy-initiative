@@ -4,6 +4,15 @@ The initiative should treat these as questions to answer, not conclusions to def
 
 ## Active question — 6 November 2026
 
+The [requester follow-up](research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
+now tests the identity-free service interface over real onion transport. Its
+conditional service-origin benefit does not survive labelled client timing or
+later owner disclosure. Keep the optional mechanism within shared batching.
+Can contention be reduced without losing exact owner-approved payout/effect
+binding, reserve safety or independent exits? A safe retry is evidence about
+recovery from one collision, not a busy-pool liveness solution. Complete service
+costs and independent-user privacy remain open.
+
 [ADR-0106](docs/adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
 now makes contributions to the shared upstream direction the default. No
 alternative has qualified better complete-lifecycle privacy. The first scoped contribution is

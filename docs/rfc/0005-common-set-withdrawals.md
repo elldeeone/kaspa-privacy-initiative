@@ -17,6 +17,24 @@ new asset, privileged spending key, real funds, network trial or paused MPC work
 
 ## 6 November actual-wallet batching update
 
+The subsequent [requester/busy-state follow-up](../../research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md),
+authorized by [ADR-0110](../adr/0110-withdrawal-request-privacy-and-busy-state.md),
+tests identity-free proof-authorized eligibility over our own actual onion
+service. This is a new unfunded application-message test beyond the original
+5 November diagnostic's no-network scope. It removes the human-index roster;
+current unspent-note authority and one credential per NF remain required. The
+service-only ownership benefit fails with measured labelled client timing,
+known output ownership and distinctive known expected amounts. A key-pinned
+guest variant retains all original wallet/effects constraints and starts a new
+synthetic bank image. Native Full busy-state/optimized cost results are separate
+from the network/wallet-only evidence. The completed quiet path now links actual
+Tor-registered keys/eligibility to Full-validated native payouts and restored
+native-key spending. Complete proving falls 19.11% with unchanged native fees;
+known-owner financial privacy remains unqualified. A real unrelated state update
+invalidates old approvals safely, and fresh approvals/independent exits recover.
+Reducing that contention without losing authorized payout/effect/state safety
+remains open. Anonymous approval transport and independent clients remain unqualified.
+
 [ADR-0109](../adr/0109-complete-cost-and-batched-payout-test.md) and the
 [complete offline comparison](../../research/batched-payment-costs-2026-11-06/RESULT.md)
 now exercise genuine wallet claims/payments and compressed complete outer

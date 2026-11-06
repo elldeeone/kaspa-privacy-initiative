@@ -58,6 +58,16 @@ facts remain public even when payout-key ownership is ambiguous. It is an
 optional mechanism to contribute within the shared direction, not a competing
 production runtime or a consensus modification.
 
+The [requester follow-up](../research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
+under [ADR-0110](adr/0110-withdrawal-request-privacy-and-busy-state.md) replaces the
+identified eligibility roster with verified unspent-note authority. Established
+Tor onion transport separates issuer/redemption circuits; no issuer credential
+authorizes a native spend. Real service logs show the conditional origin benefit
+and retain timing, known-nullifier, distinctive-amount and later-disclosure
+attacks. An isolated fixed-key guest reuses the existing checked-before-pinning
+optimization. It binds a new bank image and does not upgrade old banks or change
+the wallet relation, native verifier, exact effect binding or consensus.
+
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
 consolidated research posture. The strong privacy requirement remains; ordinary

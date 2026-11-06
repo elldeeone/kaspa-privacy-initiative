@@ -1,0 +1,151 @@
+{
+  "baseCommit": "6df8a28a2046d1c81aa84e918454d87218d39a41",
+  "checks": {
+    "actualCoordinatorRejectsSpentEligibility": true,
+    "actualGuestChangedKeyMalformedProofAndDropout": true,
+    "directRegistrationReplay": {
+      "finalRfc9474Signatures": 3,
+      "genuineEligibilityProofs": 3,
+      "independentArkworksVerification": true,
+      "negativeResponses": 12,
+      "newProcess": true,
+      "privateMaterialUsed": false
+    },
+    "docsRelativeLinks": true,
+    "knowledgeArchiveHashes": true,
+    "onionRegistrationReplay": {
+      "finalRfc9474Signatures": 3,
+      "genuineEligibilityProofs": 3,
+      "independentArkworksVerification": true,
+      "negativeResponses": 12,
+      "newProcess": true,
+      "privateMaterialUsed": false
+    },
+    "privateJsonMaterialScan": true,
+    "publicManifestAndSourceEpochHashes": true,
+    "publicReplay": {
+      "actualNativeFullTransactions": 6,
+      "exactInputDynamicJournalEqual": true,
+      "genuinePinnedReceipts": 5,
+      "image": "eca6bd27b5cda222bf434e69ff2d9a7bbd415ae1c9e6d20224e63d3a729fd94d",
+      "newProcess": true,
+      "noSecretsOrProvingKeyUsed": true,
+      "verified": [
+        {
+          "name": "pinned-initial",
+          "report": {
+            "computeMass": 164787,
+            "feeMass": 164787,
+            "feeSompi": 16478700,
+            "fitsBlock": true,
+            "minimumDefaultRelayFeeSompi": 16478700,
+            "nativeFullValidation": true,
+            "offlineDefaultRelayChecks": true,
+            "serializedBytes": 4426,
+            "storageMass": 2,
+            "transientMass": 17668
+          }
+        },
+        {
+          "name": "unrelated-payment",
+          "report": {
+            "computeMass": 162980,
+            "feeMass": 162980,
+            "feeSompi": 16298000,
+            "fitsBlock": true,
+            "minimumDefaultRelayFeeSompi": 16298000,
+            "nativeFullValidation": true,
+            "offlineDefaultRelayChecks": true,
+            "serializedBytes": 2619,
+            "storageMass": 1,
+            "transientMass": 10440
+          }
+        },
+        {
+          "name": "fresh-joint",
+          "report": {
+            "computeMass": 164060,
+            "feeMass": 164060,
+            "feeSompi": 16406000,
+            "fitsBlock": true,
+            "minimumDefaultRelayFeeSompi": 16406000,
+            "nativeFullValidation": true,
+            "offlineDefaultRelayChecks": true,
+            "serializedBytes": 2981,
+            "storageMass": 2553,
+            "transientMass": 11880
+          }
+        },
+        {
+          "name": "restored-solo",
+          "report": {
+            "computeMass": 163022,
+            "feeMass": 163022,
+            "feeSompi": 16302200,
+            "fitsBlock": true,
+            "minimumDefaultRelayFeeSompi": 16302200,
+            "nativeFullValidation": true,
+            "offlineDefaultRelayChecks": true,
+            "serializedBytes": 2302,
+            "storageMass": 2708,
+            "transientMass": 9168
+          }
+        },
+        {
+          "name": "restored-solo-last",
+          "report": {
+            "computeMass": 163011,
+            "feeMass": 163011,
+            "feeSompi": 16301100,
+            "fitsBlock": true,
+            "minimumDefaultRelayFeeSompi": 16301100,
+            "nativeFullValidation": true,
+            "offlineDefaultRelayChecks": true,
+            "serializedBytes": 2301,
+            "storageMass": 8883,
+            "transientMass": 9164
+          }
+        }
+      ]
+    },
+    "quietTorToNativeReplay": {
+      "actualNativeExitNullifiersEqualTorEligibilityNullifiers": true,
+      "completeQuietPath": true,
+      "genuinePinnedReceipts": 2,
+      "nativeFullTransactions": 3,
+      "nativePayoutKeySpendControls": 3,
+      "nativePayoutKeysEqualTorRegisteredKeys": true,
+      "newProcess": true,
+      "prefixReusedAndVerified": true,
+      "privateMaterialUsed": false,
+      "registeredStateEqualsNativeAcceptedPrefixState": true
+    },
+    "sourceKernelOnlyVerifierLoadingDiffers": true,
+    "unequalWalletReplay": {
+      "finalLiabilitySompi": 0,
+      "finalReserveSompi": 0,
+      "genuineWalletProofs": 12,
+      "hostKernelOnly": true,
+      "independentArkworksReplay": true,
+      "nativeAcceptanceClaimed": false,
+      "privateMaterialUsed": false
+    }
+  },
+  "currentHostSha256": "5339b78abdb3f2d181bfaeb990196b6efbe034953503484c6a9de8526b20de48",
+  "failedAttemptsPreserved": [
+    "Tor SOCKS 0x06 without direct fallback",
+    "one-output TRANSFER fixture rejected by unchanged full relation; corrected regression passes",
+    "instrumented identity probe in an earlier local trace disclosed a real NF; final synthetic probe avoids it"
+  ],
+  "publicPacketManifestSha256": "e7ac5ac6fad395cf10d71fae4c23ba284ea82d7a02d23f2cae1e842381751393",
+  "qualification": {
+    "anonymousApprovalTransport": false,
+    "completeEconomicCost": false,
+    "consensusChanges": false,
+    "fundsOrPaidResources": false,
+    "generalFinancialPrivacy": false,
+    "independentUsers": false,
+    "liveChainAcceptance": false
+  },
+  "schema": "withdrawal-followup-verification-v1"
+}

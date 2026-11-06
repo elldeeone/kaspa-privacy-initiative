@@ -1,0 +1,47 @@
+# Adversarial second-pass review
+
+This is internal implementation review, not independent cryptography approval.
+The final verification receipt governs which runtime checks completed.
+
+- **Inflation and reserve release:** the generated kernel changes only fixed-key
+  loading. Full original wallet constraints, checked ranges, bank backing,
+  explicit fee allowance, complete effects, liability reconciliation and current
+  economic nullifiers remain. Tor/issuer credentials authorize no native spend.
+- **Double spending:** eligibility refuses duplicate nullifiers; final withdrawal
+  still checks current spentness independently. A credential can become stale
+  after issuance and cannot override that check. Forked benchmark worlds are
+  separate counterfactuals; only one bank outpoint can be spent in one history.
+- **Proof checks:** fixed points are fully subgroup/canonical checked on the host
+  before embedding. Supplied state must exactly match the fixed compressed key.
+  Submitted proofs retain checked decoding and full pairing verification. New
+  programs start new banks; the immutable native suffix permits no image upgrade.
+- **Stale state:** exact outpoint/effects binding is retained. Busy operation must
+  reject old approvals even when their own notes remain unspent. This protects
+  value but causes contention and wasted wallet proof work; no liveness fix or
+  permission to weaken binding is inferred from a successful retry.
+- **Privacy:** owner/index fields are absent from the API itself. Real service
+  logs retain peers/timestamps/nullifiers/amounts. Client-labelled timing, known
+  nullifier ownership, distinctive expected amounts and later owner disclosure
+  remain attacks. Separate circuits do not defeat both-ended traffic analysis.
+  Reused published counterfactual keys deliberately fail a combined-view control.
+  A rejected identity-field probe must use synthetic data: attaching a real
+  eligibility proof would itself disclose that owner's NF in the retained logs.
+  The initial instrumented trace is retained locally as that disclosure control;
+  the final fresh round avoids inserting a genuine client's identity in a probe.
+- **Cohort and issuer:** three notes are not proof of three distinct people.
+  An issuer can censor, delay, select a Sybil cohort or leak public request data;
+  it cannot spend. No WabiSabi credential system or new crypto is introduced.
+- **Dependency failure:** restored owner-only exit remains independent of the
+  coordinator. Public parameters, history, proving hardware/software and native
+  availability remain necessary; complete independent-service-loss recovery is
+  unqualified. The experimental TCP server can halt on malformed framing and is
+  not production networking or a denial-of-service hardened service.
+- **Reorgs:** the supplied local UTXO model checks serial spends, not DAG selection,
+  confirmations or reorg recovery. No live acceptance is claimed.
+- **Cost:** faster off-chain proving does not lower the unchanged native verifier
+  fee. Single-run timings, hardware contention, cold setup, Tor latency, idle
+  utilisation and unpriced service costs prevent a complete commercial quote.
+
+Wallet backups, native/issuer secrets, client blinding state, Tor data directories
+and proving parameters stay local and excluded. Public logs include only the
+protocol messages and deliberately disclosed auxiliary controls.

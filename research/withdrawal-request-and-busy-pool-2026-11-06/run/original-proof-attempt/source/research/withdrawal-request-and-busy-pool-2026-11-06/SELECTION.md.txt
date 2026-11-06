@@ -1,0 +1,39 @@
+# Frozen follow-up: requester privacy, busy state and existing key optimization
+
+Selected before new measurements on 6 November 2026, following the owner's
+instruction to execute the three recommended next steps. Checkpoint: `6df8a28a`.
+
+1. Commit the existing complete comparison (done). Preserve every earlier failure.
+2. Test anonymous eligibility submission using real wallet authorizations and
+   RFC 9474 blind registration. The service must verify note authority without
+   receiving a human owner/index. Retain complete service-visible requests,
+   timestamps, amounts, nullifiers and network metadata. Compare identified
+   requests, anonymous transport, timing correlation, unequal known entitlements,
+   previously known nullifiers and later owner disclosure. No claim about global
+   traffic analysis or real independent users follows from local tests.
+3. Test a genuine unrelated payment while Bob and Carol have outstanding joint
+   approvals. Alice's payment changes bank state without spending their notes.
+   Old approvals must fail; fresh approvals and Alice's independent exit must
+   succeed without inflation, double spending or principal-funded fees. Measure
+   the wasted wallet work and successful native fees. Stop on an invalid receipt,
+   wrong effect binding, stale-state acceptance or nonzero final principal.
+
+Reuse the established program-pinned verification-key optimization. Fully check
+and canonically re-encode the fixed wallet key on the host before embedding it
+in a fresh guest image. Only immutable program data may bypass repeated subgroup
+validation; submitted proofs and supplied keys retain their checks. Keep the
+complete original circuit and application transition unchanged otherwise.
+Measure real complete proofs, cycles and current native Full validation. Compare
+with the retained dynamic-key benchmark using the same wallet key/operations;
+state the input/program differences and single-run timing uncertainty. A new
+image starts a new synthetic bank; do not claim an existing bank upgrade.
+
+Observer predictions must precede access to separate private owner truth. Retain
+negative controls and report application-only and operator/network views
+separately. Payout-key permutations are not payment-history privacy. A source
+review, local proxy or missing owner field cannot qualify anonymous networking.
+
+No consensus changes, real funds, mainnet, paid resources, MPC, upstream posting
+or restarted historical services. Fresh experiment identities only. New public
+evidence excludes keys/backups and proving parameters. There is no new numerical
+privacy qualification or relaxed two-percent complete-cost threshold.

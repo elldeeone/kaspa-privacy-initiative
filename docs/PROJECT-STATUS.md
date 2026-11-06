@@ -37,6 +37,26 @@ the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
 
+**6 November requester follow-up:** the
+[identity-free request test](../research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
+uses genuine wallet eligibility and blind registration over an actual Tor onion
+service. Its service-only view retains six payout-owner assignments, versus one
+for identified direct sources. Measured owner-labelled client timing and later
+owner disclosure reduce this to one. Known nullifiers/expected amounts still
+leak identified amounts. The unequal-wallet full-drainage control reconstructs
+the original payments after later owners are revealed; it is host-kernel/wallet
+evidence, not native acceptance. These are separate counterfactual views from one
+host, not independent-user or global-traffic anonymity. Under
+[ADR-0110](adr/0110-withdrawal-request-privacy-and-busy-state.md), actual
+Tor-registered keys now receive native Full-validated payouts and restored keys
+spend them. Fixed-key loading cuts complete quiet proving from 17.73 to 14.35
+minutes (19.11%) with unchanged 0.333552-KAS chain fees. An unrelated payment
+safely invalidates outstanding approvals; a fresh retry and independent solo
+withdrawals end at zero bank principal/liability. Two stale approvals waste
+18.465 seconds and no native fee. Busy-pool liveness, approval transport and full
+commercial costs remain open; the unchanged two-percent complete-cost target is
+unqualified. Keep the optional contribution within shared batching.
+
 **6 November batching measurement:** the actual-wallet
 [complete offline comparison](../research/batched-payment-costs-2026-11-06/RESULT.md)
 reduces native fee quotes from 0.981488 KAS (3.2716% of 30 useful KAS) to

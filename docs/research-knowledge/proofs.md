@@ -52,6 +52,19 @@ of the selected workload, not accepted native ancestry.
 
 ## Checks to preserve during any reuse
 
+The [6 November pinned-key follow-up](../../research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
+reuses checked-before-embedding fixed wallet parameters in an isolated guest.
+The complete kernel stays identical except for fixed-key loading; the new image
+starts a new bank. Never apply unchecked decoding to a submitted key/proof or
+infer that a program-key optimization weakens current state/effect binding.
+The genuine exact-input control saves 19.93% total guest cycles and 20.73% wall
+time; complete quiet proving falls 19.11%. Both forms verify complete receipts
+and actual native Full transactions. A bad one-output TRANSFER fixture initially
+failed; the full-circuit regression requires two positive outputs. Original
+constraints stay unchanged and the successful prefix is reused only after exact
+input/image/journal verification. Keep cold work, shared optimization and
+one-pair timing uncertainty explicit.
+
 | Boundary | Required knowledge |
 | --- | --- |
 | Encoding and verifier APIs | Complete input consumption, canonical/subgroup-checked points, exact key/input arity and explicit version behavior. Raw Arkworks 0.5/0.6 behavior differs; [strict encoding/arity differential](documents/1849f7b489e307a5b02a1b15182d259c64e8819f.txt) does not establish a native vulnerability. |
