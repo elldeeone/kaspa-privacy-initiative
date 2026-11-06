@@ -39,6 +39,20 @@ arrival times in its comparison clock. Both continuations cash out completely.
 Group wait starts when the first withdrawal proof starts. Cold setup/preparation
 and competing-proof work are reported separately, not silently discarded.
 
+The original race deliberately finishes the obsolete proof as a negative control.
+The [additive cancellation check](../../research/busy-pool-payment-flow-2026-11-06/CANCELLATION-SELECTION.md)
+tests the operational fix: stop the owned stale worker, then generate and fully
+verify the current replacement using the original approvals. It starts only after
+the main GPU campaign finishes:
+
+```sh
+python3 poc/busy-pool-payment-flow/run_cancel.py /absolute/main/runtime /absolute/main/monitor
+```
+
+Its process/detection timing is separate from the original complete arrival
+comparison. Public replay swaps only the fresh native proof witness in a temporary
+copy and verifies that every native ancestor, child and payout spend still fits.
+
 This queue experiment uses identified local calls. The complete call transcript
 is retained; its payout-owner mapping is known. It does not repeat or supersede
 the earlier protected-registration experiment or grant it stronger anonymity.

@@ -37,6 +37,22 @@ the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
 
+**6 November busy-payment comparison:** the
+[complete offline test](../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+uses four wallet processes and the unchanged program/circuit. Both histories
+pay 40 KAS of synthetic-source principal and end at zero reserve/liability;
+eight actual payout spends work after restoring wallet keys. Preserving request
+age and batching three payments quotes 0.830131 KAS versus 1.154101 KAS in native
+fees, and a 14.63-minute versus 22.31-minute withdrawal wait. Incoming payments
+wait longer: 12–20 versus 5–8 minutes to proof readiness. A separate real CUDA
+cancellation check stops stale work cleanly and completes/replays the replacement
+in 7.80 minutes with the same approvals and native IDs. It does not repeat the
+whole arrival comparison. Under [ADR-0112](adr/0112-busy-pool-withdrawal-scheduling.md),
+keep optional batching/privacy and reusable consent; cancel stale work and retain
+request age. Proving latency, complete costs, sustained contention and independent
+users remain unqualified. Identified local registration maps all payouts; this
+adds no privacy qualification or consensus change. No funded trial was run.
+
 **6 November reusable approval fix:** the
 [fixed-intent experiment](../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
 keeps the optional common-set payout mechanism and reuses two original wallet

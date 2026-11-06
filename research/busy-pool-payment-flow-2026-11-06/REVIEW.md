@@ -40,6 +40,10 @@ an independent audit or a cryptographic correctness claim.
   controls. Replay must connect every signed spend to a real output of the main
   local history and reject duplicated supplied payout entries. The public
   parameters, encrypted history and software remain necessary dependencies.
+  The actor's local `sign` method is driven by the trusted research controller;
+  its fixture shape checks are not a production wallet's transaction-review,
+  fee-approval or caller-authentication interface. The controller can access the
+  same operating-system account. No hostile-controller isolation is claimed.
 - **Reorgs:** the experiment covers a locally accepted competing bank transition,
   not live chain reorganization. Projected/queued state is never called chain
   accepted. A live implementation still needs authenticated chain state/undo.
@@ -52,3 +56,12 @@ an independent audit or a cryptographic correctness claim.
 The unchanged depth-four/16-leaf profile bounds the workload. One competing
 update and three incoming payments cannot establish unbounded throughput,
 independent users, complete financial privacy or commercial affordability.
+
+Execution completed both zero-principal histories and eight restored-key spends.
+The original stale receipt was cryptographically refused on new native effects;
+six host guards and two pending-operation controls reached their intended errors.
+The additive process check stopped both owned CUDA-job processes in 0.135 seconds,
+generated a fresh complete receipt and reverified the full history after replacing
+only its proof witness. This is a replay of the retained race state, not a second
+live payout or new chain event. Performance/fees from the original arrival pair
+must remain separate from that follow-up. No code or guard was weakened to pass.

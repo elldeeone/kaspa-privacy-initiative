@@ -22,4 +22,20 @@ p=target/'priority-withdrawal';p.mkdir()
 (p/'HOST-ONLY.json').write_text(json.dumps({'inputBincodeHex':records[3]['inputBincodeHex']}))
 PY
 "$CARGO_TARGET_DIR/release/kpi-busy-pool-payment-flow" controls "$CHECK_DIR"
+python3 poc/busy-pool-payment-flow/views.py "$RUN" "$CHECK_DIR/observer-views.json"
+python3 - "$RUN" "$CHECK_DIR/observer-views.json" <<'PY'
+import json,sys
+from pathlib import Path
+sys.path.insert(0,str(Path('poc/busy-pool-payment-flow').resolve()))
+from analyse import analyse
+run,observed=map(Path,sys.argv[1:])
+assert json.loads(observed.read_text())==json.loads((run/'OBSERVER-VIEWS.json').read_text())
+assert analyse(run)==json.loads((run/'MEASUREMENTS.json').read_text())
+print('Observer views and cost/wait measurements reproduce from retained public inputs.')
+PY
 python3 poc/busy-pool-payment-flow/analyse.py "$RUN"
+if [[ -d "$RUN/cancellation" ]]; then
+  python3 poc/busy-pool-payment-flow/verify_cancel.py "$RUN" "$RUN/cancellation/refreshed" \
+    "$CARGO_TARGET_DIR/release/kpi-busy-pool-payment-flow" \
+    "$ROOT/research/reusable-withdrawal-approvals-2026-11-06/run/program.bin"
+fi

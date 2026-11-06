@@ -80,6 +80,17 @@ or existing-bank upgrade is implied. Released consent has no wall-clock expiry;
 any complete-set holder can execute it while conditions hold. Revoke by accepted
 note spending; deleting a request does not cancel it. Backend contention remains.
 
+[ADR-0112](adr/0112-busy-pool-withdrawal-scheduling.md) adds a cooperating
+coordinator queue and isolated prover-job cancellation without changing that
+bank image, wallet relation or consent semantics. A retry retains its original
+arrival sequence; compatible waiting payments can use the existing PAYMENT
+packet. The [complete comparison](../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+shows lower native quotes/withdrawal wait but worse incoming-payment waits.
+Batching stays optional. The supplementary worker test cancels an obsolete job
+and verifies a fresh exact replacement in the retained history; transaction IDs
+and descendants survive changing only its proof witness. This installs no bank
+lock or privileged path and cannot prevent independent competing updates.
+
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
 consolidated research posture. The strong privacy requirement remains; ordinary

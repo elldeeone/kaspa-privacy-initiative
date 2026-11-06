@@ -50,6 +50,19 @@ expiry or final timing confirmation. Accepted note spending revokes it; off-chai
 cancellation does not. Timing/known-owner privacy and independent users remain
 unqualified, and combining the public solo counterfactual identifies shared keys.
 
+The [busy-payment follow-up](research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+adds cooperating queue age preservation and measured stale-worker cancellation.
+Neither is an L1 lock or spending authority. Pending requests alone do not stale
+a receipt; a genuine accepted bank change does. A live watcher must authenticate
+the winning state rather than let arbitrary request messages force cancellation.
+The supplementary timer-controlled process test reuses a retained actual race,
+not a new chain event. Incoming-payment delays worsen under the measured batch;
+independent operators can still repeatedly win the current-bank race. Actual
+identified entitlement replies disclose NFT-to-payout links. The complete IPC
+trace also contains research-controller client instructions, which must not be
+mislabelled as automatic service knowledge. No stronger privacy, production
+wallet interface, unlimited-load or independent-user qualification follows.
+
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
 **Active scope, 5 November:** unchanged Kaspa consensus under

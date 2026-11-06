@@ -77,3 +77,23 @@ a different withdrawal order. Both include an extra self-payment and two solo
 exits; neither number is the price of a quiet batch or a collision alone. Fresh
 backend proving remains necessary (19.60 minutes across the main five receipts);
 no complete commercial price or two-percent qualification follows.
+
+## Complete busy-payment comparison and cancellation
+
+The [four-wallet experiment](../../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+quotes 0.830131 versus 1.154101 KAS for the same complete 47-useful-KAS workload
+(1.7662% versus 2.4555%). Both histories withdraw all 40 KAS of principal; refunds
+are not fees. Native savings are 28.07%, while incoming proof-readiness waits
+worsen from 5–8 to 12–20 minutes. Preserve that latency tradeoff. The original
+paired comparison deliberately completes obsolete work for its negative control.
+A separate genuine cancellation/fresh-proof check completes in 7.80 minutes,
+versus the original 14.63-minute withdrawal path. It is not a repeated full-arrival
+comparison; earlier completion can change the available payment batch size.
+
+Including discarded work, the frozen hypothetical $0.13/hour/KAS-USD-0.02987
+native-plus-proof-only subtotals are 8.89% and 9.62%. These are not current offers,
+invoices or complete service costs. Wallet loading/CPU, optional registration,
+operations/availability and whole-host costs remain unpriced. Sixteen actual
+wallet proofs and eight restored-key native spends are separately counted;
+the latter ordinary spend controls quote 0.021008 KAS. No new complete-cost pass,
+paid-chain result or universal unusability conclusion follows.

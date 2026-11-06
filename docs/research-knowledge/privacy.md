@@ -2,6 +2,18 @@
 
 [Knowledge guide](README.md) · [Authoritative corrections](../RESEARCH-LESSONS.md)
 
+The [busy-payment study](../../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+adds usability evidence without retesting protected registration. Its identified
+entitlement replies explicitly return NFT and payout together, fixing the mapping
+at one. The full controller trace also contains local client payment instructions;
+do not silently treat those as normal withdrawal-service knowledge. The published
+observer views derive the mapping from actual registration replies alone. The
+known-contact/ordinary-change control reconstructs the initial 20/10/10 amounts
+under its supplied workload facts; it does not infer every later payment or use
+private instruction amounts as observer data. Faster retries and fewer approvals
+do not themselves increase a privacy score. Keep earlier protected-origin views
+and stronger known-owner/global timing failures separately scoped.
+
 **Current direction, 5 November:** [ADR-0105](../adr/0105-maximize-privacy-without-consensus-changes.md)
 requires maximum feasible privacy without consensus changes. Carry the negative
 results below into the [current-rule comparison](../../research/current-rules-privacy-options-2026-11-05.md)

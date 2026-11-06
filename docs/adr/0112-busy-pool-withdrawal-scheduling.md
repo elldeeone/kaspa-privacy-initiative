@@ -1,6 +1,6 @@
 # ADR-0112: bounded busy-pool withdrawal scheduling
 
-Status: experiment selected, not a production or privacy qualification.
+Status: bounded offline experiment evaluated; no production/privacy qualification.
 Date: 2026-11-06. Supersedes no security invariant or prior negative result.
 
 The owner authorized testing concurrent arrivals, fixing the queue if necessary,
@@ -27,3 +27,15 @@ The detailed frozen selection is
 [here](../../research/busy-pool-payment-flow-2026-11-06/SELECTION.md).
 This adds no cryptography, mixed transaction mode, privileged lock or wallet
 circuit change. Same-host wallet processes do not establish independent users.
+
+The [executed result](../../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+quotes 28.07% fewer native fees and 34.43% less withdrawal wait for the tested
+batch, while new payments wait 12–20 minutes instead of 5–8. Both histories end
+with zero principal/liability and restored native keys spend all eight payouts.
+The separately selected stale-worker cancellation/fresh-proof control completes
+in 7.80 minutes with unchanged original approvals, native IDs and descendants.
+Do not combine these as one measured optimized arrival trace. Keep the privacy
+mechanism/reusable consent and optional batching; stop stale work promptly and
+retain original queue age. Proving latency and full costs need further work
+within the shared direction before a broader trial. No existing bank upgrade,
+funded testnet trial, chain acceptance or security audit is claimed.

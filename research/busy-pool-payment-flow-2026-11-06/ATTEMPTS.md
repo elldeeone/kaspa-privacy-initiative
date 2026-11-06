@@ -17,3 +17,17 @@ for every operation. No crypto check was relaxed. Persistent per-wallet actors
 now check/load their public parameters once, reuse them in that process, and
 restart from their own backups before payout-spend controls. This keeps cold
 loading visible without imposing it on every ordinary wallet operation.
+
+Complete host preflight `57e8bc37-dae2-4631-ac3e-68e7e16d16a8` passed both
+drainage paths; it created no outer receipts/native acceptance. The six added
+guard controls were separately checked against its actual public group input.
+
+The frozen genuine campaign `3e5c9883-0ab1-41ae-b083-36c41db73459` completed
+eleven proving executions and both Full-validated histories. Its source freeze
+precedes the source checkpoint `0f2735c4`; exact producing source hashes match.
+Post-execution analysis/export helpers are separate from that producing epoch.
+
+Supplement `a4c97494-4197-4894-92f4-b6ff3098cff6` completed owned-worker
+cancellation and a fresh fully reverified replacement. Its own source freeze
+includes the runner/checker and the unchanged original program/host identities.
+The public package retains both epochs and the original obsolete receipt.

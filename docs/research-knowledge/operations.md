@@ -44,3 +44,27 @@ that unresolved historical publication assessment with its components.
 The local archive preserves original worktree data and rejected patches. It is
 on the same machine, not an off-host backup. Neither frozen text here nor its
 checksum authorizes funding, broadcasting, rental or restarting paused MPC.
+
+## Busy prover jobs
+
+The [executed queue/cancellation test](../../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+adds two operational lessons. Copy an executable before self-spawning from a
+long campaign: rebuilding the live path produced a deleted `current_exe` and
+stopped the first preflight. Cache already fully checked public parameters inside
+each wallet process; do not reload/recheck them for every routine request.
+No cryptographic check was removed.
+
+Freeze a prover work item, retain its original request age on retry, and never
+promote projected children to accepted state before their parents validate.
+Pending requests do not stale proofs. When an authenticated bank advance makes
+work obsolete, terminate only the owned isolated process group; record child
+identities and confirm owned CUDA workers stop before replacement work starts.
+The measured process control stops after 30.398 seconds, cleans up in 0.135,
+and produces a fresh fully reverified replacement without new owner approvals.
+Its timer replays an already retained real race; it is not another chain event.
+
+Native IDs exclude proof witnesses, enabling exact-body replacement and child
+reuse only when input/image/journal/body/payload remain identical. The published
+replay checks this across the complete native history. Preserve original failed
+work and separate source epochs. Frozen documents are retained byte-exact as
+`.md.txt` snapshots so relocated historical links do not become live doc links.

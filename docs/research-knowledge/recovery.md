@@ -2,6 +2,15 @@
 
 [Knowledge guide](README.md) · [Architecture](architecture.md)
 
+The [busy-payment follow-up](../../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+uses four wallet processes, restarts them from their own backups, and Full-validates
+spending all eight actual payout outputs in its offline history. Both alternative
+histories end with zero principal/liability. Public replay connects each spend to
+its real recorded ancestor and needs neither wallet backups nor proving parameters.
+This verifies the selected backup/key path, not independent people, hostile-host
+isolation, production transaction review or all-service-loss recovery. The same
+public parameters, ciphertext history and software still need availability.
+
 ## Recoverability depends on available data
 
 The core retained failure is [missing-parameter investigation](documents/203ff134e8bff0bc6e049227675f5ab4056b2124.txt): an old instance's proofs could

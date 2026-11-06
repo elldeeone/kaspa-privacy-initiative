@@ -21,6 +21,18 @@ remain unqualified. No circuit/setup/consensus/invariant change or old-bank upgr
 
 ## Question and specific replacement
 
+The [busy-payment experiment](../../research/busy-pool-payment-flow-2026-11-06/RESULT.md)
+under [ADR-0112](../adr/0112-busy-pool-withdrawal-scheduling.md) retains the same
+program and original approvals across an actual accepted advance during proving.
+Request age survives retries and waiting payments batch through existing PAYMENT
+semantics. The complete paired histories drain all principal; native quote and
+withdrawal savings come with worse incoming-payment waits. A separate genuine
+worker-cancellation/fresh-proof check preserves the entire native history and
+original approvals. It is not a new full-arrival benchmark. Current spentness,
+accepted anchors, complete fee/payout consent and fresh exact receipts remain
+mandatory. Independent races, complete costs/privacy and live-trial readiness
+remain open. Keep batching optional; no consensus, circuit or setup change.
+
 Can wallets approve the same complete payout transaction without publishing a
 per-wallet destination, while an actual registration protocol keeps that
 assignment out of the coordinator's application transcript?
