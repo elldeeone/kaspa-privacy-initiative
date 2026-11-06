@@ -91,3 +91,14 @@ cannot replace an existing instance's missing public parameters.
 Keep the one-v6 compatibility/control branches and [orchestration record](documents/44291489bf0e020e23b7bf0ba5e92a329ea5c0d9.txt) as a record
 of what was built, what was blocked and what was merely proposed. An unbuilt
 adapter or bounded source acceptance is not runtime qualification.
+
+
+## Reusable withdrawal approvals
+
+The [reusable-intent experiment](../../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+separates fixed owner consent from a fresh exact current-state receipt. Same
+complete wallet relation/setup; a domain-separated context binds full intent.
+Two literal original proofs survive three unrelated accepted updates, while old
+aggregate receipt/ordered-payload replays fail native cryptographic checks. Never
+interpret accepted historical note membership as current spentness or a portable
+state-transition receipt. Current NF and immutable native successor checks remain.

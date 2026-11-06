@@ -1,0 +1,200 @@
+[
+  {
+    "case": "other pool",
+    "error": "intent pool",
+    "expectedLayer": "intent pool"
+  },
+  {
+    "case": "other network/profile",
+    "error": "intent domain",
+    "expectedLayer": "intent domain"
+  },
+  {
+    "case": "other verifier",
+    "error": "intent verifier",
+    "expectedLayer": "intent verifier"
+  },
+  {
+    "case": "changed refund policy",
+    "error": "intent refund policy",
+    "expectedLayer": "intent refund policy"
+  },
+  {
+    "case": "zero nonce",
+    "error": "intent nonce",
+    "expectedLayer": "intent nonce"
+  },
+  {
+    "case": "changed nonce",
+    "error": "complete native effects authorization",
+    "expectedLayer": "complete native effects authorization"
+  },
+  {
+    "case": "zero principal",
+    "error": "intent denomination",
+    "expectedLayer": "intent denomination"
+  },
+  {
+    "case": "out of monetary range",
+    "error": "intent denomination",
+    "expectedLayer": "intent denomination"
+  },
+  {
+    "case": "aggregate overflow/range",
+    "error": "intent aggregate range",
+    "expectedLayer": "intent aggregate range"
+  },
+  {
+    "case": "zero cap",
+    "error": "intent fee bound",
+    "expectedLayer": "intent fee bound"
+  },
+  {
+    "case": "over hard cap",
+    "error": "intent fee bound",
+    "expectedLayer": "intent fee bound"
+  },
+  {
+    "case": "fee above consent",
+    "error": "intent fee cap",
+    "expectedLayer": "intent fee cap"
+  },
+  {
+    "case": "unaccepted historical root",
+    "error": "intent accepted reference anchor",
+    "expectedLayer": "intent accepted reference anchor"
+  },
+  {
+    "case": "different accepted anchor",
+    "error": "intent reference anchor binding",
+    "expectedLayer": "intent reference anchor binding"
+  },
+  {
+    "case": "missing cohort member",
+    "error": "joint branch cohort",
+    "expectedLayer": "joint branch cohort"
+  },
+  {
+    "case": "duplicate economic claim",
+    "error": "intent exact claim set",
+    "expectedLayer": "intent exact claim set"
+  },
+  {
+    "case": "substituted cohort note",
+    "error": "intent exact claim set",
+    "expectedLayer": "intent exact claim set"
+  },
+  {
+    "case": "noncanonical claims",
+    "error": "intent canonical distinct claims",
+    "expectedLayer": "intent canonical distinct claims"
+  },
+  {
+    "case": "duplicate intended claim",
+    "error": "intent canonical distinct claims",
+    "expectedLayer": "intent canonical distinct claims"
+  },
+  {
+    "case": "noncanonical payout set",
+    "error": "intent canonical distinct payouts",
+    "expectedLayer": "intent canonical distinct payouts"
+  },
+  {
+    "case": "duplicate payout",
+    "error": "intent canonical distinct payouts",
+    "expectedLayer": "intent canonical distinct payouts"
+  },
+  {
+    "case": "malformed payout",
+    "error": "intent standard payouts",
+    "expectedLayer": "intent standard payouts"
+  },
+  {
+    "case": "strip intent into old branch",
+    "error": "complete native effects authorization",
+    "expectedLayer": "complete native effects authorization"
+  },
+  {
+    "case": "reinterpret as named",
+    "error": "intent requires joint mode",
+    "expectedLayer": "intent requires joint mode"
+  },
+  {
+    "case": "malformed genuine proof",
+    "error": "encoding/arity",
+    "expectedLayer": "encoding/arity"
+  },
+  {
+    "case": "changed actual recipient",
+    "error": "intent actual payout set",
+    "expectedLayer": "intent actual payout set"
+  },
+  {
+    "case": "compensated principal changes",
+    "error": "intent actual payout set",
+    "expectedLayer": "intent actual payout set"
+  },
+  {
+    "case": "native input out of range",
+    "error": "native input range",
+    "expectedLayer": "native input range"
+  },
+  {
+    "case": "underbacked native input",
+    "error": "native input backing",
+    "expectedLayer": "native input backing"
+  },
+  {
+    "case": "zero native output",
+    "error": "native output range",
+    "expectedLayer": "native output range"
+  },
+  {
+    "case": "native inflation",
+    "error": "native value inflation",
+    "expectedLayer": "native value inflation"
+  },
+  {
+    "case": "genuine spent cohort note with enough other backing",
+    "error": "current economic nullifier spent",
+    "expectedLayer": "current economic nullifier spent"
+  },
+  {
+    "case": "changed approved recipient set",
+    "error": "complete native effects authorization",
+    "expectedLayer": "complete native effects authorization"
+  },
+  {
+    "case": "raise cap without fresh consent",
+    "error": "complete native effects authorization",
+    "expectedLayer": "complete native effects authorization"
+  },
+  {
+    "case": "actual fee exceeds unchanged approved cap",
+    "error": "intent fee cap",
+    "expectedLayer": "intent fee cap"
+  },
+  {
+    "case": "attempt fee from principal",
+    "error": "fee allowance/principal separation",
+    "expectedLayer": "fee allowance/principal separation"
+  },
+  {
+    "case": "native output sum overflow",
+    "error": "native output sum overflow",
+    "expectedLayer": "native output sum overflow"
+  },
+  {
+    "case": "zero unused allowance, unchanged approvals",
+    "hostKernelAccepted": true,
+    "nativeReceiptForThisBoundaryCreated": false
+  },
+  {
+    "case": "strict packet trailing bytes",
+    "rejected": true
+  },
+  {
+    "case": "no claim-position to payout-position ownership map",
+    "operationPermutationAccepted": true
+  }
+]

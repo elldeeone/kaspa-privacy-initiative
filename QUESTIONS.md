@@ -4,6 +4,14 @@ The initiative should treat these as questions to answer, not conclusions to def
 
 ## Active question — 6 November 2026
 
+The [reusable-intent result](research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+now removes the selected repeated-wallet-approval failure: the same two original
+proofs survive three unrelated updates while exact current native receipts remain
+fresh. The next unresolved contention question is backend proof/serialized bank
+progress, not owner consent refresh for unchanged intents. Complete service costs,
+independent users, authorization timing control and known-owner privacy remain
+open; no consensus change, admin lock or invariant amendment is selected.
+
 The [requester follow-up](research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
 now tests the identity-free service interface over real onion transport. Its
 conditional service-origin benefit does not survive labelled client timing or

@@ -68,6 +68,18 @@ attacks. An isolated fixed-key guest reuses the existing checked-before-pinning
 optimization. It binds a new bank image and does not upgrade old banks or change
 the wallet relation, native verifier, exact effect binding or consensus.
 
+The subsequent [reusable-intent result](../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+under [ADR-0111](adr/0111-reusable-withdrawal-intents.md) adds an explicit optional
+joint branch. Owner proofs bind a fixed pool/config, historical reference root,
+full independent claim/payout sets, nonce and aggregate fee cap. Current Ledger
+spentness and accepted anchors remain; a fresh aggregate/native proof still binds
+exact current old/new state, input/value, outputs, ordered payload and immutable
+successor. The same original consent bytes pass after three unrelated updates,
+including a continuation-to-terminal change. No circuit/setup/invariant change
+or existing-bank upgrade is implied. Released consent has no wall-clock expiry;
+any complete-set holder can execute it while conditions hold. Revoke by accepted
+note spending; deleting a request does not cancel it. Backend contention remains.
+
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
 consolidated research posture. The strong privacy requirement remains; ordinary

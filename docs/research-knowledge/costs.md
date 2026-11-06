@@ -66,3 +66,14 @@ Tor/operator/availability remain unpriced. No two-percent complete-cost pass.
 An unrelated accepted update wastes 18.465 seconds of two owner approvals, with
 no stale-transaction fee. The 0.821538-KAS stress-route quote also includes an
 extra self-payment and two solo exits: do not attribute all of it to contention.
+
+
+## Reusable withdrawal approvals
+
+The [reusable approval stress route](../../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+needs zero new cohort approvals after three unrelated updates. Main native fees
+are 0.821919 KAS, 0.000381 KAS above the earlier comparable stress route, which has
+a different withdrawal order. Both include an extra self-payment and two solo
+exits; neither number is the price of a quiet batch or a collision alone. Fresh
+backend proving remains necessary (19.60 minutes across the main five receipts);
+no complete commercial price or two-percent qualification follows.

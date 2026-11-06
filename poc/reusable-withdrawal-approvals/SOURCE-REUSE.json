@@ -1,0 +1,17 @@
+{
+  "generatedSha256": {
+    "common/src/lib.rs": "2aaf48d8b297bd9c0931271618dc9c3a866effd71aea07fa568a60fe693cdb21",
+    "host/src/legacy_bench.rs": "d554e8dbc34cd8efa0540e9d92db55ba6fb9303c0b81b6e2b6267f61ad76266d"
+  },
+  "kernelChanges": [
+    "use serde::{Deserialize, Serialize};",
+    "    pub operations: Vec<Operation>,\n}",
+    "    let context = e.context(before.root());",
+    "s.exit_destination == context,",
+    "    for (i, op) in packet.operations.iter().enumerate().filter(|_| withdrawing) {"
+  ],
+  "kernelSource": "poc/withdrawal-followup/common/src/lib.rs",
+  "kernelSourceSha256": "5297927f19f3245a843c2184cda6288a273948890291abbb6efdf4022fe051e0",
+  "legacyBenchmarkSha256": "310d5c055dabc7733c1c07ed936577ccdcb0ecf510637c301f95ba9a016beccc",
+  "legacyBenchmarkSource": "poc/batched-payment-costs/host/src/bench.rs"
+}

@@ -38,6 +38,18 @@ A genuine unrelated payment invalidates outstanding approvals despite untouched
 cohort notes; fresh retry and restored independent exits recover all principal.
 This safe collision test does not establish liveness under sustained contention.
 
+The [optional reusable intent](research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+separates fixed owner consent from exact current-state settlement. Pool/config,
+reference anchor, complete claim/payout sets, nonce and aggregate fee cap remain
+bound; current spentness and fresh native effects/receipt cannot be cached away.
+Actual old-receipt/payload replay and changed successor controls refuse. The
+selected wallet reapproval failure is fixed across three unrelated updates;
+backend serialization/proving races are not. Released complete consent can be
+executed by any holder while its conditions remain true, without wall-clock
+expiry or final timing confirmation. Accepted note spending revokes it; off-chain
+cancellation does not. Timing/known-owner privacy and independent users remain
+unqualified, and combining the public solo counterfactual identifies shared keys.
+
 **Status:** initial research draft. This document should become more precise as architecture choices are made.
 
 **Active scope, 5 November:** unchanged Kaspa consensus under

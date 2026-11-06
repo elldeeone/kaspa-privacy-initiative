@@ -64,3 +64,13 @@ qualified state. It adds no fresh-node fast-sync trust shortcut. The
 anchors and global markers when a depth-32 tree fills; old notes are not moved
 into a new NF namespace. Permanent data costs and real cold recovery remain
 unqualified, and the fixed mathematical key capsule is not a native importer.
+
+
+## Reusable withdrawal approvals
+
+The [reusable approval follow-up](../../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+retains owner-only exits and current nullifiers. A genuine accepted cohort-note
+spend revokes that old intent even when sufficient other users' backing remains.
+Off-chain cancellation/nonce replacement does not revoke published consent.
+Removed historical anchors or unavailable parameters/history still require
+recovery/refresh; this is not independent all-service-loss qualification.

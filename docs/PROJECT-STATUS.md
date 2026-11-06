@@ -37,6 +37,19 @@ the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
 
+**6 November reusable approval fix:** the
+[fixed-intent experiment](../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+keeps the optional common-set payout mechanism and reuses two original wallet
+approvals after a genuine private payment and two unrelated owner withdrawals.
+The same bytes authorize both continuing and now-terminal payouts. Seven complete
+receipts/eight distinct native Full transactions independently replay; the main
+bank ends at zero principal/liability. Current spentness, exact payout/fee caps
+and fresh current-state receipts remain mandatory. Main stress-route fees rise
+0.000381 KAS versus the earlier comparable route. This fixes bounded wallet
+reapproval, not backend serialization/reproving, timing control, independent
+users or complete financial privacy. [ADR-0111](adr/0111-reusable-withdrawal-intents.md)
+explicitly preserves I-6 and all security invariants; no consensus change.
+
 **6 November requester follow-up:** the
 [identity-free request test](../research/withdrawal-request-and-busy-pool-2026-11-06/RESULT.md)
 uses genuine wallet eligibility and blind registration over an actual Tor onion

@@ -3,6 +3,22 @@
 **Status:** Open; finite unfunded diagnostic authorized by the owner, no production
 architecture selected. **Date:** 5 November 2026 (Australia/Sydney).
 
+## 6 November reusable owner consent
+
+[ADR-0111](../adr/0111-reusable-withdrawal-intents.md) and the
+[executed result](../../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+add a new explicit optional intent branch. It commits fixed pool/config,
+historical anchor, nonce, full distinct independently sorted claim/payout sets,
+equal denomination and aggregate fee cap. The current Ledger checks unspentness;
+a fresh aggregate/native receipt still binds exact current state/input/effects,
+ordered packet and immutable successor. Original approval bytes survive three
+unrelated updates, including a terminal-shape change. Changed economic consent,
+spent claims, missing accepted anchors and insufficient cap/allowance still refuse.
+Old exact-effect/solo/named/refund branches and historical failures remain.
+Released consent is executable without a final timing confirmation while valid;
+revocation requires accepted note spending. Backend contention and timing privacy
+remain unqualified. No circuit/setup/consensus/invariant change or old-bank upgrade.
+
 ## Question and specific replacement
 
 Can wallets approve the same complete payout transaction without publishing a

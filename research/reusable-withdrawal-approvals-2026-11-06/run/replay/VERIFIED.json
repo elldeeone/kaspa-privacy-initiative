@@ -1,0 +1,87 @@
+{
+  "changedOrderedPayloadNativeCryptoRejection": "full:SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))",
+  "continuingCounterfactual": {
+    "finalLiabilitySompi": 1000000000,
+    "finalReserveSompi": 1000000000,
+    "receipts": [
+      {
+        "feeSompi": 16478800,
+        "name": "initial",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16298100,
+        "name": "unrelated-payment",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16444700,
+        "name": "continuing-intent",
+        "nativeFull": true
+      }
+    ],
+    "sourceValueSompi": 3300000000
+  },
+  "distinctCompleteReceipts": 7,
+  "distinctNativeFullTransactions": 8,
+  "literalWalletApprovalBytesUnchanged": true,
+  "main": {
+    "finalLiabilitySompi": 0,
+    "finalReserveSompi": 0,
+    "receipts": [
+      {
+        "feeSompi": 16478800,
+        "name": "initial",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16298100,
+        "name": "unrelated-payment",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16302300,
+        "name": "alice-solo-first",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16302300,
+        "name": "alice-solo-last",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16442600,
+        "name": "terminal-intent",
+        "nativeFull": true
+      }
+    ],
+    "sourceValueSompi": 3300000000
+  },
+  "newCohortIntentApprovalsAfterUpdates": 0,
+  "newProcess": true,
+  "privateWalletsIssuerOrProvingParametersRead": false,
+  "scope": "supplied synthetic funding source; no accepted live chain or sustained-contention claim",
+  "spentNoteCounterfactual": {
+    "finalLiabilitySompi": 2000000000,
+    "finalReserveSompi": 2000000000,
+    "receipts": [
+      {
+        "feeSompi": 16478800,
+        "name": "initial",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16298100,
+        "name": "unrelated-payment",
+        "nativeFull": true
+      },
+      {
+        "feeSompi": 16302300,
+        "name": "spent-note-control",
+        "nativeFull": true
+      }
+    ],
+    "sourceValueSompi": 3300000000
+  },
+  "staleReceiptNativeCryptoRejection": "full:SignatureInvalid(ZkIntegrity(\"Groth16 verification failed\"))"
+}

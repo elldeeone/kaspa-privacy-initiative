@@ -102,3 +102,13 @@ identified withdrawal amounts remain in real eligibility proofs: this is not a
 six-payment-history result. Prior destinations/origins/randomizers and
 all-but-one knowledge defeat the gain. Retain refunds and public prover state;
 do not call the same-host counterfactual study independent-network privacy.
+
+
+## Reusable withdrawal approvals
+
+The [reusable consent branch](../../research/reusable-withdrawal-approvals-2026-11-06/RESULT.md)
+adds no direct claim-to-payout field: its two honest-owner fixture retains two
+assignments, collapsing with participant/public solo knowledge. Fewer approval
+messages are not a larger privacy score. The stable round/claim set remains
+linkable, and complete released consent can be executed later by any holder while
+valid; timing privacy and independent clients remain unqualified.
