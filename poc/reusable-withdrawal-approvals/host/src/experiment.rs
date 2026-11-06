@@ -736,4 +736,3 @@ fn campaign(program_path: &Path, core: &Path, out: &Path, host_only: bool) -> Re
     eprintln!("INTENT_CAMPAIGN_COMPLETE host_only={host_only} fee_sompi={fees}");
     Ok(())
 }
-
