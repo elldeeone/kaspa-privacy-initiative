@@ -1,5 +1,15 @@
 # Privacy lessons
 
+The [7 November separated-role test](../../research/separated-withdrawal-2026-11-07/RESULT.md)
+retains six structural mappings for an honest service, but its frozen order guess
+matched all three once. A malicious issuer's different round IDs identify all
+three keys despite genuine final approvals and unchanged kernel acceptance.
+The observer used actual service messages, not owner-local truth. Enforce the
+existing common-configuration requirement before payout-key disclosure; final
+approval is too late to retract a leaked key. The repair and statistical timing
+study remain open. The privacy gate failed and cost work was not started. No
+independent-machine or native-chain result follows from these same-host controls.
+
 The [7 November combined path](../../research/cached-approval-verification-2026-11-07/RESULT.md)
 keeps blinding state and native payout secrets inside each wallet process, with
 no labelled redemption result exported to its driver. Actual registration-service

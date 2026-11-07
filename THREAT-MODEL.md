@@ -1,5 +1,17 @@
 # Threat Model
 
+The [separated-wallet/service comparison](research/separated-withdrawal-2026-11-07/RESULT.md)
+finds an active configuration-tagging leak: one issuer supplies different round
+IDs, derives all three claimant/payout-key links, and still obtains genuine
+whole-set approvals accepted by the unchanged economic kernel. No wallet files
+or controller truth were available to its observer. Common configuration is an
+existing requirement whose client enforcement is missing here. Under
+[ADR-0114](docs/adr/0114-round-agreement-before-payout-disclosure.md), verify
+agreement before key disclosure; an approval-time check alone is too late.
+The honest arm's order guess also matched all three once, without statistical
+timing qualification. Separate same-host containers are not independent machines,
+host-root isolation or global-traffic anonymity. No conditional cost work starts.
+
 The [7 November verification-cache experiment](docs/adr/0113-cached-wallet-proof-verification.md)
 reuses only static proof validity. A new settlement image pins the authorization
 image, complete packet/domain/pool/key commitment and actual Proven Succinct

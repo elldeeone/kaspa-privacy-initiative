@@ -3,6 +3,22 @@
 **Status:** Open; finite unfunded diagnostic authorized by the owner, no production
 architecture selected. **Date:** 5 November 2026 (Australia/Sydney).
 
+## 7 November common-configuration enforcement failure
+
+The [separated-role test](../../research/separated-withdrawal-2026-11-07/RESULT.md)
+checks the existing common-configuration requirement against an active issuer.
+One public key and different per-wallet round IDs are enough to identify all
+three payout keys from actual messages. Current wallets still authorize the
+common set and the unchanged economic kernel accepts it. This is host-kernel
+evidence, not a new native receipt or chain trial. The honest service view retains
+six exact-fact mappings, but the selected order guess matched all three once.
+
+[ADR-0114](../adr/0114-round-agreement-before-payout-disclosure.md) stops cost
+work. Open requirement: enforce agreement on common configuration before wallets
+disclose payout addresses, without silently trusting a shared bulletin or adding
+consensus rules. Merely checking at final approval is too late. A separate timing
+test remains necessary. No repair is implemented by recording this failure.
+
 ## 7 November static verification cache
 
 The owner authorized [ADR-0113](../adr/0113-cached-wallet-proof-verification.md):

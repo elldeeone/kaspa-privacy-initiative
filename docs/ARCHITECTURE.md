@@ -2,6 +2,16 @@
 
 **Status:** exploratory. No production architecture has been selected.
 
+The [separated-role test](../research/separated-withdrawal-2026-11-07/RESULT.md)
+shows that moving wallets out of the service's filesystem does not enforce a
+common registration round. A dishonest issuer's per-wallet round IDs reveal all
+three payout owners while genuine whole-set approvals still pass the unchanged
+economic kernel. [ADR-0114](adr/0114-round-agreement-before-payout-disclosure.md)
+requires agreement checks before address disclosure; the repair is unimplemented.
+The honest test also retained a successful order guess, so timing privacy remains
+unqualified. Conditional cost work stops. These are offline same-host role tests,
+with no native-program or consensus change.
+
 **Active work selection:** [ADR-0106](adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)
 sets contribution to the shared upstream KPI/Based App investigation as the
 default. A separate direction must earn a measured privacy advantage against

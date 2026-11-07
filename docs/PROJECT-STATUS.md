@@ -37,6 +37,22 @@ the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
 
+**7 November separated wallets/service: privacy gate failed.** The
+[new comparison](../research/separated-withdrawal-2026-11-07/RESULT.md) uses four
+wallets and one service in separate unprivileged containers/network namespaces,
+with actual denied backup-file reads and genuine private payment/approval proofs.
+The honest service view has six structural payout-owner mappings, but the fixed
+order guess matched all three in its single sample: no timing qualification.
+A dishonest service gave each wallet a different round ID under one issuer key,
+then identified all three payout owners from its actual wire messages. All three
+wallets approved the set and the unchanged economic kernel accepted it. This is
+offline host execution, not new native Full or chain acceptance. Under
+[ADR-0114](adr/0114-round-agreement-before-payout-disclosure.md), stop conditional
+cost work and enforce common configuration before payout-key disclosure, then
+retest active tagging and timing. The fix remains unimplemented. Cached
+verification and optional batching remain useful; no consensus change or
+complete financial-privacy qualification follows.
+
 **7 November cached verification and complete rehearsal:** the
 [executed result](../research/cached-approval-verification-2026-11-07/RESULT.md)
 checks original wallet proofs once (419.00 s), then proves a fresh exact retry in
