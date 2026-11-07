@@ -1,5 +1,28 @@
 # Threat Model
 
+The [7 November verification-cache experiment](docs/adr/0113-cached-wallet-proof-verification.md)
+reuses only static proof validity. A new settlement image pins the authorization
+image, complete packet/domain/pool/key commitment and actual Proven Succinct
+receipt. Current accepted anchors, spent notes, deposits, conservation, fee caps
+and exact native effects remain freshly checked. Missing cache availability
+permits recreation from the public packet or direct full verification; it permits
+no unchecked fallback. A Claim-only/conditional receipt is not spending authority.
+The final native claim must be successful, complete and unconditional. This
+requires a new bank and upgrades no old bank. Dedicated TN10 experimental
+one-party parameters are distinct from the old offline profile and remain
+unqualified for production. The cache improves no anonymity by itself.
+The combined run keeps wallet blinding state and payout secrets in each actor;
+service logs, private controller instructions and later owner-disclosure controls
+are separate observer facts. Same-host actors, labelled request order, participant
+knowledge, collusion and transparent amounts remain explicit limitations.
+
+The fresh TN10 rehearsal now verifies unchanged approvals after an actual accepted
+private update, complete terminal principal payout and five accepted restored-key
+spends, with independent synchronized UTXO corroboration. This remains one-host
+custody and latest-full-backup recovery. The actual Claim-only negative is refused
+by SDK 3.0.3 before receipt generation; native conditional-proof execution is not
+claimed. Complete privacy, independent recovery and production setup remain open.
+
 Current qualifications and corrected privacy findings are in
 [project status](docs/PROJECT-STATUS.md). Legitimate payout-owner knowledge and
 full transparent drainage remain in scope; confidential on-domain state does not

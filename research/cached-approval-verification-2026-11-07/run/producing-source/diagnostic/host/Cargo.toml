@@ -1,0 +1,46 @@
+[package]
+name = "kpi-cached-approval-verification"
+version = "0.1.0"
+edition = "2024"
+publish = false
+build = "../../reusable-withdrawal-approvals/host/build.rs"
+
+[dependencies]
+ark-bn254 = "=0.5.0"
+ark-ff = "=0.5.0"
+ark-ec = "=0.5.0"
+ark-groth16 = "=0.5.0"
+ark-relations = "=0.5.1"
+ark-r1cs-std = "=0.5.0"
+ark-crypto-primitives = { version = "=0.5.0", features = ["crh", "r1cs"] }
+ark-serialize = "=0.5.0"
+rand = "=0.8.5"
+sha2 = "=0.10.9"
+hmac = "=0.12.1"
+hex = "=0.4.3"
+serde_json = "=1.0.145"
+secp256k1 = { version = "=0.29.1", features = ["rand-std"] }
+blind-rsa-signatures = { git = "https://github.com/jedisct1/rust-blind-rsa-signatures", rev = "640084d82abd5bbe48c65c3d8e6f647c8963ec73" }
+kaspa-consensus-core = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "4863866fce8439d0305b410fc4d802e7261d54d0" }
+kaspa-hashes = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "4863866fce8439d0305b410fc4d802e7261d54d0" }
+kaspa-txscript = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "4863866fce8439d0305b410fc4d802e7261d54d0" }
+kaspa-txscript-errors = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "4863866fce8439d0305b410fc4d802e7261d54d0" }
+
+kpi-private-note-wallet = { path = "../../private-note-wallet", features = ["privacy-experiment-depth-4"] }
+
+kpi-batched-payment-core = { package = "kpi-cached-verification-core", path = "../common" }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["client", "disable-dev-mode"] }
+risc0-binfmt = "=3.0.4"
+risc0-zkos-v1compat = "=2.2.2"
+risc0-groth16 = "=3.0.4"
+bincode = "=1.3.3"
+serde = { version = "=1.0.228", features = ["derive"] }
+kaspa-consensus = { git = "https://github.com/kaspanet/rusty-kaspa", rev = "4863866fce8439d0305b410fc4d802e7261d54d0" }
+[build-dependencies]
+ark-bn254 = "=0.5.0"
+ark-groth16 = "=0.5.0"
+ark-serialize = "=0.5.0"
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["client", "disable-dev-mode"] }
+risc0-groth16 = "=3.0.4"
+bincode = "=1.3.3"
+sha2 = "=0.10.9"

@@ -1,5 +1,33 @@
 # Cost and performance lessons
 
+## 7 November reusable verification and corrected cache comparison
+
+The [cached-verification result](../../research/cached-approval-verification-2026-11-07/RESULT.md)
+measures 419.00 seconds upfront, then 30.53 seconds fresh versus 445.73 seconds
+direct for the same input/image. Initial total is 449.53 seconds: no first-use
+saving, with reuse break-even at the second attempt. Native fees are unchanged.
+Do not call this faster new payments or general throughput.
+
+The combined 47-useful-KAS workload batches two pending payments, then one,
+rather than waiting for all three. Native quotes are 0.992104 versus 1.154087 KAS
+(14.04% lower). Both complete histories drain 40 KAS, with eight restored-key
+spends each. First incoming proof readiness waits 143.72 seconds longer; the
+other two clear about twelve seconds sooner. Keep batching optional.
+
+The original reference borrowed candidate-created third-payment/final-exit
+certificates, biasing queue times. Preserve it, and use the separate empty-cache
+reference that actually recreates all four post-prefix certificates with the
+same native IDs. Charge each arm's own measured cold work; sharing all cache
+reports by packet hash can also silently overwrite cost measurements.
+
+Cold creation/fresh proving/cancellation total 2,372.06 versus 2,386.69 seconds.
+The old frozen USD 0.13/hour and KAS/USD 0.02987 illustrative native-plus-outer-proof
+subtotals are 8.21% versus 8.59%, before wallet/onion/operator/whole-host costs.
+Nineteen genuine wallet proofs total 413.12 inclusive call seconds; some overlap
+outer proving. Setup takes 48.65 seconds; eight recovery-control spends quote
+0.021008 KAS separately. Native fees alone exceed 2% at this workload. No complete commercial
+cost qualification or larger-value amortization result follows.
+
 [Knowledge guide](README.md) · [Proof evidence](proofs.md)
 
 ## Keep profiles and denominators together

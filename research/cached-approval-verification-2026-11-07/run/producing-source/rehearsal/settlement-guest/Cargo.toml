@@ -1,0 +1,16 @@
+[package]
+name = "kpi-cached-settlement-guest"
+version = "0.1.0"
+edition = "2021"
+publish = false
+[workspace]
+
+[features]
+default = ["offline"]
+offline = ["kpi-batched-payment-core/offline"]
+testnet = ["kpi-batched-payment-core/testnet"]
+
+[dependencies]
+kpi-batched-payment-core = { package = "kpi-cached-verification-core", path = "../common", default-features = false }
+risc0-zkvm = { version = "=3.0.3", default-features = false, features = ["std", "disable-dev-mode"] }
+bincode = "=1.3.3"

@@ -1,4 +1,4 @@
-# Project status — 6 November 2026
+# Project status — 7 November 2026
 
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
@@ -36,6 +36,32 @@ The [remote cleanup](research-history/remote-retirement-2026-11-03.json) retired
 the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
+
+**7 November cached verification and complete rehearsal:** the
+[executed result](../research/cached-approval-verification-2026-11-07/RESULT.md)
+checks original wallet proofs once (419.00 s), then proves a fresh exact retry in
+30.53 s versus 445.73 s direct under the same image/input. Initial total is
+449.53 s; first use saves nothing. The complete four-wallet offline comparison
+quotes 0.992104 versus 1.154087 KAS (14.04% less) for the same 47-useful-KAS
+workload; both drain 40 KAS and eight restored payouts per history replay.
+A separate empty-cache reference corrects earlier cross-arm cache sharing;
+original results stay preserved. Earliest incoming readiness waits 143.72 s
+longer with optional batching; the other two finish about twelve seconds sooner.
+Frozen native-plus-proof-only subtotals remain 8.21%/8.59%, before unpriced
+wallet/service/availability costs: no complete-cost qualification.
+
+The fresh TN10 rehearsal then pays all four test KAS principal and confirms five
+actual restored-key payout spends. The same original three approvals survive a
+real accepted private update; the current withdrawal proof takes 24.18 s.
+Four complete receipt-backed native settlements, exact accepted bodies and final
+UTXOs replay with zero reserve/liability; two independent synced routes agree.
+Paid fees across all eleven submissions are 0.678204 test KAS, including funding
+and recovery controls. The isolated registration-service view retains six key
+allocations; labelled request order/collusion/later owners reduce them to one.
+Under [ADR-0113](adr/0113-cached-wallet-proof-verification.md), retain static
+verification reuse for new experimental banks and optional batching/privacy.
+Strong financial privacy, first-use latency, full commercial costs, independent
+users/recovery and production setup remain unqualified. No consensus changes.
 
 **6 November busy-payment comparison:** the
 [complete offline test](../research/busy-pool-payment-flow-2026-11-06/RESULT.md)

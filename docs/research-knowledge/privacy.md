@@ -1,5 +1,17 @@
 # Privacy lessons
 
+The [7 November combined path](../../research/cached-approval-verification-2026-11-07/RESULT.md)
+keeps blinding state and native payout secrets inside each wallet process, with
+no labelled redemption result exported to its driver. Actual registration-service
+messages retain six allocations for three fixed eligible roles; one participant's
+own key leaves two, and all-but-one collusion leaves one. The same-host controller
+knows labelled redemption order and identifies all three. Do not silently treat
+that private harness information as isolated service knowledge, or omit it from
+the broader observer control. Published auxiliary owner controls also collapse
+the experiment. This does not hide withdrawal amounts, independently test global
+traffic anonymity or qualify complete financial privacy. Cached verification adds
+no anonymity by itself.
+
 [Knowledge guide](README.md) · [Authoritative corrections](../RESEARCH-LESSONS.md)
 
 The [busy-payment study](../../research/busy-pool-payment-flow-2026-11-06/RESULT.md)

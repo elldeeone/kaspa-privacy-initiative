@@ -1,0 +1,41 @@
+{
+  "controls": [
+    {
+      "case": "wrong authorization image",
+      "error": "claim digest does not match the expected digest 02e6e8ffe1a9e3ba727af3ca759a3d11027066958ceec47d0672ff260aef05fd; expected dfa2e16b8a88403576317fad6d73468a7aead48c215cc5b568e808e84f82e1c1"
+    },
+    {
+      "case": "purpose or domain changed",
+      "error": "certificate exact successful unconditional claim"
+    },
+    {
+      "case": "pool changed",
+      "error": "certificate exact successful unconditional claim"
+    },
+    {
+      "case": "key changed",
+      "error": "certificate exact successful unconditional claim"
+    },
+    {
+      "case": "packet or intent changed",
+      "error": "certificate exact successful unconditional claim"
+    },
+    {
+      "case": "corrupt Succinct seal",
+      "error": "verification indicates proof is invalid"
+    },
+    {
+      "case": "fake cache forbidden",
+      "error": "invalid receipt format"
+    },
+    {
+      "case": "compressed Groth16 is not a composable cache",
+      "error": "invalid receipt format"
+    },
+    {
+      "case": "missing receipt",
+      "rejectedBeforeProving": true
+    }
+  ],
+  "developmentMode": false
+}

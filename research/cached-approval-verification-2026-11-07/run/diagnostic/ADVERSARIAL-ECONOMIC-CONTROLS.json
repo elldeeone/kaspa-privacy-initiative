@@ -1,0 +1,132 @@
+{
+  "controls": [
+    {
+      "accepted": true,
+      "case": "context-0-economic-equivalence"
+    },
+    {
+      "accepted": true,
+      "case": "context-1-economic-equivalence"
+    },
+    {
+      "accepted": true,
+      "case": "context-2-economic-equivalence"
+    },
+    {
+      "case": "cross-pool",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "changed verifier",
+      "error": "certificate pinned verifier"
+    },
+    {
+      "case": "changed verifier identity",
+      "error": "certificate verifier identity"
+    },
+    {
+      "case": "changed proof",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "changed delivery",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "changed intent nonce",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "changed approved recipient",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "changed approved cap",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "changed operation order",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "changed mode",
+      "error": "certificate exact journal"
+    },
+    {
+      "case": "currently spent note",
+      "error": "current economic nullifier spent"
+    },
+    {
+      "case": "unaccepted intent anchor",
+      "error": "intent accepted reference anchor"
+    },
+    {
+      "case": "actual payout substitution",
+      "error": "intent actual payout set"
+    },
+    {
+      "case": "actual fee exceeds consent",
+      "error": "intent fee cap"
+    },
+    {
+      "case": "missing native backing",
+      "error": "native input backing"
+    },
+    {
+      "case": "output range",
+      "error": "native output range"
+    },
+    {
+      "case": "native inflation",
+      "error": "native value inflation"
+    },
+    {
+      "case": "missing native outputs",
+      "error": "native output count"
+    },
+    {
+      "case": "zero output",
+      "error": "native output range"
+    },
+    {
+      "case": "input above supply bound",
+      "error": "native input range"
+    },
+    {
+      "case": "checked output sum overflow",
+      "error": "native output sum overflow"
+    },
+    {
+      "case": "maximum canonical input and exact backing arithmetic",
+      "hostAccepted": true,
+      "suppliedStateOnly": true
+    },
+    {
+      "case": "fresh validity certificate with changed consent",
+      "freshEconomicError": "complete native effects authorization",
+      "staticProofValidityAccepted": true
+    },
+    {
+      "case": "fresh validity certificate for unknown mode",
+      "freshEconomicError": "packet mode",
+      "staticProofValidityAccepted": true
+    },
+    {
+      "case": "new native predecessor requires different final claim",
+      "differentFinalJournal": true
+    },
+    {
+      "case": "certificate verifier failure propagated",
+      "error": "missing verified receipt"
+    },
+    {
+      "case": "corrupt proof cannot create certificate",
+      "rejected": true
+    },
+    {
+      "case": "trailing packet bytes",
+      "rejected": true
+    }
+  ],
+  "scope": "host economic controls with explicit certificate test double; not receipt/native evidence"
+}

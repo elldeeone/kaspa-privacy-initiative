@@ -17,6 +17,7 @@ needed** means qualify it against the selected current interface/instance;
 | Offline-wallet proofs/recovery and GPU receipts | Carry result; adapt only selected mechanisms | Original `b4114173` history and local source versions; its I-2 change is not adopted automatically. |
 | Direct self-funded deposits/exits | Carry | [self-funded native trial](documents/014b5ea21d0f081ff7d490033d77095a57e44930.txt); narrow fee/profile evidence, not an anonymity claim. |
 | Compact-state reusable authorization/conflict retry | Adapt when needed | [research journal](documents/a99d0c7618070857506be9bfaa31780dadf32d56.txt); preserve exact history and successor bindings. |
+| Cached wallet-proof validity with fresh economic settlement | Carry bounded mechanism | [7 November result](../../research/cached-approval-verification-2026-11-07/RESULT.md); actual Proven Succinct receipt, fixed image/packet/domain/pool/key, fresh Ledger/effects and unconditional final claim. First use saves nothing; a new guest starts a new bank. |
 | Own-key admission, roster-free scanning and backups | Adapt when needed | [Recovery](recovery.md); keep ciphertext/history/parameter availability explicit. |
 | Independent/equal-net deposits and two-input payments | Carry experiments and limits | [Privacy](privacy.md); no automatic complete-lifecycle privacy. |
 | Address separation | Carry channel-specific mitigation | [address-reuse diagnostic](documents/2571bc032d3c4d3c2c5e55d3264d482b887ca351.txt); it does not eliminate amount/timing correlation. |

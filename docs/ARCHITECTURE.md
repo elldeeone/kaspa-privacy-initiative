@@ -91,6 +91,21 @@ and verifies a fresh exact replacement in the retained history; transaction IDs
 and descendants survive changing only its proof witness. This installs no bank
 lock or privileged path and cannot prevent independent competing updates.
 
+[ADR-0113](adr/0113-cached-wallet-proof-verification.md) separates static wallet
+proof verification from fresh settlement checks. Its new authorization guest
+commits the complete canonical packet, pool, domain and wallet-key identity;
+its new bank guest pins that image and resolves an actual unconditional Succinct
+receipt. Current Ledger application, accepted anchors, spentness, value bounds,
+fee caps and native effects remain fresh. The final L1 proof is unconditional
+Groth16. Direct full verification remains an alternative under the same new bank
+image. This changes the guest identity and requires a new bank; it upgrades no
+existing bank and changes no consensus. Initial controls show much faster
+retries, with similar first-use cost and unchanged native fees. The [complete combined flow and fresh TN10 rehearsal](../research/cached-approval-verification-2026-11-07/RESULT.md)
+now drain principal and validate restored-key spends, including actual accepted
+state change with unchanged approvals. A separate empty-cache reference corrects
+cross-arm timing reuse. First-use costs, full privacy and independent recovery
+remain unqualified. New one-party test parameters remain experimental.
+
 Use [project status](PROJECT-STATUS.md) for current qualifications and
 [ADR-0100](adr/0100-research-consolidation-and-privacy-boundary.md) for the
 consolidated research posture. The strong privacy requirement remains; ordinary

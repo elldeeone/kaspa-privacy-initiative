@@ -3,6 +3,25 @@
 **Status:** Open; finite unfunded diagnostic authorized by the owner, no production
 architecture selected. **Date:** 5 November 2026 (Australia/Sydney).
 
+## 7 November static verification cache
+
+The owner authorized [ADR-0113](../adr/0113-cached-wallet-proof-verification.md):
+cache only complete wallet-proof validity, then execute every current economic
+and native-effect check afresh. No host flag or conditional receipt is spending
+authority. The matched supplied-state control measures 30.53-second fresh
+settlement versus 445.73 seconds direct, after 419.00 seconds upfront work;
+first use costs about the same. Complete native claims and fees are unchanged.
+The [complete combined comparison and fresh TN10 rehearsal](../../research/cached-approval-verification-2026-11-07/RESULT.md)
+now execute protected registration, unchanged approvals after an actual accepted
+update, complete drainage and restored native payout spending. Cached current
+withdrawal proof takes 24.18 seconds on TN10; all four test KAS principal exit.
+The corrected cold reference retains the native fee/wait tradeoff. No stronger
+complete financial privacy or complete-cost qualification follows.
+The new bank/profile and fresh small TN10 rehearsal extend the original
+unfunded-only scope by explicit current owner authorization; old results and
+old trial identities retain their original boundaries. Complete costs/privacy,
+independent users and sustained contention remain open.
+
 ## 6 November reusable owner consent
 
 [ADR-0111](../adr/0111-reusable-withdrawal-intents.md) and the
