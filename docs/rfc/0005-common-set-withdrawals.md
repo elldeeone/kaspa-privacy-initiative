@@ -3,6 +3,22 @@
 **Status:** Open; finite unfunded diagnostic authorized by the owner, no production
 architecture selected. **Date:** 5 November 2026 (Australia/Sydney).
 
+## 7 November wallet repair and remaining service-timing failure
+
+The [follow-up](../../research/round-agreement-2026-11-07/RESULT.md) now checks
+all three genuine eligibility proofs against the same state, issuer, value and
+round in each wallet before payout-key redemption. The different-round issuer
+sent zero payout keys: all three wallets rejected it. This is a necessary
+client-side repair, not a full solution. Under one valid round, the issuer held
+and released the blind-signature responses one at a time; each next redemption
+revealed the corresponding payout key. The fixed service observer recovered
+3/3 exact links and the unchanged offline kernel accepted the three genuine
+approved payouts. [ADR-0115](../adr/0115-service-release-timing-limits-blind-withdrawals.md)
+stops conditional cost work. An independent way to make cohort/signature
+availability common remains an open current-L1 question; none was tested here.
+All completed comparisons used one physical host. No consensus change, native
+receipt or accepted chain payout was added by this follow-up.
+
 ## 7 November common-configuration enforcement failure
 
 The [separated-role test](../../research/separated-withdrawal-2026-11-07/RESULT.md)

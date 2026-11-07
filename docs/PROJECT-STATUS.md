@@ -37,6 +37,20 @@ the 13 old branch names after verifying their pushed archive tags.
 
 ## What is demonstrated
 
+**7 November round-agreement follow-up: tagging fixed, timing still fails.**
+The [local wallet/service test](../research/round-agreement-2026-11-07/RESULT.md)
+made all three wallets validate the same genuine three-claim round before
+disclosing payout keys. All three rejected a service's different-round tags
+without redeeming. Under one valid common round, that service instead held and
+released blind-signature replies one at a time and exactly matched **3/3**
+claims to payout keys. Real approvals and the unchanged offline economic kernel
+accepted the complete 30 KAS payout set. The honest run again had six exact-fact
+possibilities but its fixed order guess matched 3/3 once; this is no privacy
+qualification. Ten read-only wallet mutation checks passed. [ADR-0115](adr/0115-service-release-timing-limits-blind-withdrawals.md)
+keeps conditional cost work stopped. All completed runs shared one physical
+host. A two-machine attempt was stopped before a result at owner direction and
+is excluded. No new chain acceptance or consensus change follows.
+
 **7 November separated wallets/service: privacy gate failed.** The
 [new comparison](../research/separated-withdrawal-2026-11-07/RESULT.md) uses four
 wallets and one service in separate unprivileged containers/network namespaces,
@@ -49,7 +63,8 @@ wallets approved the set and the unchanged economic kernel accepted it. This is
 offline host execution, not new native Full or chain acceptance. Under
 [ADR-0114](adr/0114-round-agreement-before-payout-disclosure.md), stop conditional
 cost work and enforce common configuration before payout-key disclosure, then
-retest active tagging and timing. The fix remains unimplemented. Cached
+retest active tagging and timing. The [follow-up](../research/round-agreement-2026-11-07/RESULT.md)
+implements that local fix but finds service timing still leaks owners. Cached
 verification and optional batching remain useful; no consensus change or
 complete financial-privacy qualification follows.
 

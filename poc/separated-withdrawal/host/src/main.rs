@@ -2,6 +2,8 @@
 #![allow(dead_code)]
 #[path = "../../../cached-approval-verification/host/src/actor.rs"]
 mod actor;
+#[cfg(feature = "round-agreement")]
+mod agreement;
 #[path = "../../../cached-approval-verification/host/src/anonymous.rs"]
 mod anonymous;
 #[path = "../../../batched-payment-costs/host/src/circuit.rs"]
@@ -16,6 +18,8 @@ mod prover;
 mod receipt_script;
 mod replay;
 mod tagged;
+#[cfg(feature = "round-agreement")]
+mod timed;
 
 use kpi_batched_payment_core as app;
 use kpi_private_note_wallet::{ledger::Ledger, protocol::*};
@@ -52,6 +56,10 @@ fn main() -> Result<()> {
         Some("actor") => actor::run(p(2)?, p(3)?)?,
         Some("serve") => anonymous::serve(p(2)?, p(3)?, p(4)?, a[5].parse()?)?,
         Some("tagged-serve") => tagged::serve(p(2)?, p(3)?, p(4)?, a[5].parse()?)?,
+        #[cfg(feature = "round-agreement")]
+        Some("cohort-serve") => timed::serve(p(2)?, p(3)?, p(4)?, a[5].parse()?, a[6].as_str())?,
+        #[cfg(feature = "round-agreement")]
+        Some("agreement-check") => agreement::verify(p(2)?, &read(p(3)?)?)?,
         Some("replay") => replay::run(p(2)?, p(3)?)?,
         Some("init") => {
             let addresses = read(p(2)?)?;

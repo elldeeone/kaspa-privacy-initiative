@@ -1,11 +1,23 @@
 # Threat Model
 
+The [wallet round-agreement follow-up](research/round-agreement-2026-11-07/RESULT.md)
+blocks the prior different-round tag before a payout key leaves any wallet.
+It does **not** stop an active issuer from holding valid common-round blind
+signatures and releasing them one at a time, waiting for each redemption. That
+service saw the genuine issue and next payout messages and linked all 3/3
+claimants without wallet backups or owner truth. The unchanged offline kernel
+still accepted the fully approved payouts. A service-supplied transcript proves
+claim validity, not simultaneous delivery; this availability/timing control is
+an explicit threat assumption under [ADR-0115](docs/adr/0115-service-release-timing-limits-blind-withdrawals.md).
+Costs remain gated on privacy. Completed runs used one physical host; no
+two-machine or chain-acceptance result is claimed.
+
 The [separated-wallet/service comparison](research/separated-withdrawal-2026-11-07/RESULT.md)
 finds an active configuration-tagging leak: one issuer supplies different round
 IDs, derives all three claimant/payout-key links, and still obtains genuine
 whole-set approvals accepted by the unchanged economic kernel. No wallet files
 or controller truth were available to its observer. Common configuration is an
-existing requirement whose client enforcement is missing here. Under
+existing requirement whose client enforcement was missing in that run. Under
 [ADR-0114](docs/adr/0114-round-agreement-before-payout-disclosure.md), verify
 agreement before key disclosure; an approval-time check alone is too late.
 The honest arm's order guess also matched all three once, without statistical

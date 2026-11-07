@@ -2,12 +2,22 @@
 
 **Status:** exploratory. No production architecture has been selected.
 
+The [round-agreement follow-up](../research/round-agreement-2026-11-07/RESULT.md)
+adds a wallet-local check of three real eligibility proofs before payout-key
+redemption. It blocks per-wallet round tags, but a service that releases valid
+common-round blind-signature replies sequentially links all three claims to
+their payout keys. The unchanged offline economic kernel still accepts the
+fully approved set. [ADR-0115](adr/0115-service-release-timing-limits-blind-withdrawals.md)
+keeps this service protocol outside a qualified privacy architecture and
+stops its conditional cost work. No native image or consensus rule changed.
+
 The [separated-role test](../research/separated-withdrawal-2026-11-07/RESULT.md)
 shows that moving wallets out of the service's filesystem does not enforce a
 common registration round. A dishonest issuer's per-wallet round IDs reveal all
 three payout owners while genuine whole-set approvals still pass the unchanged
 economic kernel. [ADR-0114](adr/0114-round-agreement-before-payout-disclosure.md)
-requires agreement checks before address disclosure; the repair is unimplemented.
+requires agreement checks before address disclosure; the subsequent local
+repair does not stop service-controlled reply timing.
 The honest test also retained a successful order guess, so timing privacy remains
 unqualified. Conditional cost work stops. These are offline same-host role tests,
 with no native-program or consensus change.

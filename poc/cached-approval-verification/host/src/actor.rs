@@ -84,6 +84,8 @@ fn handle(dir: &Path, params: &Path, r: &Value, cache: &mut Option<Engine>) -> R
     );
     let method = r["method"].as_str().ok_or("method")?;
     let result = if method == "registration-redeem" {
+        #[cfg(feature = "round-agreement")]
+        crate::agreement::verify(dir, r)?;
         crate::anonymous::redeem_local(dir, r)?
     } else if method == "public" {
         json!({"owner":wallet.address.owner,"incoming":wallet.address.incoming,"fundingSpk":native::encoded(&p2pk(&backup.funding))})

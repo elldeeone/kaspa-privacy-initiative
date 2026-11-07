@@ -1,6 +1,7 @@
 # ADR-0114: Verify common round details before disclosing payout keys
 
-**Status:** Accepted research decision; repair remains unimplemented.
+**Status:** Accepted research decision; repair implemented as a local guard,
+but insufficient for privacy under active service timing.
 **Date:** 7 November 2026.
 
 The owner authorized wallet/service separation and a payout-owner attack, with
@@ -31,3 +32,9 @@ consensus change. The test's same-host separation and private-truth scoring
 limits remain explicit. A future shared-transcript mechanism must identify its
 availability and consistency assumptions; no authenticated bulletin is silently
 assumed to exist today.
+
+The [follow-up](../../research/round-agreement-2026-11-07/RESULT.md) implemented
+the guard against three genuine issue proofs. It rejected all three per-wallet
+round-tag attempts before payout-key disclosure. The active issuer still linked
+3/3 payouts by releasing valid common-round replies one at a time. [ADR-0115](0115-service-release-timing-limits-blind-withdrawals.md)
+keeps the privacy and cost gates closed.
