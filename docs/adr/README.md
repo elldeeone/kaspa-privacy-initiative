@@ -36,6 +36,8 @@ Use [0000-template.md](0000-template.md).
 
 ## Records
 
+- [ADR-0116: atomic public credential bundle candidate](0116-atomic-public-credential-bundle-candidate.md)
+  ([bounded offline result](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)).
 - [ADR-0109: complete costs and genuine batched payouts](0109-complete-cost-and-batched-payout-test.md)
 - [ADR-0108: actual-wallet common-set integration and cost test](0108-real-wallet-common-set-integration.md)
   ([ownership benefit and negative direct-cost result](../../research/payment-set-withdrawal-2026-11-05/RESULT.md)).

@@ -1,5 +1,12 @@
 # Reuse decisions for future work
 
+The [atomic-bundle candidate](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+reuses the existing private wallet, RFC9474 blind-signature implementation,
+proof-backed eligibility, whole-set consent and unchanged economic kernel.
+Only the experimental wallet availability check and local public-board
+simulation are new. Do not import this offline file as L1 acceptance or a
+production coordination service.
+
 [Knowledge guide](README.md) · [Source index](sources.md)
 
 These decisions carry knowledge into the active branch. They do not claim an old

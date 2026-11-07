@@ -2,8 +2,11 @@
 //! A server-provided transcript is evidence of genuine claims, not evidence
 //! that every wallet received the transcript at the same time.
 use crate::{proof::H, prover::Result};
+use blind_rsa_signatures::reexports::{crypto_bigint::BoxedUint, rsa};
+use blind_rsa_signatures::{PSS, PublicKey, Randomized, Sha384};
 use kpi_batched_payment_core as app;
 use kpi_private_note_wallet::protocol::{EXIT, Operation, hash};
+use rsa::traits::PublicKeyParts;
 use serde_json::Value;
 use std::{collections::BTreeSet, fs, path::Path};
 
@@ -59,4 +62,67 @@ pub fn verify(dir: &Path, request: &Value) -> Result<()> {
         return Err("own issued claim missing from cohort".into());
     }
     Ok(())
+}
+
+/// Experimental wallet check for one atomically published public payload.
+/// A queued private reply is never a usable credential.
+pub fn verify_board(dir: &Path, request: &Value, board_path: &Path) -> Result<()> {
+    let entries = verify_board_public(&request["config"], board_path)?;
+    let own: Value = serde_json::from_slice(&fs::read(dir.join("registration.json"))?)?;
+    let mut own_signature = None;
+    let mut issues = Vec::with_capacity(3);
+    for (issue, signature) in entries {
+        if issue == own["issue"] && own_signature.replace(signature).is_some() {
+            return Err("duplicate own reply".into());
+        }
+        issues.push(issue);
+    }
+    let signature = own_signature.ok_or("own reply missing")?;
+    fs::write(
+        dir.join("issue-response.json"),
+        serde_json::to_vec(&serde_json::json!({"blindSignature":signature,"cohortIssues":issues}))?,
+    )?;
+    verify(dir, request)
+}
+
+pub fn verify_board_public(config: &Value, board_path: &Path) -> Result<Vec<(Value, Value)>> {
+    let board: Value = serde_json::from_slice(&fs::read(board_path)?)?;
+    if board.as_object().ok_or("board object")?.len() != 3
+        || board["version"] != 1
+        || board["round"] != config["round"]
+    {
+        return Err("board framing or round".into());
+    }
+    let entries = board["entries"].as_array().ok_or("board entries")?;
+    if entries.len() != 3 {
+        return Err("complete three-reply board required".into());
+    }
+    let der = hex::decode(config["issuerDer"].as_str().ok_or("issuer key")?)?;
+    let pk = PublicKey::<Sha384, PSS, Randomized>::from_der(&der)?;
+    let public: &rsa::RsaPublicKey = pk.as_ref();
+    let mut verified = Vec::with_capacity(3);
+    for entry in entries {
+        if entry.as_object().ok_or("board entry")?.len() != 2 {
+            return Err("board entry framing".into());
+        }
+        let issue = &entry["issue"];
+        let blinded = hex::decode(issue["blindMessage"].as_str().ok_or("blind request")?)?;
+        let signature = hex::decode(entry["blindSignature"].as_str().ok_or("blind reply")?)?;
+        if blinded.len() != public.size() || signature.len() != public.size() {
+            return Err("blind reply width".into());
+        }
+        let bits = public.n().bits_precision();
+        let blind_uint = BoxedUint::from_be_slice(&blinded, bits)?;
+        let signature_uint = BoxedUint::from_be_slice(&signature, bits)?;
+        if blind_uint >= public.n().as_ref().clone()
+            || signature_uint >= public.n().as_ref().clone()
+            || rsa::hazmat::rsa_encrypt(public, &signature_uint)? != blind_uint
+        {
+            // RFC9474's raw blinded RSA relation. This is not a spending
+            // authorization or a replacement for final signature checking.
+            return Err("invalid blinded reply".into());
+        }
+        verified.push((issue.clone(), entry["blindSignature"].clone()));
+    }
+    Ok(verified)
 }

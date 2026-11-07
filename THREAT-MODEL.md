@@ -1,5 +1,16 @@
 # Threat Model
 
+The [atomic public-bundle simulation](research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+removes the **tested** per-wallet blind-reply timing lever by requiring all
+three valid replies in one common public object before any payout key is sent.
+An incomplete or invalid object safely halts; it cannot authorize reserve
+release. The model assumes wallets independently learn the same accepted L1
+object. Issuer-hosted RPC/relay access, selective propagation, reorgs, pruning,
+Sybil/known-owner claims, public amounts and later disclosures remain threats;
+the offline file publication and one-host containers did not test them. A
+known owner leaves two candidate assignments and two known owners leave one.
+No production anonymity or availability follows from this local result.
+
 The [wallet round-agreement follow-up](research/round-agreement-2026-11-07/RESULT.md)
 blocks the prior different-round tag before a payout key leaves any wallet.
 It does **not** stop an active issuer from holding valid common-round blind

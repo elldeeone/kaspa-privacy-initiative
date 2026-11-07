@@ -1,5 +1,16 @@
 # Cost and performance lessons
 
+The [atomic-bundle local test](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+measured a 9,256-byte payload only. It did not broadcast or pay for an L1
+transaction, price independent wallet readers, or rerun the complete cost
+baseline. Do not count the payload-size screen as a fee result. Full cost work
+waits on the native acceptance and independent-reader privacy gate in
+[ADR-0116](../adr/0116-atomic-public-credential-bundle-candidate.md).
+The retained 47-useful-KAS comparison already quotes 0.992104 KAS native fees
+(2.11%), so a separate positive-fee publication on the otherwise unchanged
+workload cannot meet the retained 2% all-in target. This conditional floor is
+not a measured new fee or a decision about larger-value use.
+
 ## 7 November reusable verification and corrected cache comparison
 
 The [cached-verification result](../../research/cached-approval-verification-2026-11-07/RESULT.md)

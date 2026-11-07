@@ -8,6 +8,7 @@ hypothesis without qualifying a payment system.
 
 | Finding | Result to use | Consequence |
 | --- | --- | --- |
+| One public credential bundle blocks the tested reply schedule locally | [Atomic-bundle result](../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md) | Three genuine payouts passed with zero exact service-timing links and six mappings in a one-host offline simulation. Independent accepted-chain delivery, known owners, public amounts, full costs and complete lifecycle privacy remain open; do not promote this to an L1 qualification. |
 | Immediate full-payment exits expose amounts | [Wallet-local measured result](../research/wallet-local-payment-privacy-2026-11-01/RESULT.md) | All three corrected offline trials exposed the payment amount at direct exit. Neutral local service tokens did not demonstrate network anonymity. |
 | Continued private spending helps before cashout | [Continued-spend result](../research/wallet-local-private-spend-2026-11-01/RESULT.md) | Receiving and re-spending increased bounded ambiguity; later exits could collapse it. Do not extend the pre-cashout result to complete lifecycle privacy. |
 | Hidden labels are not payment privacy | [Role-conditioned correction](../research/wallet-local-shared-history-2026-11-01/CORRECTION-V2.md) | Score the observable withdrawing role. Keep commitment/position uncertainty separate from known payment facts. |

@@ -24,8 +24,8 @@ mod timed;
 use kpi_batched_payment_core as app;
 use kpi_private_note_wallet::{ledger::Ledger, protocol::*};
 use prover::Result;
-use rand::{rngs::OsRng, RngCore};
-use serde_json::{json, Value};
+use rand::{RngCore, rngs::OsRng};
+use serde_json::{Value, json};
 use std::{fs, path::Path};
 fn read(p: &Path) -> Result<Value> {
     Ok(serde_json::from_slice(&fs::read(p)?)?)
@@ -57,9 +57,22 @@ fn main() -> Result<()> {
         Some("serve") => anonymous::serve(p(2)?, p(3)?, p(4)?, a[5].parse()?)?,
         Some("tagged-serve") => tagged::serve(p(2)?, p(3)?, p(4)?, a[5].parse()?)?,
         #[cfg(feature = "round-agreement")]
-        Some("cohort-serve") => timed::serve(p(2)?, p(3)?, p(4)?, a[5].parse()?, a[6].as_str())?,
+        Some("cohort-serve") => timed::serve(
+            p(2)?,
+            p(3)?,
+            p(4)?,
+            a[5].parse()?,
+            a[6].as_str(),
+            a.get(7).map(Path::new),
+        )?,
         #[cfg(feature = "round-agreement")]
         Some("agreement-check") => agreement::verify(p(2)?, &read(p(3)?)?)?,
+        #[cfg(feature = "round-agreement")]
+        Some("board-check") => agreement::verify_board(p(2)?, &read(p(3)?)?, p(4)?)?,
+        #[cfg(feature = "round-agreement")]
+        Some("board-public-check") => {
+            agreement::verify_board_public(&read(p(2)?)?, p(3)?)?;
+        }
         Some("replay") => replay::run(p(2)?, p(3)?)?,
         Some("init") => {
             let addresses = read(p(2)?)?;

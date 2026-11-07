@@ -83,9 +83,17 @@ fn handle(dir: &Path, params: &Path, r: &Value, cache: &mut Option<Engine>) -> R
             .map_err(|_| "wallet width")?,
     );
     let method = r["method"].as_str().ok_or("method")?;
-    let result = if method == "registration-redeem" {
+    let result = if method == "registration-redeem" || method == "registration-redeem-board" {
         #[cfg(feature = "round-agreement")]
-        crate::agreement::verify(dir, r)?;
+        if method == "registration-redeem-board" {
+            crate::agreement::verify_board(dir, r, Path::new("/board/bundle.json"))?;
+        } else {
+            crate::agreement::verify(dir, r)?;
+        }
+        #[cfg(not(feature = "round-agreement"))]
+        if method == "registration-redeem-board" {
+            return Err("board redemption requires round agreement".into());
+        }
         crate::anonymous::redeem_local(dir, r)?
     } else if method == "public" {
         json!({"owner":wallet.address.owner,"incoming":wallet.address.incoming,"fundingSpk":native::encoded(&p2pk(&backup.funding))})

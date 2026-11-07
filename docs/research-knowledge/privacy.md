@@ -1,5 +1,13 @@
 # Privacy lessons
 
+The [atomic-bundle diagnostic](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+gives all three wallets one simulated public set of valid blind replies. The
+same malicious service's per-client release schedule then yields zero exact
+links and six possible owner assignments in the local service-only view; a
+fixed order guess gets one of three. This is narrower than global timing or
+financial privacy. Independent accepted-chain reads, actual propagation,
+Sybil/known-owner controls and public withdrawal amounts remain adverse.
+
 The [7 November separated-role test](../../research/separated-withdrawal-2026-11-07/RESULT.md)
 retains six structural mappings for an honest service, but its frozen order guess
 matched all three once. A malicious issuer's different round IDs identify all

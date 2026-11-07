@@ -49,9 +49,19 @@ fn log(logs: &mut fs::File, peer: &str, request: &Value, response: &Value) -> Re
     logs.flush()?;
     Ok(())
 }
-pub fn serve(configs: &Path, secret: &Path, log_path: &Path, port: u16, mode: &str) -> Result<()> {
-    if !["honest", "tagged", "staggered"].contains(&mode) {
+pub fn serve(
+    configs: &Path,
+    secret: &Path,
+    log_path: &Path,
+    port: u16,
+    mode: &str,
+    board_path: Option<&Path>,
+) -> Result<()> {
+    if !["honest", "tagged", "staggered", "board"].contains(&mode) {
         return Err("mode".into());
+    }
+    if (mode == "board") != board_path.is_some() {
+        return Err("board path".into());
     }
     let supplied = read(configs)?;
     let configs = if supplied.is_array() {
@@ -152,15 +162,32 @@ pub fn serve(configs: &Path, secret: &Path, log_path: &Path, port: u16, mode: &s
         respond(&mut stream, &response)?;
         Ok(())
     };
+    let board_entries = pending
+        .iter()
+        .map(|p| json!({"issue":p.2,"blindSignature":p.3}))
+        .collect::<Vec<_>>();
     for (mut stream, peer, request, signature) in pending {
-        let response = json!({"blindSignature":signature,"cohortIssues":cohort});
+        let response = if mode == "board" {
+            json!({"queued":true})
+        } else {
+            json!({"blindSignature":signature,"cohortIssues":cohort})
+        };
         log(&mut logs, &peer, &request, &response)?;
         respond(&mut stream, &response)?;
         if mode == "staggered" {
             redeem_one(&mut logs)?;
         }
     }
-    if mode == "honest" {
+    if mode == "board" {
+        // The caller publishes this whole payload as one accepted object.
+        // The private acknowledgements above do not contain usable replies.
+        let round = &configs[0]["round"];
+        fs::write(
+            board_path.ok_or("board path")?,
+            serde_json::to_vec(&json!({"version":1,"round":round,"entries":board_entries}))?,
+        )?;
+    }
+    if mode == "honest" || mode == "board" {
         for _ in 0..3 {
             redeem_one(&mut logs)?;
         }

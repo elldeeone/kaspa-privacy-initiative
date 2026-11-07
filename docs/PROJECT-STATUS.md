@@ -3,6 +3,19 @@
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
 
+**7 November atomic-bundle follow-up:** a 9,256-byte complete blind-reply bundle,
+published as one **simulated** accepted payload, stopped the tested malicious
+issuer's one-client-at-a-time reply attack. Three real wallet claims, payments
+and approvals passed the unchanged offline kernel; the service-only observer
+had zero exact claim-to-payout links and six possible mappings. Twelve wallet
+guard checks rejected withheld, partial or broken bundles before key disclosure.
+This is one-host offline evidence, not a real accepted transaction, independent
+chain readers, global network privacy or complete financial privacy. Public
+amounts and known-owner/Sybil attacks remain. [Result](../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+and [ADR-0116](adr/0116-atomic-public-credential-bundle-candidate.md) keep full
+cost work conditional on a Testnet acceptance/independent-reader gate. No
+consensus change.
+
 **Active work-selection rule:** contribute to the shared KPI direction unless a
 concrete alternative demonstrates better privacy against a fixed baseline.
 [ADR-0106](adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md)

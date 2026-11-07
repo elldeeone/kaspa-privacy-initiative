@@ -2,6 +2,17 @@
 
 **Status:** exploratory. No production architecture has been selected.
 
+The [atomic-bundle follow-up](../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+tests an ordinary accepted-payload *candidate* using an offline atomic-file
+simulation. Wallets verify a complete set of genuine claims and blinded replies
+before releasing payout keys. The active issuer's per-client reply schedule no
+longer supplied an exact ownership link in that local test (zero exact links,
+six mappings); the unchanged kernel accepted all three payouts. The payload
+was 9,256 bytes, but native acceptance, independent readers, reorg/data
+availability, known-owner resistance, full costs and overall financial privacy
+remain open. [ADR-0116](adr/0116-atomic-public-credential-bundle-candidate.md)
+retains this as a bounded optional candidate under unchanged consensus.
+
 The [round-agreement follow-up](../research/round-agreement-2026-11-07/RESULT.md)
 adds a wallet-local check of three real eligibility proofs before payout-key
 redemption. It blocks per-wallet round tags, but a service that releases valid

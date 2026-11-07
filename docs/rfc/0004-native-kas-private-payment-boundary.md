@@ -53,6 +53,13 @@ target even at an optimistic floor. Existing shared batching remains a separate
 integration question; neither result hides ordinary public amounts or qualifies
 known-owner full-drainage privacy.
 
+The later [atomic-bundle diagnostic](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+removes the tested active issuer's per-wallet blind-reply timing link in an
+offline same-host run by simulating one complete public payload. It leaves the
+transparent-exit amount boundary, known-owner/Sybil and full-drainage
+counterexamples unchanged. Native payload acceptance and independent readers
+are next gates; it selects no production architecture or fee conclusion.
+
 The [6 November complete batched experiment](../../research/batched-payment-costs-2026-11-06/RESULT.md)
 under [ADR-0109](../adr/0109-complete-cost-and-batched-payout-test.md) now exercises
 that integration using the real wallet, complete compressed receipts and native
