@@ -54,9 +54,10 @@ is a focused evidence/test-requirements contribution, not another architecture.
 
 Follow [CONTRIBUTING.md](../../CONTRIBUTING.md): align scope through the relevant
 issue before substantial implementation, preserve existing evidence and keep
-changes small. This record and its draft are local to our fork; they are not
-an issue comment, submitted upstream PR or maintainer agreement. No external
-message is sent by recording this decision.
+changes small. Recording this 5 November decision sent no external message.
+The later [focused P13 timing finding](https://github.com/olafweller/kaspa-privacy-initiative/issues/13#issuecomment-6706287130)
+was posted on 7 November. The broader local draft remains unposted; the comment
+is neither a PR nor maintainer agreement.
 
 All SECURITY-INVARIANTS.md requirements remain unchanged. No owner knowledge,
 privacy/cost threshold or independent-exit requirement is relaxed. No real funds,

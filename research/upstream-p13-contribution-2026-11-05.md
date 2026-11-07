@@ -1,6 +1,7 @@
 # P13 contribution draft: withdrawal correlation and observer-validation controls
 
-**Date:** 5 November 2026. **Status:** local draft, not posted or submitted upstream.
+**Date:** 5 November 2026; updated 7 November. **Status:** the broad draft
+remains local. One narrow timing finding was posted to P13; no PR was submitted.
 **Target:** [P13: practical privacy leakage](https://github.com/olafweller/kaspa-privacy-initiative/issues/13).
 **Working rule:** [ADR-0106](../docs/adr/0106-contribute-unless-a-privacy-advantage-is-demonstrated.md).
 
@@ -27,7 +28,25 @@ still revealing identified withdrawal amounts. This is narrow optional exit
 work to contribute to the shared path. It is not an overall privacy win over an
 executed current upstream implementation. Fee/prover models, cohort/state-race
 limits and recovery controls are retained separately. This draft remains local;
-no comment, message or pull request has been posted.
+no comment, message or pull request had been posted as of 6 November.
+
+## 7 November focused contribution
+
+The [P13 comment](https://github.com/olafweller/kaspa-privacy-initiative/issues/13#issuecomment-6706287130)
+shares the [bounded active-service result](round-agreement-2026-11-07/RESULT.md).
+In our optional blind-registration prototype, checking three genuine claims
+under one common round blocked all three per-wallet round tags before payout-key
+disclosure. An active service then released valid blind-signature replies one
+at a time and linked 3/3 claims to payout keys. Genuine wallet approvals and
+the unchanged offline kernel still accepted the complete payout set. The
+comment explicitly separates this prototype finding from upstream code and
+states the one-physical-host, no-new-native-receipt/chain-acceptance limits.
+It asks P13 to model service-controlled reply timing as an observer capability.
+No consensus change or production architecture follows.
+
+The earlier full-withdrawal and private-change findings below remain an
+unposted draft. The service-timing result closes this option's conditional cost
+campaign under [ADR-0115](../docs/adr/0115-service-release-timing-limits-blind-withdrawals.md).
 
 Upstream `main` was read again through GitHub on 6 November and still resolves to
 `7ffe8353437604322f8bdd6e8d0c4f5b15a55ee1`; the baseline above is current for that

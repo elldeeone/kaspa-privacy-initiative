@@ -10,8 +10,9 @@ records the owner's decision. No alternative has earned that claim, so the
 default is focused contributions to the existing upstream/Based App effort.
 The first [local contribution draft](../research/upstream-p13-contribution-2026-11-05.md)
 targets upstream P13 with corrected withdrawal-leakage findings and observer
-controls. It has not been posted or submitted upstream. This adopts no final
-architecture or privacy qualification.
+controls. Its broad text remains unposted. A focused [7 November P13 comment](https://github.com/olafweller/kaspa-privacy-initiative/issues/13#issuecomment-6706287130)
+shares the measured active-service timing failure. No PR, final architecture or
+privacy qualification follows.
 
 **Active owner constraint: maximize native-KAS privacy without any consensus
 changes.** [ADR-0105](adr/0105-maximize-privacy-without-consensus-changes.md)
@@ -46,7 +47,8 @@ released blind-signature replies one at a time and exactly matched **3/3**
 claims to payout keys. Real approvals and the unchanged offline economic kernel
 accepted the complete 30 KAS payout set. The honest run again had six exact-fact
 possibilities but its fixed order guess matched 3/3 once; this is no privacy
-qualification. Ten read-only wallet mutation checks passed. [ADR-0115](adr/0115-service-release-timing-limits-blind-withdrawals.md)
+qualification. Ten read-only wallet mutation checks passed. The wallet guard
+is feature-gated experimental code, not a production-wallet claim. [ADR-0115](adr/0115-service-release-timing-limits-blind-withdrawals.md)
 keeps conditional cost work stopped. All completed runs shared one physical
 host. A two-machine attempt was stopped before a result at owner direction and
 is excluded. No new chain acceptance or consensus change follows.

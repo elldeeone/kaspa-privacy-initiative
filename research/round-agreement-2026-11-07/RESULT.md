@@ -23,7 +23,8 @@ including the wallet's own exact issue request, **before** calling the existing
 redemption path. Ten later read-only controls accepted the genuine set and
 rejected omitted/duplicated claims, a changed round/issuer/state/value,
 altered blind request, forged proof and malformed cohort. This check does not
-give the service spending authority.
+give the service spending authority. It is enabled only for the experimental
+`round-agreement` host feature in this test, not every wallet build.
 
 | Service behaviour | Exact claim-to-payout links | Result |
 | --- | ---: | --- |
