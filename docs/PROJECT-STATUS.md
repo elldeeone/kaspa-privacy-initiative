@@ -3,6 +3,24 @@
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
 
+**7 November current-L1 bundle Testnet result:** one 9,204-byte blind-reply
+bundle was accepted on TN10 and read by three wallet processes through two
+public RPC operators before redemption. Three genuine 0.3 KAS group payouts,
+a later private payment, final drainage and five restored-key spends all
+confirmed under unchanged consensus and bank rules. The service-only observer
+had **zero exact owner-to-payout links and six compatible mappings**; its one
+order guess got 1/3. This removes one tested issuer timing leak, not public
+amount, known-owner/Sybil, network or global ownership leakage. All roles ran
+on one host, each wallet trusted one RPC operator, and no live reorg or
+independent-user test passed. The extra accepted bundle fee was **0.01894 KAS**.
+Using that fee as a same-shape proxy for the matched 47-useful-KAS workload,
+native fees project to **about 2.15%** and the retained illustrative
+proof-and-fee subtotal to **about 8.25% before unpriced additions**;
+full service cost and the roughly 3% normal-use goal remain unmet. Keep the
+mechanism optional and contribute it to the shared direction; no separate
+production architecture or consensus work. [Full result](../research/atomic-bundle-withdrawal-2026-11-07/TESTNET-RESULT.md),
+[ADR-0116](adr/0116-atomic-public-credential-bundle-candidate.md).
+
 **7 November atomic-bundle follow-up:** a 9,256-byte complete blind-reply bundle,
 published as one **simulated** accepted payload, stopped the tested malicious
 issuer's one-client-at-a-time reply attack. Three real wallet claims, payments
@@ -13,8 +31,8 @@ This is one-host offline evidence, not a real accepted transaction, independent
 chain readers, global network privacy or complete financial privacy. Public
 amounts and known-owner/Sybil attacks remain. [Result](../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
 and [ADR-0116](adr/0116-atomic-public-credential-bundle-candidate.md) keep full
-cost work conditional on a Testnet acceptance/independent-reader gate. No
-consensus change.
+cost work conditional on a Testnet acceptance/independent-reader gate. That
+gate has now been run above. No consensus change.
 
 **Active work-selection rule:** contribute to the shared KPI direction unless a
 concrete alternative demonstrates better privacy against a fixed baseline.

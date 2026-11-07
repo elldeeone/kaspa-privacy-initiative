@@ -1,5 +1,19 @@
 # Threat Model
 
+The [TN10 bundle result](research/atomic-bundle-withdrawal-2026-11-07/TESTNET-RESULT.md)
+confirms an accepted common payload and three same-host wallet readers using
+two public RPC operators. It closes the previously untested *real acceptance*
+gap for this one trial. Each wallet still relied on one operator's accepted
+chain answer; neither self-validated headers nor ran on an independently
+operated device. A hostile RPC/relay, selective delay, reorg after the ten
+confirmation buffer, pruning or missing historical bundle can prevent common
+availability or expose timing. The issuer can withhold the whole bundle and
+stop optional withdrawals but gains no reserve-spending authority. The
+service-only zero-link result assumes issuer and selected RPC/network observers
+do not collude. Known-owner/Sybil and public-amount facts still defeat complete
+owner privacy. Canned reader controls refused altered, withheld and reorged
+responses; no live reorg or hostile operator was induced.
+
 The [atomic public-bundle simulation](research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
 removes the **tested** per-wallet blind-reply timing lever by requiring all
 three valid replies in one common public object before any payout key is sent.
@@ -7,7 +21,7 @@ An incomplete or invalid object safely halts; it cannot authorize reserve
 release. The model assumes wallets independently learn the same accepted L1
 object. Issuer-hosted RPC/relay access, selective propagation, reorgs, pruning,
 Sybil/known-owner claims, public amounts and later disclosures remain threats;
-the offline file publication and one-host containers did not test them. A
+the earlier offline file publication and one-host containers did not test them. A
 known owner leaves two candidate assignments and two known owners leave one.
 No production anonymity or availability follows from this local result.
 

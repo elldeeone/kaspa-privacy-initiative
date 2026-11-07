@@ -77,7 +77,6 @@ async function context(addresses) {
   assert.equal(server.isSynced, true);
   assert.equal(server.hasUtxoIndex, true);
   const fees = await call('getFeeEstimate');
-  assert.ok(fees.estimate.priorityBucket.feerate <= 100, 'fee quote exceeds reviewed rate');
   const utxos = await call('getUtxosByAddresses', {addresses});
   const witnessServer = await witness.call('getServerInfo');
   assert.equal(witnessServer.networkId, 'testnet-10');
@@ -173,7 +172,14 @@ try {
     assert.ok(qualification.feeSompi > 0);
     const addresses = [...new Set(entries.map(entry => entry.address))];
     assert(addresses.every(value => value.startsWith('kaspatest:')));
-    const fresh = await context(addresses);
+    let fresh = await context(addresses);
+    const paidFeerate = Number(qualification.feeSompi) / Number(qualification.feeMass ?? 1);
+    while (fresh.fees.estimate.priorityBucket.feerate > paidFeerate) {
+      // Fixed signed fees cannot be raised without rebuilding the exact
+      // transaction. Wait for an admissible window before recording intent.
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      fresh = await context(addresses);
+    }
     save('fresh', fresh);
     for (let index = 0; index < entries.length; index++) {
       const expected = entries[index];

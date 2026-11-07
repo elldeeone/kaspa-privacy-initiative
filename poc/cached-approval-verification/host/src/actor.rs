@@ -86,7 +86,7 @@ fn handle(dir: &Path, params: &Path, r: &Value, cache: &mut Option<Engine>) -> R
     let result = if method == "registration-redeem" || method == "registration-redeem-board" {
         #[cfg(feature = "round-agreement")]
         if method == "registration-redeem-board" {
-            crate::agreement::verify_board(dir, r, Path::new("/board/bundle.json"))?;
+            crate::agreement::verify_board(dir, r, &dir.join("accepted-bundle.json"))?;
         } else {
             crate::agreement::verify(dir, r)?;
         }
@@ -124,7 +124,9 @@ fn handle(dir: &Path, params: &Path, r: &Value, cache: &mut Option<Engine>) -> R
             let initial: app::State = bincode::deserialize(&tx.payload)?;
             let image: H = field(&r, "image")?;
             let small = cfg!(feature = "testnet") && r["smallTrial"].as_bool() == Some(true);
-            let (source, principal, bank) = if small {
+            let (source, principal, bank) = if small && r["tinyTrial"] == true {
+                (270_000_000, 120_000_000, 200_000_000)
+            } else if small {
                 (700_000_000, 400_000_000, 600_000_000)
             } else {
                 (4_300_000_000, 4_000_000_000, 4_200_000_000)
@@ -274,7 +276,8 @@ fn handle(dir: &Path, params: &Path, r: &Value, cache: &mut Option<Engine>) -> R
                         || intent.verifier != engine.id()
                         || intent.reference_anchor != state.ledger.tree.root()
                         || intent.refund_key_hash != hash(&state.fee_refund_spk)
-                        || !matches!(intent.denomination, 100_000_000 | 1_000_000_000)
+                        || !(matches!(intent.denomination, 100_000_000 | 1_000_000_000)
+                            || (cfg!(feature = "testnet") && intent.denomination == 30_000_000))
                         || intent.fee_cap > 20_000_000
                         || intent.fee_cap == 0
                         || !intent.claims.contains(&wallet.nf(&n.0))

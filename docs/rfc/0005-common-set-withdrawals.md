@@ -1,11 +1,23 @@
 # RFC-0005: Common-set withdrawal authorization under current L1
 
-**Status:** Open; finite unfunded diagnostic authorized by the owner, no production
+**Status:** Open; finite offline and TN10 diagnostics completed, no production
 architecture selected. **Date:** 5 November 2026 (Australia/Sydney).
+
+## 7 November accepted-bundle Testnet check
+
+The [TN10 continuation](../../research/atomic-bundle-withdrawal-2026-11-07/TESTNET-RESULT.md)
+publishes the complete three-reply board in an ordinary accepted payload.
+Three separated wallet processes read it through two public operators before
+redeeming, and the unchanged bank confirms the group payout plus final
+drainage. The service-only observer has zero exact ownership links and six
+compatible assignments in this one run. The added fee is 0.01894 KAS. This
+does not resolve per-wallet self-validation of chain evidence, data retention,
+known-owner/Sybil attacks, amount disclosure or complete service cost; RFC-0005
+stays open and the mechanism stays optional. No consensus change.
 
 ## 7 November atomic-payload candidate
 
-The [next local test](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
+The [earlier local test](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
 uses one simulated accepted-payload object containing three genuine proof-backed
 blind requests and all three valid blinded signatures. Wallets reject missing,
 partial and invalid sets before revealing payout keys; the service-only timing
@@ -14,8 +26,8 @@ and the unchanged offline kernel accept the complete payouts. This addresses
 the *tested per-client reply release* channel only. The 9,256-byte object was
 not submitted to Kaspa, and no independent chain reader, reorg/retention,
 full-cost, Sybil/known-owner or global traffic qualification follows.
-[ADR-0116](../adr/0116-atomic-public-credential-bundle-candidate.md) selects
-one current-L1 validation gate before any cost campaign. The earlier
+[ADR-0116](../adr/0116-atomic-public-credential-bundle-candidate.md) selected
+the current-L1 validation gate later run above. The earlier
 service-only failure below remains valid for its own protocol.
 
 ## 7 November wallet repair and remaining service-timing failure

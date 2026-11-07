@@ -10,6 +10,16 @@ mod bench {
 }
 
 mod actor;
+#[cfg(feature = "round-agreement")]
+#[path = "../../../separated-withdrawal/host/src/agreement.rs"]
+mod agreement;
+#[cfg(feature = "round-agreement")]
+#[path = "../../../separated-withdrawal/host/src/timed.rs"]
+mod timed;
+#[cfg(feature = "round-agreement")]
+fn read(path: &std::path::Path) -> prover::Result<serde_json::Value> {
+    Ok(serde_json::from_slice(&std::fs::read(path)?)?)
+}
 #[allow(dead_code)]
 #[path = "../../../batched-payment-costs/host/src/circuit.rs"]
 mod circuit;
@@ -44,9 +54,13 @@ fn main() -> prover::Result<()> {
     };
     match args.get(1).map(String::as_str) {
         Some("fresh-trial") => bench::fresh_trial(path(2)?, path(3)?, path(4)?)?,
+        Some("fresh-board-trial") => bench::fresh_board_trial(path(2)?, path(3)?, path(4)?)?,
         Some("ordinary-test-funding") => {
             bench::ordinary_test_funding(path(2)?, path(3)?, path(4)?, path(5)?)?
         }
+        #[cfg(feature = "round-agreement")]
+        Some("bundle-build") => bench::bundle_build(path(2)?, path(3)?, path(4)?, path(5)?)?,
+        Some("sweep-prior-test-payouts") => bench::sweep_prior_test_payouts(path(2)?, path(3)?, path(4)?, path(5)?)?,
         Some("live-build") => {
             bench::live_build(path(2)?, args.get(3).ok_or("missing phase")?, path(4)?)?
         }
@@ -55,12 +69,20 @@ fn main() -> prover::Result<()> {
         }
         Some("live-approvals") => bench::live_approvals(path(2)?, path(3)?)?,
         Some("live-recovery") => bench::live_recovery(path(2)?, path(3)?)?,
+        Some("reclaim-build") => bench::reclaim_build(path(2)?, path(3)?)?,
+        Some("reclaim-accept") => bench::reclaim_accept(path(2)?, path(3)?)?,
+        Some("sweep-reclaimed-test-kas") => bench::sweep_reclaimed_test_kas(path(2)?, path(3)?, path(4)?, path(5)?)?,
         Some("actor") => actor::run(path(2)?, path(3)?)?,
         Some("serve") => anonymous::serve(
             path(2)?,
             path(3)?,
             path(4)?,
             args.get(5).ok_or("missing port")?.parse()?,
+        )?,
+        #[cfg(feature = "round-agreement")]
+        Some("serve-board") => timed::serve(
+            path(2)?, path(3)?, path(4)?,
+            args.get(5).ok_or("missing port")?.parse()?, "board", Some(path(6)?),
         )?,
         Some("combined") => bench::run_combined(path(2)?, path(3)?, path(4)?, path(5)?)?,
         Some("verify-registration") => anonymous::verify_logs(path(2)?, path(3)?, path(4)?)?,

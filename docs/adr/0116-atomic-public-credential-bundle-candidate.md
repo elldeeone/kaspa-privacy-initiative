@@ -30,15 +30,10 @@ same-host offline evidence, not chain acceptance or network privacy.
    remains rejected under [ADR-0115](0115-service-release-timing-limits-blind-withdrawals.md).
    Known owners/Sybils, public amounts, network timing, fee funding and later
    disclosures still defeat or limit the benefit.
-4. The next gate is actual Testnet payload acceptance and independent readers
-   with the complete approved payout and restored-key spend. If that gate fails,
-   stop this option and contribute the failure to upstream P13. If it passes,
-   compare **complete** first-payment and service costs, including the new
-   payload transaction, with the retained workload. The existing 47-useful-KAS
-   native-fee quote is already 2.11% before a separate publication fee, so the
-   unchanged workload cannot meet the retained 2% all-in target by adding this
-   transaction alone. No full cost or production selection follows from this
-   local result.
+4. The selected Testnet gate and matched-cost check are recorded below. The
+   47-useful-KAS workload was already above the retained 2% all-in target
+   before the extra bundle transaction. No production selection follows from
+   the local result.
 
 This decision adds no token, admin exit, cryptographic primitive, relaxed
 proof/economic check, mainnet deployment or consensus rule. It introduces an
@@ -47,3 +42,28 @@ privacy. The board test keeps the existing issuer, wallet proofs, whole-set
 approvals and economic kernel; a real deployment would need exact chain-object
 binding, accepted ordering and recovery semantics before any authority depends
 on the bundle.
+
+## Testnet gate and retained decision, 7 November 2026
+
+The [fresh TN10 result](../../research/atomic-bundle-withdrawal-2026-11-07/TESTNET-RESULT.md)
+confirms one 9,204-byte ordinary accepted bundle, three separate wallet chain
+readers using two public RPC operators, genuine approvals, a later private
+payment, three native group payouts, zero final reserve/liability and five
+restored-key payout spends. The service-only observer retained zero exact
+ownership links and six compatible assignments; its one rank guess got 1/3.
+The added paid native fee was 0.01894 KAS. All other fees in the same-shaped
+complete TN10 path were unchanged. On the retained 47-useful-KAS comparison,
+native fees project to about 2.15%, and the illustrative measured
+proof-and-fee subtotal to about 8.25% before unpriced additions. The accepted
+small-fixture fee is a same-shape proxy, not an actual 47-KAS bundle fee or a
+normal-use percentage for the 1.2-KAS Testnet fixture.
+
+**Keep the bundle optional and experimental.** It earns a real bounded
+service-timing benefit on current L1, but does not meet the complete privacy
+or roughly 3% complete-cost bar for the matched workload. This is a component
+to contribute to the shared investigation, not grounds for a separate
+production runtime. Per-wallet reads used one public operator each on one
+physical host; header authentication, hostile-RPC behavior, live reorgs,
+retention, independent users, known-owner attacks and complete service pricing
+remain unqualified. No consensus, reserve authority or cryptographic relation
+changed. The issuer can still withhold the whole bundle and reduce liveness.
