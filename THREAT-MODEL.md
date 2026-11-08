@@ -1,5 +1,19 @@
 # Threat Model
 
+The [47-KAS note-granularity attack](research/note-granularity-privacy-2026-11-08/RESULT.md)
+finds that the current wallet's one-input transfers and one-note exits make
+four of seven payment amounts exact when an observer also knows the actual
+contact order and payout owners. Those owner/contact facts are explicit
+auxiliary knowledge, not automatically available to a chain watcher or the
+isolated registration service. The remaining four structural amount histories
+are not a cryptographic indistinguishability or anonymity proof. One involved
+participant disclosing its own four payments collapses the fixture entirely.
+A modeled two-note merge does not improve exact amount facts on the whole-KAS
+workload. The actual proof/ciphertext bytes, network timing, independent people
+and merge implementation remain unqualified. The earlier balance-only zero-
+exact result is a weaker necessary bound; use this correction for the stronger
+known-owner threat view.
+
 The [TN10 bundle result](research/atomic-bundle-withdrawal-2026-11-07/TESTNET-RESULT.md)
 confirms an accepted common payload and three same-host wallet readers using
 two public RPC operators. It closes the previously untested *real acceptance*

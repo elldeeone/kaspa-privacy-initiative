@@ -1,5 +1,18 @@
 # Privacy lessons
 
+The [8 November note-granularity correction](../../research/note-granularity-privacy-2026-11-08/RESULT.md)
+uses the actual wallet's one-input transfers and one-note EXIT rule, public
+packet shapes and known-owner/contact auxiliaries. In the 47-KAS offline
+history, **four of seven actual payment amounts are exact**, despite the
+earlier balance-only screen's zero-exact necessary bound. Four structural
+amount histories retain truth; they are not proof of cryptographic transcript
+indistinguishability or real-world anonymity. A's truthful participant
+disclosure collapses the fixture to one. A hypothetical two-input merge widens
+fine-grained arithmetic possibilities but changes no exact fact or whole-KAS
+history count in this workload; do not implement it on this evidence. Native
+fees and outer work already total an illustrative 8.2123% before unpriced
+costs, so the conditional new cost campaign does not start.
+
 The [matched four-wallet screen](../../research/matched-payment-privacy-2026-11-08/RESULT.md)
 reuses seven genuine private wallet payments and complete offline drainage of
 40 KAS principal. An offline board made from the same real blind replies is

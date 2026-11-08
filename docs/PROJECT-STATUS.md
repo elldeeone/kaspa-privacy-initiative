@@ -3,12 +3,25 @@
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
 
+**8 November note-granularity correction and merge stop:** the retained 47-KAS
+offline native-Full history publishes five final *one-note* exit amounts. With
+explicitly supplied payout owners and ordered contacts, the actual one-note
+wallet rules force **4 of 7 private payment amounts exactly**; four structural
+amount histories retain the executed truth. A truthful disclosure by A of its
+own four payments leaves one history and exposes all seven. The earlier 0/7
+balance-only result below is a necessary-constraint bound, **not** a full
+public-record privacy score. A two-input private merge was screened offline:
+it leaves the same four exact amounts and four whole-KAS histories, so its
+implementation and full-cost gates fail. No merge proof, new network trial or
+consensus change was made. The existing 47-KAS native-fee-plus-outer-work
+subtotal is **8.2123% before unpriced costs**. [Frozen attack and result](../research/note-granularity-privacy-2026-11-08/RESULT.md).
+
 **8 November matched four-wallet follow-up:** the retained 47-useful-KAS run
 has seven real private wallet payments and complete *offline* native withdrawals
 from synthetic funding. Its actual three blind replies can be repackaged into a
 9,259-byte board that passes the public checker, but this exact board was not
 redeemed or accepted on chain. Under explicitly supplied payout owners and
-contact edges, necessary balance constraints force **0 of 7 amounts exactly**;
+contact edges, the weaker necessary balance constraints force **0 of 7 amounts exactly**;
 a separate whole-KAS price assumption fixes 1. Ordinary replies and the board
 give **the same payment-amount constraints**. The three equal payout scripts
 retain six assignments for an isolated service in both arms. This does not

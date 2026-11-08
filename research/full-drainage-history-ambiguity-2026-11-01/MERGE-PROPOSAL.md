@@ -1,5 +1,11 @@
 # Proposed private note merge
 
+**Later scoped result, 8 November:** the [47-KAS offline note-granularity screen](../note-granularity-privacy-2026-11-08/RESULT.md)
+finds no improvement in exact payment facts or whole-KAS structural histories
+from merging A's final two notes in that workload. Do not implement this
+proposal for that fixture on the present evidence. The earlier small-fixture
+note-granularity rationale remains a hypothesis, not a system-wide privacy win.
+
 **Status:** Proposed research architecture; not approved or implemented  
 **Scope:** optional wallet operation for the private-note PoC  
 **Decision driver:** reduce note-level public disclosure when an owner fully

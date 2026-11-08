@@ -94,3 +94,10 @@ mapping count. The larger history therefore supplies no payment-privacy gain
 attributable to the board and does not change this ADR's optional timing-only
 decision. Extra public proof fields, network timing and prices may narrow the
 balance-only ranges; this is no complete privacy qualification.
+
+**Later note-level correction:** the [actual wallet-rule screen](../../research/note-granularity-privacy-2026-11-08/RESULT.md)
+fixes four of seven payment amounts under the same supplied owners/contacts,
+using public one-note exit sizes omitted by the weaker balance-only bound above.
+The board remains absent from those amount equations. A modeled private merge
+does not change the four exact facts under the whole-KAS sensitivity, so neither
+merge implementation nor a new complete-cost campaign follows.

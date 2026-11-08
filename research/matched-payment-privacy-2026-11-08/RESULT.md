@@ -1,5 +1,12 @@
 # The larger real-wallet history does not make the bundle a payment-privacy gain
 
+**Later stronger correction:** the [note-granularity attack](../note-granularity-privacy-2026-11-08/RESULT.md)
+uses the actual wallet's one-note EXIT rule and public final note sizes. Under
+the same supplied owners/contacts it forces **4 of 7 amounts exactly**. The
+zero-exact figure below is this study's deliberately weaker balance-only
+necessary bound, not a complete public-record privacy score. The board still
+changes none of the amount constraints.
+
 **Decision:** keep the public blind-reply bundle only as the separately tested,
 optional service-timing repair. Do not spend another independent-machine or cost
 campaign trying to make this bundle the full payment-privacy architecture. In
