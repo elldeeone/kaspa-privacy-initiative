@@ -35,6 +35,8 @@ pool and all earlier source/hash bindings are unchanged.
   separate. It supports both positive reserve change and exact full drain without
   a zero-value reserve output. Destination authorization comes from the proved
   exit/current ledger, never an operator-configured replacement recipient.
+  Payouts may use a different unprivileged fee sponsor after authorization; all
+  earlier trial transaction kinds remain pinned to the trial sponsor.
 - `service/` is a scoped derivative of the reviewed staged service: six arrivals,
   one durable deadline including interstage waits, fixed profiles and executable,
   independently approved targets, single mutating service, restart interruption,
@@ -68,10 +70,11 @@ uses a labelled synthetic public trial, not the owner's addresses or a provider.
 
 ## Qualified locally
 
-Eight fast Rust tests pass, including new bootstrap restrictions, signed native
-mass/fee checks, both genuine PR58 exit receipts in the new signed issuance/payout
-builder and all six exact dynamic-target receipt checks. These receipts use the
-old local fixture context, not this owner's new public configuration.
+Nine fast Rust tests pass, including new bootstrap restrictions, signed native
+mass/fee checks, both genuine PR58 exit receipts in the signed issuance/payout
+builder, replaceable payout sponsors at distinct fee rates and all six exact
+dynamic-target receipt checks. These receipts use the old local fixture context,
+not this owner's new public configuration.
 
 Seventeen Python tests pass: real local HTTP six-arrival orchestration, actual
 CPU verification of the retained receipts, externally preserved archive recheck,

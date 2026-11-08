@@ -127,6 +127,9 @@ fn utxo(v: &Value) -> Result<(TransactionOutpoint, UtxoEntry)> {
 fn push(data: &[u8]) -> Result<Vec<u8>> {
     Ok(ScriptBuilder::new().add_data(data)?.drain())
 }
+pub(crate) fn sponsor_allowed(kind: &str, trial_sponsor: bool) -> bool {
+    trial_sponsor || kind == "payout"
+}
 pub(crate) fn sign_fee_input(
     mut tx: Transaction,
     entries: &[UtxoEntry],
@@ -159,12 +162,14 @@ pub fn build(trial_path: &Path, request_path: &Path, key_file: &Path, out: &Path
     )?;
     require(r["trial"] == trial["trial"], "cross-trial request")?;
     let rate = n(&r["feeRateSompiPerGram"])?;
+    let kind = r["kind"].as_str().ok_or("kind")?;
     let key = secp256k1::SecretKey::from_str(std::str::from_utf8(&secret(key_file)?)?.trim())?;
     let kp = secp256k1::Keypair::from_secret_key(secp256k1::SECP256K1, &key);
     let pk = kp.x_only_public_key().0.serialize();
+    let trial_sponsor = hex::encode(pk) == trial["sponsorNative"]["pubkey"];
     require(
-        hex::encode(pk) == trial["sponsorNative"]["pubkey"],
-        "not this trial's sponsor",
+        sponsor_allowed(kind, trial_sponsor),
+        "only a payout may use an unpinned fee sponsor",
     )?;
     let sponsor_spk = kaspa_txscript::pay_to_address_script(&kaspa_addresses::Address::new(
         kaspa_addresses::Prefix::Testnet,
@@ -194,7 +199,6 @@ pub fn build(trial_path: &Path, request_path: &Path, key_file: &Path, out: &Path
     let mut scripts = vec![];
     let mut payload = vec![];
     let mut extra = json!({});
-    let kind = r["kind"].as_str().ok_or("kind")?;
     let mut anchor = Anchor(Hash::from_bytes([0; 32]), Hash::from_bytes([0; 32]));
     match kind {
         "bootstrap" => {
@@ -590,7 +594,7 @@ pub fn build(trial_path: &Path, request_path: &Path, key_file: &Path, out: &Path
     mkdir(out)?;
     report(
         &out.join("transaction.json"),
-        &json!({"trial":trial["trial"],"kind":kind,"transactionId":tx.id().to_string(),"transaction":RpcTransaction::from(&tx),"details":extra,"qualification":qualification,"broadcast":false}),
+        &json!({"trial":trial["trial"],"kind":kind,"transactionId":tx.id().to_string(),"transaction":RpcTransaction::from(&tx),"details":extra,"qualification":qualification,"feeSponsor":{"pubkey":hex::encode(pk),"trialSponsor":trial_sponsor},"broadcast":false}),
     )?;
     report(&out.join("request.json"), &r)?;
     if kind == "initialize" {

@@ -184,6 +184,22 @@ fn rpc_utxo(
     .unwrap()
 }
 
+#[test]
+fn unpinned_fee_sponsors_are_payout_only() {
+    assert!(transaction::sponsor_allowed("payout", false));
+    for kind in [
+        "bootstrap",
+        "initialize",
+        "deposit",
+        "activate",
+        "publish",
+        "settlement",
+    ] {
+        assert!(!transaction::sponsor_allowed(kind, false), "{kind}");
+        assert!(transaction::sponsor_allowed(kind, true), "{kind}");
+    }
+}
+
 fn init_test(out: &Path) {
     use kpi_private_note_wallet::wallet::Wallet;
     let root = out.parent().unwrap();
@@ -364,15 +380,7 @@ fn prove_exit_builder(case: &str) {
     let rpc: kaspa_rpc_core::RpcTransaction =
         serde_json::from_value(record["transaction"].clone()).unwrap();
     let payout: Transaction = rpc.try_into().unwrap();
-    let final_state = app::apply(&registered, &native::lane_tx(&payout), &verifier())
-        .unwrap()
-        .0;
-    assert_eq!(
-        final_state.accounting().unwrap().reserve_principal,
-        if case == "bob-exit" { 600_000_000 } else { 0 }
-    );
-    assert_eq!(final_state.accounting().unwrap().unpaid_exits, 0);
-    // Actual signed mutations, balancing sponsor change and re-signing it.
+    assert_eq!(record["feeSponsor"]["trialSponsor"], true);
     let mut es = vec![];
     for field in ["permissionUtxo", "reserveUtxo", "sponsorUtxo"] {
         let entry: kaspa_rpc_core::RpcUtxosByAddressesEntry =
@@ -382,13 +390,104 @@ fn prove_exit_builder(case: &str) {
     let sk =
         secp256k1::SecretKey::from_slice(&hex::decode(secret(&key).unwrap()).unwrap()).unwrap();
     let kp = secp256k1::Keypair::from_secret_key(secp256k1::SECP256K1, &sk);
-    for kind in ["underpay", "recipient", "lane"] {
+
+    // Rebuild the same proof-authorized exit at a higher fee rate with a
+    // different unprivileged sponsor. The exit/permission/reserve are already
+    // fixed; only fee funding and the fully signed native transaction change.
+    let replacement_secret = secp256k1::SecretKey::from_slice(&[43; 32]).unwrap();
+    let replacement_key = p.join("replacement-sponsor.key");
+    save(
+        &replacement_key,
+        hex::encode(replacement_secret.secret_bytes()).as_bytes(),
+    )
+    .unwrap();
+    let replacement_kp =
+        secp256k1::Keypair::from_secret_key(secp256k1::SECP256K1, &replacement_secret);
+    let replacement_pk = replacement_kp.x_only_public_key().0.serialize();
+    let replacement_spk = kaspa_txscript::pay_to_address_script(&kaspa_addresses::Address::new(
+        kaspa_addresses::Prefix::Testnet,
+        kaspa_addresses::Version::PubKey,
+        &replacement_pk,
+    ));
+    r["feeRateSompiPerGram"] = json!(1_000);
+    r["sponsorUtxo"] = rpc_utxo(
+        TransactionOutpoint::new(Hash::from_bytes([0x85; 32]), 0),
+        tx.outputs[2].value,
+        replacement_spk,
+        None,
+    );
+    let replacement_request = p.join("replacement-payout-request.json");
+    report(&replacement_request, &r).unwrap();
+    let replacement_out = p.join("replacement-payout");
+    transaction::build(
+        &trial_json,
+        &replacement_request,
+        &replacement_key,
+        &replacement_out,
+    )
+    .unwrap();
+    let replacement_record = read(replacement_out.join("transaction.json")).unwrap();
+    let replacement_rpc: kaspa_rpc_core::RpcTransaction =
+        serde_json::from_value(replacement_record["transaction"].clone()).unwrap();
+    let replacement: Transaction = replacement_rpc.try_into().unwrap();
+    assert_eq!(replacement_record["feeSponsor"]["trialSponsor"], false);
+    assert_ne!(replacement.id(), payout.id());
+    assert_eq!(&replacement.inputs[..2], &payout.inputs[..2]);
+    assert_eq!(replacement.outputs.len(), payout.outputs.len());
+    assert_eq!(
+        &replacement.outputs[..replacement.outputs.len() - 1],
+        &payout.outputs[..payout.outputs.len() - 1]
+    );
+    assert_eq!(replacement.payload, payout.payload);
+    assert_eq!(replacement.subnetwork_id, payout.subnetwork_id);
+    assert_ne!(replacement.inputs.last(), payout.inputs.last());
+    assert!(
+        replacement_record["qualification"]["feeSompi"]
+            .as_u64()
+            .unwrap()
+            > record["qualification"]["feeSompi"].as_u64().unwrap()
+    );
+
+    let final_state = app::apply(&registered, &native::lane_tx(&payout), &verifier())
+        .unwrap()
+        .0;
+    let replacement_state = app::apply(&registered, &native::lane_tx(&replacement), &verifier())
+        .unwrap()
+        .0;
+    assert_eq!(
+        final_state.accounting().unwrap().reserve_principal,
+        if case == "bob-exit" { 600_000_000 } else { 0 }
+    );
+    assert_eq!(final_state.accounting().unwrap().unpaid_exits, 0);
+    assert_eq!(
+        replacement_state.accounting().unwrap().reserve_principal,
+        final_state.accounting().unwrap().reserve_principal
+    );
+    assert_eq!(replacement_state.accounting().unwrap().unpaid_exits, 0);
+    assert!(app::apply(&final_state, &native::lane_tx(&replacement), &verifier()).is_err());
+    assert!(app::apply(&replacement_state, &native::lane_tx(&payout), &verifier()).is_err());
+
+    // Actual signed mutations, balancing sponsor change and re-signing it.
+    let mut attacks = vec![
+        "underpay",
+        "fee-from-principal",
+        "recipient",
+        "input-order",
+        "output-order",
+        "lane",
+    ];
+    if payout.outputs.len() > 2 {
+        attacks.push("reserve");
+    }
+    for kind in attacks {
         let mut bad = payout.clone();
+        let mut bad_entries = es.clone();
         match kind {
             "underpay" => {
                 bad.outputs[0].value -= 1;
                 bad.outputs.last_mut().unwrap().value += 1;
             }
+            "fee-from-principal" => bad.outputs[0].value -= 1,
             "reserve" => {
                 bad.outputs[1].value -= 1;
                 bad.outputs.last_mut().unwrap().value += 1;
@@ -397,13 +496,18 @@ fn prove_exit_builder(case: &str) {
                 bad.outputs[0].script_public_key =
                     bad.outputs.last().unwrap().script_public_key.clone()
             }
+            "input-order" => {
+                bad.inputs.swap(0, 1);
+                bad_entries.swap(0, 1);
+            }
+            "output-order" => bad.outputs.swap(0, 1),
             _ => bad.subnetwork_id = [0; 20].into(),
         }
-        bad = transaction::sign_fee_input(bad, &es, kp);
+        bad = transaction::sign_fee_input(bad, &bad_entries, kp);
         bad.finalize();
         let error = transaction::execute(
             &bad,
-            &es,
+            &bad_entries,
             &transaction::Anchor(Hash::from_bytes([0; 32]), Hash::from_bytes([0; 32])),
         )
         .unwrap_err();

@@ -148,6 +148,8 @@ P12 must cover incoming discovery, authenticated note reconstruction and recipie
 
 [Shielded relay fees][R] illustrate avoiding a user's public gas input, but relay policy and public self-broadcast fallbacks have distinct privacy/liveness properties. A fee sponsor's existence does not establish permissionless exits. Fee authority must conserve principal, refundable entitlements and reserve isolation under changing relay/inclusion demand ([#23](https://github.com/olafweller/kaspa-privacy-initiative/issues/23)).
 
+The bounded [replaceable-sponsor experiment](../../research/replaceable-exit-sponsor-2026-11-08/RESULTS.md) shows that the existing proof-authorized payout can be rebuilt offline by a different unprivileged sponsor at a higher declared fee rate without changing principal, recipient, permission, reserve or private proof. This closes the host-builder pinning error, not #23: mempool conflict replacement, miner inclusion, sponsor availability and fee-link privacy remain open.
+
 For C, define how executors verify confidential operations from public proofs without receiving spend witnesses. For all candidates, hosted proving changes the confidentiality assumption. Low-activity timing and recorded encrypted-note exposure must be studied even when current circuits hide amounts.
 
 ## Phase 2 decision questions

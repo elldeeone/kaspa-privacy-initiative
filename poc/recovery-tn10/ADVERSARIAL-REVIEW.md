@@ -9,10 +9,16 @@
   preserve proof compute budgets and reject underpayment/destination/lane attacks.
   Only the proof-authorized ledger destination is used; no operator recipient
   override/admin release exists. Full drain removes the selected reserve and
-  keeps state rent separate. Historical PR54 funds cannot be upgraded by this code.
+  keeps state rent separate. A second unprivileged sponsor can rebuild the same
+  payout at a higher declared fee rate; principal, permission, reserve, recipient,
+  rent refund and payload stay fixed. Input/output reordering, fee-from-principal,
+  reserve diversion and sequential replacement replay reject. Historical PR54
+  funds cannot be upgraded by this code.
 - User secrets: init imports only the exact receiving schema/domain and distinct
-  public keys. The operator creates only its own unfunded sponsor key. Credit,
-  transfer and exits run locally against an independently supplied state root;
+  public keys. Init creates one unfunded default sponsor key, but payout building
+  can accept any locally supplied unbound sponsor key and matching UTXO. Other
+  transaction kinds remain pinned to the default sponsor. Credit, transfer and
+  exits run locally against an independently supplied state root;
   wallet backups/native keys are not sent to Cloud/B/GPU or committed to Git.
   Same-owner role administration remains trusted, not independent-human custody.
 - Public destination privacy: receive records have no native payout key. The
