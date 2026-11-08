@@ -1,5 +1,15 @@
 # Privacy lessons
 
+The [8 November known-owner screen](../../research/known-owner-withdrawal-screen-2026-11-08/RESULT.md)
+uses the already accepted bundle trial and explicitly supplied payout owners,
+initial principal and contact edges. After full withdrawal, public values force
+two of four actual private payment amounts exactly; the other two share a fixed
+net difference. Its board-free ablation gives the same result. This is a
+strong-observer **amount** control, not chain-only ownership discovery, a
+relationship score, a matched upstream run or a population anonymity estimate.
+The bundle remains a narrow optional service-timing fix; do not escalate it as
+a complete payment-privacy architecture on this evidence.
+
 The [atomic-bundle diagnostic](../../research/atomic-bundle-withdrawal-2026-11-07/RESULT.md)
 gives all three wallets one simulated public set of valid blind replies. The
 same malicious service's per-client release schedule then yields zero exact

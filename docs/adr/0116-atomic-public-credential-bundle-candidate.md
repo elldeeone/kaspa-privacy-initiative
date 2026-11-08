@@ -67,3 +67,16 @@ physical host; header authentication, hostile-RPC behavior, live reorgs,
 retention, independent users, known-owner attacks and complete service pricing
 remain unqualified. No consensus, reserve authority or cryptographic relation
 changed. The issuer can still withhold the whole bundle and reduce liveness.
+
+## Known-owner amount stop, 8 November 2026
+
+The [preselected screen](../../research/known-owner-withdrawal-screen-2026-11-08/RESULT.md)
+uses this bundle's accepted TN10 payouts and explicitly supplied owner/contact
+knowledge. Full withdrawal fixes two of four actual payment amounts; the board
+is absent from those balance equations. The stop rule fires for **complete
+financial-privacy escalation**, so no further independent-wallet Testnet or
+full-cost campaign is warranted for that claim. Keep the previously measured
+optional service-timing benefit. This is one strong-observer amount result, not
+general chain-only deanonymization or a matched execution against Olaf's
+different upstream workload. No production architecture or consensus change is
+selected.

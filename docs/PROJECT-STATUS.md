@@ -1,7 +1,23 @@
-# Project status — 7 November 2026
+# Project status — 8 November 2026
 
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
+
+**8 November known-owner stop test:** the accepted atomic-bundle TN10 payouts,
+combined with explicitly supplied owner and contact knowledge, force **2 of 4
+actual private payment amounts exactly** after full withdrawal. The other two
+amounts remain linked by a public 0.24-KAS net balance. Removing the bundle
+from the amount predictor changes nothing: it repairs the tested service reply
+timing leak, not this transparent-exit arithmetic. The predictor does not need
+to know which equal group payout script belongs to which participant. The
+predeclared stop rule
+therefore halts further independent-wallet and full-cost campaigns **for this
+bundle as a complete financial-privacy solution**. Its optional, bounded timing
+benefit and previous Testnet result remain. Olaf's refreshed main has a
+different two-user Testnet workload, so no matched code-level comparison or
+upstream adoption claim follows. [Selection and result](../research/known-owner-withdrawal-screen-2026-11-08/RESULT.md),
+[source refresh](../research/upstream-privacy-baseline-2026-11-08.md). No
+consensus change or new network transaction.
 
 **7 November current-L1 bundle Testnet result:** one 9,204-byte blind-reply
 bundle was accepted on TN10 and read by three wallet processes through two
