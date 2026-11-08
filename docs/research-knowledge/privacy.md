@@ -1,5 +1,16 @@
 # Privacy lessons
 
+The [8 November Olaf comparison](../../research/olaf-privacy-comparison-2026-11-08/RESULT.md)
+tests his published two-user TN10 deposit/private-transfer/sequential-exit
+record. Known payout owners and one known contact force its single 4-KAS
+payment amount exactly after 4/6-KAS principal withdrawals; the 0.5-KAS rent
+refunds are separate. The public fixture also spells out the roles and amount.
+Our current exit fields have the same arithmetic result on that *unexecuted*
+matched workload. The actual 47-KAS branch result below is a different offline
+history; 1/1 versus 4/7 does not rank the designs. Full public operation bodies
+and independent-user chain-only ownership measurements are unavailable from
+Olaf's publication. The optional service timing gain remains separate.
+
 The [8 November note-granularity correction](../../research/note-granularity-privacy-2026-11-08/RESULT.md)
 uses the actual wallet's one-input transfers and one-note EXIT rule, public
 packet shapes and known-owner/contact auxiliaries. In the 47-KAS offline

@@ -3,6 +3,20 @@
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
 
+**8 November Olaf privacy comparison:** his latest published two-user TN10
+trial has one 10-KAS deposit, one private payment, and complete 4/6-KAS
+principal exits. With the payout owners and one contact known, the 4-KAS
+payment amount is **1/1 exact** after withdrawal. The published fixture itself
+also names the roles and payment value. Our current public-exit fields force
+the same 1/1 result for that *unexecuted matched field control*. Our actual
+47-KAS offline wallet history fixes 4/7 amounts, but its workload differs, so
+those fractions cannot rank architectures. Olaf's full public operation bodies
+and an independent-user privacy trace are not published; chain-only ownership
+remains unmeasured. Keep the optional service-timing component distinct and
+require a matched, full-lifecycle observer test before claiming an advantage.
+[Frozen comparison and result](../research/olaf-privacy-comparison-2026-11-08/RESULT.md).
+No consensus change or new transaction.
+
 **8 November note-granularity correction and merge stop:** the retained 47-KAS
 offline native-Full history publishes five final *one-note* exit amounts. With
 explicitly supplied payout owners and ordered contacts, the actual one-note
