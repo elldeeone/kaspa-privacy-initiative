@@ -80,3 +80,17 @@ optional service-timing benefit. This is one strong-observer amount result, not
 general chain-only deanonymization or a matched execution against Olaf's
 different upstream workload. No production architecture or consensus change is
 selected.
+
+## Matched four-wallet follow-up, 8 November 2026
+
+The [47-useful-KAS offline comparison](../../research/matched-payment-privacy-2026-11-08/RESULT.md)
+repackages the retained run's three genuine blind replies into a 9,259-byte
+board that passes the public checker. Its wallets did not redeem this board and
+the synthetic-funded native transactions were not chain accepted. Under
+declared owner/contact knowledge, necessary balance constraints leave all seven
+actual payment amounts non-exact; an added whole-KAS assumption fixes one.
+Ordinary replies yield exactly the same amount constraints and isolated-service
+mapping count. The larger history therefore supplies no payment-privacy gain
+attributable to the board and does not change this ADR's optional timing-only
+decision. Extra public proof fields, network timing and prices may narrow the
+balance-only ranges; this is no complete privacy qualification.

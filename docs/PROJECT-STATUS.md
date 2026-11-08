@@ -3,6 +3,20 @@
 **Real native test-KAS payment and recovery experiments work. The complete
 financial-privacy, cost and independent-recovery requirements remain unmet.**
 
+**8 November matched four-wallet follow-up:** the retained 47-useful-KAS run
+has seven real private wallet payments and complete *offline* native withdrawals
+from synthetic funding. Its actual three blind replies can be repackaged into a
+9,259-byte board that passes the public checker, but this exact board was not
+redeemed or accepted on chain. Under explicitly supplied payout owners and
+contact edges, necessary balance constraints force **0 of 7 amounts exactly**;
+a separate whole-KAS price assumption fixes 1. Ordinary replies and the board
+give **the same payment-amount constraints**. The three equal payout scripts
+retain six assignments for an isolated service in both arms. This does not
+overturn the earlier accepted four-payment case that fixed two amounts, or
+qualify complete privacy: proof shapes, timing and prices can narrow the larger
+history. **Stop escalation of the board as a payment-privacy architecture; keep
+its separately tested timing repair optional.** [Selection, code and result](../research/matched-payment-privacy-2026-11-08/RESULT.md).
+
 **8 November known-owner stop test:** the accepted atomic-bundle TN10 payouts,
 combined with explicitly supplied owner and contact knowledge, force **2 of 4
 actual private payment amounts exactly** after full withdrawal. The other two

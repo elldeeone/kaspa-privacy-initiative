@@ -1,5 +1,18 @@
 # Privacy lessons
 
+The [matched four-wallet screen](../../research/matched-payment-privacy-2026-11-08/RESULT.md)
+reuses seven genuine private wallet payments and complete offline drainage of
+40 KAS principal. An offline board made from the same real blind replies is
+9,259 bytes and passes the public checker. Under supplied owners/contacts,
+necessary balance constraints force zero of seven individual amounts exactly;
+a separately assumed whole-KAS grid fixes one. This larger history retains
+balance-level ambiguity, but the board does not cause it: ordinary replies give
+identical amount constraints. Extra public proof fields, timing and price facts
+may narrow the possibilities. The exact board was not redeemed or accepted on
+chain, and no matched upstream code-level advantage follows. Keep the board's
+separately measured timing benefit optional and stop cost escalation for a
+complete payment-privacy claim on this mechanism.
+
 The [8 November known-owner screen](../../research/known-owner-withdrawal-screen-2026-11-08/RESULT.md)
 uses the already accepted bundle trial and explicitly supplied payout owners,
 initial principal and contact edges. After full withdrawal, public values force
