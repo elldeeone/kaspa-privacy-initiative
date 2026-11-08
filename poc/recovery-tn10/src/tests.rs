@@ -1,7 +1,234 @@
 use super::*;
-use kaspa_consensus_core::{hashing::covenant_id::covenant_id, sign::sign};
+use kaspa_consensus_core::{
+    api::{
+        args::{TransactionValidationArgs, TransactionValidationBatchArgs},
+        ConsensusApi,
+    },
+    errors::tx::{TxResult, TxRuleError},
+    hashing::covenant_id::covenant_id,
+    mass::{ContextualMasses, Mass, MassCalculator, NonContextualMasses},
+    sign::sign,
+};
+use kaspa_mining::{
+    manager::MiningManager,
+    mempool::tx::{Orphan, Priority, RbfPolicy},
+    model::tx_query::TransactionQuery,
+    MiningCounters,
+};
 use kaspa_txscript::{script_builder::ScriptBuilder, standard::pay_to_script_hash_script};
-use std::path::PathBuf;
+use std::{
+    collections::HashMap,
+    path::PathBuf,
+    sync::{Arc, RwLock},
+};
+
+struct RbfConsensus {
+    utxos: RwLock<HashMap<TransactionOutpoint, UtxoEntry>>,
+    mass: MassCalculator,
+}
+
+impl RbfConsensus {
+    fn new(utxos: impl IntoIterator<Item = (TransactionOutpoint, UtxoEntry)>) -> Self {
+        Self {
+            utxos: RwLock::new(utxos.into_iter().collect()),
+            mass: MassCalculator::new_with_consensus_params(&TESTNET_PARAMS),
+        }
+    }
+
+    fn populate(&self, transaction: &mut MutableTransaction) -> TxResult<()> {
+        let utxos = self.utxos.read().unwrap();
+        let mut missing = false;
+        for (input, entry) in transaction.tx.inputs.iter().zip(&mut transaction.entries) {
+            if entry.is_none() {
+                if let Some(found) = utxos.get(&input.previous_outpoint) {
+                    *entry = Some(found.clone());
+                } else {
+                    missing = true;
+                }
+            }
+        }
+        if missing {
+            Err(TxRuleError::MissingTxOutpoints)
+        } else {
+            Ok(())
+        }
+    }
+}
+
+impl ConsensusApi for RbfConsensus {
+    fn validate_mempool_transaction(
+        &self,
+        transaction: &mut MutableTransaction,
+        args: &TransactionValidationArgs,
+    ) -> TxResult<()> {
+        self.populate(transaction)?;
+        let non_contextual = transaction
+            .calculated_non_contextual_masses
+            .expect("populated by mempool");
+        let total_in: u64 = transaction
+            .entries
+            .iter()
+            .map(|entry| entry.as_ref().unwrap().amount)
+            .sum();
+        let total_out: u64 = transaction
+            .tx
+            .outputs
+            .iter()
+            .map(|output| output.value)
+            .sum();
+        let fee = total_in.checked_sub(total_out).unwrap();
+        let contextual = self
+            .mass
+            .calc_contextual_masses(&transaction.as_verifiable())
+            .unwrap();
+        transaction.tx.set_storage_mass(contextual.storage_mass);
+        if let Some(threshold) = args.feerate_threshold {
+            let normalized_mass = Mass::new(non_contextual, contextual)
+                .normalized_max(&TESTNET_PARAMS.block_mass_cofactors());
+            if fee as f64 / normalized_mass as f64 <= threshold {
+                return Err(TxRuleError::FeerateTooLow);
+            }
+        }
+        transaction.calculated_fee = Some(fee);
+        Ok(())
+    }
+
+    fn validate_mempool_transactions_in_parallel(
+        &self,
+        transactions: &mut [MutableTransaction],
+        _args: &TransactionValidationBatchArgs,
+    ) -> Vec<TxResult<()>> {
+        transactions
+            .iter_mut()
+            .map(|transaction| self.validate_mempool_transaction(transaction, &Default::default()))
+            .collect()
+    }
+
+    fn populate_mempool_transaction(&self, transaction: &mut MutableTransaction) -> TxResult<()> {
+        self.populate(transaction)
+    }
+
+    fn populate_mempool_transactions_in_parallel(
+        &self,
+        transactions: &mut [MutableTransaction],
+    ) -> Vec<TxResult<()>> {
+        transactions
+            .iter_mut()
+            .map(|transaction| self.populate(transaction))
+            .collect()
+    }
+
+    fn calculate_transaction_non_contextual_masses(
+        &self,
+        transaction: &Transaction,
+    ) -> TxResult<NonContextualMasses> {
+        Ok(self.mass.calc_non_contextual_masses(transaction))
+    }
+
+    fn calculate_transaction_contextual_masses(
+        &self,
+        transaction: &MutableTransaction,
+    ) -> Option<ContextualMasses> {
+        self.mass
+            .calc_contextual_masses(&transaction.as_verifiable())
+    }
+
+    fn get_virtual_daa_score(&self) -> u64 {
+        0
+    }
+}
+
+fn assert_mempool_replacement(
+    original: &Transaction,
+    equal_fee: &Transaction,
+    replacement: &Transaction,
+    original_entries: &[UtxoEntry],
+    equal_sponsor: UtxoEntry,
+    replacement_sponsor: UtxoEntry,
+) {
+    let mut utxos: Vec<_> = original
+        .inputs
+        .iter()
+        .zip(original_entries)
+        .map(|(input, entry)| (input.previous_outpoint, entry.clone()))
+        .collect();
+    utxos.push((
+        equal_fee.inputs.last().unwrap().previous_outpoint,
+        equal_sponsor,
+    ));
+    utxos.push((
+        replacement.inputs.last().unwrap().previous_outpoint,
+        replacement_sponsor,
+    ));
+    let consensus = RbfConsensus::new(utxos);
+    let manager = MiningManager::new(
+        TESTNET_PARAMS.target_time_per_block(),
+        false,
+        TESTNET_PARAMS.block_mass_limits,
+        TESTNET_PARAMS.block_lane_limits,
+        None,
+        Arc::new(MiningCounters::default()),
+    );
+
+    let inserted = manager
+        .validate_and_insert_transaction(
+            &consensus,
+            original.clone(),
+            Priority::High,
+            Orphan::Forbidden,
+            RbfPolicy::Forbidden,
+        )
+        .unwrap();
+    assert!(inserted.removed.is_none());
+    assert_eq!(inserted.accepted.len(), 1);
+
+    let equal_result = manager.validate_and_insert_transaction(
+        &consensus,
+        equal_fee.clone(),
+        Priority::High,
+        Orphan::Forbidden,
+        RbfPolicy::Mandatory,
+    );
+    assert!(matches!(
+        equal_result,
+        Err(kaspa_mining::errors::MiningManagerError::MempoolError(
+            kaspa_mining::mempool::errors::RuleError::RejectTxRule(TxRuleError::FeerateTooLow)
+        ))
+    ));
+    assert!(manager.has_transaction(&original.id(), TransactionQuery::TransactionsOnly));
+    assert!(!manager.has_transaction(&equal_fee.id(), TransactionQuery::All));
+
+    let ordinary_result = manager.validate_and_insert_transaction(
+        &consensus,
+        replacement.clone(),
+        Priority::High,
+        Orphan::Forbidden,
+        RbfPolicy::Forbidden,
+    );
+    assert!(matches!(
+        ordinary_result,
+        Err(kaspa_mining::errors::MiningManagerError::MempoolError(
+            kaspa_mining::mempool::errors::RuleError::RejectDoubleSpendInMempool(_, owner)
+        )) if owner == original.id()
+    ));
+    assert!(manager.has_transaction(&original.id(), TransactionQuery::TransactionsOnly));
+    assert!(!manager.has_transaction(&replacement.id(), TransactionQuery::All));
+
+    let inserted = manager
+        .validate_and_insert_transaction(
+            &consensus,
+            replacement.clone(),
+            Priority::High,
+            Orphan::Forbidden,
+            RbfPolicy::Mandatory,
+        )
+        .unwrap();
+    assert_eq!(inserted.removed.unwrap().id(), original.id());
+    assert_eq!(inserted.accepted.len(), 1);
+    assert_eq!(inserted.accepted[0].id(), replacement.id());
+    assert!(!manager.has_transaction(&original.id(), TransactionQuery::All));
+    assert!(manager.has_transaction(&replacement.id(), TransactionQuery::TransactionsOnly));
+}
 fn temp() -> PathBuf {
     let p = std::env::temp_dir().join(format!(
         "kpi-recovery-tn10-{}-{}",
@@ -391,9 +618,9 @@ fn prove_exit_builder(case: &str) {
         secp256k1::SecretKey::from_slice(&hex::decode(secret(&key).unwrap()).unwrap()).unwrap();
     let kp = secp256k1::Keypair::from_secret_key(secp256k1::SECP256K1, &sk);
 
-    // Rebuild the same proof-authorized exit at a higher fee rate with a
-    // different unprivileged sponsor. The exit/permission/reserve are already
-    // fixed; only fee funding and the fully signed native transaction change.
+    // Rebuild the same proof-authorized exit with different unprivileged
+    // sponsors. The equal-fee candidate is the negative RBF control; the
+    // higher-fee candidate must replace the original in Kaspa's real mempool.
     let replacement_secret = secp256k1::SecretKey::from_slice(&[43; 32]).unwrap();
     let replacement_key = p.join("replacement-sponsor.key");
     save(
@@ -409,13 +636,37 @@ fn prove_exit_builder(case: &str) {
         kaspa_addresses::Version::PubKey,
         &replacement_pk,
     ));
-    r["feeRateSompiPerGram"] = json!(1_000);
     r["sponsorUtxo"] = rpc_utxo(
         TransactionOutpoint::new(Hash::from_bytes([0x85; 32]), 0),
+        tx.outputs[2].value,
+        replacement_spk.clone(),
+        None,
+    );
+    let equal_sponsor: kaspa_rpc_core::RpcUtxosByAddressesEntry =
+        serde_json::from_value(r["sponsorUtxo"].clone()).unwrap();
+    let equal_request = p.join("equal-fee-payout-request.json");
+    report(&equal_request, &r).unwrap();
+    let equal_out = p.join("equal-fee-payout");
+    transaction::build(&trial_json, &equal_request, &replacement_key, &equal_out).unwrap();
+    let equal_record = read(equal_out.join("transaction.json")).unwrap();
+    let equal_rpc: kaspa_rpc_core::RpcTransaction =
+        serde_json::from_value(equal_record["transaction"].clone()).unwrap();
+    let equal_fee: Transaction = equal_rpc.try_into().unwrap();
+    assert_eq!(equal_record["feeSponsor"]["trialSponsor"], false);
+    assert_eq!(
+        equal_record["qualification"]["feeSompi"],
+        record["qualification"]["feeSompi"]
+    );
+
+    r["feeRateSompiPerGram"] = json!(1_000);
+    r["sponsorUtxo"] = rpc_utxo(
+        TransactionOutpoint::new(Hash::from_bytes([0x86; 32]), 0),
         tx.outputs[2].value,
         replacement_spk,
         None,
     );
+    let replacement_sponsor: kaspa_rpc_core::RpcUtxosByAddressesEntry =
+        serde_json::from_value(r["sponsorUtxo"].clone()).unwrap();
     let replacement_request = p.join("replacement-payout-request.json");
     report(&replacement_request, &r).unwrap();
     let replacement_out = p.join("replacement-payout");
@@ -447,8 +698,24 @@ fn prove_exit_builder(case: &str) {
             .unwrap()
             > record["qualification"]["feeSompi"].as_u64().unwrap()
     );
+    assert_eq!(&equal_fee.inputs[..2], &payout.inputs[..2]);
+    assert_eq!(equal_fee.outputs.len(), payout.outputs.len());
+    assert_eq!(equal_fee.payload, payout.payload);
+    assert_ne!(equal_fee.inputs.last(), payout.inputs.last());
+    assert_ne!(equal_fee.inputs.last(), replacement.inputs.last());
+    assert_mempool_replacement(
+        &payout,
+        &equal_fee,
+        &replacement,
+        &es,
+        equal_sponsor.utxo_entry.into(),
+        replacement_sponsor.utxo_entry.into(),
+    );
 
     let final_state = app::apply(&registered, &native::lane_tx(&payout), &verifier())
+        .unwrap()
+        .0;
+    let equal_state = app::apply(&registered, &native::lane_tx(&equal_fee), &verifier())
         .unwrap()
         .0;
     let replacement_state = app::apply(&registered, &native::lane_tx(&replacement), &verifier())
@@ -460,12 +727,26 @@ fn prove_exit_builder(case: &str) {
     );
     assert_eq!(final_state.accounting().unwrap().unpaid_exits, 0);
     assert_eq!(
+        equal_state.accounting().unwrap().reserve_principal,
+        final_state.accounting().unwrap().reserve_principal
+    );
+    assert_eq!(equal_state.accounting().unwrap().unpaid_exits, 0);
+    assert_eq!(
         replacement_state.accounting().unwrap().reserve_principal,
         final_state.accounting().unwrap().reserve_principal
     );
     assert_eq!(replacement_state.accounting().unwrap().unpaid_exits, 0);
     assert!(app::apply(&final_state, &native::lane_tx(&replacement), &verifier()).is_err());
+    assert!(app::apply(&final_state, &native::lane_tx(&equal_fee), &verifier()).is_err());
+    assert!(app::apply(&equal_state, &native::lane_tx(&payout), &verifier()).is_err());
+    assert!(app::apply(&equal_state, &native::lane_tx(&replacement), &verifier()).is_err());
     assert!(app::apply(&replacement_state, &native::lane_tx(&payout), &verifier()).is_err());
+    assert!(app::apply(
+        &replacement_state,
+        &native::lane_tx(&equal_fee),
+        &verifier()
+    )
+    .is_err());
 
     // Actual signed mutations, balancing sponsor change and re-signing it.
     let mut attacks = vec![

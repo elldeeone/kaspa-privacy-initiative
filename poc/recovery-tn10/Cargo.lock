@@ -1554,6 +1554,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "duration-string"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2334658684d7c213e18602aa72ce37e94d1c9b535882ef6e30bc444b7514a1ee"
+
+[[package]]
 name = "dyn-clone"
 version = "1.0.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2542,6 +2548,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "kaspa-consensusmanager"
+version = "2.1.0"
+source = "git+https://github.com/kaspanet/rusty-kaspa?branch=master#01b532e8b553523216471682649693af92f0fd16"
+dependencies = [
+ "duration-string",
+ "futures",
+ "futures-util",
+ "itertools 0.13.0",
+ "kaspa-addresses",
+ "kaspa-consensus-core",
+ "kaspa-consensus-notify",
+ "kaspa-core",
+ "kaspa-utils",
+ "log",
+ "parking_lot",
+ "rand 0.8.5",
+ "tokio",
+]
+
+[[package]]
 name = "kaspa-core"
 version = "2.1.0"
 source = "git+https://github.com/kaspanet/rusty-kaspa?branch=master#01b532e8b553523216471682649693af92f0fd16"
@@ -2628,6 +2654,32 @@ version = "2.1.0"
 source = "git+https://github.com/kaspanet/rusty-kaspa?branch=master#01b532e8b553523216471682649693af92f0fd16"
 dependencies = [
  "kaspa-hashes",
+]
+
+[[package]]
+name = "kaspa-mining"
+version = "2.1.0"
+source = "git+https://github.com/kaspanet/rusty-kaspa?branch=master#01b532e8b553523216471682649693af92f0fd16"
+dependencies = [
+ "futures-util",
+ "itertools 0.13.0",
+ "kaspa-addresses",
+ "kaspa-consensus-core",
+ "kaspa-consensusmanager",
+ "kaspa-core",
+ "kaspa-hashes",
+ "kaspa-mining-errors",
+ "kaspa-muhash",
+ "kaspa-txscript",
+ "kaspa-utils",
+ "log",
+ "parking_lot",
+ "rand 0.8.5",
+ "serde",
+ "smallvec",
+ "sweep-bptree",
+ "thiserror 2.0.21",
+ "tokio",
 ]
 
 [[package]]
@@ -2821,6 +2873,7 @@ dependencies = [
  "async-channel 2.5.0",
  "borsh",
  "cfg-if",
+ "event-listener 2.5.3",
  "faster-hex",
  "ipnet",
  "itertools 0.13.0",
@@ -2974,6 +3027,7 @@ dependencies = [
  "kaspa-addresses",
  "kaspa-consensus-core",
  "kaspa-hashes",
+ "kaspa-mining",
  "kaspa-rpc-core",
  "kaspa-seq-commit",
  "kaspa-smt",
@@ -4737,6 +4791,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba"
 
 [[package]]
+name = "signal-hook-registry"
+version = "1.4.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c4db69cba1110affc0e9f7bcd48bbf87b3f4fc7c61fc9155afd4c469eb3d6c1b"
+dependencies = [
+ "errno",
+ "libc",
+]
+
+[[package]]
 name = "signature"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4862,6 +4926,12 @@ name = "subtle"
 version = "2.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
+
+[[package]]
+name = "sweep-bptree"
+version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bea7b1b7c5eaabc40bab84ec98b2f12523d97e91c9bfc430fe5d2a1ea15c9960"
 
 [[package]]
 name = "syn"
@@ -5061,6 +5131,7 @@ dependencies = [
  "libc",
  "mio",
  "pin-project-lite",
+ "signal-hook-registry",
  "socket2",
  "tokio-macros",
  "windows-sys 0.61.2",

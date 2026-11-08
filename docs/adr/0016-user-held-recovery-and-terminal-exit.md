@@ -68,11 +68,15 @@ key generated when the trial was initialized. The builder now permits an
 unpinned key only for `payout`; bootstrap, initialization, deposit, activation,
 publication and settlement remain pinned to the trial sponsor.
 
-Retained genuine Bob partial-exit and Alice terminal-exit fixtures each build two
-fully signed payout candidates from the same proof-authorized exit state: the
-trial sponsor at 100 sompi per priority gram and an independent sponsor at 1,000.
-Both execute the real permission/reserve scripts. The higher-fee candidate keeps
-the exit ID, permission/reserve inputs, recipient principal plus rent refund,
-reserve change, lane and payload fixed. Applying either candidate settles the
-same liability once; applying the other afterward rejects. This is offline
-signed-transaction evidence, not mempool replacement or inclusion evidence.
+Retained genuine Bob partial-exit and Alice terminal-exit fixtures each build
+three fully signed payout candidates from the same proof-authorized exit state:
+the trial sponsor at 100 sompi per priority gram, an independent equal-rate
+control and an independent sponsor at 1,000. All three execute the real
+permission/reserve scripts. The higher-fee candidate keeps the exit ID,
+permission/reserve inputs, recipient principal plus rent refund, reserve change,
+lane and payload fixed. Applying any candidate settles the same liability once;
+applying either alternative afterward rejects. Kaspa's locked mining
+manager rejects the equal-rate replacement without changing the pool, then
+replaces the original with the higher-rate candidate. This is node-local,
+pre-confirmation replacement evidence, not live RPC, propagation or inclusion
+evidence.

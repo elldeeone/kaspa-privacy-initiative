@@ -66,3 +66,26 @@ A pass demonstrates offline signed-transaction replacement under two declared
 fee rates using retained local fixtures. It does not prove mempool replacement,
 miner inclusion, censorship resistance, production security, fee privacy or
 mainnet readiness.
+
+## Follow-on mempool gate
+
+The source audit adds one bounded question without changing the original pass
+criteria: does Kaspa's actual mining manager replace candidate A with candidate
+B under `RbfPolicy::Mandatory`?
+
+Fixed controls:
+
+1. Build candidate C with an independent sponsor UTXO at the same 100-sompi
+   rate as A.
+2. Insert A normally into an empty Testnet-parameterized mining manager.
+3. Submit C under mandatory replacement and require rejection with A retained.
+4. Submit B under ordinary forbidden-RBF policy and require conflict rejection
+   with A retained.
+5. Submit B under mandatory replacement and require A returned as removed, A
+   absent and B present.
+6. Use the repository's locked Kaspa revision for the transaction-specific test;
+   run the official generic RBF test separately at current upstream `master`.
+
+This gate can establish node-local, pre-confirmation mempool behavior. It cannot
+establish public RPC exposure, peer propagation, miner inclusion or replacement
+after A confirms.

@@ -73,8 +73,11 @@ uses a labelled synthetic public trial, not the owner's addresses or a provider.
 Nine fast Rust tests pass, including new bootstrap restrictions, signed native
 mass/fee checks, both genuine PR58 exit receipts in the signed issuance/payout
 builder, replaceable payout sponsors at distinct fee rates and all six exact
-dynamic-target receipt checks. These receipts use the old local fixture context,
-not this owner's new public configuration.
+dynamic-target receipt checks. The exit candidates also exercise Kaspa's locked
+mining manager: equal fee/mass rejects without eviction and the higher fee/mass
+candidate replaces the original. These receipts use the old local fixture
+context, not this owner's new public configuration; the mempool test is
+node-local and does not prove live RPC propagation or miner inclusion.
 
 Seventeen Python tests pass: real local HTTP six-arrival orchestration, actual
 CPU verification of the retained receipts, externally preserved archive recheck,

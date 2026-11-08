@@ -596,8 +596,12 @@ The recovery permission already leaves its fee input unbound. The staged builder
 now matches that policy by allowing a different sponsor only after an exit is
 proof-authorized. Retained genuine Bob partial-exit and Alice terminal-exit
 fixtures each validate the same payout with the trial sponsor at 100 sompi per
-priority gram and an independent sponsor at 1,000. Principal, recipient, rent
-refund, selected reserve, permission, lane and payload remain fixed; higher fees
+priority gram, an equal-rate independent sponsor and an independent sponsor at
+1,000. Principal, recipient, rent refund, selected reserve, permission, lane and
+payload remain fixed; higher fees
 come only from sponsor change. Script attacks and second-candidate replay reject.
-This is [offline local evidence](../research/replaceable-exit-sponsor-2026-11-08/RESULTS.md),
-not a mempool replacement, inclusion, privacy or production result.
+Kaspa's locked mining manager rejects the equal-rate conflict without eviction,
+then replaces the original with the higher-rate candidate and reports the
+original as removed. This is
+[node-local pre-confirmation evidence](../research/replaceable-exit-sponsor-2026-11-08/RESULTS.md),
+not public-RPC propagation, miner inclusion, privacy or production evidence.

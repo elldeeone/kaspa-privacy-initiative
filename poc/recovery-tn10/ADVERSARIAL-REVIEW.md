@@ -13,7 +13,11 @@
   payout at a higher declared fee rate; principal, permission, reserve, recipient,
   rent refund and payload stay fixed. Input/output reordering, fee-from-principal,
   reserve diversion and sequential replacement replay reject. Historical PR54
-  funds cannot be upgraded by this code.
+  funds cannot be upgraded by this code. The locked Kaspa mining manager rejects
+  the equal-fee conflict with `FeerateTooLow`, leaves the original present, then
+  removes it for the higher-fee candidate. This proves only the node-local RBF
+  decision before confirmation; it does not prove public-RPC propagation or
+  miner inclusion.
 - User secrets: init imports only the exact receiving schema/domain and distinct
   public keys. Init creates one unfunded default sponsor key, but payout building
   can accept any locally supplied unbound sponsor key and matching UTXO. Other
